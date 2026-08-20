@@ -1,0 +1,6 @@
+{
+  "name": "Warraich Goods Transport",
+  "description": "Official landing page for Warraich Goods Transport Company (وڑائچ گڈز ٹرانسپورٹ کمپنی), dedicated Full Truckload (FTL) provider across Pakistan.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
