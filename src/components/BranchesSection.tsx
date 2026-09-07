@@ -15,26 +15,26 @@ export const BranchesSection: React.FC = () => {
   const tBranches = TRANSLATIONS[language].branches;
 
   return (
-    <section id="branches" className="py-16 md:py-24 bg-white text-slate-900 border-b border-slate-200">
+    <section id="branches" className="py-12 sm:py-16 md:py-20 bg-slate-900 text-white border-b border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-900 border border-blue-300 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-3">
-            <MapPin className="w-4 h-4 text-blue-700" />
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+          <div className="inline-flex items-center gap-2 bg-slate-950 text-amber-400 border border-amber-500/30 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold mb-3 font-urdu">
+            <MapPin className="w-4 h-4 text-amber-400 flex-shrink-0" />
             <span>{tBranches.badge}</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white font-urdu">
             {tBranches.title}
           </h2>
-          <p className="text-slate-600 mt-2 text-base sm:text-lg">
+          <p className="text-slate-300 mt-2 text-sm sm:text-base font-urdu">
             {tBranches.subtitle}
           </p>
         </div>
 
         {/* Branch Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
           {BRANCHES_DATA.map((branch) => {
             const branchName = language === 'ur' ? branch.nameUrdu : branch.nameEnglish;
             const branchAddress = language === 'ur' ? branch.addressUrdu : branch.addressEnglish;
@@ -43,96 +43,93 @@ export const BranchesSection: React.FC = () => {
               <div
                 key={branch.id}
                 id={`branch-card-${branch.id}`}
-                className="bg-slate-50 border border-slate-200 hover:border-amber-400 rounded-3xl p-6 sm:p-8 shadow-lg transition-all duration-300 flex flex-col justify-between relative overflow-hidden group hover:shadow-xl"
+                className="bg-slate-950 border border-slate-800 hover:border-amber-500/50 rounded-xl p-5 sm:p-7 shadow-md transition-all duration-300 flex flex-col justify-between relative overflow-hidden group"
               >
-                {/* Top Accent Strip */}
-                <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-amber-500 to-blue-600"></div>
-
                 <div>
                   {/* Badge & City */}
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-semibold text-slate-500 font-mono">
+                  <div className="flex items-center justify-between mb-3.5">
+                    <span className="text-xs font-semibold text-slate-400 font-mono">
                       {branch.cityEnglish}
                     </span>
                     {branch.isHeadOffice ? (
-                      <span className="bg-amber-500 text-slate-950 text-xs font-black px-3 py-1 rounded-full shadow-sm">
+                      <span className="bg-amber-500 text-slate-950 text-xs font-bold px-2.5 py-0.5 rounded shadow-sm font-urdu">
                         {language === 'ur' ? 'ہیڈ آفس (مین اڈا)' : 'Head Office'}
                       </span>
                     ) : (
-                      <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                      <span className="bg-slate-900 text-slate-300 border border-slate-800 text-xs font-semibold px-2.5 py-0.5 rounded shadow-sm font-urdu">
                         {language === 'ur' ? 'سب برانچ' : 'Sub Branch'}
                       </span>
                     )}
                   </div>
 
                   {/* Branch Name */}
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 group-hover:text-blue-700 transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-white font-urdu mb-1">
                     {branchName}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-500 font-medium mb-5">
+                  <p className="text-xs text-slate-400 font-medium mb-4 font-urdu">
                     {branch.nameEnglish}
                   </p>
 
                   {/* Address Box */}
-                  <div className="bg-white p-4 rounded-2xl border border-slate-200 mb-5 space-y-3">
-                    <div className="flex items-start gap-3">
-                      <MapPin className="w-5 h-5 text-amber-500 flex-shrink-0 mt-1" />
+                  <div className="bg-slate-900 p-4 rounded-lg border border-slate-800 mb-4 space-y-2.5">
+                    <div className="flex items-start gap-2.5">
+                      <MapPin className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
                       <div>
-                        <span className="text-xs text-slate-400 block">{tBranches.addressLabel}</span>
-                        <p className="text-sm font-semibold text-slate-800 leading-relaxed">
+                        <span className="text-[11px] text-slate-400 block font-urdu">{tBranches.addressLabel}</span>
+                        <p className="text-xs sm:text-sm font-medium text-slate-200 leading-relaxed font-urdu">
                           {branchAddress}
                         </p>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-3 pt-2 border-t border-slate-100 text-xs text-slate-600">
-                      <Clock className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-                      <span>{tBranches.timingLabel}: <strong className="text-slate-800">{tBranches.timingValue}</strong></span>
+                    <div className="flex items-center gap-2 pt-2 border-t border-slate-800/80 text-xs text-slate-300 font-urdu">
+                      <Clock className="w-3.5 h-3.5 text-amber-400 flex-shrink-0" />
+                      <span>{tBranches.timingLabel}: <strong className="text-white">{tBranches.timingValue}</strong></span>
                     </div>
                   </div>
 
                   {/* Contact Numbers Box */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-4 sm:mb-5">
                     <a
                       href={`tel:${COMPANY_INFO.phoneRaw1}`}
-                      className="flex items-center justify-between p-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-950 hover:bg-amber-100 transition-colors"
+                      className="flex items-center justify-between p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-200 hover:border-amber-500/50 hover:text-white transition-colors min-h-[44px]"
                       aria-label={`Primary contact ${branch.phone1}`}
                     >
-                      <Phone className="w-4 h-4 text-amber-600" />
-                      <div>
-                        <span className="text-[10px] text-amber-700 block">{tBranches.phonePrimary}:</span>
-                        <span className="text-xs sm:text-sm font-mono font-bold">{branch.phone1}</span>
+                      <div className="flex items-center gap-2">
+                        <Phone className="w-3.5 h-3.5 text-amber-400 flex-shrink-0" />
+                        <span className="text-xs font-bold font-mono">{branch.phone1}</span>
                       </div>
+                      <span className="text-[10px] text-amber-400 bg-amber-500/10 px-1.5 py-0.5 rounded font-urdu">{tBranches.phonePrimary}</span>
                     </a>
 
                     <a
                       href={`tel:${COMPANY_INFO.phoneRaw2}`}
-                      className="flex items-center justify-between p-3 rounded-xl bg-slate-100 border border-slate-200 text-slate-900 hover:bg-slate-200 transition-colors"
+                      className="flex items-center justify-between p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-200 hover:border-amber-500/50 hover:text-white transition-colors min-h-[44px]"
                       aria-label={`Secondary contact ${branch.phone2}`}
                     >
-                      <Phone className="w-4 h-4 text-slate-600" />
-                      <div>
-                        <span className="text-[10px] text-slate-500 block">{tBranches.phoneSecondary}:</span>
-                        <span className="text-xs sm:text-sm font-mono font-bold">{branch.phone2}</span>
+                      <div className="flex items-center gap-2">
+                        <Phone className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
+                        <span className="text-xs font-bold font-mono">{branch.phone2}</span>
                       </div>
+                      <span className="text-[10px] text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded font-urdu">{tBranches.phoneSecondary}</span>
                     </a>
                   </div>
 
                 </div>
 
                 {/* Google Maps Actions */}
-                <div className="pt-2 border-t border-slate-200">
+                <div className="pt-2 border-t border-slate-800">
                   <a
                     id={`open-map-${branch.id}-btn`}
                     href={branch.mapUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center gap-2.5 bg-blue-700 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-xl shadow-md hover:shadow-blue-600/20 text-sm transition-all transform active:scale-95"
+                    className="w-full flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-amber-500/40 text-amber-400 font-bold py-2.5 px-4 rounded-lg text-xs sm:text-sm transition-all min-h-[44px] font-urdu cursor-pointer"
                     aria-label={`Open Google Maps location for ${branch.nameEnglish}`}
                   >
-                    <Navigation className="w-4 h-4 animate-pulse" />
+                    <Navigation className="w-4 h-4 flex-shrink-0" />
                     <span>{tBranches.btnMap}</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
+                    <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
                   </a>
                 </div>
 
@@ -142,13 +139,13 @@ export const BranchesSection: React.FC = () => {
         </div>
 
         {/* Nationwide Route Coverage Banner */}
-        <div className="mt-12 bg-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-            <div className="md:col-span-2 space-y-2">
-              <h4 className="text-xl sm:text-2xl font-bold text-amber-400">
+        <div className="mt-8 sm:mt-12 bg-slate-950 text-white rounded-xl p-5 sm:p-7 border border-slate-800 shadow-xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 items-center">
+            <div className="md:col-span-2 space-y-1 sm:space-y-1.5">
+              <h4 className="text-lg sm:text-xl font-bold text-amber-400 font-urdu">
                 {language === 'ur' ? 'پنجاب و سندھ تا خیبر پختونخوا اور بلوچستان' : 'Nationwide Full Truckload Network Across Pakistan'}
               </h4>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-urdu">
                 {language === 'ur' 
                   ? 'ہم سمندری اور کمالیہ سے فیصل آباد، لاہور، کراچی، راولپنڈی، اسلام آباد، ملتان، پشاور، کوئٹہ، سکھر، حیدرآباد، گوجرانوالہ، سیالکوٹ سمیت پاکستان کے ہر قصبے اور صنعتی زون میں گاڑیاں لوڈ کرتے ہیں۔'
                   : 'Daily dispatching from Samundri & Kamalia to Karachi Port, Lahore, Faisalabad, Rawalpindi, Islamabad, Multan, Peshawar, Quetta, Sukkur, and all nationwide industrial hubs.'}
@@ -157,10 +154,10 @@ export const BranchesSection: React.FC = () => {
             <div className="text-center md:text-end">
               <a
                 href={`tel:${COMPANY_INFO.phoneRaw1}`}
-                className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-6 py-3 rounded-xl text-sm transition-all shadow-md"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-2.5 rounded-lg text-xs sm:text-sm transition-all shadow min-h-[44px] font-urdu"
                 aria-label={`Call for route booking ${COMPANY_INFO.phone1}`}
               >
-                <Phone className="w-4 h-4 fill-current" />
+                <Phone className="w-4 h-4 fill-current flex-shrink-0" />
                 <span>{language === 'ur' ? 'روٹ بکنگ کے لیے کال کریں' : 'Call for Route Booking'}</span>
               </a>
             </div>

@@ -206,3 +206,43 @@ export const GOODS_TYPES = [
   { id: 'household', urdu: 'گھریلو سامان و فرنیچر (مخصوص وقف گاڑی)', en: 'Complete Household Shifting (Dedicated Truck)' },
   { id: 'general', urdu: 'دیگر تجارتی مال (مکمل گاڑی بکنگ)', en: 'General Dedicated Freight (FTL Only)' },
 ];
+
+export const CORPORATE_CREDENTIALS = {
+  registeredName: 'Warraich Goods Transport Company',
+  registeredNameUrdu: 'وڑائچ گڈز ٹرانسپورٹ کمپنی',
+  ntn: '7779394-1',
+  fbrStatus: 'Active Taxpayer / FBR Registered',
+  fbrStatusUrdu: 'ایکٹو ٹیکس پیئر / ایف بی آر تصدیق شدہ',
+  entityType: 'Commercial Goods Carrier & Fleet Hauler',
+  entityTypeUrdu: 'رجسٹرڈ کمرشل گڈز فارورڈر و فلیٹ کیریئر',
+  proprietor: 'Zahdan Nasar Warraich',
+  proprietorUrdu: 'زاہدان نصر وڑائچ',
+  officialEmail: 'warraichgoods43@gmail.com',
+  officialPhones: ['0300-5370443', '0339-5370443'],
+  headOfficeAddress: 'Main Goods Transport Adda, Opp. New Lari Adda / Faisalabad Road, Samundri',
+  headOfficeAddressUrdu: 'مین گڈز ٹرانسپورٹ اڈا، بالمقابل نیو لاری اڈا / فیصل آباد روڈ، سمندری',
+  branchOfficeAddress: 'Truck Stand, Near Chichawatni Road Bypass, Kamalia',
+  branchOfficeAddressUrdu: 'نزد چیچہ وطنی بائی پاس، ٹرک اڈا، کمالیہ',
+  servicePhilosophy: '100% Dedicated Full Truckload (FTL) for Corporate & Industrial Consignments with Zero Cargo Mixing',
+  servicePhilosophyUrdu: 'کارپوریٹ و صنعتی کنسائنمنٹس کے لیے 100% مخصوص فل ٹرک لوڈ (FTL) — زیرو مکسنگ پالیسی',
+  invoicingFeatures: [
+    { titleEn: 'Official Tax Invoicing', titleUr: 'باقاعدہ ٹیکس انوائسنگ', descEn: 'Formal invoices with NTN: 7779394-1 compliant with corporate withholding tax regulations.', descUr: 'کارپوریٹ ٹیکس قوانین کے مطابق رجسٹرڈ NTN کے ساتھ شفاف انوائس۔' },
+    { titleEn: 'Computerized Weighbridge Slip', titleUr: 'کمپیوٹرائزڈ کانٹا پرچی', descEn: 'Certified weighbridge weight slips provided immediately post-loading for strict axle compliance.', descUr: 'لوڈنگ کے فوری بعد سرکاری کانٹا پرچی اور ایکسل لوڈ قوانین کی پاسداری۔' },
+    { titleEn: 'Official Bilti & Signed POD', titleUr: 'سرکاری بلٹی اور دستخط شدہ POD', descEn: 'Formal Consignment Note (Bilti) and stamped Proof of Delivery (POD) returned for every shipment.', descUr: 'باقاعدہ ٹرانسپورٹ بلٹی اور منزل پر وصول کنندہ کی مہر و دستخط شدہ رسید۔' },
+    { titleEn: 'Pre-Transit Vehicle Inspection', titleUr: 'روانگی سے قبل گاڑی کی جانچ', descEn: 'Rigorous mechanical, tire, and tarpaulin audit prior to highway dispatch.', descUr: 'ہائی وے روانگی سے قبل ٹرک فٹنس، ٹائرز اور ترپال کی مکمل جانچ۔' },
+    { titleEn: 'NADRA Biometric Drivers', titleUr: 'نادرا بائیو میٹرک ڈرائیورز', descEn: 'Verified CNIC, verified highway commercial license, and proven clean track record.', descUr: 'نادرا شناختی کارڈ، کمرشل ڈرائیونگ لائسنس اور تصدیق شدہ ٹریک ریکارڈ۔' },
+    { titleEn: 'Double Waterproof Tarpaulin', titleUr: 'ڈبل واٹر پروف ہیوی ترپال', descEn: 'Mandatory industrial PVC double tarpaulin ensuring 100% cargo dryness during transit.', descUr: 'بارش، ژالہ باری اور نمی سے بچاؤ کے لیے 100% واٹر پروف ڈبل ترپال کی لازمی ضمانت۔' },
+  ],
+  corporateContractPerks: [
+    { titleEn: 'Annual & Monthly Freight Rate Contracts', titleUr: 'سالانہ و ماہانہ ریٹ کنٹریکٹس', descEn: 'Predictable fixed freight costs with priority truck reservation for peak seasons.', descUr: 'سیزنل تیزی کے دوران بھی گاڑیوں کی ترجیحی دستیابی اور فکسڈ ریٹس۔' },
+    { titleEn: 'Dedicated Fleet Allocation', titleUr: 'مخصوص فلیٹ کی فراہمی', descEn: 'Dedicated Shehzore, Mazda, Sample, or Bedford units assigned to regular corporate routes.', descUr: 'آپ کے باقاعدہ روٹس کے لیے مستقل گاڑیاں اور ڈرائیورز۔' },
+    { titleEn: 'Single Point of Contact (Account Manager)', titleUr: 'مخصوص اکاؤنٹ مینیجر', descEn: 'Direct liaison with Chief Executive Zahdan Nasar Warraich for swift operational decisions.', descUr: 'براہ راست پروپرائٹر کے ساتھ فوری کوآرڈینیشن اور 24/7 رسپانس۔' },
+    { titleEn: 'Corporate Payment & Credit Terms', titleUr: 'کارپوریٹ پیمنٹ و کریڈٹ ٹرمز', descEn: 'Flexible corporate settlement terms via official bank transfer for registered vendor companies.', descUr: 'رجسٹرڈ وینڈر کمپنیوں کے لیے باقاعدہ بینک ٹرانسفر اور منظور شدہ کریڈٹ شرائط۔' },
+  ],
+  corporateSectors: [
+    { nameEn: 'Textile & Spinning Mills', nameUr: 'ٹیکسٹائل و اسپننگ ملز', detailsEn: 'Yarn cones, finished fabric, grey cloth & raw cotton across Faisalabad, Lahore, and Karachi Port.', detailsUr: 'دھاگہ، کپڑا، گرے کلوتھ اور کاٹن بیلز کی کراچی پورٹ اور ملکی منڈیوں میں ترسیل۔' },
+    { nameEn: 'Agricultural Traders & Mandis', nameUr: 'زرعی غلہ منڈی و آڑھتی', detailsEn: 'Wheat, corn, rice, cottonseeds, and fodder bulk haulage with zero moisture exposure.', detailsUr: 'گندم، مکئی، چاول اور کھاد کی بلک ترسیل سمندری، کمالیہ، چیچہ وطنی اور خانیوال روٹس پر۔' },
+    { nameEn: 'Construction & Steel Infrastructure', nameUr: 'تعمیراتی میٹریل و اسٹیل', detailsEn: 'Structural rebar, cement bags, PVC piping, and stone marble slabs using heavy Bedford haulers.', detailsUr: 'سیمنٹ، سریا، پائپ اور صنعتی ہارڈ ویئر کی بھاری بیڈفورڈ اور سیمپل ٹرکوں پر لوڈنگ۔' },
+    { nameEn: 'Flour, Sugar & Food Processing Plants', nameUr: 'فلور، شوگر و فوڈ ملز', detailsEn: 'Refined sugar bags, flour sacks, packaging cartons, and poultry feed transport.', detailsUr: 'چینی، آٹا، پیکجنگ گتے اور پولٹری فیڈ کی صاف ستھری اور محفوظ FTL ترسیل۔' },
+  ]
+};

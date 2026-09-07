@@ -43,4 +43,27 @@ export interface BookingFormData {
   customerName: string;
   customerPhone: string;
   specialInstructions: string;
+  isCorporateInquiry?: boolean;
+  companyName?: string;
+  monthlyTrips?: string;
+  industryType?: string;
+}
+
+export interface CorporateProfileData {
+  companyNameUrdu: string;
+  companyNameEnglish: string;
+  ntn: string;
+  proprietorUrdu: string;
+  proprietorEnglish: string;
+  proprietorRoleUrdu: string;
+  proprietorRoleEnglish: string;
+  primaryPhone: string;
+  secondaryPhone: string;
+  email: string;
+  registeredAddressUrdu: string;
+  registeredAddressEnglish: string;
+  fleetCapacityRange: string;
+  serviceModel: string;
+  taxCompliance: string;
+  paymentMethods: string[];
 }

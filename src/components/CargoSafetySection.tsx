@@ -61,41 +61,41 @@ export const CargoSafetySection: React.FC = () => {
   ];
 
   return (
-    <section id="safety" className="py-16 md:py-24 bg-slate-100 text-slate-900 border-b border-slate-200">
+    <section id="safety" className="py-12 sm:py-16 md:py-20 bg-slate-900 text-white border-b border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-900 border border-emerald-300 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-3 font-urdu">
-            <ShieldCheck className="w-4 h-4 text-emerald-700" />
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+          <div className="inline-flex items-center gap-2 bg-slate-950 text-amber-400 border border-amber-500/30 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold mb-3 font-urdu">
+            <ShieldCheck className="w-4 h-4 text-amber-400 flex-shrink-0" />
             <span>{t.badge}</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 font-urdu">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white font-urdu">
             {t.title}
           </h2>
-          <p className="text-slate-600 mt-2 text-base sm:text-lg font-urdu">
+          <p className="text-slate-300 mt-2 text-sm sm:text-base font-urdu">
             {t.subtitle}
           </p>
         </div>
 
         {/* Safety Grid */}
-        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ${language === 'ur' ? 'text-right' : 'text-left'}`}>
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 ${language === 'ur' ? 'text-right' : 'text-left'}`}>
           {safetyFeatures.map((feat, idx) => {
             const Icon = feat.icon;
             return (
               <div 
                 key={idx} 
-                className="bg-white p-6 sm:p-7 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md hover:border-amber-400/80 transition-all flex flex-col justify-between"
+                className="bg-slate-950 p-5 rounded-xl border border-slate-800 hover:border-amber-500/50 transition-all shadow-md flex flex-col justify-between"
               >
                 <div>
-                  <div className={`w-12 h-12 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center mb-4 ${language === 'ur' ? 'ml-auto' : 'mr-auto'}`}>
-                    <Icon className="w-6 h-6" />
+                  <div className={`w-10 h-10 rounded-lg bg-slate-900 border border-slate-800 text-amber-400 flex items-center justify-center mb-3.5 ${language === 'ur' ? 'ml-auto' : 'mr-auto'}`}>
+                    <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="font-bold text-lg text-slate-900 font-urdu mb-2">
+                  <h3 className="font-bold text-base text-white font-urdu mb-1.5">
                     {language === 'ur' ? feat.titleUrdu : feat.titleEnglish}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-urdu">
+                  <p className="text-xs text-slate-300 leading-relaxed font-urdu">
                     {language === 'ur' ? feat.descUrdu : feat.descEnglish}
                   </p>
                 </div>
@@ -105,9 +105,9 @@ export const CargoSafetySection: React.FC = () => {
         </div>
 
         {/* Reassurance Banner */}
-        <div className={`mt-12 bg-gradient-to-r from-slate-900 to-slate-950 text-white rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 ${language === 'ur' ? 'text-right' : 'text-left'}`}>
+        <div className={`mt-8 sm:mt-12 bg-slate-950 text-white rounded-xl p-5 sm:p-7 border border-slate-800 shadow-xl flex flex-col md:flex-row items-stretch md:items-center justify-between gap-5 ${language === 'ur' ? 'text-right' : 'text-left'}`}>
           <div className="space-y-1">
-            <h3 className="text-xl sm:text-2xl font-bold text-amber-400 font-urdu">
+            <h3 className="text-lg sm:text-xl font-bold text-amber-400 font-urdu">
               {language === 'ur' ? 'کیا آپ کو حساس، قیمتی یا بارش سے متاثر ہونے والے سامان کے لیے گاڑی چاہیے؟' : 'Need safe dedicated transport for weather-sensitive commercial cargo?'}
             </h3>
             <p className="text-xs sm:text-sm text-slate-300 font-urdu">
@@ -117,10 +117,10 @@ export const CargoSafetySection: React.FC = () => {
 
           <a
             href={`tel:${COMPANY_INFO.phoneRaw1}`}
-            className="flex-shrink-0 inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-6 py-3.5 rounded-2xl text-sm transition-all shadow-lg font-urdu whitespace-nowrap cursor-pointer"
+            className="flex-shrink-0 inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-3 rounded-lg text-xs sm:text-sm transition-all shadow font-urdu whitespace-nowrap cursor-pointer min-h-[44px]"
             aria-label={`Call proprietor at ${COMPANY_INFO.phone1}`}
           >
-            <PhoneCall className="w-4 h-4 fill-current" />
+            <PhoneCall className="w-4 h-4 fill-current flex-shrink-0" />
             <span>{language === 'ur' ? `براہ راست بات کریں (${COMPANY_INFO.phone1})` : `Call Proprietor (${COMPANY_INFO.phone1})`}</span>
           </a>
         </div>

@@ -5,6 +5,7 @@ import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
 import { FleetSection } from './components/FleetSection';
 import { CargoCategoriesSection } from './components/CargoCategoriesSection';
+import { CorporateCredibilitySection } from './components/CorporateCredibilitySection';
 import { FtlWorkflowSection } from './components/FtlWorkflowSection';
 import { CargoSafetySection } from './components/CargoSafetySection';
 import { RateCalculatorSection } from './components/RateCalculatorSection';
@@ -36,7 +37,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950">
+    <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100 font-sans selection:bg-amber-400 selection:text-slate-950 overflow-x-hidden w-full pb-16 sm:pb-0">
       
       {/* 1. Top Utility Bar */}
       <TopBar />
@@ -56,7 +57,10 @@ export default function App() {
         {/* 5. Cargo Types & Industry Specializations (Agri, Textile, Industrial - FTL) */}
         <CargoCategoriesSection onSelectCategory={handleSelectCategoryForBooking} />
 
-        {/* 6. Dedicated FTL Booking Workflow & Non-Stop Transit Advantages */}
+        {/* 6. Corporate Credibility, Tax Compliance (FBR NTN) & Enterprise Vendor Profile */}
+        <CorporateCredibilitySection />
+
+        {/* 7. Dedicated FTL Booking Workflow & Non-Stop Transit Advantages */}
         <FtlWorkflowSection />
 
         {/* 7. 100% Waterproof Tarpaulin & Cargo Safety */}
