@@ -26,6 +26,18 @@
   font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
 }
 
+/* English / LTR Mode Font Normalization */
+html[lang="en"] {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+}
+
+html[lang="en"] .font-urdu,
+html[lang="en"] .font-urdu-heading,
+html[lang="en"] .font-urdu-clean {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+  line-height: 1.5 !important;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -54,5 +66,6 @@
 .pulse-glow {
   animation: pulseGlow 2s infinite;
 }
+
 
 

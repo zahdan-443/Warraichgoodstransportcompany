@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://zahdan-443.github.io/warraichgoods43/</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://zahdan-443.github.io/warraichgoods43/?lang=ur" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://zahdan-443.github.io/warraichgoods43/?lang=en" />
+    <image:image>
+      <image:loc>https://zahdan-443.github.io/warraichgoods43/images/logo.png</image:loc>
+      <image:title>Warraich Goods Transport Company Logo</image:title>
+      <image:caption>Official Fleet & Goods Transport Company in Pakistan</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://zahdan-443.github.io/warraichgoods43/images/shehzore-truck.webp</image:loc>
+      <image:title>Hyundai Shehzore Pickup FTL Loading</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://zahdan-443.github.io/warraichgoods43/images/mazda-truck.webp</image:loc>
+      <image:title>Mazda 6 Wheeler Freight Truck</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://zahdan-443.github.io/warraichgoods43/images/sample-truck.webp</image:loc>
+      <image:title>Sample Extended Chassis Truck</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://zahdan-443.github.io/warraichgoods43/images/bedford-truck.webp</image:loc>
+      <image:title>Bedford Heavy Hauler Truck</image:title>
+    </image:image>
+  </url>
+</urlset>

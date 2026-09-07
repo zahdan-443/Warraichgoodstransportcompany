@@ -3,15 +3,17 @@ import {
   Smartphone, 
   ExternalLink, 
   ShieldCheck, 
-  CheckCircle2, 
   Truck, 
   FileText, 
-  Users, 
   Compass 
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
+import { useLanguage } from '../context/LanguageContext';
 
 export const DriverAppSection: React.FC = () => {
+  const { language, translations } = useLanguage();
+  const t = translations[language].driverApp;
+
   return (
     <section id="driver-app" className="py-16 md:py-24 bg-gradient-to-br from-blue-950 via-slate-900 to-slate-950 text-white relative overflow-hidden border-b border-slate-800">
       
@@ -23,19 +25,21 @@ export const DriverAppSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
           {/* Text & Feature Highlights */}
-          <div className="lg:col-span-7 space-y-6 text-right">
+          <div className={`lg:col-span-7 space-y-6 ${language === 'ur' ? 'text-right' : 'text-left'}`}>
             
-            <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-400/30 text-blue-300 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold">
+            <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-400/30 text-blue-300 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold font-urdu">
               <Smartphone className="w-4 h-4 text-amber-400" />
-              <span>ڈیجیٹل لاجسٹکس و آن لائن پورٹل</span>
+              <span>{t.badge}</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white font-urdu-clean leading-tight">
-              ڈرائیور و ٹرانسپورٹ مینجمنٹ ویب ایپ
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white font-urdu leading-tight">
+              {t.title}
             </h2>
 
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-              وڑائچ گڈز ٹرانسپورٹ کمپنی اپنے ڈرائیوروں، فلیٹ اور کلائنٹس کے لیے جدید ڈیجیٹل سسٹم فراہم کرتی ہے۔ اب ٹرپ مینجمنٹ، لوڈنگ چالان، اور فلیٹ کوآرڈینیشن صرف ایک کلک کی دوری پر ہے۔
+            <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-urdu">
+              {language === 'ur' 
+                ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی اپنے ڈرائیوروں، فلیٹ اور کلائنٹس کے لیے جدید ڈیجیٹل سسٹم فراہم کرتی ہے۔ اب ٹرپ مینجمنٹ، لوڈنگ چالان، اور فلیٹ کوآرڈینیشن صرف ایک کلک کی دوری پر ہے۔'
+                : 'Warraich Goods Transport Company provides a streamlined digital management system for our drivers, fleet, and corporate clients. Trip assignments, loading bilty documents, and route coordination are all managed seamlessly.'}
             </p>
 
             {/* App Features List */}
@@ -45,8 +49,12 @@ export const DriverAppSection: React.FC = () => {
                   <Truck className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-white font-urdu-clean">ڈرائیور ٹرپ ریکارڈ</h4>
-                  <p className="text-xs text-slate-400 mt-0.5">گاڑیوں اور روٹس کی باقاعدہ تفویض۔</p>
+                  <h4 className="font-bold text-sm text-white font-urdu">
+                    {language === 'ur' ? 'ڈرائیور ٹرپ ریکارڈ' : 'Driver Trip Records'}
+                  </h4>
+                  <p className="text-xs text-slate-400 mt-0.5 font-urdu">
+                    {language === 'ur' ? 'گاڑیوں اور روٹس کی باقاعدہ تفویض۔' : 'Clear vehicle assignments & route tracking.'}
+                  </p>
                 </div>
               </div>
 
@@ -55,8 +63,12 @@ export const DriverAppSection: React.FC = () => {
                   <FileText className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-white font-urdu-clean">ڈیجیٹل چالان و بلٹی</h4>
-                  <p className="text-xs text-slate-400 mt-0.5">بروقت اور شفاف لوڈنگ ڈاکومنٹس۔</p>
+                  <h4 className="font-bold text-sm text-white font-urdu">
+                    {language === 'ur' ? 'ڈیجیٹل چالان و بلٹی' : 'Digital Bilty & Challan'}
+                  </h4>
+                  <p className="text-xs text-slate-400 mt-0.5 font-urdu">
+                    {language === 'ur' ? 'بروقت اور شفاف لوڈنگ ڈاکومنٹس۔' : 'Transparent, verifiable loading documentation.'}
+                  </p>
                 </div>
               </div>
 
@@ -65,8 +77,12 @@ export const DriverAppSection: React.FC = () => {
                   <Compass className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-white font-urdu-clean">لائیو ڈسپیچ کوآرڈینیشن</h4>
-                  <p className="text-xs text-slate-400 mt-0.5">بروقت منزل پر ترسیل کی نگرانی۔</p>
+                  <h4 className="font-bold text-sm text-white font-urdu">
+                    {language === 'ur' ? 'لائیو ڈسپیچ کوآرڈینیشن' : 'Live Dispatch Coordination'}
+                  </h4>
+                  <p className="text-xs text-slate-400 mt-0.5 font-urdu">
+                    {language === 'ur' ? 'بروقت منزل پر ترسیل کی نگرانی۔' : 'Continuous highway progress monitoring.'}
+                  </p>
                 </div>
               </div>
 
@@ -75,8 +91,12 @@ export const DriverAppSection: React.FC = () => {
                   <ShieldCheck className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-white font-urdu-clean">موبائل فرینڈلی رسائی</h4>
-                  <p className="text-xs text-slate-400 mt-0.5">ہر سمارٹ فون پر فوراً کھلنے والی ایپ۔</p>
+                  <h4 className="font-bold text-sm text-white font-urdu">
+                    {language === 'ur' ? 'موبائل فرینڈلی رسائی' : 'Mobile-Optimized Portal'}
+                  </h4>
+                  <p className="text-xs text-slate-400 mt-0.5 font-urdu">
+                    {language === 'ur' ? 'ہر سمارٹ فون پر فوراً کھلنے والی ایپ۔' : 'Instant access on any smartphone or tablet.'}
+                  </p>
                 </div>
               </div>
             </div>
@@ -88,14 +108,15 @@ export const DriverAppSection: React.FC = () => {
                 href={COMPANY_INFO.webAppUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold px-7 py-4 rounded-2xl shadow-xl shadow-blue-600/30 text-base sm:text-lg transition-all transform hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold px-7 py-4 rounded-2xl shadow-xl shadow-blue-600/30 text-base sm:text-lg transition-all transform hover:-translate-y-0.5 font-urdu"
+                aria-label="Open Driver & Transport Management Web App"
               >
-                <span>آن لائن ٹرانسپورٹ ایپ کھولیں (Web App)</span>
+                <span>{language === 'ur' ? 'آن لائن ٹرانسپورٹ ایپ کھولیں (Web App)' : 'Open Transport Web App'}</span>
                 <ExternalLink className="w-5 h-5" />
               </a>
 
-              <span className="text-xs text-slate-400 text-center sm:text-right">
-                براؤزر میں فوری طور پر لوڈ ہوتی ہے، انسٹالیشن کی ضرورت نہیں
+              <span className={`text-xs text-slate-400 font-urdu ${language === 'ur' ? 'text-right' : 'text-left'}`}>
+                {language === 'ur' ? 'براؤزر میں فوری طور پر لوڈ ہوتی ہے، انسٹالیشن کی ضرورت نہیں' : 'Loads instantly in your mobile or desktop browser without installation.'}
               </span>
             </div>
 
@@ -117,23 +138,27 @@ export const DriverAppSection: React.FC = () => {
                 </div>
 
                 {/* App Screen Representation */}
-                <div className="space-y-3 text-right">
+                <div className={`space-y-3 ${language === 'ur' ? 'text-right' : 'text-left'}`}>
                   <div className="bg-gradient-to-r from-blue-900 to-slate-800 p-4 rounded-xl border border-blue-700/50">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs bg-amber-400 text-slate-950 font-bold px-2 py-0.5 rounded">Active App</span>
-                      <h4 className="font-bold text-white text-sm font-urdu-clean">وڑائچ ٹرانسپورٹ سسٹم</h4>
+                      <span className="text-xs bg-amber-400 text-slate-950 font-bold px-2 py-0.5 rounded font-mono">Active App</span>
+                      <h4 className="font-bold text-white text-sm font-urdu">
+                        {language === 'ur' ? 'وڑائچ ٹرانسپورٹ سسٹم' : 'Warraich Transport System'}
+                      </h4>
                     </div>
-                    <p className="text-xs text-blue-200 mt-1">ڈرائیور ریکارڈز، کارگو تفصیلات و لوڈنگ مینجمنٹ</p>
+                    <p className="text-xs text-blue-200 mt-1 font-urdu">
+                      {language === 'ur' ? 'ڈرائیور ریکارڈز، کارگو تفصیلات و لوڈنگ مینجمنٹ' : 'Driver records, cargo dispatch & trip management'}
+                    </p>
                   </div>
 
-                  <div className="bg-slate-800/80 p-3 rounded-xl border border-slate-700 text-xs space-y-2">
+                  <div className="bg-slate-800/80 p-3 rounded-xl border border-slate-700 text-xs space-y-2 font-urdu">
                     <div className="flex justify-between items-center text-slate-300">
-                      <span className="text-emerald-400 font-semibold">● جاری ٹرپس</span>
-                      <span>100% آن لائن سسٹم</span>
+                      <span className="text-emerald-400 font-semibold">● {language === 'ur' ? 'جاری ٹرپس' : 'Active Trips'}</span>
+                      <span>{language === 'ur' ? '100% آن لائن سسٹم' : '100% Online'}</span>
                     </div>
                     <div className="flex justify-between items-center text-slate-400">
-                      <span>ڈرائیور پورٹل لاگ ان</span>
-                      <span className="text-amber-400 font-bold">Zahdan Nasar Warraich</span>
+                      <span>{language === 'ur' ? 'ڈرائیور پورٹل لاگ ان' : 'Driver Portal Access'}</span>
+                      <span className="text-amber-400 font-bold">{COMPANY_INFO.proprietorEnglish}</span>
                     </div>
                   </div>
 
@@ -142,9 +167,10 @@ export const DriverAppSection: React.FC = () => {
                       href={COMPANY_INFO.webAppUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold py-2.5 rounded-xl text-xs transition-colors"
+                      className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold py-2.5 rounded-xl text-xs transition-colors font-urdu"
+                      aria-label="Access driver portal"
                     >
-                      <span>پورٹل پر تشریف لے جائیں ➔</span>
+                      <span>{language === 'ur' ? 'پورٹل پر تشریف لے جائیں ➔' : 'Proceed to Driver Portal ➔'}</span>
                     </a>
                   </div>
                 </div>

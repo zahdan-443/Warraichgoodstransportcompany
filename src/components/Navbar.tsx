@@ -5,13 +5,11 @@ import {
   Menu, 
   X, 
   ExternalLink, 
-  ShieldCheck, 
-  MapPin, 
-  Calculator,
-  Info,
-  HelpCircle
+  Globe
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
+import { useLanguage } from '../context/LanguageContext';
+import { TRANSLATIONS } from '../data/translations';
 
 interface NavbarProps {
   onOpenBookingModal?: () => void;
@@ -20,6 +18,8 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { language, toggleLanguage } = useLanguage();
+  const tNav = TRANSLATIONS[language].nav;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,14 +34,15 @@ export const Navbar: React.FC<NavbarProps> = () => {
   }, []);
 
   const navLinks = [
-    { label: 'ہوم', href: '#hero' },
-    { label: 'گاڑیاں (FTL)', href: '#fleet' },
-    { label: 'صنعتی و زرعی مال', href: '#cargo' },
-    { label: 'FTL طریقہ کار', href: '#ftl-workflow' },
-    { label: 'کارگو حفاظت', href: '#safety' },
-    { label: 'کرایہ و بکنگ', href: '#booking' },
-    { label: 'شاخیں (برانچز)', href: '#branches' },
-    { label: 'تعارف و سوالات', href: '#faq-reviews' },
+    { label: tNav.home, href: '#hero' },
+    { label: tNav.fleet, href: '#fleet' },
+    { label: tNav.cargo, href: '#cargo' },
+    { label: tNav.workflow, href: '#ftl-workflow' },
+    { label: tNav.safety, href: '#safety' },
+    { label: tNav.calculator, href: '#booking' },
+    { label: tNav.about, href: '#about' },
+    { label: tNav.branches, href: '#branches' },
+    { label: tNav.reviews, href: '#faq-reviews' },
   ];
 
   return (
@@ -49,68 +50,80 @@ export const Navbar: React.FC<NavbarProps> = () => {
       id="main-navigation"
       className={`sticky top-0 z-40 transition-all duration-300 ${
         scrolled 
-          ? 'bg-slate-900/95 backdrop-blur-md shadow-lg border-b border-slate-800 py-2.5' 
-          : 'bg-slate-900 border-b border-slate-800/80 py-3.5'
+          ? 'bg-slate-900/95 backdrop-blur-md shadow-lg border-b border-slate-800 py-2' 
+          : 'bg-slate-900 border-b border-slate-800/80 py-3'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
           {/* Brand Logo & Name */}
-          <a href="#hero" className="flex items-center gap-3 group text-right">
+          <a href="#hero" className="flex items-center gap-3 group">
             <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-amber-400 to-amber-500 p-0.5 shadow-md group-hover:scale-105 transition-transform flex-shrink-0 flex items-center justify-center overflow-hidden">
-              <img 
-                src="./assets/images/logo.png" 
-                alt="Warraich Goods Transport Company" 
-                className="w-full h-full object-cover rounded-[10px]"
-                onError={(e) => {
-                  const currentSrc = e.currentTarget.getAttribute('src');
-                  if (currentSrc === './assets/images/logo.png') {
-                    e.currentTarget.src = '/assets/images/logo.png';
-                  } else if (currentSrc === '/assets/images/logo.png') {
-                    e.currentTarget.src = './images/logo.png';
-                  } else {
-                    e.currentTarget.style.display = 'none';
-                  }
-                }}
-              />
+              <picture>
+                <source srcSet="./images/logo.webp" type="image/webp" />
+                <img 
+                  src="./images/logo.png" 
+                  alt="Warraich Goods Transport Company Official Fleet Logo" 
+                  loading="eager"
+                  decoding="async"
+                  className="w-full h-full object-cover rounded-[10px]"
+                  onError={(e) => {
+                    const currentSrc = e.currentTarget.getAttribute('src');
+                    if (currentSrc === './images/logo.png') {
+                      e.currentTarget.src = '/images/logo.png';
+                    }
+                  }}
+                />
+              </picture>
               <Truck className="w-6 h-6 text-slate-950 absolute pointer-events-none -z-10" />
             </div>
 
             <div>
               <div className="flex items-center gap-2">
                 <span className="text-xl sm:text-2xl font-bold text-white tracking-wide font-urdu">
-                  {COMPANY_INFO.nameUrdu}
+                  {language === 'ur' ? COMPANY_INFO.nameUrdu : COMPANY_INFO.nameEnglish}
                 </span>
               </div>
               <p className="text-[11px] sm:text-xs text-amber-400 font-semibold tracking-wider uppercase font-mono">
-                {COMPANY_INFO.nameEnglish}
+                {language === 'ur' ? COMPANY_INFO.nameEnglish : COMPANY_INFO.nameUrdu}
               </p>
             </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+          <nav className="hidden xl:flex items-center gap-1" aria-label="Main menu">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-slate-200 hover:text-amber-400 hover:bg-slate-800/70 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150 font-urdu"
+                className="text-slate-200 hover:text-amber-400 hover:bg-slate-800/70 px-2.5 py-1.5 rounded-lg text-sm font-medium transition-all duration-150"
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          {/* Action CTAs: Direct Call & App */}
-          <div className="hidden sm:flex items-center gap-3">
+          {/* Action CTAs: Direct Call, Portal & Language Toggle */}
+          <div className="hidden sm:flex items-center gap-2.5">
+            {/* Language Switch Button */}
+            <button
+              onClick={toggleLanguage}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-300 border border-slate-700 hover:border-amber-400/40 text-xs font-semibold transition-colors"
+              aria-label={`Switch to ${language === 'ur' ? 'English' : 'Urdu'}`}
+            >
+              <Globe className="w-3.5 h-3.5 text-amber-400" />
+              <span>{language === 'ur' ? 'English' : 'اردو'}</span>
+            </button>
+
             <a
               id="header-instant-call-btn"
               href={`tel:${COMPANY_INFO.phoneRaw1}`}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold px-4 py-2 rounded-xl shadow-md hover:shadow-amber-500/20 text-sm transition-all transform active:scale-95 font-urdu cursor-pointer"
+              className="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold px-3.5 py-1.5 rounded-xl shadow-md text-xs sm:text-sm transition-all transform active:scale-95 cursor-pointer"
+              aria-label={`Call ${COMPANY_INFO.phone1}`}
             >
-              <PhoneCall className="w-4 h-4" />
-              <span>فوری FTL کال</span>
+              <PhoneCall className="w-3.5 h-3.5" />
+              <span>{tNav.callNow}</span>
             </a>
 
             <a
@@ -118,23 +131,33 @@ export const Navbar: React.FC<NavbarProps> = () => {
               href={COMPANY_INFO.webAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-blue-700 hover:bg-blue-600 text-white font-medium px-3.5 py-2 rounded-xl border border-blue-500/30 text-sm transition-all shadow-sm font-urdu cursor-pointer"
-              title="آن لائن ٹرانسپورٹ ایپ کھولیں"
+              className="inline-flex items-center gap-1 bg-blue-700 hover:bg-blue-600 text-white font-medium px-3 py-1.5 rounded-xl border border-blue-500/30 text-xs sm:text-sm transition-all shadow-sm cursor-pointer"
+              title="Open Transport Driver Portal"
+              aria-label="Open Transport Portal"
             >
-              <span>ٹرانسپورٹ پورٹل</span>
-              <ExternalLink className="w-3.5 h-3.5" />
+              <span>Portal</span>
+              <ExternalLink className="w-3 h-3" />
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            id="mobile-menu-toggle-btn"
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-xl bg-slate-800 text-slate-200 hover:text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-400"
-            aria-label="Toggle Menu"
-          >
-            {isOpen ? <X className="w-6 h-6 text-amber-400" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Menu & Language Toggle Button */}
+          <div className="flex sm:hidden items-center gap-2">
+            <button
+              onClick={toggleLanguage}
+              className="px-2 py-1 rounded-lg bg-slate-800 text-amber-300 border border-slate-700 text-xs font-semibold"
+              aria-label="Toggle language"
+            >
+              {language === 'ur' ? 'EN' : 'اردو'}
+            </button>
+            <button
+              id="mobile-menu-toggle-btn"
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 rounded-xl bg-slate-800 text-slate-200 hover:text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-400"
+              aria-label="Toggle Menu"
+            >
+              {isOpen ? <X className="w-6 h-6 text-amber-400" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
 
         </div>
       </div>
@@ -148,7 +171,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block text-right text-slate-200 hover:text-amber-400 hover:bg-slate-800 px-4 py-2.5 rounded-xl text-base font-urdu transition-colors"
+                className="block text-slate-200 hover:text-amber-400 hover:bg-slate-800 px-4 py-2 rounded-xl text-base transition-colors"
               >
                 {link.label}
               </a>
@@ -156,21 +179,34 @@ export const Navbar: React.FC<NavbarProps> = () => {
           </div>
 
           <div className="pt-3 border-t border-slate-800 flex flex-col gap-2.5">
+            <button
+              onClick={() => {
+                toggleLanguage();
+                setIsOpen(false);
+              }}
+              className="w-full flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-amber-300 font-bold py-2.5 rounded-xl text-center text-sm border border-amber-400/30"
+            >
+              <Globe className="w-4 h-4 text-amber-400" />
+              <span>{language === 'ur' ? 'Switch to English' : 'اردو میں دیکھیں'}</span>
+            </button>
+
             <a
               href={`tel:${COMPANY_INFO.phoneRaw1}`}
-              className="w-full flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3 rounded-xl text-center text-sm font-urdu"
+              className="w-full flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-xl text-center text-sm"
+              aria-label={`Call ${COMPANY_INFO.phone1}`}
             >
               <PhoneCall className="w-4 h-4" />
-              <span>فوری کال کریں ({COMPANY_INFO.phone1})</span>
+              <span>{tNav.callNow} ({COMPANY_INFO.phone1})</span>
             </a>
 
             <a
               href={COMPANY_INFO.webAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 bg-blue-700 text-white font-medium py-2.5 rounded-xl text-center text-sm font-urdu"
+              className="w-full flex items-center justify-center gap-2 bg-blue-700 text-white font-medium py-2 rounded-xl text-center text-sm"
+              aria-label="Open Driver Web App Portal"
             >
-              <span>آن لائن ٹرانسپورٹ پورٹل</span>
+              <span>Driver Portal</span>
               <ExternalLink className="w-4 h-4" />
             </a>
           </div>
@@ -179,3 +215,4 @@ export const Navbar: React.FC<NavbarProps> = () => {
     </header>
   );
 };
+

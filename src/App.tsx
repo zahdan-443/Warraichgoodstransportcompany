@@ -17,6 +17,7 @@ import { Footer } from './components/Footer';
 
 export default function App() {
   const [selectedVehicleForBooking, setSelectedVehicleForBooking] = useState<string>('shehzore');
+  const [selectedGoodsTypeForBooking, setSelectedGoodsTypeForBooking] = useState<string>('');
 
   const handleSelectVehicleForBooking = (vehicleId: string) => {
     setSelectedVehicleForBooking(vehicleId);
@@ -27,6 +28,7 @@ export default function App() {
   };
 
   const handleSelectCategoryForBooking = (categoryName: string) => {
+    setSelectedGoodsTypeForBooking(categoryName);
     const bookingSection = document.getElementById('booking');
     if (bookingSection) {
       bookingSection.scrollIntoView({ behavior: 'smooth' });
@@ -61,7 +63,10 @@ export default function App() {
         <CargoSafetySection />
 
         {/* 8. Interactive FTL Rate Calculator & WhatsApp Booking Form */}
-        <RateCalculatorSection selectedVehicleId={selectedVehicleForBooking} />
+        <RateCalculatorSection 
+          selectedVehicleId={selectedVehicleForBooking} 
+          selectedGoodsType={selectedGoodsTypeForBooking}
+        />
 
         {/* 9. About Us & Proprietor (Zahdan Nasar Warraich) */}
         <AboutSection />

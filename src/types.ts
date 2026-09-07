@@ -3,14 +3,20 @@ export interface VehicleInfo {
   nameUrdu: string;
   nameEnglish: string;
   subtitleUrdu: string;
+  subtitleEnglish?: string;
   capacity: string;
   capacityUrdu: string;
   dimensions: string;
   idealForUrdu: string[];
   idealForEnglish: string[];
   image: string;
+  webpImage?: string;
+  fallbackImage?: string;
   badgeUrdu: string;
+  badgeEnglish?: string;
   tagColor: string;
+  altUrdu?: string;
+  altEnglish?: string;
 }
 
 export interface BranchInfo {
