@@ -118,21 +118,21 @@ export const FaqAndReviewsSection: React.FC = () => {
   const currentTestimonials = language === 'ur' ? testimonialsUrdu : testimonialsEnglish;
 
   return (
-    <section id="faq-reviews" className="py-12 sm:py-16 md:py-20 bg-slate-950 text-white border-b border-slate-800">
+    <section id="faq-reviews" className="py-12 sm:py-16 md:py-20 bg-white text-slate-900 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section 1: FAQs */}
         <div className="max-w-4xl mx-auto mb-12 sm:mb-16">
           <div className="text-center mb-8 sm:mb-10">
-            <div className="inline-flex items-center gap-2 bg-slate-900 text-amber-400 border border-amber-500/30 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold mb-3 font-urdu">
-              <HelpCircle className="w-4 h-4 text-amber-400 flex-shrink-0" />
+            <div className="inline-flex items-center gap-2 bg-indigo-100 text-indigo-900 border border-indigo-300 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-3 font-urdu shadow-sm">
+              <HelpCircle className="w-4 h-4 text-indigo-700 flex-shrink-0" />
               <span>{tFaq.badge}</span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white font-urdu">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-urdu">
               {tFaq.title}
             </h2>
-            <p className="text-slate-300 mt-2 text-sm sm:text-base font-urdu">
+            <p className="text-slate-600 mt-2 text-sm sm:text-base font-urdu">
               {tFaq.subtitle}
             </p>
           </div>
@@ -144,20 +144,20 @@ export const FaqAndReviewsSection: React.FC = () => {
               return (
                 <div 
                   key={index}
-                  className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden transition-all duration-200 shadow-sm"
+                  className={`bg-white border ${isOpen ? 'border-indigo-300 shadow-md' : 'border-slate-200'} rounded-2xl overflow-hidden transition-all duration-200 shadow-sm`}
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : index)}
-                    className="w-full p-4 sm:p-5 flex items-center justify-between gap-3 sm:gap-4 cursor-pointer hover:bg-slate-800/60 transition-colors min-h-[48px]"
+                    className="w-full p-4 sm:p-5 flex items-center justify-between gap-3 sm:gap-4 cursor-pointer hover:bg-slate-50 transition-colors min-h-[48px]"
                   >
-                    <span className="font-bold text-sm sm:text-base text-white leading-relaxed text-start font-urdu">
+                    <span className="font-bold text-sm sm:text-base text-slate-900 leading-relaxed text-start font-urdu">
                       {faq.q}
                     </span>
-                    <ChevronDown className={`w-5 h-5 text-amber-400 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-5 h-5 text-indigo-600 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
                   </button>
 
                   {isOpen && (
-                    <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-2 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800 bg-slate-950 font-urdu">
+                    <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-2 text-slate-700 text-xs sm:text-sm leading-relaxed border-t border-slate-100 bg-indigo-50/30 font-urdu">
                       {faq.a}
                     </div>
                   )}
@@ -168,68 +168,77 @@ export const FaqAndReviewsSection: React.FC = () => {
         </div>
 
         {/* Section 2: Testimonials & Client Trust */}
-        <div className="pt-8 sm:pt-10 border-t border-slate-800">
+        <div className="pt-8 sm:pt-10 border-t border-slate-200">
           <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
-            <div className="inline-flex items-center gap-2 bg-slate-900 text-amber-400 border border-amber-500/30 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold mb-3 font-urdu">
-              <MessageSquareQuote className="w-4 h-4 text-amber-400 flex-shrink-0" />
+            <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-900 border border-amber-300 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-3 font-urdu shadow-sm">
+              <MessageSquareQuote className="w-4 h-4 text-amber-700 flex-shrink-0" />
               <span>{tRev.badge}</span>
             </div>
 
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white font-urdu">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-urdu">
               {tRev.title}
             </h3>
-            <p className="text-slate-300 mt-2 text-sm sm:text-base font-urdu">
+            <p className="text-slate-600 mt-2 text-sm sm:text-base font-urdu">
               {tRev.subtitle}
             </p>
 
             {/* Google Rating Trust Pill */}
-            <div className="mt-4 inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3 bg-slate-900 border border-slate-800 text-white px-3.5 sm:px-4 py-2 rounded-lg shadow text-xs sm:text-sm font-urdu">
-              <div className="flex items-center gap-1 text-amber-400">
+            <div className="mt-4 inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3 bg-white border border-slate-200 text-slate-900 px-4 py-2 rounded-xl shadow-sm text-xs sm:text-sm font-urdu">
+              <div className="flex items-center gap-1 text-amber-500">
                 <Star className="w-3.5 sm:w-4 h-3.5 sm:h-4 fill-current" />
                 <Star className="w-3.5 sm:w-4 h-3.5 sm:h-4 fill-current" />
                 <Star className="w-3.5 sm:w-4 h-3.5 sm:h-4 fill-current" />
                 <Star className="w-3.5 sm:w-4 h-3.5 sm:h-4 fill-current" />
                 <Star className="w-3.5 sm:w-4 h-3.5 sm:h-4 fill-current" />
               </div>
-              <span className="font-bold text-amber-400">4.9 / 5.0</span>
-              <span className="text-slate-400 border-l border-slate-800 pl-2 sm:pl-3">
+              <span className="font-bold text-slate-900">4.9 / 5.0</span>
+              <span className="text-slate-500 border-l border-slate-200 pl-2 sm:pl-3 font-medium">
                 {language === 'ur' ? 'گوگل ویریفائیڈ 120+ تجارتی ریٹنگز' : '120+ Verified Client Reviews'}
               </span>
-              <ShieldCheck className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-emerald-400 ml-0.5" />
+              <ShieldCheck className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-emerald-600 ml-0.5" />
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-            {currentTestimonials.map((t, idx) => (
-              <div 
-                key={idx} 
-                className="bg-slate-900 border border-slate-800 rounded-xl p-5 sm:p-6 flex flex-col justify-between shadow-md hover:border-amber-500/40 transition-colors"
-              >
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <Quote className="w-6 sm:w-7 h-6 sm:h-7 text-amber-400/30" />
-                    <div className="flex gap-1">
-                      {[...Array(t.rating)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                      ))}
+            {currentTestimonials.map((t, idx) => {
+              const borderStyles = [
+                'border-indigo-200 hover:border-indigo-400 bg-gradient-to-b from-white to-indigo-50/20',
+                'border-amber-200 hover:border-amber-400 bg-gradient-to-b from-white to-amber-50/20',
+                'border-emerald-200 hover:border-emerald-400 bg-gradient-to-b from-white to-emerald-50/20'
+              ];
+              const borderStyle = borderStyles[idx % borderStyles.length];
+
+              return (
+                <div 
+                  key={idx} 
+                  className={`border-2 ${borderStyle} rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-md transition-all`}
+                >
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <Quote className="w-6 sm:w-7 h-6 sm:h-7 text-slate-300" />
+                      <div className="flex gap-1">
+                        {[...Array(t.rating)].map((_, i) => (
+                          <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                        ))}
+                      </div>
                     </div>
+
+                    <p className="text-slate-700 text-xs sm:text-sm leading-relaxed font-urdu">
+                      &ldquo;{t.comment}&rdquo;
+                    </p>
                   </div>
 
-                  <p className="text-slate-200 text-xs sm:text-sm leading-relaxed font-urdu">
-                    &ldquo;{t.comment}&rdquo;
-                  </p>
+                  <div className="pt-4 mt-4 border-t border-slate-200">
+                    <span className="font-bold text-slate-900 block text-sm sm:text-base font-urdu">
+                      {t.name}
+                    </span>
+                    <span className="text-xs text-slate-500 block font-urdu">
+                      {t.role}
+                    </span>
+                  </div>
                 </div>
-
-                <div className="pt-4 mt-4 border-t border-slate-800">
-                  <span className="font-bold text-white block text-sm sm:text-base font-urdu">
-                    {t.name}
-                  </span>
-                  <span className="text-xs text-slate-400 block font-urdu">
-                    {t.role}
-                  </span>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 

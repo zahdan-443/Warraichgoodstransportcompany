@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { TopBar } from './components/TopBar';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
+import { BiltyTrackingSection } from './components/BiltyTrackingSection';
 import { AboutSection } from './components/AboutSection';
 import { FleetSection } from './components/FleetSection';
 import { CargoCategoriesSection } from './components/CargoCategoriesSection';
@@ -37,7 +38,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100 font-sans selection:bg-amber-400 selection:text-slate-950 overflow-x-hidden w-full pb-16 sm:pb-0">
+    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 overflow-x-hidden w-full pb-16 sm:pb-0">
       
       {/* 1. Top Utility Bar */}
       <TopBar />
@@ -50,6 +51,9 @@ export default function App() {
         
         {/* 3. Hero Section (FTL Focus) */}
         <HeroSection />
+
+        {/* 3.5. Online Bilty & Freight Tracking + National Corridors (PKG Style) */}
+        <BiltyTrackingSection />
 
         {/* 4. Fleet & Vehicle Services (Shehzore, Mazda, Sample, Bedford) */}
         <FleetSection onSelectVehicleForBooking={handleSelectVehicleForBooking} />

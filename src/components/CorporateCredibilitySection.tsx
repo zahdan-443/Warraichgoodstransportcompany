@@ -39,26 +39,26 @@ export const CorporateCredibilitySection: React.FC = () => {
   };
 
   return (
-    <section id="corporate-credibility" className="py-12 sm:py-18 md:py-24 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 text-white border-b border-slate-800 relative overflow-hidden">
+    <section id="corporate-credibility" className="py-12 sm:py-18 md:py-24 bg-gradient-to-b from-white via-slate-50 to-sky-50/40 text-slate-900 border-b border-slate-200 relative overflow-hidden">
       
       {/* Background Subtle Accent Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:24px_24px] opacity-5 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Top Header Badge */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
-          <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 text-amber-400 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-3.5 font-urdu shadow-sm">
-            <Award className="w-4 h-4 text-amber-400 flex-shrink-0" />
+          <div className="inline-flex items-center gap-2 bg-emerald-100 border border-emerald-300 text-emerald-900 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-3.5 font-urdu shadow-sm">
+            <Award className="w-4 h-4 text-emerald-700 flex-shrink-0" />
             <span>
               {isUrdu ? 'سرکاری تصدیق شدہ کارپوریٹ لاجسٹکس | B2B Credibility' : 'FBR Verified Corporate Logistics | Enterprise B2B'}
             </span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white font-urdu tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-urdu tracking-tight">
             {isUrdu ? 'کارپوریٹ اعتبار، قانونی ساکھ اور B2B خدمات' : 'Corporate Credibility & Enterprise Freight Solutions'}
           </h2>
-          <p className="text-slate-400 mt-2.5 text-sm sm:text-base lg:text-lg font-urdu leading-relaxed">
+          <p className="text-slate-600 mt-2.5 text-sm sm:text-base lg:text-lg font-urdu leading-relaxed">
             {isUrdu 
               ? 'ٹیکسٹائل ملز، فلور ملز، زرعی آڑھتیوں اور ملٹی نیشنل تجارتی اداروں کے لیے 100% قابلِ اعتماد اور قانونی طور پر تصدیق شدہ FTL ٹرانسپورٹ۔' 
               : 'Official vendor credibility for industrial mills, manufacturing plants, grain traders, and corporate procurement managers across Pakistan.'}
@@ -68,7 +68,7 @@ export const CorporateCredibilitySection: React.FC = () => {
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4 font-urdu">
             <button
               onClick={() => setShowProfileModal(true)}
-              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold px-5 py-3 rounded-2xl text-xs sm:text-sm shadow-xl transition-transform active:scale-95 cursor-pointer min-h-[44px]"
+              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold px-5 py-3 rounded-2xl text-xs sm:text-sm shadow-md transition-transform active:scale-95 cursor-pointer min-h-[44px]"
             >
               <FileText className="w-4 h-4 fill-current flex-shrink-0" />
               <span>{isUrdu ? 'آفیشل کمپنی پروفائل اور وینڈر کارڈ دیکھیں' : 'View Corporate Profile & Vendor Deck'}</span>
@@ -76,108 +76,108 @@ export const CorporateCredibilitySection: React.FC = () => {
 
             <button
               onClick={scrollToCalculator}
-              className="inline-flex items-center justify-center gap-2 bg-slate-800/90 hover:bg-slate-800 text-slate-200 hover:text-white border border-slate-700 px-5 py-3 rounded-2xl text-xs sm:text-sm transition-colors cursor-pointer min-h-[44px]"
+              className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-3 rounded-2xl text-xs sm:text-sm transition-colors shadow-md cursor-pointer min-h-[44px]"
             >
-              <Briefcase className="w-4 h-4 text-amber-400 flex-shrink-0" />
+              <Briefcase className="w-4 h-4 text-blue-200 flex-shrink-0" />
               <span>{isUrdu ? 'کارپوریٹ B2B کنٹریکٹ انکوائری' : 'Corporate Contract Inquiry'}</span>
             </button>
           </div>
         </div>
 
-        {/* 4 Core Pillars of Corporate Credibility */}
+        {/* 4 Core Pillars of Corporate Credibility (Multi-Color Vibrant Accent Cards) */}
         <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-12 sm:mb-16 ${isUrdu ? 'text-right' : 'text-left'}`}>
           
-          {/* Pillar 1: Tax & Legal Registration */}
-          <div className="bg-slate-950 border border-slate-800 rounded-xl p-5 hover:border-amber-500/50 transition-all shadow-md flex flex-col justify-between">
+          {/* Pillar 1: Tax & Legal Registration (Emerald Theme) */}
+          <div className="bg-white border border-emerald-200 rounded-xl p-5 hover:border-emerald-400 hover:shadow-lg transition-all shadow-sm flex flex-col justify-between">
             <div>
-              <div className={`w-11 h-11 rounded-lg bg-slate-900 border border-amber-500/30 text-amber-400 flex items-center justify-center mb-4 ${isUrdu ? 'ml-auto' : 'mr-auto'}`}>
+              <div className={`w-11 h-11 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center mb-4 ${isUrdu ? 'ml-auto' : 'mr-auto'}`}>
                 <ShieldCheck className="w-5 h-5" />
               </div>
-              <span className="text-[11px] font-bold text-amber-400 font-mono tracking-wider block mb-1">
+              <span className="text-[11px] font-bold text-emerald-700 font-mono tracking-wider block mb-1">
                 FBR NTN: {COMPANY_INFO.ntn}
               </span>
-              <h3 className="text-base font-bold text-white font-urdu mb-2">
+              <h3 className="text-base font-bold text-slate-900 font-urdu mb-2">
                 {isUrdu ? 'سرکاری رجسٹریشن و قانونی ساکھ' : 'FBR Registered Tax Compliance'}
               </h3>
-              <p className="text-xs text-slate-300 leading-relaxed font-urdu">
+              <p className="text-xs text-slate-600 leading-relaxed font-urdu">
                 {isUrdu 
                   ? `ایف بی آر میں ایکٹو ٹیکس پیئر NTN: ${COMPANY_INFO.ntn} کے ساتھ رجسٹرڈ۔ کارپوریٹ کلائنٹس کے لیے سیلز ٹیکس اور ودہولڈنگ ٹیکس کی باقاعدہ رسیدیں۔` 
                   : `Active FBR taxpayer status (NTN: ${COMPANY_INFO.ntn}) enabling seamless corporate withholding tax compliance and corporate vendor audit approval.`}
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-slate-800 flex items-center gap-1.5 text-[11px] text-emerald-400 font-semibold font-urdu">
+            <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] text-emerald-700 font-semibold font-urdu">
               <CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0" />
               <span>{isUrdu ? '100% تصدیق شدہ بزنس اینٹیٹی' : '100% Verified Commercial Entity'}</span>
             </div>
           </div>
 
-          {/* Pillar 2: Computerized Weighbridge & POD */}
-          <div className="bg-slate-950 border border-slate-800 rounded-xl p-5 hover:border-amber-500/50 transition-all shadow-md flex flex-col justify-between">
+          {/* Pillar 2: Computerized Weighbridge & POD (Amber Theme) */}
+          <div className="bg-white border border-amber-200 rounded-xl p-5 hover:border-amber-400 hover:shadow-lg transition-all shadow-sm flex flex-col justify-between">
             <div>
-              <div className={`w-11 h-11 rounded-lg bg-slate-900 border border-slate-700 text-amber-400 flex items-center justify-center mb-4 ${isUrdu ? 'ml-auto' : 'mr-auto'}`}>
+              <div className={`w-11 h-11 rounded-lg bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center mb-4 ${isUrdu ? 'ml-auto' : 'mr-auto'}`}>
                 <Scale className="w-5 h-5" />
               </div>
-              <span className="text-[11px] font-bold text-slate-300 font-urdu tracking-wider block mb-1">
+              <span className="text-[11px] font-bold text-amber-800 font-urdu tracking-wider block mb-1">
                 {isUrdu ? 'کانٹا پرچی اور باقاعدہ بلٹی' : 'Certified Scale Slip & POD'}
               </span>
-              <h3 className="text-base font-bold text-white font-urdu mb-2">
+              <h3 className="text-base font-bold text-slate-900 font-urdu mb-2">
                 {isUrdu ? 'شفاف وزن اور دستخط شدہ POD' : 'Official Bilti & Signed POD'}
               </h3>
-              <p className="text-xs text-slate-300 leading-relaxed font-urdu">
+              <p className="text-xs text-slate-600 leading-relaxed font-urdu">
                 {isUrdu 
                   ? 'لوڈنگ کے فوری بعد کمپیوٹرائزڈ کانٹا پرچی اور سرکاری بلٹی جاری کی جاتی ہے۔ ان لوڈنگ پر وصول کنندہ کی مہر و دستخط کے ساتھ تصدیق۔' 
                   : 'Certified computerized weighbridge slips provided post-loading. Official consignment Bilti and receiver-stamped Proof of Delivery (POD) returned.'}
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-slate-800 flex items-center gap-1.5 text-[11px] text-slate-300 font-semibold font-urdu">
-              <FileCheck2 className="w-3.5 h-3.5 flex-shrink-0 text-amber-400" />
+            <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] text-amber-800 font-semibold font-urdu">
+              <FileCheck2 className="w-3.5 h-3.5 flex-shrink-0 text-amber-600" />
               <span>{isUrdu ? 'زیرو وزن تنازعہ' : 'Zero Weight Discrepancy'}</span>
             </div>
           </div>
 
-          {/* Pillar 3: Dedicated Full Truckload Policy */}
-          <div className="bg-slate-950 border border-slate-800 rounded-xl p-5 hover:border-amber-500/50 transition-all shadow-md flex flex-col justify-between">
+          {/* Pillar 3: Dedicated Full Truckload Policy (Indigo Theme) */}
+          <div className="bg-white border border-indigo-200 rounded-xl p-5 hover:border-indigo-400 hover:shadow-lg transition-all shadow-sm flex flex-col justify-between">
             <div>
-              <div className={`w-11 h-11 rounded-lg bg-slate-900 border border-slate-700 text-amber-400 flex items-center justify-center mb-4 ${isUrdu ? 'ml-auto' : 'mr-auto'}`}>
+              <div className={`w-11 h-11 rounded-lg bg-indigo-50 border border-indigo-200 text-indigo-600 flex items-center justify-center mb-4 ${isUrdu ? 'ml-auto' : 'mr-auto'}`}>
                 <Truck className="w-5 h-5" />
               </div>
-              <span className="text-[11px] font-bold text-slate-300 font-urdu tracking-wider block mb-1">
+              <span className="text-[11px] font-bold text-indigo-800 font-urdu tracking-wider block mb-1">
                 {isUrdu ? '100% وقف شدہ سنگل پارٹی گاڑی' : '100% Dedicated Single Shipper'}
               </span>
-              <h3 className="text-base font-bold text-white font-urdu mb-2">
+              <h3 className="text-base font-bold text-slate-900 font-urdu mb-2">
                 {isUrdu ? 'زیرو مکسنگ اور ڈائریکٹ ترسیل' : 'Zero Cargo Mix & Direct Transit'}
               </h3>
-              <p className="text-xs text-slate-300 leading-relaxed font-urdu">
+              <p className="text-xs text-slate-600 leading-relaxed font-urdu">
                 {isUrdu 
                   ? 'ہم پارسل یا مکس مال نہیں اٹھاتے۔ پوری گاڑی صرف آپ کے مال کے لیے مخصوص ہوتی ہے۔ فیکٹری گیٹ سے منزل تک بغیر رکے ترسیل۔' 
                   : 'We strictly reject loose shared parcel mixing. Entire cargo bay is exclusively sealed for your consignment, delivering direct from factory to destination.'}
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-slate-800 flex items-center gap-1.5 text-[11px] text-emerald-400 font-semibold font-urdu">
+            <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] text-indigo-800 font-semibold font-urdu">
               <CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0" />
               <span>{isUrdu ? 'پوائنٹ ٹو پوائنٹ ڈائریکٹ ہائی وے' : 'Direct Point-to-Point Transit'}</span>
             </div>
           </div>
 
-          {/* Pillar 4: Leadership & Proprietor Governance */}
-          <div className="bg-slate-950 border border-slate-800 rounded-xl p-5 hover:border-amber-500/50 transition-all shadow-md flex flex-col justify-between">
+          {/* Pillar 4: Leadership & Proprietor Governance (Blue Theme) */}
+          <div className="bg-white border border-blue-200 rounded-xl p-5 hover:border-blue-400 hover:shadow-lg transition-all shadow-sm flex flex-col justify-between">
             <div>
-              <div className={`w-11 h-11 rounded-lg bg-slate-900 border border-slate-700 text-amber-400 flex items-center justify-center mb-4 ${isUrdu ? 'ml-auto' : 'mr-auto'}`}>
+              <div className={`w-11 h-11 rounded-lg bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center mb-4 ${isUrdu ? 'ml-auto' : 'mr-auto'}`}>
                 <Building2 className="w-5 h-5" />
               </div>
-              <span className="text-[11px] font-bold text-slate-300 font-urdu tracking-wider block mb-1">
+              <span className="text-[11px] font-bold text-blue-800 font-urdu tracking-wider block mb-1">
                 {isUrdu ? 'ذاتی نگرانی اور 20+ سالہ تجربہ' : 'Personal Executive Governance'}
               </span>
-              <h3 className="text-base font-bold text-white font-urdu mb-2">
+              <h3 className="text-base font-bold text-slate-900 font-urdu mb-2">
                 {isUrdu ? 'ڈائریکٹ پروپرائٹر رابطہ' : 'Direct Proprietor Accountability'}
               </h3>
-              <p className="text-xs text-slate-300 leading-relaxed font-urdu">
+              <p className="text-xs text-slate-600 leading-relaxed font-urdu">
                 {isUrdu 
                   ? `پروپرائٹر ${COMPANY_INFO.proprietorUrdu} تمام کارپوریٹ کنٹریکٹس اور گاڑیوں کے شیڈول کی ذاتی نگرانی کرتے ہیں، جس سے مکمل اعتماد ملتا ہے۔` 
                   : `Proprietor ${COMPANY_INFO.proprietorEnglish} personally manages fleet dispatches and major B2B contracts, ensuring zero corporate bottlenecks.`}
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-slate-800 flex items-center gap-1.5 text-[11px] text-amber-400 font-semibold font-mono">
+            <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] text-blue-700 font-semibold font-mono">
               <PhoneCall className="w-3.5 h-3.5 flex-shrink-0" />
               <span>{COMPANY_INFO.phone1}</span>
             </div>
@@ -186,19 +186,19 @@ export const CorporateCredibilitySection: React.FC = () => {
         </div>
 
         {/* Corporate B2B Long-Term Contract Capabilities */}
-        <div className="bg-slate-950/90 border border-slate-800 rounded-3xl p-5 sm:p-8 lg:p-10 shadow-2xl mb-12 sm:mb-16">
-          <div className={`flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 sm:gap-6 border-b border-slate-800 pb-5 sm:pb-6 mb-6 sm:mb-8 ${isUrdu ? 'text-right' : 'text-left'}`}>
+        <div className="bg-white border border-slate-200 rounded-3xl p-5 sm:p-8 lg:p-10 shadow-xl mb-12 sm:mb-16">
+          <div className={`flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 sm:gap-6 border-b border-slate-200 pb-5 sm:pb-6 mb-6 sm:mb-8 ${isUrdu ? 'text-right' : 'text-left'}`}>
             <div>
-              <div className="inline-flex items-center gap-2 bg-amber-500/10 text-amber-400 border border-amber-500/30 px-3 py-1 rounded-full text-xs font-semibold font-urdu mb-2">
+              <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-800 border border-blue-200 px-3 py-1 rounded-full text-xs font-semibold font-urdu mb-2">
                 <Briefcase className="w-3.5 h-3.5 flex-shrink-0" />
                 <span>{isUrdu ? 'صنعتی و تجارتی اداروں کے لیے معاہدے' : 'B2B Enterprise Transport Agreements'}</span>
               </div>
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white font-urdu">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 font-urdu">
                 {isUrdu ? 'کارپوریٹ کنٹریکٹ لاجسٹکس کے امتیازی فوائد' : 'Long-Term Corporate Freight Contract Privileges'}
               </h3>
             </div>
 
-            <p className="text-xs sm:text-sm text-slate-400 max-w-md font-urdu leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 max-w-md font-urdu leading-relaxed">
               {isUrdu 
                 ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی ٹیکسٹائل ملز، شوگر ملز اور ڈسٹری بیوٹرز کے ساتھ سالانہ اور ماہانہ باقاعدہ ٹرانسپورٹیشن ایگریمنٹس پر فلیٹ فراہم کرتی ہے۔' 
                 : 'Warraich Goods offers structured annual and monthly transportation contracts with dedicated fleet allocation and formal computerized billing.'}
@@ -208,15 +208,15 @@ export const CorporateCredibilitySection: React.FC = () => {
           {/* 4 Contract Perks Grid */}
           <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 ${isUrdu ? 'text-right' : 'text-left'}`}>
             {CORPORATE_CREDENTIALS.corporateContractPerks.map((perk, idx) => (
-              <div key={idx} className="bg-slate-900/90 border border-slate-800/90 p-4 sm:p-5 rounded-2xl flex items-start gap-3.5 sm:gap-4 hover:border-amber-400/30 transition-colors">
-                <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center flex-shrink-0 border border-amber-500/20 mt-0.5">
+              <div key={idx} className="bg-slate-50 border border-slate-200 p-4 sm:p-5 rounded-2xl flex items-start gap-3.5 sm:gap-4 hover:border-blue-300 transition-colors shadow-sm">
+                <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center flex-shrink-0 border border-blue-200 mt-0.5">
                   <CheckCircle2 className="w-5 h-5" />
                 </div>
                 <div className="space-y-1">
-                  <h4 className="text-sm sm:text-base font-bold text-white font-urdu">
+                  <h4 className="text-sm sm:text-base font-bold text-slate-900 font-urdu">
                     {isUrdu ? perk.titleUr : perk.titleEn}
                   </h4>
-                  <p className="text-xs text-slate-300 leading-relaxed font-urdu">
+                  <p className="text-xs text-slate-600 leading-relaxed font-urdu">
                     {isUrdu ? perk.descUr : perk.descEn}
                   </p>
                 </div>
@@ -225,18 +225,18 @@ export const CorporateCredibilitySection: React.FC = () => {
           </div>
 
           {/* Sectors Served Showcase */}
-          <div className="mt-8 pt-6 border-t border-slate-800">
-            <h4 className="text-xs uppercase tracking-wider text-slate-400 font-bold mb-4 text-center font-urdu">
+          <div className="mt-8 pt-6 border-t border-slate-200">
+            <h4 className="text-xs uppercase tracking-wider text-slate-500 font-bold mb-4 text-center font-urdu">
               {isUrdu ? 'اہم صنعتی شعبے جو وڑائچ گڈز پر اعتماد کرتے ہیں:' : 'Key Industrial Sectors Trusting Warraich Goods:'}
             </h4>
             
             <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 ${isUrdu ? 'text-right' : 'text-left'}`}>
               {CORPORATE_CREDENTIALS.corporateSectors.map((sector, sIdx) => (
-                <div key={sIdx} className="bg-slate-900/60 border border-slate-800 p-3.5 rounded-xl">
-                  <span className="text-amber-400 font-bold text-xs sm:text-sm block font-urdu mb-1">
+                <div key={sIdx} className="bg-slate-50 border border-slate-200 p-3.5 rounded-xl hover:bg-slate-100/80 transition-colors">
+                  <span className="text-blue-900 font-bold text-xs sm:text-sm block font-urdu mb-1">
                     {isUrdu ? sector.nameUr : sector.nameEn}
                   </span>
-                  <p className="text-[11px] sm:text-xs text-slate-400 font-urdu leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-slate-600 font-urdu leading-relaxed">
                     {isUrdu ? sector.detailsUr : sector.detailsEn}
                   </p>
                 </div>

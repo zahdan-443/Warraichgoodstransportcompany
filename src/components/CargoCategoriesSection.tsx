@@ -157,26 +157,60 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
 
   const currentCategory = categories.find(c => c.id === activeTab) || categories[0];
 
+  const getTabActiveClasses = (id: string) => {
+    switch (id) {
+      case 'agri':
+        return 'bg-emerald-600 text-white shadow-md';
+      case 'textile':
+        return 'bg-indigo-600 text-white shadow-md';
+      case 'industrial':
+        return 'bg-amber-500 text-slate-950 shadow-md';
+      case 'construction':
+        return 'bg-blue-600 text-white shadow-md';
+      case 'household':
+        return 'bg-rose-600 text-white shadow-md';
+      default:
+        return 'bg-blue-600 text-white shadow-md';
+    }
+  };
+
+  const getCategoryBadgeClass = (id: string) => {
+    switch (id) {
+      case 'agri':
+        return 'bg-emerald-50 text-emerald-800 border-emerald-300';
+      case 'textile':
+        return 'bg-indigo-50 text-indigo-800 border-indigo-300';
+      case 'industrial':
+        return 'bg-amber-50 text-amber-900 border-amber-300';
+      case 'construction':
+        return 'bg-blue-50 text-blue-800 border-blue-300';
+      case 'household':
+        return 'bg-rose-50 text-rose-800 border-rose-300';
+      default:
+        return 'bg-blue-50 text-blue-800 border-blue-300';
+    }
+  };
+
   return (
-    <section id="cargo" className="py-12 sm:py-16 md:py-20 bg-slate-900 text-white border-b border-slate-800">
+    <section id="cargo" className="py-12 sm:py-16 md:py-20 bg-slate-50 text-slate-900 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 bg-slate-950 border border-amber-500/30 text-amber-400 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold mb-3 font-urdu">
-            <Package className="w-4 h-4 text-amber-400" />
+          <div className="inline-flex items-center gap-2 bg-blue-100 border border-blue-300 text-blue-900 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold mb-3 font-urdu">
+            <Package className="w-4 h-4 text-blue-700" />
             <span>{t.badge}</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white font-urdu">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-urdu">
             {t.title}
           </h2>
-          <p className="text-slate-300 mt-2 text-sm sm:text-base font-urdu">
+          <p className="text-slate-600 mt-2 text-sm sm:text-base font-urdu">
             {t.subtitle}
           </p>
         </div>
 
-        {/* Category Tabs (Horizontally scrollable with no-scrollbar on mobile) */}
+        {/* Category Tabs (Horizontally scrollable with no-scrollbar on mobile, multi-color) */}
         <div className="flex overflow-x-auto no-scrollbar gap-2 pb-2 sm:pb-0 sm:flex-wrap sm:justify-center mb-6 sm:mb-8 px-1">
           {categories.map((cat) => {
             const Icon = cat.icon;
@@ -187,12 +221,12 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
                 onClick={() => setActiveTab(cat.id)}
                 className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer font-urdu whitespace-nowrap min-h-[44px] flex-shrink-0 ${
                   isActive
-                    ? 'bg-amber-500 text-slate-950 font-bold shadow-md'
-                    : 'bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800'
+                    ? `${getTabActiveClasses(cat.id)} font-bold`
+                    : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 shadow-sm'
                 }`}
                 aria-pressed={isActive}
               >
-                <Icon className={`w-4 h-4 ${isActive ? 'text-slate-950' : 'text-amber-400'}`} />
+                <Icon className={`w-4 h-4 ${isActive ? 'text-current' : 'text-slate-500'}`} />
                 <span>{language === 'ur' ? cat.titleUrdu : cat.titleEnglish}</span>
               </button>
             );
@@ -200,33 +234,33 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
         </div>
 
         {/* Active Category Detailed Showcase Card */}
-        <div className="bg-slate-950 text-white rounded-xl p-5 sm:p-8 border border-slate-800 shadow-xl">
+        <div className="bg-white text-slate-900 rounded-2xl p-5 sm:p-8 border border-slate-200 shadow-xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
             
             {/* Main Column */}
             <div className={`lg:col-span-7 space-y-4 ${language === 'ur' ? 'text-right' : 'text-left'}`}>
-              <div className="inline-flex items-center gap-2 bg-slate-900 border border-amber-500/30 text-amber-400 px-3 py-1 rounded-md text-xs font-semibold font-urdu">
-                <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
+              <div className={`inline-flex items-center gap-2 border px-3 py-1 rounded-md text-xs font-semibold font-urdu ${getCategoryBadgeClass(currentCategory.id)}`}>
+                <ShieldCheck className="w-3.5 h-3.5 flex-shrink-0" />
                 <span>{language === 'ur' ? currentCategory.badgeUrdu : currentCategory.badgeEnglish}</span>
               </div>
 
-              <h3 className="text-xl sm:text-2xl font-bold text-white font-urdu">
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-urdu">
                 {language === 'ur' ? currentCategory.titleUrdu : currentCategory.titleEnglish}
               </h3>
 
-              <p className="text-xs text-slate-400 font-mono">
+              <p className="text-xs text-slate-500 font-mono">
                 {language === 'ur' ? currentCategory.titleEnglish : currentCategory.titleUrdu}
               </p>
 
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-urdu">
+              <p className="text-slate-700 text-sm sm:text-base leading-relaxed font-urdu">
                 {language === 'ur' ? currentCategory.descriptionUrdu : currentCategory.descriptionEnglish}
               </p>
 
               {/* Bullet Features */}
               <div className="space-y-2 pt-1">
                 {(language === 'ur' ? currentCategory.detailsUrdu : currentCategory.detailsEnglish).map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 text-slate-300 text-xs sm:text-sm font-urdu">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <div key={idx} className="flex items-start gap-2.5 text-slate-700 text-xs sm:text-sm font-urdu">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -236,7 +270,7 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
                 <a
                   href="#booking"
                   onClick={() => onSelectCategory && onSelectCategory(language === 'ur' ? currentCategory.titleUrdu : currentCategory.titleEnglish)}
-                  className="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-3 rounded-lg text-sm transition-all shadow font-urdu cursor-pointer min-h-[44px]"
+                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold px-5 py-3 rounded-xl text-sm transition-all shadow font-urdu cursor-pointer min-h-[44px]"
                 >
                   <Truck className="w-4 h-4" />
                   <span>{t.bookCategoryBtn}</span>
@@ -246,7 +280,7 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
                   href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(`السلام علیکم! وڑائچ گڈز ٹرانسپورٹ کمپنی سے ${currentCategory.titleUrdu} کے لیے مکمل گاڑی کا ریٹ معلوم کرنا ہے۔`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-emerald-700 text-slate-200 hover:text-white font-semibold px-5 py-3 rounded-lg border border-slate-800 hover:border-emerald-600 text-sm transition-all font-urdu cursor-pointer min-h-[44px]"
+                  className="inline-flex items-center justify-center gap-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-semibold px-5 py-3 rounded-xl border border-emerald-300 text-sm transition-all font-urdu cursor-pointer min-h-[44px]"
                 >
                   <span>{language === 'ur' ? 'واٹس ایپ FTL ریٹ انکوائری' : 'Inquire on WhatsApp'}</span>
                 </a>
@@ -255,31 +289,31 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
 
             {/* Info Column */}
             <div className="lg:col-span-5 space-y-4">
-              <div className={`bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-3.5 ${language === 'ur' ? 'text-right' : 'text-left'}`}>
-                <h4 className="text-sm font-bold text-amber-400 font-urdu border-b border-slate-800 pb-2">
+              <div className={`bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-3.5 ${language === 'ur' ? 'text-right' : 'text-left'}`}>
+                <h4 className="text-sm font-bold text-blue-950 font-urdu border-b border-slate-200 pb-2">
                   {language === 'ur' ? 'تجویز کردہ FTL گاڑی و تفصیلات' : 'Recommended Truck & Route Coverage'}
                 </h4>
 
                 <div>
-                  <span className="text-xs text-slate-400 block font-urdu">
+                  <span className="text-xs text-slate-500 block font-urdu">
                     {language === 'ur' ? 'موزوں ترین گاڑی (Dedicated Truck):' : 'Ideal Vehicle Class:'}
                   </span>
-                  <span className="text-sm font-bold text-white font-urdu mt-0.5 block">
+                  <span className="text-sm font-bold text-slate-900 font-urdu mt-0.5 block">
                     {language === 'ur' ? currentCategory.recommendedTruck : currentCategory.recommendedTruckEn}
                   </span>
                 </div>
 
                 <div>
-                  <span className="text-xs text-slate-400 block font-urdu">
+                  <span className="text-xs text-slate-500 block font-urdu">
                     {language === 'ur' ? 'اہم تجارتی روٹس (Key FTL Routes):' : 'Key Nationwide Haulage Routes:'}
                   </span>
-                  <span className="text-xs font-medium text-slate-300 font-urdu mt-0.5 block leading-relaxed">
+                  <span className="text-xs font-medium text-slate-700 font-urdu mt-0.5 block leading-relaxed">
                     {language === 'ur' ? currentCategory.routeCoverage : currentCategory.routeCoverageEn}
                   </span>
                 </div>
 
-                <div className="p-3 bg-slate-950 rounded-lg border border-slate-800 text-xs text-slate-300 font-urdu">
-                  🔒 <strong className="text-amber-400">{language === 'ur' ? 'سنگل پارٹی تحفظ:' : 'Single-Party Guarantee:'}</strong> {language === 'ur' ? 'پوری گاڑی میں صرف آپ کا مال لوڈ ہوگا، کوئی سامان مکس نہیں کیا جائے گا۔' : 'The entire vehicle is reserved for your goods only with zero cargo mixing.'}
+                <div className="p-3 bg-amber-50 rounded-lg border border-amber-200 text-xs text-amber-950 font-urdu">
+                  🔒 <strong className="text-amber-800">{language === 'ur' ? 'سنگل پارٹی تحفظ:' : 'Single-Party Guarantee:'}</strong> {language === 'ur' ? 'پوری گاڑی میں صرف آپ کا مال لوڈ ہوگا، کوئی سامان مکس نہیں کیا جائے گا۔' : 'The entire vehicle is reserved for your goods only with zero cargo mixing.'}
                 </div>
               </div>
             </div>
