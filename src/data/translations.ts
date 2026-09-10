@@ -21,7 +21,7 @@ export const TRANSLATIONS = {
       calculator: 'کرایہ کیلکولیٹر',
       about: 'پروپرائٹر و تعارف',
       branches: 'برانچز و لوکیشن',
-      reviews: 'گاہکوں کی آراء',
+      reviews: 'عمومی سوالات (FAQs)',
       contact: 'رابطہ',
       callNow: 'کال کریں',
       whatsappQuick: 'واٹس ایپ رابطہ',
@@ -185,19 +185,11 @@ export const TRANSLATIONS = {
       title: 'فل ٹرک لوڈ (FTL) کے متعلق اہم معلومات',
       subtitle: 'اگر مزید کوئی سوال ہو تو ہم سے 24/7 رابطہ کر سکتے ہیں',
     },
-    // Reviews
+    // Reviews & FAQs
     reviews: {
-      badge: 'گاہکوں کا اعتماد و تاثرات',
-      title: 'ہمارے معزز کاروباری کلائنٹس کے تاثرات',
-      subtitle: 'ٹیکسٹائل ملز، فیکٹریوں اور غلہ کمیشن ایجنٹوں کے حقیقی فیلڈ تجربات',
-      googleVerified: 'گوگل میپس پر بزنس پروفائل',
-      ratingScore: '5.0 ★★★★★',
-      basedOn: 'تصدیق شدہ تجارتی کلائنٹس',
-      writeReviewBtn: 'گوگل میپس پر ریویو لکھیں',
-      whatsappFeedbackBtn: 'واٹس ایپ پر رائے بھیجیں',
-      viewAllReviewsBtn: 'گوگل میپ پر لوکیشن دیکھیں',
-      calloutTitle: 'کیا آپ نے وڑائچ گڈز کی گاڑی یا سروس بک کی ہے؟',
-      calloutDesc: 'ہماری ساکھ ہمارے گاہکوں کے اعتماد پر قائم ہے۔ اپنا تجربہ گوگل میپس پر شیئر کریں یا واٹس ایپ پر رائے دیں۔',
+      badge: 'عمومی سوالات و جوابات',
+      title: 'اکثر پوچھے جانے والے سوالات',
+      subtitle: 'فل ٹرک لوڈ (FTL) سروس، بکنگ اور سیکیورٹی سے متعلق تفصیلی وضاحت',
     },
     // Why Choose Us
     why: {
@@ -262,7 +254,7 @@ export const TRANSLATIONS = {
       calculator: 'Rate Calculator',
       about: 'About Proprietor',
       branches: 'Branches',
-      reviews: 'Reviews & FAQs',
+      reviews: 'FAQs',
       contact: 'Contact',
       callNow: 'Call Now',
       whatsappQuick: 'WhatsApp Chat',
@@ -426,20 +418,11 @@ export const TRANSLATIONS = {
       title: 'Key Information About FTL Goods Transport',
       subtitle: 'Have additional inquiries? Our team is available 24/7 to assist you.',
     },
-    // Reviews
+    // Reviews & FAQs
     reviews: {
-      badge: 'Client Trust & Experiences',
-      title: 'Commercial Client Testimonials',
-      reviewsSubtitle: 'Direct feedback from textile mills, agricultural traders, and factory owners.',
-      subtitle: 'Real-world freight experiences from factory owners, commission agents, and traders.',
-      googleVerified: 'Google Business Profile',
-      ratingScore: '5.0 ★★★★★',
-      basedOn: 'Verified Commercial Clients',
-      writeReviewBtn: 'Write a Review on Google Maps',
-      whatsappFeedbackBtn: 'Send Feedback via WhatsApp',
-      viewAllReviewsBtn: 'View Google Location',
-      calloutTitle: 'Have You Used Warraich Goods Services?',
-      calloutDesc: 'Our reputation is built on client trust. Share your feedback directly on Google Maps or via WhatsApp.',
+      badge: 'Frequently Asked Questions',
+      title: 'Common Freight Questions & Answers',
+      subtitle: 'Comprehensive clarity on Full Truckload (FTL) bookings, vehicle availability, and transit security.',
     },
     // Why Choose Us
     why: {

@@ -2,13 +2,10 @@ import React, { useState } from 'react';
 import { 
   HelpCircle, 
   ChevronDown, 
-  Star, 
-  Quote, 
-  MessageSquareQuote,
   ShieldCheck,
-  CheckCircle2,
   MapPin,
-  ExternalLink
+  ExternalLink,
+  MessageSquareQuote
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
@@ -18,7 +15,6 @@ export const FaqAndReviewsSection: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const { language } = useLanguage();
   const tFaq = TRANSLATIONS[language].faq;
-  const tRev = TRANSLATIONS[language].reviews;
 
   const faqsUrdu = [
     {
@@ -76,56 +72,12 @@ export const FaqAndReviewsSection: React.FC = () => {
 
   const currentFaqs = language === 'ur' ? faqsUrdu : faqsEnglish;
 
-  const testimonialsUrdu = [
-    {
-      name: 'چوہدری کاشف رسول',
-      role: 'ٹیکسٹائل مل ڈائریکٹر، سمندری و فیصل آباد',
-      rating: 5,
-      comment: 'وڑائچ گڈز ٹرانسپورٹ کے ساتھ ہمارا گزشتہ 4 سال سے دھاگے اور کپڑے کی فل ٹرک لوڈنگ کا کنٹریکٹ ہے۔ زاہدان بھائی کی ذاتی نگرانی میں ہمارا مال ہمیشہ کراچی پورٹ اور لاہور مارکیٹ وقت پر اور 100% محفوظ پہنچتا ہے۔'
-    },
-    {
-      name: 'ملک زبیر احمد',
-      role: 'غلہ کمیشن ایجنٹ و آڑھتی، کمالیہ اناج منڈی',
-      rating: 5,
-      comment: 'گندم اور مکئی کے سیزن میں گاڑیوں کی کمی ہو جاتی ہے لیکن وڑائچ گڈز کے پاس مزدا اور سیمپل ٹرکس مناسب ریٹ اور بروقت دستیاب ہوتے ہیں۔ سنگل پارٹی لوڈ کی وجہ سے مال کبھی تاخیر کا شکار نہیں ہوتا۔'
-    },
-    {
-      name: 'حاجی محمد رفیق',
-      role: 'ہارڈ ویئر و سینیٹری ہول سیلر، لاہور',
-      rating: 5,
-      comment: 'سمندری اور کمالیہ سے فل گاڑی بکنگ کے لیے انتہائی قابلِ اعتماد سروس ہے۔ ڈرائیورز محتاط ہیں اور کبھی مال میں کوئی نقصان یا خراش تک نہیں آئی۔'
-    }
-  ];
-
-  const testimonialsEnglish = [
-    {
-      name: 'Chaudhary Kashif Rasool',
-      role: 'Textile Mill Director, Samundri & Faisalabad',
-      rating: 5,
-      comment: 'We have maintained a dedicated Full Truckload contract for textile yarn with Warraich Goods for over 4 years. Under personal management, our consignments reach Karachi Port and Lahore on time with pristine cargo safety.'
-    },
-    {
-      name: 'Malik Zubair Ahmed',
-      role: 'Grain Commission Agent, Kamalia Grain Market',
-      rating: 5,
-      comment: 'During peak wheat and corn seasons, truck availability is challenging. Warraich Goods always provides Mazda and Sample trucks at transparent rates. Since it is dedicated FTL, there is zero transit delay.'
-    },
-    {
-      name: 'Haji Muhammad Rafiq',
-      role: 'Hardware & Industrial Wholesaler, Lahore',
-      rating: 5,
-      comment: 'The most dependable freight service for full vehicle booking from Samundri and Kamalia. Courteous drivers, solid tarpaulin strapping, and never a single scratched carton.'
-    }
-  ];
-
-  const currentTestimonials = language === 'ur' ? testimonialsUrdu : testimonialsEnglish;
-
   return (
     <section id="faq-reviews" className="py-12 sm:py-16 md:py-20 bg-white text-slate-900 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section 1: FAQs */}
-        <div className="max-w-4xl mx-auto mb-12 sm:mb-16">
+        {/* Section: FAQs */}
+        <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8 sm:mb-10">
             <div className="inline-flex items-center gap-2 bg-indigo-100 text-indigo-900 border border-indigo-300 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-3 font-urdu shadow-sm">
               <HelpCircle className="w-4 h-4 text-indigo-700 flex-shrink-0" />
@@ -140,18 +92,17 @@ export const FaqAndReviewsSection: React.FC = () => {
             </p>
           </div>
 
-          {/* Accordion list */}
-          <div className="space-y-3">
+          <div className="space-y-3 sm:space-y-4">
             {currentFaqs.map((faq, index) => {
               const isOpen = openFaq === index;
               return (
                 <div 
-                  key={index}
-                  className={`bg-white border ${isOpen ? 'border-indigo-300 shadow-md' : 'border-slate-200'} rounded-2xl overflow-hidden transition-all duration-200 shadow-sm`}
+                  key={index} 
+                  className="border border-slate-200 rounded-xl overflow-hidden transition-all bg-white shadow-sm hover:border-slate-300"
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : index)}
-                    className="w-full p-4 sm:p-5 flex items-center justify-between gap-3 sm:gap-4 cursor-pointer hover:bg-slate-50 transition-colors min-h-[48px]"
+                    className="w-full py-3.5 sm:py-4 px-4 sm:px-5 flex items-center justify-between gap-4 text-start hover:bg-slate-50 transition-colors"
                   >
                     <span className="font-bold text-sm sm:text-base text-slate-900 leading-relaxed text-start font-urdu">
                       {faq.q}
@@ -168,130 +119,54 @@ export const FaqAndReviewsSection: React.FC = () => {
               );
             })}
           </div>
-        </div>
 
-        {/* Section 2: Testimonials & Client Trust */}
-        <div className="pt-8 sm:pt-10 border-t border-slate-200">
-          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
-            <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-900 border border-amber-300 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-3 font-urdu shadow-sm">
-              <MessageSquareQuote className="w-4 h-4 text-amber-700 flex-shrink-0" />
-              <span>{tRev.badge}</span>
-            </div>
-
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-urdu">
-              {tRev.title}
-            </h3>
-            <p className="text-slate-600 mt-2 text-sm sm:text-base font-urdu">
-              {tRev.subtitle}
-            </p>
-
-            {/* Google Business Profile Verified Link */}
-            <a 
-              href={COMPANY_INFO.googleMapUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3 bg-white hover:bg-slate-50 border border-slate-300 hover:border-blue-400 text-slate-900 px-4 py-2 rounded-xl shadow-sm text-xs sm:text-sm font-urdu transition-colors group cursor-pointer"
-              title="View Warraich Goods on Google Maps"
-            >
-              <div className="flex items-center gap-1 text-amber-500">
-                <Star className="w-3.5 sm:w-4 h-3.5 sm:h-4 fill-current" />
-                <Star className="w-3.5 sm:w-4 h-3.5 sm:h-4 fill-current" />
-                <Star className="w-3.5 sm:w-4 h-3.5 sm:h-4 fill-current" />
-                <Star className="w-3.5 sm:w-4 h-3.5 sm:h-4 fill-current" />
-                <Star className="w-3.5 sm:w-4 h-3.5 sm:h-4 fill-current" />
-              </div>
-              <span className="font-bold text-slate-900 flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-blue-600" />
-                {language === 'ur' ? 'گوگل میپس بزنس پروفائل و ریویوز' : 'Official Google Business Profile & Reviews'}
-              </span>
-              <span className="text-blue-600 border-l border-slate-200 pl-2 sm:pl-3 font-medium flex items-center gap-1 group-hover:underline text-xs">
-                <span>{language === 'ur' ? 'میپ پر دیکھیں' : 'View on Maps'}</span>
-                <ExternalLink className="w-3 h-3" />
-              </span>
-            </a>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-            {currentTestimonials.map((t, idx) => {
-              const borderStyles = [
-                'border-indigo-200 hover:border-indigo-400 bg-gradient-to-b from-white to-indigo-50/20',
-                'border-amber-200 hover:border-amber-400 bg-gradient-to-b from-white to-amber-50/20',
-                'border-emerald-200 hover:border-emerald-400 bg-gradient-to-b from-white to-emerald-50/20'
-              ];
-              const borderStyle = borderStyles[idx % borderStyles.length];
-
-              return (
-                <div 
-                  key={idx} 
-                  className={`border-2 ${borderStyle} rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-md transition-all`}
-                >
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <Quote className="w-6 sm:w-7 h-6 sm:h-7 text-slate-300" />
-                      <div className="flex gap-1">
-                        {[...Array(t.rating)].map((_, i) => (
-                          <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                        ))}
-                      </div>
-                    </div>
-
-                    <p className="text-slate-700 text-xs sm:text-sm leading-relaxed font-urdu">
-                      &ldquo;{t.comment}&rdquo;
-                    </p>
-                  </div>
-
-                  <div className="pt-4 mt-4 border-t border-slate-200">
-                    <span className="font-bold text-slate-900 block text-sm sm:text-base font-urdu">
-                      {t.name}
-                    </span>
-                    <span className="text-xs text-slate-500 block font-urdu">
-                      {t.role}
-                    </span>
-                  </div>
+          {/* Transparent Google Business Profile & Direct Feedback Box (No fake reviews) */}
+          <div className="mt-10 sm:mt-12 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-950 text-white rounded-2xl p-6 sm:p-8 shadow-xl border border-slate-700/60">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="space-y-2 text-center md:text-start font-urdu">
+                <div className="inline-flex items-center gap-1.5 bg-blue-500/20 text-blue-300 border border-blue-400/30 px-3 py-1 rounded-full text-xs font-semibold">
+                  <ShieldCheck className="w-3.5 h-3.5 text-blue-400" />
+                  <span>{language === 'ur' ? '100% مستند و حقیقی ٹرانسپورٹ سروس' : '100% Authentic Freight Service'}</span>
                 </div>
-              );
-            })}
-          </div>
+                <h3 className="text-lg sm:text-xl font-bold text-white flex items-center justify-center md:justify-start gap-2">
+                  <MapPin className="w-5 h-5 text-red-400 flex-shrink-0" />
+                  <span>{language === 'ur' ? 'گوگل میپس پر لوکیشن دیکھیں یا رائے شیئر کریں' : 'View Google Maps Location or Share Feedback'}</span>
+                </h3>
+                <p className="text-slate-300 text-xs sm:text-sm max-w-xl leading-relaxed">
+                  {language === 'ur' 
+                    ? 'ہم کسی قسم کے فرضی جائزے یا خود سے لکھے ہوئے ریویوز شائع نہیں کرتے۔ ہماری ساکھ اور پہچان فیلڈ میں برسیوں کی ایمانداری ہے۔ آپ گوگل میپس پر ہمارے اصل اڈے دیکھ سکتے ہیں یا براہِ راست واٹس ایپ پر رابطہ کر سکتے ہیں۔'
+                    : 'We do not publish artificial testimonials. Our reputation is built on decades of dependable freight service. You can explore our official Google Maps hubs or contact us directly on WhatsApp.'}
+                </p>
+              </div>
 
-          {/* Direct Review and Feedback Action Bar */}
-          <div className="mt-8 bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 text-white rounded-2xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-800">
-            <div className="space-y-1.5 text-center md:text-start font-urdu">
-              <h4 className="text-lg sm:text-xl font-bold flex items-center justify-center md:justify-start gap-2">
-                <ShieldCheck className="w-5 h-5 text-amber-400 flex-shrink-0" />
-                <span>{tRev.calloutTitle}</span>
-              </h4>
-              <p className="text-slate-300 text-xs sm:text-sm max-w-xl">
-                {tRev.calloutDesc}
-              </p>
-            </div>
+              <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
+                <a
+                  href={COMPANY_INFO.googleMapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition-all shadow-md active:scale-95 cursor-pointer font-urdu"
+                  title="View Warraich Goods on Google Maps"
+                >
+                  <MapPin className="w-4 h-4 text-white" />
+                  <span>{language === 'ur' ? 'گوگل میپ پر اڈا دیکھیں' : 'View on Google Maps'}</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
 
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              <a
-                href={COMPANY_INFO.googleMapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition-all shadow-md active:scale-95 cursor-pointer font-urdu"
-                title="Write a Google Review"
-              >
-                <Star className="w-4 h-4 fill-current" />
-                <span>{tRev.writeReviewBtn}</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-
-              <a
-                href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(
-                  language === 'ur'
-                    ? 'السلام علیکم زاہدان بھائی! میں وڑائچ گڈز ٹرانسپورٹ کمپنی کی سروس کے حوالے سے اپنا تاثرات اور ریویو شیئر کرنا چاہتا ہوں۔'
-                    : 'Hello Zahdan brother! I would like to share feedback/review regarding Warraich Goods Transport Company services.'
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition-all shadow-md active:scale-95 cursor-pointer font-urdu"
-                title="Share feedback on WhatsApp"
-              >
-                <MessageSquareQuote className="w-4 h-4" />
-                <span>{tRev.whatsappFeedbackBtn}</span>
-              </a>
+                <a
+                  href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(
+                    language === 'ur'
+                      ? 'السلام علیکم زاہدان بھائی! میں وڑائچ گڈز ٹرانسپورٹ کے حوالے سے اپنا فیڈ بیک اور رائے شیئر کرنا چاہتا ہوں۔'
+                      : 'Hello Zahdan brother! I would like to share my feedback regarding Warraich Goods Transport services.'
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition-all shadow-md active:scale-95 cursor-pointer font-urdu"
+                  title="Share feedback on WhatsApp"
+                >
+                  <MessageSquareQuote className="w-4 h-4" />
+                  <span>{language === 'ur' ? 'واٹس ایپ پر رابطہ کریں' : 'Contact on WhatsApp'}</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -300,4 +175,3 @@ export const FaqAndReviewsSection: React.FC = () => {
     </section>
   );
 };
-
