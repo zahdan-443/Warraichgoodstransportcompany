@@ -50,20 +50,17 @@ export const AboutSection: React.FC = () => {
                 <span>{language === 'ur' ? 'چیف ایگزیکٹو و پروپرائٹر' : 'Chief Executive & Proprietor'}</span>
               </div>
 
-              {/* Portrait Image with WebP Picture and Fallback */}
+              {/* Portrait Image with PNG Source */}
               <div className="relative mx-auto w-36 h-36 sm:w-48 sm:h-48 rounded-2xl overflow-hidden border-2 border-slate-200 shadow-xl mb-4 sm:mb-5 mt-6 sm:mt-4 group bg-slate-100 flex items-center justify-center">
                 {!imgError ? (
-                  <picture className="w-full h-full">
-                    <source srcSet="./images/owner-portrait.webp" type="image/webp" />
-                    <img
-                      src="./images/owner-portrait.jpg"
-                      alt={`${COMPANY_INFO.proprietorEnglish} - Chief Executive & Proprietor of Warraich Goods Transport Company`}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
-                      onError={() => setImgError(true)}
-                    />
-                  </picture>
+                  <img
+                    src="./images/owner-portrait.png"
+                    alt={`${COMPANY_INFO.proprietorEnglish} - Chief Executive & Proprietor of Warraich Goods Transport Company`}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                    onError={() => setImgError(true)}
+                  />
                 ) : (
                   <div className="w-full h-full flex flex-col items-center justify-center text-center p-4 bg-slate-100">
                     <UserCheck className="w-12 sm:w-14 h-12 sm:h-14 text-amber-600 mb-2" />

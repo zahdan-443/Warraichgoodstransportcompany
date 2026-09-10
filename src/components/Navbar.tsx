@@ -72,22 +72,19 @@ export const Navbar: React.FC<NavbarProps> = () => {
           {/* Brand Logo & Name */}
           <a href="#hero" className="flex items-center gap-3 group">
             <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-slate-50 border border-amber-500/40 p-0.5 shadow-sm group-hover:border-amber-500 transition-colors flex-shrink-0 flex items-center justify-center overflow-hidden">
-              <picture>
-                <source srcSet="./images/logo.webp" type="image/webp" />
-                <img 
-                  src="./images/logo.png" 
-                  alt="Warraich Goods Transport Company Official Fleet Logo" 
-                  loading="eager"
-                  decoding="async"
-                  className="w-full h-full object-cover rounded-[10px]"
-                  onError={(e) => {
-                    const currentSrc = e.currentTarget.getAttribute('src');
-                    if (currentSrc === './images/logo.png') {
-                      e.currentTarget.src = '/images/logo.png';
-                    }
-                  }}
-                />
-              </picture>
+              <img
+                src="./images/logo.png"
+                alt="Warraich Goods Transport Company Official Fleet Logo"
+                loading="eager"
+                decoding="async"
+                className="w-full h-full object-cover rounded-[10px]"
+                onError={(e) => {
+                  const currentSrc = e.currentTarget.getAttribute('src');
+                  if (currentSrc === './images/logo.png') {
+                    e.currentTarget.src = '/images/logo.png';
+                  }
+                }}
+              />
               <Truck className="w-6 h-6 text-slate-900 absolute pointer-events-none -z-10" />
             </div>
 
