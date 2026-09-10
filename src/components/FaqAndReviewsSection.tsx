@@ -6,8 +6,11 @@ import {
   Quote, 
   MessageSquareQuote,
   ShieldCheck,
-  CheckCircle2
+  CheckCircle2,
+  MapPin,
+  ExternalLink
 } from 'lucide-react';
+import { COMPANY_INFO } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
 import { TRANSLATIONS } from '../data/translations';
 
@@ -182,8 +185,14 @@ export const FaqAndReviewsSection: React.FC = () => {
               {tRev.subtitle}
             </p>
 
-            {/* Google Rating Trust Pill */}
-            <div className="mt-4 inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3 bg-white border border-slate-200 text-slate-900 px-4 py-2 rounded-xl shadow-sm text-xs sm:text-sm font-urdu">
+            {/* Google Business Profile Verified Link */}
+            <a 
+              href={COMPANY_INFO.googleMapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3 bg-white hover:bg-slate-50 border border-slate-300 hover:border-blue-400 text-slate-900 px-4 py-2 rounded-xl shadow-sm text-xs sm:text-sm font-urdu transition-colors group cursor-pointer"
+              title="View Warraich Goods on Google Maps"
+            >
               <div className="flex items-center gap-1 text-amber-500">
                 <Star className="w-3.5 sm:w-4 h-3.5 sm:h-4 fill-current" />
                 <Star className="w-3.5 sm:w-4 h-3.5 sm:h-4 fill-current" />
@@ -191,12 +200,15 @@ export const FaqAndReviewsSection: React.FC = () => {
                 <Star className="w-3.5 sm:w-4 h-3.5 sm:h-4 fill-current" />
                 <Star className="w-3.5 sm:w-4 h-3.5 sm:h-4 fill-current" />
               </div>
-              <span className="font-bold text-slate-900">4.9 / 5.0</span>
-              <span className="text-slate-500 border-l border-slate-200 pl-2 sm:pl-3 font-medium">
-                {language === 'ur' ? 'گوگل ویریفائیڈ 120+ تجارتی ریٹنگز' : '120+ Verified Client Reviews'}
+              <span className="font-bold text-slate-900 flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-blue-600" />
+                {language === 'ur' ? 'گوگل میپس بزنس پروفائل و ریویوز' : 'Official Google Business Profile & Reviews'}
               </span>
-              <ShieldCheck className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-emerald-600 ml-0.5" />
-            </div>
+              <span className="text-blue-600 border-l border-slate-200 pl-2 sm:pl-3 font-medium flex items-center gap-1 group-hover:underline text-xs">
+                <span>{language === 'ur' ? 'میپ پر دیکھیں' : 'View on Maps'}</span>
+                <ExternalLink className="w-3 h-3" />
+              </span>
+            </a>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">

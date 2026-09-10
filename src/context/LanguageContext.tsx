@@ -39,6 +39,30 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
       localStorage.setItem('warraich_goods_lang', newLang);
       document.documentElement.lang = newLang;
       document.documentElement.dir = newLang === 'ur' ? 'rtl' : 'ltr';
+
+      // Update URL query parameter without full reload
+      const url = new URL(window.location.href);
+      if (newLang === 'en') {
+        url.searchParams.set('lang', 'en');
+      } else {
+        url.searchParams.delete('lang');
+      }
+      window.history.replaceState({}, '', url.toString());
+
+      // Update document title and meta description dynamically
+      if (newLang === 'en') {
+        document.title = 'Warraich Goods Transport Company | Nationwide FTL Freight Pakistan';
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) {
+          metaDesc.setAttribute('content', 'Dedicated Full Truckload (FTL) freight transport across Pakistan. Hyundai Shehzore, Mazda 6-wheeler, Sample extended, and Bedford trucks.');
+        }
+      } else {
+        document.title = 'وڑائچ گڈز ٹرانسپورٹ کمپنی | Warraich Goods Transport Company';
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) {
+          metaDesc.setAttribute('content', 'پورے پاکستان کے لیے فل ٹرک لوڈ (FTL) سروس: شہزور، مزدا، سیمپل اور بیڈفورڈ ٹرک مناسب ترین ریٹ پر۔ پروپرائٹر: زاہدان نصر وڑائچ — 0300-5370443');
+        }
+      }
     }
   };
 
@@ -50,6 +74,12 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
     if (typeof window !== 'undefined') {
       document.documentElement.lang = language;
       document.documentElement.dir = language === 'ur' ? 'rtl' : 'ltr';
+
+      if (language === 'en') {
+        document.title = 'Warraich Goods Transport Company | Nationwide FTL Freight Pakistan';
+      } else {
+        document.title = 'وڑائچ گڈز ٹرانسپورٹ کمپنی | Warraich Goods Transport Company';
+      }
     }
   }, [language]);
 

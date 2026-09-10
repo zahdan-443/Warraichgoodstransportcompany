@@ -14,6 +14,8 @@ export const COMPANY_INFO = {
   whatsappNumber: '923005370443',
   email: 'warraichgoods43@gmail.com',
   ntn: '7779394-1',
+  googleMapUrl: 'https://maps.app.goo.gl/aBvtoxnkst4jsFz87',
+  kamaliaMapUrl: 'https://maps.app.goo.gl/z2basRtd6ozKwmVU9',
   taglineUrdu: 'پورے پاکستان کے لیے ہر قسم کی لوڈنگ کے لیے شہزور، مزدا، سیمپل اور بیڈفورڈ مناسب ریٹ پر دستیاب ہے ۔',
   taglineEnglish: 'Dedicated Full Truckload (FTL) transport across Pakistan with Shehzore, Mazda, Sample, and Bedford trucks.',
   subTaglineUrdu: '100% فل ٹرک لوڈ (FTL) سروس — سنگل پارٹی ڈائریکٹ پوائنٹ ٹو پوائنٹ ترسیل (ہم پارٹ لوڈ یا عام پارسل ڈیل نہیں کرتے)۔',
