@@ -15,20 +15,24 @@
       <image:caption>Official Fleet & Goods Transport Company in Pakistan</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://zahdan-443.github.io/warraichgoods43/images/shehzore-truck.webp</image:loc>
+      <image:loc>https://zahdan-443.github.io/warraichgoods43/images/shehzore-truck.png</image:loc>
       <image:title>Hyundai Shehzore Pickup FTL Loading</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://zahdan-443.github.io/warraichgoods43/images/mazda-truck.webp</image:loc>
+      <image:loc>https://zahdan-443.github.io/warraichgoods43/images/mazda-truck.png</image:loc>
       <image:title>Mazda 6 Wheeler Freight Truck</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://zahdan-443.github.io/warraichgoods43/images/sample-truck.webp</image:loc>
+      <image:loc>https://zahdan-443.github.io/warraichgoods43/images/sample-truck.png</image:loc>
       <image:title>Sample Extended Chassis Truck</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://zahdan-443.github.io/warraichgoods43/images/bedford-truck.webp</image:loc>
+      <image:loc>https://zahdan-443.github.io/warraichgoods43/images/bedford-truck.png</image:loc>
       <image:title>Bedford Heavy Hauler Truck</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://zahdan-443.github.io/warraichgoods43/images/owner-portrait.png</image:loc>
+      <image:title>Zahdan Nasar Warraich - Proprietor</image:title>
     </image:image>
   </url>
 </urlset>
