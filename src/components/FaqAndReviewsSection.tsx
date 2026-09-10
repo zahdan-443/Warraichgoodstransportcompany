@@ -252,6 +252,48 @@ export const FaqAndReviewsSection: React.FC = () => {
               );
             })}
           </div>
+
+          {/* Direct Review and Feedback Action Bar */}
+          <div className="mt-8 bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 text-white rounded-2xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-800">
+            <div className="space-y-1.5 text-center md:text-start font-urdu">
+              <h4 className="text-lg sm:text-xl font-bold flex items-center justify-center md:justify-start gap-2">
+                <ShieldCheck className="w-5 h-5 text-amber-400 flex-shrink-0" />
+                <span>{tRev.calloutTitle}</span>
+              </h4>
+              <p className="text-slate-300 text-xs sm:text-sm max-w-xl">
+                {tRev.calloutDesc}
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <a
+                href={COMPANY_INFO.googleMapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition-all shadow-md active:scale-95 cursor-pointer font-urdu"
+                title="Write a Google Review"
+              >
+                <Star className="w-4 h-4 fill-current" />
+                <span>{tRev.writeReviewBtn}</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+
+              <a
+                href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(
+                  language === 'ur'
+                    ? 'السلام علیکم زاہدان بھائی! میں وڑائچ گڈز ٹرانسپورٹ کمپنی کی سروس کے حوالے سے اپنا تاثرات اور ریویو شیئر کرنا چاہتا ہوں۔'
+                    : 'Hello Zahdan brother! I would like to share feedback/review regarding Warraich Goods Transport Company services.'
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition-all shadow-md active:scale-95 cursor-pointer font-urdu"
+                title="Share feedback on WhatsApp"
+              >
+                <MessageSquareQuote className="w-4 h-4" />
+                <span>{tRev.whatsappFeedbackBtn}</span>
+              </a>
+            </div>
+          </div>
         </div>
 
       </div>

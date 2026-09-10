@@ -187,14 +187,17 @@ export const TRANSLATIONS = {
     },
     // Reviews
     reviews: {
-      badge: 'گوگل ریویوز اور گاہکوں کا اعتماد',
-      title: 'ہمارے معزز کلائنٹس کی مستند آراء',
-      subtitle: 'ٹیکسٹائل ملز، فیکٹریوں اور غلہ کمیشن ایجنٹوں کی زبانی',
-      googleVerified: 'گوگل ویریفائیڈ بزنس ریٹنگ',
-      ratingScore: '4.9 ★★★★★',
-      basedOn: '(128+ مستند کسٹمر ریویوز)',
-      writeReviewBtn: 'گوگل پر ریویو دیں',
-      viewAllReviewsBtn: 'تمام ریویوز دیکھیں',
+      badge: 'گاہکوں کا اعتماد و تاثرات',
+      title: 'ہمارے معزز کاروباری کلائنٹس کے تاثرات',
+      subtitle: 'ٹیکسٹائل ملز، فیکٹریوں اور غلہ کمیشن ایجنٹوں کے حقیقی فیلڈ تجربات',
+      googleVerified: 'گوگل میپس پر بزنس پروفائل',
+      ratingScore: '5.0 ★★★★★',
+      basedOn: 'تصدیق شدہ تجارتی کلائنٹس',
+      writeReviewBtn: 'گوگل میپس پر ریویو لکھیں',
+      whatsappFeedbackBtn: 'واٹس ایپ پر رائے بھیجیں',
+      viewAllReviewsBtn: 'گوگل میپ پر لوکیشن دیکھیں',
+      calloutTitle: 'کیا آپ نے وڑائچ گڈز کی گاڑی یا سروس بک کی ہے؟',
+      calloutDesc: 'ہماری ساکھ ہمارے گاہکوں کے اعتماد پر قائم ہے۔ اپنا تجربہ گوگل میپس پر شیئر کریں یا واٹس ایپ پر رائے دیں۔',
     },
     // Why Choose Us
     why: {
@@ -425,15 +428,18 @@ export const TRANSLATIONS = {
     },
     // Reviews
     reviews: {
-      badge: 'Google Reviews & Customer Trust',
-      title: 'Verified Client Testimonials',
+      badge: 'Client Trust & Experiences',
+      title: 'Commercial Client Testimonials',
       reviewsSubtitle: 'Direct feedback from textile mills, agricultural traders, and factory owners.',
-      subtitle: 'Direct feedback from textile mills, agricultural traders, and factory owners.',
-      googleVerified: 'Google Verified Business Rating',
-      ratingScore: '4.9 ★★★★★',
-      basedOn: '(128+ Verified Reviews)',
-      writeReviewBtn: 'Write a Review on Google',
+      subtitle: 'Real-world freight experiences from factory owners, commission agents, and traders.',
+      googleVerified: 'Google Business Profile',
+      ratingScore: '5.0 ★★★★★',
+      basedOn: 'Verified Commercial Clients',
+      writeReviewBtn: 'Write a Review on Google Maps',
+      whatsappFeedbackBtn: 'Send Feedback via WhatsApp',
       viewAllReviewsBtn: 'View Google Location',
+      calloutTitle: 'Have You Used Warraich Goods Services?',
+      calloutDesc: 'Our reputation is built on client trust. Share your feedback directly on Google Maps or via WhatsApp.',
     },
     // Why Choose Us
     why: {
