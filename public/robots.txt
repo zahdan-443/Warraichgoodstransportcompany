@@ -1,8 +1,8 @@
 # Robots.txt for Warraich Goods Transport Company
-# Website: https://zahdan-443.github.io/warraichgoods43/
+# Website: https://zahdan-443.github.io/Warraichgoodstransportcompany/
 
 User-agent: *
 Allow: /
 
 # Sitemap URL
-Sitemap: https://zahdan-443.github.io/warraichgoods43/sitemap.xml
+Sitemap: https://zahdan-443.github.io/Warraichgoodstransportcompany/sitemap.xml
