@@ -48,18 +48,15 @@ export const Footer: React.FC = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-amber-500 p-0.5 flex items-center justify-center text-slate-950 font-bold flex-shrink-0 shadow-md overflow-hidden relative">
-                <picture className="w-full h-full">
-                  <source srcSet="./images/logo.webp" type="image/webp" />
-                  <img 
-                    src="./images/logo.png" 
-                    alt="Warraich Goods Transport Company Official Logo" 
-                    className="w-full h-full object-cover rounded-[10px]"
-                    loading="lazy"
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                    }}
-                  />
-                </picture>
+                <img
+                  src="./images/logo.png"
+                  alt="Warraich Goods Transport Company Official Logo"
+                  className="w-full h-full object-cover rounded-[10px]"
+                  loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
                 <Truck className="w-6 h-6 text-slate-950 absolute pointer-events-none -z-10" />
               </div>
               <div>

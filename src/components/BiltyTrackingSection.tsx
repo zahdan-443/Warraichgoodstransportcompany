@@ -10,10 +10,7 @@ import {
   MessageCircle, 
   ArrowRight, 
   FileText, 
-  Navigation, 
-  Sparkles,
-  ExternalLink,
-  Printer
+  Navigation
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { COMPANY_INFO } from '../data/companyData';
@@ -208,58 +205,6 @@ export const BiltyTrackingSection: React.FC = () => {
     setInputBilty(sampleKey);
     handleTrack(sampleKey);
   };
-
-  // Freight Corridors (Inspired by PKG Logistics pkg.com.pk)
-  const CORRIDORS = [
-    {
-      id: 'karachi-corridor',
-      titleUrdu: 'پورٹ تا پنجاب ایکسپریس کوریڈور',
-      titleEnglish: 'Karachi Port ↔ Central Punjab Corridor',
-      routeUrdu: 'کراچی پورٹ / پورٹ قاسم ↔ سکھر ↔ ملتان ↔ کمالیہ ↔ سمندری',
-      routeEnglish: 'Karachi Port ↔ Sukkur ↔ Multan ↔ Kamalia ↔ Samundri',
-      transitTimeUrdu: '20 تا 24 گھنٹے (نان اسٹاپ FTL)',
-      transitTimeEnglish: '20 - 24 Hours Direct',
-      highway: 'M-5 Sukkur-Multan & N-5 Highway',
-      popularCargoUrdu: 'پورٹ امپورٹ مال، انڈسٹریل خام مال، کھاد، ٹیکسٹائل و باسمتی چاول',
-      badgeColor: 'border-emerald-300 bg-emerald-50 text-emerald-800',
-    },
-    {
-      id: 'lahore-corridor',
-      titleUrdu: 'وسطی پنجاب انڈسٹریل لنک',
-      titleEnglish: 'Central Punjab Industrial Belt',
-      routeUrdu: 'سمندری / کمالیہ ↔ فیصل آباد ↔ موٹروے M-3 ↔ لاہور / گوجرانوالہ',
-      routeEnglish: 'Samundri / Kamalia ↔ Faisalabad ↔ M-3 Motorway ↔ Lahore / Gujranwala',
-      transitTimeUrdu: '3 تا 5 گھنٹے ایکسپریس',
-      transitTimeEnglish: '3 - 5 Hours Express',
-      highway: 'M-3 / M-4 Motorway & Faisalabad Road',
-      popularCargoUrdu: 'کاٹن یارن (دھاگہ)، فیکٹری مشینری، اسپیئر پارٹس و غلہ منڈی سپلائی',
-      badgeColor: 'border-blue-300 bg-blue-50 text-blue-800',
-    },
-    {
-      id: 'north-corridor',
-      titleUrdu: 'نادرن کمرشل کوریڈور',
-      titleEnglish: 'Northern Hub ↔ Twin Cities / KPK',
-      routeUrdu: 'سمندری / کمالیہ ↔ ایم 4 ↔ پنڈی بھٹیاں ↔ ایم 2 ↔ اسلام آباد / پشاور',
-      routeEnglish: 'Samundri / Kamalia ↔ M-4 ↔ Pindi Bhattian ↔ M-2 ↔ Islamabad / Peshawar',
-      transitTimeUrdu: '6 تا 8 گھنٹے',
-      transitTimeEnglish: '6 - 8 Hours Direct',
-      highway: 'M-2 & M-4 Motorways via Salt Range',
-      popularCargoUrdu: 'کمرشل ریٹیل لوڈ، زرعی بیج، سیمنٹ، اسٹیل پائپ و صنعتی خام مال',
-      badgeColor: 'border-amber-300 bg-amber-50 text-amber-800',
-    },
-    {
-      id: 'south-corridor',
-      titleUrdu: 'جنوبی پنجاب و سندھ ایگرو روٹ',
-      titleEnglish: 'South Punjab & Upper Sindh Agro Route',
-      routeUrdu: 'کمالیہ / سمندری ↔ خانیوال ↔ ملتان ↔ بہاولپور ↔ رحیم یار خان',
-      routeEnglish: 'Kamalia / Samundri ↔ Khanewal ↔ Multan ↔ Bahawalpur ↔ R.Y. Khan',
-      transitTimeUrdu: '4 تا 7 گھنٹے',
-      transitTimeEnglish: '4 - 7 Hours Direct',
-      highway: 'M-4 / M-5 Motorway Links',
-      popularCargoUrdu: 'گندم، مکئی، چاول، شوگر ملز چینی کے تھیلے، بیج اور لائیو اسٹاک فیڈ',
-      badgeColor: 'border-purple-300 bg-purple-50 text-purple-800',
-    },
-  ];
 
   const getStatusBadge = (status: BiltyData['status']) => {
     switch (status) {
@@ -532,65 +477,6 @@ export const BiltyTrackingSection: React.FC = () => {
 
           </div>
         )}
-
-        {/* National Freight Corridors (PKG Style Network Section) */}
-        <div className="mt-12">
-          <div className="text-center max-w-2xl mx-auto mb-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider mb-2 font-urdu">
-              <Navigation className="w-3.5 h-3.5 text-amber-700" />
-              <span>{t.corridorsBadge}</span>
-            </div>
-            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-urdu">
-              {t.corridorsTitle}
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-600 font-urdu mt-1">
-              {t.corridorsSubtitle}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-            {CORRIDORS.map((corridor) => (
-              <div
-                key={corridor.id}
-                className="bg-white rounded-xl border border-slate-200 p-5 shadow-sm hover:shadow-md hover:border-blue-300 transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-2">
-                    <h4 className="font-bold text-base text-slate-900 font-urdu">
-                      {language === 'ur' ? corridor.titleUrdu : corridor.titleEnglish}
-                    </h4>
-                    <span className={`text-[11px] px-2.5 py-0.5 rounded-md font-bold font-mono border ${corridor.badgeColor}`}>
-                      {language === 'ur' ? corridor.transitTimeUrdu : corridor.transitTimeEnglish}
-                    </span>
-                  </div>
-
-                  <div className="space-y-1.5 text-xs text-slate-600 font-urdu mb-3">
-                    <p className="flex items-center gap-1.5 text-slate-800 font-medium">
-                      <span className="text-blue-600">🛣️</span>
-                      <strong>{language === 'ur' ? 'روٹ:' : 'Route:'}</strong> {language === 'ur' ? corridor.routeUrdu : corridor.routeEnglish}
-                    </p>
-                    <p className="flex items-center gap-1.5 text-slate-600">
-                      <span className="text-amber-600">📦</span>
-                      <strong>{language === 'ur' ? 'اہم سامان:' : 'Cargo:'}</strong> {corridor.popularCargoUrdu}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-[10px] text-slate-500 font-mono uppercase">
-                    {corridor.highway}
-                  </span>
-                  <a
-                    href="#booking"
-                    className="inline-flex items-center gap-1 text-xs font-bold text-blue-700 hover:text-blue-800 hover:underline font-urdu"
-                  >
-                    <span>{language === 'ur' ? 'اس روٹ پر گاڑی بک کریں ➔' : 'Book Truck on this Route ➔'}</span>
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
 
       </div>
     </section>

@@ -185,15 +185,12 @@ export const HeroSection: React.FC = () => {
                   </div>
                   {/* Clean Image Frame - No text overlay at bottom */}
                   <div className="relative h-20 w-full rounded-lg overflow-hidden bg-white mb-2 border border-emerald-100 flex items-center justify-center p-1 group-hover:scale-[1.02] transition-transform">
-                    <picture className="w-full h-full">
-                      <source srcSet="./images/shehzore-truck.webp" type="image/webp" />
-                      <img 
-                        src="./images/shehzore-truck.png" 
-                        alt="Shehzore Pickup Truck - Warraich Goods" 
-                        className="w-full h-full object-contain"
-                        loading="eager"
-                      />
-                    </picture>
+                    <img
+                      src="./images/shehzore-truck.png"
+                      alt="Shehzore Pickup Truck - Warraich Goods"
+                      className="w-full h-full object-contain"
+                      loading="eager"
+                    />
                   </div>
                   <h4 className="font-bold text-xs sm:text-sm text-slate-900 truncate">Shehzore Pickup</h4>
                   <p className="text-[10px] text-slate-600 font-urdu truncate">
@@ -212,15 +209,12 @@ export const HeroSection: React.FC = () => {
                   </div>
                   {/* Clean Image Frame - No text overlay at bottom */}
                   <div className="relative h-20 w-full rounded-lg overflow-hidden bg-white mb-2 border border-amber-100 flex items-center justify-center p-1 group-hover:scale-[1.02] transition-transform">
-                    <picture className="w-full h-full">
-                      <source srcSet="./images/mazda-truck.webp" type="image/webp" />
-                      <img 
-                        src="./images/mazda-truck.png" 
-                        alt="Mazda 6-Wheeler Commercial Truck - Warraich Goods" 
-                        className="w-full h-full object-contain"
-                        loading="eager"
-                      />
-                    </picture>
+                    <img
+                      src="./images/mazda-truck.png"
+                      alt="Mazda 6-Wheeler Commercial Truck - Warraich Goods"
+                      className="w-full h-full object-contain"
+                      loading="eager"
+                    />
                   </div>
                   <h4 className="font-bold text-xs sm:text-sm text-slate-900 truncate">Mazda 6-Wheeler</h4>
                   <p className="text-[10px] text-slate-600 font-urdu truncate">
@@ -239,15 +233,12 @@ export const HeroSection: React.FC = () => {
                   </div>
                   {/* Clean Image Frame - No text overlay at bottom */}
                   <div className="relative h-20 w-full rounded-lg overflow-hidden bg-white mb-2 border border-indigo-100 flex items-center justify-center p-1 group-hover:scale-[1.02] transition-transform">
-                    <picture className="w-full h-full">
-                      <source srcSet="./images/sample-truck.webp" type="image/webp" />
-                      <img 
-                        src="./images/sample-truck.png" 
-                        alt="Sample Extended Body Truck - Warraich Goods" 
-                        className="w-full h-full object-contain"
-                        loading="eager"
-                      />
-                    </picture>
+                    <img
+                      src="./images/sample-truck.png"
+                      alt="Sample Extended Body Truck - Warraich Goods"
+                      className="w-full h-full object-contain"
+                      loading="eager"
+                    />
                   </div>
                   <h4 className="font-bold text-xs sm:text-sm text-slate-900 truncate">Sample Extended</h4>
                   <p className="text-[10px] text-slate-600 font-urdu truncate">
@@ -266,15 +257,12 @@ export const HeroSection: React.FC = () => {
                   </div>
                   {/* Clean Image Frame - No text overlay at bottom */}
                   <div className="relative h-20 w-full rounded-lg overflow-hidden bg-white mb-2 border border-blue-100 flex items-center justify-center p-1 group-hover:scale-[1.02] transition-transform">
-                    <picture className="w-full h-full">
-                      <source srcSet="./images/bedford-truck.webp" type="image/webp" />
-                      <img 
-                        src="./images/bedford-truck.png" 
-                        alt="Bedford Heavy Long Haul Truck - Warraich Goods" 
-                        className="w-full h-full object-contain"
-                        loading="eager"
-                      />
-                    </picture>
+                    <img
+                      src="./images/bedford-truck.png"
+                      alt="Bedford Heavy Long Haul Truck - Warraich Goods"
+                      className="w-full h-full object-contain"
+                      loading="eager"
+                    />
                   </div>
                   <h4 className="font-bold text-xs sm:text-sm text-slate-900 truncate">Bedford Heavy</h4>
                   <p className="text-[10px] text-slate-600 font-urdu truncate">
