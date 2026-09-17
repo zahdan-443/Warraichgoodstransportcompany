@@ -14,7 +14,7 @@ export const COMPANY_INFO = {
   whatsappNumber: '923005370443',
   email: 'warraichgoods43@gmail.com',
   ntn: '7779394-1',
-  googleMapUrl: 'https://maps.app.goo.gl/aBvtoxnkst4jsFz87',
+  googleMapUrl: 'https://maps.app.goo.gl/p8JiYc7ciTidx6YB9',
   kamaliaMapUrl: 'https://maps.app.goo.gl/z2basRtd6ozKwmVU9',
   taglineUrdu: 'پورے پاکستان کے لیے ہر قسم کی لوڈنگ کے لیے شہزور، مزدا، سیمپل اور بیڈفورڈ مناسب ریٹ پر دستیاب ہے ۔',
   taglineEnglish: 'Dedicated Full Truckload (FTL) transport across Pakistan with Shehzore, Mazda, Sample, and Bedford trucks.',
@@ -157,7 +157,7 @@ export const BRANCHES_DATA: BranchInfo[] = [
     addressEnglish: 'Near 466 Chowk, Okara Bypass, Samundri',
     phone1: '0300-5370443',
     phone2: '0339-5370443',
-    mapUrl: 'https://maps.app.goo.gl/aBvtoxnkst4jsFz87',
+    mapUrl: 'https://maps.app.goo.gl/p8JiYc7ciTidx6YB9',
     isHeadOffice: true,
   },
   {

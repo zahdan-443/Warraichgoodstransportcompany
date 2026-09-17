@@ -1,7 +1,7 @@
 # Warraich Goods Transport Company | وڑائچ گڈز ٹرانسپورٹ کمپنی
 
 [![Website](https://img.shields.io/badge/Official%20Website-Live-brightgreen?style=for-the-badge&logo=google-chrome)](https://zahdan-443.github.io/Warraichgoodstransportcompany/)
-[![Google Maps Samundri](https://img.shields.io/badge/Google%20Maps-Samundri%20Hub-red?style=for-the-badge&logo=google-maps)](https://maps.app.goo.gl/aBvtoxnkst4jsFz87)
+[![Google Maps Samundri](https://img.shields.io/badge/Google%20Maps-Samundri%20Hub-red?style=for-the-badge&logo=google-maps)](https://maps.app.goo.gl/p8JiYc7ciTidx6YB9)
 [![Google Maps Kamalia](https://img.shields.io/badge/Google%20Maps-Kamalia%20Branch-red?style=for-the-badge&logo=google-maps)](https://maps.app.goo.gl/z2basRtd6ozKwmVU9)
 [![NTN](https://img.shields.io/badge/FBR%20NTN-7779394--1-blue?style=for-the-badge)](https://zahdan-443.github.io/Warraichgoodstransportcompany/)
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-0300--5370443-25D366?style=for-the-badge&logo=whatsapp)](https://wa.me/923005370443)
@@ -27,7 +27,7 @@
 
 | اڈا / برانچ | مکمل پتہ | گوگل میپس لوکیشن | رابطہ نمبرز |
 | :--- | :--- | :--- | :--- |
-| **سمندری مین اڈا (Head Office)** | نزد 466 چوک، اوکاڑہ بائی پاس، سمندری، ضلع فیصل آباد | [📍 گوگل میپس پر دیکھیں (Samundri Hub)](https://maps.app.goo.gl/aBvtoxnkst4jsFz87) | **0300-5370443** / 0339-5370443 |
+| **سمندری مین اڈا (Head Office)** | نزد 466 چوک، اوکاڑہ بائی پاس، سمندری، ضلع فیصل آباد | [📍 گوگل میپس پر دیکھیں (Samundri Hub)](https://maps.app.goo.gl/p8JiYc7ciTidx6YB9) | **0300-5370443** / 0339-5370443 |
 | **کمالیہ برانچ (Branch Office)** | 3 کلومیٹر، رجانہ روڈ، بلمقابل رائل پیلس، کمالیہ، ضلع ٹوبہ ٹیک سنگھ | [📍 گوگل میپس پر دیکھیں (Kamalia Branch)](https://maps.app.goo.gl/z2basRtd6ozKwmVU9) | **0300-5370443** / 0339-5370443 |
 
 ---
