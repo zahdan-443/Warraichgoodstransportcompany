@@ -45,9 +45,9 @@ export const DriverAppSection: React.FC = () => {
                   <Truck className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="font-extrabold text-xs sm:text-sm text-slate-900 font-urdu">
+                  <p className="font-extrabold text-xs sm:text-sm text-slate-900 font-urdu">
                     {language === 'ur' ? 'ڈرائیور ٹرپ ریکارڈ' : 'Driver Trip Records'}
-                  </h4>
+                  </p>
                   <p className="text-xs text-slate-600 mt-1 font-urdu font-medium">
                     {language === 'ur' ? 'گاڑیوں اور روٹس کی باقاعدہ تفویض۔' : 'Clear vehicle assignments & route tracking.'}
                   </p>
@@ -59,9 +59,9 @@ export const DriverAppSection: React.FC = () => {
                   <FileText className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="font-extrabold text-xs sm:text-sm text-slate-900 font-urdu">
+                  <p className="font-extrabold text-xs sm:text-sm text-slate-900 font-urdu">
                     {language === 'ur' ? 'ڈیجیٹل چالان و بلٹی' : 'Digital Bilty & Challan'}
-                  </h4>
+                  </p>
                   <p className="text-xs text-slate-600 mt-1 font-urdu font-medium">
                     {language === 'ur' ? 'بروقت اور شفاف لوڈنگ ڈاکومنٹس۔' : 'Transparent, verifiable loading documentation.'}
                   </p>
@@ -73,9 +73,9 @@ export const DriverAppSection: React.FC = () => {
                   <Compass className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="font-extrabold text-xs sm:text-sm text-slate-900 font-urdu">
+                  <p className="font-extrabold text-xs sm:text-sm text-slate-900 font-urdu">
                     {language === 'ur' ? 'لائیو ڈسپیچ کوآرڈینیشن' : 'Live Dispatch Coordination'}
-                  </h4>
+                  </p>
                   <p className="text-xs text-slate-600 mt-1 font-urdu font-medium">
                     {language === 'ur' ? 'بروقت منزل پر ترسیل کی نگرانی۔' : 'Continuous highway progress monitoring.'}
                   </p>
@@ -87,9 +87,9 @@ export const DriverAppSection: React.FC = () => {
                   <ShieldCheck className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="font-extrabold text-xs sm:text-sm text-slate-900 font-urdu">
+                  <p className="font-extrabold text-xs sm:text-sm text-slate-900 font-urdu">
                     {language === 'ur' ? 'موبائل فرینڈلی رسائی' : 'Mobile-Optimized Portal'}
-                  </h4>
+                  </p>
                   <p className="text-xs text-slate-600 mt-1 font-urdu font-medium">
                     {language === 'ur' ? 'ہر سمارٹ فون پر فوراً کھلنے والی ایپ۔' : 'Instant access on any smartphone or tablet.'}
                   </p>
@@ -138,9 +138,9 @@ export const DriverAppSection: React.FC = () => {
                   <div className="bg-slate-50 p-3 sm:p-4 rounded-xl border border-slate-200">
                     <div className="flex items-center justify-between">
                       <span className="text-[10px] bg-amber-500 text-slate-950 font-bold px-2 py-0.5 rounded font-mono">Daily Road Usage</span>
-                      <h4 className="font-extrabold text-slate-900 text-xs sm:text-sm font-urdu">
+                      <p className="font-extrabold text-slate-900 text-xs sm:text-sm font-urdu">
                         {language === 'ur' ? 'روزمرہ روڈ یوزجز ایپ' : 'Warraich Road Usages App'}
-                      </h4>
+                      </p>
                     </div>
                     <p className="text-[11px] text-slate-600 mt-1 font-urdu font-medium">
                       {language === 'ur' ? 'روزمرہ روڈ کے استعمال، ڈرائیور ریکارڈز و لوڈنگ مینجمنٹ' : 'Daily road usages, driver logs, cargo dispatch & trip records'}

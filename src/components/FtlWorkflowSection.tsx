@@ -152,9 +152,9 @@ export const FtlWorkflowSection: React.FC = () => {
                     <Icon className="w-5 h-5" />
                   </div>
 
-                  <h3 className="text-base font-bold text-slate-900 font-urdu mb-1.5">
+                  <p className="text-base font-bold text-slate-900 font-urdu mb-1.5">
                     {language === 'ur' ? s.titleUrdu : s.titleEnglish}
-                  </h3>
+                  </p>
                   <p className="text-xs text-slate-600 leading-relaxed font-urdu">
                     {language === 'ur' ? s.descUrdu : s.descEnglish}
                   </p>
@@ -193,9 +193,9 @@ export const FtlWorkflowSection: React.FC = () => {
                     <Icon className="w-4 h-4" />
                   </div>
                   <div className="space-y-1">
-                    <h4 className="text-sm sm:text-base font-bold text-slate-900 font-urdu">
+                    <p className="text-sm sm:text-base font-bold text-slate-900 font-urdu">
                       {language === 'ur' ? p.titleUrdu : p.titleEnglish}
-                    </h4>
+                    </p>
                     <p className="text-xs text-slate-600 leading-relaxed font-urdu">
                       {language === 'ur' ? p.descUrdu : p.descEnglish}
                     </p>

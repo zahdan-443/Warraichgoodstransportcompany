@@ -244,9 +244,9 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
                 <span>{language === 'ur' ? currentCategory.badgeUrdu : currentCategory.badgeEnglish}</span>
               </div>
 
-              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-urdu">
+              <p className="text-xl sm:text-2xl font-bold text-slate-900 font-urdu">
                 {language === 'ur' ? currentCategory.titleUrdu : currentCategory.titleEnglish}
-              </h3>
+              </p>
 
               <p className="text-xs text-slate-500 font-mono">
                 {language === 'ur' ? currentCategory.titleEnglish : currentCategory.titleUrdu}
@@ -290,9 +290,9 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
             {/* Info Column */}
             <div className="lg:col-span-5 space-y-4">
               <div className={`bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-3.5 ${language === 'ur' ? 'text-right' : 'text-left'}`}>
-                <h4 className="text-sm font-bold text-blue-950 font-urdu border-b border-slate-200 pb-2">
+                <p className="text-sm font-bold text-blue-950 font-urdu border-b border-slate-200 pb-2">
                   {language === 'ur' ? 'تجویز کردہ FTL گاڑی و تفصیلات' : 'Recommended Truck & Route Coverage'}
-                </h4>
+                </p>
 
                 <div>
                   <span className="text-xs text-slate-500 block font-urdu">

@@ -132,7 +132,7 @@ export const AboutSection: React.FC = () => {
                   <ShieldCheck className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 text-xs sm:text-sm font-urdu">{tAbout.p1Title}</h4>
+                  <p className="font-bold text-slate-900 text-xs sm:text-sm font-urdu">{tAbout.p1Title}</p>
                   <p className="text-xs text-slate-600 mt-1 font-urdu">{tAbout.p1Desc}</p>
                 </div>
               </div>
@@ -142,7 +142,7 @@ export const AboutSection: React.FC = () => {
                   <Clock className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 text-xs sm:text-sm font-urdu">{tAbout.p2Title}</h4>
+                  <p className="font-bold text-slate-900 text-xs sm:text-sm font-urdu">{tAbout.p2Title}</p>
                   <p className="text-xs text-slate-600 mt-1 font-urdu">{tAbout.p2Desc}</p>
                 </div>
               </div>
@@ -152,7 +152,7 @@ export const AboutSection: React.FC = () => {
                   <HeartHandshake className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 text-xs sm:text-sm font-urdu">{tAbout.p3Title}</h4>
+                  <p className="font-bold text-slate-900 text-xs sm:text-sm font-urdu">{tAbout.p3Title}</p>
                   <p className="text-xs text-slate-600 mt-1 font-urdu">{tAbout.p3Desc}</p>
                 </div>
               </div>
@@ -162,7 +162,7 @@ export const AboutSection: React.FC = () => {
                   <FileCheck className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 text-xs sm:text-sm font-urdu">{tAbout.p4Title}</h4>
+                  <p className="font-bold text-slate-900 text-xs sm:text-sm font-urdu">{tAbout.p4Title}</p>
                   <p className="text-xs text-slate-600 mt-1 font-urdu">{tAbout.p4Desc}</p>
                 </div>
               </div>

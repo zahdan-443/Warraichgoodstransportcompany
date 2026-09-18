@@ -104,9 +104,9 @@ export const CargoSafetySection: React.FC = () => {
                   <div className={`w-10 h-10 rounded-lg ${feat.iconBg} border flex items-center justify-center mb-3.5 ${language === 'ur' ? 'ml-auto' : 'mr-auto'}`}>
                     <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="font-bold text-base text-slate-900 font-urdu mb-1.5">
+                  <p className="font-bold text-base text-slate-900 font-urdu mb-1.5">
                     {language === 'ur' ? feat.titleUrdu : feat.titleEnglish}
-                  </h3>
+                  </p>
                   <p className="text-xs text-slate-600 leading-relaxed font-urdu">
                     {language === 'ur' ? feat.descUrdu : feat.descEnglish}
                   </p>
@@ -119,9 +119,9 @@ export const CargoSafetySection: React.FC = () => {
         {/* Reassurance Banner */}
         <div className={`mt-8 sm:mt-12 bg-gradient-to-r from-amber-50 via-amber-100/50 to-orange-50 text-slate-900 rounded-2xl p-5 sm:p-7 border border-amber-200 shadow-md flex flex-col md:flex-row items-stretch md:items-center justify-between gap-5 ${language === 'ur' ? 'text-right' : 'text-left'}`}>
           <div className="space-y-1">
-            <h3 className="text-lg sm:text-xl font-bold text-amber-900 font-urdu">
+            <p className="text-lg sm:text-xl font-bold text-amber-900 font-urdu">
               {language === 'ur' ? 'کیا آپ کو حساس، قیمتی یا بارش سے متاثر ہونے والے سامان کے لیے گاڑی چاہیے؟' : 'Need safe dedicated transport for weather-sensitive commercial cargo?'}
-            </h3>
+            </p>
             <p className="text-xs sm:text-sm text-slate-700 font-urdu">
               {language === 'ur' ? 'ہماری تمام اوپن اور جالی باڈی گاڑیوں میں نئی واٹر پروف ترپالیں موجود ہوتی ہیں تاکہ مال کو ایک قطرہ پانی بھی نہ لگے۔' : 'Every vehicle carries double heavy waterproof tarpaulins to ensure zero water damage or moisture exposure.'}
             </p>

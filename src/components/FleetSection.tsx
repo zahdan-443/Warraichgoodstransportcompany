@@ -196,9 +196,9 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
         {/* Special Services Note */}
         <div className="mt-8 sm:mt-12 bg-gradient-to-r from-blue-900 via-indigo-900 to-blue-950 text-white rounded-2xl p-5 sm:p-7 shadow-lg max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5 font-urdu">
           <div>
-            <h4 className="text-base sm:text-lg font-bold text-white">
+            <p className="text-base sm:text-lg font-bold text-white">
               {language === 'ur' ? 'کیا آپ کو مخصوص سائز یا لانگ ٹرم فیکٹری کنٹریکٹ چاہیے؟' : 'Need custom truck dimensions or monthly factory logistics contracts?'}
-            </h4>
+            </p>
             <p className="text-xs sm:text-sm text-blue-200 mt-1">
               {language === 'ur' ? 'ہم فیکٹریوں، ملز اور زرعی غلہ تاجروں کے ساتھ باقاعدہ ماہانہ FTL کنٹریکٹ بھی کرتے ہیں۔' : 'We offer regular contract haulage and corporate billing accounts for industrial clients nationwide.'}
             </p>

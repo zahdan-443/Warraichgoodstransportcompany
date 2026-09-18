@@ -87,9 +87,9 @@ export const Footer: React.FC = () => {
 
           {/* Quick Navigation Links */}
           <div className="space-y-3 font-urdu">
-            <h4 className="text-slate-900 font-extrabold text-base border-b border-slate-200 pb-2">
+            <p className="text-slate-900 font-extrabold text-base border-b border-slate-200 pb-2">
               {tFooter.quickLinks}
-            </h4>
+            </p>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
                 <a href="#hero" className="hover:text-blue-600 transition-colors py-1 block">{tFooter.navHome}</a>
@@ -132,9 +132,9 @@ export const Footer: React.FC = () => {
 
           {/* Branches & Offices */}
           <div className="space-y-3 font-urdu">
-            <h4 className="text-slate-900 font-extrabold text-base border-b border-slate-200 pb-2">
+            <p className="text-slate-900 font-extrabold text-base border-b border-slate-200 pb-2">
               {tFooter.officesTitle}
-            </h4>
+            </p>
             
             <div className="space-y-3 text-xs">
               <div className="bg-white p-3 rounded-xl border border-blue-200 shadow-sm">
@@ -153,9 +153,9 @@ export const Footer: React.FC = () => {
 
           {/* Contact Direct & Email */}
           <div className="space-y-3">
-            <h4 className="text-slate-900 font-extrabold text-base border-b border-slate-200 pb-2 font-urdu">
+            <p className="text-slate-900 font-extrabold text-base border-b border-slate-200 pb-2 font-urdu">
               {tFooter.contactTitle}
-            </h4>
+            </p>
 
             <div className="space-y-2.5 text-xs">
               <a

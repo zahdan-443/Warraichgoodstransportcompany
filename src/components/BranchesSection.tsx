@@ -143,9 +143,9 @@ export const BranchesSection: React.FC = () => {
         <div className="mt-8 sm:mt-12 bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 text-slate-900 rounded-2xl p-5 sm:p-7 border border-blue-200 shadow-md">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 items-center">
             <div className="md:col-span-2 space-y-1 sm:space-y-1.5">
-              <h4 className="text-lg sm:text-xl font-bold text-blue-950 font-urdu">
+              <p className="text-lg sm:text-xl font-bold text-blue-950 font-urdu">
                 {language === 'ur' ? 'پنجاب و سندھ تا خیبر پختونخوا اور بلوچستان' : 'Nationwide Full Truckload Network Across Pakistan'}
-              </h4>
+              </p>
               <p className="text-slate-700 text-xs sm:text-sm leading-relaxed font-urdu">
                 {language === 'ur' 
                   ? 'ہم سمندری اور کمالیہ سے فیصل آباد، لاہور، کراچی، راولپنڈی، اسلام آباد، ملتان، پشاور، کوئٹہ، سکھر، حیدرآباد، گوجرانوالہ، سیالکوٹ سمیت پاکستان کے ہر قصبے اور صنعتی زون میں گاڑیاں لوڈ کرتے ہیں۔'

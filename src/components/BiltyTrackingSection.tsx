@@ -136,9 +136,9 @@ export const BiltyTrackingSection: React.FC = () => {
                       NTN: {COMPANY_INFO.ntn}
                     </span>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-black font-mono tracking-wide text-white">
+                  <p className="text-xl sm:text-2xl font-black font-mono tracking-wide text-white">
                     {activeReference}
-                  </h3>
+                  </p>
                 </div>
 
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 font-urdu">
@@ -151,14 +151,14 @@ export const BiltyTrackingSection: React.FC = () => {
             {/* Explanation & Action Box */}
             <div className="p-6 sm:p-8 space-y-6">
               <div className="bg-blue-50/70 border border-blue-200 rounded-xl p-4 sm:p-5 text-slate-800 space-y-2 font-urdu">
-                <h4 className="font-bold text-base text-blue-950 flex items-center gap-2">
+                <p className="font-bold text-base text-blue-950 flex items-center gap-2">
                   <Navigation className="w-5 h-5 text-blue-700 flex-shrink-0" />
                   <span>
                     {language === 'ur' 
                       ? `بلٹی / گاڑی نمبر [${activeReference}] کی براہِ راست ٹریکنگ`
                       : `Direct Transit Tracking for [${activeReference}]`}
                   </span>
-                </h4>
+                </p>
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                   {language === 'ur'
                     ? 'وڑائچ گڈز ٹرانسپورٹ فل ٹرک لوڈ (FTL) ماڈل پر کام کرتی ہے، جہاں گاڑی بغیر کسی درمیانی اسٹاپ یا سامان اتارنے کے براہِ راست منزل کی طرف نان اسٹاپ رواں دواں رہتی ہے۔ ڈرائیور سے فوری رابطہ اور واٹس ایپ لائیو پن لوکیشن حاصل کرنے کے لیے نیچے بٹن دبائیں:'
@@ -209,9 +209,9 @@ export const BiltyTrackingSection: React.FC = () => {
         {/* 3 Pillars of Authentic FTL Tracking */}
         <div className="max-w-5xl mx-auto mt-6">
           <div className="text-center mb-6">
-            <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-urdu">
+            <p className="text-lg sm:text-xl font-bold text-slate-900 font-urdu">
               {language === 'ur' ? 'وڑائچ گڈز میں بلٹی اور گاڑی ٹریکنگ کا اصل طریقہ کار' : 'How Genuine FTL Freight Tracking Works at Warraich Goods'}
-            </h3>
+            </p>
             <p className="text-xs sm:text-sm text-slate-600 mt-1 font-urdu">
               {language === 'ur' 
                 ? 'ہم کسی فرضی GPS اینیمیشن کے بجائے حقیقی اور براہِ راست رابطے کے اصول پر عمل کرتے ہیں:'
@@ -225,9 +225,9 @@ export const BiltyTrackingSection: React.FC = () => {
               <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 flex items-center justify-center mb-3">
                 <Phone className="w-5 h-5" />
               </div>
-              <h4 className="font-bold text-slate-900 text-base font-urdu mb-1.5">
+              <p className="font-bold text-slate-900 text-base font-urdu mb-1.5">
                 {language === 'ur' ? '1. ڈرائیور کا ذاتی موبائل رابطہ' : '1. Direct Driver Cellular Contact'}
-              </h4>
+              </p>
               <p className="text-xs text-slate-600 leading-relaxed font-urdu">
                 {language === 'ur'
                   ? 'گاڑی لوڈ ہو کر روانہ ہوتے ہی گاہک کو ڈرائیور کا نادرا تصدیق شدہ موبائل نمبر فراہم کیا جاتا ہے تاکہ سفر کے دوران کسی بھی لمحے براہِ راست بات کی جا سکے۔'
@@ -240,9 +240,9 @@ export const BiltyTrackingSection: React.FC = () => {
               <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center mb-3">
                 <MapPin className="w-5 h-5" />
               </div>
-              <h4 className="font-bold text-slate-900 text-base font-urdu mb-1.5">
+              <p className="font-bold text-slate-900 text-base font-urdu mb-1.5">
                 {language === 'ur' ? '2. واٹس ایپ لائیو پن لوکیشن' : '2. WhatsApp Live GPS Pin Sharing'}
-              </h4>
+              </p>
               <p className="text-xs text-slate-600 leading-relaxed font-urdu">
                 {language === 'ur'
                   ? 'موٹروے یا جی ٹی روڈ پر سفر کے دوران ڈرائیور واٹس ایپ پر لائیو لوکیشن پن شیئر کرتا ہے جس سے گاہک اپنی گاڑی کی اصل رفتار اور مقام خود دیکھ سکتا ہے۔'
@@ -255,9 +255,9 @@ export const BiltyTrackingSection: React.FC = () => {
               <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200 text-amber-700 flex items-center justify-center mb-3">
                 <Scale className="w-5 h-5" />
               </div>
-              <h4 className="font-bold text-slate-900 text-base font-urdu mb-1.5">
+              <p className="font-bold text-slate-900 text-base font-urdu mb-1.5">
                 {language === 'ur' ? '3. کمپیوٹرائزڈ کانٹا و رسید دستخط' : '3. Scale Slip & Signed Delivery'}
-              </h4>
+              </p>
               <p className="text-xs text-slate-600 leading-relaxed font-urdu">
                 {language === 'ur'
                   ? 'مال لوڈنگ پر کمپیوٹرائزڈ وزن پرچی اور منزل پر سامان پہنچنے پر گاہک کے دستخط شدہ بلٹی ثبوت کے طور پر فراہم کی جاتی ہے۔'

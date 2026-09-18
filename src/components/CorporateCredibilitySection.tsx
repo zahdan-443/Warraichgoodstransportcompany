@@ -96,9 +96,9 @@ export const CorporateCredibilitySection: React.FC = () => {
               <span className="text-[11px] font-bold text-emerald-700 font-mono tracking-wider block mb-1">
                 FBR NTN: {COMPANY_INFO.ntn}
               </span>
-              <h3 className="text-base font-bold text-slate-900 font-urdu mb-2">
+              <p className="text-base font-bold text-slate-900 font-urdu mb-2">
                 {isUrdu ? 'سرکاری رجسٹریشن و قانونی ساکھ' : 'FBR Registered Tax Compliance'}
-              </h3>
+              </p>
               <p className="text-xs text-slate-600 leading-relaxed font-urdu">
                 {isUrdu 
                   ? `ایف بی آر میں ایکٹو ٹیکس پیئر NTN: ${COMPANY_INFO.ntn} کے ساتھ رجسٹرڈ۔ کارپوریٹ کلائنٹس کے لیے سیلز ٹیکس اور ودہولڈنگ ٹیکس کی باقاعدہ رسیدیں۔` 
@@ -120,9 +120,9 @@ export const CorporateCredibilitySection: React.FC = () => {
               <span className="text-[11px] font-bold text-amber-800 font-urdu tracking-wider block mb-1">
                 {isUrdu ? 'کانٹا پرچی اور باقاعدہ بلٹی' : 'Certified Scale Slip & POD'}
               </span>
-              <h3 className="text-base font-bold text-slate-900 font-urdu mb-2">
+              <p className="text-base font-bold text-slate-900 font-urdu mb-2">
                 {isUrdu ? 'شفاف وزن اور دستخط شدہ POD' : 'Official Bilti & Signed POD'}
-              </h3>
+              </p>
               <p className="text-xs text-slate-600 leading-relaxed font-urdu">
                 {isUrdu 
                   ? 'لوڈنگ کے فوری بعد کمپیوٹرائزڈ کانٹا پرچی اور سرکاری بلٹی جاری کی جاتی ہے۔ ان لوڈنگ پر وصول کنندہ کی مہر و دستخط کے ساتھ تصدیق۔' 
@@ -144,9 +144,9 @@ export const CorporateCredibilitySection: React.FC = () => {
               <span className="text-[11px] font-bold text-indigo-800 font-urdu tracking-wider block mb-1">
                 {isUrdu ? '100% وقف شدہ سنگل پارٹی گاڑی' : '100% Dedicated Single Shipper'}
               </span>
-              <h3 className="text-base font-bold text-slate-900 font-urdu mb-2">
+              <p className="text-base font-bold text-slate-900 font-urdu mb-2">
                 {isUrdu ? 'زیرو مکسنگ اور ڈائریکٹ ترسیل' : 'Zero Cargo Mix & Direct Transit'}
-              </h3>
+              </p>
               <p className="text-xs text-slate-600 leading-relaxed font-urdu">
                 {isUrdu 
                   ? 'ہم پارسل یا مکس مال نہیں اٹھاتے۔ پوری گاڑی صرف آپ کے مال کے لیے مخصوص ہوتی ہے۔ فیکٹری گیٹ سے منزل تک بغیر رکے ترسیل۔' 
@@ -168,9 +168,9 @@ export const CorporateCredibilitySection: React.FC = () => {
               <span className="text-[11px] font-bold text-blue-800 font-urdu tracking-wider block mb-1">
                 {isUrdu ? 'ذاتی نگرانی اور 20+ سالہ تجربہ' : 'Personal Executive Governance'}
               </span>
-              <h3 className="text-base font-bold text-slate-900 font-urdu mb-2">
+              <p className="text-base font-bold text-slate-900 font-urdu mb-2">
                 {isUrdu ? 'ڈائریکٹ پروپرائٹر رابطہ' : 'Direct Proprietor Accountability'}
-              </h3>
+              </p>
               <p className="text-xs text-slate-600 leading-relaxed font-urdu">
                 {isUrdu 
                   ? `پروپرائٹر ${COMPANY_INFO.proprietorUrdu} تمام کارپوریٹ کنٹریکٹس اور گاڑیوں کے شیڈول کی ذاتی نگرانی کرتے ہیں، جس سے مکمل اعتماد ملتا ہے۔` 
@@ -213,9 +213,9 @@ export const CorporateCredibilitySection: React.FC = () => {
                   <CheckCircle2 className="w-5 h-5" />
                 </div>
                 <div className="space-y-1">
-                  <h4 className="text-sm sm:text-base font-bold text-slate-900 font-urdu">
+                  <p className="text-sm sm:text-base font-bold text-slate-900 font-urdu">
                     {isUrdu ? perk.titleUr : perk.titleEn}
-                  </h4>
+                  </p>
                   <p className="text-xs text-slate-600 leading-relaxed font-urdu">
                     {isUrdu ? perk.descUr : perk.descEn}
                   </p>
@@ -226,9 +226,9 @@ export const CorporateCredibilitySection: React.FC = () => {
 
           {/* Sectors Served Showcase */}
           <div className="mt-8 pt-6 border-t border-slate-200">
-            <h4 className="text-xs uppercase tracking-wider text-slate-500 font-bold mb-4 text-center font-urdu">
+            <p className="text-xs uppercase tracking-wider text-slate-500 font-bold mb-4 text-center font-urdu">
               {isUrdu ? 'اہم صنعتی شعبے جو وڑائچ گڈز پر اعتماد کرتے ہیں:' : 'Key Industrial Sectors Trusting Warraich Goods:'}
-            </h4>
+            </p>
             
             <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 ${isUrdu ? 'text-right' : 'text-left'}`}>
               {CORPORATE_CREDENTIALS.corporateSectors.map((sector, sIdx) => (
@@ -261,9 +261,9 @@ export const CorporateCredibilitySection: React.FC = () => {
                   WG
                 </div>
                 <div>
-                  <h3 className="text-base sm:text-lg font-bold text-slate-950 font-urdu">
+                  <p className="text-base sm:text-lg font-bold text-slate-950 font-urdu">
                     {isUrdu ? 'آفیشل کارپوریٹ پروفائل و وینڈر کارڈ' : 'Official Corporate Profile & Vendor Credibility Deck'}
-                  </h3>
+                  </p>
                   <span className="text-xs text-slate-500 font-mono">NTN: {COMPANY_INFO.ntn}</span>
                 </div>
               </div>
@@ -296,9 +296,9 @@ export const CorporateCredibilitySection: React.FC = () => {
                   <span className="inline-block bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full mb-1">
                     {CORPORATE_CREDENTIALS.fbrStatus}
                   </span>
-                  <h2 className="text-xl sm:text-2xl font-black text-slate-950 font-urdu">
+                  <p className="text-xl sm:text-2xl font-black text-slate-950 font-urdu">
                     {COMPANY_INFO.nameUrdu}
-                  </h2>
+                  </p>
                   <p className="text-xs font-semibold text-slate-600 uppercase tracking-wider">
                     {COMPANY_INFO.nameEnglish}
                   </p>
@@ -319,10 +319,10 @@ export const CorporateCredibilitySection: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                 
                 <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
-                  <h4 className="font-bold text-slate-900 text-sm font-urdu border-b border-slate-200 pb-1.5 flex items-center gap-1.5">
+                  <p className="font-bold text-slate-900 text-sm font-urdu border-b border-slate-200 pb-1.5 flex items-center gap-1.5">
                     <Building2 className="w-4 h-4 text-amber-600" />
                     <span>{isUrdu ? 'کاروباری رجسٹریشن کوائف' : 'Enterprise Registration Details'}</span>
-                  </h4>
+                  </p>
                   <div className="flex justify-between py-1 border-b border-slate-100">
                     <span className="text-slate-500">{isUrdu ? 'رجسٹرڈ نام:' : 'Registered Name:'}</span>
                     <span className="font-bold text-slate-900">{COMPANY_INFO.nameEnglish}</span>
@@ -346,10 +346,10 @@ export const CorporateCredibilitySection: React.FC = () => {
                 </div>
 
                 <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
-                  <h4 className="font-bold text-slate-900 text-sm font-urdu border-b border-slate-200 pb-1.5 flex items-center gap-1.5">
+                  <p className="font-bold text-slate-900 text-sm font-urdu border-b border-slate-200 pb-1.5 flex items-center gap-1.5">
                     <Warehouse className="w-4 h-4 text-amber-600" />
                     <span>{isUrdu ? 'آفیشل اڈے و ٹرمینلز' : 'Terminals & Official Offices'}</span>
-                  </h4>
+                  </p>
                   <div className="py-1 border-b border-slate-100">
                     <span className="text-slate-500 block mb-0.5">{isUrdu ? 'ہیڈ آفس سمندری اڈا:' : 'Head Office Samundri Adda:'}</span>
                     <span className="font-semibold text-slate-900 block font-urdu">{CORPORATE_CREDENTIALS.headOfficeAddressUrdu}</span>
@@ -368,10 +368,10 @@ export const CorporateCredibilitySection: React.FC = () => {
 
               {/* Fleet Capacity Table */}
               <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                <h4 className="font-bold text-slate-900 text-sm font-urdu mb-2.5 flex items-center gap-1.5">
+                <p className="font-bold text-slate-900 text-sm font-urdu mb-2.5 flex items-center gap-1.5">
                   <Truck className="w-4 h-4 text-amber-600" />
                   <span>{isUrdu ? 'فلیٹ کیٹیگریز اور لوڈنگ گنجائش' : 'Fleet Specifications & Weight Classes'}</span>
-                </h4>
+                </p>
                 
                 <div className="overflow-x-auto">
                   <table className="w-full text-left text-xs border-collapse font-urdu">
@@ -399,10 +399,10 @@ export const CorporateCredibilitySection: React.FC = () => {
 
               {/* Formal SOP & Compliance Checklist */}
               <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                <h4 className="font-bold text-slate-900 text-sm font-urdu mb-2 flex items-center gap-1.5">
+                <p className="font-bold text-slate-900 text-sm font-urdu mb-2 flex items-center gap-1.5">
                   <FileCheck2 className="w-4 h-4 text-emerald-600" />
                   <span>{isUrdu ? 'معیاری آپریٹنگ طریقہ کار (SOPs) برائے کارپوریٹ کلائنٹس' : 'Standard Operating Procedures (SOPs) for Corporate Clients'}</span>
-                </h4>
+                </p>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-urdu">
                   <div className="flex items-center gap-2 text-slate-700">

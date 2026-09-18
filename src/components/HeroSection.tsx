@@ -159,9 +159,9 @@ export const HeroSection: React.FC = () => {
               
               <div className="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
                 <div>
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 font-urdu">
+                  <p className="text-base sm:text-lg font-bold text-slate-900 font-urdu">
                     {language === 'ur' ? 'مکمل ٹرک لوڈ (FTL) فلیٹ اسٹیٹس' : 'Active FTL Fleet Status'}
-                  </h3>
+                  </p>
                   <p className="text-[11px] text-slate-500 font-urdu">
                     {language === 'ur' ? 'سنگل گاہک کی مخصوص گاڑی ہمہ وقت دستیاب' : 'Dedicated single-shipper trucks on standby'}
                   </p>
@@ -192,7 +192,7 @@ export const HeroSection: React.FC = () => {
                       loading="eager"
                     />
                   </div>
-                  <h4 className="font-bold text-xs sm:text-sm text-slate-900 truncate">Shehzore Pickup</h4>
+                  <p className="font-bold text-xs sm:text-sm text-slate-900 truncate">Shehzore Pickup</p>
                   <p className="text-[10px] text-slate-600 font-urdu truncate">
                     {language === 'ur' ? 'ایکسپریس لوڈنگ (1-3.5 ٹن)' : 'Express Single Shipper'}
                   </p>
@@ -216,7 +216,7 @@ export const HeroSection: React.FC = () => {
                       loading="eager"
                     />
                   </div>
-                  <h4 className="font-bold text-xs sm:text-sm text-slate-900 truncate">Mazda 6-Wheeler</h4>
+                  <p className="font-bold text-xs sm:text-sm text-slate-900 truncate">Mazda 6-Wheeler</p>
                   <p className="text-[10px] text-slate-600 font-urdu truncate">
                     {language === 'ur' ? 'انڈسٹریل و زرعی FTL' : 'Industrial & Agro FTL'}
                   </p>
@@ -240,7 +240,7 @@ export const HeroSection: React.FC = () => {
                       loading="eager"
                     />
                   </div>
-                  <h4 className="font-bold text-xs sm:text-sm text-slate-900 truncate">Sample Extended</h4>
+                  <p className="font-bold text-xs sm:text-sm text-slate-900 truncate">Sample Extended</p>
                   <p className="text-[10px] text-slate-600 font-urdu truncate">
                     {language === 'ur' ? 'توسیع شدہ والیم FTL' : 'Extended Volumetric'}
                   </p>
@@ -264,7 +264,7 @@ export const HeroSection: React.FC = () => {
                       loading="eager"
                     />
                   </div>
-                  <h4 className="font-bold text-xs sm:text-sm text-slate-900 truncate">Bedford Heavy</h4>
+                  <p className="font-bold text-xs sm:text-sm text-slate-900 truncate">Bedford Heavy</p>
                   <p className="text-[10px] text-slate-600 font-urdu truncate">
                     {language === 'ur' ? 'ہیوی انڈسٹریل FTL' : 'Heavy Industrial Haul'}
                   </p>

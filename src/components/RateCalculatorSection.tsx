@@ -526,7 +526,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                   <CheckCircle2 className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 text-sm font-urdu">{tCalc.ntnBillingTitle}</h4>
+                  <p className="font-bold text-slate-900 text-sm font-urdu">{tCalc.ntnBillingTitle}</p>
                   <p className="text-xs text-emerald-800 font-mono font-bold">NTN: {COMPANY_INFO.ntn}</p>
                 </div>
               </div>

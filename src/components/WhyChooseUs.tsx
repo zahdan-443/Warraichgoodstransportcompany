@@ -39,7 +39,7 @@ export const WhyChooseUs: React.FC = () => {
             <div className={`w-11 h-11 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center mb-3.5 shadow-sm ${language === 'ur' ? 'ml-auto' : 'mr-auto'}`}>
               <Clock className="w-5 h-5" />
             </div>
-            <h3 className="font-extrabold text-base text-slate-900 font-urdu">{t.f1Title}</h3>
+            <p className="font-extrabold text-base text-slate-900 font-urdu">{t.f1Title}</p>
             <p className="text-xs text-slate-600 mt-1.5 leading-relaxed font-urdu font-medium">
               {t.f1Desc}
             </p>
@@ -49,7 +49,7 @@ export const WhyChooseUs: React.FC = () => {
             <div className={`w-11 h-11 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-3.5 shadow-sm ${language === 'ur' ? 'ml-auto' : 'mr-auto'}`}>
               <Lock className="w-5 h-5" />
             </div>
-            <h3 className="font-extrabold text-base text-slate-900 font-urdu">{t.f2Title}</h3>
+            <p className="font-extrabold text-base text-slate-900 font-urdu">{t.f2Title}</p>
             <p className="text-xs text-slate-600 mt-1.5 leading-relaxed font-urdu font-medium">
               {t.f2Desc}
             </p>
@@ -59,7 +59,7 @@ export const WhyChooseUs: React.FC = () => {
             <div className={`w-11 h-11 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center mb-3.5 shadow-sm ${language === 'ur' ? 'ml-auto' : 'mr-auto'}`}>
               <Award className="w-5 h-5" />
             </div>
-            <h3 className="font-extrabold text-base text-slate-900 font-urdu">{t.f3Title}</h3>
+            <p className="font-extrabold text-base text-slate-900 font-urdu">{t.f3Title}</p>
             <p className="text-xs text-slate-600 mt-1.5 leading-relaxed font-urdu font-medium">
               {t.f3Desc}
             </p>
@@ -69,7 +69,7 @@ export const WhyChooseUs: React.FC = () => {
             <div className={`w-11 h-11 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center mb-3.5 shadow-sm ${language === 'ur' ? 'ml-auto' : 'mr-auto'}`}>
               <PhoneCall className="w-5 h-5" />
             </div>
-            <h3 className="font-extrabold text-base text-slate-900 font-urdu">{t.f4Title}</h3>
+            <p className="font-extrabold text-base text-slate-900 font-urdu">{t.f4Title}</p>
             <p className="text-xs text-slate-600 mt-1.5 leading-relaxed font-urdu font-medium">
               {t.f4Desc}
             </p>
@@ -83,9 +83,9 @@ export const WhyChooseUs: React.FC = () => {
               <FileCheck className="w-3.5 h-3.5 flex-shrink-0" />
               <span>{language === 'ur' ? 'قانونی و ٹیکس تصدیق شدہ' : 'Tax Registered Business'}</span>
             </div>
-            <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 font-urdu">
+            <p className="text-lg sm:text-xl font-extrabold text-slate-900 font-urdu">
               {t.ntnTitle} (<span className="text-blue-700 font-mono">NTN: {COMPANY_INFO.ntn}</span>)
-            </h3>
+            </p>
             <p className="text-xs sm:text-sm text-slate-600 font-urdu font-medium">
               {t.ntnDesc}
             </p>
