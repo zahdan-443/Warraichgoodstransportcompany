@@ -33,7 +33,7 @@ export const GROUND_OPERATIONS_PHOTOS = [
   {
     id: 'yard-office',
     // "Proprietor at the yard/office"
-    imageSrc: './images/owner-portrait.png', // <-- REPLACE THIS ONE LINE: e.g. './images/proprietor-yard.jpg'
+    imageSrc: './images/placeholder-yard-office.jpg', // <-- REPLACE THIS ONE LINE: e.g. './images/proprietor-yard.jpg'
     badgeUrdu: 'قیادت و اڈہ دفتر',
     badgeEn: 'Leadership & Yard Office',
     titleUrdu: 'پروپرائٹر زاہدان نصر وڑائچ — اڈہ دفتر',
@@ -45,7 +45,7 @@ export const GROUND_OPERATIONS_PHOTOS = [
   {
     id: 'driver-vehicle',
     // "Driver with vehicle (with consent)"
-    imageSrc: './images/cargo-safety.jpg', // <-- REPLACE THIS ONE LINE: e.g. './images/driver-with-vehicle.jpg'
+    imageSrc: './images/placeholder-driver-vehicle.jpg', // <-- REPLACE THIS ONE LINE: e.g. './images/driver-with-vehicle.jpg'
     badgeUrdu: 'ڈرائیور مع گاڑی',
     badgeEn: 'Driver with Vehicle',
     titleUrdu: 'نادرا تصدیق شدہ روڈ کیپٹن مع گاڑی',
@@ -57,7 +57,7 @@ export const GROUND_OPERATIONS_PHOTOS = [
   {
     id: 'loading-dispatch',
     // "Loading/dispatch point photo"
-    imageSrc: './images/factory-warehouse.jpg', // <-- REPLACE THIS ONE LINE: e.g. './images/loading-dispatch-point.jpg'
+    imageSrc: './images/placeholder-loading-dispatch.jpg', // <-- REPLACE THIS ONE LINE: e.g. './images/loading-dispatch-point.jpg'
     badgeUrdu: 'لوڈنگ و ڈسپیچ پوائنٹ',
     badgeEn: 'Loading & Dispatch Point',
     titleUrdu: 'فیکٹری و گودام لوڈنگ اور ڈسپیچ پوائنٹ',
