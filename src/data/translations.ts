@@ -35,6 +35,32 @@ export const TRANSLATIONS = {
         support: 'سروس و رابطہ',
         supportVal: '24 گھنٹے دستیاب',
       },
+      trustCounters: [
+        {
+          num: '20+',
+          badge: 'فیلڈ تجربہ',
+          title: 'سالوں کا قابلِ اعتماد تجربہ',
+          sub: 'دو دہائیوں سے کارپوریٹ و کمرشل سروس',
+        },
+        {
+          num: '100%',
+          badge: 'FTL پالیسی',
+          title: 'مخصوص فل ٹرک لوڈ',
+          sub: 'صرف پوری گاڑی، زیرو پارسل مکسنگ',
+        },
+        {
+          num: '4',
+          badge: 'گاڑیوں کی اقسام',
+          title: 'کمرشل فلیٹ کیٹیگریز',
+          sub: 'شہزور، مزدا، سیمپل، بیڈفورڈ ٹرک',
+        },
+        {
+          num: '2',
+          badge: 'ٹرانسپورٹ اڈے',
+          title: 'بنیادی ڈسپیچ ٹرمینلز',
+          sub: 'سمندری ہیڈ آفس اور کمالیہ اڈا',
+        },
+      ],
     },
     // Fleet
     fleet: {
@@ -173,6 +199,32 @@ export const TRANSLATIONS = {
         support: 'Logistics Operations',
         supportVal: '24/7 Round the Clock',
       },
+      trustCounters: [
+        {
+          num: '20+',
+          badge: 'EST. 2004',
+          title: 'Years Freight Experience',
+          sub: 'Two decades of dedicated cargo transit',
+        },
+        {
+          num: '100%',
+          badge: 'FTL POLICY',
+          title: 'Dedicated Full Truckload',
+          sub: 'Single-shipper cargo, zero parcel mixing',
+        },
+        {
+          num: '4',
+          badge: 'FLEET TYPES',
+          title: 'Commercial Vehicle Types',
+          sub: 'Shehzore, Mazda, Sample & Bedford',
+        },
+        {
+          num: '2',
+          badge: 'DISPATCH HUBS',
+          title: 'Direct Terminal Hubs',
+          sub: 'Samundri Head Office & Kamalia Adda',
+        },
+      ],
     },
     // Fleet
     fleet: {

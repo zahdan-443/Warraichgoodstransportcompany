@@ -18,10 +18,55 @@ import {
   FileCheck2,
   Warehouse,
   Truck,
-  UserCheck
+  UserCheck,
+  Users,
+  Camera
 } from 'lucide-react';
 import { COMPANY_INFO, CORPORATE_CREDENTIALS, FLEET_DATA } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
+
+// ============================================================================
+// TASK 3: HUMAN-CENTRIC OPERATIONS & REAL ON-GROUND TEAM PHOTOGRAPHY
+// To swap out any placeholder with final photos, simply replace the file path in ONE line below:
+// ============================================================================
+export const GROUND_OPERATIONS_PHOTOS = [
+  {
+    id: 'yard-office',
+    // "Proprietor at the yard/office"
+    imageSrc: './images/owner-portrait.png', // <-- REPLACE THIS ONE LINE: e.g. './images/proprietor-yard.jpg'
+    badgeUrdu: 'قیادت و اڈہ دفتر',
+    badgeEn: 'Leadership & Yard Office',
+    titleUrdu: 'پروپرائٹر زاہدان نصر وڑائچ — اڈہ دفتر',
+    titleEn: 'Proprietor at Terminal Office & Yard',
+    descUrdu: 'سمندری اور کمالیہ اڈے پر فلیٹ کی براہ راست روانگی، کاغذات اور بلٹی کی ذاتی نگرانی۔',
+    descEn: 'Direct hands-on oversight of daily fleet dispatch, vehicle inspections, and client coordination.',
+    alt: 'Zahdan Nasar Warraich - Proprietor at Samundri Office and Yard',
+  },
+  {
+    id: 'driver-vehicle',
+    // "Driver with vehicle (with consent)"
+    imageSrc: './images/cargo-safety.jpg', // <-- REPLACE THIS ONE LINE: e.g. './images/driver-with-vehicle.jpg'
+    badgeUrdu: 'ڈرائیور مع گاڑی',
+    badgeEn: 'Driver with Vehicle',
+    titleUrdu: 'نادرا تصدیق شدہ روڈ کیپٹن مع گاڑی',
+    titleEn: 'Vetted Commercial Driver with Vehicle',
+    descUrdu: 'تمام ہائی وے روٹس کے پرانے، بااخلاق، لائسنس یافتہ اور نادرا تصدیق شدہ کمرشل ڈرائیورز۔',
+    descEn: 'NADRA-verified highway drivers holding valid commercial HTV licenses and clean transit records.',
+    alt: 'Professional NADRA Verified Driver with Commercial Transport Vehicle',
+  },
+  {
+    id: 'loading-dispatch',
+    // "Loading/dispatch point photo"
+    imageSrc: './images/factory-warehouse.jpg', // <-- REPLACE THIS ONE LINE: e.g. './images/loading-dispatch-point.jpg'
+    badgeUrdu: 'لوڈنگ و ڈسپیچ پوائنٹ',
+    badgeEn: 'Loading & Dispatch Point',
+    titleUrdu: 'فیکٹری و گودام لوڈنگ اور ڈسپیچ پوائنٹ',
+    titleEn: 'Warehouse Loading & Dispatch Bay',
+    descUrdu: 'ڈبل واٹر پروف ترپال بندی، کمپیوٹرائزڈ کانٹا معائنہ اور سیدھی نان اسٹاپ روانگی۔',
+    descEn: 'Double waterproof tarpaulin sealing, scale verification, and direct highway departure.',
+    alt: 'Factory Warehouse Loading Bay and Direct Highway Dispatch Point',
+  },
+];
 
 export const CorporateCredibilitySection: React.FC = () => {
   const { language } = useLanguage();
@@ -280,6 +325,95 @@ export const CorporateCredibilitySection: React.FC = () => {
               ))}
             </div>
           </div>
+        </div>
+
+        {/* ========================================================================= */}
+        {/* HUMAN-CENTRIC ON-GROUND OPERATIONS PHOTOGRAPHY (Task 3: Real People & Yard) */}
+        {/* ========================================================================= */}
+        <div className="mt-12 sm:mt-16 pt-8 border-t border-slate-200/90">
+          
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+            <div className="inline-flex items-center gap-2 bg-blue-100 border border-blue-300 text-blue-900 px-3.5 py-1.5 rounded-full text-xs font-bold font-urdu mb-3 shadow-xs">
+              <Users className="w-4 h-4 text-blue-700 flex-shrink-0" />
+              <span>{isUrdu ? 'زمینی حقیقت، اڈہ اور عملہ' : 'On-Ground Team & Real Facilities'}</span>
+            </div>
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 font-urdu">
+              {isUrdu ? 'حقیقی اڈہ، بااخلاق ڈرائیورز اور آن گراؤنڈ آپریشنز' : 'Real Terminals, Vetted Highway Drivers & Ground Operations'}
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 mt-2 font-urdu max-w-2xl mx-auto leading-relaxed">
+              {isUrdu 
+                ? 'صرف کاغذات نہیں بلکہ اڈے پر موجود تجربہ کار پروپرائٹر، نادرا تصدیق شدہ ڈرائیورز اور فیلڈ میں براہ راست لوڈنگ و معائنہ کا حقیقی نظام۔' 
+                : 'Authentic freight operations powered by direct terminal leadership, verified highway drivers, and dedicated loading bays.'}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+            {GROUND_OPERATIONS_PHOTOS.map((slot) => (
+              <div 
+                key={slot.id}
+                className="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:border-blue-300 hover:shadow-lg transition-all duration-300 flex flex-col group"
+              >
+                {/* Image Container with Fallback Support */}
+                <div className="relative h-56 sm:h-64 overflow-hidden bg-slate-100">
+                  <img 
+                    src={slot.imageSrc} 
+                    alt={slot.alt} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                      const parent = e.currentTarget.parentElement;
+                      if (parent) {
+                        const fallbackDiv = parent.querySelector('.photo-fallback');
+                        if (fallbackDiv) fallbackDiv.classList.remove('hidden');
+                      }
+                    }}
+                  />
+                  {/* Subtle Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 pointer-events-none" />
+
+                  {/* Fallback Icon Box if image missing */}
+                  <div className="photo-fallback hidden absolute inset-0 bg-gradient-to-br from-slate-100 to-slate-200 flex flex-col items-center justify-center text-slate-400 p-4">
+                    <Camera className="w-10 h-10 mb-2 text-slate-400" />
+                    <span className="text-xs font-bold font-mono text-slate-500">{slot.id}.jpg</span>
+                  </div>
+
+                  {/* Top Floating Badge */}
+                  <div className={`absolute top-3 z-10 ${isUrdu ? 'left-3' : 'right-3'}`}>
+                    <span className="inline-flex items-center gap-1 bg-slate-900/90 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-1 rounded-lg border border-white/20 font-urdu shadow-sm">
+                      <Camera className="w-3 h-3 text-amber-400 flex-shrink-0" />
+                      <span>{isUrdu ? slot.badgeUrdu : slot.badgeEn}</span>
+                    </span>
+                  </div>
+                </div>
+
+                {/* Content Block */}
+                <div className={`p-4 sm:p-5 flex-1 flex flex-col justify-between ${isUrdu ? 'text-right' : 'text-left'}`}>
+                  <div>
+                    <h4 className="text-sm sm:text-base font-bold text-slate-900 font-urdu leading-snug mb-1.5">
+                      {isUrdu ? slot.titleUrdu : slot.titleEn}
+                    </h4>
+                    <p className="text-xs text-slate-600 font-urdu leading-relaxed">
+                      {isUrdu ? slot.descUrdu : slot.descEn}
+                    </p>
+                  </div>
+
+                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-urdu">
+                    <span className="flex items-center gap-1 text-emerald-700 font-semibold">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+                      <span>{isUrdu ? 'تصدیق شدہ گراؤنڈ فوٹیج' : 'Verified Ground Operations'}</span>
+                    </span>
+                    <span className="font-mono text-[10px] text-slate-400">
+                      {isUrdu ? 'حقیقی آپریشنز' : 'Live Ops'}
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+            ))}
+          </div>
+
         </div>
 
       </div>

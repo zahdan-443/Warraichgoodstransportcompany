@@ -9,7 +9,9 @@ import {
   MessageCircle,
   Award,
   Lock,
-  Calculator
+  Calculator,
+  Warehouse,
+  History
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
@@ -236,6 +238,92 @@ export const HeroSection: React.FC = () => {
           </div>
 
         </div>
+
+        {/* ========================================================================= */}
+        {/* PROMINENT TRUST-STATS COUNTER (Task 2 & 4 - Bilingual, RTL-Safe, Real Facts) */}
+        {/* ========================================================================= */}
+        <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-200/90">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            
+            {/* Stat 1: 20+ Years Field Experience */}
+            <div className="bg-white/90 backdrop-blur-xs border border-amber-200/90 rounded-2xl p-3.5 sm:p-4 shadow-xs hover:shadow-md hover:border-amber-400 transition-all flex flex-col justify-between">
+              <div className="flex items-center justify-between gap-1.5 mb-1.5">
+                <span className="text-xl sm:text-2xl lg:text-3xl font-black text-amber-600 font-mono tracking-tight">
+                  20+
+                </span>
+                <span className="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold font-urdu px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-200">
+                  <History className="w-3 h-3 text-amber-700 flex-shrink-0" />
+                  <span>{t.trustCounters[0].badge}</span>
+                </span>
+              </div>
+              <p className="text-xs sm:text-sm font-extrabold text-slate-900 font-urdu leading-snug">
+                {t.trustCounters[0].title}
+              </p>
+              <p className="text-[11px] text-slate-600 font-urdu mt-0.5 leading-tight">
+                {t.trustCounters[0].sub}
+              </p>
+            </div>
+
+            {/* Stat 2: 100% Dedicated Full Truckload Policy */}
+            <div className="bg-white/90 backdrop-blur-xs border border-blue-200/90 rounded-2xl p-3.5 sm:p-4 shadow-xs hover:shadow-md hover:border-blue-400 transition-all flex flex-col justify-between">
+              <div className="flex items-center justify-between gap-1.5 mb-1.5">
+                <span className="text-xl sm:text-2xl lg:text-3xl font-black text-blue-700 font-mono tracking-tight">
+                  100%
+                </span>
+                <span className="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold font-mono px-2 py-0.5 rounded-full bg-blue-100 text-blue-900 border border-blue-200">
+                  <Lock className="w-3 h-3 text-blue-700 flex-shrink-0" />
+                  <span>{t.trustCounters[1].badge}</span>
+                </span>
+              </div>
+              <p className="text-xs sm:text-sm font-extrabold text-slate-900 font-urdu leading-snug">
+                {t.trustCounters[1].title}
+              </p>
+              <p className="text-[11px] text-slate-600 font-urdu mt-0.5 leading-tight">
+                {t.trustCounters[1].sub}
+              </p>
+            </div>
+
+            {/* Stat 3: 4 Vehicle Types in Fleet Variety */}
+            <div className="bg-white/90 backdrop-blur-xs border border-emerald-200/90 rounded-2xl p-3.5 sm:p-4 shadow-xs hover:shadow-md hover:border-emerald-400 transition-all flex flex-col justify-between">
+              <div className="flex items-center justify-between gap-1.5 mb-1.5">
+                <span className="text-xl sm:text-2xl lg:text-3xl font-black text-emerald-700 font-mono tracking-tight">
+                  4
+                </span>
+                <span className="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold font-urdu px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-200">
+                  <Truck className="w-3 h-3 text-emerald-700 flex-shrink-0" />
+                  <span>{t.trustCounters[2].badge}</span>
+                </span>
+              </div>
+              <p className="text-xs sm:text-sm font-extrabold text-slate-900 font-urdu leading-snug">
+                {t.trustCounters[2].title}
+              </p>
+              <p className="text-[11px] text-slate-600 font-urdu mt-0.5 leading-tight">
+                {t.trustCounters[2].sub}
+              </p>
+            </div>
+
+            {/* Stat 4: 2 Direct Dispatch Hub Locations */}
+            <div className="bg-white/90 backdrop-blur-xs border border-purple-200/90 rounded-2xl p-3.5 sm:p-4 shadow-xs hover:shadow-md hover:border-purple-400 transition-all flex flex-col justify-between">
+              <div className="flex items-center justify-between gap-1.5 mb-1.5">
+                <span className="text-xl sm:text-2xl lg:text-3xl font-black text-purple-700 font-mono tracking-tight">
+                  2
+                </span>
+                <span className="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold font-urdu px-2 py-0.5 rounded-full bg-purple-100 text-purple-900 border border-purple-200">
+                  <Warehouse className="w-3 h-3 text-purple-700 flex-shrink-0" />
+                  <span>{t.trustCounters[3].badge}</span>
+                </span>
+              </div>
+              <p className="text-xs sm:text-sm font-extrabold text-slate-900 font-urdu leading-snug">
+                {t.trustCounters[3].title}
+              </p>
+              <p className="text-[11px] text-slate-600 font-urdu mt-0.5 leading-tight">
+                {t.trustCounters[3].sub}
+              </p>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </section>
   );
