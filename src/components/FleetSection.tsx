@@ -56,8 +56,7 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
             const truckBadge = language === 'ur' ? truck.badgeUrdu : (truck.badgeEnglish || truck.badgeUrdu);
             const idealList = language === 'ur' ? truck.idealForUrdu : truck.idealForEnglish;
             const altText = language === 'ur' ? (truck.altUrdu || truck.nameUrdu) : (truck.altEnglish || truck.nameEnglish);
-            const webpSrc = truck.webpImage || `./images/${truck.id}-truck.webp`;
-            const fallbackSrc = truck.fallbackImage || truck.image;
+            const imgSrc = truck.image || `./images/${truck.id}-truck.png`;
 
             const badgeColorClass = 
               truck.id === 'shehzore' ? 'bg-emerald-600 text-white' :
@@ -71,27 +70,26 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
                 id={`fleet-card-${truck.id}`}
                 className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:border-blue-400 transition-all duration-300 flex flex-col group"
               >
-                {/* Truck Photo Image Container with Picture WebP + Lazy Loading */}
+                {/* Truck Photo Image Container with PNG + Lazy Loading */}
                 <div className="relative h-48 sm:h-52 bg-slate-100 overflow-hidden flex items-center justify-center border-b border-slate-200">
                   {!hasError ? (
-                    <picture className="w-full h-full">
-                      <source srcSet={webpSrc} type="image/webp" />
-                      <img
-                        src={fallbackSrc}
-                        alt={altText}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        onError={(e) => {
-                          const currentSrc = e.currentTarget.getAttribute('src');
-                          if (currentSrc?.startsWith('./assets/images/')) {
-                            e.currentTarget.src = currentSrc.replace('./assets/images/', './images/');
-                          } else {
-                            handleImageError(truck.id);
-                          }
-                        }}
-                      />
-                    </picture>
+                    <img
+                      src={imgSrc}
+                      alt={altText}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      onError={(e) => {
+                        const currentSrc = e.currentTarget.getAttribute('src');
+                        if (currentSrc?.startsWith('./images/')) {
+                          e.currentTarget.src = currentSrc.replace('./images/', './assets/images/');
+                        } else if (currentSrc?.startsWith('./assets/images/')) {
+                          e.currentTarget.src = currentSrc.replace('./assets/images/', './images/');
+                        } else {
+                          handleImageError(truck.id);
+                        }
+                      }}
+                    />
                   ) : (
                     /* Graphic Truck Fallback Card */
                     <div className="w-full h-full bg-slate-50 p-4 flex flex-col items-center justify-center text-center relative">
@@ -101,7 +99,7 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
                       <span className="text-sm font-bold text-slate-800 font-urdu">{truckName}</span>
                       <span className="text-[10px] text-slate-500 font-mono mt-1 flex items-center gap-1">
                         <ImageIcon className="w-3 h-3 text-blue-500" />
-                        {truck.id}-truck.webp
+                        {truck.id}-truck.png
                       </span>
                     </div>
                   )}

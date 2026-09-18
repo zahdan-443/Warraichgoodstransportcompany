@@ -54,7 +54,12 @@ export const Footer: React.FC = () => {
                   className="w-full h-full object-cover rounded-[10px]"
                   loading="lazy"
                   onError={(e) => {
-                    e.currentTarget.style.display = 'none';
+                    const currentSrc = e.currentTarget.getAttribute('src');
+                    if (currentSrc?.startsWith('./images/')) {
+                      e.currentTarget.src = currentSrc.replace('./images/', './assets/images/');
+                    } else {
+                      e.currentTarget.style.display = 'none';
+                    }
                   }}
                 />
                 <Truck className="w-6 h-6 text-slate-950 absolute pointer-events-none -z-10" />

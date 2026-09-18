@@ -10,7 +10,6 @@ export interface VehicleInfo {
   idealForUrdu: string[];
   idealForEnglish: string[];
   image: string;
-  webpImage?: string;
   fallbackImage?: string;
   badgeUrdu: string;
   badgeEnglish?: string;

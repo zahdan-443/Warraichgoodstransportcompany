@@ -59,7 +59,14 @@ export const AboutSection: React.FC = () => {
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
-                    onError={() => setImgError(true)}
+                    onError={(e) => {
+                      const currentSrc = e.currentTarget.getAttribute('src');
+                      if (currentSrc?.startsWith('./images/')) {
+                        e.currentTarget.src = currentSrc.replace('./images/', './assets/images/');
+                      } else {
+                        setImgError(true);
+                      }
+                    }}
                   />
                 ) : (
                   <div className="w-full h-full flex flex-col items-center justify-center text-center p-4 bg-slate-100">

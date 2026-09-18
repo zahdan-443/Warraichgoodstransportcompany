@@ -80,8 +80,8 @@ export const Navbar: React.FC<NavbarProps> = () => {
                 className="w-full h-full object-cover rounded-[10px]"
                 onError={(e) => {
                   const currentSrc = e.currentTarget.getAttribute('src');
-                  if (currentSrc === './images/logo.png') {
-                    e.currentTarget.src = '/images/logo.png';
+                  if (currentSrc?.startsWith('./images/')) {
+                    e.currentTarget.src = currentSrc.replace('./images/', './assets/images/');
                   }
                 }}
               />
