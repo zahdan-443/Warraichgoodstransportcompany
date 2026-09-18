@@ -9,7 +9,9 @@ import {
   FileText, 
   ShieldCheck,
   Navigation,
-  Scale
+  Scale,
+  Clock,
+  Truck
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { COMPANY_INFO } from '../data/companyData';
@@ -24,6 +26,53 @@ export const BiltyTrackingSection: React.FC = () => {
   const [hasSearched, setHasSearched] = useState<boolean>(false);
 
   const sampleCodes = ['CN-452', 'FD-7844', 'LE-3190', 'CN-1048'];
+
+  const corridorsList = [
+    {
+      corridorUr: 'سمندری / کمالیہ ⇋ کراچی پورٹ (KPT / QICT)',
+      corridorEn: 'Samundri / Kamalia ⇋ Karachi Port Hubs',
+      highwayUr: 'براستہ M-4، M-5 سکھر ملتان موٹروے و نیشنل ہائی وے',
+      highwayEn: 'Via M-4, M-5 Motorway & N-5 National Highway',
+      transitUr: '24 تا 30 گھنٹے (نان اسٹاپ ایکسپریس FTL)',
+      transitEn: '24 - 30 Hours (Dedicated FTL)',
+      tagUr: 'بندرگاہ روٹ',
+      tagEn: 'Port Hub',
+      tagColor: 'bg-blue-100 text-blue-900 border-blue-200',
+    },
+    {
+      corridorUr: 'سمندری / کمالیہ ⇋ لاہور، شیخوپورہ و گوجرانوالہ',
+      corridorEn: 'Samundri / Kamalia ⇋ Lahore & Gujranwala Belts',
+      highwayUr: 'براستہ M-3 موٹروے (رجانہ / شرقپور انٹرچینج)',
+      highwayEn: 'Via M-3 Motorway (Rajana / Sharqpur Link)',
+      transitUr: '3 تا 4 گھنٹے (سیم ڈے ڈلیوری)',
+      transitEn: '3 - 4 Hours (Same-Day Transit)',
+      tagUr: 'انڈسٹریل روٹ',
+      tagEn: 'Industrial',
+      tagColor: 'bg-emerald-100 text-emerald-900 border-emerald-200',
+    },
+    {
+      corridorUr: 'سمندری / کمالیہ ⇋ راولپنڈی، اسلام آباد و خیبر پختونخوا',
+      corridorEn: 'Samundri / Kamalia ⇋ Rawalpindi, Islamabad & KPK',
+      highwayUr: 'براستہ M-4 تا M-2 موٹروے و ایم-1 برہان / پشاور کوریڈور',
+      highwayEn: 'Via M-4, M-2 & M-1 Motorway Corridors',
+      transitUr: '6 تا 8 گھنٹے (اسلام آباد) | 10 تا 12 گھنٹے (پشاور)',
+      transitEn: '6 - 8 Hrs (Islamabad) | 10 - 12 Hrs (Peshawar)',
+      tagUr: 'ناردرن ہب',
+      tagEn: 'Northern Hub',
+      tagColor: 'bg-amber-100 text-amber-900 border-amber-200',
+    },
+    {
+      corridorUr: 'سمندری / کمالیہ ⇋ ملتان، بہاولپور، صادق آباد و سندھ',
+      corridorEn: 'Samundri / Kamalia ⇋ Multan, Sadiqabad & Upper Sindh',
+      highwayUr: 'براستہ M-4 و M-5 موٹروے ڈائریکٹ لنک',
+      highwayEn: 'Via M-4 & M-5 Motorway Direct Link',
+      transitUr: '3 تا 5 گھنٹے (ملتان/بہاولپور) | 8 تا 10 گھنٹے (سکھر)',
+      transitEn: '3 - 5 Hrs (Multan) | 8 - 10 Hrs (Sukkur)',
+      tagUr: 'جنوبی کوریڈور',
+      tagEn: 'South Lane',
+      tagColor: 'bg-purple-100 text-purple-900 border-purple-200',
+    },
+  ];
 
   const handleTrack = (code?: string) => {
     const query = (code || inputBilty).trim().toUpperCase();
@@ -261,6 +310,49 @@ export const BiltyTrackingSection: React.FC = () => {
                   : 'Official computerized weighbridge scale slips at loading and signed bilty receipts at consignee delivery ensure 100% legal clarity.'}
               </p>
             </div>
+          </div>
+        </div>
+
+        {/* National Corridors & Highway Transit Times Grid */}
+        <div className="max-w-5xl mx-auto mt-10 sm:mt-14 pt-8 border-t border-slate-200/80">
+          <div className="text-center mb-6 sm:mb-8">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-200/80 text-slate-800 text-xs font-bold font-urdu mb-2">
+              <Truck className="w-3.5 h-3.5 text-slate-700" />
+              <span>{t.corridorsBadge}</span>
+            </div>
+            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-urdu">
+              {t.corridorsTitle}
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl mx-auto font-urdu">
+              {t.corridorsSubtitle}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {corridorsList.map((item, idx) => (
+              <div 
+                key={idx}
+                className="bg-white border border-slate-200 rounded-xl p-4 sm:p-5 hover:border-blue-300 hover:shadow-md transition-all flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded border font-urdu ${item.tagColor}`}>
+                      {language === 'ur' ? item.tagUr : item.tagEn}
+                    </span>
+                    <span className="text-xs font-mono font-bold text-slate-500 flex items-center gap-1">
+                      <Clock className="w-3.5 h-3.5 text-blue-600" />
+                      <span>{language === 'ur' ? item.transitUr : item.transitEn}</span>
+                    </span>
+                  </div>
+                  <h4 className="text-sm sm:text-base font-bold text-slate-900 font-urdu mb-1">
+                    {language === 'ur' ? item.corridorUr : item.corridorEn}
+                  </h4>
+                  <p className="text-xs text-slate-600 font-urdu leading-relaxed">
+                    {language === 'ur' ? item.highwayUr : item.highwayEn}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 

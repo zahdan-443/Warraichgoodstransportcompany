@@ -14,7 +14,7 @@ import { TRANSLATIONS } from '../data/translations';
 export const FaqAndReviewsSection: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const { language } = useLanguage();
-  const tFaq = TRANSLATIONS[language].faq;
+  const tFaq = TRANSLATIONS[language].reviews;
 
   const faqsUrdu = [
     {

@@ -66,6 +66,7 @@
     <!-- Theme and Favicons -->
     <link rel="icon" type="image/png" href="./images/logo.png" />
     <link rel="apple-touch-icon" href="./images/logo.png" />
+    <link rel="preload" href="./images/logo.png" as="image" type="image/png" />
     <meta name="theme-color" content="#f8fafc" />
 
     <!-- Fonts & CDN Preconnect -->
@@ -135,6 +136,37 @@
           "currenciesAccepted": "PKR",
           "paymentAccepted": "Cash, Bank Transfer",
           "openingHours": "Mo-Su 00:00-23:59",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+              "opens": "00:00",
+              "closes": "23:59"
+            }
+          ],
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "bestRating": "5",
+            "worstRating": "1",
+            "reviewCount": "348"
+          },
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+92-300-5370443",
+              "contactType": "customer service",
+              "areaServed": "PK",
+              "availableLanguage": ["Urdu", "English", "Punjabi"]
+            },
+            {
+              "@type": "ContactPoint",
+              "telephone": "+92-339-5370443",
+              "contactType": "dispatch operations",
+              "areaServed": "PK",
+              "availableLanguage": ["Urdu", "English", "Punjabi"]
+            }
+          ],
           "address": [
             {
               "@type": "PostalAddress",
@@ -266,7 +298,7 @@
             {
               "@type": "ListItem",
               "position": 4,
-              "name": "Corporate Vendor Profile (کارپوریٹ اعتبار)",
+              "name": "Corporate Vendor Profile (کارپوریٹ کوائف)",
               "item": "https://zahdan-443.github.io/Warraichgoodstransportcompany/#corporate-credibility"
             },
             {
@@ -278,8 +310,8 @@
             {
               "@type": "ListItem",
               "position": 6,
-              "name": "Branches (اڈے و دفاتر)",
-              "item": "https://zahdan-443.github.io/Warraichgoodstransportcompany/#branches"
+              "name": "Business Card & Profile (کاروباری تعارف و کارڈ)",
+              "item": "https://zahdan-443.github.io/Warraichgoodstransportcompany/#business-intro"
             }
           ]
         },
