@@ -79,15 +79,8 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
                       loading="lazy"
                       decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      onError={(e) => {
-                        const currentSrc = e.currentTarget.getAttribute('src');
-                        if (currentSrc?.startsWith('./images/')) {
-                          e.currentTarget.src = currentSrc.replace('./images/', './assets/images/');
-                        } else if (currentSrc?.startsWith('./assets/images/')) {
-                          e.currentTarget.src = currentSrc.replace('./assets/images/', './images/');
-                        } else {
-                          handleImageError(truck.id);
-                        }
+                      onError={() => {
+                        handleImageError(truck.id);
                       }}
                     />
                   ) : (

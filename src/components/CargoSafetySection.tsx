@@ -116,25 +116,51 @@ export const CargoSafetySection: React.FC = () => {
           })}
         </div>
 
-        {/* Reassurance Banner */}
-        <div className={`mt-8 sm:mt-12 bg-gradient-to-r from-amber-50 via-amber-100/50 to-orange-50 text-slate-900 rounded-2xl p-5 sm:p-7 border border-amber-200 shadow-md flex flex-col md:flex-row items-stretch md:items-center justify-between gap-5 ${language === 'ur' ? 'text-right' : 'text-left'}`}>
-          <div className="space-y-1">
-            <p className="text-lg sm:text-xl font-bold text-amber-900 font-urdu">
-              {language === 'ur' ? 'کیا آپ کو حساس، قیمتی یا بارش سے متاثر ہونے والے سامان کے لیے گاڑی چاہیے؟' : 'Need safe dedicated transport for weather-sensitive commercial cargo?'}
-            </p>
-            <p className="text-xs sm:text-sm text-slate-700 font-urdu">
-              {language === 'ur' ? 'ہماری تمام اوپن اور جالی باڈی گاڑیوں میں نئی واٹر پروف ترپالیں موجود ہوتی ہیں تاکہ مال کو ایک قطرہ پانی بھی نہ لگے۔' : 'Every vehicle carries double heavy waterproof tarpaulins to ensure zero water damage or moisture exposure.'}
-            </p>
+        {/* Reassurance Banner with Visual Tarpaulin Protection Showcase */}
+        <div className={`mt-8 sm:mt-12 bg-gradient-to-br from-amber-50 via-white to-amber-100/60 text-slate-900 rounded-2xl p-5 sm:p-7 border border-amber-200 shadow-md grid grid-cols-1 lg:grid-cols-12 gap-6 items-center ${language === 'ur' ? 'text-right' : 'text-left'}`}>
+          
+          {/* Image Showcase Frame */}
+          <div className="lg:col-span-5 relative rounded-xl overflow-hidden shadow-sm border border-amber-200 group">
+            <img 
+              src="./images/cargo-safety.jpg" 
+              alt="Waterproof Tarpaulin and Cargo Lashing Safety - Warraich Goods" 
+              className="w-full h-48 sm:h-52 object-cover group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+              referrerPolicy="no-referrer"
+              onError={(e) => {
+                e.currentTarget.parentElement?.classList.add('hidden');
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex items-end p-3">
+              <span className="text-white text-xs font-semibold font-urdu bg-slate-900/80 px-2.5 py-1 rounded-md backdrop-blur-sm">
+                {language === 'ur' ? '100% واٹر پروف ڈبل ترپال و مضبوط بندھائی' : 'Double Waterproof Tarpaulin & Heavy Tie-Downs'}
+              </span>
+            </div>
           </div>
 
-          <a
-            href={`tel:${COMPANY_INFO.phoneRaw1}`}
-            className="flex-shrink-0 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold px-5 py-3 rounded-xl text-xs sm:text-sm transition-all shadow-md font-urdu whitespace-nowrap cursor-pointer min-h-[44px]"
-            aria-label={`Call proprietor at ${COMPANY_INFO.phone1}`}
-          >
-            <PhoneCall className="w-4 h-4 fill-current flex-shrink-0" />
-            <span>{language === 'ur' ? `براہ راست بات کریں (${COMPANY_INFO.phone1})` : `Call Proprietor (${COMPANY_INFO.phone1})`}</span>
-          </a>
+          {/* Text & Call to Action */}
+          <div className="lg:col-span-7 flex flex-col justify-between space-y-4">
+            <div className="space-y-2">
+              <p className="text-lg sm:text-xl font-bold text-amber-900 font-urdu leading-snug">
+                {language === 'ur' ? 'کیا آپ کو بارش، نمی یا موسمی اثرات سے حساس قیمتی سامان کے لیے محفوظ گاڑی چاہیے؟' : 'Need safe dedicated transport for weather-sensitive commercial cargo?'}
+              </p>
+              <p className="text-xs sm:text-sm text-slate-700 font-urdu leading-relaxed">
+                {language === 'ur' ? 'ہماری تمام اوپن اور جالی باڈی گاڑیوں میں نئی واٹر پروف ترپالیں اور انڈسٹریل ٹائی ڈاؤن رسیاں موجود ہوتی ہیں تاکہ آپ کا مال بارش، تیز دھوپ، آندھی اور دھول مٹی سے 100% محفوظ منزل تک پہنچے۔' : 'Every vehicle carries double heavy waterproof PVC tarpaulins and industrial nylon tie-downs to ensure zero water damage or road friction during highway transit.'}
+              </p>
+            </div>
+
+            <div>
+              <a
+                href={`tel:${COMPANY_INFO.phoneRaw1}`}
+                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold px-6 py-3 rounded-xl text-xs sm:text-sm transition-all shadow-md font-urdu whitespace-nowrap cursor-pointer min-h-[44px]"
+                aria-label={`Call proprietor at ${COMPANY_INFO.phone1}`}
+              >
+                <PhoneCall className="w-4 h-4 fill-current flex-shrink-0" />
+                <span>{language === 'ur' ? `حفاظتی انتظامات پر بات کریں (${COMPANY_INFO.phone1})` : `Discuss Cargo Safety (${COMPANY_INFO.phone1})`}</span>
+              </a>
+            </div>
+          </div>
+
         </div>
 
       </div>

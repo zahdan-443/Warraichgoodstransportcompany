@@ -190,12 +190,6 @@ export const HeroSection: React.FC = () => {
                       alt="Shehzore Pickup Truck - Warraich Goods"
                       className="w-full h-full object-contain"
                       loading="eager"
-                      onError={(e) => {
-                        const currentSrc = e.currentTarget.getAttribute('src');
-                        if (currentSrc?.startsWith('./images/')) {
-                          e.currentTarget.src = currentSrc.replace('./images/', './assets/images/');
-                        }
-                      }}
                     />
                   </div>
                   <p className="font-bold text-xs sm:text-sm text-slate-900 truncate">Shehzore Pickup</p>
@@ -220,12 +214,6 @@ export const HeroSection: React.FC = () => {
                       alt="Mazda 6-Wheeler Commercial Truck - Warraich Goods"
                       className="w-full h-full object-contain"
                       loading="eager"
-                      onError={(e) => {
-                        const currentSrc = e.currentTarget.getAttribute('src');
-                        if (currentSrc?.startsWith('./images/')) {
-                          e.currentTarget.src = currentSrc.replace('./images/', './assets/images/');
-                        }
-                      }}
                     />
                   </div>
                   <p className="font-bold text-xs sm:text-sm text-slate-900 truncate">Mazda 6-Wheeler</p>
@@ -250,12 +238,6 @@ export const HeroSection: React.FC = () => {
                       alt="Sample Extended Body Truck - Warraich Goods"
                       className="w-full h-full object-contain"
                       loading="eager"
-                      onError={(e) => {
-                        const currentSrc = e.currentTarget.getAttribute('src');
-                        if (currentSrc?.startsWith('./images/')) {
-                          e.currentTarget.src = currentSrc.replace('./images/', './assets/images/');
-                        }
-                      }}
                     />
                   </div>
                   <p className="font-bold text-xs sm:text-sm text-slate-900 truncate">Sample Extended</p>
@@ -280,12 +262,6 @@ export const HeroSection: React.FC = () => {
                       alt="Bedford Heavy Long Haul Truck - Warraich Goods"
                       className="w-full h-full object-contain"
                       loading="eager"
-                      onError={(e) => {
-                        const currentSrc = e.currentTarget.getAttribute('src');
-                        if (currentSrc?.startsWith('./images/')) {
-                          e.currentTarget.src = currentSrc.replace('./images/', './assets/images/');
-                        }
-                      }}
                     />
                   </div>
                   <p className="font-bold text-xs sm:text-sm text-slate-900 truncate">Bedford Heavy</p>

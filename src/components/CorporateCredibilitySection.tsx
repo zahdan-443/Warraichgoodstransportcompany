@@ -205,23 +205,56 @@ export const CorporateCredibilitySection: React.FC = () => {
             </p>
           </div>
 
-          {/* 4 Contract Perks Grid */}
-          <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 ${isUrdu ? 'text-right' : 'text-left'}`}>
-            {CORPORATE_CREDENTIALS.corporateContractPerks.map((perk, idx) => (
-              <div key={idx} className="bg-slate-50 border border-slate-200 p-4 sm:p-5 rounded-2xl flex items-start gap-3.5 sm:gap-4 hover:border-blue-300 transition-colors shadow-sm">
-                <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center flex-shrink-0 border border-blue-200 mt-0.5">
-                  <CheckCircle2 className="w-5 h-5" />
-                </div>
-                <div className="space-y-1">
-                  <p className="text-sm sm:text-base font-bold text-slate-900 font-urdu">
-                    {isUrdu ? perk.titleUr : perk.titleEn}
-                  </p>
-                  <p className="text-xs text-slate-600 leading-relaxed font-urdu">
-                    {isUrdu ? perk.descUr : perk.descEn}
-                  </p>
-                </div>
+          {/* B2B Logistics Visual Showcase & 4 Contract Perks */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+            
+            {/* Visual Factory Warehouse Dispatch Showcase */}
+            <div className="lg:col-span-4 relative rounded-2xl overflow-hidden border border-slate-200 shadow-md group flex flex-col justify-end min-h-[260px] lg:min-h-full">
+              <img 
+                src="./images/factory-warehouse.jpg" 
+                alt="Industrial Factory and Warehouse Logistics Loading Bay - Warraich Goods" 
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                referrerPolicy="no-referrer"
+                onError={(e) => {
+                  e.currentTarget.parentElement?.classList.add('hidden');
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent pointer-events-none" />
+              <div className="relative z-10 p-5 text-white">
+                <span className="inline-block bg-amber-500 text-slate-950 text-[11px] font-bold px-2.5 py-0.5 rounded font-mono mb-2 uppercase tracking-wider">
+                  B2B Industrial Freight
+                </span>
+                <p className="font-bold text-base font-urdu text-white leading-snug">
+                  {isUrdu ? 'فیکٹری ڈسپیچ و گودام لاجسٹکس' : 'Factory Dispatch & Warehouse Fleet'}
+                </p>
+                <p className="text-xs text-slate-200 font-urdu mt-1 leading-relaxed">
+                  {isUrdu 
+                    ? 'صنعتی یونٹس، ملز اور مینوفیکچرنگ پلانٹس کے لیے مخصوص لوڈنگ' 
+                    : 'Scheduled dedicated loading for textile mills, plants, and manufacturing units'}
+                </p>
               </div>
-            ))}
+            </div>
+
+            {/* 4 Contract Perks Grid */}
+            <div className={`lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4 ${isUrdu ? 'text-right' : 'text-left'}`}>
+              {CORPORATE_CREDENTIALS.corporateContractPerks.map((perk, idx) => (
+                <div key={idx} className="bg-slate-50 border border-slate-200 p-4 rounded-xl flex items-start gap-3.5 hover:border-blue-300 transition-colors shadow-sm">
+                  <div className="w-9 h-9 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center flex-shrink-0 border border-blue-200 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4" />
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-sm font-bold text-slate-900 font-urdu">
+                      {isUrdu ? perk.titleUr : perk.titleEn}
+                    </p>
+                    <p className="text-xs text-slate-600 leading-relaxed font-urdu">
+                      {isUrdu ? perk.descUr : perk.descEn}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
           </div>
 
           {/* Sectors Served Showcase */}

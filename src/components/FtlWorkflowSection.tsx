@@ -183,26 +183,57 @@ export const FtlWorkflowSection: React.FC = () => {
             </div>
           </div>
 
-          {/* 4 Core Pillars Grid */}
-          <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 ${language === 'ur' ? 'text-right' : 'text-left'}`}>
-            {ftlPillars.map((p, idx) => {
-              const Icon = p.icon;
-              return (
-                <div key={idx} className="bg-slate-50 border border-slate-200 p-4 rounded-xl flex items-start gap-3.5 hover:border-slate-300 transition-colors">
-                  <div className={`w-9 h-9 rounded-lg ${p.iconBg} border flex items-center justify-center flex-shrink-0 mt-0.5`}>
-                    <Icon className="w-4 h-4" />
+          {/* 4 Core Pillars Grid with Highway Corridor Showcase */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-6">
+            
+            {/* Visual Highway Showcase Banner */}
+            <div className="lg:col-span-4 relative rounded-xl overflow-hidden shadow-sm border border-slate-200 group flex flex-col justify-end min-h-[220px]">
+              <img 
+                src="./images/road-highway.jpg" 
+                alt="Pakistan Motorway Freight Logistics Corridor - Warraich Goods" 
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                referrerPolicy="no-referrer"
+                onError={(e) => {
+                  e.currentTarget.parentElement?.classList.add('hidden');
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent pointer-events-none" />
+              <div className="relative z-10 p-4 text-white">
+                <span className="inline-block bg-blue-600/90 text-white text-[11px] font-bold px-2 py-0.5 rounded font-mono mb-1.5 uppercase tracking-wide">
+                  Motorway M-4 / M-2 / N-5
+                </span>
+                <p className="font-bold text-sm sm:text-base font-urdu text-white leading-snug">
+                  {language === 'ur' ? 'نان سٹاپ موٹروے کوریڈور سروس' : 'Direct Highway & Motorway Corridor'}
+                </p>
+                <p className="text-[11px] text-slate-200 font-urdu mt-0.5 leading-relaxed">
+                  {language === 'ur' ? 'لوڈنگ پوائنٹ سے منزل تک بغیر رکے تیز ترین ترسیل' : 'Express point-to-point transit with zero intermediate stops'}
+                </p>
+              </div>
+            </div>
+
+            {/* 4 Pillars in a 2x2 Grid */}
+            <div className={`lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-3.5 ${language === 'ur' ? 'text-right' : 'text-left'}`}>
+              {ftlPillars.map((p, idx) => {
+                const Icon = p.icon;
+                return (
+                  <div key={idx} className="bg-slate-50 border border-slate-200 p-3.5 rounded-xl flex items-start gap-3 hover:border-slate-300 transition-colors">
+                    <div className={`w-8 h-8 rounded-lg ${p.iconBg} border flex items-center justify-center flex-shrink-0 mt-0.5`}>
+                      <Icon className="w-4 h-4" />
+                    </div>
+                    <div className="space-y-0.5">
+                      <p className="text-xs sm:text-sm font-bold text-slate-900 font-urdu">
+                        {language === 'ur' ? p.titleUrdu : p.titleEnglish}
+                      </p>
+                      <p className="text-[11px] text-slate-600 leading-relaxed font-urdu">
+                        {language === 'ur' ? p.descUrdu : p.descEnglish}
+                      </p>
+                    </div>
                   </div>
-                  <div className="space-y-1">
-                    <p className="text-sm sm:text-base font-bold text-slate-900 font-urdu">
-                      {language === 'ur' ? p.titleUrdu : p.titleEnglish}
-                    </p>
-                    <p className="text-xs text-slate-600 leading-relaxed font-urdu">
-                      {language === 'ur' ? p.descUrdu : p.descEnglish}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
+
           </div>
 
           {/* Direct CTA */}

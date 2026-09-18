@@ -79,10 +79,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
                 decoding="async"
                 className="w-full h-full object-cover rounded-[10px]"
                 onError={(e) => {
-                  const currentSrc = e.currentTarget.getAttribute('src');
-                  if (currentSrc?.startsWith('./images/')) {
-                    e.currentTarget.src = currentSrc.replace('./images/', './assets/images/');
-                  }
+                  e.currentTarget.style.display = 'none';
                 }}
               />
               <Truck className="w-6 h-6 text-slate-900 absolute pointer-events-none -z-10" />

@@ -289,6 +289,30 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
 
             {/* Info Column */}
             <div className="lg:col-span-5 space-y-4">
+              
+              {/* Category Visual Image Preview */}
+              <div className="relative rounded-xl overflow-hidden shadow-sm border border-slate-200 h-44 group">
+                <img 
+                  src={
+                    activeTab === 'agri' 
+                      ? './images/agricultural-freight.jpg' 
+                      : (activeTab === 'household' ? './images/cargo-safety.jpg' : './images/factory-warehouse.jpg')
+                  }
+                  alt={language === 'ur' ? currentCategory.titleUrdu : currentCategory.titleEnglish}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    e.currentTarget.parentElement?.classList.add('hidden');
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                  <span className="text-white text-xs font-semibold font-urdu bg-slate-900/80 px-2.5 py-1 rounded-md backdrop-blur-sm">
+                    {language === 'ur' ? currentCategory.titleUrdu : currentCategory.titleEnglish}
+                  </span>
+                </div>
+              </div>
+
               <div className={`bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-3.5 ${language === 'ur' ? 'text-right' : 'text-left'}`}>
                 <p className="text-sm font-bold text-blue-950 font-urdu border-b border-slate-200 pb-2">
                   {language === 'ur' ? 'تجویز کردہ FTL گاڑی و تفصیلات' : 'Recommended Truck & Route Coverage'}
