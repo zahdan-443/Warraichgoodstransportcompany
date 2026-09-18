@@ -1,6 +1,7 @@
 import React from 'react';
 import { 
   PhoneCall, 
+  Phone,
   ExternalLink, 
   ShieldCheck, 
   CheckCircle2, 
@@ -42,10 +43,9 @@ export const HeroSection: React.FC = () => {
           <div className="lg:col-span-7 space-y-4 sm:space-y-6">
             
             {/* FTL Verified Badge */}
-            <div className="inline-flex flex-wrap items-center gap-2 bg-white border border-blue-200 text-blue-900 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-semibold tracking-wide shadow-sm">
+            <div className="inline-flex items-center gap-2 bg-white border border-blue-200 text-blue-900 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-semibold shadow-sm">
               <ShieldCheck className="w-4 h-4 text-blue-600 flex-shrink-0" />
               <span className="font-urdu">{t.badge}</span>
-              <span className="bg-emerald-600 text-white font-bold px-2 py-0.5 rounded text-[11px] font-mono tracking-wider">NTN: {COMPANY_INFO.ntn}</span>
             </div>
 
             {/* Core Promotional Tagline */}
@@ -97,41 +97,42 @@ export const HeroSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Conversion CTA Action Buttons */}
+            {/* Business Introduction & Capability Exploration Actions */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2 sm:pt-3">
               
-              {/* Primary Call CTA */}
+              {/* Primary Business Profile CTA */}
               <a
-                id="hero-call-now-btn"
-                href={`tel:${COMPANY_INFO.phoneRaw1}`}
+                id="hero-company-profile-btn"
+                href="#business-intro"
                 className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold px-6 py-3.5 sm:py-4 rounded-xl shadow-md text-sm sm:text-base transition-all transform active:scale-95 cursor-pointer min-h-[48px]"
-                aria-label={`Call booking hotline ${COMPANY_INFO.phone1}`}
+                aria-label="View Company Profile and Introduction"
               >
-                <PhoneCall className="w-4 sm:w-5 h-4 sm:h-5 fill-current flex-shrink-0" />
-                <span className="font-urdu font-black">{t.btnCall}</span>
+                <ShieldCheck className="w-4 sm:w-5 h-4 sm:h-5 flex-shrink-0" />
+                <span className="font-urdu font-black">
+                  {language === 'ur' ? 'کاروباری تعارف و مکمل پروفائل' : 'Company Profile & Overview'}
+                </span>
               </a>
 
               {/* Instant Freight Calculator CTA */}
               <button
                 id="hero-calc-btn"
                 onClick={scrollToBooking}
-                className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-3.5 sm:py-4 rounded-xl text-sm sm:text-base transition-all shadow-md cursor-pointer min-h-[48px]"
+                className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold px-5 py-3.5 sm:py-4 rounded-xl text-sm sm:text-base transition-all shadow-md cursor-pointer min-h-[48px]"
               >
-                <Calculator className="w-4 sm:w-5 h-4 sm:h-5 text-blue-200 flex-shrink-0" />
+                <Calculator className="w-4 sm:w-5 h-4 sm:h-5 text-amber-400 flex-shrink-0" />
                 <span className="font-urdu">{t.btnCalculate}</span>
               </button>
 
-              {/* WhatsApp Quick Quote CTA */}
+              {/* Fleet & Services Exploration */}
               <a
-                id="hero-whatsapp-btn"
-                href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(language === 'ur' ? 'السلام علیکم! وڑائچ گڈز ٹرانسپورٹ کمپنی سے مکمل گاڑی (FTL) کی لوڈنگ اور ریٹ معلوم کرنا ہے۔' : 'Hello! I would like to inquire about Dedicated Full Truckload (FTL) rates and booking with Warraich Goods Transport Company.')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-5 py-3.5 sm:py-4 rounded-xl text-sm sm:text-base transition-all shadow-md cursor-pointer min-h-[48px]"
-                aria-label="Chat on WhatsApp with Warraich Goods"
+                id="hero-fleet-btn"
+                href="#fleet"
+                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-800 font-semibold px-5 py-3.5 sm:py-4 rounded-xl text-sm sm:text-base transition-all border border-slate-200 shadow-sm cursor-pointer min-h-[48px]"
               >
-                <MessageCircle className="w-4 sm:w-5 h-4 sm:h-5 flex-shrink-0" />
-                <span>WhatsApp</span>
+                <Truck className="w-4 sm:w-5 h-4 sm:h-5 text-blue-600 flex-shrink-0" />
+                <span className="font-urdu">
+                  {language === 'ur' ? 'ہمارا ٹرانسپورٹ بیڑا' : 'Explore Fleet'}
+                </span>
               </a>
 
             </div>
@@ -150,7 +151,7 @@ export const HeroSection: React.FC = () => {
 
           </div>
 
-          {/* Visual Showcase Card Column */}
+          {/* Visual Showcase Card Column: Live Operations Hub (No duplicate vehicle cards) */}
           <div className="lg:col-span-5 mt-4 lg:mt-0">
             <div className="relative bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-xl overflow-hidden">
               
@@ -160,132 +161,75 @@ export const HeroSection: React.FC = () => {
               <div className="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
                 <div>
                   <p className="text-base sm:text-lg font-bold text-slate-900 font-urdu">
-                    {language === 'ur' ? 'مکمل ٹرک لوڈ (FTL) فلیٹ اسٹیٹس' : 'Active FTL Fleet Status'}
+                    {language === 'ur' ? 'ملک گیر FTL آپریشنل حقائق' : 'Nationwide FTL Operations Hub'}
                   </p>
                   <p className="text-[11px] text-slate-500 font-urdu">
-                    {language === 'ur' ? 'سنگل گاہک کی مخصوص گاڑی ہمہ وقت دستیاب' : 'Dedicated single-shipper trucks on standby'}
+                    {language === 'ur' ? 'محفوظ ترین فل ٹرک لوڈ، کمپیوٹرائزڈ بلٹی اور براہ راست ترسیل' : 'Dedicated single-shipper transit with computerized bilty verification'}
                   </p>
                 </div>
                 <div className="bg-emerald-50 text-emerald-700 border border-emerald-300 text-[11px] px-2.5 py-1 rounded-md font-semibold font-urdu whitespace-nowrap">
-                  {language === 'ur' ? '24/7 فعال' : '24/7 Active'}
+                  {language === 'ur' ? '24/7 ڈسپیچ' : '24/7 Dispatch'}
                 </div>
               </div>
 
-              {/* Fleet Preview Snapshot 4 Cards (Multiple Vibrant Colors & Synced Public Images) */}
-              <div className="grid grid-cols-2 gap-2.5 mb-4">
-                
-                {/* 1. Shehzore (Emerald theme) */}
-                <a 
-                  href="#fleet"
-                  className="p-2.5 rounded-xl bg-emerald-50/70 border border-emerald-200 hover:border-emerald-400 hover:shadow-md transition-all group block text-left"
-                >
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-1.5 py-0.5 rounded font-mono">1-3.5 T</span>
-                    <span className="text-[10px] text-emerald-600 font-semibold font-urdu group-hover:underline">{language === 'ur' ? 'تفصیل' : 'Details'}</span>
-                  </div>
-                  {/* Clean Image Frame - No text overlay at bottom */}
-                  <div className="relative h-20 w-full rounded-lg overflow-hidden bg-white mb-2 border border-emerald-100 flex items-center justify-center p-1 group-hover:scale-[1.02] transition-transform">
-                    <img
-                      src="./images/shehzore-truck.png"
-                      alt="Shehzore Pickup Truck - Warraich Goods"
-                      className="w-full h-full object-contain"
-                      loading="eager"
-                    />
-                  </div>
-                  <p className="font-bold text-xs sm:text-sm text-slate-900 truncate">Shehzore Pickup</p>
-                  <p className="text-[10px] text-slate-600 font-urdu truncate">
-                    {language === 'ur' ? 'ایکسپریس لوڈنگ (1-3.5 ٹن)' : 'Express Single Shipper'}
+              {/* 4 Core Operational Highlights (Clean & Non-repetitive) */}
+              <div className="grid grid-cols-2 gap-3 mb-4">
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                  <span className="text-[10px] font-bold text-blue-700 bg-blue-100 px-1.5 py-0.5 rounded font-mono">100% FTL</span>
+                  <p className="font-bold text-xs sm:text-sm text-slate-900 mt-1.5 font-urdu">
+                    {language === 'ur' ? 'مخصوص گاڑی' : 'Dedicated Truck'}
                   </p>
-                </a>
-
-                {/* 2. Mazda (Amber theme) */}
-                <a 
-                  href="#fleet"
-                  className="p-2.5 rounded-xl bg-amber-50/70 border border-amber-200 hover:border-amber-400 hover:shadow-md transition-all group block text-left"
-                >
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[10px] font-bold text-amber-800 bg-amber-100 px-1.5 py-0.5 rounded font-mono">4-10 T</span>
-                    <span className="text-[10px] text-amber-700 font-semibold font-urdu group-hover:underline">{language === 'ur' ? 'تفصیل' : 'Details'}</span>
-                  </div>
-                  {/* Clean Image Frame - No text overlay at bottom */}
-                  <div className="relative h-20 w-full rounded-lg overflow-hidden bg-white mb-2 border border-amber-100 flex items-center justify-center p-1 group-hover:scale-[1.02] transition-transform">
-                    <img
-                      src="./images/mazda-truck.png"
-                      alt="Mazda 6-Wheeler Commercial Truck - Warraich Goods"
-                      className="w-full h-full object-contain"
-                      loading="eager"
-                    />
-                  </div>
-                  <p className="font-bold text-xs sm:text-sm text-slate-900 truncate">Mazda 6-Wheeler</p>
-                  <p className="text-[10px] text-slate-600 font-urdu truncate">
-                    {language === 'ur' ? 'انڈسٹریل و زرعی FTL' : 'Industrial & Agro FTL'}
+                  <p className="text-[11px] text-slate-600 font-urdu mt-0.5">
+                    {language === 'ur' ? 'ایک گاہک کے لیے ایک ہی گاڑی، زیرو پارسل مکسنگ' : 'Single-shipper cargo, zero parcel mixing'}
                   </p>
-                </a>
+                </div>
 
-                {/* 3. Sample Truck (Indigo theme) */}
-                <a 
-                  href="#fleet"
-                  className="p-2.5 rounded-xl bg-indigo-50/70 border border-indigo-200 hover:border-indigo-400 hover:shadow-md transition-all group block text-left"
-                >
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[10px] font-bold text-indigo-800 bg-indigo-100 px-1.5 py-0.5 rounded font-mono">8-16 T</span>
-                    <span className="text-[10px] text-indigo-600 font-semibold font-urdu group-hover:underline">{language === 'ur' ? 'تفصیل' : 'Details'}</span>
-                  </div>
-                  {/* Clean Image Frame - No text overlay at bottom */}
-                  <div className="relative h-20 w-full rounded-lg overflow-hidden bg-white mb-2 border border-indigo-100 flex items-center justify-center p-1 group-hover:scale-[1.02] transition-transform">
-                    <img
-                      src="./images/sample-truck.png"
-                      alt="Sample Extended Body Truck - Warraich Goods"
-                      className="w-full h-full object-contain"
-                      loading="eager"
-                    />
-                  </div>
-                  <p className="font-bold text-xs sm:text-sm text-slate-900 truncate">Sample Extended</p>
-                  <p className="text-[10px] text-slate-600 font-urdu truncate">
-                    {language === 'ur' ? 'توسیع شدہ والیم FTL' : 'Extended Volumetric'}
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                  <span className="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded font-mono">NON-STOP</span>
+                  <p className="font-bold text-xs sm:text-sm text-slate-900 mt-1.5 font-urdu">
+                    {language === 'ur' ? 'نان اسٹاپ ترسیل' : 'Non-Stop Transit'}
                   </p>
-                </a>
-
-                {/* 4. Bedford (Blue theme) */}
-                <a 
-                  href="#fleet"
-                  className="p-2.5 rounded-xl bg-blue-50/70 border border-blue-200 hover:border-blue-400 hover:shadow-md transition-all group block text-left"
-                >
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[10px] font-bold text-blue-800 bg-blue-100 px-1.5 py-0.5 rounded font-mono">15-28+ T</span>
-                    <span className="text-[10px] text-blue-600 font-semibold font-urdu group-hover:underline">{language === 'ur' ? 'تفصیل' : 'Details'}</span>
-                  </div>
-                  {/* Clean Image Frame - No text overlay at bottom */}
-                  <div className="relative h-20 w-full rounded-lg overflow-hidden bg-white mb-2 border border-blue-100 flex items-center justify-center p-1 group-hover:scale-[1.02] transition-transform">
-                    <img
-                      src="./images/bedford-truck.png"
-                      alt="Bedford Heavy Long Haul Truck - Warraich Goods"
-                      className="w-full h-full object-contain"
-                      loading="eager"
-                    />
-                  </div>
-                  <p className="font-bold text-xs sm:text-sm text-slate-900 truncate">Bedford Heavy</p>
-                  <p className="text-[10px] text-slate-600 font-urdu truncate">
-                    {language === 'ur' ? 'ہیوی انڈسٹریل FTL' : 'Heavy Industrial Haul'}
+                  <p className="text-[11px] text-slate-600 font-urdu mt-0.5">
+                    {language === 'ur' ? 'لوڈنگ پوائنٹ سے منزل تک براہ راست ہائی وے سفر' : 'Direct highway journey with zero depot stops'}
                   </p>
-                </a>
+                </div>
 
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                  <span className="text-[10px] font-bold text-amber-800 bg-amber-100 px-1.5 py-0.5 rounded font-mono">SCALE SLIP</span>
+                  <p className="font-bold text-xs sm:text-sm text-slate-900 mt-1.5 font-urdu">
+                    {language === 'ur' ? 'کمپیوٹرائزڈ کانٹا' : 'Digital Weighbridge'}
+                  </p>
+                  <p className="text-[11px] text-slate-600 font-urdu mt-0.5">
+                    {language === 'ur' ? 'سرکاری وزن تصدیق و فوری کمپیوٹر پرچی' : 'Certified axle scale slips provided on load'}
+                  </p>
+                </div>
+
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                  <span className="text-[10px] font-bold text-indigo-700 bg-indigo-100 px-1.5 py-0.5 rounded font-mono">NATIONWIDE</span>
+                  <p className="font-bold text-xs sm:text-sm text-slate-900 mt-1.5 font-urdu">
+                    {language === 'ur' ? 'ملک گیر نیٹ ورک' : 'All-Pakistan Routes'}
+                  </p>
+                  <p className="text-[11px] text-slate-600 font-urdu mt-0.5">
+                    {language === 'ur' ? 'پنجاب، سندھ، خیبر، بلوچستان و پورٹ روٹس' : 'Punjab, Sindh, KPK, Balochistan & Ports'}
+                  </p>
+                </div>
               </div>
 
-              {/* Quick Branch Highlights */}
-              <div className="bg-slate-50 rounded-xl p-3 border border-slate-200 text-xs space-y-2">
-                <div className="flex items-center justify-between text-slate-700">
-                  <span className="font-semibold text-amber-800 font-urdu">
-                    {language === 'ur' ? '📍 سمندری مین اڈا:' : '📍 Samundri Main Hub:'}
-                  </span>
-                  <a href={`tel:${COMPANY_INFO.phoneRaw1}`} className="font-mono text-slate-900 hover:text-amber-600 font-bold">0300-5370443</a>
-                </div>
-                <div className="flex items-center justify-between text-slate-700">
-                  <span className="font-semibold text-blue-800 font-urdu">
-                    {language === 'ur' ? '📍 کمالیہ برانچ:' : '📍 Kamalia Branch:'}
-                  </span>
-                  <a href={`tel:${COMPANY_INFO.phoneRaw2}`} className="font-mono text-slate-900 hover:text-blue-600 font-bold">0339-5370443</a>
-                </div>
+              {/* Action Buttons to Dedicated Sections */}
+              <div className="pt-2 border-t border-slate-200 grid grid-cols-2 gap-2">
+                <a
+                  href="#fleet"
+                  className="flex items-center justify-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-white font-bold py-2 rounded-xl text-xs font-urdu text-center transition-all shadow-xs"
+                >
+                  <Truck className="w-3.5 h-3.5 text-amber-400" />
+                  <span>{language === 'ur' ? 'گاڑیاں و فلیٹ دیکھیں' : 'View Fleet Models'}</span>
+                </a>
+                <a
+                  href="#tracking"
+                  className="flex items-center justify-center gap-1.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2 rounded-xl text-xs font-urdu text-center transition-all shadow-xs"
+                >
+                  <span>{language === 'ur' ? 'بلٹی ٹریک کریں' : 'Track Bilty'}</span>
+                </a>
               </div>
 
             </div>

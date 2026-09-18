@@ -29,7 +29,7 @@ export const AboutSection: React.FC = () => {
             <span>{tAbout.badge}</span>
           </div>
           
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight font-urdu">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-urdu leading-relaxed">
             {tAbout.title}
           </h2>
           <p className="text-slate-600 mt-2 sm:mt-3 text-sm sm:text-base font-urdu">
@@ -83,22 +83,24 @@ export const AboutSection: React.FC = () => {
                   {language === 'ur' ? COMPANY_INFO.proprietorRoleUrdu : COMPANY_INFO.proprietorRoleEnglish}
                 </p>
 
-                <div className="inline-flex items-center gap-2 bg-white border border-slate-200 px-3 py-1 rounded-lg text-[11px] sm:text-xs text-slate-700 font-mono mt-1 shadow-sm">
+                <div className="inline-flex items-center gap-2 bg-white border border-slate-200 px-3 py-1 rounded-lg text-[11px] sm:text-xs text-slate-700 mt-1 shadow-sm font-urdu">
                   <FileCheck className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
-                  <span>NTN: <strong className="text-slate-900 font-bold">{COMPANY_INFO.ntn}</strong></span>
+                  <span>{language === 'ur' ? 'گورنمنٹ رجسٹرڈ ٹرانسپورٹر' : 'Govt. Registered Transporter'}</span>
                 </div>
               </div>
 
-              {/* Direct Owner Contact Trigger */}
+              {/* Direct Owner Profile Trigger */}
               <div className="mt-5 pt-4 border-t border-slate-200 flex flex-col gap-2">
                 <a
-                  id="proprietor-call-direct-btn"
-                  href={`tel:${COMPANY_INFO.phoneRaw1}`}
+                  id="proprietor-profile-btn"
+                  href="#business-intro"
                   className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold py-2.5 px-4 rounded-xl transition-all shadow-md text-xs sm:text-sm cursor-pointer min-h-[44px] font-urdu"
-                  aria-label={`Call proprietor at ${COMPANY_INFO.phone1}`}
+                  aria-label="View Full Business Profile & Proprietor Credentials"
                 >
-                  <Phone className="w-4 h-4 fill-current flex-shrink-0" />
-                  <span>{tAbout.callProprietor} ({COMPANY_INFO.phone1})</span>
+                  <FileCheck className="w-4 h-4 text-slate-950 flex-shrink-0" />
+                  <span className="font-urdu font-bold">
+                    {language === 'ur' ? 'کاروباری تعارفی کارڈ و مکمل کوائف' : 'View Full Business Card'}
+                  </span>
                 </a>
               </div>
 

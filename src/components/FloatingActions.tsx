@@ -38,7 +38,7 @@ export const FloatingActions: React.FC = () => {
             aria-label={isUrdu ? 'کال کریں' : 'Call'}
           >
             <Phone className="w-5 h-5 fill-current mb-0.5" />
-            <span className="text-[11px] font-urdu leading-none font-extrabold">
+            <span className="text-xs font-urdu font-bold leading-normal">
               {isUrdu ? 'فوری کال' : 'Call Now'}
             </span>
           </a>
@@ -49,11 +49,11 @@ export const FloatingActions: React.FC = () => {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-emerald-600 active:bg-emerald-500 text-white font-bold transition-transform active:scale-95 shadow-sm"
+            className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-emerald-600 active:bg-emerald-500 text-white font-bold transition-transform active:scale-95 shadow-sm min-h-[48px]"
             aria-label={isUrdu ? 'واٹس ایپ' : 'WhatsApp'}
           >
             <MessageCircle className="w-5 h-5 fill-current mb-0.5" />
-            <span className="text-[11px] font-urdu leading-none font-bold">
+            <span className="text-xs font-urdu font-bold leading-normal">
               {isUrdu ? 'واٹس ایپ' : 'WhatsApp'}
             </span>
           </a>
@@ -62,11 +62,11 @@ export const FloatingActions: React.FC = () => {
           <button
             id="mobile-dock-booking-btn"
             onClick={scrollToBooking}
-            className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-blue-50 active:bg-blue-100 text-blue-700 font-bold border border-blue-200 transition-transform active:scale-95 shadow-sm cursor-pointer"
+            className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-blue-50 active:bg-blue-100 text-blue-700 font-bold border border-blue-200 transition-transform active:scale-95 shadow-sm cursor-pointer min-h-[48px]"
             aria-label={isUrdu ? 'کرایہ معلوم کریں' : 'Calculate Rate'}
           >
             <Calculator className="w-5 h-5 text-blue-600 mb-0.5" />
-            <span className="text-[11px] font-urdu leading-none">
+            <span className="text-xs font-urdu font-bold leading-normal">
               {isUrdu ? 'کرایہ دیکھیں' : 'Rate Calc'}
             </span>
           </button>

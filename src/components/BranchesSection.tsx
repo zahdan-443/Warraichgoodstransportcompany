@@ -98,7 +98,7 @@ export const BranchesSection: React.FC = () => {
                     >
                       <div className="flex items-center gap-2">
                         <Phone className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" />
-                        <span className="text-xs font-bold font-mono text-slate-900">{branch.phone1}</span>
+                        <span className="text-xs font-bold font-mono text-slate-900" dir="ltr"><bdi dir="ltr">{branch.phone1}</bdi></span>
                       </div>
                       <span className="text-[10px] text-blue-700 bg-blue-100 font-bold px-1.5 py-0.5 rounded font-urdu">{tBranches.phonePrimary}</span>
                     </a>
@@ -110,7 +110,7 @@ export const BranchesSection: React.FC = () => {
                     >
                       <div className="flex items-center gap-2">
                         <Phone className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
-                        <span className="text-xs font-bold font-mono text-slate-900">{branch.phone2}</span>
+                        <span className="text-xs font-bold font-mono text-slate-900" dir="ltr"><bdi dir="ltr">{branch.phone2}</bdi></span>
                       </div>
                       <span className="text-[10px] text-emerald-700 bg-emerald-100 font-bold px-1.5 py-0.5 rounded font-urdu">{tBranches.phoneSecondary}</span>
                     </a>

@@ -63,10 +63,10 @@ export const CargoSafetySection: React.FC = () => {
     },
     {
       icon: FileCheck,
-      titleUrdu: 'گورنمنٹ رجسٹرڈ NTN کے ساتھ شفاف بلنگ',
-      titleEnglish: 'Official NTN Registered Invoicing',
-      descUrdu: `NTN: ${COMPANY_INFO.ntn} کے ساتھ باقاعدہ رجسٹرڈ ٹیکس چالان اور رسید جاری کی جاتی ہے، کوئی پوشیدہ یا غیر متوقع چارجز نہیں۔`,
-      descEnglish: `Government-approved NTN (${COMPANY_INFO.ntn}) documentation with transparent rates and zero surprise charges.`,
+      titleUrdu: 'باقاعدہ ٹیکس انوائس اور شفاف بلنگ',
+      titleEnglish: 'Official Tax Invoicing & Clear Documentation',
+      descUrdu: 'کارپوریٹ ٹیکس قوانین کے مطابق باقاعدہ ٹیکس انوائس اور رسید جاری کی جاتی ہے، کوئی پوشیدہ یا غیر متوقع چارجز نہیں۔',
+      descEnglish: 'Government-compliant corporate documentation with transparent rates and zero surprise charges.',
       borderColor: 'border-teal-200 hover:border-teal-400',
       iconBg: 'bg-teal-50 text-teal-600 border-teal-100',
     }
@@ -151,12 +151,14 @@ export const CargoSafetySection: React.FC = () => {
 
             <div>
               <a
-                href={`tel:${COMPANY_INFO.phoneRaw1}`}
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold px-6 py-3 rounded-xl text-xs sm:text-sm transition-all shadow-md font-urdu whitespace-nowrap cursor-pointer min-h-[44px]"
-                aria-label={`Call proprietor at ${COMPANY_INFO.phone1}`}
+                href="#corporate-credibility"
+                className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-amber-400 font-bold px-6 py-3 rounded-xl text-xs sm:text-sm transition-all shadow-md font-urdu whitespace-nowrap cursor-pointer min-h-[44px]"
+                aria-label="View Safety Certification and Corporate Credibility"
               >
-                <PhoneCall className="w-4 h-4 fill-current flex-shrink-0" />
-                <span>{language === 'ur' ? `حفاظتی انتظامات پر بات کریں (${COMPANY_INFO.phone1})` : `Discuss Cargo Safety (${COMPANY_INFO.phone1})`}</span>
+                <ShieldCheck className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                <span className="font-urdu font-bold">
+                  {language === 'ur' ? 'حفاظتی پروٹوکولز و کارپوریٹ کریڈیبلٹی دیکھیں' : 'View Safety Protocols & Verification'}
+                </span>
               </a>
             </div>
           </div>

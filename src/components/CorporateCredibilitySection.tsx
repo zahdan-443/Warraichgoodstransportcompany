@@ -17,7 +17,8 @@ import {
   X,
   FileCheck2,
   Warehouse,
-  Truck
+  Truck,
+  UserCheck
 } from 'lucide-react';
 import { COMPANY_INFO, CORPORATE_CREDENTIALS, FLEET_DATA } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
@@ -55,7 +56,7 @@ export const CorporateCredibilitySection: React.FC = () => {
             </span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-urdu tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-urdu leading-relaxed">
             {isUrdu ? 'کارپوریٹ اعتبار، قانونی ساکھ اور B2B خدمات' : 'Corporate Credibility & Enterprise Freight Solutions'}
           </h2>
           <p className="text-slate-600 mt-2.5 text-sm sm:text-base lg:text-lg font-urdu leading-relaxed">
@@ -93,16 +94,16 @@ export const CorporateCredibilitySection: React.FC = () => {
               <div className={`w-11 h-11 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center mb-4 ${isUrdu ? 'ml-auto' : 'mr-auto'}`}>
                 <ShieldCheck className="w-5 h-5" />
               </div>
-              <span className="text-[11px] font-bold text-emerald-700 font-mono tracking-wider block mb-1">
-                FBR NTN: {COMPANY_INFO.ntn}
+              <span className="text-[11px] font-bold text-emerald-700 font-urdu block mb-1">
+                {isUrdu ? 'ایف بی آر تصدیق شدہ' : 'FBR Verified'}
               </span>
               <p className="text-base font-bold text-slate-900 font-urdu mb-2">
                 {isUrdu ? 'سرکاری رجسٹریشن و قانونی ساکھ' : 'FBR Registered Tax Compliance'}
               </p>
               <p className="text-xs text-slate-600 leading-relaxed font-urdu">
                 {isUrdu 
-                  ? `ایف بی آر میں ایکٹو ٹیکس پیئر NTN: ${COMPANY_INFO.ntn} کے ساتھ رجسٹرڈ۔ کارپوریٹ کلائنٹس کے لیے سیلز ٹیکس اور ودہولڈنگ ٹیکس کی باقاعدہ رسیدیں۔` 
-                  : `Active FBR taxpayer status (NTN: ${COMPANY_INFO.ntn}) enabling seamless corporate withholding tax compliance and corporate vendor audit approval.`}
+                  ? 'ایف بی آر میں ایکٹو ٹیکس پیئر کے طور پر رجسٹرڈ۔ کارپوریٹ کلائنٹس اور انڈسٹریل ملز کے لیے سیلز ٹیکس اور ودہولڈنگ ٹیکس کی باقاعدہ رسیدیں۔' 
+                  : 'Active FBR taxpayer status enabling seamless corporate withholding tax compliance and corporate vendor audit approval.'}
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] text-emerald-700 font-semibold font-urdu">
@@ -177,10 +178,13 @@ export const CorporateCredibilitySection: React.FC = () => {
                   : `Proprietor ${COMPANY_INFO.proprietorEnglish} personally manages fleet dispatches and major B2B contracts, ensuring zero corporate bottlenecks.`}
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] text-blue-700 font-semibold font-mono">
-              <PhoneCall className="w-3.5 h-3.5 flex-shrink-0" />
-              <span>{COMPANY_INFO.phone1}</span>
-            </div>
+            <a
+              href="#about"
+              className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-xs text-blue-700 font-bold font-urdu hover:text-blue-800 transition-colors"
+            >
+              <UserCheck className="w-3.5 h-3.5 flex-shrink-0 text-blue-600" />
+              <span>{isUrdu ? 'پروپرائٹر تعارف و کاروباری کوائف' : 'View Proprietor Profile'}</span>
+            </a>
           </div>
 
         </div>
@@ -472,13 +476,15 @@ export const CorporateCredibilitySection: React.FC = () => {
 
             {/* Modal Bottom Actions */}
             <div className="mt-6 pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 font-urdu">
-              <a
-                href={`tel:${COMPANY_INFO.phoneRaw1}`}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-xs transition cursor-pointer min-h-[44px]"
+              <button
+                onClick={() => window.print()}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-amber-400 font-bold px-5 py-2.5 rounded-xl text-xs transition cursor-pointer min-h-[44px]"
               >
-                <PhoneCall className="w-4 h-4" />
-                <span>{isUrdu ? `براہ راست کال کریں (${COMPANY_INFO.phone1})` : `Call Direct (${COMPANY_INFO.phone1})`}</span>
-              </a>
+                <FileText className="w-4 h-4 text-amber-400" />
+                <span className="font-urdu font-bold">
+                  {isUrdu ? 'کاروباری پروفائل پرنٹ / محفوظ کریں' : 'Print / Save Profile'}
+                </span>
+              </button>
 
               <button
                 onClick={() => setShowProfileModal(false)}

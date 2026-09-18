@@ -154,28 +154,16 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
 
                   </div>
 
-                  {/* Card Action Buttons */}
-                  <div className="space-y-2 pt-3 border-t border-slate-200">
+                  {/* Card Action Button (Single Clean Selection) */}
+                  <div className="pt-3 border-t border-slate-200">
                     <button
                       id={`book-vehicle-${truck.id}-btn`}
                       onClick={() => onSelectVehicleForBooking(truck.id)}
-                      className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold py-2.5 px-4 rounded-lg transition-all shadow text-xs sm:text-sm cursor-pointer active:scale-95 min-h-[42px] font-urdu"
+                      className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-slate-900 to-slate-800 hover:from-blue-700 hover:to-blue-600 text-white font-bold py-2.5 px-4 rounded-xl transition-all shadow-sm text-xs sm:text-sm cursor-pointer active:scale-95 min-h-[42px] font-urdu"
                     >
-                      <Sparkles className="w-4 h-4" />
-                      <span>{tFleet.btnCheckRate}</span>
+                      <Sparkles className="w-4 h-4 text-amber-400" />
+                      <span>{language === 'ur' ? `اس گاڑی کا کرایہ معلوم کریں (${truck.nameUrdu})` : `Calculate ${truck.nameEnglish} Freight`}</span>
                     </button>
-
-                    <a
-                      id={`whatsapp-vehicle-${truck.id}-btn`}
-                      href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(language === 'ur' ? `السلام علیکم! وڑائچ گڈز ٹرانسپورٹ کمپنی سے ${truck.nameUrdu} کی مکمل گاڑی (FTL) بکنگ اور کرایہ کے حوالے سے معلومات درکار ہیں۔` : `Hello! I would like to inquire about booking and freight rates for ${truck.nameEnglish} (FTL) with Warraich Goods.`)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full inline-flex items-center justify-center gap-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-semibold py-2 px-3 rounded-lg border border-emerald-300 text-xs transition-colors min-h-[38px] font-urdu"
-                      aria-label={`Inquire about ${truck.nameEnglish} on WhatsApp`}
-                    >
-                      <MessageCircle className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
-                      <span>{tFleet.btnWhatsApp}</span>
-                    </a>
                   </div>
 
                 </div>
@@ -195,12 +183,13 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
             </p>
           </div>
           <a
-            href={`tel:${COMPANY_INFO.phoneRaw1}`}
-            className="flex-shrink-0 inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-3 rounded-xl text-xs sm:text-sm transition-all min-h-[44px] shadow"
-            aria-label={`Call ${COMPANY_INFO.phone1}`}
+            href="#business-intro"
+            className="flex-shrink-0 inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-3 rounded-xl text-xs sm:text-sm transition-all min-h-[44px] shadow cursor-pointer font-urdu"
+            aria-label="View Corporate Business Profile"
           >
-            <Phone className="w-4 h-4 fill-current flex-shrink-0" />
-            <span>{language === 'ur' ? `کال پر بات کریں (${COMPANY_INFO.phone1})` : `Call Us (${COMPANY_INFO.phone1})`}</span>
+            <span>
+              {language === 'ur' ? 'کاروباری تعارف و مکمل پروفائل دیکھیں' : 'View Corporate Profile'}
+            </span>
           </a>
         </div>
 

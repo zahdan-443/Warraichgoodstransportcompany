@@ -63,7 +63,7 @@ export const BiltyTrackingSection: React.FC = () => {
             <span>{t.badge}</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-urdu tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-urdu leading-relaxed">
             {t.title}
           </h2>
 
@@ -132,9 +132,6 @@ export const BiltyTrackingSection: React.FC = () => {
                     <span className="text-xs bg-amber-500 text-slate-950 font-bold px-2.5 py-0.5 rounded font-mono">
                       {language === 'ur' ? 'کنسائنمنٹ ریفرنس' : 'CONSIGNMENT REF'}
                     </span>
-                    <span className="text-xs text-slate-300 font-mono">
-                      NTN: {COMPANY_INFO.ntn}
-                    </span>
                   </div>
                   <p className="text-xl sm:text-2xl font-black font-mono tracking-wide text-white">
                     {activeReference}
@@ -161,8 +158,8 @@ export const BiltyTrackingSection: React.FC = () => {
                 </p>
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                   {language === 'ur'
-                    ? 'وڑائچ گڈز ٹرانسپورٹ فل ٹرک لوڈ (FTL) ماڈل پر کام کرتی ہے، جہاں گاڑی بغیر کسی درمیانی اسٹاپ یا سامان اتارنے کے براہِ راست منزل کی طرف نان اسٹاپ رواں دواں رہتی ہے۔ ڈرائیور سے فوری رابطہ اور واٹس ایپ لائیو پن لوکیشن حاصل کرنے کے لیے نیچے بٹن دبائیں:'
-                    : 'Warraich Goods operates dedicated Full Truckload (FTL) express service without intermediary transshipments. Use the direct buttons below to receive the truck driver’s live GPS coordinates and cellular status.'}
+                    ? 'وڑائچ گڈز پر ہر گاڑی آپ کے گودام یا فیکٹری سے لوڈ ہو کر کسی درمیانی اڈے پر رکے بغیر سیدھی منزل کے لیے روانہ ہوتی ہے۔ ڈرائیور سے براہِ راست رابطہ اور واٹس ایپ پر تازہ لوکیشن معلوم کرنے کے لیے نیچے بٹن دبائیں:'
+                    : 'Warraich Goods operates dedicated Full Truckload (FTL) express service without intermediary transshipments. Use the direct buttons below to receive the truck driver’s live GPS coordinates and direct cellular status.'}
                 </p>
               </div>
 

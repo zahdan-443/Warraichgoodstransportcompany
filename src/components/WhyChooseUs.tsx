@@ -84,7 +84,7 @@ export const WhyChooseUs: React.FC = () => {
               <span>{language === 'ur' ? 'قانونی و ٹیکس تصدیق شدہ' : 'Tax Registered Business'}</span>
             </div>
             <p className="text-lg sm:text-xl font-extrabold text-slate-900 font-urdu">
-              {t.ntnTitle} (<span className="text-blue-700 font-mono">NTN: {COMPANY_INFO.ntn}</span>)
+              {t.ntnTitle}
             </p>
             <p className="text-xs sm:text-sm text-slate-600 font-urdu font-medium">
               {t.ntnDesc}
@@ -92,12 +92,14 @@ export const WhyChooseUs: React.FC = () => {
           </div>
 
           <a
-            href={`tel:${COMPANY_INFO.phoneRaw1}`}
-            className="flex-shrink-0 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold px-6 py-3 rounded-xl text-xs sm:text-sm transition-all shadow-md font-urdu whitespace-nowrap cursor-pointer min-h-[44px]"
-            aria-label={`${t.helplineBtn}: ${COMPANY_INFO.phone1}`}
+            href="#business-intro"
+            className="flex-shrink-0 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-slate-900 to-slate-800 hover:from-blue-700 hover:to-blue-600 text-amber-400 font-bold px-6 py-3 rounded-xl text-xs sm:text-sm transition-all shadow-md font-urdu whitespace-nowrap cursor-pointer min-h-[44px]"
+            aria-label="View Full Business Profile Card"
           >
-            <PhoneCall className="w-4 h-4 fill-current flex-shrink-0" />
-            <span>{t.helplineBtn}: {COMPANY_INFO.phone1}</span>
+            <ShieldCheck className="w-4 h-4 text-amber-400 flex-shrink-0" />
+            <span className="font-urdu font-bold">
+              {language === 'ur' ? 'مکمل تعارفی و رابطہ کارڈ دیکھیں' : 'View Business Card'}
+            </span>
           </a>
         </div>
 

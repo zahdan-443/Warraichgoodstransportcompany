@@ -153,18 +153,12 @@ export const FaqAndReviewsSection: React.FC = () => {
                 </a>
 
                 <a
-                  href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(
-                    language === 'ur'
-                      ? 'السلام علیکم زاہدان بھائی! میں وڑائچ گڈز ٹرانسپورٹ کے حوالے سے اپنا فیڈ بیک اور رائے شیئر کرنا چاہتا ہوں۔'
-                      : 'Hello Zahdan brother! I would like to share my feedback regarding Warraich Goods Transport services.'
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition-all shadow-md active:scale-95 cursor-pointer font-urdu"
-                  title="Share feedback on WhatsApp"
+                  href="#business-intro"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition-all shadow-md active:scale-95 cursor-pointer font-urdu"
+                  title="View Warraich Goods Business Profile"
                 >
-                  <MessageSquareQuote className="w-4 h-4" />
-                  <span>{language === 'ur' ? 'واٹس ایپ پر رابطہ کریں' : 'Contact on WhatsApp'}</span>
+                  <ShieldCheck className="w-4 h-4 text-slate-950" />
+                  <span>{language === 'ur' ? 'کاروباری تعارف و مکمل پروفائل' : 'View Business Profile'}</span>
                 </a>
               </div>
             </div>

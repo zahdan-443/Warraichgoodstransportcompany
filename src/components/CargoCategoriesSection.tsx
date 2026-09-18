@@ -270,19 +270,10 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
                 <a
                   href="#booking"
                   onClick={() => onSelectCategory && onSelectCategory(language === 'ur' ? currentCategory.titleUrdu : currentCategory.titleEnglish)}
-                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold px-5 py-3 rounded-xl text-sm transition-all shadow font-urdu cursor-pointer min-h-[44px]"
+                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold px-6 py-3 rounded-xl text-sm transition-all shadow font-urdu cursor-pointer min-h-[44px]"
                 >
-                  <Truck className="w-4 h-4" />
+                  <Truck className="w-4 h-4 text-slate-950" />
                   <span>{t.bookCategoryBtn}</span>
-                </a>
-
-                <a
-                  href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(`السلام علیکم! وڑائچ گڈز ٹرانسپورٹ کمپنی سے ${currentCategory.titleUrdu} کے لیے مکمل گاڑی کا ریٹ معلوم کرنا ہے۔`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-semibold px-5 py-3 rounded-xl border border-emerald-300 text-sm transition-all font-urdu cursor-pointer min-h-[44px]"
-                >
-                  <span>{language === 'ur' ? 'واٹس ایپ FTL ریٹ انکوائری' : 'Inquire on WhatsApp'}</span>
                 </a>
               </div>
             </div>

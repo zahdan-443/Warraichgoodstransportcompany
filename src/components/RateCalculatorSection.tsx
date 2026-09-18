@@ -514,20 +514,20 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                   aria-label={`Call ${COMPANY_INFO.phone1}`}
                 >
                   <Phone className="w-4 h-4 fill-current" />
-                  <span className="font-mono">{COMPANY_INFO.phone1}</span>
+                  <span className="font-urdu font-bold">{language === 'ur' ? 'بکنگ کے لیے ابھی کال ملائیں' : 'Call for Booking'}</span>
                 </a>
               </div>
             </div>
 
-            {/* NTN Trust & Transparency Badge */}
+            {/* Trust & Transparency Badge */}
             <div className="bg-emerald-50 rounded-2xl p-5 border border-emerald-200 shadow-md">
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-9 h-9 rounded-xl bg-emerald-100 border border-emerald-300 text-emerald-700 flex items-center justify-center flex-shrink-0">
                   <CheckCircle2 className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="font-bold text-slate-900 text-sm font-urdu">{tCalc.ntnBillingTitle}</p>
-                  <p className="text-xs text-emerald-800 font-mono font-bold">NTN: {COMPANY_INFO.ntn}</p>
+                  <p className="font-bold text-slate-900 text-sm font-urdu">{language === 'ur' ? 'کمپیوٹرائزڈ کانٹا پرچی و باقاعدہ رسید' : 'Computerized Weighbridge Slip & Invoice'}</p>
+                  <p className="text-xs text-emerald-800 font-urdu">{language === 'ur' ? '100% شفاف اور محفوظ ڈیلنگ' : '100% Transparent & Secure'}</p>
                 </div>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed font-urdu">

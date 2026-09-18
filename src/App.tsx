@@ -1,25 +1,31 @@
 import React, { useState } from 'react';
-import { TopBar } from './components/TopBar';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { BiltyTrackingSection } from './components/BiltyTrackingSection';
-import { AboutSection } from './components/AboutSection';
 import { FleetSection } from './components/FleetSection';
 import { CargoCategoriesSection } from './components/CargoCategoriesSection';
 import { CorporateCredibilitySection } from './components/CorporateCredibilitySection';
 import { FtlWorkflowSection } from './components/FtlWorkflowSection';
 import { CargoSafetySection } from './components/CargoSafetySection';
 import { RateCalculatorSection } from './components/RateCalculatorSection';
-import { BranchesSection } from './components/BranchesSection';
 import { DriverAppSection } from './components/DriverAppSection';
 import { FaqAndReviewsSection } from './components/FaqAndReviewsSection';
-import { WhyChooseUs } from './components/WhyChooseUs';
+import { BusinessIntroCard } from './components/BusinessIntroCard';
 import { FloatingActions } from './components/FloatingActions';
 import { Footer } from './components/Footer';
 
 export default function App() {
   const [selectedVehicleForBooking, setSelectedVehicleForBooking] = useState<string>('shehzore');
   const [selectedGoodsTypeForBooking, setSelectedGoodsTypeForBooking] = useState<string>('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+
+  const handleToggleMenu = () => {
+    setIsMobileMenuOpen((prev) => !prev);
+  };
+
+  const handleCloseMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
 
   const handleSelectVehicleForBooking = (vehicleId: string) => {
     setSelectedVehicleForBooking(vehicleId);
@@ -40,19 +46,20 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 overflow-x-hidden w-full pb-16 sm:pb-0">
       
-      {/* 1. Top Utility Bar */}
-      <TopBar />
-
-      {/* 2. Main Sticky Navigation */}
-      <Navbar />
+      {/* 1. Single Unified Sticky Header (Logo, Single-Line Business Name & Integrated Controls) */}
+      <Navbar 
+        isMenuOpen={isMobileMenuOpen} 
+        onToggleMenu={handleToggleMenu} 
+        onCloseMenu={handleCloseMenu} 
+      />
 
       {/* Main Content Flow */}
       <main className="flex-1">
         
-        {/* 3. Hero Section (FTL Focus) */}
+        {/* 2. Hero Section (FTL Focus & Operations Hub) */}
         <HeroSection />
 
-        {/* 3.5. Online Bilty & Freight Tracking + National Corridors (PKG Style) */}
+        {/* 3. Online Bilty & Freight Tracking + National Corridors */}
         <BiltyTrackingSection />
 
         {/* 4. Fleet & Vehicle Services (Shehzore, Mazda, Sample, Bedford) */}
@@ -67,35 +74,29 @@ export default function App() {
         {/* 7. Dedicated FTL Booking Workflow & Non-Stop Transit Advantages */}
         <FtlWorkflowSection />
 
-        {/* 7. 100% Waterproof Tarpaulin & Cargo Safety */}
+        {/* 8. 100% Waterproof Tarpaulin & Cargo Safety */}
         <CargoSafetySection />
 
-        {/* 8. Interactive FTL Rate Calculator & WhatsApp Booking Form */}
+        {/* 9. Interactive FTL Rate Calculator & WhatsApp Booking Form */}
         <RateCalculatorSection 
           selectedVehicleId={selectedVehicleForBooking} 
           selectedGoodsType={selectedGoodsTypeForBooking}
         />
 
-        {/* 9. About Us & Proprietor (Zahdan Nasar Warraich) */}
-        <AboutSection />
-
-        {/* 10. Branches & Google Maps Section (Samundri & Kamalia) */}
-        <BranchesSection />
-
-        {/* 11. Driver & Transport Management Web App Integration */}
+        {/* 10. Driver & Transport Management Web App Integration */}
         <DriverAppSection />
 
-        {/* 12. FAQs & Commercial Client Testimonials (FTL Focus) */}
+        {/* 11. FAQs & Commercial Client Information */}
         <FaqAndReviewsSection />
 
-        {/* 13. Value Pillars, Trust Factors & NTN Registration */}
-        <WhyChooseUs />
+        {/* 12. Official Business Introduction & Verification Directory Card (Single Master Card) */}
+        <BusinessIntroCard />
       </main>
 
-      {/* 14. Comprehensive Clean Commercial Footer */}
+      {/* 13. Comprehensive Clean Commercial Footer */}
       <Footer />
 
-      {/* 15. Floating Actions (Pulsing WhatsApp & Mobile Quick Call) */}
+      {/* 14. Floating Actions (WhatsApp & Quick Call) */}
       <FloatingActions />
 
     </div>
