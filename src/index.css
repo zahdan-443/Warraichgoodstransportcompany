@@ -1,5 +1,65 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   Urdu Web Fonts (Local + CDN Fallbacks from tariq-abdullah/urdu-web-font-CDN)
+   ========================================================================== */
+
+/* 1. Jameel Noori Nastaleeq (Classic Authentic Pakistani Calligraphy) */
+@font-face {
+  font-family: 'jameel-noori-nastaleeq';
+  src: local('Jameel Noori Nastaleeq'),
+       url('/fonts/JameelNooriNastaleeq.woff') format('woff'),
+       url('https://cdn.jsdelivr.net/gh/tariq-abdullah/urdu-web-font-CDN/JameelNooriNastaleeq.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 2. PDMS Jauhar Regular (Ultra-fast Loading Nastaleeq ~380KB) */
+@font-face {
+  font-family: 'nastaleeq';
+  src: local('PDMS Jauhar Regular'),
+       local('PDMS Jauhar'),
+       url('/fonts/_PDMS_Jauhar_Regular.woff') format('woff'),
+       url('https://cdn.jsdelivr.net/gh/tariq-abdullah/urdu-web-font-CDN/_PDMS_Jauhar_Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 3. Alvi Lahori Nastaleeq */
+@font-face {
+  font-family: 'lahori-nastaleeq';
+  src: local('Alvi Lahori Nastaleeq'),
+       url('/fonts/AlviLahoriNastaleeq.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/tariq-abdullah/urdu-web-font-CDN/AlviLahoriNastaleeq.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 4. Mehr Nastaleeq */
+@font-face {
+  font-family: 'mehr-nastaleeq';
+  src: local('Mehr Nastaleeq'),
+       url('/fonts/MehrNastaleeq.ttf') format('truetype'),
+       url('https://cdn.jsdelivr.net/gh/tariq-abdullah/urdu-web-font-CDN/MehrNastaleeq.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 5. Akbar (Expressive Calligraphic Heading Font ~67KB) */
+@font-face {
+  font-family: 'akbar';
+  src: local('Akbar'),
+       url('/fonts/Akbar.woff') format('woff'),
+       url('https://cdn.jsdelivr.net/gh/tariq-abdullah/urdu-web-font-CDN/Akbar.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   html, body {
     overflow-x: hidden;
@@ -7,7 +67,7 @@
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
-    font-family: 'IBM Plex Sans Arabic', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-family: 'nastaleeq', 'jameel-noori-nastaleeq', 'lahori-nastaleeq', 'Noto Nastaliq Urdu', 'IBM Plex Sans Arabic', system-ui, -apple-system, sans-serif;
     color: #0f172a;
     background-color: #0b1120;
   }
@@ -15,18 +75,23 @@
 
 /* High-End Enterprise Typography */
 .font-urdu {
-  font-family: 'IBM Plex Sans Arabic', system-ui, -apple-system, sans-serif !important;
-  line-height: 1.7;
+  font-family: 'nastaleeq', 'jameel-noori-nastaleeq', 'lahori-nastaleeq', 'Noto Nastaliq Urdu', 'IBM Plex Sans Arabic', system-ui, sans-serif !important;
+  line-height: 1.85;
 }
 
 .font-urdu-heading {
-  font-family: 'Noto Nastaliq Urdu', 'IBM Plex Sans Arabic', serif !important;
+  font-family: 'jameel-noori-nastaleeq', 'nastaleeq', 'lahori-nastaleeq', 'Noto Nastaliq Urdu', 'akbar', serif !important;
   line-height: 2.1;
 }
 
 .font-nastaliq {
-  font-family: 'Noto Nastaliq Urdu', serif !important;
+  font-family: 'jameel-noori-nastaleeq', 'nastaleeq', 'lahori-nastaleeq', 'Noto Nastaliq Urdu', serif !important;
   line-height: 2.2;
+}
+
+.font-akbar {
+  font-family: 'akbar', 'jameel-noori-nastaleeq', 'nastaleeq', serif !important;
+  line-height: 1.9;
 }
 
 .font-urdu-clean {
@@ -47,6 +112,7 @@ html[lang="en"] .font-urdu,
 html[lang="en"] .font-urdu-heading,
 html[lang="en"] .font-urdu-clean,
 html[lang="en"] .font-nastaliq,
+html[lang="en"] .font-akbar,
 html[lang="en"] .font-urdu-nastaliq {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
   line-height: 1.55 !important;
