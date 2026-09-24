@@ -5,9 +5,10 @@ import {
   Youtube,
   Facebook,
   MessageCircle,
-  Phone
+  Phone,
+  Star
 } from 'lucide-react';
-import { COMPANY_INFO } from '../data/companyData';
+import { COMPANY_INFO, GOOGLE_REVIEW_URL } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
 
 export const Footer: React.FC = () => {
@@ -82,6 +83,18 @@ export const Footer: React.FC = () => {
             >
               <Phone className="w-3.5 h-3.5 fill-current" />
               <span>{COMPANY_INFO.phone1}</span>
+            </a>
+
+            {/* Review us on Google */}
+            <a
+              href={GOOGLE_REVIEW_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-amber-300 border border-slate-700 hover:border-amber-400/50 px-3.5 py-1.5 rounded-xl text-xs font-bold font-urdu transition shadow-sm hover:scale-105"
+              aria-label="Review Warraich Goods Transport Company on Google"
+            >
+              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400 flex-shrink-0" />
+              <span>{isUrdu ? 'گوگل پر ہمارا ریویو دیں' : 'Review us on Google'}</span>
             </a>
           </div>
         </div>

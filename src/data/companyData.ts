@@ -1,5 +1,7 @@
 import { BranchInfo, VehicleInfo, ServiceAreaCity } from '../types';
 
+export const GOOGLE_REVIEW_URL = "PASTE_LINK_HERE";
+
 export const COMPANY_INFO = {
   nameUrdu: 'وڑائچ گڈز ٹرانسپورٹ کمپنی',
   nameEnglish: 'Warraich Goods Transport Company',
