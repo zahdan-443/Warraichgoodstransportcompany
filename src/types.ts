@@ -26,10 +26,32 @@ export interface BranchInfo {
   cityEnglish: string;
   addressUrdu: string;
   addressEnglish: string;
+  landmarkUrdu?: string;
+  landmarkEnglish?: string;
   phone1: string;
   phone2: string;
   mapUrl: string;
   isHeadOffice?: boolean;
+  hubBadgeUrdu?: string;
+  hubBadgeEnglish?: string;
+  seoHeadingUrdu?: string;
+  seoHeadingEnglish?: string;
+  targetKeywords?: string[];
+  keyRoutesUrdu?: string[];
+  keyRoutesEnglish?: string[];
+  operationalCapabilitiesUrdu?: string[];
+  operationalCapabilitiesEnglish?: string[];
+}
+
+export interface ServiceAreaCity {
+  id: string;
+  nameUrdu: string;
+  nameEnglish: string;
+  descriptionUrdu: string;
+  descriptionEnglish: string;
+  phone: string;
+  phoneRaw: string;
+  whatsappUrl: string;
 }
 
 export interface BookingFormData {

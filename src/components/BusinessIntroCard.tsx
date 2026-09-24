@@ -13,9 +13,16 @@ import {
   Copy, 
   Check, 
   ExternalLink,
-  Award
+  Award,
+  Route,
+  Navigation,
+  CheckCircle2,
+  Tag,
+  Youtube,
+  Facebook,
+  MessageCircle
 } from 'lucide-react';
-import { COMPANY_INFO, BRANCHES_DATA } from '../data/companyData';
+import { COMPANY_INFO, SERVICE_AREAS } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
 
 export const BusinessIntroCard: React.FC = () => {
@@ -39,7 +46,6 @@ export const BusinessIntroCard: React.FC = () => {
   return (
     <section id="business-intro" className="py-12 sm:py-16 bg-gradient-to-b from-slate-100 via-slate-50 to-slate-100 border-t border-slate-200 scroll-mt-20">
       <div id="about" className="sr-only" />
-      <div id="branches" className="sr-only" />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
@@ -53,8 +59,8 @@ export const BusinessIntroCard: React.FC = () => {
           </h2>
           <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
             {isUrdu 
-              ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی کے مصدقہ کوائف، ہیڈ آفس و برانچز کے پتے، پروپرائٹر معلومات اور قانونی رجسٹریشن'
-              : 'Verified credentials, head office & branch locations, proprietor leadership, and tax compliance summary.'}
+              ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی کے مصدقہ کوائف، سروس نیٹ ورک، پروپرائٹر معلومات اور قانونی رجسٹریشن'
+              : 'Verified credentials, nationwide service coverage network, proprietor leadership, and tax compliance summary.'}
           </p>
         </div>
 
@@ -216,141 +222,150 @@ export const BusinessIntroCard: React.FC = () => {
 
             </div>
 
-            {/* 3. Official Branches, Addresses & Contact Numbers */}
-            <div className="pt-8">
+            {/* 3. Service Areas (ہمارے سروس علاقے) */}
+            <div id="branches" className="pt-8 border-t border-slate-200 scroll-mt-24">
               
-              <h4 className="text-lg font-bold text-slate-900 mb-6 font-urdu text-center sm:text-start flex items-center gap-2 justify-center sm:justify-start">
-                <MapPin className="w-5 h-5 text-amber-600" />
-                <span>{isUrdu ? 'باضابطہ برانچز، پتے اور رابطہ ڈائریکٹری' : 'Official Branch Addresses & Directory'}</span>
-              </h4>
+              <div className="text-center sm:text-start mb-6">
+                <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-900 border border-amber-300 px-3 py-1 rounded-full text-xs font-bold mb-2.5">
+                  <MapPin className="w-3.5 h-3.5 text-amber-700" />
+                  <span>{isUrdu ? 'ملک گیر سروس نیٹ ورک' : 'Nationwide Service Network'}</span>
+                </div>
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-950 font-urdu tracking-tight">
+                  {isUrdu ? 'ہمارے سروس علاقے' : 'Our Service Areas'}
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-600 font-urdu mt-1.5 max-w-3xl">
+                  {isUrdu
+                    ? 'ہم پورے پاکستان میں سنگل پارٹی 100% مخصوص فل ٹرک لوڈ (FTL) مال برداری کی آن کال و آن لائن سہولت فراہم کرتے ہیں۔ نیچے دیے گئے تمام شہروں اور صنعتی روٹس کے لیے فوری بکنگ دستیاب ہے:'
+                    : 'We provide dedicated 100% Full Truckload (FTL) freight haulage across Pakistan with direct phone and WhatsApp booking. Daily fleet availability across all key commercial hubs:'}
+                </p>
+              </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Two 60-Word Urdu SEO Paragraphs for Samundri & Kamalia */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                 
-                {/* Branch 1: Samundri Main Hub */}
-                <div className="bg-gradient-to-br from-amber-50/50 via-white to-slate-50 rounded-2xl p-5 sm:p-6 border border-amber-200 shadow-sm relative group">
-                  <div className="flex items-start justify-between gap-2 mb-3">
-                    <div>
-                      <span className="inline-block bg-amber-500 text-slate-950 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider font-mono">
-                        {isUrdu ? 'ہیڈ آفس / مرکزی اڈا' : 'Head Office'}
-                      </span>
-                      <h5 className="text-base sm:text-lg font-bold text-slate-900 font-urdu mt-1.5">
-                        {isUrdu ? 'سمندری اڈا (ضلع فیصل آباد)' : 'Samundri Hub (Faisalabad Dist.)'}
-                      </h5>
-                    </div>
-
-                    <button
-                      onClick={() => handleCopy(BRANCHES_DATA[0].addressUrdu, 'samundri')}
-                      className="inline-flex items-center gap-1 text-[11px] text-slate-500 hover:text-slate-800 bg-white border border-slate-200 hover:border-slate-300 px-2 py-1 rounded-lg transition shadow-xs cursor-pointer print:hidden"
-                      title="Copy Address"
-                    >
-                      {copiedKey === 'samundri' ? (
-                        <>
-                          <Check className="w-3 h-3 text-emerald-600" />
-                          <span className="text-emerald-700 font-bold">{isUrdu ? 'کاپی ہوگیا' : 'Copied'}</span>
-                        </>
-                      ) : (
-                        <>
-                          <Copy className="w-3 h-3" />
-                          <span>{isUrdu ? 'پتہ کاپی' : 'Copy'}</span>
-                        </>
-                      )}
-                    </button>
+                {/* Samundri Service Area Paragraph */}
+                <div className="bg-gradient-to-br from-amber-50/70 via-white to-slate-50 border border-amber-200 rounded-2xl p-5 shadow-xs">
+                  <div className="flex items-center justify-between pb-2 mb-2.5 border-b border-amber-100">
+                    <span className="font-bold text-slate-900 text-sm font-urdu flex items-center gap-1.5">
+                      <Truck className="w-4 h-4 text-amber-600" />
+                      <span>سمندری سے مال برداری و بکنگ (Samundri Service)</span>
+                    </span>
+                    <span className="text-[11px] font-mono font-bold bg-amber-200/70 text-amber-950 px-2 py-0.5 rounded-md">
+                      24/7 On-Call
+                    </span>
                   </div>
-
-                  {/* Address */}
-                  <div className="space-y-1.5 text-xs text-slate-700 font-urdu mb-4">
-                    <p className="font-semibold text-slate-900 flex items-start gap-1.5">
-                      <MapPin className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
-                      <span>{isUrdu ? BRANCHES_DATA[0].addressUrdu : BRANCHES_DATA[0].addressEnglish}</span>
-                    </p>
-                    <p className="text-[11px] text-slate-500 mr-5">
-                      {isUrdu ? 'قریب: 466 چوک، اوکاڑہ بائی پاس، سمندری' : 'Near 466 Chowk, Okara Bypass, Samundri'}
-                    </p>
-                  </div>
-
-                  {/* Phone & Map Link */}
-                  <div className="pt-3 border-t border-amber-100 flex flex-wrap items-center justify-between gap-3 text-xs">
-                    <div className="flex items-center gap-1.5 text-slate-900 font-mono font-bold">
-                      <Phone className="w-3.5 h-3.5 text-amber-600" />
-                      <span>{BRANCHES_DATA[0].phone1}</span>
-                      <span className="text-[10px] text-slate-500 font-sans font-normal">(Jazz)</span>
+                  <p className="text-xs sm:text-[13px] text-slate-700 font-urdu leading-relaxed">
+                    سمندری اور اس کے تمام ملحقہ علاقوں کے تاجروں، زمینداروں اور ملز مالکان کے لیے سمندری سے مال کی بکنگ (Samundri se maal ki booking) بذریعہ فون اور واٹس ایپ چوبیس گھنٹے دستیاب ہے۔ ہمارے پاس زرعی اجناس، ٹیکسٹائل، کھاد اور انڈسٹریل سامان کی محفوظ ترسیل کے لیے شہزور، مزدا، سیمپل اور بیڈفورڈ (Shehzore, Mazda, Bedford) ہر وقت تیار ہیں۔ ہم کال پر ڈائریکٹ گاڑی آپ کے گودام یا فیکٹری روانہ کرتے ہیں جو بغیر کسی تاخیر کے سیدھی منزل پر پہنچتی ہے۔
+                  </p>
+                  <div className="mt-3.5 pt-3 border-t border-amber-100/80 flex items-center justify-between gap-2">
+                    <span className="text-[11px] text-slate-500 font-urdu">آن کال و واٹس ایپ بکنگ:</span>
+                    <div className="flex items-center gap-2">
+                      <a
+                        href="tel:03005370443"
+                        className="inline-flex items-center gap-1 text-[11px] font-bold text-amber-900 bg-amber-100 hover:bg-amber-200 px-2.5 py-1 rounded-lg transition"
+                      >
+                        <Phone className="w-3 h-3 text-amber-700" />
+                        <span>0300-5370443</span>
+                      </a>
+                      <a
+                        href="https://wa.me/923005370443"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-800 bg-emerald-100 hover:bg-emerald-200 px-2.5 py-1 rounded-lg transition"
+                      >
+                        <MessageCircle className="w-3 h-3 text-emerald-600" />
+                        <span>WhatsApp</span>
+                      </a>
                     </div>
-
-                    <a
-                      href={BRANCHES_DATA[0].mapUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-blue-700 hover:text-blue-900 font-bold font-urdu print:hidden"
-                    >
-                      <span>{isUrdu ? 'گوگل میپ لوکیشن' : 'Open in Maps'}</span>
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
                   </div>
                 </div>
 
-                {/* Branch 2: Kamalia Branch */}
-                <div className="bg-gradient-to-br from-blue-50/40 via-white to-slate-50 rounded-2xl p-5 sm:p-6 border border-blue-200 shadow-sm relative group">
-                  <div className="flex items-start justify-between gap-2 mb-3">
-                    <div>
-                      <span className="inline-block bg-blue-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider font-mono">
-                        {isUrdu ? 'برانچ آفس' : 'Branch Office'}
-                      </span>
-                      <h5 className="text-base sm:text-lg font-bold text-slate-900 font-urdu mt-1.5">
-                        {isUrdu ? 'کمالیہ برانچ (ضلع ٹوبہ ٹیک سنگھ)' : 'Kamalia Branch (Toba Dist.)'}
-                      </h5>
-                    </div>
-
-                    <button
-                      onClick={() => handleCopy(BRANCHES_DATA[1].addressUrdu, 'kamalia')}
-                      className="inline-flex items-center gap-1 text-[11px] text-slate-500 hover:text-slate-800 bg-white border border-slate-200 hover:border-slate-300 px-2 py-1 rounded-lg transition shadow-xs cursor-pointer print:hidden"
-                      title="Copy Address"
-                    >
-                      {copiedKey === 'kamalia' ? (
-                        <>
-                          <Check className="w-3 h-3 text-emerald-600" />
-                          <span className="text-emerald-700 font-bold">{isUrdu ? 'کاپی ہوگیا' : 'Copied'}</span>
-                        </>
-                      ) : (
-                        <>
-                          <Copy className="w-3 h-3" />
-                          <span>{isUrdu ? 'پتہ کاپی' : 'Copy'}</span>
-                        </>
-                      )}
-                    </button>
+                {/* Kamalia Service Area Paragraph */}
+                <div className="bg-gradient-to-br from-emerald-50/70 via-white to-slate-50 border border-emerald-200 rounded-2xl p-5 shadow-xs">
+                  <div className="flex items-center justify-between pb-2 mb-2.5 border-b border-emerald-100">
+                    <span className="font-bold text-slate-900 text-sm font-urdu flex items-center gap-1.5">
+                      <Truck className="w-4 h-4 text-emerald-600" />
+                      <span>کمالیہ سے گڈز ٹرانسپورٹ (Kamalia Service)</span>
+                    </span>
+                    <span className="text-[11px] font-mono font-bold bg-emerald-200/70 text-emerald-950 px-2 py-0.5 rounded-md">
+                      24/7 On-Call
+                    </span>
                   </div>
-
-                  {/* Address */}
-                  <div className="space-y-1.5 text-xs text-slate-700 font-urdu mb-4">
-                    <p className="font-semibold text-slate-900 flex items-start gap-1.5">
-                      <MapPin className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                      <span>{isUrdu ? BRANCHES_DATA[1].addressUrdu : BRANCHES_DATA[1].addressEnglish}</span>
-                    </p>
-                    <p className="text-[11px] text-slate-500 mr-5">
-                      {isUrdu ? 'قریب: رجانہ روڈ، بلمقابل رائل پیلس، کمالیہ' : 'Near Rajana Road, Opp Royal Palace, Kamalia'}
-                    </p>
-                  </div>
-
-                  {/* Phone & Map Link */}
-                  <div className="pt-3 border-t border-blue-100 flex flex-wrap items-center justify-between gap-3 text-xs">
-                    <div className="flex items-center gap-1.5 text-slate-900 font-mono font-bold">
-                      <Phone className="w-3.5 h-3.5 text-blue-600" />
-                      <span>{BRANCHES_DATA[1].phone2}</span>
-                      <span className="text-[10px] text-slate-500 font-sans font-normal">(Ufone)</span>
+                  <p className="text-xs sm:text-[13px] text-slate-700 font-urdu leading-relaxed">
+                    کمالیہ، رجانہ، پیر محل اور غلہ منڈی کے تاجروں کے لیے کمالیہ سے گڈز ٹرانسپورٹ (Kamalia se goods transport) کی مکمل سہولت فون کال اور واٹس ایپ پر دستیاب ہے۔ مکئی، گندم، چینی، کپاس اور پولٹری فیڈ کی تیز رفتار ترسیل کے لیے شہزور، مزدا، سیمپل اور بیڈفورڈ (Shehzore, Mazda, Bedford) ٹرکس 100% فل ٹرک لوڈ پر فوری روانہ کیے جاتے ہیں۔ پورے پاکستان کے لیے شفاف کرایہ اور محفوظ مال برداری اب ایک فون کال پر میسر ہے۔
+                  </p>
+                  <div className="mt-3.5 pt-3 border-t border-emerald-100/80 flex items-center justify-between gap-2">
+                    <span className="text-[11px] text-slate-500 font-urdu">آن کال و واٹس ایپ بکنگ:</span>
+                    <div className="flex items-center gap-2">
+                      <a
+                        href="tel:03005370443"
+                        className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-900 bg-emerald-100 hover:bg-emerald-200 px-2.5 py-1 rounded-lg transition"
+                      >
+                        <Phone className="w-3 h-3 text-emerald-700" />
+                        <span>0300-5370443</span>
+                      </a>
+                      <a
+                        href="https://wa.me/923005370443"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-800 bg-emerald-100 hover:bg-emerald-200 px-2.5 py-1 rounded-lg transition"
+                      >
+                        <MessageCircle className="w-3 h-3 text-emerald-600" />
+                        <span>WhatsApp</span>
+                      </a>
                     </div>
-
-                    <a
-                      href={BRANCHES_DATA[1].mapUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-blue-700 hover:text-blue-900 font-bold font-urdu print:hidden"
-                    >
-                      <span>{isUrdu ? 'گوگل میپ لوکیشن' : 'Open in Maps'}</span>
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
                   </div>
                 </div>
 
               </div>
+
+              {/* 14 Service Area Cards Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-4">
+                {SERVICE_AREAS.map((area) => (
+                  <div 
+                    key={area.id}
+                    className="bg-white hover:bg-slate-50/80 border border-slate-200 hover:border-amber-300 rounded-xl p-3.5 transition-all shadow-xs hover:shadow-sm flex flex-col justify-between group"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between gap-1.5 mb-1.5">
+                        <div className="flex items-center gap-1.5">
+                          <MapPin className="w-4 h-4 text-amber-600 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                          <h3 className="font-extrabold text-slate-900 text-sm font-urdu leading-snug">
+                            {area.nameUrdu} <span className="text-xs font-semibold text-slate-500 font-sans">({area.nameEnglish})</span>
+                          </h3>
+                        </div>
+                      </div>
+                      <p className="text-[11px] text-slate-600 font-urdu leading-tight mb-3">
+                        {isUrdu ? area.descriptionUrdu : area.descriptionEnglish}
+                      </p>
+                    </div>
+
+                    <div className="pt-2 border-t border-slate-100 grid grid-cols-2 gap-1.5">
+                      <a
+                        href={`tel:${area.phoneRaw}`}
+                        className="inline-flex items-center justify-center gap-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-2 py-1.5 rounded-lg text-xs transition active:scale-95 shadow-2xs font-mono"
+                        title={`Call ${area.nameEnglish} (0300-5370443)`}
+                      >
+                        <Phone className="w-3 h-3 fill-current" />
+                        <span>Call</span>
+                      </a>
+
+                      <a
+                        href={area.whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-2 py-1.5 rounded-lg text-xs transition active:scale-95 shadow-2xs"
+                        title={`WhatsApp booking for ${area.nameEnglish}`}
+                      >
+                        <MessageCircle className="w-3 h-3 fill-current" />
+                        <span>WhatsApp</span>
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+            </div>
 
               {/* Universal Official Email & Support Timing Ribbon */}
               <div className="mt-6 bg-slate-900 text-white rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -381,9 +396,44 @@ export const BusinessIntroCard: React.FC = () => {
                 </div>
               </div>
 
-            </div>
+              {/* Official Social Media Channels Banner */}
+              <div className="mt-4 bg-slate-50 border border-slate-200/90 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div className="flex items-center gap-2.5">
+                  <span className="text-xs font-bold text-slate-700 font-urdu">
+                    {isUrdu ? 'آفیشل سوشل چینلز و تصدیق شدہ نیٹ ورک:' : 'Official Verified Channels:'}
+                  </span>
+                </div>
 
-          </div>
+                <div className="flex flex-wrap items-center gap-2.5">
+                  {/* YouTube Link */}
+                  <a
+                    href={COMPANY_INFO.youtubeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 hover:border-red-300 px-3 py-1.5 rounded-xl text-xs font-bold font-mono transition shadow-2xs hover:scale-105"
+                    title="Official YouTube Channel"
+                  >
+                    <Youtube className="w-4 h-4 fill-current text-red-600" />
+                    <span>{COMPANY_INFO.youtubeHandle}</span>
+                    <ExternalLink className="w-3 h-3 text-red-400" />
+                  </a>
+
+                  {/* Facebook Link */}
+                  <a
+                    href={COMPANY_INFO.facebookUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 hover:border-blue-300 px-3 py-1.5 rounded-xl text-xs font-bold font-urdu transition shadow-2xs hover:scale-105"
+                    title="Official Facebook Page"
+                  >
+                    <Facebook className="w-4 h-4 fill-current text-blue-600" />
+                    <span>{isUrdu ? 'فیس بک پیج' : 'Facebook Page'}</span>
+                    <ExternalLink className="w-3 h-3 text-blue-400" />
+                  </a>
+                </div>
+              </div>
+
+            </div>
 
           {/* Bottom Card Footer Watermark */}
           <div className="bg-slate-50 px-6 sm:px-10 py-3 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-slate-500 font-urdu">

@@ -31,16 +31,16 @@ import { useLanguage } from '../context/LanguageContext';
 // ============================================================================
 export const GROUND_OPERATIONS_PHOTOS = [
   {
-    id: 'yard-office',
-    // "Proprietor at the yard/office"
+    id: 'yard-operations',
+    // "Proprietor supervising operations"
     imageSrc: './images/placeholder-yard-office.jpg', // <-- REPLACE THIS ONE LINE: e.g. './images/proprietor-yard.jpg'
-    badgeUrdu: 'قیادت و اڈہ دفتر',
-    badgeEn: 'Leadership & Yard Office',
-    titleUrdu: 'پروپرائٹر زاہدان نصر وڑائچ — اڈہ دفتر',
-    titleEn: 'Proprietor at Terminal Office & Yard',
-    descUrdu: 'سمندری اور کمالیہ اڈے پر فلیٹ کی براہ راست روانگی، کاغذات اور بلٹی کی ذاتی نگرانی۔',
+    badgeUrdu: 'قیادت و فلیٹ سپروائزری',
+    badgeEn: 'Leadership & Fleet Supervision',
+    titleUrdu: 'پروپرائٹر زاہدان نصر وڑائچ — آپریشنل نگرانی',
+    titleEn: 'Proprietor Zahdan Nasar Warraich — Operational Oversight',
+    descUrdu: 'سمندری، کمالیہ اور پنجاب بھر میں فلیٹ کی براہ راست روانگی، کاغذات اور بلٹی کی ذاتی نگرانی۔',
     descEn: 'Direct hands-on oversight of daily fleet dispatch, vehicle inspections, and client coordination.',
-    alt: 'Zahdan Nasar Warraich - Proprietor at Samundri Office and Yard',
+    alt: 'Zahdan Nasar Warraich - Proprietor of Warraich Goods Transport Company supervising fleet operations',
   },
   {
     id: 'driver-vehicle',
@@ -335,15 +335,15 @@ export const CorporateCredibilitySection: React.FC = () => {
           <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
             <div className="inline-flex items-center gap-2 bg-blue-100 border border-blue-300 text-blue-900 px-3.5 py-1.5 rounded-full text-xs font-bold font-urdu mb-3 shadow-xs">
               <Users className="w-4 h-4 text-blue-700 flex-shrink-0" />
-              <span>{isUrdu ? 'زمینی حقیقت، اڈہ اور عملہ' : 'On-Ground Team & Real Facilities'}</span>
+              <span>{isUrdu ? 'زمینی حقیقت اور تجربہ کار عملہ' : 'On-Ground Team & Real Operations'}</span>
             </div>
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 font-urdu">
-              {isUrdu ? 'حقیقی اڈہ، بااخلاق ڈرائیورز اور آن گراؤنڈ آپریشنز' : 'Real Terminals, Vetted Highway Drivers & Ground Operations'}
+              {isUrdu ? 'حقیقی فلیٹ، بااخلاق ڈرائیورز اور آن گراؤنڈ آپریشنز' : 'Active Fleet, Vetted Highway Drivers & Ground Operations'}
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 mt-2 font-urdu max-w-2xl mx-auto leading-relaxed">
               {isUrdu 
-                ? 'صرف کاغذات نہیں بلکہ اڈے پر موجود تجربہ کار پروپرائٹر، نادرا تصدیق شدہ ڈرائیورز اور فیلڈ میں براہ راست لوڈنگ و معائنہ کا حقیقی نظام۔' 
-                : 'Authentic freight operations powered by direct terminal leadership, verified highway drivers, and dedicated loading bays.'}
+                ? 'صرف کاغذات نہیں بلکہ فیلڈ میں موجود تجربہ کار پروپرائٹر، نادرا تصدیق شدہ ڈرائیورز اور فیلڈ میں براہ راست لوڈنگ و معائنہ کا حقیقی نظام۔' 
+                : 'Authentic freight operations powered by hands-on operational leadership, verified highway drivers, and dedicated dispatch.'}
             </p>
           </div>
 
@@ -519,15 +519,19 @@ export const CorporateCredibilitySection: React.FC = () => {
                 <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
                   <p className="font-bold text-slate-900 text-sm font-urdu border-b border-slate-200 pb-1.5 flex items-center gap-1.5">
                     <Warehouse className="w-4 h-4 text-amber-600" />
-                    <span>{isUrdu ? 'آفیشل اڈے و ٹرمینلز' : 'Terminals & Official Offices'}</span>
+                    <span>{isUrdu ? 'سروس کوریج و بکنگ طریقہ کار' : 'Service Coverage & Booking'}</span>
                   </p>
                   <div className="py-1 border-b border-slate-100">
-                    <span className="text-slate-500 block mb-0.5">{isUrdu ? 'ہیڈ آفس سمندری اڈا:' : 'Head Office Samundri Adda:'}</span>
-                    <span className="font-semibold text-slate-900 block font-urdu">{CORPORATE_CREDENTIALS.headOfficeAddressUrdu}</span>
+                    <span className="text-slate-500 block mb-0.5">{isUrdu ? 'سروس کوریج:' : 'Service Coverage:'}</span>
+                    <span className="font-semibold text-slate-900 block font-urdu">
+                      {isUrdu ? 'سمندری، کمالیہ، فیصل آباد، ٹوبہ ٹیک سنگھ، لاہور، کراچی اور ملک بھر کے تمام روٹس' : 'Samundri, Kamalia, Faisalabad, Toba Tek Singh, Lahore, Karachi & all major routes'}
+                    </span>
                   </div>
                   <div className="py-1 border-b border-slate-100">
-                    <span className="text-slate-500 block mb-0.5">{isUrdu ? 'کمالیہ برانچ اڈا:' : 'Kamalia Branch Adda:'}</span>
-                    <span className="font-semibold text-slate-900 block font-urdu">{CORPORATE_CREDENTIALS.branchOfficeAddressUrdu}</span>
+                    <span className="text-slate-500 block mb-0.5">{isUrdu ? 'بکنگ کا طریقہ کار:' : 'Booking Mode:'}</span>
+                    <span className="font-semibold text-slate-900 block font-urdu">
+                      {isUrdu ? 'فون کال (0300-5370443) اور واٹس ایپ پر 24 گھنٹے فوری بکنگ' : '24/7 Direct Booking via Phone (0300-5370443) & WhatsApp'}
+                    </span>
                   </div>
                   <div className="flex justify-between py-1">
                     <span className="text-slate-500">{isUrdu ? 'آپریشنل اوقات:' : 'Operating Hours:'}</span>

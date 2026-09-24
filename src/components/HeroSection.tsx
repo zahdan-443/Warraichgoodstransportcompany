@@ -11,7 +11,9 @@ import {
   Lock,
   Calculator,
   Warehouse,
-  History
+  History,
+  MapPin,
+  Tag
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
@@ -96,6 +98,43 @@ export const HeroSection: React.FC = () => {
               <div className="flex items-center gap-2 bg-white border border-slate-200 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm shadow-sm">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
                 <span className="text-slate-800 font-urdu">{t.benefit3}</span>
+              </div>
+            </div>
+
+            {/* High-Volume Local Search Keywords & Direct Hubs Quick Access */}
+            <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white p-3.5 sm:p-4 rounded-2xl shadow-md border border-slate-700/80">
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5 pb-2 border-b border-slate-700/60">
+                <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-amber-400 font-urdu">
+                  <MapPin className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                  <span>
+                    {language === 'ur'
+                      ? 'مقبول ترین لوکل سروسز و ڈائریکٹ روٹس (سمندری و کمالیہ):'
+                      : 'High-Volume Local Services & Direct Routes (Samundri & Kamalia):'}
+                  </span>
+                </div>
+                <span className="text-[10px] text-slate-400 font-mono">
+                  100% Dedicated FTL
+                </span>
+              </div>
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                {[
+                  { en: 'Goods transport company in Samundri', ur: 'سمندری گڈز ٹرانسپورٹ سروس' },
+                  { en: 'Goods transport service Kamalia', ur: 'کمالیہ رجانہ روڈ گڈز ٹرانسپورٹ' },
+                  { en: 'Truck booking / Trailer transport Samundri', ur: 'ٹرک بکنگ و ٹریلر ٹرانسپورٹ' },
+                  { en: 'Samundri bypass transport company', ur: 'سمندری بائی پاس ٹرانسپورٹ کمپنی' },
+                  { en: 'Kamalia Rajana road goods transport', ur: 'رجانہ روڈ ٹرانسپورٹ سروس' },
+                  { en: 'FTL logistics service Faisalabad region', ur: 'فیصل آباد ریجن فل ٹرک سروس' },
+                ].map((item, idx) => (
+                  <a
+                    key={idx}
+                    href="#branches"
+                    className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold bg-slate-800/90 hover:bg-amber-500 hover:text-slate-950 text-slate-200 px-2.5 py-1 rounded-lg transition-colors border border-slate-700 font-urdu cursor-pointer"
+                    title={item.en}
+                  >
+                    <Tag className="w-2.5 h-2.5 text-amber-400 opacity-80" />
+                    <span>{language === 'ur' ? `${item.ur} (${item.en})` : item.en}</span>
+                  </a>
+                ))}
               </div>
             </div>
 
@@ -302,11 +341,11 @@ export const HeroSection: React.FC = () => {
               </p>
             </div>
 
-            {/* Stat 4: 2 Direct Dispatch Hub Locations */}
+            {/* Stat 4: Service Areas Network */}
             <div className="bg-white/90 backdrop-blur-xs border border-purple-200/90 rounded-2xl p-3.5 sm:p-4 shadow-xs hover:shadow-md hover:border-purple-400 transition-all flex flex-col justify-between">
               <div className="flex items-center justify-between gap-1.5 mb-1.5">
                 <span className="text-xl sm:text-2xl lg:text-3xl font-black text-purple-700 font-mono tracking-tight">
-                  2
+                  {t.trustCounters[3].num}
                 </span>
                 <span className="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold font-urdu px-2 py-0.5 rounded-full bg-purple-100 text-purple-900 border border-purple-200">
                   <Warehouse className="w-3 h-3 text-purple-700 flex-shrink-0" />

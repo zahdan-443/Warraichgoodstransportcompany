@@ -207,7 +207,7 @@ export const BiltyTrackingSection: React.FC = () => {
                 </p>
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                   {language === 'ur'
-                    ? 'وڑائچ گڈز پر ہر گاڑی آپ کے گودام یا فیکٹری سے لوڈ ہو کر کسی درمیانی اڈے پر رکے بغیر سیدھی منزل کے لیے روانہ ہوتی ہے۔ ڈرائیور سے براہِ راست رابطہ اور واٹس ایپ پر تازہ لوکیشن معلوم کرنے کے لیے نیچے بٹن دبائیں:'
+                    ? 'وڑائچ گڈز پر ہر گاڑی آپ کے گودام یا فیکٹری سے لوڈ ہو کر کسی درمیانی مقام پر رکے بغیر سیدھی منزل کے لیے روانہ ہوتی ہے۔ ڈرائیور سے براہِ راست رابطہ اور واٹس ایپ پر تازہ لوکیشن معلوم کرنے کے لیے نیچے بٹن دبائیں:'
                     : 'Warraich Goods operates dedicated Full Truckload (FTL) express service without intermediary transshipments. Use the direct buttons below to receive the truck driver’s live GPS coordinates and direct cellular status.'}
                 </p>
               </div>

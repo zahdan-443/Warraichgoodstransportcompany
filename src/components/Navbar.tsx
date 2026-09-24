@@ -56,11 +56,13 @@ export const Navbar: React.FC<NavbarProps> = ({
     { label: tNav.tracking, href: '#tracking' },
     { label: tNav.calculator, href: '#booking' },
     { label: tNav.corporate, href: '#corporate-credibility' },
+    { label: tNav.serviceAreas, href: '#branches' },
     { label: isUrdu ? 'کاروباری کارڈ' : 'Business Card', href: '#business-intro' },
   ];
 
   const allNavLinks = [
     { label: tNav.home, href: '#hero' },
+    { label: tNav.serviceAreas, href: '#branches' },
     { label: tNav.fleet, href: '#fleet' },
     { label: tNav.tracking, href: '#tracking' },
     { label: tNav.calculator, href: '#booking' },

@@ -30,12 +30,12 @@ export const FaqAndReviewsSection: React.FC = () => {
       a: 'جی بالکل! ہماری تمام اوپن اور جالی باڈی گاڑیوں میں ڈبل واٹر پروف ہیوی ترپالیں اور مضبوط ٹائی ڈاؤن رسیاں موجود ہوتی ہیں۔ بارش، گرد و غبار اور دھوپ سے سامان کا 100% تحفظ یقینی بنایا جاتا ہے۔'
     },
     {
-      q: 'سمندری اور کمالیہ اڈے سے گاڑی کتنی دیر میں دستیاب ہو جاتی ہے؟',
-      a: 'ہمارے پاس سمندری مین اڈا اور کمالیہ برانچ میں شہزور، مزدا اور بیڈفورڈ گاڑیاں اسٹینڈ بائی رہتی ہیں۔ رابطہ کرنے پر قریبی تحصیلوں، فیکٹریوں یا غلہ منڈی میں گاڑی فوری لوڈنگ کے لیے حاضر کر دی جاتی ہے۔'
+      q: 'سمندری اور کمالیہ سے مال برداری اور ٹرانسپورٹ سروس کیسے حاصل کریں؟',
+      a: 'سمندری اور کمالیہ سمیت پورے پنجاب اور پاکستان کے لیے مال کی بکنگ فون کال اور واٹس ایپ پر 24 گھنٹے دستیاب ہے۔ ہم Goods transport company in Samundri اور Goods transport service Kamalia کے طور پر فیصل آباد ریجن (FIEDMC)، لاہور، کراچی پورٹ، راولپنڈی اور پورے پاکستان کے لیے 100% مخصوص FTL ٹرک بکنگ فراہم کرتے ہیں۔'
     },
     {
-      q: 'کیا فیکٹریوں، ملز اور تجارتی اداروں کے ساتھ باقاعدہ کنٹریکٹ ہو سکتا ہے؟',
-      a: 'جی ہاں، وڑائچ گڈز ٹرانسپورٹ کمپنی ٹیکسٹائل ملز، فلور ملز، سیمنٹ ایجنسیوں، شوگر ملز اور تجارتی اداروں کے ساتھ باقاعدہ FTL لاجسٹکس معاہدے پر گاڑیاں فراہم کرتی ہے۔'
+      q: 'کیا آپ سمندری سے ٹریلر اور فل ٹرک بکنگ فراہم کرتے ہیں؟ (Truck booking / Trailer transport Samundri)',
+      a: 'جی ہاں! ہمارے پاس شہزور (1 تا 3.5 ٹن)، مزدا 6 وہیلر (4 تا 10 ٹن)، سیمپل ٹرک (8 تا 16 ٹن) اور 22 تا 28+ فٹ بیڈفورڈ ہیوی ٹرکس و ٹریلر ٹرانسپورٹ سمندری اور کمالیہ سے 24 گھنٹے آن ڈیمانڈ دستیاب ہیں۔ کمپیوٹرائزڈ کانٹا پرچی اور تصدیق شدہ بلٹی ہر گاڑی کے ساتھ دی جاتی ہے۔'
     },
     {
       q: 'کیا ڈرائیورز کی شناخت اور گاڑی کے کاغذات کی سرکاری تصدیق ہوتی ہے؟',
@@ -57,12 +57,12 @@ export const FaqAndReviewsSection: React.FC = () => {
       a: 'Yes, absolutely! Every vehicle in our fleet is equipped with heavy-duty double waterproof tarpaulins and high-tensile tie-down straps, ensuring 100% weather and moisture protection throughout transit.'
     },
     {
-      q: 'How quickly can a dedicated truck be dispatched from Samundri and Kamalia?',
-      a: 'We maintain standby trucks at our Samundri Central Hub and Kamalia Branch. Upon phone or WhatsApp confirmation, vehicles are dispatched immediately to local factories, warehouses, or grain markets.'
+      q: 'How can I book goods transport service from Samundri and Kamalia?',
+      a: 'Direct booking for Samundri, Kamalia, and all Pakistan routes is available 24/7 via phone call and WhatsApp. We serve as the premier goods transport company in Samundri & goods transport service Kamalia, connecting the FTL logistics service Faisalabad region to Karachi Port, Lahore, Rawalpindi, and all nationwide destinations.'
     },
     {
-      q: 'Can industrial factories and corporations establish regular haulage contracts?',
-      a: 'Yes, Warraich Goods Transport Company regularly signs long-term corporate logistics and haulage service agreements with textile mills, grain traders, and cement distributors with formal computerized billing.'
+      q: 'How can I arrange truck booking / trailer transport Samundri for heavy commercial loads?',
+      a: 'Instant truck booking / trailer transport Samundri and Kamalia is available 24/7. Simply call or WhatsApp 0300-5370443 or 0339-5370443. We dispatch Hyundai Shehzore (1-3.5 Tons), Mazda 6-wheeler (4-10 Tons), Sample haulers (8-16 Tons), and heavy Bedford trucks / trailers (15-28+ Tons) with digital weighbridge scale slips.'
     },
     {
       q: 'Are your drivers and transport documentation officially verified?',
@@ -129,27 +129,24 @@ export const FaqAndReviewsSection: React.FC = () => {
                   <span>{language === 'ur' ? '100% مستند و حقیقی ٹرانسپورٹ سروس' : '100% Authentic Freight Service'}</span>
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-white flex items-center justify-center md:justify-start gap-2">
-                  <MapPin className="w-5 h-5 text-red-400 flex-shrink-0" />
-                  <span>{language === 'ur' ? 'گوگل میپس پر لوکیشن دیکھیں یا رائے شیئر کریں' : 'View Google Maps Location or Share Feedback'}</span>
+                  <MapPin className="w-5 h-5 text-amber-400 flex-shrink-0" />
+                  <span>{language === 'ur' ? 'مصدقہ سروس نیٹ ورک و براہ راست رابطہ' : 'Verified Service Network & Direct Contact'}</span>
                 </h3>
                 <p className="text-slate-300 text-xs sm:text-sm max-w-xl leading-relaxed">
                   {language === 'ur' 
-                    ? 'ہم کسی قسم کے فرضی جائزے یا خود سے لکھے ہوئے ریویوز شائع نہیں کرتے۔ ہماری ساکھ اور پہچان فیلڈ میں برسیوں کی ایمانداری ہے۔ آپ گوگل میپس پر ہمارے اصل اڈے دیکھ سکتے ہیں یا براہِ راست واٹس ایپ پر رابطہ کر سکتے ہیں۔'
-                    : 'We do not publish artificial testimonials. Our reputation is built on decades of dependable freight service. You can explore our official Google Maps hubs or contact us directly on WhatsApp.'}
+                    ? 'ہم کسی قسم کے فرضی جائزے یا خود سے لکھے ہوئے ریویوز شائع نہیں کرتے۔ ہماری ساکھ اور پہچان فیلڈ میں برسوں کی ایمانداری ہے۔ آپ ہمارے سروس علاقے ملاحظہ فرما سکتے ہیں یا براہِ راست فون و واٹس ایپ پر رابطہ کر سکتے ہیں۔'
+                    : 'We do not publish artificial testimonials. Our reputation is built on decades of dependable freight service. You can explore our service areas network or contact us directly on WhatsApp.'}
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
                 <a
-                  href={COMPANY_INFO.googleMapUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#branches"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition-all shadow-md active:scale-95 cursor-pointer font-urdu"
-                  title="View Warraich Goods on Google Maps"
+                  title="View Service Areas"
                 >
                   <MapPin className="w-4 h-4 text-white" />
-                  <span>{language === 'ur' ? 'گوگل میپ پر اڈا دیکھیں' : 'View on Google Maps'}</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  <span>{language === 'ur' ? 'ہمارے سروس علاقے' : 'Our Service Areas'}</span>
                 </a>
 
                 <a
