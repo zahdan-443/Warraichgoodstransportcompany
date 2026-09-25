@@ -39,6 +39,17 @@ async function prerender() {
 
   fs.writeFileSync(indexPath, html, 'utf-8');
 
+  // Ensure critical server config and SEO files are guaranteed present in dist
+  const filesToSync = ['.htaccess', '_headers', 'robots.txt', 'sitemap.xml'];
+  for (const file of filesToSync) {
+    const srcPath = path.resolve(__dirname, `../public/${file}`);
+    const destPath = path.join(distDir, file);
+    if (fs.existsSync(srcPath)) {
+      fs.copyFileSync(srcPath, destPath);
+      console.log(`   - Synced ${file} to dist/`);
+    }
+  }
+
   console.log(`✅ Pre-rendered static HTML successfully written to dist/index.html`);
   console.log(`   - Output size: ${(html.length / 1024).toFixed(2)} KB`);
   console.log(`   - Verified <h1> tag present: ${html.includes('<h1')}`);
