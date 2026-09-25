@@ -38,10 +38,10 @@ export const DriverAppSection: React.FC = () => {
                 : 'Warraich Goods Transport Company provides a streamlined digital management system for our drivers, fleet, and corporate clients. Trip assignments, loading bilty documents, and route coordination are all managed seamlessly.'}
             </p>
 
-            {/* App Features List with Multi-Color accents */}
+            {/* App Features List */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-              <div className="bg-blue-50/60 border border-blue-200 p-3.5 rounded-2xl flex items-start gap-3 shadow-sm">
-                <div className="p-2.5 bg-blue-600 text-white rounded-xl flex-shrink-0 shadow-sm">
+              <div className="bg-blue-50 border border-blue-200 p-3.5 rounded-lg flex items-start gap-3 shadow-sm">
+                <div className="p-2.5 bg-blue-600 text-white rounded-lg flex-shrink-0 shadow-sm">
                   <Truck className="w-4 h-4" />
                 </div>
                 <div>
@@ -54,8 +54,8 @@ export const DriverAppSection: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-emerald-50/60 border border-emerald-200 p-3.5 rounded-2xl flex items-start gap-3 shadow-sm">
-                <div className="p-2.5 bg-emerald-600 text-white rounded-xl flex-shrink-0 shadow-sm">
+              <div className="bg-slate-50 border border-slate-200 p-3.5 rounded-lg flex items-start gap-3 shadow-sm">
+                <div className="p-2.5 bg-slate-900 text-white rounded-lg flex-shrink-0 shadow-sm">
                   <FileText className="w-4 h-4" />
                 </div>
                 <div>
@@ -68,8 +68,8 @@ export const DriverAppSection: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-purple-50/60 border border-purple-200 p-3.5 rounded-2xl flex items-start gap-3 shadow-sm">
-                <div className="p-2.5 bg-purple-600 text-white rounded-xl flex-shrink-0 shadow-sm">
+              <div className="bg-blue-50 border border-blue-200 p-3.5 rounded-lg flex items-start gap-3 shadow-sm">
+                <div className="p-2.5 bg-blue-600 text-white rounded-lg flex-shrink-0 shadow-sm">
                   <Compass className="w-4 h-4" />
                 </div>
                 <div>
@@ -82,8 +82,8 @@ export const DriverAppSection: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-amber-50/60 border border-amber-200 p-3.5 rounded-2xl flex items-start gap-3 shadow-sm">
-                <div className="p-2.5 bg-amber-500 text-slate-950 rounded-xl flex-shrink-0 shadow-sm">
+              <div className="bg-amber-50/60 border border-amber-200 p-3.5 rounded-lg flex items-start gap-3 shadow-sm">
+                <div className="p-2.5 bg-amber-500 text-slate-950 rounded-lg flex-shrink-0 shadow-sm">
                   <ShieldCheck className="w-4 h-4" />
                 </div>
                 <div>
@@ -104,7 +104,7 @@ export const DriverAppSection: React.FC = () => {
                 href={COMPANY_INFO.webAppUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold px-6 py-3 rounded-xl shadow-md text-xs sm:text-sm transition-all font-urdu min-h-[44px]"
+                className="inline-flex items-center justify-center gap-2.5 bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3 rounded-lg shadow-sm hover:shadow-md text-xs sm:text-sm transition-colors font-urdu min-h-[44px]"
                 aria-label="Open Daily Road Usages and Transport Web App"
               >
                 <span>{t.btnLaunch}</span>
@@ -120,22 +120,22 @@ export const DriverAppSection: React.FC = () => {
 
           {/* App UI Visual Card Mockup */}
           <div className="lg:col-span-5">
-            <div className="bg-slate-100 border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-lg relative">
-              <div className="bg-white rounded-xl p-3 sm:p-4 border border-slate-200 shadow-sm">
+            <div className="bg-slate-100 border border-slate-200 rounded-lg p-4 sm:p-5 shadow-sm relative">
+              <div className="bg-white rounded-lg p-3 sm:p-4 border border-slate-200 shadow-sm">
                 
                 {/* Mock Header */}
                 <div className="flex items-center justify-between border-b border-slate-200 pb-2.5 mb-3">
                   <div className="flex items-center gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
                   </div>
                   <span className="text-[10px] text-slate-500 font-mono truncate max-w-[240px]">zahdan-443.github.io/Warraich-Goods</span>
                 </div>
 
                 {/* App Screen Representation */}
                 <div className={`space-y-2.5 ${language === 'ur' ? 'text-right' : 'text-left'}`}>
-                  <div className="bg-slate-50 p-3 sm:p-4 rounded-xl border border-slate-200">
+                  <div className="bg-slate-50 p-3 sm:p-4 rounded-lg border border-slate-200">
                     <div className="flex items-center justify-between">
                       <span className="text-[10px] bg-amber-500 text-slate-950 font-bold px-2 py-0.5 rounded font-mono">Daily Road Usage</span>
                       <p className="font-extrabold text-slate-900 text-xs sm:text-sm font-urdu">
@@ -147,9 +147,9 @@ export const DriverAppSection: React.FC = () => {
                     </p>
                   </div>
 
-                  <div className="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs space-y-1.5 font-urdu">
+                  <div className="bg-slate-50 p-3 rounded-lg border border-slate-200 text-xs space-y-1.5 font-urdu">
                     <div className="flex justify-between items-center text-slate-700">
-                      <span className="text-emerald-700 font-bold text-[11px]">● {language === 'ur' ? 'جاری ٹرپس' : 'Active Trips'}</span>
+                      <span className="text-blue-700 font-bold text-[11px]">● {language === 'ur' ? 'جاری ٹرپس' : 'Active Trips'}</span>
                       <span className="text-[11px] text-slate-500">{language === 'ur' ? '100% آن لائن سسٹم' : '100% Online'}</span>
                     </div>
                     <div className="flex justify-between items-center text-slate-600 text-[11px]">
@@ -163,7 +163,7 @@ export const DriverAppSection: React.FC = () => {
                       href={COMPANY_INFO.webAppUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl text-xs transition-colors font-urdu shadow-sm min-h-[40px]"
+                      className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold py-2.5 rounded-lg text-xs transition-colors font-urdu shadow-sm min-h-[40px]"
                       aria-label="Access daily road usages portal"
                     >
                       <span>{language === 'ur' ? 'ڈیلی روڈ یوزجز ایپ کھولیں ➔' : 'Proceed to Daily Road Usage App ➔'}</span>

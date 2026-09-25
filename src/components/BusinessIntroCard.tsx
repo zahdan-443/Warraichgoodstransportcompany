@@ -45,13 +45,13 @@ export const BusinessIntroCard: React.FC = () => {
   };
 
   return (
-    <section id="business-intro" className="py-12 sm:py-16 bg-gradient-to-b from-slate-100 via-slate-50 to-slate-100 border-t border-slate-200 scroll-mt-20">
+    <section id="business-intro" className="py-12 sm:py-16 bg-slate-100 border-t border-slate-200 scroll-mt-20">
       <div id="about" className="sr-only" />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
         <div className={`text-center max-w-3xl mx-auto mb-8 sm:mb-12 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
-          <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-900 border border-amber-300 px-3.5 py-1 rounded-full text-xs font-bold mb-3 shadow-sm">
+          <div className="inline-flex items-center gap-2 bg-amber-50 text-amber-900 border border-amber-200 px-3.5 py-1 rounded-full text-xs font-bold mb-3 shadow-sm">
             <Award className="w-4 h-4 text-amber-700" />
             <span>{isUrdu ? 'آفیشل بزنس پروفائل و تعارفی کارڈ' : 'Official Business Introduction & Directory'}</span>
           </div>
@@ -66,10 +66,10 @@ export const BusinessIntroCard: React.FC = () => {
         </div>
 
         {/* Master Introduction Card Container */}
-        <div className="relative bg-white rounded-3xl shadow-xl border border-slate-200/90 overflow-hidden print:shadow-none print:border-slate-400">
+        <div className="relative bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden print:shadow-none print:border-slate-400">
           
           {/* Top Decorative Header Strip */}
-          <div className="h-3 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600" />
+          <div className="h-2 bg-amber-500" />
 
           <div className="p-6 sm:p-8 lg:p-10">
             
@@ -78,8 +78,8 @@ export const BusinessIntroCard: React.FC = () => {
               
               <div className="flex items-center gap-4 sm:gap-5">
                 {/* Logo Box */}
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 p-0.5 shadow-md flex-shrink-0 flex items-center justify-center overflow-hidden">
-                  <div className="w-full h-full bg-white rounded-[14px] p-1.5 flex items-center justify-center">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg bg-amber-500 p-0.5 shadow-sm flex-shrink-0 flex items-center justify-center overflow-hidden">
+                  <div className="w-full h-full bg-white rounded-md p-1.5 flex items-center justify-center">
                     <img 
                       src="./images/logo.png" 
                       alt="Warraich Goods Logo" 
@@ -118,19 +118,19 @@ export const BusinessIntroCard: React.FC = () => {
 
               {/* Badges & Print Profile Action */}
               <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
-                <div className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 border border-emerald-300 px-3 py-1.5 rounded-xl text-xs font-bold font-mono">
-                  <FileCheck className="w-4 h-4 text-emerald-600" />
+                <div className="inline-flex items-center gap-1.5 bg-amber-50 text-amber-900 border border-amber-200 px-3 py-1.5 rounded-lg text-xs font-bold font-mono">
+                  <FileCheck className="w-4 h-4 text-amber-700" />
                   <span>NTN: {COMPANY_INFO.ntn}</span>
                 </div>
 
-                <div className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-800 border border-blue-200 px-3 py-1.5 rounded-xl text-xs font-bold font-urdu">
+                <div className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-800 border border-blue-200 px-3 py-1.5 rounded-lg text-xs font-bold font-urdu">
                   <ShieldCheck className="w-4 h-4 text-blue-600" />
                   <span>{isUrdu ? 'ایکٹیو ٹیکس پیئر (FBR)' : 'Active Taxpayer (FBR)'}</span>
                 </div>
 
                 <button
                   onClick={handlePrint}
-                  className="inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 px-3.5 py-1.5 rounded-xl text-xs font-bold transition shadow-sm cursor-pointer print:hidden"
+                  className="inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 px-3.5 py-1.5 rounded-lg text-xs font-bold transition shadow-sm cursor-pointer print:hidden"
                   title="Print Business Card"
                 >
                   <Printer className="w-3.5 h-3.5 text-slate-600" />
@@ -144,7 +144,7 @@ export const BusinessIntroCard: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-8 border-b border-slate-200">
               
               {/* Pillar 1: Business Overview */}
-              <div className="bg-slate-50/80 rounded-2xl p-5 border border-slate-200/80 flex flex-col justify-between">
+              <div className="bg-slate-50 rounded-lg p-5 border border-slate-200 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center gap-2 text-amber-800 font-bold text-sm mb-2 font-urdu">
                     <Building2 className="w-4 h-4 text-amber-600" />
@@ -162,7 +162,7 @@ export const BusinessIntroCard: React.FC = () => {
               </div>
 
               {/* Pillar 2: Proprietor Leadership */}
-              <div className="bg-slate-50/80 rounded-2xl p-5 border border-slate-200/80 flex flex-col justify-between">
+              <div className="bg-slate-50 rounded-lg p-5 border border-slate-200 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-2 text-blue-900 font-bold text-sm font-urdu">
@@ -172,7 +172,7 @@ export const BusinessIntroCard: React.FC = () => {
                     <img 
                       src="./images/owner-portrait.png" 
                       alt={isUrdu ? COMPANY_INFO.proprietorUrdu : COMPANY_INFO.proprietorEnglish}
-                      className="w-10 h-10 rounded-full object-cover border-2 border-amber-400 shadow-xs"
+                      className="w-10 h-10 rounded-full object-cover border-2 border-amber-400 shadow-sm"
                       loading="lazy"
                     />
                   </div>
@@ -197,28 +197,28 @@ export const BusinessIntroCard: React.FC = () => {
               </div>
 
               {/* Pillar 3: Core Freight Capabilities */}
-              <div className="bg-slate-50/80 rounded-2xl p-5 border border-slate-200/80 flex flex-col justify-between">
+              <div className="bg-slate-50 rounded-lg p-5 border border-slate-200 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-2 text-emerald-900 font-bold text-sm mb-2 font-urdu">
-                    <Truck className="w-4 h-4 text-emerald-600" />
+                  <div className="flex items-center gap-2 text-blue-900 font-bold text-sm mb-2 font-urdu">
+                    <Truck className="w-4 h-4 text-blue-600" />
                     <span>{isUrdu ? 'اہم خدمات و سہولیات' : 'Key Services & Fleet'}</span>
                   </div>
                   
                   <ul className="space-y-2 text-xs text-slate-700 font-urdu">
                     <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600 flex-shrink-0" />
                       <span>{isUrdu ? 'مکمل گاڑی (FTL) براہ راست ترسیل' : 'Dedicated Full Truckload (FTL)'}</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600 flex-shrink-0" />
                       <span>{isUrdu ? 'زرعی اجناس، ٹیکسٹائل و فیکٹری خام مال' : 'Agricultural, textile & industrial cargo'}</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600 flex-shrink-0" />
                       <span>{isUrdu ? 'شہزور، مزدا، 22 تا 40 فٹ ٹرالر و بیڈفورڈ' : 'Shehzore, Mazda, Flatbeds & Bedford'}</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600 flex-shrink-0" />
                       <span>{isUrdu ? '100% واٹر پروف ترپال و موسمی تحفظ' : 'Waterproof tarpaulin & weather shield'}</span>
                     </li>
                   </ul>
@@ -253,13 +253,13 @@ export const BusinessIntroCard: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                 
                 {/* Samundri Service Area Paragraph */}
-                <div className="bg-gradient-to-br from-amber-50/70 via-white to-slate-50 border border-amber-200 rounded-2xl p-5 shadow-xs">
+                <div className="bg-amber-50/40 border border-amber-200 rounded-lg p-5 shadow-sm">
                   <div className="flex items-center justify-between pb-2 mb-2.5 border-b border-amber-100">
                     <span className="font-bold text-slate-900 text-sm font-urdu flex items-center gap-1.5">
                       <Truck className="w-4 h-4 text-amber-600" />
                       <span>سمندری سے مال برداری و بکنگ (Samundri Service)</span>
                     </span>
-                    <span className="text-[11px] font-mono font-bold bg-amber-200/70 text-amber-950 px-2 py-0.5 rounded-md">
+                    <span className="text-[11px] font-mono font-bold bg-amber-200/70 text-amber-950 px-2 py-0.5 rounded">
                       24/7 On-Call
                     </span>
                   </div>
@@ -280,9 +280,9 @@ export const BusinessIntroCard: React.FC = () => {
                         href="https://wa.me/923005370443"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-800 bg-emerald-100 hover:bg-emerald-200 px-2.5 py-1 rounded-lg transition"
+                        className="inline-flex items-center gap-1 text-[11px] font-bold text-blue-700 bg-blue-50 hover:bg-blue-100 px-2.5 py-1 rounded-lg transition"
                       >
-                        <MessageCircle className="w-3 h-3 text-emerald-600" />
+                        <MessageCircle className="w-3 h-3 text-blue-600" />
                         <span>WhatsApp</span>
                       </a>
                     </div>
@@ -290,36 +290,36 @@ export const BusinessIntroCard: React.FC = () => {
                 </div>
 
                 {/* Kamalia Service Area Paragraph */}
-                <div className="bg-gradient-to-br from-emerald-50/70 via-white to-slate-50 border border-emerald-200 rounded-2xl p-5 shadow-xs">
-                  <div className="flex items-center justify-between pb-2 mb-2.5 border-b border-emerald-100">
+                <div className="bg-slate-50 border border-slate-200 rounded-lg p-5 shadow-sm">
+                  <div className="flex items-center justify-between pb-2 mb-2.5 border-b border-slate-200">
                     <span className="font-bold text-slate-900 text-sm font-urdu flex items-center gap-1.5">
-                      <Truck className="w-4 h-4 text-emerald-600" />
+                      <Truck className="w-4 h-4 text-blue-600" />
                       <span>کمالیہ سے گڈز ٹرانسپورٹ (Kamalia Service)</span>
                     </span>
-                    <span className="text-[11px] font-mono font-bold bg-emerald-200/70 text-emerald-950 px-2 py-0.5 rounded-md">
+                    <span className="text-[11px] font-mono font-bold bg-slate-200 text-slate-900 px-2 py-0.5 rounded">
                       24/7 On-Call
                     </span>
                   </div>
                   <p className="text-xs sm:text-[13px] text-slate-700 font-urdu leading-relaxed">
                     کمالیہ، رجانہ، پیر محل اور غلہ منڈی کے تاجروں کے لیے کمالیہ سے گڈز ٹرانسپورٹ (Kamalia se goods transport) کی سروس دستیاب ہے۔ مکئی، گندم، چینی، کپاس اور پولٹری فیڈ کی ترسیل کے لیے شہزور، مزدا، سیمپل اور بیڈفورڈ (Shehzore, Mazda, Bedford) ہر وقت تیار رہتے ہیں۔ ہم 100% فل ٹرک لوڈ پر گاڑیاں فوری روانہ کرتے ہیں۔ پورے پاکستان کے لیے شفاف کرایہ اور محفوظ مال برداری اب ایک فون کال پر میسر ہے۔
                   </p>
-                  <div className="mt-3.5 pt-3 border-t border-emerald-100/80 flex items-center justify-between gap-2">
+                  <div className="mt-3.5 pt-3 border-t border-slate-200 flex items-center justify-between gap-2">
                     <span className="text-[11px] text-slate-500 font-urdu">آن کال و واٹس ایپ بکنگ:</span>
                     <div className="flex items-center gap-2">
                       <a
                         href="tel:03005370443"
-                        className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-900 bg-emerald-100 hover:bg-emerald-200 px-2.5 py-1 rounded-lg transition"
+                        className="inline-flex items-center gap-1 text-[11px] font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 px-2.5 py-1 rounded-lg transition"
                       >
-                        <Phone className="w-3 h-3 text-emerald-700" />
+                        <Phone className="w-3 h-3 text-slate-700" />
                         <span>0300-5370443</span>
                       </a>
                       <a
                         href="https://wa.me/923005370443"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-800 bg-emerald-100 hover:bg-emerald-200 px-2.5 py-1 rounded-lg transition"
+                        className="inline-flex items-center gap-1 text-[11px] font-bold text-blue-700 bg-blue-50 hover:bg-blue-100 px-2.5 py-1 rounded-lg transition"
                       >
-                        <MessageCircle className="w-3 h-3 text-emerald-600" />
+                        <MessageCircle className="w-3 h-3 text-blue-600" />
                         <span>WhatsApp</span>
                       </a>
                     </div>
@@ -333,12 +333,12 @@ export const BusinessIntroCard: React.FC = () => {
                 {SERVICE_AREAS.map((area) => (
                   <div 
                     key={area.id}
-                    className="bg-white hover:bg-slate-50/80 border border-slate-200 hover:border-amber-300 rounded-xl p-3.5 transition-all shadow-xs hover:shadow-sm flex flex-col justify-between group"
+                    className="bg-white hover:bg-slate-50/80 border border-slate-200 hover:border-blue-300 rounded-lg p-3.5 transition-all shadow-sm flex flex-col justify-between group"
                   >
                     <div>
                       <div className="flex items-center justify-between gap-1.5 mb-1.5">
                         <div className="flex items-center gap-1.5">
-                          <MapPin className="w-4 h-4 text-amber-600 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                          <MapPin className="w-4 h-4 text-amber-600 flex-shrink-0" />
                           <span className="font-extrabold text-slate-900 text-sm font-urdu leading-snug">
                             {area.nameUrdu} <span className="text-xs font-semibold text-slate-500 font-sans">({area.nameEnglish})</span>
                           </span>
@@ -352,7 +352,7 @@ export const BusinessIntroCard: React.FC = () => {
                     <div className="pt-2 border-t border-slate-100 grid grid-cols-2 gap-1.5">
                       <a
                         href={`tel:${area.phoneRaw}`}
-                        className="inline-flex items-center justify-center gap-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-2 py-1.5 rounded-lg text-xs transition active:scale-95 shadow-2xs font-urdu"
+                        className="inline-flex items-center justify-center gap-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-2 py-1.5 rounded-lg text-xs transition active:scale-95 shadow-sm font-urdu"
                         title={`Call ${area.nameEnglish} (0300-5370443)`}
                         aria-label={`Call Warraich Goods for ${area.nameEnglish}`}
                       >
@@ -364,7 +364,7 @@ export const BusinessIntroCard: React.FC = () => {
                         href={area.whatsappUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-2 py-1.5 rounded-lg text-xs transition active:scale-95 shadow-2xs font-urdu"
+                        className="inline-flex items-center justify-center gap-1 bg-blue-600 hover:bg-blue-500 text-white font-bold px-2 py-1.5 rounded-lg text-xs transition active:scale-95 shadow-sm font-urdu"
                         title={`WhatsApp booking for ${area.nameEnglish}`}
                         aria-label={`WhatsApp Booking for ${area.nameEnglish}`}
                       >
@@ -377,9 +377,9 @@ export const BusinessIntroCard: React.FC = () => {
               </div>
 
               {/* Review us on Google Button Below Service Areas */}
-              <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 bg-gradient-to-r from-amber-50/80 via-white to-amber-50/50 border border-amber-200/90 rounded-2xl p-4 sm:p-5">
+              <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 bg-amber-50/40 border border-amber-200 rounded-lg p-4 sm:p-5 shadow-sm">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-amber-100 border border-amber-300 flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-amber-100 border border-amber-300 flex items-center justify-center flex-shrink-0">
                     <Star className="w-5 h-5 fill-amber-500 text-amber-600" />
                   </div>
                   <div>
@@ -396,7 +396,7 @@ export const BusinessIntroCard: React.FC = () => {
                   href={GOOGLE_REVIEW_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-urdu transition shadow-sm hover:scale-105 active:scale-95 flex-shrink-0"
+                  className="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 sm:px-5 py-2.5 rounded-lg text-xs sm:text-sm font-urdu transition shadow-sm active:scale-95 flex-shrink-0"
                   aria-label="Review Warraich Goods Transport Company on Google"
                 >
                   <Star className="w-4 h-4 fill-slate-950 text-slate-950" />
@@ -408,9 +408,9 @@ export const BusinessIntroCard: React.FC = () => {
             </div>
 
               {/* Universal Official Email & Support Timing Ribbon */}
-              <div className="mt-6 bg-slate-900 text-white rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="mt-6 bg-slate-900 text-white rounded-lg p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center flex-shrink-0">
                     <Mail className="w-5 h-5 text-amber-400" />
                   </div>
                   <div>
@@ -422,14 +422,14 @@ export const BusinessIntroCard: React.FC = () => {
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-5 h-5 text-emerald-400" />
+                  <div className="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-5 h-5 text-amber-400" />
                   </div>
                   <div className="font-urdu">
                     <span className="text-[11px] text-slate-400 uppercase tracking-wider">
                       {isUrdu ? 'ورکنگ اوقات' : 'Operating Hours'}
                     </span>
-                    <p className="text-xs sm:text-sm font-bold text-emerald-400">
+                    <p className="text-xs sm:text-sm font-bold text-amber-400">
                       {isUrdu ? '24/7 راؤنڈ دی کلاک ترسیل و لوڈنگ' : '24/7 Round-the-Clock Transit'}
                     </p>
                   </div>
@@ -437,7 +437,7 @@ export const BusinessIntroCard: React.FC = () => {
               </div>
 
               {/* Official Social Media Channels Banner */}
-              <div className="mt-4 bg-slate-50 border border-slate-200/90 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <div className="mt-4 bg-slate-50 border border-slate-200 rounded-lg p-4 flex flex-col sm:flex-row items-center justify-between gap-3">
                 <div className="flex items-center gap-2.5">
                   <span className="text-xs font-bold text-slate-700 font-urdu">
                     {isUrdu ? 'آفیشل سوشل چینلز و تصدیق شدہ نیٹ ورک:' : 'Official Verified Channels:'}
@@ -450,12 +450,12 @@ export const BusinessIntroCard: React.FC = () => {
                     href={COMPANY_INFO.youtubeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 hover:border-red-300 px-3 py-1.5 rounded-xl text-xs font-bold font-mono transition shadow-2xs hover:scale-105"
+                    className="inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 px-3 py-1.5 rounded-lg text-xs font-bold font-mono transition shadow-sm"
                     title="Official YouTube Channel"
                   >
-                    <Youtube className="w-4 h-4 fill-current text-red-600" />
+                    <Youtube className="w-4 h-4 fill-current text-slate-700" />
                     <span>{COMPANY_INFO.youtubeHandle}</span>
-                    <ExternalLink className="w-3 h-3 text-red-400" />
+                    <ExternalLink className="w-3 h-3 text-slate-400" />
                   </a>
 
                   {/* Facebook Link */}
@@ -463,7 +463,7 @@ export const BusinessIntroCard: React.FC = () => {
                     href={COMPANY_INFO.facebookUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 hover:border-blue-300 px-3 py-1.5 rounded-xl text-xs font-bold font-urdu transition shadow-2xs hover:scale-105"
+                    className="inline-flex items-center gap-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 hover:border-blue-300 px-3 py-1.5 rounded-lg text-xs font-bold font-urdu transition shadow-sm"
                     title="Official Facebook Page"
                   >
                     <Facebook className="w-4 h-4 fill-current text-blue-600" />

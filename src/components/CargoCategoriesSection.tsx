@@ -29,9 +29,9 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
       titleUrdu: 'زرعی اجناس و اناج (FTL لوڈ)',
       titleEnglish: 'Agricultural Produce & Grains (Full Load)',
       badgeUrdu: 'سمندری بائی پاس و کمالیہ رجانہ روڈ اسپیشل',
-      badgeEnglish: 'Goods Transport Service Kamalia & Samundri',
+      badgeEnglish: 'Agricultural Freight Hub',
       descriptionUrdu: 'گندم، چاول، مکئی، آلو، گنا، چارہ، بیج اور کھاد کی بوریوں کا مکمل ٹرک لوڈ (FTL)۔ سمندری اور کمالیہ سے ملک بھر کی غلہ منڈیوں، فلور ملز اور فیڈ فیکٹریوں تک بلا تعطل نان اسٹاپ ترسیل۔',
-      descriptionEnglish: 'Goods transport service Kamalia and Samundri bypass transport company providing dedicated full truckload freight for wheat, corn, rice, potatoes, sugar crops, seeds, and fertilizer bags with computerized weighbridge slips.',
+      descriptionEnglish: 'Dedicated full truckload freight for wheat, corn, rice, potatoes, sugar crops, seeds, and fertilizer bags with computerized weighbridge slips from Samundri and Kamalia.',
       detailsUrdu: [
         'سمندری غلہ منڈی اور کمالیہ زرعی بیلٹ سے براہ راست فل ٹرک لوڈنگ',
         'بارش سے مکمل تحفظ کے لیے معیاری ڈبل واٹر پروف ترپال کورنگ',
@@ -57,7 +57,7 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
       badgeUrdu: 'FTL لاجسٹکس سروس فیصل آباد ریجن',
       badgeEnglish: 'FTL Logistics Service Faisalabad Region',
       descriptionUrdu: 'دھاگہ (Yarn)، کاٹن بیلز، گرے کپڑا، ڈائنگ کیمیکلز اور تیار شدہ گارمنٹس۔ فیصل آباد ریجن، سمندری اور کمالیہ ٹیکسٹائل کوریڈور کے لیے کنٹینر اور جالی باڈی ٹرکس میں 100% خشک اور محفوظ ترسیل۔',
-      descriptionEnglish: 'Leading FTL logistics service Faisalabad region: safe, weatherproof haulage for yarn spools, cotton bales, grey fabric, dyeing chemicals, and export garments across the Samundri bypass transport company network.',
+      descriptionEnglish: 'Dedicated FTL freight logistics for yarn spools, cotton bales, grey fabric, dyeing chemicals, and export garments across the Samundri and Faisalabad industrial network.',
       detailsUrdu: [
         'سیل بند کنٹینر اور کسٹم جالی باڈی ٹرکس دستیاب',
         'دھول، مٹی اور نمی سے 100% محفوظ FTL ٹرانسپورٹ',
@@ -83,7 +83,7 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
       badgeUrdu: 'ٹرک بکنگ / ٹریلر ٹرانسپورٹ سمندری',
       badgeEnglish: 'Truck Booking / Trailer Transport Samundri',
       descriptionUrdu: 'صنعتی مشینیں، موٹرز، جنریٹرز، کیمیکل کے ڈرمز، پیویسی پائپ اور فیکٹری خام مال۔ سمندری بائی پاس ٹرانسپورٹ کمپنی اور کمالیہ رجانہ روڈ گڈز ٹرانسپورٹ سے ملک بھر کے صنعتی علاقوں کے لیے فوری فل ٹرک بکنگ۔',
-      descriptionEnglish: 'Direct truck booking / trailer transport Samundri & Kamalia Rajana road goods transport for industrial machinery, generators, chemical drums, PVC pipes, hardware, and factory supplies.',
+      descriptionEnglish: 'Direct commercial truck booking for industrial machinery, heavy generators, chemical drums, PVC pipes, hardware, and factory supplies connecting Samundri and Kamalia.',
       detailsUrdu: [
         'ہیوی کرین لوڈنگ و ان لوڈنگ کے لیے اوپن باڈی گاڑیاں',
         'سامان کو فکس رکھنے کے لیے مضبوط ٹائی ڈاؤن بیلٹس',
@@ -109,7 +109,7 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
       badgeUrdu: 'سمندری بائی پاس ٹرانسپورٹ کمپنی',
       badgeEnglish: 'Samundri Bypass Transport Company',
       descriptionUrdu: 'اسٹیل گارڈرز، سریا، سیمنٹ بوری، ریت، بجری، ٹائلز، ماربل سلیبز اور میگا پراجیکٹ بلڈنگ میٹریل۔ سمندری اور کمالیہ سے ہیوی بیڈفورڈ و ٹریلر ٹرانسپورٹ کی 24 گھنٹے فراہمی۔',
-      descriptionEnglish: 'Samundri bypass transport company & Kamalia Rajana road goods transport providing heavy haulage for reinforced steel bars, girders, cement, tiles, marble slabs, and infrastructure building materials.',
+      descriptionEnglish: 'Heavy haulage transport for reinforced steel bars, girders, cement bags, tiles, marble slabs, and infrastructure building materials across Punjab and nationwide.',
       detailsUrdu: [
         'انتہائی وزنی اور سخت سامان کے لیے مضبوط فرش والے ہیوی ٹرک',
         'روڈ سیفٹی اور این ایچ اے وزن کے ضوابط کی مکمل پابندی',
@@ -132,10 +132,10 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
       icon: Home,
       titleUrdu: 'گھریلو سامان شفٹنگ (مخصوص گاڑی)',
       titleEnglish: 'Household Relocation (Dedicated Vehicle)',
-      badgeUrdu: 'Goods Transport Company in Samundri',
-      badgeEnglish: 'Goods Transport Company in Samundri',
+      badgeUrdu: 'محفوظ گھریلو و دفتری شفٹنگ',
+      badgeEnglish: 'Dedicated Relocation Service',
       descriptionUrdu: 'گھر کے فرنیچر، الیکٹرانکس اور کراکری کی ایک شہر سے دوسرے شہر محفوظ منتقلی۔ سمندری، کمالیہ اور فیصل آباد سے پورے پاکستان کے لیے 100% مخصوص سنگل پارٹی گاڑی۔',
-      descriptionEnglish: 'Goods transport company in Samundri and goods transport service Kamalia offering premier intercity household furniture, electronics, and delicate goods relocation with dedicated truck assignment.',
+      descriptionEnglish: 'Premier intercity household furniture, electronics, and delicate goods relocation from Samundri and Kamalia with dedicated single-party truck assignment.',
       detailsUrdu: [
         'گاڑی میں صرف اور صرف آپ کے گھر کا سامان ہوگا',
         'سامان کی ٹوٹ پھوٹ سے بچاؤ کے لیے اضافی نگہداشت',
@@ -157,38 +157,12 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
 
   const currentCategory = categories.find(c => c.id === activeTab) || categories[0];
 
-  const getTabActiveClasses = (id: string) => {
-    switch (id) {
-      case 'agri':
-        return 'bg-emerald-600 text-white shadow-md';
-      case 'textile':
-        return 'bg-indigo-600 text-white shadow-md';
-      case 'industrial':
-        return 'bg-amber-500 text-slate-950 shadow-md';
-      case 'construction':
-        return 'bg-blue-600 text-white shadow-md';
-      case 'household':
-        return 'bg-rose-600 text-white shadow-md';
-      default:
-        return 'bg-blue-600 text-white shadow-md';
-    }
+  const getTabActiveClasses = (_id: string) => {
+    return 'bg-blue-600 text-white shadow-sm';
   };
 
-  const getCategoryBadgeClass = (id: string) => {
-    switch (id) {
-      case 'agri':
-        return 'bg-emerald-50 text-emerald-800 border-emerald-300';
-      case 'textile':
-        return 'bg-indigo-50 text-indigo-800 border-indigo-300';
-      case 'industrial':
-        return 'bg-amber-50 text-amber-900 border-amber-300';
-      case 'construction':
-        return 'bg-blue-50 text-blue-800 border-blue-300';
-      case 'household':
-        return 'bg-rose-50 text-rose-800 border-rose-300';
-      default:
-        return 'bg-blue-50 text-blue-800 border-blue-300';
-    }
+  const getCategoryBadgeClass = (_id: string) => {
+    return 'bg-blue-50 text-blue-800 border-blue-200';
   };
 
   return (
@@ -210,7 +184,7 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
           </p>
         </div>
 
-        {/* Category Tabs (Horizontally scrollable with no-scrollbar on mobile, multi-color) */}
+        {/* Category Tabs (Horizontally scrollable with no-scrollbar on mobile) */}
         <div className="flex overflow-x-auto no-scrollbar gap-2 pb-2 sm:pb-0 sm:flex-wrap sm:justify-center mb-6 sm:mb-8 px-1">
           {categories.map((cat) => {
             const Icon = cat.icon;
@@ -219,14 +193,14 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
               <button
                 key={cat.id}
                 onClick={() => setActiveTab(cat.id)}
-                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer font-urdu whitespace-nowrap min-h-[44px] flex-shrink-0 ${
+                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition-colors cursor-pointer font-urdu whitespace-nowrap min-h-[44px] flex-shrink-0 ${
                   isActive
                     ? `${getTabActiveClasses(cat.id)} font-bold`
                     : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 shadow-sm'
                 }`}
                 aria-pressed={isActive}
               >
-                <Icon className={`w-4 h-4 ${isActive ? 'text-current' : 'text-slate-500'}`} />
+                <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-500'}`} />
                 <span>{language === 'ur' ? cat.titleUrdu : cat.titleEnglish}</span>
               </button>
             );
@@ -234,12 +208,12 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
         </div>
 
         {/* Active Category Detailed Showcase Card */}
-        <div className="bg-white text-slate-900 rounded-2xl p-5 sm:p-8 border border-slate-200 shadow-xl">
+        <div className="bg-white text-slate-900 rounded-lg p-5 sm:p-8 border border-slate-200 shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
             
             {/* Main Column */}
             <div className={`lg:col-span-7 space-y-4 ${language === 'ur' ? 'text-right' : 'text-left'}`}>
-              <div className={`inline-flex items-center gap-2 border px-3 py-1 rounded-md text-xs font-semibold font-urdu ${getCategoryBadgeClass(currentCategory.id)}`}>
+              <div className={`inline-flex items-center gap-2 border px-3 py-1 rounded text-xs font-semibold font-urdu ${getCategoryBadgeClass(currentCategory.id)}`}>
                 <ShieldCheck className="w-3.5 h-3.5 flex-shrink-0" />
                 <span>{language === 'ur' ? currentCategory.badgeUrdu : currentCategory.badgeEnglish}</span>
               </div>
@@ -260,7 +234,7 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
               <div className="space-y-2 pt-1">
                 {(language === 'ur' ? currentCategory.detailsUrdu : currentCategory.detailsEnglish).map((item, idx) => (
                   <div key={idx} className="flex items-start gap-2.5 text-slate-700 text-xs sm:text-sm font-urdu">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -270,9 +244,9 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
                 <a
                   href="#booking"
                   onClick={() => onSelectCategory && onSelectCategory(language === 'ur' ? currentCategory.titleUrdu : currentCategory.titleEnglish)}
-                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold px-6 py-3 rounded-xl text-sm transition-all shadow font-urdu cursor-pointer min-h-[44px]"
+                  className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3 rounded-lg text-sm transition-colors shadow-sm hover:shadow-md font-urdu cursor-pointer min-h-[44px]"
                 >
-                  <Truck className="w-4 h-4 text-slate-950" />
+                  <Truck className="w-4 h-4 text-white" />
                   <span>{t.bookCategoryBtn}</span>
                 </a>
               </div>
@@ -282,7 +256,7 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
             <div className="lg:col-span-5 space-y-4">
               
               {/* Category Visual Image Preview */}
-              <div className="relative rounded-xl overflow-hidden shadow-sm border border-slate-200 h-44 group">
+              <div className="relative rounded-lg overflow-hidden shadow-sm border border-slate-200 h-44">
                 <img 
                   src={
                     activeTab === 'agri' 
@@ -290,7 +264,7 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
                       : (activeTab === 'household' ? './images/cargo-safety.jpg' : './images/factory-warehouse.jpg')
                   }
                   alt={language === 'ur' ? currentCategory.titleUrdu : currentCategory.titleEnglish}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover"
                   loading="lazy"
                   referrerPolicy="no-referrer"
                   onError={(e) => {
@@ -298,13 +272,13 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
-                  <span className="text-white text-xs font-semibold font-urdu bg-slate-900/80 px-2.5 py-1 rounded-md backdrop-blur-sm">
+                  <span className="text-white text-xs font-semibold font-urdu bg-slate-900/80 px-2.5 py-1 rounded backdrop-blur-sm">
                     {language === 'ur' ? currentCategory.titleUrdu : currentCategory.titleEnglish}
                   </span>
                 </div>
               </div>
 
-              <div className={`bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-3.5 ${language === 'ur' ? 'text-right' : 'text-left'}`}>
+              <div className={`bg-slate-50 border border-slate-200 rounded-lg p-5 space-y-3.5 ${language === 'ur' ? 'text-right' : 'text-left'}`}>
                 <p className="text-sm font-bold text-blue-950 font-urdu border-b border-slate-200 pb-2">
                   {language === 'ur' ? 'تجویز کردہ FTL گاڑی و تفصیلات' : 'Recommended Truck & Route Coverage'}
                 </p>

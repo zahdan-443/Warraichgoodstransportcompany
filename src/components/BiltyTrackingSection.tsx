@@ -48,7 +48,7 @@ export const BiltyTrackingSection: React.FC = () => {
       transitEn: '3 - 4 Hours (Same-Day Transit)',
       tagUr: 'انڈسٹریل روٹ',
       tagEn: 'Industrial',
-      tagColor: 'bg-emerald-100 text-emerald-900 border-emerald-200',
+      tagColor: 'bg-slate-100 text-slate-800 border-slate-200',
     },
     {
       corridorUr: 'سمندری / کمالیہ ⇋ راولپنڈی، اسلام آباد و خیبر پختونخوا',
@@ -70,7 +70,7 @@ export const BiltyTrackingSection: React.FC = () => {
       transitEn: '3 - 5 Hrs (Multan) | 8 - 10 Hrs (Sukkur)',
       tagUr: 'جنوبی کوریڈور',
       tagEn: 'South Lane',
-      tagColor: 'bg-purple-100 text-purple-900 border-purple-200',
+      tagColor: 'bg-slate-100 text-slate-800 border-slate-200',
     },
   ];
 
@@ -122,7 +122,7 @@ export const BiltyTrackingSection: React.FC = () => {
         </div>
 
         {/* Tracking Input Card */}
-        <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl border border-slate-200 p-5 sm:p-7 mb-10">
+        <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-sm border border-slate-200 p-5 sm:p-7 mb-10">
           <form 
             onSubmit={(e) => {
               e.preventDefault();
@@ -139,13 +139,13 @@ export const BiltyTrackingSection: React.FC = () => {
                 value={inputBilty}
                 onChange={(e) => setInputBilty(e.target.value)}
                 placeholder={t.inputPlaceholder}
-                className="w-full pl-11 pr-4 py-3.5 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 text-sm sm:text-base font-mono focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-all uppercase placeholder:normal-case placeholder:font-sans"
+                className="w-full pl-11 pr-4 py-3.5 bg-slate-50 border border-slate-300 rounded-lg text-slate-900 text-sm sm:text-base font-mono focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors uppercase placeholder:normal-case placeholder:font-sans"
               />
             </div>
 
             <button
               type="submit"
-              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-700 to-blue-600 hover:from-blue-800 hover:to-blue-700 text-white font-bold px-7 py-3.5 rounded-xl text-sm sm:text-base transition-all shadow-md hover:shadow-lg font-urdu whitespace-nowrap min-h-[48px] cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-7 py-3.5 rounded-lg text-sm sm:text-base transition-colors shadow-sm font-urdu whitespace-nowrap min-h-[48px] cursor-pointer"
             >
               <span>{t.btnTrack}</span>
               <ArrowRight className="w-4 h-4" />
@@ -172,9 +172,9 @@ export const BiltyTrackingSection: React.FC = () => {
 
         {/* Result Card when user has searched */}
         {hasSearched && activeReference && (
-          <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden mb-12 animate-fadeIn">
+          <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden mb-12 animate-fadeIn">
             {/* Header */}
-            <div className="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 text-white p-5 sm:p-6">
+            <div className="bg-slate-900 text-white p-5 sm:p-6">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
                   <div className="flex items-center gap-2 mb-1.5">
@@ -187,8 +187,8 @@ export const BiltyTrackingSection: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 font-urdu">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-400/30 font-urdu">
+                  <CheckCircle2 className="w-4 h-4 text-amber-400" />
                   <span>{language === 'ur' ? 'مستند FTL کنسائنمنٹ ٹرانزٹ' : 'Verified Dedicated FTL Transit'}</span>
                 </div>
               </div>
@@ -196,7 +196,7 @@ export const BiltyTrackingSection: React.FC = () => {
 
             {/* Explanation & Action Box */}
             <div className="p-6 sm:p-8 space-y-6">
-              <div className="bg-blue-50/70 border border-blue-200 rounded-xl p-4 sm:p-5 text-slate-800 space-y-2 font-urdu">
+              <div className="bg-blue-50/70 border border-blue-200 rounded-lg p-4 sm:p-5 text-slate-800 space-y-2 font-urdu">
                 <p className="font-bold text-base text-blue-950 flex items-center gap-2">
                   <Navigation className="w-5 h-5 text-blue-700 flex-shrink-0" />
                   <span>
@@ -218,7 +218,7 @@ export const BiltyTrackingSection: React.FC = () => {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold p-4 rounded-xl shadow-md text-sm sm:text-base transition-all font-urdu active:scale-95 cursor-pointer"
+                  className="flex items-center justify-center gap-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold p-4 rounded-lg shadow-sm text-sm sm:text-base transition-colors font-urdu cursor-pointer"
                 >
                   <MessageCircle className="w-5 h-5" />
                   <span>{t.contactDispatcher}</span>
@@ -226,7 +226,7 @@ export const BiltyTrackingSection: React.FC = () => {
 
                 <a
                   href={`tel:${COMPANY_INFO.phoneRaw1}`}
-                  className="flex items-center justify-center gap-2.5 bg-blue-700 hover:bg-blue-600 text-white font-bold p-4 rounded-xl shadow-md text-sm sm:text-base transition-all font-urdu active:scale-95 cursor-pointer"
+                  className="flex items-center justify-center gap-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold p-4 rounded-lg shadow-sm text-sm sm:text-base transition-colors font-urdu cursor-pointer"
                 >
                   <Phone className="w-5 h-5" />
                   <span>{t.callHelpline}</span>
@@ -236,15 +236,15 @@ export const BiltyTrackingSection: React.FC = () => {
               {/* Guarantee highlights */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-slate-200 text-xs font-urdu text-slate-600">
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0" />
                   <span>{language === 'ur' ? '100% سنگل پارٹی لوڈ' : '100% Single-Party Load'}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0" />
                   <span>{language === 'ur' ? 'ڈبل واٹر پروف ترپال' : 'Double Waterproof Tarpaulin'}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0" />
                   <span>{language === 'ur' ? 'نادرا تصدیق شدہ ڈرائیور' : 'NADRA Verified Driver'}</span>
                 </div>
               </div>
@@ -267,8 +267,8 @@ export const BiltyTrackingSection: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {/* Pillar 1 */}
-            <div className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 flex items-center justify-center mb-3">
+            <div className="bg-white p-5 sm:p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-200 text-blue-700 flex items-center justify-center mb-3">
                 <Phone className="w-5 h-5" />
               </div>
               <p className="font-bold text-slate-900 text-base font-urdu mb-1.5">
@@ -282,8 +282,8 @@ export const BiltyTrackingSection: React.FC = () => {
             </div>
 
             {/* Pillar 2 */}
-            <div className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center mb-3">
+            <div className="bg-white p-5 sm:p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-200 text-blue-700 flex items-center justify-center mb-3">
                 <MapPin className="w-5 h-5" />
               </div>
               <p className="font-bold text-slate-900 text-base font-urdu mb-1.5">
@@ -297,8 +297,8 @@ export const BiltyTrackingSection: React.FC = () => {
             </div>
 
             {/* Pillar 3 */}
-            <div className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200 text-amber-700 flex items-center justify-center mb-3">
+            <div className="bg-white p-5 sm:p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-10 h-10 rounded-lg bg-amber-50 border border-amber-200 text-amber-700 flex items-center justify-center mb-3">
                 <Scale className="w-5 h-5" />
               </div>
               <p className="font-bold text-slate-900 text-base font-urdu mb-1.5">
@@ -332,7 +332,7 @@ export const BiltyTrackingSection: React.FC = () => {
             {corridorsList.map((item, idx) => (
               <div 
                 key={idx}
-                className="bg-white border border-slate-200 rounded-xl p-4 sm:p-5 hover:border-blue-300 hover:shadow-md transition-all flex flex-col justify-between"
+                className="bg-white border border-slate-200 rounded-lg p-4 sm:p-5 hover:border-blue-300 hover:shadow-md transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-2">

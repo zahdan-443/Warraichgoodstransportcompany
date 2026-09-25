@@ -22,7 +22,7 @@ export const TRANSLATIONS = {
       badge: 'پورے پاکستان کے لیے بااعتماد اور تیز رفتار ٹرانسپورٹ سروس',
       titleLine1: 'پورے پاکستان کے لیے بااعتماد',
       titleLine2: 'اور تیز رفتار گڈز ٹرانسپورٹ',
-      subtitle: 'Goods transport company in Samundri & goods transport service Kamalia — صرف اور صرف مکمل گاڑی کی بکنگ (FTL logistics service Faisalabad region)۔ سمندری بائی پاس ٹرانسپورٹ کمپنی اور کمالیہ رجانہ روڈ سے مال کی مکمل حفاظت، کمپیوٹرائزڈ کانٹا پرچی اور مناسب کرایہ۔',
+      subtitle: 'سمندری اور کمالیہ سے پورے پاکستان کے لیے 100% فل ٹرک لوڈ (FTL) سروس۔ سمندری بائی پاس اور کمالیہ رجانہ روڈ سے مال کی مکمل حفاظت، کمپیوٹرائزڈ کانٹا پرچی اور مناسب کرایہ۔',
       benefit1: 'صرف پوری گاڑی کی بکنگ (کوئی پارٹ لوڈ یا مال مکسنگ نہیں)',
       benefit2: 'ڈبل واٹر پروف ترپال — بارش اور دھول مٹی سے مکمل تحفظ',
       benefit3: 'ڈائریکٹ روانگی — بغیر کسی تاخیر کے سیدھی منزل پر گاڑی',
@@ -66,8 +66,8 @@ export const TRANSLATIONS = {
     // Fleet
     fleet: {
       badge: 'ہماری گاڑیاں (فلیٹ)',
-      title: 'Truck booking / Trailer transport Samundri و کمالیہ فلیٹ',
-      subtitle: 'Goods transport company in Samundri & goods transport service Kamalia — شہزور، مزدا 6 وہیلر، سیمپل اور بیڈفورڈ ٹرک۔ مناسب کرایہ، صاف ستھری گاڑیاں اور سمندری بائی پاس و رجانہ روڈ سے بروقت روانگی۔',
+      title: 'سمندری و کمالیہ کمرشل ٹرک اور ٹریلر فلیٹ',
+      subtitle: 'سمندری بائی پاس اور کمالیہ رجانہ روڈ سے شہزور، مزدا 6 وہیلر، سیمپل اور بیڈفورڈ ٹرک۔ مناسب کرایہ، صاف ستھری گاڑیاں اور بروقت روانگی۔',
       capacityLabel: 'وزن کی گنجائش:',
       dimensionsLabel: 'باڈی کا سائز:',
       idealForLabel: 'کس کام کے لیے بہترین ہے:',
@@ -187,7 +187,7 @@ export const TRANSLATIONS = {
       badge: '100% Dedicated Full Truckload (FTL) Across Pakistan',
       titleLine1: 'Goods Transport Company in Samundri',
       titleLine2: '& Goods Transport Service Kamalia',
-      subtitle: 'Premier goods transport company in Samundri & goods transport service Kamalia providing dedicated FTL logistics service Faisalabad region. Truck booking / trailer transport Samundri bypass transport company & Kamalia Rajana road goods transport with certified scale slips.',
+      subtitle: 'Reliable freight logistics provider serving Samundri, Kamalia, and the broader Faisalabad region. Dedicated full truckload dispatch, computerized weighbridge slips, and 24/7 nationwide transit.',
       benefit1: 'Dedicated Full Truckload Only (No LTL/Part-load mixing)',
       benefit2: '100% Heavy-Duty Waterproof Tarpaulin & Cargo Straps',
       benefit3: 'Direct Non-Stop Warehouse-to-Destination Transit',
@@ -231,8 +231,8 @@ export const TRANSLATIONS = {
     // Fleet
     fleet: {
       badge: 'Our Modern Fleet',
-      title: 'Truck Booking / Trailer transport Samundri & Kamalia Fleet',
-      subtitle: 'Goods transport company in Samundri & goods transport service Kamalia: Shehzore, Mazda, Sample, and Bedford trucks available across Samundri, Kamalia, and nationwide routes.',
+      title: 'Commercial Truck & Trailer Fleet in Samundri & Kamalia',
+      subtitle: 'Dedicated fleet options: Shehzore, Mazda 6-wheeler, Sample, and Bedford heavy trucks available across Samundri, Kamalia, and nationwide routes.',
       capacityLabel: 'Payload Capacity:',
       dimensionsLabel: 'Bed / Body Dimensions:',
       idealForLabel: 'Best Suited For:',
@@ -242,9 +242,9 @@ export const TRANSLATIONS = {
     },
     // Cargo Categories
     cargo: {
-      badge: 'FTL Logistics Service Faisalabad Region',
+      badge: 'Regional FTL Freight & Cargo',
       title: 'Tailored Logistics for Every Industry',
-      subtitle: 'Agricultural produce, textile mills, heavy industrial cargo, and factory inventory via Samundri bypass transport company & Kamalia Rajana road goods transport.',
+      subtitle: 'Agricultural produce, textile mills, heavy industrial cargo, and factory inventory dispatched safely via Samundri and Kamalia transit corridors.',
       bookCategoryBtn: 'Book Truck for This Cargo',
     },
     // Workflow

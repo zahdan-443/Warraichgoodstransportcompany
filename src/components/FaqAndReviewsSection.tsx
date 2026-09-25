@@ -31,10 +31,10 @@ export const FaqAndReviewsSection: React.FC = () => {
     },
     {
       q: 'سمندری اور کمالیہ سے مال برداری اور ٹرانسپورٹ سروس کیسے حاصل کریں؟',
-      a: 'سمندری اور کمالیہ سمیت پورے پنجاب اور پاکستان کے لیے مال کی بکنگ فون کال اور واٹس ایپ پر 24 گھنٹے دستیاب ہے۔ ہم Goods transport company in Samundri اور Goods transport service Kamalia کے طور پر فیصل آباد ریجن (FIEDMC)، لاہور، کراچی پورٹ، راولپنڈی اور پورے پاکستان کے لیے 100% مخصوص FTL ٹرک بکنگ فراہم کرتے ہیں۔'
+      a: 'سمندری اور کمالیہ سمیت پورے پنجاب اور پاکستان کے لیے مال کی بکنگ فون کال اور واٹس ایپ پر 24 گھنٹے دستیاب ہے۔ ہم سمندری اور کمالیہ کی معروف گڈز ٹرانسپورٹ کمپنی کے طور پر فیصل آباد ریجن (FIEDMC)، لاہور، کراچی پورٹ، راولپنڈی اور پورے پاکستان کے لیے 100% مخصوص FTL ٹرک بکنگ فراہم کرتے ہیں۔'
     },
     {
-      q: 'کیا آپ سمندری سے ٹریلر اور فل ٹرک بکنگ فراہم کرتے ہیں؟ (Truck booking / Trailer transport Samundri)',
+      q: 'کیا آپ سمندری سے ٹریلر اور فل ٹرک بکنگ فراہم کرتے ہیں؟',
       a: 'جی ہاں! ہمارے پاس شہزور (1 تا 3.5 ٹن)، مزدا 6 وہیلر (4 تا 10 ٹن)، سیمپل ٹرک (8 تا 16 ٹن) اور 22 تا 28+ فٹ بیڈفورڈ ہیوی ٹرکس و ٹریلر ٹرانسپورٹ سمندری اور کمالیہ سے 24 گھنٹے آن ڈیمانڈ دستیاب ہیں۔ کمپیوٹرائزڈ کانٹا پرچی اور تصدیق شدہ بلٹی ہر گاڑی کے ساتھ دی جاتی ہے۔'
     },
     {
@@ -58,11 +58,11 @@ export const FaqAndReviewsSection: React.FC = () => {
     },
     {
       q: 'How can I book goods transport service from Samundri and Kamalia?',
-      a: 'Direct booking for Samundri, Kamalia, and all Pakistan routes is available 24/7 via phone call and WhatsApp. We serve as the premier goods transport company in Samundri & goods transport service Kamalia, connecting the FTL logistics service Faisalabad region to Karachi Port, Lahore, Rawalpindi, and all nationwide destinations.'
+      a: 'Direct booking for Samundri, Kamalia, and all Pakistan routes is available 24/7 via phone call and WhatsApp. As a premier freight carrier in Samundri and Kamalia, we connect the Faisalabad industrial region directly to Karachi Port, Lahore, Rawalpindi, and all nationwide destinations with dedicated FTL trucks.'
     },
     {
-      q: 'How can I arrange truck booking / trailer transport Samundri for heavy commercial loads?',
-      a: 'Instant truck booking / trailer transport Samundri and Kamalia is available 24/7. Simply call or WhatsApp 0300-5370443 or 0339-5370443. We dispatch Hyundai Shehzore (1-3.5 Tons), Mazda 6-wheeler (4-10 Tons), Sample haulers (8-16 Tons), and heavy Bedford trucks / trailers (15-28+ Tons) with digital weighbridge scale slips.'
+      q: 'How can I arrange truck booking and trailer transport in Samundri for heavy commercial loads?',
+      a: 'Instant commercial truck and trailer booking in Samundri and Kamalia is available 24/7. Simply call or WhatsApp 0300-5370443 or 0339-5370443. We dispatch Hyundai Shehzore (1-3.5 Tons), Mazda 6-wheeler (4-10 Tons), Sample haulers (8-16 Tons), and heavy Bedford trucks / trailers (15-28+ Tons) with digital weighbridge scale slips.'
     },
     {
       q: 'Are your drivers and transport documentation officially verified?',
@@ -79,8 +79,8 @@ export const FaqAndReviewsSection: React.FC = () => {
         {/* Section: FAQs */}
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8 sm:mb-10">
-            <div className="inline-flex items-center gap-2 bg-indigo-100 text-indigo-900 border border-indigo-300 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-3 font-urdu shadow-sm">
-              <HelpCircle className="w-4 h-4 text-indigo-700 flex-shrink-0" />
+            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-3 font-urdu shadow-sm">
+              <HelpCircle className="w-4 h-4 text-blue-700 flex-shrink-0" />
               <span>{tFaq.badge}</span>
             </div>
 
@@ -98,7 +98,7 @@ export const FaqAndReviewsSection: React.FC = () => {
               return (
                 <div 
                   key={index} 
-                  className="border border-slate-200 rounded-xl overflow-hidden transition-all bg-white shadow-sm hover:border-slate-300"
+                  className="border border-slate-200 rounded-lg overflow-hidden transition-all bg-white shadow-sm hover:border-slate-300"
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : index)}
@@ -107,11 +107,11 @@ export const FaqAndReviewsSection: React.FC = () => {
                     <span className="font-bold text-sm sm:text-base text-slate-900 leading-relaxed text-start font-urdu">
                       {faq.q}
                     </span>
-                    <ChevronDown className={`w-5 h-5 text-indigo-600 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-5 h-5 text-blue-600 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
                   </button>
 
                   {isOpen && (
-                    <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-2 text-slate-700 text-xs sm:text-sm leading-relaxed border-t border-slate-100 bg-indigo-50/30 font-urdu">
+                    <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-2 text-slate-700 text-xs sm:text-sm leading-relaxed border-t border-slate-100 bg-slate-50 font-urdu">
                       {faq.a}
                     </div>
                   )}
@@ -121,7 +121,7 @@ export const FaqAndReviewsSection: React.FC = () => {
           </div>
 
           {/* Transparent Google Business Profile & Direct Feedback Box (No fake reviews) */}
-          <div className="mt-10 sm:mt-12 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-950 text-white rounded-2xl p-6 sm:p-8 shadow-xl border border-slate-700/60">
+          <div className="mt-10 sm:mt-12 bg-slate-900 text-white rounded-lg p-6 sm:p-8 shadow-sm border border-slate-800">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="space-y-2 text-center md:text-start font-urdu">
                 <div className="inline-flex items-center gap-1.5 bg-blue-500/20 text-blue-300 border border-blue-400/30 px-3 py-1 rounded-full text-xs font-semibold">
@@ -142,7 +142,7 @@ export const FaqAndReviewsSection: React.FC = () => {
               <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
                 <a
                   href="#branches"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition-all shadow-md active:scale-95 cursor-pointer font-urdu"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2.5 rounded-lg text-xs sm:text-sm transition-colors shadow-sm hover:shadow-md active:scale-95 cursor-pointer font-urdu"
                   title="View Service Areas"
                 >
                   <MapPin className="w-4 h-4 text-white" />
@@ -151,7 +151,7 @@ export const FaqAndReviewsSection: React.FC = () => {
 
                 <a
                   href="#business-intro"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition-all shadow-md active:scale-95 cursor-pointer font-urdu"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2.5 rounded-lg text-xs sm:text-sm transition-colors shadow-sm hover:shadow-md active:scale-95 cursor-pointer font-urdu"
                   title="View Warraich Goods Business Profile"
                 >
                   <ShieldCheck className="w-4 h-4 text-slate-950" />

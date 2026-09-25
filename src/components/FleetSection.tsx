@@ -59,16 +59,13 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
             const imgSrc = truck.image || `./images/${truck.id}-truck.png`;
 
             const badgeColorClass = 
-              truck.id === 'shehzore' ? 'bg-emerald-600 text-white' :
-              truck.id === 'mazda' ? 'bg-amber-500 text-slate-950' :
-              truck.id === 'sample' ? 'bg-indigo-600 text-white' :
-              'bg-blue-600 text-white';
+              truck.id === 'mazda' ? 'bg-amber-500 text-slate-950' : 'bg-blue-600 text-white';
 
             return (
               <div 
                 key={truck.id}
                 id={`fleet-card-${truck.id}`}
-                className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:border-blue-400 transition-all duration-300 flex flex-col group"
+                className="bg-white border border-slate-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 flex flex-col group"
               >
                 {/* Truck Photo Image Container with PNG + Lazy Loading */}
                 <div className="relative h-48 sm:h-52 bg-slate-100 overflow-hidden flex items-center justify-center border-b border-slate-200">
@@ -86,7 +83,7 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
                   ) : (
                     /* Graphic Truck Fallback Card */
                     <div className="w-full h-full bg-slate-50 p-4 flex flex-col items-center justify-center text-center relative">
-                      <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center mb-2">
+                      <div className="w-12 h-12 rounded-lg bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center mb-2">
                         <Truck className="w-6 h-6" />
                       </div>
                       <span className="text-sm font-bold text-slate-800 font-urdu">{truckName}</span>
@@ -98,7 +95,7 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
                   )}
                   
                   {/* Badge */}
-                  <div className={`absolute top-2.5 right-2.5 ${badgeColorClass} px-2.5 py-1 rounded-md text-xs font-bold shadow-md font-urdu`}>
+                  <div className={`absolute top-2.5 right-2.5 ${badgeColorClass} px-2.5 py-1 rounded-md text-xs font-bold shadow-sm font-urdu`}>
                     {truckBadge}
                   </div>
                 </div>
@@ -145,7 +142,7 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
                       <ul className="space-y-1">
                         {idealList.map((item, idx) => (
                           <li key={idx} className="flex items-start gap-2 text-xs text-slate-700 font-urdu">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 flex-shrink-0 mt-0.5" />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -159,7 +156,7 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
                     <button
                       id={`book-vehicle-${truck.id}-btn`}
                       onClick={() => onSelectVehicleForBooking(truck.id)}
-                      className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-slate-900 to-slate-800 hover:from-blue-700 hover:to-blue-600 text-white font-bold py-2.5 px-4 rounded-xl transition-all shadow-sm text-xs sm:text-sm cursor-pointer active:scale-95 min-h-[42px] font-urdu"
+                      className="w-full inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-blue-600 text-white font-bold py-2.5 px-4 rounded-lg transition-colors shadow-sm text-xs sm:text-sm cursor-pointer active:scale-95 min-h-[42px] font-urdu"
                     >
                       <Sparkles className="w-4 h-4 text-amber-400" />
                       <span>{language === 'ur' ? `اس گاڑی کا کرایہ معلوم کریں (${truck.nameUrdu})` : `Calculate ${truck.nameEnglish} Freight`}</span>
@@ -173,18 +170,18 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
         </div>
 
         {/* Special Services Note */}
-        <div className="mt-8 sm:mt-12 bg-gradient-to-r from-blue-900 via-indigo-900 to-blue-950 text-white rounded-2xl p-5 sm:p-7 shadow-lg max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5 font-urdu">
+        <div className="mt-8 sm:mt-12 bg-slate-900 text-white rounded-lg p-5 sm:p-7 shadow-sm border border-slate-800 max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5 font-urdu">
           <div>
             <p className="text-base sm:text-lg font-bold text-white">
               {language === 'ur' ? 'کیا آپ کو مخصوص سائز یا لانگ ٹرم فیکٹری کنٹریکٹ چاہیے؟' : 'Need custom truck dimensions or monthly factory logistics contracts?'}
             </p>
-            <p className="text-xs sm:text-sm text-blue-200 mt-1">
+            <p className="text-xs sm:text-sm text-slate-300 mt-1">
               {language === 'ur' ? 'ہم فیکٹریوں، ملز اور زرعی غلہ تاجروں کے ساتھ باقاعدہ ماہانہ FTL کنٹریکٹ بھی کرتے ہیں۔' : 'We offer regular contract haulage and corporate billing accounts for industrial clients nationwide.'}
             </p>
           </div>
           <a
             href="#business-intro"
-            className="flex-shrink-0 inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-3 rounded-xl text-xs sm:text-sm transition-all min-h-[44px] shadow cursor-pointer font-urdu"
+            className="flex-shrink-0 inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-3 rounded-lg text-xs sm:text-sm transition-colors min-h-[44px] shadow-sm cursor-pointer font-urdu"
             aria-label="View Corporate Business Profile"
           >
             <span>

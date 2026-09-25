@@ -29,14 +29,14 @@ export const HeroSection: React.FC = () => {
   };
 
   return (
-    <section id="hero" className="relative bg-gradient-to-b from-sky-50/70 via-white to-amber-50/50 text-slate-900 overflow-hidden py-8 sm:py-14 md:py-20 border-b border-slate-200">
+    <section id="hero" className="relative bg-slate-50 text-slate-900 overflow-hidden py-8 sm:py-14 md:py-20 border-b border-slate-200">
       
       {/* Background Graphic Grid Accents */}
-      <div className="absolute inset-0 opacity-15 pointer-events-none">
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
         <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(#3b82f6 1px, transparent 1px), radial-gradient(#f59e0b 1px, transparent 1px)',
-          backgroundSize: '40px 40px',
-          backgroundPosition: '0 0, 20px 20px'
+          backgroundImage: 'radial-gradient(#3b82f6 1px, transparent 1px)',
+          backgroundSize: '36px 36px',
+          backgroundPosition: '0 0'
         }}></div>
       </div>
 
@@ -47,7 +47,7 @@ export const HeroSection: React.FC = () => {
           <div className="lg:col-span-7 space-y-4 sm:space-y-6">
             
             {/* FTL Verified Badge */}
-            <div className="inline-flex items-center gap-2 bg-white border border-blue-200 text-blue-900 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-semibold shadow-sm">
+            <div className="inline-flex items-center gap-2 bg-white border border-blue-200 text-blue-900 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold shadow-sm">
               <ShieldCheck className="w-4 h-4 text-blue-600 flex-shrink-0" />
               <span className="font-urdu">{t.badge}</span>
             </div>
@@ -72,7 +72,7 @@ export const HeroSection: React.FC = () => {
             </p>
 
             {/* FTL Exclusivity Notice Pill */}
-            <div className="bg-amber-50/90 border-l-4 border-amber-500 border-y border-r border-amber-200 p-3.5 sm:p-4 rounded-xl flex items-center gap-3">
+            <div className="bg-amber-50 border-l-4 border-amber-500 border-y border-r border-amber-200 p-3.5 sm:p-4 rounded-lg flex items-center gap-3">
               <Lock className="w-5 h-5 text-amber-600 flex-shrink-0" />
               <div className="text-xs sm:text-sm text-amber-950 leading-relaxed font-urdu">
                 {language === 'ur' ? (
@@ -85,25 +85,25 @@ export const HeroSection: React.FC = () => {
 
             {/* Feature Highlights Chips */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
-              <div className="flex items-center gap-2 bg-white border border-slate-200 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm shadow-sm">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+              <div className="flex items-center gap-2 bg-white border border-slate-200 px-3.5 py-2.5 rounded-lg text-xs sm:text-sm shadow-sm">
+                <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0" />
                 <span className="text-slate-800 font-urdu">{t.benefit1}</span>
               </div>
 
-              <div className="flex items-center gap-2 bg-white border border-slate-200 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm shadow-sm">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+              <div className="flex items-center gap-2 bg-white border border-slate-200 px-3.5 py-2.5 rounded-lg text-xs sm:text-sm shadow-sm">
+                <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0" />
                 <span className="text-slate-800 font-urdu">{t.benefit2}</span>
               </div>
 
-              <div className="flex items-center gap-2 bg-white border border-slate-200 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm shadow-sm">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+              <div className="flex items-center gap-2 bg-white border border-slate-200 px-3.5 py-2.5 rounded-lg text-xs sm:text-sm shadow-sm">
+                <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0" />
                 <span className="text-slate-800 font-urdu">{t.benefit3}</span>
               </div>
             </div>
 
             {/* High-Volume Local Search Keywords & Direct Hubs Quick Access */}
-            <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white p-3.5 sm:p-4 rounded-2xl shadow-md border border-slate-700/80">
-              <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5 pb-2 border-b border-slate-700/60">
+            <div className="bg-slate-900 text-white p-3.5 sm:p-4 rounded-lg shadow-sm border border-slate-800">
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5 pb-2 border-b border-slate-800">
                 <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-amber-400 font-urdu">
                   <MapPin className="w-4 h-4 text-amber-400 flex-shrink-0" />
                   <span>
@@ -128,7 +128,7 @@ export const HeroSection: React.FC = () => {
                   <a
                     key={idx}
                     href="#branches"
-                    className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold bg-slate-800/90 hover:bg-amber-500 hover:text-slate-950 text-slate-200 px-2.5 py-1 rounded-lg transition-colors border border-slate-700 font-urdu cursor-pointer"
+                    className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-200 px-2.5 py-1 rounded-lg transition-colors border border-slate-700 font-urdu cursor-pointer"
                     title={item.en}
                   >
                     <Tag className="w-2.5 h-2.5 text-amber-400 opacity-80" />
@@ -145,7 +145,7 @@ export const HeroSection: React.FC = () => {
               <a
                 id="hero-company-profile-btn"
                 href="#business-intro"
-                className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold px-6 py-3.5 sm:py-4 rounded-xl shadow-md text-sm sm:text-base transition-all transform active:scale-95 cursor-pointer min-h-[48px]"
+                className="inline-flex items-center justify-center gap-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3.5 sm:py-4 rounded-lg shadow-sm text-sm sm:text-base transition-colors cursor-pointer min-h-[48px]"
                 aria-label="View Company Profile and Introduction"
               >
                 <ShieldCheck className="w-4 sm:w-5 h-4 sm:h-5 flex-shrink-0" />
@@ -158,7 +158,7 @@ export const HeroSection: React.FC = () => {
               <button
                 id="hero-calc-btn"
                 onClick={scrollToBooking}
-                className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold px-5 py-3.5 sm:py-4 rounded-xl text-sm sm:text-base transition-all shadow-md cursor-pointer min-h-[48px]"
+                className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold px-5 py-3.5 sm:py-4 rounded-lg text-sm sm:text-base transition-colors shadow-sm cursor-pointer min-h-[48px]"
               >
                 <Calculator className="w-4 sm:w-5 h-4 sm:h-5 text-amber-400 flex-shrink-0" />
                 <span className="font-urdu">{t.btnCalculate}</span>
@@ -168,7 +168,7 @@ export const HeroSection: React.FC = () => {
               <a
                 id="hero-fleet-btn"
                 href="#fleet"
-                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-800 font-semibold px-5 py-3.5 sm:py-4 rounded-xl text-sm sm:text-base transition-all border border-slate-200 shadow-sm cursor-pointer min-h-[48px]"
+                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-800 font-semibold px-5 py-3.5 sm:py-4 rounded-lg text-sm sm:text-base transition-colors border border-slate-200 shadow-sm cursor-pointer min-h-[48px]"
               >
                 <Truck className="w-4 sm:w-5 h-4 sm:h-5 text-blue-600 flex-shrink-0" />
                 <span className="font-urdu">
@@ -194,10 +194,10 @@ export const HeroSection: React.FC = () => {
 
           {/* Visual Showcase Card Column: Live Operations Hub (No duplicate vehicle cards) */}
           <div className="lg:col-span-5 mt-4 lg:mt-0">
-            <div className="relative bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-xl overflow-hidden">
+            <div className="relative bg-white border border-slate-200 rounded-lg p-5 sm:p-6 shadow-sm overflow-hidden">
               
-              {/* Top Multi-Color Accent bar */}
-              <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-blue-600 via-amber-500 to-emerald-500"></div>
+              {/* Top Accent bar */}
+              <div className="absolute top-0 inset-x-0 h-1 bg-blue-600"></div>
               
               <div className="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
                 <div>
@@ -208,14 +208,14 @@ export const HeroSection: React.FC = () => {
                     {language === 'ur' ? 'محفوظ ترین فل ٹرک لوڈ، کمپیوٹرائزڈ بلٹی اور براہ راست ترسیل' : 'Dedicated single-shipper transit with computerized bilty verification'}
                   </p>
                 </div>
-                <div className="bg-emerald-50 text-emerald-700 border border-emerald-300 text-[11px] px-2.5 py-1 rounded-md font-semibold font-urdu whitespace-nowrap">
+                <div className="bg-blue-50 text-blue-800 border border-blue-200 text-[11px] px-2.5 py-1 rounded-md font-semibold font-urdu whitespace-nowrap">
                   {language === 'ur' ? '24/7 ڈسپیچ' : '24/7 Dispatch'}
                 </div>
               </div>
 
               {/* 4 Core Operational Highlights (Clean & Non-repetitive) */}
               <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <div className="p-3 rounded-lg bg-slate-50 border border-slate-200">
                   <span className="text-[10px] font-bold text-blue-700 bg-blue-100 px-1.5 py-0.5 rounded font-mono">100% FTL</span>
                   <p className="font-bold text-xs sm:text-sm text-slate-900 mt-1.5 font-urdu">
                     {language === 'ur' ? 'مخصوص گاڑی' : 'Dedicated Truck'}
@@ -225,8 +225,8 @@ export const HeroSection: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                  <span className="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded font-mono">NON-STOP</span>
+                <div className="p-3 rounded-lg bg-slate-50 border border-slate-200">
+                  <span className="text-[10px] font-bold text-blue-700 bg-blue-100 px-1.5 py-0.5 rounded font-mono">NON-STOP</span>
                   <p className="font-bold text-xs sm:text-sm text-slate-900 mt-1.5 font-urdu">
                     {language === 'ur' ? 'نان اسٹاپ ترسیل' : 'Non-Stop Transit'}
                   </p>
@@ -235,7 +235,7 @@ export const HeroSection: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <div className="p-3 rounded-lg bg-slate-50 border border-slate-200">
                   <span className="text-[10px] font-bold text-amber-800 bg-amber-100 px-1.5 py-0.5 rounded font-mono">SCALE SLIP</span>
                   <p className="font-bold text-xs sm:text-sm text-slate-900 mt-1.5 font-urdu">
                     {language === 'ur' ? 'کمپیوٹرائزڈ کانٹا' : 'Digital Weighbridge'}
@@ -245,8 +245,8 @@ export const HeroSection: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                  <span className="text-[10px] font-bold text-indigo-700 bg-indigo-100 px-1.5 py-0.5 rounded font-mono">NATIONWIDE</span>
+                <div className="p-3 rounded-lg bg-slate-50 border border-slate-200">
+                  <span className="text-[10px] font-bold text-blue-700 bg-blue-100 px-1.5 py-0.5 rounded font-mono">NATIONWIDE</span>
                   <p className="font-bold text-xs sm:text-sm text-slate-900 mt-1.5 font-urdu">
                     {language === 'ur' ? 'ملک گیر نیٹ ورک' : 'All-Pakistan Routes'}
                   </p>
@@ -260,14 +260,14 @@ export const HeroSection: React.FC = () => {
               <div className="pt-2 border-t border-slate-200 grid grid-cols-2 gap-2">
                 <a
                   href="#fleet"
-                  className="flex items-center justify-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-white font-bold py-2 rounded-xl text-xs font-urdu text-center transition-all shadow-xs"
+                  className="flex items-center justify-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-white font-bold py-2 rounded-lg text-xs font-urdu text-center transition-colors shadow-sm"
                 >
                   <Truck className="w-3.5 h-3.5 text-amber-400" />
                   <span>{language === 'ur' ? 'گاڑیاں و فلیٹ دیکھیں' : 'View Fleet Models'}</span>
                 </a>
                 <a
                   href="#tracking"
-                  className="flex items-center justify-center gap-1.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2 rounded-xl text-xs font-urdu text-center transition-all shadow-xs"
+                  className="flex items-center justify-center gap-1.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2 rounded-lg text-xs font-urdu text-center transition-colors shadow-sm"
                 >
                   <span>{language === 'ur' ? 'بلٹی ٹریک کریں' : 'Track Bilty'}</span>
                 </a>
@@ -281,11 +281,11 @@ export const HeroSection: React.FC = () => {
         {/* ========================================================================= */}
         {/* PROMINENT TRUST-STATS COUNTER (Task 2 & 4 - Bilingual, RTL-Safe, Real Facts) */}
         {/* ========================================================================= */}
-        <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-200/90">
+        <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-200">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             
             {/* Stat 1: 20+ Years Field Experience */}
-            <div className="bg-white/90 backdrop-blur-xs border border-amber-200/90 rounded-2xl p-3.5 sm:p-4 shadow-xs hover:shadow-md hover:border-amber-400 transition-all flex flex-col justify-between">
+            <div className="bg-white border border-slate-200 rounded-lg p-3.5 sm:p-4 shadow-sm hover:shadow-md hover:border-amber-400 transition-all flex flex-col justify-between">
               <div className="flex items-center justify-between gap-1.5 mb-1.5">
                 <span className="text-xl sm:text-2xl lg:text-3xl font-black text-amber-600 font-mono tracking-tight">
                   20+
@@ -304,7 +304,7 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Stat 2: 100% Dedicated Full Truckload Policy */}
-            <div className="bg-white/90 backdrop-blur-xs border border-blue-200/90 rounded-2xl p-3.5 sm:p-4 shadow-xs hover:shadow-md hover:border-blue-400 transition-all flex flex-col justify-between">
+            <div className="bg-white border border-slate-200 rounded-lg p-3.5 sm:p-4 shadow-sm hover:shadow-md hover:border-blue-400 transition-all flex flex-col justify-between">
               <div className="flex items-center justify-between gap-1.5 mb-1.5">
                 <span className="text-xl sm:text-2xl lg:text-3xl font-black text-blue-700 font-mono tracking-tight">
                   100%
@@ -323,13 +323,13 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Stat 3: 4 Vehicle Types in Fleet Variety */}
-            <div className="bg-white/90 backdrop-blur-xs border border-emerald-200/90 rounded-2xl p-3.5 sm:p-4 shadow-xs hover:shadow-md hover:border-emerald-400 transition-all flex flex-col justify-between">
+            <div className="bg-white border border-slate-200 rounded-lg p-3.5 sm:p-4 shadow-sm hover:shadow-md hover:border-blue-400 transition-all flex flex-col justify-between">
               <div className="flex items-center justify-between gap-1.5 mb-1.5">
-                <span className="text-xl sm:text-2xl lg:text-3xl font-black text-emerald-700 font-mono tracking-tight">
+                <span className="text-xl sm:text-2xl lg:text-3xl font-black text-blue-700 font-mono tracking-tight">
                   4
                 </span>
-                <span className="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold font-urdu px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-200">
-                  <Truck className="w-3 h-3 text-emerald-700 flex-shrink-0" />
+                <span className="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold font-urdu px-2 py-0.5 rounded-full bg-blue-100 text-blue-900 border border-blue-200">
+                  <Truck className="w-3 h-3 text-blue-700 flex-shrink-0" />
                   <span>{t.trustCounters[2].badge}</span>
                 </span>
               </div>
@@ -342,13 +342,13 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Stat 4: Service Areas Network */}
-            <div className="bg-white/90 backdrop-blur-xs border border-purple-200/90 rounded-2xl p-3.5 sm:p-4 shadow-xs hover:shadow-md hover:border-purple-400 transition-all flex flex-col justify-between">
+            <div className="bg-white border border-slate-200 rounded-lg p-3.5 sm:p-4 shadow-sm hover:shadow-md hover:border-slate-400 transition-all flex flex-col justify-between">
               <div className="flex items-center justify-between gap-1.5 mb-1.5">
-                <span className="text-xl sm:text-2xl lg:text-3xl font-black text-purple-700 font-mono tracking-tight">
+                <span className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-800 font-mono tracking-tight">
                   {t.trustCounters[3].num}
                 </span>
-                <span className="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold font-urdu px-2 py-0.5 rounded-full bg-purple-100 text-purple-900 border border-purple-200">
-                  <Warehouse className="w-3 h-3 text-purple-700 flex-shrink-0" />
+                <span className="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold font-urdu px-2 py-0.5 rounded-full bg-slate-100 text-slate-800 border border-slate-200">
+                  <Warehouse className="w-3 h-3 text-slate-700 flex-shrink-0" />
                   <span>{t.trustCounters[3].badge}</span>
                 </span>
               </div>

@@ -61,10 +61,10 @@ export const Footer: React.FC = () => {
               href={COMPANY_INFO.youtubeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-red-600 hover:bg-red-700 text-white px-3.5 py-1.5 rounded-xl text-xs font-bold transition shadow-sm hover:scale-105"
+              className="inline-flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 px-3.5 py-1.5 rounded-lg text-xs font-bold transition shadow-sm"
               aria-label="Warraich Goods YouTube Channel"
             >
-              <Youtube className="w-4 h-4 fill-current" />
+              <Youtube className="w-4 h-4 fill-current text-slate-300" />
               <span>YouTube</span>
             </a>
 
@@ -73,7 +73,7 @@ export const Footer: React.FC = () => {
               href={COMPANY_INFO.facebookUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white px-3.5 py-1.5 rounded-xl text-xs font-bold transition shadow-sm hover:scale-105"
+              className="inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-500 text-white px-3.5 py-1.5 rounded-lg text-xs font-bold transition shadow-sm"
               aria-label="Warraich Goods Facebook Page"
             >
               <Facebook className="w-4 h-4 fill-current" />
@@ -85,7 +85,7 @@ export const Footer: React.FC = () => {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-1.5 rounded-xl text-xs font-bold transition shadow-sm hover:scale-105"
+              className="inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-500 text-white px-3.5 py-1.5 rounded-lg text-xs font-bold transition shadow-sm"
               aria-label="Warraich Goods WhatsApp"
             >
               <MessageCircle className="w-4 h-4 fill-current" />
@@ -95,7 +95,7 @@ export const Footer: React.FC = () => {
             {/* Phone Helpline */}
             <a
               href={`tel:${COMPANY_INFO.phoneRaw1}`}
-              className="inline-flex items-center gap-1.5 bg-amber-500 hover:bg-amber-400 text-slate-950 px-3.5 py-1.5 rounded-xl text-xs font-bold transition hover:scale-105"
+              className="inline-flex items-center gap-1.5 bg-amber-500 hover:bg-amber-400 text-slate-950 px-3.5 py-1.5 rounded-lg text-xs font-bold transition shadow-sm"
               aria-label="Warraich Goods Phone Helpline"
             >
               <Phone className="w-3.5 h-3.5 fill-current" />
@@ -107,7 +107,7 @@ export const Footer: React.FC = () => {
               href={GOOGLE_REVIEW_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-amber-300 border border-slate-700 hover:border-amber-400/50 px-3.5 py-1.5 rounded-xl text-xs font-bold font-urdu transition shadow-sm hover:scale-105"
+              className="inline-flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-amber-300 border border-slate-700 hover:border-amber-400/50 px-3.5 py-1.5 rounded-lg text-xs font-bold font-urdu transition shadow-sm"
               aria-label="Review Warraich Goods Transport Company on Google"
             >
               <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400 flex-shrink-0" />
@@ -116,10 +116,10 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* 2. Social Media Sharing Bar (Increases Social Reach & SEO Authority) */}
-        <div className="bg-slate-800/60 border border-slate-700/80 rounded-2xl p-4 sm:p-5 mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        {/* 2. Social Media Sharing Bar */}
+        <div className="bg-slate-800/60 border border-slate-700/80 rounded-lg p-4 sm:p-5 mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3 text-center sm:text-start">
-            <div className="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center flex-shrink-0">
+            <div className="w-10 h-10 rounded-lg bg-amber-400/10 border border-amber-400/30 flex items-center justify-center flex-shrink-0">
               <Share2 className="w-5 h-5 text-amber-400" />
             </div>
             <div>
@@ -140,7 +140,7 @@ export const Footer: React.FC = () => {
               href={`https://api.whatsapp.com/send?text=${encodeURIComponent(`${shareTitle}\n${shareUrl}`)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-lg text-xs font-bold font-urdu transition hover:scale-105"
+              className="inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-500 text-white px-3 py-1.5 rounded-lg text-xs font-bold font-urdu transition shadow-sm"
               aria-label="Share on WhatsApp"
             >
               <MessageCircle className="w-3.5 h-3.5 fill-current" />
@@ -152,7 +152,7 @@ export const Footer: React.FC = () => {
               href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-500 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition hover:scale-105"
+              className="inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-500 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition shadow-sm"
               aria-label="Share on Facebook"
             >
               <Facebook className="w-3.5 h-3.5 fill-current" />
@@ -164,7 +164,7 @@ export const Footer: React.FC = () => {
               href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-[#0077b5] hover:bg-[#006396] text-white px-3 py-1.5 rounded-lg text-xs font-bold transition hover:scale-105"
+              className="inline-flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 px-3 py-1.5 rounded-lg text-xs font-bold transition shadow-sm"
               aria-label="Share on LinkedIn"
             >
               <Linkedin className="w-3.5 h-3.5 fill-current" />
@@ -176,7 +176,7 @@ export const Footer: React.FC = () => {
               href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareTitle)}&url=${encodeURIComponent(shareUrl)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-black hover:bg-slate-800 text-white border border-slate-700 px-3 py-1.5 rounded-lg text-xs font-bold transition hover:scale-105"
+              className="inline-flex items-center gap-1.5 bg-black hover:bg-slate-800 text-white border border-slate-700 px-3 py-1.5 rounded-lg text-xs font-bold transition shadow-sm"
               aria-label="Share on X Twitter"
             >
               <Twitter className="w-3.5 h-3.5 fill-current" />
@@ -192,8 +192,8 @@ export const Footer: React.FC = () => {
             >
               {copied ? (
                 <>
-                  <Check className="w-3.5 h-3.5 text-emerald-400" />
-                  <span className="text-emerald-400">{isUrdu ? 'لنک کاپی ہو گیا!' : 'Copied!'}</span>
+                  <Check className="w-3.5 h-3.5 text-blue-400" />
+                  <span className="text-blue-400">{isUrdu ? 'لنک کاپی ہو گیا!' : 'Copied!'}</span>
                 </>
               ) : (
                 <>
@@ -256,7 +256,7 @@ export const Footer: React.FC = () => {
 
           <button
             onClick={scrollToTop}
-            className="inline-flex items-center justify-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-3.5 py-1.5 rounded-xl border border-slate-700 transition-colors cursor-pointer min-h-[38px]"
+            className="inline-flex items-center justify-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-3.5 py-1.5 rounded-lg border border-slate-700 transition-colors cursor-pointer min-h-[38px]"
             aria-label="Back to top of page"
           >
             <span>{isUrdu ? 'اوپر جائیں' : 'Back to Top'}</span>

@@ -93,8 +93,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             aria-label="Warraich Goods Transport Company Home"
           >
             {/* Logo Emblem */}
-            <div className="relative w-10 h-10 xs:w-11 xs:h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-amber-500 via-amber-400 to-amber-600 p-0.5 shadow-xs group-hover:shadow-md group-hover:scale-105 transition-all flex-shrink-0 flex items-center justify-center overflow-hidden">
-              <div className="w-full h-full bg-white rounded-[10px] p-1 flex items-center justify-center overflow-hidden">
+            <div className="relative w-10 h-10 xs:w-11 xs:h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg bg-amber-500 p-0.5 shadow-sm flex-shrink-0 flex items-center justify-center overflow-hidden">
+              <div className="w-full h-full bg-white rounded-lg p-1 flex items-center justify-center overflow-hidden">
                 <img
                   src="./images/logo.png"
                   alt="Warraich Goods Transport Company Official Logo"
@@ -140,8 +140,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             </nav>
 
             {/* Govt Registered / FBR NTN Badge (Visible on lg+) */}
-            <div className="hidden lg:inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 border border-emerald-200 px-2.5 py-1.5 rounded-lg text-xs font-semibold shadow-2xs whitespace-nowrap">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+            <div className="hidden lg:inline-flex items-center gap-1.5 bg-amber-50 text-amber-900 border border-amber-200 px-2.5 py-1.5 rounded-lg text-xs font-semibold shadow-sm whitespace-nowrap">
+              <ShieldCheck className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />
               <span className="font-urdu hidden 2xl:inline">{isUrdu ? 'رجسٹرڈ ادارہ •' : 'Govt. Reg •'}</span>
               <span className="font-mono text-[11px] font-bold">NTN: {COMPANY_INFO.ntn}</span>
             </div>
@@ -152,7 +152,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               href={COMPANY_INFO.webAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center gap-1.5 bg-slate-900 hover:bg-blue-600 text-white font-medium px-3 py-1.5 rounded-lg text-xs transition-all shadow-xs cursor-pointer whitespace-nowrap"
+              className="hidden md:inline-flex items-center gap-1.5 bg-slate-900 hover:bg-blue-600 text-white font-medium px-3 py-1.5 rounded-lg text-xs transition-colors shadow-sm cursor-pointer whitespace-nowrap"
               title="Open Transport Driver Portal"
               aria-label="Open Transport Portal"
             >
@@ -164,7 +164,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               id="lang-toggle-btn"
               onClick={toggleLanguage}
-              className="inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 px-2.5 sm:px-3 py-1.5 rounded-lg transition-all border border-slate-200 text-xs font-bold cursor-pointer shadow-xs active:scale-95 whitespace-nowrap min-h-[32px]"
+              className="inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 px-2.5 sm:px-3 py-1.5 rounded-lg transition-colors border border-slate-200 text-xs font-bold cursor-pointer shadow-sm active:scale-95 whitespace-nowrap min-h-[32px]"
               aria-label={`Switch language to ${isUrdu ? 'English' : 'Urdu'}`}
               title="Switch Language / زبان تبدیل کریں"
             >
@@ -178,7 +178,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               id="mobile-menu-toggle-btn"
               onClick={handleToggle}
-              className="inline-flex xl:hidden items-center justify-center p-1.5 px-2.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold shadow-xs transition-all active:scale-95 cursor-pointer gap-1.5 min-h-[32px]"
+              className="inline-flex xl:hidden items-center justify-center p-1.5 px-2.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold shadow-sm transition-colors active:scale-95 cursor-pointer gap-1.5 min-h-[32px]"
               aria-label="Toggle Navigation Menu"
               aria-expanded={isMenuVisible}
               title={isMenuVisible ? "Close Menu" : "Open Menu"}
@@ -208,11 +208,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             aria-hidden="true"
           />
           
-          <div className="absolute top-full left-0 right-0 z-40 xl:hidden bg-white border-b border-slate-200 shadow-2xl px-4 pt-3 pb-6 animate-fadeIn max-h-[calc(100vh-80px)] overflow-y-auto">
+          <div className="absolute top-full left-0 right-0 z-40 xl:hidden bg-white border-b border-slate-200 shadow-md px-4 pt-3 pb-6 animate-fadeIn max-h-[calc(100vh-80px)] overflow-y-auto">
             {/* Govt Registration Banner inside Mobile Drawer */}
-            <div className="flex items-center justify-between bg-emerald-50 text-emerald-900 border border-emerald-200 px-3.5 py-2 rounded-xl mb-3 text-xs font-semibold">
+            <div className="flex items-center justify-between bg-amber-50 text-amber-900 border border-amber-200 px-3.5 py-2 rounded-lg mb-3 text-xs font-semibold">
               <div className="flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                <ShieldCheck className="w-4 h-4 text-amber-600 flex-shrink-0" />
                 <span className="font-urdu">{isUrdu ? 'گورنمنٹ رجسٹرڈ ادارہ' : 'Govt. Registered Entity'}</span>
               </div>
               <span className="font-mono text-[11px] font-bold">NTN: {COMPANY_INFO.ntn}</span>
@@ -225,7 +225,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   key={link.href}
                   href={link.href}
                   onClick={handleClose}
-                  className="flex items-center min-h-[42px] text-slate-800 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-xl text-sm font-urdu font-semibold transition-colors active:bg-blue-100"
+                  className="flex items-center min-h-[42px] text-slate-800 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg text-sm font-urdu font-semibold transition-colors active:bg-blue-100"
                 >
                   {link.label}
                 </a>
@@ -237,7 +237,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <a
                 href="#business-intro"
                 onClick={handleClose}
-                className="w-full min-h-[44px] flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-xl text-center text-sm shadow-sm font-urdu"
+                className="w-full min-h-[44px] flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-lg text-center text-sm shadow-sm font-urdu"
               >
                 <span>{isUrdu ? 'کاروباری تعارف و مکمل کارڈ دیکھیں' : 'View Business Card & Profile'}</span>
               </a>
@@ -246,7 +246,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 href={COMPANY_INFO.webAppUrl}
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-full min-h-[44px] flex items-center justify-center gap-2 bg-slate-900 hover:bg-blue-700 text-white font-medium py-2.5 rounded-xl text-center text-sm"
+                className="w-full min-h-[44px] flex items-center justify-center gap-2 bg-slate-900 hover:bg-blue-700 text-white font-medium py-2.5 rounded-lg text-center text-sm"
                 aria-label="Open Driver Web App Portal"
               >
                 <span>Driver Web Portal</span>

@@ -40,8 +40,8 @@ export const CargoSafetySection: React.FC = () => {
       titleEnglish: 'NADRA-Verified Commercial Drivers',
       descUrdu: 'تمام ڈرائیورز نادرا شناختی کارڈ، ڈرائیونگ لائسنس اور باقاعدہ ٹریک ریکارڈ کے ساتھ رجسٹرڈ اور انتہائی بااعتماد ہیں۔',
       descEnglish: 'All highway captains undergo national identity verification, commercial licensing scrutiny, and proven safety records.',
-      borderColor: 'border-emerald-200 hover:border-emerald-400',
-      iconBg: 'bg-emerald-50 text-emerald-600 border-emerald-100',
+      borderColor: 'border-slate-200 hover:border-blue-400',
+      iconBg: 'bg-blue-50 text-blue-600 border-blue-100',
     },
     {
       icon: Scale,
@@ -49,8 +49,8 @@ export const CargoSafetySection: React.FC = () => {
       titleEnglish: 'Computerized Weighbridge & Axle Compliance',
       descUrdu: 'لوڈنگ کے فوری بعد کمپیوٹرائزڈ کانٹا پرچی حاصل کی جاتی ہے اور روڈ ایکسل لوڈ قوانین کی مکمل پاسداری ہوتی ہے۔',
       descEnglish: 'Instant computerized scale slips provided at loading, adhering strictly to National Highway axle weight limits.',
-      borderColor: 'border-indigo-200 hover:border-indigo-400',
-      iconBg: 'bg-indigo-50 text-indigo-600 border-indigo-100',
+      borderColor: 'border-slate-200 hover:border-blue-400',
+      iconBg: 'bg-slate-100 text-slate-700 border-slate-200',
     },
     {
       icon: Clock,
@@ -58,8 +58,8 @@ export const CargoSafetySection: React.FC = () => {
       titleEnglish: '24/7 Direct Driver & Transit Tracking',
       descUrdu: 'گاڑی روانہ ہونے کے بعد آپ کو ڈرائیور کا موبائل نمبر فراہم کیا جاتا ہے تاکہ آپ کسی بھی وقت لوکیشن معلوم کر سکیں۔',
       descEnglish: 'Shippers receive direct mobile contact with the assigned truck driver for real-time highway ETA updates.',
-      borderColor: 'border-rose-200 hover:border-rose-400',
-      iconBg: 'bg-rose-50 text-rose-600 border-rose-100',
+      borderColor: 'border-blue-200 hover:border-blue-400',
+      iconBg: 'bg-blue-50 text-blue-600 border-blue-100',
     },
     {
       icon: FileCheck,
@@ -67,8 +67,8 @@ export const CargoSafetySection: React.FC = () => {
       titleEnglish: 'Official Tax Invoicing & Clear Documentation',
       descUrdu: 'کارپوریٹ ٹیکس قوانین کے مطابق باقاعدہ ٹیکس انوائس اور رسید جاری کی جاتی ہے، کوئی پوشیدہ یا غیر متوقع چارجز نہیں۔',
       descEnglish: 'Government-compliant corporate documentation with transparent rates and zero surprise charges.',
-      borderColor: 'border-teal-200 hover:border-teal-400',
-      iconBg: 'bg-teal-50 text-teal-600 border-teal-100',
+      borderColor: 'border-amber-200 hover:border-amber-400',
+      iconBg: 'bg-amber-50 text-amber-700 border-amber-100',
     }
   ];
 
@@ -78,8 +78,8 @@ export const CargoSafetySection: React.FC = () => {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-900 border border-emerald-300 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-3 font-urdu shadow-sm">
-            <ShieldCheck className="w-4 h-4 text-emerald-700 flex-shrink-0" />
+          <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-3 font-urdu shadow-sm">
+            <ShieldCheck className="w-4 h-4 text-blue-700 flex-shrink-0" />
             <span>{t.badge}</span>
           </div>
 
@@ -98,7 +98,7 @@ export const CargoSafetySection: React.FC = () => {
             return (
               <div 
                 key={idx} 
-                className={`bg-white p-5 rounded-xl border ${feat.borderColor} hover:shadow-md transition-all shadow-sm flex flex-col justify-between`}
+                className={`bg-white p-5 rounded-lg border ${feat.borderColor} hover:shadow-md transition-all shadow-sm flex flex-col justify-between`}
               >
                 <div>
                   <div className={`w-10 h-10 rounded-lg ${feat.iconBg} border flex items-center justify-center mb-3.5 ${language === 'ur' ? 'ml-auto' : 'mr-auto'}`}>
@@ -117,14 +117,14 @@ export const CargoSafetySection: React.FC = () => {
         </div>
 
         {/* Reassurance Banner with Visual Tarpaulin Protection Showcase */}
-        <div className={`mt-8 sm:mt-12 bg-gradient-to-br from-amber-50 via-white to-amber-100/60 text-slate-900 rounded-2xl p-5 sm:p-7 border border-amber-200 shadow-md grid grid-cols-1 lg:grid-cols-12 gap-6 items-center ${language === 'ur' ? 'text-right' : 'text-left'}`}>
+        <div className={`mt-8 sm:mt-12 bg-amber-50/40 text-slate-900 rounded-lg p-5 sm:p-7 border border-amber-200 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-6 items-center ${language === 'ur' ? 'text-right' : 'text-left'}`}>
           
           {/* Image Showcase Frame */}
-          <div className="lg:col-span-5 relative rounded-xl overflow-hidden shadow-sm border border-amber-200 group">
+          <div className="lg:col-span-5 relative rounded-lg overflow-hidden shadow-sm border border-amber-200">
             <img 
               src="./images/cargo-safety.jpg" 
               alt="Waterproof Tarpaulin and Cargo Lashing Safety - Warraich Goods" 
-              className="w-full h-48 sm:h-52 object-cover group-hover:scale-105 transition-transform duration-500"
+              className="w-full h-48 sm:h-52 object-cover"
               loading="lazy"
               referrerPolicy="no-referrer"
               onError={(e) => {
@@ -132,7 +132,7 @@ export const CargoSafetySection: React.FC = () => {
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex items-end p-3">
-              <span className="text-white text-xs font-semibold font-urdu bg-slate-900/80 px-2.5 py-1 rounded-md backdrop-blur-sm">
+              <span className="text-white text-xs font-semibold font-urdu bg-slate-900/80 px-2.5 py-1 rounded backdrop-blur-sm">
                 {language === 'ur' ? '100% واٹر پروف ڈبل ترپال و مضبوط بندھائی' : 'Double Waterproof Tarpaulin & Heavy Tie-Downs'}
               </span>
             </div>
@@ -152,7 +152,7 @@ export const CargoSafetySection: React.FC = () => {
             <div>
               <a
                 href="#corporate-credibility"
-                className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-amber-400 font-bold px-6 py-3 rounded-xl text-xs sm:text-sm transition-all shadow-md font-urdu whitespace-nowrap cursor-pointer min-h-[44px]"
+                className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-blue-600 text-white font-bold px-6 py-3 rounded-lg text-xs sm:text-sm transition-colors shadow-sm hover:shadow-md font-urdu whitespace-nowrap cursor-pointer min-h-[44px]"
                 aria-label="View Safety Certification and Corporate Credibility"
               >
                 <ShieldCheck className="w-4 h-4 text-amber-400 flex-shrink-0" />

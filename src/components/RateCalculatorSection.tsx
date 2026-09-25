@@ -170,16 +170,16 @@ Please advise regarding the most competitive freight quotation and earliest vehi
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
           
           {/* Booking Form Card */}
-          <div className="lg:col-span-8 bg-white rounded-2xl p-5 sm:p-8 shadow-xl border border-slate-200">
+          <div className="lg:col-span-8 bg-white rounded-lg p-5 sm:p-8 shadow-sm border border-slate-200">
             
             {/* Booking Mode Selector Tabs (Single FTL vs Corporate B2B) */}
-            <div className="flex bg-slate-100 p-1.5 rounded-xl mb-5 sm:mb-6 border border-slate-200">
+            <div className="flex bg-slate-100 p-1.5 rounded-lg mb-5 sm:mb-6 border border-slate-200">
               <button
                 type="button"
                 onClick={() => setIsCorporateMode(false)}
-                className={`flex-1 py-2.5 px-3 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer font-urdu ${
+                className={`flex-1 py-2.5 px-3 rounded-lg text-xs sm:text-sm font-bold transition-colors cursor-pointer font-urdu ${
                   !isCorporateMode 
-                    ? 'bg-amber-500 text-slate-950 shadow-md' 
+                    ? 'bg-amber-500 text-slate-950 shadow-sm' 
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
@@ -189,9 +189,9 @@ Please advise regarding the most competitive freight quotation and earliest vehi
               <button
                 type="button"
                 onClick={() => setIsCorporateMode(true)}
-                className={`flex-1 py-2.5 px-3 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer font-urdu flex items-center justify-center gap-1.5 ${
+                className={`flex-1 py-2.5 px-3 rounded-lg text-xs sm:text-sm font-bold transition-colors cursor-pointer font-urdu flex items-center justify-center gap-1.5 ${
                   isCorporateMode 
-                    ? 'bg-blue-600 text-white shadow-md' 
+                    ? 'bg-blue-600 text-white shadow-sm' 
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
@@ -201,7 +201,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
             </div>
 
             {/* Notice Bar */}
-            <div className={`rounded-xl p-3 sm:p-3.5 mb-5 sm:mb-6 flex items-center justify-between gap-2 text-xs font-urdu ${
+            <div className={`rounded-lg p-3 sm:p-3.5 mb-5 sm:mb-6 flex items-center justify-between gap-2 text-xs font-urdu ${
               isCorporateMode 
                 ? 'bg-amber-50 text-amber-900 border border-amber-300' 
                 : 'bg-blue-50 text-blue-900 border border-blue-200'
@@ -220,7 +220,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
               
               {/* Corporate Exclusive Fields (When in Corporate Mode) */}
               {isCorporateMode && (
-                <div className="bg-amber-50/60 border border-amber-200 p-4 rounded-xl space-y-4">
+                <div className="bg-amber-50/60 border border-amber-200 p-4 rounded-lg space-y-4">
                   <div className="text-xs font-bold text-amber-900 font-urdu flex items-center gap-1.5">
                     <Sparkles className="w-4 h-4 text-amber-600" />
                     <span>{language === 'ur' ? 'کارپوریٹ و انڈسٹریل کوائف:' : 'Corporate Enterprise Information:'}</span>
@@ -238,7 +238,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                         placeholder={language === 'ur' ? 'مثال: الفلاح ٹیکسٹائل ملز' : 'e.g., Al-Falah Textile Mills'}
                         value={formData.companyName}
                         onChange={handleChange}
-                        className="w-full bg-white border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 text-sm focus:border-amber-500 focus:outline-none min-h-[44px]"
+                        className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-slate-900 text-sm focus:border-amber-500 focus:outline-none min-h-[44px]"
                         required={isCorporateMode}
                       />
                     </div>
@@ -252,7 +252,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                         name="monthlyTrips"
                         value={formData.monthlyTrips}
                         onChange={handleChange}
-                        className="w-full bg-white border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 text-sm focus:border-amber-500 focus:outline-none min-h-[44px]"
+                        className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-slate-900 text-sm focus:border-amber-500 focus:outline-none min-h-[44px]"
                       >
                         <option value="5-10 Trucks / Month">{language === 'ur' ? '5 تا 10 گاڑیاں ماہانہ' : '5 - 10 Trucks / Month'}</option>
                         <option value="11-25 Trucks / Month">{language === 'ur' ? '11 تا 25 گاڑیاں ماہانہ' : '11 - 25 Trucks / Month'}</option>
@@ -276,7 +276,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                     name="originCity"
                     value={formData.originCity}
                     onChange={handleChange}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 text-sm focus:border-blue-500 focus:outline-none min-h-[44px]"
+                    className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-slate-900 text-sm focus:border-blue-500 focus:outline-none min-h-[44px]"
                     required
                   >
                     {PAKISTAN_CITIES.map((city, idx) => (
@@ -297,7 +297,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                     name="destinationCity"
                     value={formData.destinationCity}
                     onChange={handleChange}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 text-sm focus:border-blue-500 focus:outline-none min-h-[44px]"
+                    className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-slate-900 text-sm focus:border-blue-500 focus:outline-none min-h-[44px]"
                     required
                   >
                     {PAKISTAN_CITIES.map((city, idx) => (
@@ -313,7 +313,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="booking-vehicle-type" className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5 font-urdu">
-                    <Truck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                    <Truck className="w-4 h-4 text-blue-600 flex-shrink-0" />
                     <span>{tCalc.vehicleLabel}:</span>
                   </label>
                   <select
@@ -321,7 +321,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                     name="vehicleType"
                     value={formData.vehicleType}
                     onChange={handleChange}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 text-sm focus:border-blue-500 focus:outline-none min-h-[44px]"
+                    className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-slate-900 text-sm focus:border-blue-500 focus:outline-none min-h-[44px]"
                     required
                   >
                     {FLEET_DATA.map((v) => (
@@ -334,7 +334,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
 
                 <div>
                   <label htmlFor="booking-loading-date" className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5 font-urdu">
-                    <Calendar className="w-4 h-4 text-indigo-600 flex-shrink-0" />
+                    <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
                     <span>{tCalc.dateLabel}:</span>
                   </label>
                   <input
@@ -343,7 +343,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                     name="loadingDate"
                     value={formData.loadingDate}
                     onChange={handleChange}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 text-sm focus:border-blue-500 focus:outline-none min-h-[44px]"
+                    className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-slate-900 text-sm focus:border-blue-500 focus:outline-none min-h-[44px]"
                     required
                   />
                 </div>
@@ -361,7 +361,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                     name="goodsType"
                     value={formData.goodsType}
                     onChange={handleChange}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 text-sm focus:border-blue-500 focus:outline-none min-h-[44px]"
+                    className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-slate-900 text-sm focus:border-blue-500 focus:outline-none min-h-[44px]"
                   >
                     {GOODS_TYPES.map((g) => (
                       <option key={g.id} value={language === 'ur' ? g.urdu : g.en}>
@@ -382,7 +382,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                     placeholder={language === 'ur' ? 'مثال: فل ٹرک لوڈ / 8 ٹن' : 'e.g., Full Truckload / 8 Tons'}
                     value={formData.weight}
                     onChange={handleChange}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 placeholder:text-slate-400 text-sm focus:border-blue-500 focus:outline-none min-h-[44px]"
+                    className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-slate-900 placeholder:text-slate-400 text-sm focus:border-blue-500 focus:outline-none min-h-[44px]"
                   />
                 </div>
               </div>
@@ -401,7 +401,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                     placeholder={language === 'ur' ? 'اپنا نام یا ادارے کا نام لکھیں' : 'Enter your name or business'}
                     value={formData.customerName}
                     onChange={handleChange}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 placeholder:text-slate-400 text-sm focus:border-blue-500 focus:outline-none min-h-[44px]"
+                    className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-slate-900 placeholder:text-slate-400 text-sm focus:border-blue-500 focus:outline-none min-h-[44px]"
                   />
                 </div>
 
@@ -417,7 +417,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                     placeholder="0300-XXXXXXX"
                     value={formData.customerPhone}
                     onChange={handleChange}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 placeholder:text-slate-400 text-sm font-mono focus:border-blue-500 focus:outline-none min-h-[44px]"
+                    className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-slate-900 placeholder:text-slate-400 text-sm font-mono focus:border-blue-500 focus:outline-none min-h-[44px]"
                   />
                 </div>
               </div>
@@ -434,7 +434,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                   placeholder={language === 'ur' ? 'مثال: ترپال لازمی ہو، لوڈنگ فیکٹری گیٹ نمبر 2 سے کرنی ہے...' : 'e.g., Heavy waterproof tarpaulin required, loading at Gate 2...'}
                   value={formData.specialInstructions}
                   onChange={handleChange}
-                  className="w-full bg-white border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 placeholder:text-slate-400 text-sm focus:border-blue-500 focus:outline-none"
+                  className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-slate-900 placeholder:text-slate-400 text-sm focus:border-blue-500 focus:outline-none"
                 ></textarea>
               </div>
 
@@ -443,10 +443,10 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                 <button
                   id="booking-submit-whatsapp-btn"
                   type="submit"
-                  className={`w-full flex items-center justify-center gap-2.5 font-bold py-3.5 px-6 rounded-xl shadow-lg text-sm sm:text-base transition-all cursor-pointer min-h-[48px] font-urdu active:scale-98 ${
+                  className={`w-full flex items-center justify-center gap-2.5 font-bold py-3.5 px-6 rounded-lg shadow-sm text-sm sm:text-base transition-colors cursor-pointer min-h-[48px] font-urdu active:scale-98 ${
                     isCorporateMode
                       ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                      : 'bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950'
+                      : 'bg-amber-500 hover:bg-amber-400 text-slate-950'
                   }`}
                 >
                   <MessageCircle className="w-5 h-5 fill-current flex-shrink-0" />
@@ -470,7 +470,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
           <div className="lg:col-span-4 space-y-4 sm:space-y-5">
             
             {/* Selected Vehicle & Route Preview */}
-            <div className="bg-white text-slate-900 rounded-2xl p-5 shadow-xl border border-slate-200">
+            <div className="bg-white text-slate-900 rounded-lg p-5 shadow-sm border border-slate-200">
               <div className="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
                 <span className="text-xs font-bold text-blue-700 font-urdu">{tCalc.summaryTitle}</span>
                 <Sparkles className="w-4 h-4 text-amber-500" />
@@ -484,7 +484,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                   </p>
                 </div>
 
-                <div className="bg-blue-50/70 p-3 rounded-xl border border-blue-200">
+                <div className="bg-blue-50/70 p-3 rounded-lg border border-blue-200">
                   <span className="text-xs text-blue-800 block mb-1 font-urdu font-medium">{language === 'ur' ? 'منتخب FTL گاڑی:' : 'Selected FTL Vehicle:'}</span>
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-blue-900 text-sm sm:text-base">{vehicleName}</span>
@@ -493,7 +493,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                   <p className="text-xs text-blue-700 mt-1 font-urdu">{vehicleSubtitle}</p>
                 </div>
 
-                <div className="text-xs text-slate-700 space-y-1.5 bg-slate-50 p-3 rounded-xl border border-slate-200">
+                <div className="text-xs text-slate-700 space-y-1.5 bg-slate-50 p-3 rounded-lg border border-slate-200">
                   <div className="flex justify-between">
                     <span className="text-slate-500 font-urdu">{language === 'ur' ? 'تاریخ لوڈنگ:' : 'Date:'}</span>
                     <span className="font-semibold text-slate-900 font-mono">{formData.loadingDate}</span>
@@ -510,7 +510,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                 <p className="text-xs text-slate-500 mb-2 font-urdu">{language === 'ur' ? 'فوری ٹیلی فونک تصدیق کے لیے:' : 'For instant phone confirmation:'}</p>
                 <a
                   href={`tel:${COMPANY_INFO.phoneRaw1}`}
-                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold py-2.5 px-4 rounded-xl w-full text-sm transition-all shadow-md cursor-pointer min-h-[44px]"
+                  className="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 px-4 rounded-lg w-full text-sm transition-colors shadow-sm cursor-pointer min-h-[44px]"
                   aria-label={`Call ${COMPANY_INFO.phone1}`}
                 >
                   <Phone className="w-4 h-4 fill-current" />
@@ -520,14 +520,14 @@ Please advise regarding the most competitive freight quotation and earliest vehi
             </div>
 
             {/* Trust & Transparency Badge */}
-            <div className="bg-emerald-50 rounded-2xl p-5 border border-emerald-200 shadow-md">
+            <div className="bg-white rounded-lg p-5 border border-slate-200 shadow-sm">
               <div className="flex items-center gap-3 mb-2">
-                <div className="w-9 h-9 rounded-xl bg-emerald-100 border border-emerald-300 text-emerald-700 flex items-center justify-center flex-shrink-0">
+                <div className="w-9 h-9 rounded-lg bg-amber-50 border border-amber-200 text-amber-700 flex items-center justify-center flex-shrink-0">
                   <CheckCircle2 className="w-5 h-5" />
                 </div>
                 <div>
                   <p className="font-bold text-slate-900 text-sm font-urdu">{language === 'ur' ? 'کمپیوٹرائزڈ کانٹا پرچی و باقاعدہ رسید' : 'Computerized Weighbridge Slip & Invoice'}</p>
-                  <p className="text-xs text-emerald-800 font-urdu">{language === 'ur' ? '100% شفاف اور محفوظ ڈیلنگ' : '100% Transparent & Secure'}</p>
+                  <p className="text-xs text-amber-800 font-urdu">{language === 'ur' ? '100% شفاف اور محفوظ ڈیلنگ' : '100% Transparent & Secure'}</p>
                 </div>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed font-urdu">

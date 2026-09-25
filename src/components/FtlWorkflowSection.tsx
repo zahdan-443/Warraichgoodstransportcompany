@@ -40,10 +40,10 @@ export const FtlWorkflowSection: React.FC = () => {
       icon: Truck,
       tagUrdu: '100% مخصوص گاڑی',
       tagEnglish: 'Dedicated Truck',
-      borderColor: 'border-emerald-200 hover:border-emerald-400',
-      numColor: 'text-emerald-600',
-      badgeBg: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-      iconBg: 'bg-emerald-50 text-emerald-600 border-emerald-100',
+      borderColor: 'border-slate-200 hover:border-blue-400',
+      numColor: 'text-blue-600',
+      badgeBg: 'bg-slate-100 text-slate-800 border-slate-200',
+      iconBg: 'bg-blue-50 text-blue-600 border-blue-100',
     },
     {
       stepNumber: '03',
@@ -68,10 +68,10 @@ export const FtlWorkflowSection: React.FC = () => {
       icon: CheckCircle2,
       tagUrdu: 'زیرو کارگو مکسنگ',
       tagEnglish: 'Zero Cargo Mix',
-      borderColor: 'border-indigo-200 hover:border-indigo-400',
-      numColor: 'text-indigo-600',
-      badgeBg: 'bg-indigo-50 text-indigo-700 border-indigo-200',
-      iconBg: 'bg-indigo-50 text-indigo-600 border-indigo-100',
+      borderColor: 'border-slate-200 hover:border-blue-400',
+      numColor: 'text-blue-600',
+      badgeBg: 'bg-blue-50 text-blue-700 border-blue-200',
+      iconBg: 'bg-blue-50 text-blue-600 border-blue-100',
     }
   ];
 
@@ -82,7 +82,7 @@ export const FtlWorkflowSection: React.FC = () => {
       titleEnglish: 'Express Non-Stop Direct Transit',
       descUrdu: 'عام پارسل (LTL) کے برعکس، FTL میں گاڑی کسی اور کا مال اٹھانے کے لیے نہیں رکتی۔ لوڈنگ کے بعد گاڑی سیدھی منزل کی طرف روانہ ہوتی ہے۔',
       descEnglish: 'Unlike loose parcel services, our trucks make zero stops for shared consignments. Direct highway speed from pickup to drop-off.',
-      iconBg: 'bg-amber-100 text-amber-700 border-amber-200',
+      iconBg: 'bg-amber-50 text-amber-700 border-amber-200',
     },
     {
       icon: Lock,
@@ -90,7 +90,7 @@ export const FtlWorkflowSection: React.FC = () => {
       titleEnglish: '100% Secure — Zero Cargo Mixing',
       descUrdu: 'پوری گاڑی میں صرف اور صرف آپ کا مال لوڈ ہوتا ہے۔ کسی دوسرے گاہک کا سامان ساتھ نہ ہونے کی وجہ سے گمشدگی یا ٹوٹ پھوٹ کا خطرہ صفر ہے۔',
       descEnglish: 'Entire cargo hold reserved exclusively for your goods. Zero loss, contamination, or scratching from other shippers.',
-      iconBg: 'bg-emerald-100 text-emerald-700 border-emerald-200',
+      iconBg: 'bg-blue-50 text-blue-700 border-blue-200',
     },
     {
       icon: ShieldCheck,
@@ -98,7 +98,7 @@ export const FtlWorkflowSection: React.FC = () => {
       titleEnglish: 'No Multi-Depot Rehandling',
       descUrdu: 'LTL سروسز میں سامان کو بار بار مختلف گوداموں میں منتقل کیا جاتا ہے جس سے نقصان ہوتا ہے۔ FTL میں گاڑی لوڈ ہو کر سیدھی ان لوڈنگ پوائنٹ پر ہی کھلتی ہے۔',
       descEnglish: 'Goods are loaded once and sealed until arrival at final warehouse, avoiding rough re-handling at intermediary hubs.',
-      iconBg: 'bg-blue-100 text-blue-700 border-blue-200',
+      iconBg: 'bg-slate-100 text-slate-700 border-slate-200',
     },
     {
       icon: Clock,
@@ -106,7 +106,7 @@ export const FtlWorkflowSection: React.FC = () => {
       titleEnglish: 'Your Custom Dispatch Schedule',
       descUrdu: 'گاڑی کب لوڈ ہونی ہے اور کب پہنچنی ہے، یہ وقت آپ اپنی کاروباری ضرورت کے مطابق طے کرتے ہیں۔ 24 گھنٹے سروس دستیاب ہے۔',
       descEnglish: 'Truck departure and arrival align exactly with your manufacturing and warehouse operation timings 24/7.',
-      iconBg: 'bg-purple-100 text-purple-700 border-purple-200',
+      iconBg: 'bg-blue-50 text-blue-700 border-blue-200',
     }
   ];
 
@@ -136,14 +136,14 @@ export const FtlWorkflowSection: React.FC = () => {
             return (
               <div 
                 key={idx} 
-                className={`bg-white border ${s.borderColor} rounded-xl p-5 relative transition-all duration-300 shadow-sm hover:shadow-md flex flex-col justify-between`}
+                className={`bg-white border ${s.borderColor} rounded-lg p-5 relative transition-all duration-300 shadow-sm hover:shadow-md flex flex-col justify-between`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-3.5">
                     <span className={`text-xl font-black ${s.numColor} font-mono tracking-wider`}>
                       {s.stepNumber}
                     </span>
-                    <span className={`${s.badgeBg} border text-[10px] font-bold px-2 py-0.5 rounded-md font-urdu`}>
+                    <span className={`${s.badgeBg} border text-[10px] font-bold px-2 py-0.5 rounded font-urdu`}>
                       {language === 'ur' ? s.tagUrdu : s.tagEnglish}
                     </span>
                   </div>
@@ -165,12 +165,12 @@ export const FtlWorkflowSection: React.FC = () => {
         </div>
 
         {/* FTL Core Advantages vs Loose Cargo Notice Banner */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-8 shadow-xl">
+        <div className="bg-white border border-slate-200 rounded-lg p-5 sm:p-8 shadow-sm">
           
           <div className={`flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 sm:gap-6 border-b border-slate-200 pb-5 sm:pb-6 mb-6 sm:mb-8 ${language === 'ur' ? 'text-right' : 'text-left'}`}>
             <div>
-              <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-800 border border-emerald-200 px-3 py-1 rounded-md text-xs font-semibold font-urdu mb-2">
-                <ShieldCheck className="w-3.5 h-3.5 flex-shrink-0 text-emerald-600" />
+              <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-800 border border-blue-200 px-3 py-1 rounded text-xs font-semibold font-urdu mb-2">
+                <ShieldCheck className="w-3.5 h-3.5 flex-shrink-0 text-blue-600" />
                 <span>{language === 'ur' ? 'کاروباری اداروں اور فیکٹریوں کے لیے بہترین انتخاب' : 'Best Choice for Commercial Shippers'}</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-urdu">
@@ -178,7 +178,7 @@ export const FtlWorkflowSection: React.FC = () => {
               </h3>
             </div>
 
-            <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs text-amber-900 max-w-md font-urdu shadow-sm">
+            <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 text-xs text-amber-900 max-w-md font-urdu shadow-sm">
               🔒 <strong className="text-amber-800">{language === 'ur' ? 'واضح پالیسی:' : 'Clear Policy:'}</strong> {language === 'ur' ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی لوز کارگو / پارسل (LTL) بک نہیں کرتی۔ ہماری تمام گاڑیاں سنگل پارٹی کے مکمل لوڈ کے لیے وقف ہوتی ہیں۔' : 'Warraich Goods strictly does NOT accept loose parcels or mixed LTL cargo. All fleet trucks are 100% reserved for single-shipper full loads.'}
             </div>
           </div>
@@ -187,11 +187,11 @@ export const FtlWorkflowSection: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-6">
             
             {/* Visual Highway Showcase Banner */}
-            <div className="lg:col-span-4 relative rounded-xl overflow-hidden shadow-sm border border-slate-200 group flex flex-col justify-end min-h-[220px]">
+            <div className="lg:col-span-4 relative rounded-lg overflow-hidden shadow-sm border border-slate-200 flex flex-col justify-end min-h-[220px]">
               <img 
                 src="./images/road-highway.jpg" 
                 alt="Pakistan Motorway Freight Logistics Corridor - Warraich Goods" 
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
                 referrerPolicy="no-referrer"
                 onError={(e) => {
@@ -200,7 +200,7 @@ export const FtlWorkflowSection: React.FC = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent pointer-events-none" />
               <div className="relative z-10 p-4 text-white">
-                <span className="inline-block bg-blue-600/90 text-white text-[11px] font-bold px-2 py-0.5 rounded font-mono mb-1.5 uppercase tracking-wide">
+                <span className="inline-block bg-blue-600 text-white text-[11px] font-bold px-2 py-0.5 rounded font-mono mb-1.5 uppercase tracking-wide">
                   Motorway M-4 / M-2 / N-5
                 </span>
                 <p className="font-bold text-sm sm:text-base font-urdu text-white leading-snug">
@@ -217,7 +217,7 @@ export const FtlWorkflowSection: React.FC = () => {
               {ftlPillars.map((p, idx) => {
                 const Icon = p.icon;
                 return (
-                  <div key={idx} className="bg-slate-50 border border-slate-200 p-3.5 rounded-xl flex items-start gap-3 hover:border-slate-300 transition-colors">
+                  <div key={idx} className="bg-slate-50 border border-slate-200 p-3.5 rounded-lg flex items-start gap-3 hover:border-slate-300 transition-colors">
                     <div className={`w-8 h-8 rounded-lg ${p.iconBg} border flex items-center justify-center flex-shrink-0 mt-0.5`}>
                       <Icon className="w-4 h-4" />
                     </div>
@@ -244,7 +244,7 @@ export const FtlWorkflowSection: React.FC = () => {
 
             <a
               href="#booking"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-slate-900 to-slate-800 hover:from-blue-700 hover:to-blue-600 text-white font-bold px-5 py-3 rounded-xl transition cursor-pointer text-xs sm:text-sm font-urdu shadow-md min-h-[44px]"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-blue-600 text-white font-bold px-5 py-3 rounded-lg transition-colors cursor-pointer text-xs sm:text-sm font-urdu shadow-sm hover:shadow-md min-h-[44px]"
               aria-label="Calculate dedicated truckload freight rates"
             >
               <Truck className="w-4 h-4 text-amber-400 flex-shrink-0" />
