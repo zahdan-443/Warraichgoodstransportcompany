@@ -33,7 +33,7 @@ export const GROUND_OPERATIONS_PHOTOS = [
   {
     id: 'yard-operations',
     // "Proprietor supervising operations"
-    imageSrc: './images/placeholder-yard-office.jpg', // <-- REPLACE THIS ONE LINE: e.g. './images/proprietor-yard.jpg'
+    imageSrc: './images/owner-portrait.png',
     badgeUrdu: 'قیادت و فلیٹ سپروائزری',
     badgeEn: 'Leadership & Fleet Supervision',
     titleUrdu: 'پروپرائٹر زاہدان نصر وڑائچ — آپریشنل نگرانی',

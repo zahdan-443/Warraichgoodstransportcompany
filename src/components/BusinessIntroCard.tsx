@@ -164,9 +164,17 @@ export const BusinessIntroCard: React.FC = () => {
               {/* Pillar 2: Proprietor Leadership */}
               <div className="bg-slate-50/80 rounded-2xl p-5 border border-slate-200/80 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-2 text-blue-900 font-bold text-sm mb-2 font-urdu">
-                    <UserCheck className="w-4 h-4 text-blue-600" />
-                    <span>{isUrdu ? 'پروپرائٹر و قیادت' : 'Proprietor & Leadership'}</span>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-2 text-blue-900 font-bold text-sm font-urdu">
+                      <UserCheck className="w-4 h-4 text-blue-600" />
+                      <span>{isUrdu ? 'پروپرائٹر و قیادت' : 'Proprietor & Leadership'}</span>
+                    </div>
+                    <img 
+                      src="./images/owner-portrait.png" 
+                      alt={isUrdu ? COMPANY_INFO.proprietorUrdu : COMPANY_INFO.proprietorEnglish}
+                      className="w-10 h-10 rounded-full object-cover border-2 border-amber-400 shadow-xs"
+                      loading="lazy"
+                    />
                   </div>
                   
                   <div className="space-y-1.5 font-urdu">
