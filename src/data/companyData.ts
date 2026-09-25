@@ -1,6 +1,7 @@
 import { BranchInfo, VehicleInfo, ServiceAreaCity } from '../types';
 
-export const GOOGLE_REVIEW_URL = "PASTE_LINK_HERE";
+// Google Business Profile Review URL: Falls back to Google Business Search until custom g.page shortlink is added
+export const GOOGLE_REVIEW_URL = "https://www.google.com/search?q=Warraich+Goods+Transport+Company+Samundri";
 
 export const COMPANY_INFO = {
   nameUrdu: 'وڑائچ گڈز ٹرانسپورٹ کمپنی',
@@ -23,7 +24,7 @@ export const COMPANY_INFO = {
   taglineEnglish: 'Dedicated Full Truckload (FTL) transport across Pakistan with Shehzore, Mazda, Sample, and Bedford trucks.',
   subTaglineUrdu: '100% فل ٹرک لوڈ (FTL) سروس — سنگل پارٹی ڈائریکٹ پوائنٹ ٹو پوائنٹ ترسیل (ہم پارٹ لوڈ یا عام پارسل ڈیل نہیں کرتے)۔',
   serviceScopeUrdu: 'صرف اور صرف مکمل گاڑی کی بکنگ (Dedicated Full Truckload - FTL)',
-  webAppUrl: 'https://zahdan-443.github.io/Warraichgoodstransportcompany/',
+  webAppUrl: 'https://zahdan-443.github.io/warraichgoods43/',
 };
 
 export const FLEET_DATA: VehicleInfo[] = [

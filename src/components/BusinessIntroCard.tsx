@@ -84,6 +84,7 @@ export const BusinessIntroCard: React.FC = () => {
                       src="./images/logo.png" 
                       alt="Warraich Goods Logo" 
                       className="w-full h-full object-contain"
+                      loading="lazy"
                       onError={(e) => {
                         e.currentTarget.style.display = 'none';
                       }}

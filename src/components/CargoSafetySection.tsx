@@ -122,7 +122,7 @@ export const CargoSafetySection: React.FC = () => {
           {/* Image Showcase Frame */}
           <div className="lg:col-span-5 relative rounded-lg overflow-hidden shadow-sm border border-amber-200">
             <img 
-              src="./images/cargo-safety.jpg" 
+              src="./images/cargo-safety.webp" 
               alt="Waterproof Tarpaulin and Cargo Lashing Safety - Warraich Goods" 
               className="w-full h-48 sm:h-52 object-cover"
               loading="lazy"

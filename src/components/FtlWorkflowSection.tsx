@@ -189,7 +189,7 @@ export const FtlWorkflowSection: React.FC = () => {
             {/* Visual Highway Showcase Banner */}
             <div className="lg:col-span-4 relative rounded-lg overflow-hidden shadow-sm border border-slate-200 flex flex-col justify-end min-h-[220px]">
               <img 
-                src="./images/road-highway.jpg" 
+                src="./images/road-highway.webp" 
                 alt="Pakistan Motorway Freight Logistics Corridor - Warraich Goods" 
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"

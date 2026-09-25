@@ -41,11 +41,15 @@ export const GROUND_OPERATIONS_PHOTOS = [
     descUrdu: 'سمندری، کمالیہ اور پنجاب بھر میں فلیٹ کی براہ راست روانگی، کاغذات اور بلٹی کی ذاتی نگرانی۔',
     descEn: 'Direct hands-on oversight of daily fleet dispatch, vehicle inspections, and client coordination.',
     alt: 'Zahdan Nasar Warraich - Proprietor of Warraich Goods Transport Company supervising fleet operations',
+    footerLabelUrdu: 'پروپرائٹر و چیف ایگزیکٹو',
+    footerLabelEn: 'Proprietor & Leadership',
+    footerStatusUrdu: 'ذاتی نگرانی',
+    footerStatusEn: 'Active Oversight',
   },
   {
     id: 'driver-vehicle',
-    // "Driver with vehicle (with consent)"
-    imageSrc: './images/placeholder-driver-vehicle.jpg', // <-- REPLACE THIS ONE LINE: e.g. './images/driver-with-vehicle.jpg'
+    // "Driver with vehicle (representative standard)"
+    imageSrc: './images/placeholder-driver-vehicle.jpg',
     badgeUrdu: 'ڈرائیور مع گاڑی',
     badgeEn: 'Driver with Vehicle',
     titleUrdu: 'نادرا تصدیق شدہ روڈ کیپٹن مع گاڑی',
@@ -53,11 +57,15 @@ export const GROUND_OPERATIONS_PHOTOS = [
     descUrdu: 'تمام ہائی وے روٹس کے پرانے، بااخلاق، لائسنس یافتہ اور نادرا تصدیق شدہ کمرشل ڈرائیورز۔',
     descEn: 'NADRA-verified highway drivers holding valid commercial HTV licenses and clean transit records.',
     alt: 'Professional NADRA Verified Driver with Commercial Transport Vehicle',
+    footerLabelUrdu: 'نادرا تصدیق شدہ ڈرائیورز',
+    footerLabelEn: 'NADRA-Verified Drivers',
+    footerStatusUrdu: 'فیلڈ معیار',
+    footerStatusEn: 'Field Standard',
   },
   {
     id: 'loading-dispatch',
-    // "Loading/dispatch point photo"
-    imageSrc: './images/placeholder-loading-dispatch.jpg', // <-- REPLACE THIS ONE LINE: e.g. './images/loading-dispatch-point.jpg'
+    // "Loading/dispatch point photo (representative standard)"
+    imageSrc: './images/placeholder-loading-dispatch.jpg',
     badgeUrdu: 'لوڈنگ و ڈسپیچ پوائنٹ',
     badgeEn: 'Loading & Dispatch Point',
     titleUrdu: 'فیکٹری و گودام لوڈنگ اور ڈسپیچ پوائنٹ',
@@ -65,6 +73,10 @@ export const GROUND_OPERATIONS_PHOTOS = [
     descUrdu: 'ڈبل واٹر پروف ترپال بندی، کمپیوٹرائزڈ کانٹا معائنہ اور سیدھی نان اسٹاپ روانگی۔',
     descEn: 'Double waterproof tarpaulin sealing, scale verification, and direct highway departure.',
     alt: 'Factory Warehouse Loading Bay and Direct Highway Dispatch Point',
+    footerLabelUrdu: 'محفوظ ڈسپیچ پروٹوکول',
+    footerLabelEn: 'Safe Dispatch Protocol',
+    footerStatusUrdu: 'ایف ٹی ایل سروس',
+    footerStatusEn: 'FTL Standard',
   },
 ];
 
@@ -260,7 +272,7 @@ export const CorporateCredibilitySection: React.FC = () => {
             {/* Visual Factory Warehouse Dispatch Showcase */}
             <div className="lg:col-span-4 relative rounded-lg overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-end min-h-[260px] lg:min-h-full">
               <img 
-                src="./images/factory-warehouse.jpg" 
+                src="./images/factory-warehouse.webp" 
                 alt="Industrial Factory and Warehouse Logistics Loading Bay - Warraich Goods" 
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
@@ -335,15 +347,15 @@ export const CorporateCredibilitySection: React.FC = () => {
           <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
             <div className="inline-flex items-center gap-2 bg-blue-100 border border-blue-300 text-blue-900 px-3.5 py-1.5 rounded-full text-xs font-bold font-urdu mb-3 shadow-xs">
               <Users className="w-4 h-4 text-blue-700 flex-shrink-0" />
-              <span>{isUrdu ? 'زمینی حقیقت اور تجربہ کار عملہ' : 'On-Ground Team & Real Operations'}</span>
+              <span>{isUrdu ? 'فیلڈ مینجمنٹ اور آن گراؤنڈ سروس' : 'Field Management & Ground Service'}</span>
             </div>
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 font-urdu">
-              {isUrdu ? 'حقیقی فلیٹ، بااخلاق ڈرائیورز اور آن گراؤنڈ آپریشنز' : 'Active Fleet, Vetted Highway Drivers & Ground Operations'}
+              {isUrdu ? 'پروپرائٹر سپروائزری، تربیت یافتہ ڈرائیورز اور فیلڈ آپریشنز' : 'Operational Leadership, Vetted Drivers & Ground Operations'}
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 mt-2 font-urdu max-w-2xl mx-auto leading-relaxed">
               {isUrdu 
-                ? 'صرف کاغذات نہیں بلکہ فیلڈ میں موجود تجربہ کار پروپرائٹر، نادرا تصدیق شدہ ڈرائیورز اور فیلڈ میں براہ راست لوڈنگ و معائنہ کا حقیقی نظام۔' 
-                : 'Authentic freight operations powered by hands-on operational leadership, verified highway drivers, and dedicated dispatch.'}
+                ? 'پروپرائٹر زاہدان نصر وڑائچ کی براہ راست فلیٹ نگرانی، نادرا تصدیق شدہ کمرشل ڈرائیورز اور محفوظ لوڈنگ و روانگی کا باقاعدہ فیلڈ نظام۔' 
+                : 'Hands-on operational oversight by Proprietor Zahdan Nasar Warraich, NADRA-verified drivers, and dedicated warehouse dispatch standards.'}
             </p>
           </div>
 
@@ -402,10 +414,10 @@ export const CorporateCredibilitySection: React.FC = () => {
                   <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-urdu">
                     <span className="flex items-center gap-1 text-blue-700 font-semibold">
                       <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" />
-                      <span>{isUrdu ? 'تصدیق شدہ گراؤنڈ فوٹیج' : 'Verified Ground Operations'}</span>
+                      <span>{isUrdu ? slot.footerLabelUrdu : slot.footerLabelEn}</span>
                     </span>
                     <span className="font-mono text-[10px] text-slate-400">
-                      {isUrdu ? 'حقیقی آپریشنز' : 'Live Ops'}
+                      {isUrdu ? slot.footerStatusUrdu : slot.footerStatusEn}
                     </span>
                   </div>
                 </div>

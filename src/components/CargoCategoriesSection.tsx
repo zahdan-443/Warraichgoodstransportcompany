@@ -260,8 +260,8 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
                 <img 
                   src={
                     activeTab === 'agri' 
-                      ? './images/agricultural-freight.jpg' 
-                      : (activeTab === 'household' ? './images/cargo-safety.jpg' : './images/factory-warehouse.jpg')
+                      ? './images/agricultural-freight.webp' 
+                      : (activeTab === 'household' ? './images/cargo-safety.webp' : './images/factory-warehouse.webp')
                   }
                   alt={language === 'ur' ? currentCategory.titleUrdu : currentCategory.titleEnglish}
                   className="w-full h-full object-cover"
