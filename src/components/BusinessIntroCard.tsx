@@ -256,7 +256,7 @@ export const BusinessIntroCard: React.FC = () => {
                     </span>
                   </div>
                   <p className="text-xs sm:text-[13px] text-slate-700 font-urdu leading-relaxed">
-                    سمندری اور اس کے تمام ملحقہ علاقوں کے تاجروں، زمینداروں اور ملز مالکان کے لیے سمندری سے مال کی بکنگ (Samundri se maal ki booking) بذریعہ فون اور واٹس ایپ چوبیس گھنٹے دستیاب ہے۔ ہمارے پاس زرعی اجناس، ٹیکسٹائل، کھاد اور انڈسٹریل سامان کی محفوظ ترسیل کے لیے شہزور، مزدا، سیمپل اور بیڈفورڈ (Shehzore, Mazda, Bedford) ہر وقت تیار ہیں۔ ہم کال پر ڈائریکٹ گاڑی آپ کے گودام یا فیکٹری روانہ کرتے ہیں جو بغیر کسی تاخیر کے سیدھی منزل پر پہنچتی ہے۔
+                    سمندری اور ملحقہ علاقوں کے تاجروں اور زمینداروں کے لیے سمندری سے مال کی بکنگ (Samundri se maal ki booking) چوبیس گھنٹے دستیاب ہے۔ ہمارے پاس زرعی اجناس، ٹیکسٹائل، کھاد اور انڈسٹریل سامان کی ترسیل کے لیے شہزور، مزدا، سیمپل اور بیڈفورڈ (Shehzore, Mazda, Bedford) ہر وقت تیار ہیں۔ آپ صرف فون یا واٹس ایپ پر رابطہ کریں۔ ہم فوری طور پر مخصوص FTL گاڑی آپ کے گودام یا فیکٹری روانہ کرتے ہیں۔ گاڑی بغیر کسی تاخیر کے سیدھی منزل پر پہنچتی ہے۔
                   </p>
                   <div className="mt-3.5 pt-3 border-t border-amber-100/80 flex items-center justify-between gap-2">
                     <span className="text-[11px] text-slate-500 font-urdu">آن کال و واٹس ایپ بکنگ:</span>
@@ -293,7 +293,7 @@ export const BusinessIntroCard: React.FC = () => {
                     </span>
                   </div>
                   <p className="text-xs sm:text-[13px] text-slate-700 font-urdu leading-relaxed">
-                    کمالیہ، رجانہ، پیر محل اور غلہ منڈی کے تاجروں کے لیے کمالیہ سے گڈز ٹرانسپورٹ (Kamalia se goods transport) کی مکمل سہولت فون کال اور واٹس ایپ پر دستیاب ہے۔ مکئی، گندم، چینی، کپاس اور پولٹری فیڈ کی تیز رفتار ترسیل کے لیے شہزور، مزدا، سیمپل اور بیڈفورڈ (Shehzore, Mazda, Bedford) ٹرکس 100% فل ٹرک لوڈ پر فوری روانہ کیے جاتے ہیں۔ پورے پاکستان کے لیے شفاف کرایہ اور محفوظ مال برداری اب ایک فون کال پر میسر ہے۔
+                    کمالیہ، رجانہ، پیر محل اور غلہ منڈی کے تاجروں کے لیے کمالیہ سے گڈز ٹرانسپورٹ (Kamalia se goods transport) کی سروس دستیاب ہے۔ مکئی، گندم، چینی، کپاس اور پولٹری فیڈ کی ترسیل کے لیے شہزور، مزدا، سیمپل اور بیڈفورڈ (Shehzore, Mazda, Bedford) ہر وقت تیار رہتے ہیں۔ ہم 100% فل ٹرک لوڈ پر گاڑیاں فوری روانہ کرتے ہیں۔ پورے پاکستان کے لیے شفاف کرایہ اور محفوظ مال برداری اب ایک فون کال پر میسر ہے۔
                   </p>
                   <div className="mt-3.5 pt-3 border-t border-emerald-100/80 flex items-center justify-between gap-2">
                     <span className="text-[11px] text-slate-500 font-urdu">آن کال و واٹس ایپ بکنگ:</span>
@@ -331,9 +331,9 @@ export const BusinessIntroCard: React.FC = () => {
                       <div className="flex items-center justify-between gap-1.5 mb-1.5">
                         <div className="flex items-center gap-1.5">
                           <MapPin className="w-4 h-4 text-amber-600 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                          <h3 className="font-extrabold text-slate-900 text-sm font-urdu leading-snug">
+                          <span className="font-extrabold text-slate-900 text-sm font-urdu leading-snug">
                             {area.nameUrdu} <span className="text-xs font-semibold text-slate-500 font-sans">({area.nameEnglish})</span>
-                          </h3>
+                          </span>
                         </div>
                       </div>
                       <p className="text-[11px] text-slate-600 font-urdu leading-tight mb-3">
@@ -344,22 +344,24 @@ export const BusinessIntroCard: React.FC = () => {
                     <div className="pt-2 border-t border-slate-100 grid grid-cols-2 gap-1.5">
                       <a
                         href={`tel:${area.phoneRaw}`}
-                        className="inline-flex items-center justify-center gap-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-2 py-1.5 rounded-lg text-xs transition active:scale-95 shadow-2xs font-mono"
+                        className="inline-flex items-center justify-center gap-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-2 py-1.5 rounded-lg text-xs transition active:scale-95 shadow-2xs font-urdu"
                         title={`Call ${area.nameEnglish} (0300-5370443)`}
+                        aria-label={`Call Warraich Goods for ${area.nameEnglish}`}
                       >
                         <Phone className="w-3 h-3 fill-current" />
-                        <span>Call</span>
+                        <span>{isUrdu ? `کال ${area.nameUrdu}` : `Call ${area.nameEnglish}`}</span>
                       </a>
 
                       <a
                         href={area.whatsappUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-2 py-1.5 rounded-lg text-xs transition active:scale-95 shadow-2xs"
+                        className="inline-flex items-center justify-center gap-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-2 py-1.5 rounded-lg text-xs transition active:scale-95 shadow-2xs font-urdu"
                         title={`WhatsApp booking for ${area.nameEnglish}`}
+                        aria-label={`WhatsApp Booking for ${area.nameEnglish}`}
                       >
                         <MessageCircle className="w-3 h-3 fill-current" />
-                        <span>WhatsApp</span>
+                        <span>{isUrdu ? `واٹس ایپ ${area.nameUrdu}` : `WhatsApp ${area.nameEnglish}`}</span>
                       </a>
                     </div>
                   </div>

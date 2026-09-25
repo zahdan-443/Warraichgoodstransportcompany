@@ -146,7 +146,7 @@ export const FaqAndReviewsSection: React.FC = () => {
                   title="View Service Areas"
                 >
                   <MapPin className="w-4 h-4 text-white" />
-                  <span>{language === 'ur' ? 'ہمارے سروس علاقے' : 'Our Service Areas'}</span>
+                  <span>{language === 'ur' ? 'شہروں کی فہرست و روٹس' : 'Explore Cities & Corridors'}</span>
                 </a>
 
                 <a
@@ -155,7 +155,7 @@ export const FaqAndReviewsSection: React.FC = () => {
                   title="View Warraich Goods Business Profile"
                 >
                   <ShieldCheck className="w-4 h-4 text-slate-950" />
-                  <span>{language === 'ur' ? 'کاروباری تعارف و مکمل پروفائل' : 'View Business Profile'}</span>
+                  <span>{language === 'ur' ? 'آفیشل کارڈ و کوائف ملاحظہ کریں' : 'View Official Directory Card'}</span>
                 </a>
               </div>
             </div>

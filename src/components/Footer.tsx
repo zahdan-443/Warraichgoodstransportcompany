@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   ExternalLink, 
   ArrowUp,
@@ -6,7 +6,11 @@ import {
   Facebook,
   MessageCircle,
   Phone,
-  Star
+  Star,
+  Share2,
+  Check,
+  Twitter,
+  Linkedin
 } from 'lucide-react';
 import { COMPANY_INFO, GOOGLE_REVIEW_URL } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
@@ -14,19 +18,32 @@ import { useLanguage } from '../context/LanguageContext';
 export const Footer: React.FC = () => {
   const { language } = useLanguage();
   const isUrdu = language === 'ur';
+  const [copied, setCopied] = useState(false);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const whatsappUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}`;
+  const shareUrl = COMPANY_INFO.webAppUrl;
+  const shareTitle = isUrdu 
+    ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی - سمندری و کمالیہ سے ملک گیر فل ٹرک لوڈ (FTL) مال برداری'
+    : 'Warraich Goods Transport Company - Nationwide FTL Truck Booking & Logistics';
+
+  const handleCopyLink = () => {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(shareUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    }
+  };
 
   return (
     <footer id="footer" className="bg-slate-900 text-slate-300 text-sm border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
         
-        {/* Official Social Media & Verified Profiles Strip */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8 mb-6 border-b border-slate-800">
+        {/* 1. Official Social Media & Verified Profiles Strip */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-800">
           <div className="text-center sm:text-start">
             <span className="text-[11px] font-mono uppercase tracking-widest text-amber-400 font-bold block">
               {isUrdu ? 'آفیشل سوشل میڈیا و نیٹ ورک' : 'Official Social Media & Channels'}
@@ -38,7 +55,7 @@ export const Footer: React.FC = () => {
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-2.5">
             {/* YouTube Channel */}
             <a
               href={COMPANY_INFO.youtubeUrl}
@@ -99,34 +116,123 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Quick Navigation Links Bar */}
+        {/* 2. Social Media Sharing Bar (Increases Social Reach & SEO Authority) */}
+        <div className="bg-slate-800/60 border border-slate-700/80 rounded-2xl p-4 sm:p-5 mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3 text-center sm:text-start">
+            <div className="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center flex-shrink-0">
+              <Share2 className="w-5 h-5 text-amber-400" />
+            </div>
+            <div>
+              <span className="font-bold text-white text-xs sm:text-sm font-urdu block">
+                {isUrdu ? 'ہماری سروس اپنے دوستوں اور کاروباری احباب کے ساتھ شیئر کریں:' : 'Share Warraich Goods with your business network:'}
+              </span>
+              <p className="text-[11px] text-slate-400 font-urdu mt-0.5">
+                {isUrdu 
+                  ? 'واٹس ایپ، فیس بک یا لنکڈ ان پر شیئر کریں تاکہ دیگر تاجر بھی معیاری FTL ٹرانسپورٹ سے فائدہ اٹھا سکیں' 
+                  : 'Spread the word across WhatsApp, Facebook, LinkedIn & Twitter'}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {/* Share on WhatsApp */}
+            <a
+              href={`https://api.whatsapp.com/send?text=${encodeURIComponent(`${shareTitle}\n${shareUrl}`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-lg text-xs font-bold font-urdu transition hover:scale-105"
+              aria-label="Share on WhatsApp"
+            >
+              <MessageCircle className="w-3.5 h-3.5 fill-current" />
+              <span>{isUrdu ? 'واٹس ایپ پر شیئر' : 'Share WhatsApp'}</span>
+            </a>
+
+            {/* Share on Facebook */}
+            <a
+              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-500 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition hover:scale-105"
+              aria-label="Share on Facebook"
+            >
+              <Facebook className="w-3.5 h-3.5 fill-current" />
+              <span>{isUrdu ? 'فیس بک پر شیئر' : 'Share Facebook'}</span>
+            </a>
+
+            {/* Share on LinkedIn */}
+            <a
+              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 bg-[#0077b5] hover:bg-[#006396] text-white px-3 py-1.5 rounded-lg text-xs font-bold transition hover:scale-105"
+              aria-label="Share on LinkedIn"
+            >
+              <Linkedin className="w-3.5 h-3.5 fill-current" />
+              <span>LinkedIn</span>
+            </a>
+
+            {/* Share on Twitter / X */}
+            <a
+              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareTitle)}&url=${encodeURIComponent(shareUrl)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 bg-black hover:bg-slate-800 text-white border border-slate-700 px-3 py-1.5 rounded-lg text-xs font-bold transition hover:scale-105"
+              aria-label="Share on X Twitter"
+            >
+              <Twitter className="w-3.5 h-3.5 fill-current" />
+              <span>X (Twitter)</span>
+            </a>
+
+            {/* Copy Link Button */}
+            <button
+              type="button"
+              onClick={handleCopyLink}
+              className="inline-flex items-center gap-1.5 bg-slate-700 hover:bg-slate-600 text-slate-200 hover:text-white px-3 py-1.5 rounded-lg text-xs font-bold font-urdu transition cursor-pointer"
+              aria-label="Copy website link"
+            >
+              {copied ? (
+                <>
+                  <Check className="w-3.5 h-3.5 text-emerald-400" />
+                  <span className="text-emerald-400">{isUrdu ? 'لنک کاپی ہو گیا!' : 'Copied!'}</span>
+                </>
+              ) : (
+                <>
+                  <Share2 className="w-3.5 h-3.5 text-amber-400" />
+                  <span>{isUrdu ? 'لنک کاپی کریں' : 'Copy Link'}</span>
+                </>
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* 3. Quick Navigation Links Bar (Distinct Anchor Texts to Prevent Duplication) */}
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-urdu text-xs sm:text-sm text-slate-400">
           <a href="#hero" className="hover:text-amber-400 transition-colors py-1">
-            {isUrdu ? 'مرکزی صفحہ' : 'Home'}
+            {isUrdu ? 'مرکزی تعارف و سروسز' : 'Company Overview'}
           </a>
           <span className="text-slate-700 hidden sm:inline">•</span>
           <a href="#branches" className="hover:text-amber-400 transition-colors py-1">
-            {isUrdu ? 'سروس علاقے' : 'Service Areas'}
+            {isUrdu ? 'ملک گیر سروس نیٹ ورک' : 'Nationwide Service Areas'}
           </a>
           <span className="text-slate-700 hidden sm:inline">•</span>
           <a href="#fleet" className="hover:text-amber-400 transition-colors py-1">
-            {isUrdu ? 'ہمارا فلیٹ' : 'Fleet'}
+            {isUrdu ? 'گاڑیوں اور ٹرکس کی اقسام' : 'Commercial Truck Fleet'}
           </a>
           <span className="text-slate-700 hidden sm:inline">•</span>
           <a href="#tracking" className="hover:text-amber-400 transition-colors py-1">
-            {isUrdu ? 'بلٹی ٹریکنگ' : 'Bilty Tracking'}
+            {isUrdu ? 'آن لائن بلٹی و کنسائنمنٹ ٹریکنگ' : 'Online Bilty & Consignment Tracking'}
           </a>
           <span className="text-slate-700 hidden sm:inline">•</span>
           <a href="#booking" className="hover:text-amber-400 transition-colors py-1">
-            {isUrdu ? 'کرایہ کیلکولیٹر' : 'Rate Calculator'}
+            {isUrdu ? 'FTL کرایہ معلوم کریں اور بکنگ' : 'FTL Rate Estimation & Booking'}
           </a>
           <span className="text-slate-700 hidden sm:inline">•</span>
           <a href="#corporate-credibility" className="hover:text-amber-400 transition-colors py-1">
-            {isUrdu ? 'کارپوریٹ کوائف' : 'Corporate Profile'}
+            {isUrdu ? 'ایف بی آر تصدیق و قانونی ساکھ' : 'Corporate Credentials & NTN'}
           </a>
           <span className="text-slate-700 hidden sm:inline">•</span>
           <a href="#business-intro" className="hover:text-amber-400 transition-colors py-1">
-            {isUrdu ? 'کاروباری تعارف و کارڈ' : 'Business Card'}
+            {isUrdu ? 'مصدقہ کاروباری تعارفی کارڈ' : 'Verified Business Card'}
           </a>
           <span className="text-slate-700 hidden sm:inline">•</span>
           <a 
@@ -135,7 +241,7 @@ export const Footer: React.FC = () => {
             rel="noopener noreferrer"
             className="text-amber-400 font-bold inline-flex items-center gap-1 hover:underline py-1"
           >
-            <span>{isUrdu ? 'ڈرائیور پورٹل' : 'Driver Portal'}</span>
+            <span>{isUrdu ? 'ڈرائیور پورٹل لاگ ان' : 'Driver Portal Access'}</span>
             <ExternalLink className="w-3 h-3" />
           </a>
         </div>
