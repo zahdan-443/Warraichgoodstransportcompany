@@ -14,8 +14,8 @@
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large" />
     <link rel="canonical" href="https://zahdan-443.github.io/Warraichgoodstransportcompany/" />
 
-    <!-- Canonical URL & Host Normalization Guard (Minified: resolves www vs non-www duplicate indexing) -->
-    <script>!function(){var o=window.location,n=o.hostname;if("localhost"!==n&&"127.0.0.1"!==n&&!n.includes(".run.app")){if(n.startsWith("www.")){var e=n.slice(4);o.replace("https://"+e+o.pathname+o.search+o.hash);return}"http:"===o.protocol&&o.replace("https://"+n+o.pathname+o.search+o.hash)}}();</script>
+    <!-- Canonical URL & Host Normalization Guard (Minified: resolves www vs non-www duplicate indexing for live visitors) -->
+    <script>!function(){try{var o=window.location,n=o.hostname;if(!n||n==="localhost"||n==="127.0.0.1"||n.indexOf(".run.app")!==-1||n.indexOf("webcache")!==-1)return;if(n.indexOf("www.")===0){o.replace("https://"+n.slice(4)+o.pathname+o.search+o.hash);return}if(o.protocol==="http:"&&n.indexOf("github.io")===-1){o.replace("https://"+n+o.pathname+o.search+o.hash)}}catch(e){}}();</script>
 
     <!-- Google Site Verification Token (Search Console) -->
     <meta name="google-site-verification" content="FbkLPKJ17nJ7kaOobCe1ezmCSzpcm_mgxkzVob-cSLE" />
@@ -55,13 +55,15 @@
     <meta name="twitter:image" content="https://zahdan-443.github.io/Warraichgoodstransportcompany/images/logo.png" />
     <meta name="twitter:image:alt" content="Warraich Goods Transport Company Official Fleet Logo" />
 
-    <!-- Theme and Favicons for Google Search Icon (Multiple resolutions) -->
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/x-icon" href="/Warraichgoodstransportcompany/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="/Warraichgoodstransportcompany/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <link rel="shortcut icon" href="./favicon.ico" />
     <link rel="icon" type="image/png" sizes="192x192" href="./images/logo.png" />
     <link rel="icon" type="image/png" sizes="96x96" href="./images/logo.png" />
     <link rel="icon" type="image/png" sizes="48x48" href="./images/logo.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="./images/logo.png" />
-    <link rel="icon" type="image/png" href="./images/logo.png" />
-    <link rel="shortcut icon" href="./images/logo.png" />
     <link rel="apple-touch-icon" href="./images/logo.png" />
     <link rel="preload" href="./images/logo.png" as="image" type="image/png" />
     <meta name="theme-color" content="#f8fafc" />

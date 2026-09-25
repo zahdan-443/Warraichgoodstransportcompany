@@ -40,7 +40,7 @@ async function prerender() {
   fs.writeFileSync(indexPath, html, 'utf-8');
 
   // Ensure critical server config and SEO files are guaranteed present in dist
-  const filesToSync = ['.htaccess', '_headers', 'robots.txt', 'sitemap.xml'];
+  const filesToSync = ['.htaccess', '_headers', 'robots.txt', 'sitemap.xml', 'favicon.ico', 'favicon.png'];
   for (const file of filesToSync) {
     const srcPath = path.resolve(__dirname, `../public/${file}`);
     const destPath = path.join(distDir, file);
