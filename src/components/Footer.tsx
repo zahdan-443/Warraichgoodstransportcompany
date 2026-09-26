@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   ExternalLink, 
   ArrowUp,
@@ -12,7 +13,7 @@ import {
   Twitter,
   Linkedin
 } from 'lucide-react';
-import { COMPANY_INFO, GOOGLE_REVIEW_URL } from '../data/companyData';
+import { COMPANY_INFO, GOOGLE_REVIEW_URL, SITE_URL } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
 
 export const Footer: React.FC = () => {
@@ -25,7 +26,7 @@ export const Footer: React.FC = () => {
   };
 
   const whatsappUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}`;
-  const shareUrl = COMPANY_INFO.webAppUrl;
+  const shareUrl = SITE_URL;
   const shareTitle = isUrdu 
     ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی - سمندری و کمالیہ سے ملک گیر فل ٹرک لوڈ (FTL) مال برداری'
     : 'Warraich Goods Transport Company - Nationwide FTL Truck Booking & Logistics';
@@ -205,35 +206,31 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* 3. Quick Navigation Links Bar (Distinct Anchor Texts to Prevent Duplication) */}
+        {/* 3. Quick Navigation Links Bar (Distinct Internal Page Links) */}
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-urdu text-xs sm:text-sm text-slate-400">
-          <a href="#hero" className="hover:text-amber-400 transition-colors py-1">
-            {isUrdu ? 'مرکزی تعارف و سروسز' : 'Company Overview'}
-          </a>
+          <Link to="/" className="hover:text-amber-400 transition-colors py-1">
+            {isUrdu ? 'مرکزی تعارف و ہوم' : 'Company Overview'}
+          </Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
-          <a href="#branches" className="hover:text-amber-400 transition-colors py-1">
-            {isUrdu ? 'ملک گیر سروس نیٹ ورک' : 'Nationwide Service Areas'}
-          </a>
-          <span className="text-slate-700 hidden sm:inline">•</span>
-          <a href="#fleet" className="hover:text-amber-400 transition-colors py-1">
+          <Link to="/fleet" className="hover:text-amber-400 transition-colors py-1">
             {isUrdu ? 'گاڑیوں اور ٹرکس کی اقسام' : 'Commercial Truck Fleet'}
-          </a>
+          </Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
-          <a href="#tracking" className="hover:text-amber-400 transition-colors py-1">
-            {isUrdu ? 'آن لائن بلٹی و کنسائنمنٹ ٹریکنگ' : 'Online Bilty & Consignment Tracking'}
-          </a>
+          <Link to="/services" className="hover:text-amber-400 transition-colors py-1">
+            {isUrdu ? 'سروسز، قانونی ساکھ و حفاظت' : 'Services & Cargo Safety'}
+          </Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
-          <a href="#booking" className="hover:text-amber-400 transition-colors py-1">
+          <Link to="/booking" className="hover:text-amber-400 transition-colors py-1">
             {isUrdu ? 'FTL کرایہ معلوم کریں اور بکنگ' : 'FTL Rate Estimation & Booking'}
-          </a>
+          </Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
-          <a href="#corporate-credibility" className="hover:text-amber-400 transition-colors py-1">
-            {isUrdu ? 'ایف بی آر تصدیق و قانونی ساکھ' : 'Corporate Credentials & NTN'}
-          </a>
+          <Link to="/faq" className="hover:text-amber-400 transition-colors py-1">
+            {isUrdu ? 'عام سوالات و کلائنٹ ریویوز' : 'FAQs & Customer Reviews'}
+          </Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
-          <a href="#business-intro" className="hover:text-amber-400 transition-colors py-1">
+          <Link to="/about" className="hover:text-amber-400 transition-colors py-1">
             {isUrdu ? 'مصدقہ کاروباری تعارفی کارڈ' : 'Verified Business Card'}
-          </a>
+          </Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
           <a 
             href={COMPANY_INFO.webAppUrl}

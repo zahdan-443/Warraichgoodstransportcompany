@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Search, 
   MapPin, 
@@ -17,7 +18,11 @@ import { useLanguage } from '../context/LanguageContext';
 import { COMPANY_INFO } from '../data/companyData';
 import { TRANSLATIONS } from '../data/translations';
 
-export const BiltyTrackingSection: React.FC = () => {
+interface BiltyTrackingSectionProps {
+  condensed?: boolean;
+}
+
+export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ condensed = false }) => {
   const { language } = useLanguage();
   const t = TRANSLATIONS[language].tracking;
 
@@ -313,48 +318,71 @@ export const BiltyTrackingSection: React.FC = () => {
           </div>
         </div>
 
-        {/* National Corridors & Highway Transit Times Grid */}
-        <div className="max-w-5xl mx-auto mt-10 sm:mt-14 pt-8 border-t border-slate-200/80">
-          <div className="text-center mb-6 sm:mb-8">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-200/80 text-slate-800 text-xs font-bold font-urdu mb-2">
-              <Truck className="w-3.5 h-3.5 text-slate-700" />
-              <span>{t.corridorsBadge}</span>
-            </div>
-            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-urdu">
-              {t.corridorsTitle}
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl mx-auto font-urdu">
-              {t.corridorsSubtitle}
+        {/* If Condensed on Home Page: Show Summary CTA linking to Booking Page with Full Corridors */}
+        {condensed ? (
+          <div className="max-w-3xl mx-auto mt-8 p-5 bg-white border border-slate-200 rounded-lg shadow-sm text-center">
+            <p className="text-sm font-bold text-slate-900 font-urdu mb-1">
+              {language === 'ur' ? 'ملک گیر ہائی وے روٹس، کراچی پورٹ اور ٹرانزٹ شیڈول' : 'Nationwide Highway Routes, Karachi Port & Transit Times'}
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {corridorsList.map((item, idx) => (
-              <div 
-                key={idx}
-                className="bg-white border border-slate-200 rounded-lg p-4 sm:p-5 hover:border-blue-300 hover:shadow-md transition-all flex flex-col justify-between"
+            <p className="text-xs text-slate-600 font-urdu mb-4">
+              {language === 'ur'
+                ? 'کراچی پورٹ، لاہور، راولپنڈی، پشاور، ملتان، بہاولپور اور تمام قومی کوریڈورز کے ٹرانزٹ اوقات اور کرایہ معلوم کریں۔'
+                : 'View transit times and calculate transparent freight rates for all national highway corridors.'}
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <Link
+                to="/booking"
+                className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-2.5 rounded-lg text-xs sm:text-sm font-urdu transition-colors shadow-sm"
               >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded border font-urdu ${item.tagColor}`}>
-                      {language === 'ur' ? item.tagUr : item.tagEn}
-                    </span>
-                    <span className="text-xs font-mono font-bold text-slate-500 flex items-center gap-1">
-                      <Clock className="w-3.5 h-3.5 text-blue-600" />
-                      <span>{language === 'ur' ? item.transitUr : item.transitEn}</span>
-                    </span>
-                  </div>
-                  <h4 className="text-sm sm:text-base font-bold text-slate-900 font-urdu mb-1">
-                    {language === 'ur' ? item.corridorUr : item.corridorEn}
-                  </h4>
-                  <p className="text-xs text-slate-600 font-urdu leading-relaxed">
-                    {language === 'ur' ? item.highwayUr : item.highwayEn}
-                  </p>
-                </div>
-              </div>
-            ))}
+                <span>{language === 'ur' ? 'مکمل کوریڈورز اور کرایہ کیلکولیٹر دیکھیں' : 'View Full Corridors & Rate Calculator'}</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
-        </div>
+        ) : (
+          /* Full National Corridors & Highway Transit Times Grid */
+          <div className="max-w-5xl mx-auto mt-10 sm:mt-14 pt-8 border-t border-slate-200/80">
+            <div className="text-center mb-6 sm:mb-8">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-200/80 text-slate-800 text-xs font-bold font-urdu mb-2">
+                <Truck className="w-3.5 h-3.5 text-slate-700" />
+                <span>{t.corridorsBadge}</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-urdu">
+                {t.corridorsTitle}
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl mx-auto font-urdu">
+                {t.corridorsSubtitle}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {corridorsList.map((item, idx) => (
+                <div 
+                  key={idx}
+                  className="bg-white border border-slate-200 rounded-lg p-4 sm:p-5 hover:border-blue-300 hover:shadow-md transition-all flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded border font-urdu ${item.tagColor}`}>
+                        {language === 'ur' ? item.tagUr : item.tagEn}
+                      </span>
+                      <span className="text-xs font-mono font-bold text-slate-500 flex items-center gap-1">
+                        <Clock className="w-3.5 h-3.5 text-blue-600" />
+                        <span>{language === 'ur' ? item.transitUr : item.transitEn}</span>
+                      </span>
+                    </div>
+                    <h4 className="text-sm sm:text-base font-bold text-slate-900 font-urdu mb-1">
+                      {language === 'ur' ? item.corridorUr : item.corridorEn}
+                    </h4>
+                    <p className="text-xs text-slate-600 font-urdu leading-relaxed">
+                      {language === 'ur' ? item.highwayUr : item.highwayEn}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
       </div>
     </section>

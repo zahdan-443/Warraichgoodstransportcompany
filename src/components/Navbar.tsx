@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { 
   Truck, 
   ExternalLink,
@@ -26,6 +27,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   const [internalIsOpen, setInternalIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { language, toggleLanguage } = useLanguage();
+  const location = useLocation();
   const isUrdu = language === 'ur';
   const tNav = TRANSLATIONS[language].nav;
 
@@ -52,27 +54,27 @@ export const Navbar: React.FC<NavbarProps> = ({
   }, []);
 
   const navLinks = [
-    { label: tNav.fleet, href: '#fleet' },
-    { label: tNav.tracking, href: '#tracking' },
-    { label: tNav.calculator, href: '#booking' },
-    { label: tNav.corporate, href: '#corporate-credibility' },
-    { label: tNav.serviceAreas, href: '#branches' },
-    { label: isUrdu ? 'کاروباری کارڈ' : 'Business Card', href: '#business-intro' },
+    { label: tNav.home, to: '/' },
+    { label: tNav.fleet, to: '/fleet' },
+    { label: isUrdu ? 'سروسز و ساکھ' : 'Services', to: '/services' },
+    { label: isUrdu ? 'کرایہ و بکنگ' : 'Rates & Booking', to: '/booking' },
+    { label: isUrdu ? 'عام سوالات' : 'FAQs', to: '/faq' },
+    { label: isUrdu ? 'کاروباری تعارف' : 'About Us', to: '/about' },
   ];
 
   const allNavLinks = [
-    { label: tNav.home, href: '#hero' },
-    { label: tNav.serviceAreas, href: '#branches' },
-    { label: tNav.fleet, href: '#fleet' },
-    { label: tNav.tracking, href: '#tracking' },
-    { label: tNav.calculator, href: '#booking' },
-    { label: tNav.corporate, href: '#corporate-credibility' },
-    { label: tNav.cargo, href: '#cargo' },
-    { label: tNav.workflow, href: '#ftl-workflow' },
-    { label: tNav.safety, href: '#safety' },
-    { label: isUrdu ? 'کاروباری تعارف و کارڈ' : 'Business Card & Profile', href: '#business-intro' },
-    { label: tNav.reviews, href: '#faq-reviews' },
+    { label: tNav.home, to: '/' },
+    { label: tNav.fleet, to: '/fleet' },
+    { label: isUrdu ? 'سروسز و قانونی ساکھ' : 'Services & Credentials', to: '/services' },
+    { label: isUrdu ? 'آن لائن کرایہ و بلٹی ٹریکنگ' : 'Rate Calculator & Tracking', to: '/booking' },
+    { label: isUrdu ? 'عام سوالات و کلائنٹ ریویوز' : 'FAQs & Reviews', to: '/faq' },
+    { label: isUrdu ? 'کاروباری تعارف و شناختی کارڈ' : 'About Us & Company Card', to: '/about' },
   ];
+
+  const isActive = (to: string) => {
+    if (to === '/') return location.pathname === '/' || location.pathname === '';
+    return location.pathname.startsWith(to);
+  };
 
   return (
     <header 
@@ -87,8 +89,8 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="flex items-center justify-between gap-2 sm:gap-4">
           
           {/* Left: Brand Logo & Single-Line Business Name */}
-          <a 
-            href="#hero" 
+          <Link 
+            to="/" 
             className="flex items-center gap-2 sm:gap-3 group flex-shrink min-w-0 py-0.5" 
             aria-label="Warraich Goods Transport Company Home"
           >
@@ -121,22 +123,29 @@ export const Navbar: React.FC<NavbarProps> = ({
                 </span>
               )}
             </div>
-          </a>
+          </Link>
 
           {/* Right: Integrated Header Items (NTN Badge, Navigation, Language, Portal & Menu) */}
           <div className="flex items-center gap-1.5 sm:gap-2.5 flex-shrink-0">
             
             {/* Desktop Navigation Links */}
             <nav className="hidden xl:flex items-center gap-1" aria-label="Main navigation menu">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-slate-700 hover:text-blue-700 hover:bg-slate-100 px-2.5 py-1.5 rounded-lg text-xs xl:text-sm font-semibold transition-colors font-urdu whitespace-nowrap"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const active = isActive(link.to);
+                return (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    className={`px-2.5 py-1.5 rounded-lg text-xs xl:text-sm font-semibold transition-colors font-urdu whitespace-nowrap ${
+                      active 
+                        ? 'text-blue-700 bg-blue-50 font-bold border border-blue-200/60 shadow-2xs' 
+                        : 'text-slate-700 hover:text-blue-700 hover:bg-slate-100'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </nav>
 
             {/* Govt Registered / FBR NTN Badge (Visible on lg+) */}
@@ -220,27 +229,34 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             {/* Navigation Links */}
             <div className="space-y-1 mb-4">
-              {allNavLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={handleClose}
-                  className="flex items-center min-h-[42px] text-slate-800 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg text-sm font-urdu font-semibold transition-colors active:bg-blue-100"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {allNavLinks.map((link) => {
+                const active = isActive(link.to);
+                return (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    onClick={handleClose}
+                    className={`flex items-center min-h-[42px] px-4 py-2 rounded-lg text-sm font-urdu font-semibold transition-colors ${
+                      active
+                        ? 'text-blue-700 bg-blue-50 font-bold border border-blue-200'
+                        : 'text-slate-800 hover:text-blue-600 hover:bg-slate-50'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </div>
 
             {/* Bottom Actions inside Mobile Drawer */}
             <div className="pt-3 border-t border-slate-200 flex flex-col gap-2.5">
-              <a
-                href="#business-intro"
+              <Link
+                to="/about"
                 onClick={handleClose}
                 className="w-full min-h-[44px] flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-lg text-center text-sm shadow-sm font-urdu"
               >
                 <span>{isUrdu ? 'کاروباری تعارف و مکمل کارڈ دیکھیں' : 'View Business Card & Profile'}</span>
-              </a>
+              </Link>
 
               <a
                 href={COMPANY_INFO.webAppUrl}

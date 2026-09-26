@@ -1,5 +1,8 @@
 import { BranchInfo, VehicleInfo, ServiceAreaCity } from '../types';
 
+// Canonical marketing website URL (distinct from webAppUrl which points to the driver portal app)
+export const SITE_URL = 'https://zahdan-443.github.io/Warraichgoodstransportcompany/';
+
 // Google Business Profile Review URL: Falls back to Google Business Search until custom g.page shortlink is added
 export const GOOGLE_REVIEW_URL = "https://www.google.com/search?q=Warraich+Goods+Transport+Company+Samundri";
 
@@ -146,176 +149,82 @@ export const FLEET_DATA: VehicleInfo[] = [
   },
 ];
 
-export const SERVICE_AREAS: ServiceAreaCity[] = [
-  {
-    id: 'samundri',
-    nameUrdu: 'سمندری',
-    nameEnglish: 'Samundri',
-    descriptionUrdu: 'مال کی بکنگ اور ٹرانسپورٹ سروس دستیاب ہے',
-    descriptionEnglish: 'Goods booking and transport service available',
-    phone: '0300-5370443',
-    phoneRaw: '03005370443',
-    whatsappUrl: 'https://wa.me/923005370443',
-  },
-  {
-    id: 'kamalia',
-    nameUrdu: 'کمالیہ',
-    nameEnglish: 'Kamalia',
-    descriptionUrdu: 'مال کی بکنگ اور ٹرانسپورٹ سروس دستیاب ہے',
-    descriptionEnglish: 'Goods booking and transport service available',
-    phone: '0300-5370443',
-    phoneRaw: '03005370443',
-    whatsappUrl: 'https://wa.me/923005370443',
-  },
-  {
-    id: 'toba-tek-singh',
-    nameUrdu: 'ٹوبہ ٹیک سنگھ',
-    nameEnglish: 'Toba Tek Singh',
-    descriptionUrdu: 'مال کی بکنگ اور ٹرانسپورٹ سروس دستیاب ہے',
-    descriptionEnglish: 'Goods booking and transport service available',
-    phone: '0300-5370443',
-    phoneRaw: '03005370443',
-    whatsappUrl: 'https://wa.me/923005370443',
-  },
-  {
-    id: 'jhang',
-    nameUrdu: 'جھنگ',
-    nameEnglish: 'Jhang',
-    descriptionUrdu: 'مال کی بکنگ اور ٹرانسپورٹ سروس دستیاب ہے',
-    descriptionEnglish: 'Goods booking and transport service available',
-    phone: '0300-5370443',
-    phoneRaw: '03005370443',
-    whatsappUrl: 'https://wa.me/923005370443',
-  },
-  {
-    id: 'faisalabad',
-    nameUrdu: 'فیصل آباد',
-    nameEnglish: 'Faisalabad',
-    descriptionUrdu: 'مال کی بکنگ اور ٹرانسپورٹ سروس دستیاب ہے',
-    descriptionEnglish: 'Goods booking and transport service available',
-    phone: '0300-5370443',
-    phoneRaw: '03005370443',
-    whatsappUrl: 'https://wa.me/923005370443',
-  },
-  {
-    id: 'sargodha',
-    nameUrdu: 'سرگودھا',
-    nameEnglish: 'Sargodha',
-    descriptionUrdu: 'مال کی بکنگ اور ٹرانسپورٹ سروس دستیاب ہے',
-    descriptionEnglish: 'Goods booking and transport service available',
-    phone: '0300-5370443',
-    phoneRaw: '03005370443',
-    whatsappUrl: 'https://wa.me/923005370443',
-  },
-  {
-    id: 'sheikhupura',
-    nameUrdu: 'شیخوپورہ',
-    nameEnglish: 'Sheikhupura',
-    descriptionUrdu: 'مال کی بکنگ اور ٹرانسپورٹ سروس دستیاب ہے',
-    descriptionEnglish: 'Goods booking and transport service available',
-    phone: '0300-5370443',
-    phoneRaw: '03005370443',
-    whatsappUrl: 'https://wa.me/923005370443',
-  },
-  {
-    id: 'gujranwala',
-    nameUrdu: 'گوجرانوالہ',
-    nameEnglish: 'Gujranwala',
-    descriptionUrdu: 'مال کی بکنگ اور ٹرانسپورٹ سروس دستیاب ہے',
-    descriptionEnglish: 'Goods booking and transport service available',
-    phone: '0300-5370443',
-    phoneRaw: '03005370443',
-    whatsappUrl: 'https://wa.me/923005370443',
-  },
-  {
-    id: 'lahore',
-    nameUrdu: 'لاہور',
-    nameEnglish: 'Lahore',
-    descriptionUrdu: 'مال کی بکنگ اور ٹرانسپورٹ سروس دستیاب ہے',
-    descriptionEnglish: 'Goods booking and transport service available',
-    phone: '0300-5370443',
-    phoneRaw: '03005370443',
-    whatsappUrl: 'https://wa.me/923005370443',
-  },
-  {
-    id: 'multan',
-    nameUrdu: 'ملتان',
-    nameEnglish: 'Multan',
-    descriptionUrdu: 'مال کی بکنگ اور ٹرانسپورٹ سروس دستیاب ہے',
-    descriptionEnglish: 'Goods booking and transport service available',
-    phone: '0300-5370443',
-    phoneRaw: '03005370443',
-    whatsappUrl: 'https://wa.me/923005370443',
-  },
-  {
-    id: 'islamabad',
-    nameUrdu: 'اسلام آباد',
-    nameEnglish: 'Islamabad',
-    descriptionUrdu: 'مال کی بکنگ اور ٹرانسپورٹ سروس دستیاب ہے',
-    descriptionEnglish: 'Goods booking and transport service available',
-    phone: '0300-5370443',
-    phoneRaw: '03005370443',
-    whatsappUrl: 'https://wa.me/923005370443',
-  },
-  {
-    id: 'karachi',
-    nameUrdu: 'کراچی',
-    nameEnglish: 'Karachi',
-    descriptionUrdu: 'مال کی بکنگ اور ٹرانسپورٹ سروس دستیاب ہے',
-    descriptionEnglish: 'Goods booking and transport service available',
-    phone: '0300-5370443',
-    phoneRaw: '03005370443',
-    whatsappUrl: 'https://wa.me/923005370443',
-  },
-  {
-    id: 'sialkot',
-    nameUrdu: 'سیالکوٹ',
-    nameEnglish: 'Sialkot',
-    descriptionUrdu: 'مال کی بکنگ اور ٹرانسپورٹ سروس دستیاب ہے',
-    descriptionEnglish: 'Goods booking and transport service available',
-    phone: '0300-5370443',
-    phoneRaw: '03005370443',
-    whatsappUrl: 'https://wa.me/923005370443',
-  },
-  {
-    id: 'peshawar',
-    nameUrdu: 'پشاور',
-    nameEnglish: 'Peshawar',
-    descriptionUrdu: 'مال کی بکنگ اور ٹرانسپورٹ سروس دستیاب ہے',
-    descriptionEnglish: 'Goods booking and transport service available',
-    phone: '0300-5370443',
-    phoneRaw: '03005370443',
-    whatsappUrl: 'https://wa.me/923005370443',
-  },
+// ============================================================================
+// SINGLE SOURCE OF TRUTH FOR PAKISTAN CITIES & SERVICE HUBS
+// ============================================================================
+// Both SERVICE_AREAS (14 key regional hubs) and PAKISTAN_CITIES (22 rate
+// calculator dropdown options) are derived from this master definition.
+// Any future city additions or updates should be made here in one place.
+export interface MasterCityEntry {
+  id: string;
+  nameUrdu: string;
+  nameEnglish: string;
+  dropdownUrdu: string;
+  dropdownEnglish: string;
+  isServiceAreaHub: boolean;
+  serviceAreaOrder?: number;
+}
+
+export const MASTER_CITIES: MasterCityEntry[] = [
+  // Primary Hubs & Key Service Areas
+  { id: 'samundri', nameUrdu: 'سمندری', nameEnglish: 'Samundri', dropdownUrdu: 'سمندری (Samundri)', dropdownEnglish: 'Samundri', isServiceAreaHub: true, serviceAreaOrder: 1 },
+  { id: 'kamalia', nameUrdu: 'کمالیہ', nameEnglish: 'Kamalia', dropdownUrdu: 'کمالیہ (Kamalia)', dropdownEnglish: 'Kamalia', isServiceAreaHub: true, serviceAreaOrder: 2 },
+  { id: 'toba-tek-singh', nameUrdu: 'ٹوبہ ٹیک سنگھ', nameEnglish: 'Toba Tek Singh', dropdownUrdu: 'ٹوبہ ٹیک سنگھ (Toba Tek Singh)', dropdownEnglish: 'Toba Tek Singh', isServiceAreaHub: true, serviceAreaOrder: 3 },
+  { id: 'jhang', nameUrdu: 'جھنگ', nameEnglish: 'Jhang', dropdownUrdu: 'جھنگ (Jhang)', dropdownEnglish: 'Jhang', isServiceAreaHub: true, serviceAreaOrder: 4 },
+  { id: 'faisalabad', nameUrdu: 'فیصل آباد', nameEnglish: 'Faisalabad', dropdownUrdu: 'فیصل آباد (Faisalabad)', dropdownEnglish: 'Faisalabad', isServiceAreaHub: true, serviceAreaOrder: 5 },
+  { id: 'sargodha', nameUrdu: 'سرگودھا', nameEnglish: 'Sargodha', dropdownUrdu: 'سرگودھا (Sargodha)', dropdownEnglish: 'Sargodha', isServiceAreaHub: true, serviceAreaOrder: 6 },
+  { id: 'sheikhupura', nameUrdu: 'شیخوپورہ', nameEnglish: 'Sheikhupura', dropdownUrdu: 'شیخوپورہ (Sheikhupura)', dropdownEnglish: 'Sheikhupura', isServiceAreaHub: true, serviceAreaOrder: 7 },
+  { id: 'gujranwala', nameUrdu: 'گوجرانوالہ', nameEnglish: 'Gujranwala', dropdownUrdu: 'گوجرانوالہ (Gujranwala)', dropdownEnglish: 'Gujranwala', isServiceAreaHub: true, serviceAreaOrder: 8 },
+  { id: 'lahore', nameUrdu: 'لاہور', nameEnglish: 'Lahore', dropdownUrdu: 'لاہور (Lahore)', dropdownEnglish: 'Lahore', isServiceAreaHub: true, serviceAreaOrder: 9 },
+  { id: 'multan', nameUrdu: 'ملتان', nameEnglish: 'Multan', dropdownUrdu: 'ملتان (Multan)', dropdownEnglish: 'Multan', isServiceAreaHub: true, serviceAreaOrder: 10 },
+  { id: 'islamabad', nameUrdu: 'اسلام آباد', nameEnglish: 'Islamabad', dropdownUrdu: 'راولپنڈی / اسلام آباد (Rawalpindi/Islamabad)', dropdownEnglish: 'Rawalpindi/Islamabad', isServiceAreaHub: true, serviceAreaOrder: 11 },
+  { id: 'karachi', nameUrdu: 'کراچی', nameEnglish: 'Karachi', dropdownUrdu: 'کراچی (Karachi)', dropdownEnglish: 'Karachi', isServiceAreaHub: true, serviceAreaOrder: 12 },
+  { id: 'sialkot', nameUrdu: 'سیالکوٹ', nameEnglish: 'Sialkot', dropdownUrdu: 'سیالکوٹ (Sialkot)', dropdownEnglish: 'Sialkot', isServiceAreaHub: true, serviceAreaOrder: 13 },
+  { id: 'peshawar', nameUrdu: 'پشاور', nameEnglish: 'Peshawar', dropdownUrdu: 'پشاور (Peshawar)', dropdownEnglish: 'Peshawar', isServiceAreaHub: true, serviceAreaOrder: 14 },
+
+  // Additional Major Commercial Freight Destinations (Rate Calculator Network)
+  { id: 'quetta', nameUrdu: 'کوئٹہ', nameEnglish: 'Quetta', dropdownUrdu: 'کوئٹہ (Quetta)', dropdownEnglish: 'Quetta', isServiceAreaHub: false },
+  { id: 'sahiwal', nameUrdu: 'ساہیوال', nameEnglish: 'Sahiwal', dropdownUrdu: 'ساہیوال (Sahiwal)', dropdownEnglish: 'Sahiwal', isServiceAreaHub: false },
+  { id: 'rahim-yar-khan', nameUrdu: 'رحیم یار خان', nameEnglish: 'Rahim Yar Khan', dropdownUrdu: 'رحیم یار خان (Rahim Yar Khan)', dropdownEnglish: 'Rahim Yar Khan', isServiceAreaHub: false },
+  { id: 'bahawalpur', nameUrdu: 'بہاولپور', nameEnglish: 'Bahawalpur', dropdownUrdu: 'بہاولپور (Bahawalpur)', dropdownEnglish: 'Bahawalpur', isServiceAreaHub: false },
+  { id: 'sukkur', nameUrdu: 'سکھر', nameEnglish: 'Sukkur', dropdownUrdu: 'سکھر (Sukkur)', dropdownEnglish: 'Sukkur', isServiceAreaHub: false },
+  { id: 'hyderabad', nameUrdu: 'حیدرآباد', nameEnglish: 'Hyderabad', dropdownUrdu: 'حیدرآباد (Hyderabad)', dropdownEnglish: 'Hyderabad', isServiceAreaHub: false },
+  { id: 'abbottabad', nameUrdu: 'ایبٹ آباد', nameEnglish: 'Abbottabad', dropdownUrdu: 'ایبٹ آباد (Abbottabad)', dropdownEnglish: 'Abbottabad', isServiceAreaHub: false },
+  { id: 'mardan', nameUrdu: 'مردان', nameEnglish: 'Mardan', dropdownUrdu: 'مردان (Mardan)', dropdownEnglish: 'Mardan', isServiceAreaHub: false },
+  { id: 'gilgit', nameUrdu: 'گلگت', nameEnglish: 'Gilgit', dropdownUrdu: 'گلگت و بلتستان (Gilgit)', dropdownEnglish: 'Gilgit', isServiceAreaHub: false },
 ];
+
+// Preserves the existing order of the Rate Calculator dropdown
+const RATE_CALCULATOR_CITY_IDS: string[] = [
+  'samundri', 'kamalia', 'faisalabad', 'lahore', 'karachi', 'islamabad',
+  'multan', 'gujranwala', 'sialkot', 'peshawar', 'quetta', 'sargodha',
+  'sahiwal', 'toba-tek-singh', 'jhang', 'rahim-yar-khan', 'bahawalpur',
+  'sukkur', 'hyderabad', 'abbottabad', 'mardan', 'gilgit'
+];
+
+// Derived 14 Key Service Area Hubs for BusinessIntroCard & Schema
+export const SERVICE_AREAS: ServiceAreaCity[] = MASTER_CITIES
+  .filter(c => c.isServiceAreaHub)
+  .sort((a, b) => (a.serviceAreaOrder ?? 99) - (b.serviceAreaOrder ?? 99))
+  .map(c => ({
+    id: c.id,
+    nameUrdu: c.nameUrdu,
+    nameEnglish: c.nameEnglish,
+    descriptionUrdu: 'مال کی بکنگ اور ٹرانسپورٹ سروس دستیاب ہے',
+    descriptionEnglish: 'Goods booking and transport service available',
+    phone: COMPANY_INFO.phone1,
+    phoneRaw: COMPANY_INFO.phoneRaw1,
+    whatsappUrl: `https://wa.me/${COMPANY_INFO.whatsappNumber}`,
+  }));
 
 // Deprecated alias maintained for internal component compatibility
 export const BRANCHES_DATA: BranchInfo[] = [];
 
-export const PAKISTAN_CITIES = [
-  { urdu: 'سمندری (Samundri)', en: 'Samundri' },
-  { urdu: 'کمالیہ (Kamalia)', en: 'Kamalia' },
-  { urdu: 'فیصل آباد (Faisalabad)', en: 'Faisalabad' },
-  { urdu: 'لاہور (Lahore)', en: 'Lahore' },
-  { urdu: 'کراچی (Karachi)', en: 'Karachi' },
-  { urdu: 'راولپنڈی / اسلام آباد (Rawalpindi/Islamabad)', en: 'Rawalpindi/Islamabad' },
-  { urdu: 'ملتان (Multan)', en: 'Multan' },
-  { urdu: 'گوجرانوالہ (Gujranwala)', en: 'Gujranwala' },
-  { urdu: 'سیالکوٹ (Sialkot)', en: 'Sialkot' },
-  { urdu: 'پشاور (Peshawar)', en: 'Peshawar' },
-  { urdu: 'کوئٹہ (Quetta)', en: 'Quetta' },
-  { urdu: 'سرگودھا (Sargodha)', en: 'Sargodha' },
-  { urdu: 'ساہیوال (Sahiwal)', en: 'Sahiwal' },
-  { urdu: 'ٹوبہ ٹیک سنگھ (Toba Tek Singh)', en: 'Toba Tek Singh' },
-  { urdu: 'جھنگ (Jhang)', en: 'Jhang' },
-  { urdu: 'رحیم یار خان (Rahim Yar Khan)', en: 'Rahim Yar Khan' },
-  { urdu: 'بہاولپور (Bahawalpur)', en: 'Bahawalpur' },
-  { urdu: 'سکھر (Sukkur)', en: 'Sukkur' },
-  { urdu: 'حیدرآباد (Hyderabad)', en: 'Hyderabad' },
-  { urdu: 'ایبٹ آباد (Abbottabad)', en: 'Abbottabad' },
-  { urdu: 'مردان (Mardan)', en: 'Mardan' },
-  { urdu: 'گلگت و بلتستان (Gilgit)', en: 'Gilgit' },
-];
+// Derived 22 Pakistan Cities for RateCalculatorSection dropdowns
+export const PAKISTAN_CITIES: { urdu: string; en: string }[] = RATE_CALCULATOR_CITY_IDS
+  .map(id => MASTER_CITIES.find(c => c.id === id)!)
+  .filter(Boolean)
+  .map(c => ({ urdu: c.dropdownUrdu, en: c.dropdownEnglish }));
 
 export const GOODS_TYPES = [
   { id: 'agri', urdu: 'زرعی اجناس (گندم، چاول، مکئی، کپاس، چارہ - فل گاڑی)', en: 'Agricultural Produce (Full Truckload)' },

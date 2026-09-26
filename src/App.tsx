@@ -1,22 +1,18 @@
 import React, { useState } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import { HeroSection } from './components/HeroSection';
-import { BiltyTrackingSection } from './components/BiltyTrackingSection';
-import { FleetSection } from './components/FleetSection';
-import { CargoCategoriesSection } from './components/CargoCategoriesSection';
-import { CorporateCredibilitySection } from './components/CorporateCredibilitySection';
-import { FtlWorkflowSection } from './components/FtlWorkflowSection';
-import { CargoSafetySection } from './components/CargoSafetySection';
-import { RateCalculatorSection } from './components/RateCalculatorSection';
-import { DriverAppSection } from './components/DriverAppSection';
-import { FaqAndReviewsSection } from './components/FaqAndReviewsSection';
-import { BusinessIntroCard } from './components/BusinessIntroCard';
-import { FloatingActions } from './components/FloatingActions';
 import { Footer } from './components/Footer';
+import { FloatingActions } from './components/FloatingActions';
+import { ScrollToTop } from './components/ScrollToTop';
+
+import { HomePage } from './pages/HomePage';
+import { FleetPage } from './pages/FleetPage';
+import { ServicesPage } from './pages/ServicesPage';
+import { BookingPage } from './pages/BookingPage';
+import { FaqPage } from './pages/FaqPage';
+import { AboutPage } from './pages/AboutPage';
 
 export default function App() {
-  const [selectedVehicleForBooking, setSelectedVehicleForBooking] = useState<string>('shehzore');
-  const [selectedGoodsTypeForBooking, setSelectedGoodsTypeForBooking] = useState<string>('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
   const handleToggleMenu = () => {
@@ -27,78 +23,36 @@ export default function App() {
     setIsMobileMenuOpen(false);
   };
 
-  const handleSelectVehicleForBooking = (vehicleId: string) => {
-    setSelectedVehicleForBooking(vehicleId);
-    const bookingSection = document.getElementById('booking');
-    if (bookingSection) {
-      bookingSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleSelectCategoryForBooking = (categoryName: string) => {
-    setSelectedGoodsTypeForBooking(categoryName);
-    const bookingSection = document.getElementById('booking');
-    if (bookingSection) {
-      bookingSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 overflow-x-hidden w-full pb-16 sm:pb-0">
-      
-      {/* 1. Single Unified Sticky Header (Logo, Single-Line Business Name & Integrated Controls) */}
+      {/* Scroll restoration on route transition */}
+      <ScrollToTop />
+
+      {/* 1. Shared Sticky Navigation Header */}
       <Navbar 
         isMenuOpen={isMobileMenuOpen} 
         onToggleMenu={handleToggleMenu} 
         onCloseMenu={handleCloseMenu} 
       />
 
-      {/* Main Content Flow */}
+      {/* 2. Route-Driven Main Content Area */}
       <main className="flex-1">
-        
-        {/* 2. Hero Section (FTL Focus & Operations Hub) */}
-        <HeroSection />
-
-        {/* 3. Online Bilty & Freight Tracking + National Corridors */}
-        <BiltyTrackingSection />
-
-        {/* 4. Fleet & Vehicle Services (Shehzore, Mazda, Sample, Bedford) */}
-        <FleetSection onSelectVehicleForBooking={handleSelectVehicleForBooking} />
-
-        {/* 5. Cargo Types & Industry Specializations (Agri, Textile, Industrial - FTL) */}
-        <CargoCategoriesSection onSelectCategory={handleSelectCategoryForBooking} />
-
-        {/* 6. Corporate Credibility, Tax Compliance (FBR NTN) & Enterprise Vendor Profile */}
-        <CorporateCredibilitySection />
-
-        {/* 7. Dedicated FTL Booking Workflow & Non-Stop Transit Advantages */}
-        <FtlWorkflowSection />
-
-        {/* 8. 100% Waterproof Tarpaulin & Cargo Safety */}
-        <CargoSafetySection />
-
-        {/* 9. Interactive FTL Rate Calculator & WhatsApp Booking Form */}
-        <RateCalculatorSection 
-          selectedVehicleId={selectedVehicleForBooking} 
-          selectedGoodsType={selectedGoodsTypeForBooking}
-        />
-
-        {/* 10. Driver & Transport Management Web App Integration */}
-        <DriverAppSection />
-
-        {/* 11. FAQs & Commercial Client Information */}
-        <FaqAndReviewsSection />
-
-        {/* 12. Official Business Introduction & Verification Directory Card (Single Master Card) */}
-        <BusinessIntroCard />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/fleet" element={<FleetPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/booking" element={<BookingPage />} />
+          <Route path="/faq" element={<FaqPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </main>
 
-      {/* 13. Comprehensive Clean Commercial Footer */}
+      {/* 3. Shared Commercial Footer */}
       <Footer />
 
-      {/* 14. Floating Actions (WhatsApp & Quick Call) */}
+      {/* 4. Shared Floating Quick Actions */}
       <FloatingActions />
-
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Phone, 
   Truck, 
@@ -242,8 +243,8 @@ export const FtlWorkflowSection: React.FC = () => {
               {language === 'ur' ? 'کیا آپ کو فیکٹری خام مال، زرعی غلہ یا ہیوی سامان کے لیے مکمل گاڑی چاہیے؟' : 'Need dedicated freight haulage for factory raw material, agricultural grains, or heavy cargo?'}
             </span>
 
-            <a
-              href="#booking"
+            <Link
+              to="/booking"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-blue-600 text-white font-bold px-5 py-3 rounded-lg transition-colors cursor-pointer text-xs sm:text-sm font-urdu shadow-sm hover:shadow-md min-h-[44px]"
               aria-label="Calculate dedicated truckload freight rates"
             >
@@ -251,7 +252,7 @@ export const FtlWorkflowSection: React.FC = () => {
               <span className="font-urdu font-bold">
                 {language === 'ur' ? 'گاڑی کا کرایہ تخمینہ لگائیں' : 'Calculate Freight Estimate'}
               </span>
-            </a>
+            </Link>
           </div>
 
         </div>

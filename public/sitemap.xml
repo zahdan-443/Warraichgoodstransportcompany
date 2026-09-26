@@ -1,90 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Homepage Root -->
+  <!-- 1. Homepage Root -->
   <url>
     <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Fleet Showcase (Shehzore, Mazda, Sample, Bedford) -->
+  <!-- 2. Commercial Truck Fleet & Cargo Categories -->
   <url>
-    <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/#fleet</loc>
-    <lastmod>2026-09-25</lastmod>
+    <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/fleet/</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Freight Rate Calculator & WhatsApp Booking -->
+  <!-- 3. FTL Transport Services, Safety & Corporate Credentials -->
   <url>
-    <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/#booking</loc>
-    <lastmod>2026-09-25</lastmod>
+    <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/services/</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Service Areas & Terminal Hubs (Samundri, Kamalia, Rajana, Faisalabad) -->
+  <!-- 4. Freight Rate Calculator & Online Bilty Tracking -->
   <url>
-    <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/#branches</loc>
-    <lastmod>2026-09-25</lastmod>
+    <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/booking/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 5. Frequently Asked Questions (FAQs) & Customer Reviews -->
+  <url>
+    <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/faq/</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Bilty & Consignment Tracking -->
+  <!-- 6. About Company & Official Verified Business Card -->
   <url>
-    <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/#tracking</loc>
-    <lastmod>2026-09-25</lastmod>
+    <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/about/</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
-
-  <!-- Cargo Categories (Agri, Textile, Industrial, Construction, Household) -->
-  <url>
-    <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/#cargo</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Corporate B2B Vendor Profile & NTN/FBR Credentials -->
-  <url>
-    <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/#corporate-credibility</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Business Introduction & Profile Card -->
-  <url>
-    <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/#business-intro</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Cargo Safety, Tarpaulin Protection & Lashing Standards -->
-  <url>
-    <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/#safety</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Driver & Field Trip Operations Portal -->
-  <url>
-    <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/#driver-app</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Frequently Asked Questions (FAQs) & Customer Reviews -->
-  <url>
-    <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/#faq-reviews</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
   </url>
 </urlset>

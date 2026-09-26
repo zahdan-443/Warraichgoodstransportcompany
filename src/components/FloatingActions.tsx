@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { MessageCircle, Phone, Calculator, X } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
@@ -6,13 +7,19 @@ import { useLanguage } from '../context/LanguageContext';
 export const FloatingActions: React.FC = () => {
   const [showTooltip, setShowTooltip] = useState(true);
   const { language } = useLanguage();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const isUrdu = language === 'ur';
 
-  const scrollToBooking = () => {
-    const bookingSection = document.getElementById('booking');
-    if (bookingSection) {
-      bookingSection.scrollIntoView({ behavior: 'smooth' });
+  const handleBookingAction = () => {
+    if (location.pathname === '/booking') {
+      const bookingSection = document.getElementById('booking');
+      if (bookingSection) {
+        bookingSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      navigate('/booking');
     }
   };
 
@@ -58,10 +65,10 @@ export const FloatingActions: React.FC = () => {
             </span>
           </a>
 
-          {/* Rate / Booking Scroll */}
+          {/* Rate / Booking Navigation */}
           <button
             id="mobile-dock-booking-btn"
-            onClick={scrollToBooking}
+            onClick={handleBookingAction}
             className="flex flex-col items-center justify-center py-2 px-1 rounded-lg bg-slate-100 active:bg-slate-200 text-slate-800 font-bold border border-slate-200 transition-transform active:scale-95 shadow-sm cursor-pointer min-h-[48px]"
             aria-label={isUrdu ? 'کرایہ معلوم کریں' : 'Calculate Rate'}
           >

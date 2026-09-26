@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Package, 
   Wheat, 
@@ -241,14 +242,15 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
               </div>
 
               <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                <a
-                  href="#booking"
+                <Link
+                  to="/booking"
+                  state={{ goodsType: language === 'ur' ? currentCategory.titleUrdu : currentCategory.titleEnglish }}
                   onClick={() => onSelectCategory && onSelectCategory(language === 'ur' ? currentCategory.titleUrdu : currentCategory.titleEnglish)}
                   className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3 rounded-lg text-sm transition-colors shadow-sm hover:shadow-md font-urdu cursor-pointer min-h-[44px]"
                 >
                   <Truck className="w-4 h-4 text-white" />
                   <span>{t.bookCategoryBtn}</span>
-                </a>
+                </Link>
               </div>
             </div>
 

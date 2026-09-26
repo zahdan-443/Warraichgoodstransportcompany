@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   HelpCircle, 
   ChevronDown, 
@@ -140,23 +141,23 @@ export const FaqAndReviewsSection: React.FC = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
-                <a
-                  href="#branches"
+                <Link
+                  to="/booking"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2.5 rounded-lg text-xs sm:text-sm transition-colors shadow-sm hover:shadow-md active:scale-95 cursor-pointer font-urdu"
                   title="View Service Areas"
                 >
                   <MapPin className="w-4 h-4 text-white" />
                   <span>{language === 'ur' ? 'شہروں کی فہرست و روٹس' : 'Explore Cities & Corridors'}</span>
-                </a>
+                </Link>
 
-                <a
-                  href="#business-intro"
+                <Link
+                  to="/about"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2.5 rounded-lg text-xs sm:text-sm transition-colors shadow-sm hover:shadow-md active:scale-95 cursor-pointer font-urdu"
                   title="View Warraich Goods Business Profile"
                 >
                   <ShieldCheck className="w-4 h-4 text-slate-950" />
                   <span>{language === 'ur' ? 'آفیشل کارڈ و کوائف ملاحظہ کریں' : 'View Official Directory Card'}</span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

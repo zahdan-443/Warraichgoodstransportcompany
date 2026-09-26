@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { 
   Building2, 
   ShieldCheck, 
@@ -27,7 +28,15 @@ import { useLanguage } from '../context/LanguageContext';
 
 // ============================================================================
 // TASK 3: HUMAN-CENTRIC OPERATIONS & REAL ON-GROUND TEAM PHOTOGRAPHY
-// To swap out any placeholder with final photos, simply replace the file path in ONE line below:
+// ============================================================================
+// GROUND OPERATIONS & FIELD SHOWCASE
+// ============================================================================
+// To swap out any placeholder with final photos, simply replace the file path in ONE line below.
+// NOTE: These placeholder images use neutral "فیلڈ آپریشنز" / "گراؤنڈ فوٹو" labels.
+// Once genuine photos replace placeholders, stronger verification language can be restored:
+// - Re-add 'نادرا تصدیق شدہ روڈ کیپٹن' / 'NADRA-Verified Driver' in title
+// - Re-add 'تصدیق شدہ گراؤنڈ فوٹیج' / 'Verified Ground Operations' in footerLabel
+// - Re-add 'حقیقی آپریشنز' / 'Live Ops' in footerStatus
 // ============================================================================
 export const GROUND_OPERATIONS_PHOTOS = [
   {
@@ -38,45 +47,45 @@ export const GROUND_OPERATIONS_PHOTOS = [
     badgeEn: 'Leadership & Fleet Supervision',
     titleUrdu: 'پروپرائٹر زاہدان نصر وڑائچ — آپریشنل نگرانی',
     titleEn: 'Proprietor Zahdan Nasar Warraich — Operational Oversight',
-    descUrdu: 'سمندری، کمالیہ اور پنجاب بھر میں فلیٹ کی براہ راست روانگی، کاغذات اور بلٹی کی ذاتی نگرانی۔',
+    descUrdu: 'سمندری، کمالیہ اور پنجاب بھر میں فلیٹ کی براہ راست روانگی، کاغذات اور بلٹی کی نگرانی۔',
     descEn: 'Direct hands-on oversight of daily fleet dispatch, vehicle inspections, and client coordination.',
     alt: 'Zahdan Nasar Warraich - Proprietor of Warraich Goods Transport Company supervising fleet operations',
-    footerLabelUrdu: 'پروپرائٹر و چیف ایگزیکٹو',
-    footerLabelEn: 'Proprietor & Leadership',
-    footerStatusUrdu: 'ذاتی نگرانی',
-    footerStatusEn: 'Active Oversight',
+    footerLabelUrdu: 'فیلڈ آپریشنز',
+    footerLabelEn: 'Field Operations',
+    footerStatusUrdu: 'گراؤنڈ فوٹو',
+    footerStatusEn: 'Ground Photo',
   },
   {
     id: 'driver-vehicle',
-    // "Driver with vehicle (representative standard)"
+    // "Driver with vehicle (representative placeholder)"
     imageSrc: './images/placeholder-driver-vehicle.jpg',
     badgeUrdu: 'ڈرائیور مع گاڑی',
     badgeEn: 'Driver with Vehicle',
-    titleUrdu: 'نادرا تصدیق شدہ روڈ کیپٹن مع گاڑی',
-    titleEn: 'Vetted Commercial Driver with Vehicle',
-    descUrdu: 'تمام ہائی وے روٹس کے پرانے، بااخلاق، لائسنس یافتہ اور نادرا تصدیق شدہ کمرشل ڈرائیورز۔',
-    descEn: 'NADRA-verified highway drivers holding valid commercial HTV licenses and clean transit records.',
-    alt: 'Professional NADRA Verified Driver with Commercial Transport Vehicle',
-    footerLabelUrdu: 'نادرا تصدیق شدہ ڈرائیورز',
-    footerLabelEn: 'NADRA-Verified Drivers',
-    footerStatusUrdu: 'فیلڈ معیار',
-    footerStatusEn: 'Field Standard',
+    titleUrdu: 'کمرشل روڈ کیپٹن مع گاڑی',
+    titleEn: 'Commercial Highway Driver with Vehicle',
+    descUrdu: 'تمام ہائی وے روٹس کے تجربہ کار، بااخلاق اور لائسنس یافتہ کمرشل ڈرائیورز۔',
+    descEn: 'Experienced commercial highway drivers holding valid HTV licenses and transit records.',
+    alt: 'Commercial Highway Driver with Freight Vehicle - Field Operations',
+    footerLabelUrdu: 'فیلڈ آپریشنز',
+    footerLabelEn: 'Field Operations',
+    footerStatusUrdu: 'گراؤنڈ فوٹو',
+    footerStatusEn: 'Ground Photo',
   },
   {
     id: 'loading-dispatch',
-    // "Loading/dispatch point photo (representative standard)"
+    // "Loading/dispatch point photo (representative placeholder)"
     imageSrc: './images/placeholder-loading-dispatch.jpg',
     badgeUrdu: 'لوڈنگ و ڈسپیچ پوائنٹ',
     badgeEn: 'Loading & Dispatch Point',
     titleUrdu: 'فیکٹری و گودام لوڈنگ اور ڈسپیچ پوائنٹ',
     titleEn: 'Warehouse Loading & Dispatch Bay',
-    descUrdu: 'ڈبل واٹر پروف ترپال بندی، کمپیوٹرائزڈ کانٹا معائنہ اور سیدھی نان اسٹاپ روانگی۔',
+    descUrdu: 'ڈبل واٹر پروف ترپال بندی، کانٹا معائنہ اور سیدھی نان اسٹاپ روانگی۔',
     descEn: 'Double waterproof tarpaulin sealing, scale verification, and direct highway departure.',
-    alt: 'Factory Warehouse Loading Bay and Direct Highway Dispatch Point',
-    footerLabelUrdu: 'محفوظ ڈسپیچ پروٹوکول',
-    footerLabelEn: 'Safe Dispatch Protocol',
-    footerStatusUrdu: 'ایف ٹی ایل سروس',
-    footerStatusEn: 'FTL Standard',
+    alt: 'Warehouse Loading Bay and Direct Highway Dispatch Point - Field Operations',
+    footerLabelUrdu: 'فیلڈ آپریشنز',
+    footerLabelEn: 'Field Operations',
+    footerStatusUrdu: 'گراؤنڈ فوٹو',
+    footerStatusEn: 'Ground Photo',
   },
 ];
 
@@ -132,13 +141,13 @@ export const CorporateCredibilitySection: React.FC = () => {
               <span>{isUrdu ? 'آفیشل کمپنی پروفائل اور وینڈر کارڈ دیکھیں' : 'View Corporate Profile & Vendor Deck'}</span>
             </button>
 
-            <button
-              onClick={scrollToCalculator}
+            <Link
+              to="/booking"
               className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-5 py-3 rounded-lg text-xs sm:text-sm transition-colors shadow-sm hover:shadow-md cursor-pointer min-h-[44px]"
             >
               <Briefcase className="w-4 h-4 text-white flex-shrink-0" />
               <span>{isUrdu ? 'کارپوریٹ B2B کنٹریکٹ انکوائری' : 'Corporate Contract Inquiry'}</span>
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -235,13 +244,13 @@ export const CorporateCredibilitySection: React.FC = () => {
                   : `Proprietor ${COMPANY_INFO.proprietorEnglish} personally manages fleet dispatches and major B2B contracts, ensuring zero corporate bottlenecks.`}
               </p>
             </div>
-            <a
-              href="#about"
+            <Link
+              to="/about"
               className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-xs text-blue-700 font-bold font-urdu hover:text-blue-800 transition-colors"
             >
               <UserCheck className="w-3.5 h-3.5 flex-shrink-0 text-blue-600" />
               <span>{isUrdu ? 'پروپرائٹر تعارف و کاروباری کوائف' : 'View Proprietor Profile'}</span>
-            </a>
+            </Link>
           </div>
 
         </div>
@@ -350,12 +359,12 @@ export const CorporateCredibilitySection: React.FC = () => {
               <span>{isUrdu ? 'فیلڈ مینجمنٹ اور آن گراؤنڈ سروس' : 'Field Management & Ground Service'}</span>
             </div>
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 font-urdu">
-              {isUrdu ? 'پروپرائٹر سپروائزری، تربیت یافتہ ڈرائیورز اور فیلڈ آپریشنز' : 'Operational Leadership, Vetted Drivers & Ground Operations'}
+              {isUrdu ? 'پروپرائٹر سپروائزری، تجربہ کار ڈرائیورز اور فیلڈ آپریشنز' : 'Operational Leadership, Experienced Drivers & Ground Operations'}
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 mt-2 font-urdu max-w-2xl mx-auto leading-relaxed">
               {isUrdu 
-                ? 'پروپرائٹر زاہدان نصر وڑائچ کی براہ راست فلیٹ نگرانی، نادرا تصدیق شدہ کمرشل ڈرائیورز اور محفوظ لوڈنگ و روانگی کا باقاعدہ فیلڈ نظام۔' 
-                : 'Hands-on operational oversight by Proprietor Zahdan Nasar Warraich, NADRA-verified drivers, and dedicated warehouse dispatch standards.'}
+                ? 'پروپرائٹر زاہدان نصر وڑائچ کی فلیٹ نگرانی، تجربہ کار کمرشل ڈرائیورز اور فیلڈ میں براہ راست لوڈنگ و روانگی کا منظم نظام۔' 
+                : 'Hands-on operational oversight by Proprietor Zahdan Nasar Warraich, professional highway drivers, and dedicated dispatch standards.'}
             </p>
           </div>
 

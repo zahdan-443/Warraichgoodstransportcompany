@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   PhoneCall, 
   Phone,
@@ -125,15 +126,15 @@ export const HeroSection: React.FC = () => {
                   { en: 'Kamalia Rajana road goods transport', ur: 'رجانہ روڈ ٹرانسپورٹ سروس' },
                   { en: 'FTL logistics service Faisalabad region', ur: 'فیصل آباد ریجن فل ٹرک سروس' },
                 ].map((item, idx) => (
-                  <a
+                  <Link
                     key={idx}
-                    href="#branches"
+                    to="/about"
                     className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-200 px-2.5 py-1 rounded-lg transition-colors border border-slate-700 font-urdu cursor-pointer"
                     title={item.en}
                   >
                     <Tag className="w-2.5 h-2.5 text-amber-400 opacity-80" />
                     <span>{language === 'ur' ? `${item.ur} (${item.en})` : item.en}</span>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -142,9 +143,9 @@ export const HeroSection: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2 sm:pt-3">
               
               {/* Primary Business Profile CTA */}
-              <a
+              <Link
                 id="hero-company-profile-btn"
-                href="#business-intro"
+                to="/about"
                 className="inline-flex items-center justify-center gap-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3.5 sm:py-4 rounded-lg shadow-sm text-sm sm:text-base transition-colors cursor-pointer min-h-[48px]"
                 aria-label="View Company Profile and Introduction"
               >
@@ -152,29 +153,29 @@ export const HeroSection: React.FC = () => {
                 <span className="font-urdu font-black">
                   {language === 'ur' ? 'کاروباری تعارف و مکمل پروفائل' : 'Company Profile & Overview'}
                 </span>
-              </a>
+              </Link>
 
               {/* Instant Freight Calculator CTA */}
-              <button
+              <Link
                 id="hero-calc-btn"
-                onClick={scrollToBooking}
+                to="/booking"
                 className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold px-5 py-3.5 sm:py-4 rounded-lg text-sm sm:text-base transition-colors shadow-sm cursor-pointer min-h-[48px]"
               >
                 <Calculator className="w-4 sm:w-5 h-4 sm:h-5 text-amber-400 flex-shrink-0" />
                 <span className="font-urdu">{t.btnCalculate}</span>
-              </button>
+              </Link>
 
               {/* Fleet & Services Exploration */}
-              <a
+              <Link
                 id="hero-fleet-btn"
-                href="#fleet"
+                to="/fleet"
                 className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-800 font-semibold px-5 py-3.5 sm:py-4 rounded-lg text-sm sm:text-base transition-colors border border-slate-200 shadow-sm cursor-pointer min-h-[48px]"
               >
                 <Truck className="w-4 sm:w-5 h-4 sm:h-5 text-blue-600 flex-shrink-0" />
                 <span className="font-urdu">
                   {language === 'ur' ? 'ہمارا ٹرانسپورٹ بیڑا' : 'Explore Fleet'}
                 </span>
-              </a>
+              </Link>
 
             </div>
 
@@ -258,19 +259,19 @@ export const HeroSection: React.FC = () => {
 
               {/* Action Buttons to Dedicated Sections */}
               <div className="pt-2 border-t border-slate-200 grid grid-cols-2 gap-2">
-                <a
-                  href="#fleet"
+                <Link
+                  to="/fleet"
                   className="flex items-center justify-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-white font-bold py-2 rounded-lg text-xs font-urdu text-center transition-colors shadow-sm"
                 >
                   <Truck className="w-3.5 h-3.5 text-amber-400" />
                   <span>{language === 'ur' ? 'گاڑیاں و فلیٹ دیکھیں' : 'View Fleet Models'}</span>
-                </a>
-                <a
-                  href="#tracking"
+                </Link>
+                <Link
+                  to="/booking"
                   className="flex items-center justify-center gap-1.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2 rounded-lg text-xs font-urdu text-center transition-colors shadow-sm"
                 >
                   <span>{language === 'ur' ? 'بلٹی ٹریک کریں' : 'Track Bilty'}</span>
-                </a>
+                </Link>
               </div>
 
             </div>

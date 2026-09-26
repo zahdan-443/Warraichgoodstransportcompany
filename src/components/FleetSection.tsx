@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { 
   Truck, 
   Weight, 
@@ -7,7 +8,8 @@ import {
   Phone, 
   MessageCircle, 
   Sparkles,
-  ImageIcon
+  ImageIcon,
+  ArrowRight
 } from 'lucide-react';
 import { FLEET_DATA, COMPANY_INFO } from '../data/companyData';
 import { VehicleInfo } from '../types';
@@ -15,16 +17,25 @@ import { useLanguage } from '../context/LanguageContext';
 import { TRANSLATIONS } from '../data/translations';
 
 interface FleetSectionProps {
-  onSelectVehicleForBooking: (vehicleId: string) => void;
+  onSelectVehicleForBooking?: (vehicleId: string) => void;
+  preview?: boolean;
 }
 
-export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBooking }) => {
+export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBooking, preview = false }) => {
   const [imageErrorMap, setImageErrorMap] = useState<Record<string, boolean>>({});
   const { language } = useLanguage();
+  const navigate = useNavigate();
   const tFleet = TRANSLATIONS[language].fleet;
 
   const handleImageError = (id: string) => {
     setImageErrorMap(prev => ({ ...prev, [id]: true }));
+  };
+
+  const handleBook = (vehicleId: string) => {
+    if (onSelectVehicleForBooking) {
+      onSelectVehicleForBooking(vehicleId);
+    }
+    navigate('/booking', { state: { vehicleId } });
   };
 
   return (
@@ -155,7 +166,7 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
                   <div className="pt-3 border-t border-slate-200">
                     <button
                       id={`book-vehicle-${truck.id}-btn`}
-                      onClick={() => onSelectVehicleForBooking(truck.id)}
+                      onClick={() => handleBook(truck.id)}
                       className="w-full inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-blue-600 text-white font-bold py-2.5 px-4 rounded-lg transition-colors shadow-sm text-xs sm:text-sm cursor-pointer active:scale-95 min-h-[42px] font-urdu"
                     >
                       <Sparkles className="w-4 h-4 text-amber-400" />
@@ -169,26 +180,39 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
           })}
         </div>
 
-        {/* Special Services Note */}
-        <div className="mt-8 sm:mt-12 bg-slate-900 text-white rounded-lg p-5 sm:p-7 shadow-sm border border-slate-800 max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5 font-urdu">
-          <div>
-            <p className="text-base sm:text-lg font-bold text-white">
-              {language === 'ur' ? 'کیا آپ کو مخصوص سائز یا لانگ ٹرم فیکٹری کنٹریکٹ چاہیے؟' : 'Need custom truck dimensions or monthly factory logistics contracts?'}
-            </p>
-            <p className="text-xs sm:text-sm text-slate-300 mt-1">
-              {language === 'ur' ? 'ہم فیکٹریوں، ملز اور زرعی غلہ تاجروں کے ساتھ باقاعدہ ماہانہ FTL کنٹریکٹ بھی کرتے ہیں۔' : 'We offer regular contract haulage and corporate billing accounts for industrial clients nationwide.'}
-            </p>
+        {/* If in Preview Mode on Home Page, show CTA to full Fleet page */}
+        {preview ? (
+          <div className="mt-8 text-center">
+            <Link
+              to="/fleet"
+              className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-7 py-3.5 rounded-lg text-sm transition-colors shadow-sm font-urdu"
+            >
+              <span>{language === 'ur' ? 'تمام گاڑیوں کی تفصیلات اور کارگو کیٹیگریز دیکھیں' : 'View Full Fleet Specifications & Cargo Types'}</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
-          <a
-            href="#business-intro"
-            className="flex-shrink-0 inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-3 rounded-lg text-xs sm:text-sm transition-colors min-h-[44px] shadow-sm cursor-pointer font-urdu"
-            aria-label="View Corporate Business Profile"
-          >
-            <span>
-              {language === 'ur' ? 'کاروباری تعارف و مکمل پروفائل دیکھیں' : 'View Corporate Profile'}
-            </span>
-          </a>
-        </div>
+        ) : (
+          /* Special Services Note on Full Fleet Page */
+          <div className="mt-8 sm:mt-12 bg-slate-900 text-white rounded-lg p-5 sm:p-7 shadow-sm border border-slate-800 max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5 font-urdu">
+            <div>
+              <p className="text-base sm:text-lg font-bold text-white">
+                {language === 'ur' ? 'کیا آپ کو مخصوص سائز یا لانگ ٹرم فیکٹری کنٹریکٹ چاہیے؟' : 'Need custom truck dimensions or monthly factory logistics contracts?'}
+              </p>
+              <p className="text-xs sm:text-sm text-slate-300 mt-1">
+                {language === 'ur' ? 'ہم فیکٹریوں، ملز اور زرعی غلہ تاجروں کے ساتھ باقاعدہ ماہانہ FTL کنٹریکٹ بھی کرتے ہیں۔' : 'We offer regular contract haulage and corporate billing accounts for industrial clients nationwide.'}
+              </p>
+            </div>
+            <Link
+              to="/about"
+              className="flex-shrink-0 inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-3 rounded-lg text-xs sm:text-sm transition-colors min-h-[44px] shadow-sm cursor-pointer font-urdu"
+              aria-label="View Corporate Business Profile"
+            >
+              <span>
+                {language === 'ur' ? 'کاروباری تعارف و مکمل پروفائل دیکھیں' : 'View Corporate Profile'}
+              </span>
+            </Link>
+          </div>
+        )}
 
       </div>
     </section>
