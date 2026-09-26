@@ -206,16 +206,19 @@ const RATE_CALCULATOR_CITY_IDS: string[] = [
 export const SERVICE_AREAS: ServiceAreaCity[] = MASTER_CITIES
   .filter(c => c.isServiceAreaHub)
   .sort((a, b) => (a.serviceAreaOrder ?? 99) - (b.serviceAreaOrder ?? 99))
-  .map(c => ({
-    id: c.id,
-    nameUrdu: c.nameUrdu,
-    nameEnglish: c.nameEnglish,
-    descriptionUrdu: 'مال کی بکنگ اور ٹرانسپورٹ سروس دستیاب ہے',
-    descriptionEnglish: 'Goods booking and transport service available',
-    phone: COMPANY_INFO.phone1,
-    phoneRaw: COMPANY_INFO.phoneRaw1,
-    whatsappUrl: `https://wa.me/${COMPANY_INFO.whatsappNumber}`,
-  }));
+  .map(c => {
+    const isKamalia = c.id === 'kamalia';
+    return {
+      id: c.id,
+      nameUrdu: c.nameUrdu,
+      nameEnglish: c.nameEnglish,
+      descriptionUrdu: 'مال کی بکنگ اور ٹرانسپورٹ سروس دستیاب ہے',
+      descriptionEnglish: 'Goods booking and transport service available',
+      phone: isKamalia ? '0339-5370443' : COMPANY_INFO.phone1,
+      phoneRaw: isKamalia ? '03395370443' : COMPANY_INFO.phoneRaw1,
+      whatsappUrl: isKamalia ? 'https://wa.me/923395370443' : `https://wa.me/${COMPANY_INFO.whatsappNumber}`,
+    };
+  });
 
 // Deprecated alias maintained for internal component compatibility
 export const BRANCHES_DATA: BranchInfo[] = [];

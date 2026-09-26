@@ -1,6 +1,6 @@
 {
   "name": "Warraich Goods Transport",
-  "description": "Warraich Goods Transport Company: Reliable FTL truck booking & cargo logistics in Samundri & Kamalia. 24/7 nationwide freight service. Call 0300-5370443.",
+  "description": "Warraich Goods Transport Company: Reliable FTL truck booking & cargo logistics in Samundri (0300-5370443) & Kamalia (0339-5370443). 24/7 nationwide freight service.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

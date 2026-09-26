@@ -308,14 +308,14 @@ export const BusinessIntroCard: React.FC = () => {
                     <span className="text-[11px] text-slate-500 font-urdu">آن کال و واٹس ایپ بکنگ:</span>
                     <div className="flex items-center gap-2">
                       <a
-                        href="tel:03005370443"
+                        href="tel:03395370443"
                         className="inline-flex items-center gap-1 text-[11px] font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 px-2.5 py-1 rounded-lg transition"
                       >
                         <Phone className="w-3 h-3 text-slate-700" />
-                        <span>0300-5370443</span>
+                        <span>0339-5370443</span>
                       </a>
                       <a
-                        href="https://wa.me/923005370443"
+                        href="https://wa.me/923395370443"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1 text-[11px] font-bold text-blue-700 bg-blue-50 hover:bg-blue-100 px-2.5 py-1 rounded-lg transition"
@@ -354,8 +354,8 @@ export const BusinessIntroCard: React.FC = () => {
                       <a
                         href={`tel:${area.phoneRaw}`}
                         className="inline-flex items-center justify-center gap-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-2 py-1.5 rounded-lg text-xs transition active:scale-95 shadow-sm font-urdu"
-                        title={`Call ${area.nameEnglish} (0300-5370443)`}
-                        aria-label={`Call Warraich Goods for ${area.nameEnglish}`}
+                        title={`Call ${area.nameEnglish} (${area.phone})`}
+                        aria-label={`Call Warraich Goods for ${area.nameEnglish} (${area.phone})`}
                       >
                         <Phone className="w-3 h-3 fill-current" />
                         <span>{isUrdu ? `کال ${area.nameUrdu}` : `Call ${area.nameEnglish}`}</span>

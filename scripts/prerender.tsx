@@ -33,10 +33,10 @@ const ROUTES: RouteConfig[] = [
     path: '/',
     outputFile: 'index.html',
     title: 'Warraich Goods Transport | Samundri & Kamalia FTL Freight',
-    description: 'Warraich Goods Transport Company: Dedicated FTL truck booking & commercial cargo logistics in Samundri & Kamalia. 24/7 nationwide freight service. Call 0300-5370443.',
+    description: 'Warraich Goods Transport Company: Dedicated FTL truck booking & commercial cargo logistics in Samundri (0300-5370443) & Kamalia (0339-5370443). 24/7 nationwide freight service.',
     canonicalUrl: `${BASE_SITE_URL}/`,
     ogTitle: 'Warraich Goods Transport | Samundri & Kamalia FTL Freight',
-    ogDescription: 'Warraich Goods Transport Company: Dedicated FTL truck booking & commercial cargo logistics in Samundri & Kamalia. 24/7 nationwide freight service. Call 0300-5370443.',
+    ogDescription: 'Warraich Goods Transport Company: Dedicated FTL truck booking & commercial cargo logistics in Samundri (0300-5370443) & Kamalia (0339-5370443). 24/7 nationwide freight service.',
     breadcrumbList: [
       { name: 'Home (مرکزی صفحہ)', item: `${BASE_SITE_URL}/` },
       { name: 'Commercial Truck Fleet (گاڑیوں کا فلیٹ)', item: `${BASE_SITE_URL}/fleet/` },

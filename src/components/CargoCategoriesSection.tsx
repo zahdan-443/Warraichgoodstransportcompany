@@ -27,6 +27,8 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
     {
       id: 'agri',
       icon: Wheat,
+      shortTitleUrdu: 'زرعی اجناس',
+      shortTitleEnglish: 'Agriculture',
       titleUrdu: 'زرعی اجناس و اناج (FTL لوڈ)',
       titleEnglish: 'Agricultural Produce & Grains (Full Load)',
       badgeUrdu: 'سمندری بائی پاس و کمالیہ رجانہ روڈ اسپیشل',
@@ -53,6 +55,8 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
     {
       id: 'textile',
       icon: Layers,
+      shortTitleUrdu: 'ٹیکسٹائل',
+      shortTitleEnglish: 'Textiles',
       titleUrdu: 'ٹیکسٹائل، دھاگہ و گارمنٹس (FTL)',
       titleEnglish: 'Textiles, Yarn & Garments (Dedicated)',
       badgeUrdu: 'FTL لاجسٹکس سروس فیصل آباد ریجن',
@@ -79,6 +83,8 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
     {
       id: 'industrial',
       icon: Factory,
+      shortTitleUrdu: 'صنعتی',
+      shortTitleEnglish: 'Industrial',
       titleUrdu: 'صنعتی خام مال و مشینری (FTL)',
       titleEnglish: 'Industrial Cargo & Machinery (Dedicated FTL)',
       badgeUrdu: 'ٹرک بکنگ / ٹریلر ٹرانسپورٹ سمندری',
@@ -105,6 +111,8 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
     {
       id: 'construction',
       icon: Building2,
+      shortTitleUrdu: 'تعمیراتی',
+      shortTitleEnglish: 'Construction',
       titleUrdu: 'تعمیراتی سامان و لوہا/اسٹیل (FTL)',
       titleEnglish: 'Construction Materials & Steel (Full Load)',
       badgeUrdu: 'سمندری بائی پاس ٹرانسپورٹ کمپنی',
@@ -131,6 +139,8 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
     {
       id: 'household',
       icon: Home,
+      shortTitleUrdu: 'گھریلو',
+      shortTitleEnglish: 'Household',
       titleUrdu: 'گھریلو سامان شفٹنگ (مخصوص گاڑی)',
       titleEnglish: 'Household Relocation (Dedicated Vehicle)',
       badgeUrdu: 'محفوظ گھریلو و دفتری شفٹنگ',
@@ -202,7 +212,7 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
                 aria-pressed={isActive}
               >
                 <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-500'}`} />
-                <span>{language === 'ur' ? cat.titleUrdu : cat.titleEnglish}</span>
+                <span>{language === 'ur' ? cat.shortTitleUrdu : cat.shortTitleEnglish}</span>
               </button>
             );
           })}
