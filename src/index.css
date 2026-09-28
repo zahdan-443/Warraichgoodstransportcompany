@@ -47,7 +47,7 @@
     -webkit-tap-highlight-color: transparent;
     font-family: 'nastaleeq', 'akbar', 'Noto Nastaliq Urdu', 'IBM Plex Sans Arabic', system-ui, -apple-system, sans-serif;
     color: #0f172a;
-    background-color: #0b1120;
+    background-color: #f8fafc;
     letter-spacing: normal;
   }
 }
@@ -59,36 +59,36 @@ html[dir="rtl"], [dir="rtl"], .font-urdu, .font-urdu-heading, .font-nastaliq, .f
 
 .font-urdu {
   font-family: 'nastaleeq', 'Noto Nastaliq Urdu', 'IBM Plex Sans Arabic', system-ui, sans-serif !important;
-  line-height: 2.05;
+  line-height: 1.85;
   letter-spacing: normal !important;
 }
 
 .font-urdu-heading {
   font-family: 'akbar', 'nastaleeq', 'Noto Nastaliq Urdu', serif !important;
-  line-height: 2.2 !important;
+  line-height: 1.75 !important;
   letter-spacing: normal !important;
 }
 
 .font-nastaliq {
   font-family: 'nastaleeq', 'akbar', 'Noto Nastaliq Urdu', serif !important;
-  line-height: 2.2 !important;
+  line-height: 1.8 !important;
   letter-spacing: normal !important;
 }
 
 .font-akbar {
   font-family: 'akbar', 'nastaleeq', 'Noto Nastaliq Urdu', serif !important;
-  line-height: 2.0;
+  line-height: 1.75 !important;
   letter-spacing: normal !important;
 }
 
 .font-urdu-clean {
   font-family: 'nastaleeq', 'Noto Nastaliq Urdu', 'IBM Plex Sans Arabic', system-ui, sans-serif !important;
-  line-height: 1.85;
+  line-height: 1.75;
   letter-spacing: normal !important;
 }
 
 .font-display {
-  font-family: 'Plus Jakarta Sans', 'Outfit', system-ui, sans-serif;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
 
 /* English / LTR Mode Font Normalization */

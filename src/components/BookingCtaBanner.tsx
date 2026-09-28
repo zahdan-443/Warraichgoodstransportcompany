@@ -42,8 +42,8 @@ export const BookingCtaBanner: React.FC = () => {
             
             {/* Left/Main Column */}
             <div className={`lg:col-span-8 space-y-4 ${isUrdu ? 'text-right' : 'text-left'}`}>
-              <div className="inline-flex items-center gap-2 bg-amber-400/10 border border-amber-400/30 text-amber-300 px-3.5 py-1.5 rounded-full text-xs font-bold font-urdu">
-                <ShieldCheck className="w-4 h-4 text-amber-400 flex-shrink-0" />
+              <div className="flex items-center gap-2 text-amber-400 text-xs sm:text-sm font-bold font-urdu">
+                <ShieldCheck className="w-4 h-4 flex-shrink-0" />
                 <span>{isUrdu ? '100% شفاف ریٹس و کمپیوٹرائزڈ بلٹی' : '100% Transparent Rates & Verified Bilty'}</span>
               </div>
 
@@ -59,17 +59,17 @@ export const BookingCtaBanner: React.FC = () => {
                   : 'Instant online FTL cost estimation for Hyundai Shehzore, Mazda 6-wheeler, Sample truck, and Bedford heavy trailers from Samundri, Kamalia, and nationwide industrial hubs. Zero hidden charges.'}
               </p>
 
-              {/* Badges / Guarantees Strip */}
+              {/* Guarantees Strip (Clean unboxed inline) */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-                <div className="flex items-center gap-2 text-xs text-slate-200 font-urdu bg-slate-800/80 px-3 py-2 rounded-lg border border-slate-700/60">
-                  <CheckCircle2 className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                <div className="flex items-center gap-2 text-xs text-slate-200 font-urdu bg-slate-900/60 px-3 py-2 rounded-xl border border-slate-700/60">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                   <span>{isUrdu ? 'صرف سنگل پارٹی فل لوڈ' : 'Single-Party Dedicated FTL'}</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-slate-200 font-urdu bg-slate-800/80 px-3 py-2 rounded-lg border border-slate-700/60">
+                <div className="flex items-center gap-2 text-xs text-slate-200 font-urdu bg-slate-900/60 px-3 py-2 rounded-xl border border-slate-700/60">
                   <Clock className="w-4 h-4 text-blue-400 flex-shrink-0" />
                   <span>{isUrdu ? '24/7 فوری روانگی و ٹریکنگ' : '24/7 Express Dispatch'}</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-slate-200 font-urdu bg-slate-800/80 px-3 py-2 rounded-lg border border-slate-700/60">
+                <div className="flex items-center gap-2 text-xs text-slate-200 font-urdu bg-slate-900/60 px-3 py-2 rounded-xl border border-slate-700/60">
                   <Truck className="w-4 h-4 text-amber-400 flex-shrink-0" />
                   <span>{isUrdu ? 'ڈبل واٹر پروف ترپال تحفظ' : 'Waterproof Tarpaulin'}</span>
                 </div>

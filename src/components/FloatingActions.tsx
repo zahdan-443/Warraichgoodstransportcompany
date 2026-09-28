@@ -56,7 +56,7 @@ export const FloatingActions: React.FC = () => {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center justify-center py-2 px-1 rounded-lg bg-blue-600 active:bg-blue-500 text-white font-bold transition-transform active:scale-95 shadow-sm min-h-[48px]"
+            className="flex flex-col items-center justify-center py-2 px-1 rounded-lg bg-emerald-600 active:bg-emerald-500 text-white font-bold transition-transform active:scale-95 shadow-sm min-h-[48px]"
             aria-label={isUrdu ? 'واٹس ایپ' : 'WhatsApp'}
           >
             <MessageCircle className="w-5 h-5 fill-current mb-0.5" />
@@ -111,10 +111,10 @@ export const FloatingActions: React.FC = () => {
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-blue-600 hover:bg-blue-500 text-white flex items-center justify-center shadow-lg hover:shadow-xl active:scale-95 transition-all duration-300 group"
+          className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center shadow-lg hover:shadow-xl active:scale-95 transition-all duration-300 group"
           aria-label={isUrdu ? 'واٹس ایپ پر رابطہ کریں' : 'Contact on WhatsApp'}
         >
-          <span className="absolute inset-0 rounded-full bg-blue-400 animate-ping opacity-25"></span>
+          <span className="absolute inset-0 rounded-full bg-emerald-400 animate-ping opacity-25"></span>
           <MessageCircle className="w-8 h-8 fill-current text-white relative z-10" />
         </a>
       </div>

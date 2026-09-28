@@ -1,7 +1,8 @@
 import React from 'react';
 import { HeroSection } from '../components/HeroSection';
-import { BiltyTrackingSection } from '../components/BiltyTrackingSection';
 import { FleetSection } from '../components/FleetSection';
+import { FtlWorkflowSection } from '../components/FtlWorkflowSection';
+import { BiltyTrackingSection } from '../components/BiltyTrackingSection';
 import { BookingCtaBanner } from '../components/BookingCtaBanner';
 
 export const HomePage: React.FC = () => {
@@ -10,13 +11,16 @@ export const HomePage: React.FC = () => {
       {/* 1. Hero Section (FTL Focus & Operations Hub) */}
       <HeroSection />
 
-      {/* 2. Condensed Bilty Tracking Section Summary / CTA */}
-      <BiltyTrackingSection condensed={true} />
-
-      {/* 3. Condensed Fleet Section Preview */}
+      {/* 2. Commercial Fleet Showcase (4 Core Trucks) */}
       <FleetSection preview={true} />
 
-      {/* 4. Booking CTA Banner */}
+      {/* 3. Dedicated FTL Workflow & Operational Process */}
+      <FtlWorkflowSection />
+
+      {/* 4. Bilty Consignment Tracking & Highway Transit Times */}
+      <BiltyTrackingSection condensed={true} />
+
+      {/* 5. Booking CTA Banner */}
       <BookingCtaBanner />
     </>
   );

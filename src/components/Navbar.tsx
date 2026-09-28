@@ -138,10 +138,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <Link
                     key={link.to}
                     to={link.to}
-                    className={`px-2.5 py-1.5 rounded-lg text-xs xl:text-sm font-semibold transition-colors font-urdu whitespace-nowrap ${
+                    className={`px-3 py-1.5 rounded-lg text-xs xl:text-sm font-semibold transition-colors font-urdu whitespace-nowrap ${
                       active 
-                        ? 'text-blue-700 bg-blue-50 font-bold border border-blue-200/60 shadow-2xs' 
-                        : 'text-slate-700 hover:text-blue-700 hover:bg-slate-100'
+                        ? 'text-blue-700 bg-blue-50/80 font-bold' 
+                        : 'text-slate-700 hover:text-slate-950 hover:bg-slate-50'
                     }`}
                   >
                     {link.label}
@@ -150,11 +150,10 @@ export const Navbar: React.FC<NavbarProps> = ({
               })}
             </nav>
 
-            {/* Govt Registered / FBR NTN Badge (Visible on lg+) */}
-            <div className="hidden lg:inline-flex items-center gap-1.5 bg-amber-50 text-amber-900 border border-amber-200 px-2.5 py-1.5 rounded-lg text-xs font-semibold shadow-sm whitespace-nowrap">
-              <ShieldCheck className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />
-              <span className="font-urdu hidden 2xl:inline">{isUrdu ? 'رجسٹرڈ ادارہ •' : 'Govt. Reg •'}</span>
-              <span className="font-mono text-[11px] font-bold">NTN: {COMPANY_INFO.ntn}</span>
+            {/* Govt Registered NTN (Subtle text, no pill island) */}
+            <div className="hidden 2xl:inline-flex items-center gap-1.5 text-xs text-slate-600 font-mono">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+              <span>NTN: {COMPANY_INFO.ntn}</span>
             </div>
 
             {/* Driver Web Portal Link */}
@@ -252,12 +251,21 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             {/* Bottom Actions inside Mobile Drawer */}
             <div className="pt-3 border-t border-slate-200 flex flex-col gap-2.5">
+              <a
+                href={`tel:${COMPANY_INFO.phoneRaw1}`}
+                className="w-full min-h-[44px] flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-2.5 rounded-lg text-center text-sm font-urdu active:scale-98"
+                aria-label={`Call Helpline ${COMPANY_INFO.phone1}`}
+              >
+                <Truck className="w-4 h-4 text-amber-400" />
+                <span>{isUrdu ? `فوری رابطہ: ${COMPANY_INFO.phone1}` : `Call: ${COMPANY_INFO.phone1}`}</span>
+              </a>
+
               <Link
                 to="/about"
                 onClick={handleClose}
-                className="w-full min-h-[44px] flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-lg text-center text-sm shadow-sm font-urdu"
+                className="w-full min-h-[44px] flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-lg text-center text-sm shadow-sm font-urdu active:scale-98"
               >
-                <span>{isUrdu ? 'کاروباری تعارف و مکمل کارڈ دیکھیں' : 'View Business Card & Profile'}</span>
+                <span>{isUrdu ? 'کاروباری تعارف و شناختی کارڈ' : 'View Business Card & Profile'}</span>
               </Link>
 
               <a

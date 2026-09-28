@@ -9,8 +9,12 @@ import {
   Package, 
   MessageCircle, 
   CheckCircle2,
-  Sparkles,
-  Lock
+  Lock,
+  Copy,
+  Check,
+  Clock,
+  ArrowRight,
+  Building2
 } from 'lucide-react';
 import { COMPANY_INFO, FLEET_DATA, PAKISTAN_CITIES, GOODS_TYPES } from '../data/companyData';
 import { BookingFormData } from '../types';
@@ -28,6 +32,7 @@ export const RateCalculatorSection: React.FC<RateCalculatorSectionProps> = ({ se
   const isUrdu = language === 'ur';
 
   const [isCorporateMode, setIsCorporateMode] = useState<boolean>(false);
+  const [copiedSummary, setCopiedSummary] = useState<boolean>(false);
   const [formData, setFormData] = useState<BookingFormData>({
     originCity: language === 'ur' ? 'سمندری (Samundri)' : 'Samundri',
     destinationCity: language === 'ur' ? 'لاہور (Lahore)' : 'Lahore',
@@ -150,6 +155,67 @@ Please advise regarding the most competitive freight quotation and earliest vehi
     }
   };
 
+  const handleCopySummary = () => {
+    const text = generateWhatsAppMessage();
+    navigator.clipboard.writeText(text);
+    setCopiedSummary(true);
+    setTimeout(() => {
+      setCopiedSummary(false);
+    }, 2500);
+  };
+
+  const quickRoutes = [
+    { origin: isUrdu ? 'سمندری (Samundri)' : 'Samundri', dest: isUrdu ? 'کراچی (Karachi)' : 'Karachi', labelUr: 'سمندری ➔ کراچی پورٹ', labelEn: 'Samundri ➔ Karachi' },
+    { origin: isUrdu ? 'سمندری (Samundri)' : 'Samundri', dest: isUrdu ? 'لاہور (Lahore)' : 'Lahore', labelUr: 'سمندری ➔ لاہور', labelEn: 'Samundri ➔ Lahore' },
+    { origin: isUrdu ? 'کمالیہ (Kamalia)' : 'Kamalia', dest: isUrdu ? 'کراچی (Karachi)' : 'Karachi', labelUr: 'کمالیہ ➔ کراچی پورٹ', labelEn: 'Kamalia ➔ Karachi' },
+    { origin: isUrdu ? 'سمندری (Samundri)' : 'Samundri', dest: isUrdu ? 'اسلام آباد (Islamabad)' : 'Islamabad', labelUr: 'سمندری ➔ اسلام آباد', labelEn: 'Samundri ➔ Islamabad' },
+    { origin: isUrdu ? 'سمندری (Samundri)' : 'Samundri', dest: isUrdu ? 'ملتان (Multan)' : 'Multan', labelUr: 'سمندری ➔ ملتان', labelEn: 'Samundri ➔ Multan' },
+  ];
+
+  const getRouteInsight = () => {
+    const dest = (formData.destinationCity || '').toLowerCase();
+    if (dest.includes('karachi') || dest.includes('کراچی')) {
+      return {
+        corridorUr: 'M-4 تا M-5 ملتان سکھر موٹروے و کراچی پورٹ (KPT / QICT)',
+        corridorEn: 'M-4 to M-5 Motorway Corridor & Karachi Ports',
+        transitUr: '24 تا 30 گھنٹے (نان اسٹاپ ایکسپریس FTL)',
+        transitEn: '24 - 30 Hours (Dedicated Non-Stop)',
+      };
+    }
+    if (dest.includes('lahore') || dest.includes('لاہور') || dest.includes('sheikhupura') || dest.includes('شیخوپورہ')) {
+      return {
+        corridorUr: 'M-3 موٹروے براستہ رجانہ و شرقپور انٹرچینج',
+        corridorEn: 'M-3 Motorway via Rajana & Sharqpur Interchanges',
+        transitUr: '3 تا 4 گھنٹے (سیم ڈے ڈائریکٹ ڈلیوری)',
+        transitEn: '3 - 4 Hours (Same-Day Delivery)',
+      };
+    }
+    if (dest.includes('islamabad') || dest.includes('اسلام آباد') || dest.includes('rawalpindi') || dest.includes('راولپنڈی') || dest.includes('peshawar') || dest.includes('پشاور')) {
+      return {
+        corridorUr: 'M-4 تا M-2 موٹروے کوریڈور (ناردرن انڈسٹریل زون)',
+        corridorEn: 'M-4 to M-2 Motorway Link (Northern Hubs)',
+        transitUr: '6 تا 8 گھنٹے ایکسپریس ٹرانزٹ',
+        transitEn: '6 - 8 Hours Express Transit',
+      };
+    }
+    if (dest.includes('multan') || dest.includes('ملتان') || dest.includes('bahawalpur') || dest.includes('بہاولپور')) {
+      return {
+        corridorUr: 'M-4 تا M-5 موٹروے لنک (جنوبی پنجاب کوریڈور)',
+        corridorEn: 'M-4 to M-5 Motorway Link (South Punjab)',
+        transitUr: '3 تا 5 گھنٹے ایکسپریس ڈلیوری',
+        transitEn: '3 - 5 Hours Express Delivery',
+      };
+    }
+    return {
+      corridorUr: 'قومی موٹروے و ہائی وے کوریڈور (براہ راست FTL مال برداری)',
+      corridorEn: 'National Highway & Motorway Corridor (Direct FTL)',
+      transitUr: 'نان اسٹاپ براہِ راست ٹرانزٹ',
+      transitEn: 'Direct Non-Stop Express Dispatch',
+    };
+  };
+
+  const routeInsight = getRouteInsight();
+
   const handleWhatsAppSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const text = generateWhatsAppMessage();
@@ -212,7 +278,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
-                <Sparkles className="w-3.5 h-3.5" />
+                <Building2 className="w-3.5 h-3.5" />
                 <span>{language === 'ur' ? 'کارپوریٹ B2B کنٹریکٹ انکوائری' : 'Corporate B2B Contract'}</span>
               </button>
             </div>
@@ -239,7 +305,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
               {isCorporateMode && (
                 <div className="bg-amber-50/60 border border-amber-200 p-4 rounded-lg space-y-4">
                   <div className="text-xs font-bold text-amber-900 font-urdu flex items-center gap-1.5">
-                    <Sparkles className="w-4 h-4 text-amber-600" />
+                    <Building2 className="w-4 h-4 text-amber-600" />
                     <span>{language === 'ur' ? 'کارپوریٹ و انڈسٹریل کوائف:' : 'Corporate Enterprise Information:'}</span>
                   </div>
 
@@ -281,6 +347,25 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                 </div>
               )}
               
+              {/* Popular Routes Quick-Select Chips (Frictionless UX) */}
+              <div>
+                <label className="block text-xs font-semibold text-slate-500 mb-1.5 font-urdu">
+                  {isUrdu ? 'مقبول ترین کوریڈورز (فوری انتخاب):' : 'Popular Corridors (Quick Select):'}
+                </label>
+                <div className="flex flex-wrap gap-1.5">
+                  {quickRoutes.map((r, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => setFormData(prev => ({ ...prev, originCity: r.origin, destinationCity: r.dest }))}
+                      className="text-xs bg-slate-100 hover:bg-amber-100 hover:text-amber-950 text-slate-700 px-2.5 py-1 rounded-md border border-slate-200 hover:border-amber-300 transition-colors font-urdu cursor-pointer active:scale-95"
+                    >
+                      {isUrdu ? r.labelUr : r.labelEn}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
               {/* Row 1: Origin & Destination */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
@@ -326,44 +411,69 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                 </div>
               </div>
 
-              {/* Row 2: Vehicle Selection & Loading Date */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="booking-vehicle-type" className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5 font-urdu">
-                    <Truck className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                    <span>{tCalc.vehicleLabel}:</span>
-                  </label>
-                  <select
-                    id="booking-vehicle-type"
-                    name="vehicleType"
-                    value={formData.vehicleType}
-                    onChange={handleChange}
-                    className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-slate-900 text-sm focus:border-blue-500 focus:outline-none min-h-[44px]"
-                    required
-                  >
-                    {FLEET_DATA.map((v) => (
-                      <option key={v.id} value={v.id}>
-                        {language === 'ur' ? `${v.nameUrdu} — (${v.capacityUrdu})` : `${v.nameEnglish} (${v.capacity})`}
-                      </option>
-                    ))}
-                  </select>
+              {/* Dynamic Route Transit Insight */}
+              <div className="bg-slate-50 border border-slate-200/80 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-urdu text-slate-700">
+                <div className="flex items-center gap-2">
+                  <Clock className="w-4 h-4 text-amber-600 flex-shrink-0" />
+                  <span className="font-semibold text-slate-900">{isUrdu ? routeInsight.corridorUr : routeInsight.corridorEn}</span>
                 </div>
+                <span className="font-mono font-bold text-blue-700 whitespace-nowrap self-start sm:self-auto">
+                  {isUrdu ? routeInsight.transitUr : routeInsight.transitEn}
+                </span>
+              </div>
 
-                <div>
-                  <label htmlFor="booking-loading-date" className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5 font-urdu">
-                    <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                    <span>{tCalc.dateLabel}:</span>
-                  </label>
-                  <input
-                    id="booking-loading-date"
-                    type="date"
-                    name="loadingDate"
-                    value={formData.loadingDate}
-                    onChange={handleChange}
-                    className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-slate-900 text-sm focus:border-blue-500 focus:outline-none min-h-[44px]"
-                    required
-                  />
+              {/* Row 2: Vehicle Visual Selector & Dropdown */}
+              <div className="space-y-2">
+                <label className="block text-xs sm:text-sm font-semibold text-slate-700 flex items-center gap-1.5 font-urdu">
+                  <Truck className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                  <span>{tCalc.vehicleLabel}:</span>
+                </label>
+
+                {/* 4-Vehicle Visual Cards */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  {FLEET_DATA.map((v) => {
+                    const isSelected = formData.vehicleType === v.id;
+                    return (
+                      <button
+                        key={v.id}
+                        type="button"
+                        onClick={() => setFormData(prev => ({ ...prev, vehicleType: v.id }))}
+                        className={`p-2.5 rounded-lg border text-right transition-all flex flex-col justify-between cursor-pointer ${
+                          isSelected
+                            ? 'bg-amber-500/10 border-amber-500 ring-2 ring-amber-500/30 text-slate-950 font-bold'
+                            : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50'
+                        }`}
+                      >
+                        <div className="flex items-center justify-between w-full mb-1">
+                          <Truck className={`w-3.5 h-3.5 ${isSelected ? 'text-amber-600' : 'text-slate-400'}`} />
+                          <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-100 border border-slate-200">
+                            {isUrdu ? v.capacityUrdu : v.capacity}
+                          </span>
+                        </div>
+                        <span className="text-xs font-bold font-urdu">
+                          {isUrdu ? v.nameUrdu : v.nameEnglish}
+                        </span>
+                      </button>
+                    );
+                  })}
                 </div>
+              </div>
+
+              {/* Loading Date Row */}
+              <div>
+                <label htmlFor="booking-loading-date" className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5 font-urdu">
+                  <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                  <span>{tCalc.dateLabel}:</span>
+                </label>
+                <input
+                  id="booking-loading-date"
+                  type="date"
+                  name="loadingDate"
+                  value={formData.loadingDate}
+                  onChange={handleChange}
+                  className="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-slate-900 text-sm focus:border-blue-500 focus:outline-none min-h-[44px]"
+                  required
+                />
               </div>
 
               {/* Row 3: Goods Type & Weight */}
@@ -455,25 +565,46 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                 ></textarea>
               </div>
 
-              {/* Submit CTA */}
-              <div className="pt-2">
-                <button
-                  id="booking-submit-whatsapp-btn"
-                  type="submit"
-                  className={`w-full flex items-center justify-center gap-2.5 font-bold py-3.5 px-6 rounded-lg shadow-sm text-sm sm:text-base transition-colors cursor-pointer min-h-[48px] font-urdu active:scale-98 ${
-                    isCorporateMode
-                      ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                      : 'bg-amber-500 hover:bg-amber-400 text-slate-950'
-                  }`}
-                >
-                  <MessageCircle className="w-5 h-5 fill-current flex-shrink-0" />
-                  <span>
-                    {isCorporateMode 
-                      ? (language === 'ur' ? 'کارپوریٹ کنٹریکٹ انکوائری واٹس ایپ پر بھیجیں' : 'Send Corporate B2B Contract Inquiry on WhatsApp')
-                      : tCalc.submitBtn}
-                  </span>
-                </button>
-                <p className="text-center text-xs text-slate-500 mt-2 font-urdu">
+              {/* Submit & Copy Actions */}
+              <div className="pt-2 space-y-2.5">
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-2.5">
+                  <button
+                    id="booking-submit-whatsapp-btn"
+                    type="submit"
+                    className={`sm:col-span-8 flex items-center justify-center gap-2.5 font-bold py-3.5 px-6 rounded-xl shadow-xs text-sm sm:text-base transition-all cursor-pointer min-h-[48px] font-urdu active:scale-98 ${
+                      isCorporateMode
+                        ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                        : 'bg-emerald-600 hover:bg-emerald-500 text-white'
+                    }`}
+                  >
+                    <MessageCircle className="w-5 h-5 fill-current flex-shrink-0" />
+                    <span>
+                      {isCorporateMode 
+                        ? (language === 'ur' ? 'کارپوریٹ انکوائری واٹس ایپ پر بھیجیں' : 'Send B2B Inquiry on WhatsApp')
+                        : tCalc.submitBtn}
+                    </span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handleCopySummary}
+                    className="sm:col-span-4 flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3.5 px-4 rounded-xl border border-slate-200 transition-all cursor-pointer min-h-[48px] font-urdu text-xs sm:text-sm active:scale-98"
+                  >
+                    {copiedSummary ? (
+                      <>
+                        <Check className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                        <span className="text-emerald-700 font-bold">{isUrdu ? 'کوائف کاپی ہو گئے!' : 'Copied!'}</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-4 h-4 text-slate-600 flex-shrink-0" />
+                        <span>{isUrdu ? 'کوائف کاپی کریں' : 'Copy Load Info'}</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+
+                <p className="text-center text-xs text-slate-500 font-urdu">
                   {isCorporateMode 
                     ? (language === 'ur' ? 'براہ راست پروپرائٹر کے ساتھ آفیشل واٹس ایپ پر رابطہ اور کوٹیشن شیئرنگ' : 'Direct liaison with Proprietor for corporate vendor evaluation and rate agreement.')
                     : tCalc.submitHint}
@@ -490,7 +621,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
             <div className="bg-white text-slate-900 rounded-lg p-5 shadow-sm border border-slate-200">
               <div className="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
                 <span className="text-xs font-bold text-blue-700 font-urdu">{tCalc.summaryTitle}</span>
-                <Sparkles className="w-4 h-4 text-amber-500" />
+                <Calculator className="w-4 h-4 text-amber-500" />
               </div>
 
               <div className="space-y-3.5 text-sm">

@@ -102,26 +102,22 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
   return (
     <section 
       id="tracking" 
-      className="py-14 sm:py-20 bg-slate-100/90 border-y border-slate-200 relative overflow-hidden"
+      className="py-12 sm:py-16 bg-slate-50 border-y border-slate-200"
     >
-      {/* Background Ambience */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl pointer-events-none -z-10"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-100/40 rounded-full blur-3xl pointer-events-none -z-10"></div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100 border border-blue-300 text-blue-900 text-xs sm:text-sm font-bold mb-3 font-urdu shadow-sm">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+          <div className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-700 mb-2 font-urdu">
             <ShieldCheck className="w-4 h-4 text-blue-700 flex-shrink-0" />
             <span>{t.badge}</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-urdu leading-relaxed">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-urdu tracking-tight">
             {t.title}
           </h2>
 
-          <p className="mt-3 text-sm sm:text-base text-slate-600 font-urdu leading-relaxed">
+          <p className="mt-2 text-sm sm:text-base text-slate-600 font-urdu max-w-2xl mx-auto">
             {t.subtitle}
           </p>
         </div>
