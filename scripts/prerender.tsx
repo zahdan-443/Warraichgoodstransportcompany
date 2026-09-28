@@ -251,7 +251,7 @@ async function prerender() {
   console.log(`   - Created dist/404.html for GitHub Pages SPA fallback`);
 
   // Ensure critical server config and SEO files are guaranteed present in dist
-  const filesToSync = ['.htaccess', '_headers', 'robots.txt', 'sitemap.xml', 'favicon.ico', 'favicon.png'];
+  const filesToSync = ['.htaccess', '_headers', 'robots.txt', 'sitemap.xml', 'sitemap.txt', 'favicon.ico', 'favicon.png'];
   for (const file of filesToSync) {
     const srcPath = path.resolve(__dirname, `../public/${file}`);
     const destPath = path.join(distDir, file);

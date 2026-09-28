@@ -69,6 +69,17 @@
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Content-Security-Policy "default-src 'self' 'unsafe-inline' https: data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: blob:; font-src 'self' data: https:; connect-src 'self' https: wss:; frame-ancestors 'self';"
 
+  <FilesMatch "^(sitemap\.xml)$">
+    ForceType application/xml
+    Header set Content-Type "application/xml; charset=UTF-8"
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+  <FilesMatch "^(sitemap\.txt|robots\.txt)$">
+    ForceType text/plain
+    Header set Content-Type "text/plain; charset=UTF-8"
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+
   <FilesMatch "\.(ico|jpe?g|png|gif|webp|svg)$">
     Header set Cache-Control "max-age=31536000, public, immutable"
   </FilesMatch>

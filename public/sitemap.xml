@@ -1,49 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- 1. Homepage Root -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- 2. Commercial Truck Fleet & Cargo Categories -->
   <url>
     <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/fleet/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- 3. FTL Transport Services, Safety & Corporate Credentials -->
   <url>
     <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/services/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- 4. Freight Rate Calculator & Online Bilty Tracking -->
   <url>
     <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/booking/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- 5. Frequently Asked Questions (FAQs) & Customer Reviews -->
   <url>
     <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/faq/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- 6. About Company & Official Verified Business Card -->
   <url>
     <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/about/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

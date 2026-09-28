@@ -3,6 +3,11 @@
 
 User-agent: *
 Allow: /
+Allow: /sitemap.xml
+Allow: /sitemap.txt
 
-# Sitemap URL
+# Primary XML Sitemap
 Sitemap: https://zahdan-443.github.io/Warraichgoodstransportcompany/sitemap.xml
+
+# Plain Text Sitemap
+Sitemap: https://zahdan-443.github.io/Warraichgoodstransportcompany/sitemap.txt
