@@ -231,6 +231,8 @@ async function prerender() {
     if (isSubfolder) {
       pageHtml = pageHtml.replace(/href="\.\/assets\//g, 'href="../assets/');
       pageHtml = pageHtml.replace(/src="\.\/assets\//g, 'src="../assets/');
+      pageHtml = pageHtml.replace(/href="\.\/fonts\//g, 'href="../fonts/');
+      pageHtml = pageHtml.replace(/src="\.\/fonts\//g, 'src="../fonts/');
       pageHtml = pageHtml.replace(/href="\.\/favicon/g, 'href="../favicon');
       pageHtml = pageHtml.replace(/href="\.\/images\//g, 'href="../images/');
       pageHtml = pageHtml.replace(/src="\.\/images\//g, 'src="../images/');
@@ -249,6 +251,23 @@ async function prerender() {
   const indexHtml = fs.readFileSync(path.join(distDir, 'index.html'), 'utf-8');
   fs.writeFileSync(notFoundPath, indexHtml, 'utf-8');
   console.log(`   - Created dist/404.html for GitHub Pages SPA fallback`);
+
+  // Ensure fonts folder is synced to dist/fonts and dist/assets/fonts
+  const publicFontsDir = path.resolve(__dirname, '../public/fonts');
+  const distFontsDir = path.join(distDir, 'fonts');
+  const distAssetsFontsDir = path.join(distDir, 'assets', 'fonts');
+
+  if (fs.existsSync(publicFontsDir)) {
+    fs.mkdirSync(distFontsDir, { recursive: true });
+    fs.mkdirSync(distAssetsFontsDir, { recursive: true });
+    const fontFiles = fs.readdirSync(publicFontsDir);
+    for (const fontFile of fontFiles) {
+      const srcFont = path.join(publicFontsDir, fontFile);
+      fs.copyFileSync(srcFont, path.join(distFontsDir, fontFile));
+      fs.copyFileSync(srcFont, path.join(distAssetsFontsDir, fontFile));
+      console.log(`   - Synced font ${fontFile} to dist/fonts/ and dist/assets/fonts/`);
+    }
+  }
 
   // Ensure critical server config and SEO files are guaranteed present in dist
   const filesToSync = ['.htaccess', '_headers', 'robots.txt', 'sitemap.xml', 'sitemap.txt', 'favicon.ico', 'favicon.png'];
