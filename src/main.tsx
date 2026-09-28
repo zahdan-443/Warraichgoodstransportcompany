@@ -28,10 +28,19 @@ const app = (
   </StrictMode>
 );
 
-// If pre-rendered content exists inside #root, hydrate it to preserve HTML and attach event listeners;
-// otherwise fall back to standard createRoot rendering (e.g. during development).
+// If pre-rendered content exists inside #root, hydrate it safely to preserve HTML and attach event listeners;
+// if hydration encounters any unexpected mismatch, cleanly fall back to createRoot.
 if (rootElement.hasChildNodes()) {
-  hydrateRoot(rootElement, app);
+  try {
+    hydrateRoot(rootElement, app, {
+      onRecoverableError(error) {
+        console.warn('Hydration recoverable warning:', error);
+      }
+    });
+  } catch (err) {
+    console.warn('Hydration fallback to client render:', err);
+    createRoot(rootElement).render(app);
+  }
 } else {
   createRoot(rootElement).render(app);
 }

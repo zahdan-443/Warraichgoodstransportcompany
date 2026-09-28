@@ -124,6 +124,8 @@ export const CargoSafetySection: React.FC = () => {
             <img 
               src="./images/cargo-safety.webp" 
               alt="Waterproof Tarpaulin and Cargo Lashing Safety - Warraich Goods" 
+              width={640}
+              height={360}
               className="w-full h-48 sm:h-52 object-cover"
               loading="lazy"
               referrerPolicy="no-referrer"

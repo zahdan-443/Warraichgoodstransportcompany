@@ -192,6 +192,8 @@ export const FtlWorkflowSection: React.FC = () => {
               <img 
                 src="./images/road-highway.webp" 
                 alt="Pakistan Motorway Freight Logistics Corridor - Warraich Goods" 
+                width={800}
+                height={450}
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
                 referrerPolicy="no-referrer"

@@ -283,6 +283,8 @@ export const CorporateCredibilitySection: React.FC = () => {
               <img 
                 src="./images/factory-warehouse.webp" 
                 alt="Industrial Factory and Warehouse Logistics Loading Bay - Warraich Goods" 
+                width={800}
+                height={450}
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
                 referrerPolicy="no-referrer"
@@ -379,6 +381,8 @@ export const CorporateCredibilitySection: React.FC = () => {
                   <img 
                     src={slot.imageSrc} 
                     alt={slot.alt} 
+                    width={400}
+                    height={300}
                     className="w-full h-full object-cover"
                     loading="lazy"
                     referrerPolicy="no-referrer"

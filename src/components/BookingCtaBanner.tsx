@@ -115,6 +115,42 @@ export const BookingCtaBanner: React.FC = () => {
             </div>
 
           </div>
+
+          {/* Expanded Informational Freight Logistics Content (Enhances Visibility & Text-to-HTML Ratio) */}
+          <div className="mt-8 pt-8 border-t border-slate-800 grid grid-cols-1 md:grid-cols-3 gap-6 text-slate-300">
+            <div className={`space-y-2 ${isUrdu ? 'text-right font-urdu' : 'text-left'}`}>
+              <h3 className="text-white text-sm sm:text-base font-bold font-urdu">
+                {isUrdu ? 'سمندری و کمالیہ خصوصی ٹرانسپورٹ اڈا' : 'Samundri & Kamalia Freight Hubs'}
+              </h3>
+              <p className="text-xs leading-relaxed text-slate-300">
+                {isUrdu
+                  ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی سمندری بائی پاس اور کمالیہ رجانہ روڈ سے روزانہ کی بنیاد پر پورے پاکستان کے لیے نان اسٹاپ ہیوی ٹرک، مزدا، شہزور اور سیمپل ٹرالر روانہ کرتی ہے۔'
+                  : 'Operating specialized commercial dispatch centers at Samundri Bypass and Kamalia Rajana Road for uninterrupted nationwide freight movements.'}
+              </p>
+            </div>
+
+            <div className={`space-y-2 ${isUrdu ? 'text-right font-urdu' : 'text-left'}`}>
+              <h3 className="text-white text-sm sm:text-base font-bold font-urdu">
+                {isUrdu ? '100% مخصوص فل لوڈ و قانونی تحفظ' : 'Single-Shipper Integrity & FBR Compliance'}
+              </h3>
+              <p className="text-xs leading-relaxed text-slate-300">
+                {isUrdu
+                  ? 'ہم کسی بھی قسم کا لوز کارگو، پارسل یا مخلوط سامان نہیں لادتے۔ ہر بکنگ پر کمپیوٹرائزڈ کانٹا پرچی، اصل بلٹی اور رجسٹرڈ انکم ٹیکس و سیلز ٹیکس انوائس فراہم کی جاتی ہے۔'
+                  : 'Strict zero mixed cargo policy. Every consignment is supported by computerized weighbridge scale slips, verified bilty documentation, and FBR NTN tax compliance.'}
+              </p>
+            </div>
+
+            <div className={`space-y-2 ${isUrdu ? 'text-right font-urdu' : 'text-left'}`}>
+              <h3 className="text-white text-sm sm:text-base font-bold font-urdu">
+                {isUrdu ? 'ملک گیر ہائی وے و موٹروے نیٹ ورک' : 'Nationwide Motorway & Highway Corridors'}
+              </h3>
+              <p className="text-xs leading-relaxed text-slate-300">
+                {isUrdu
+                  ? 'موٹروے ایم-4، ایم-2، ایم-3، ایم-5 اور قومی شاہراہ این-5 کے ذریعے لاہور، کراچی، راولپنڈی، اسلام آباد، پشاور، ملتان، کوئٹہ اور تمام صنعتی زونز تک برق رفتار محفوظ ترسیل۔'
+                  : 'Fast point-to-point transit via Motorways M-4, M-2, M-3, M-5 and National Highway N-5 to Lahore, Karachi Port, Islamabad, Multan, and major economic corridors.'}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

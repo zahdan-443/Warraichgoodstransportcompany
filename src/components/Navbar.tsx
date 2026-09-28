@@ -100,6 +100,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <img
                   src="./images/logo.png"
                   alt="Warraich Goods Transport Company Official Logo"
+                  width={56}
+                  height={56}
                   loading="eager"
                   decoding="async"
                   className="w-full h-full object-contain"

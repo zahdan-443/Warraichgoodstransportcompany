@@ -3,18 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https: data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: blob:; font-src 'self' data: https:; connect-src 'self' https: wss:;" />
     
-    <!-- Primary Page Title & Meta Description (<60 chars title, ~153 chars description) -->
+    <!-- Primary Page Title & Meta Description (<60 chars title, under ~920px description width) -->
     <title>Warraich Goods Transport | Samundri &amp; Kamalia</title>
-    <meta name="description" content="Warraich Goods Transport Company: Reliable FTL truck booking &amp; cargo logistics in Samundri (0300-5370443) &amp; Kamalia (0339-5370443). 24/7 nationwide freight service." />
+    <meta name="description" content="Warraich Goods: 24/7 FTL truck booking &amp; cargo in Samundri (0300-5370443) &amp; Kamalia (0339-5370443). Nationwide freight." />
     <meta name="author" content="Zahdan Nasar Warraich (زاہدان نصر وڑائچ)" />
     <meta name="publisher" content="Warraich Goods Transport Company" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large" />
     <link rel="canonical" href="https://zahdan-443.github.io/Warraichgoodstransportcompany/" />
 
-    <!-- Canonical URL & Host Normalization Guard (Minified: resolves www vs non-www duplicate indexing for live visitors) -->
-    <script>!function(){try{var o=window.location,n=o.hostname;if(!n||n==="localhost"||n==="127.0.0.1"||n.indexOf(".run.app")!==-1||n.indexOf("webcache")!==-1)return;if(n.indexOf("www.")===0){o.replace("https://"+n.slice(4)+o.pathname+o.search+o.hash);return}if(o.protocol==="http:"&&n.indexOf("github.io")===-1){o.replace("https://"+n+o.pathname+o.search+o.hash)}}catch(e){}}();</script>
+    <!-- Canonical URL, Host & Lowercase Path Normalization Guard (Resolves www vs non-www and uppercase URLs to avoid duplicate indexing) -->
+    <script>!function(){try{var o=window.location,n=o.hostname,p=o.pathname;if(!n||n==="localhost"||n==="127.0.0.1"||n.indexOf(".run.app")!==-1||n.indexOf("webcache")!==-1)return;if(n.indexOf("www.")===0){o.replace("https://"+n.slice(4)+p+o.search+o.hash);return}if(o.protocol==="http:"&&n.indexOf("github.io")===-1){o.replace("https://"+n+p+o.search+o.hash);return}if(/[A-Z]/.test(p)&&n.indexOf("github.io")===-1){o.replace(o.protocol+"//"+n+p.toLowerCase()+o.search+o.hash)}}catch(e){}}();</script>
 
     <!-- Google Site Verification Token (Search Console) -->
     <meta name="google-site-verification" content="FbkLPKJ17nJ7kaOobCe1ezmCSzpcm_mgxkzVob-cSLE" />
@@ -34,7 +36,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://zahdan-443.github.io/Warraichgoodstransportcompany/" />
     <meta property="og:title" content="Warraich Goods Transport | Samundri &amp; Kamalia" />
-    <meta property="og:description" content="Warraich Goods Transport Company: Reliable FTL truck booking &amp; cargo logistics in Samundri (0300-5370443) &amp; Kamalia (0339-5370443). 24/7 nationwide freight service." />
+    <meta property="og:description" content="Warraich Goods: 24/7 FTL truck booking &amp; cargo in Samundri (0300-5370443) &amp; Kamalia (0339-5370443). Nationwide freight." />
     <meta property="og:image" content="https://zahdan-443.github.io/Warraichgoodstransportcompany/images/logo.png" />
     <meta property="og:image:secure_url" content="https://zahdan-443.github.io/Warraichgoodstransportcompany/images/logo.png" />
     <meta property="og:image:type" content="image/png" />
@@ -50,7 +52,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://zahdan-443.github.io/Warraichgoodstransportcompany/" />
     <meta name="twitter:title" content="Warraich Goods Transport | Samundri &amp; Kamalia" />
-    <meta name="twitter:description" content="Warraich Goods Transport Company: Reliable FTL truck booking &amp; cargo logistics in Samundri (0300-5370443) &amp; Kamalia (0339-5370443). 24/7 nationwide freight service." />
+    <meta name="twitter:description" content="Warraich Goods: 24/7 FTL truck booking &amp; cargo in Samundri (0300-5370443) &amp; Kamalia (0339-5370443). Nationwide freight." />
     <meta name="twitter:image" content="https://zahdan-443.github.io/Warraichgoodstransportcompany/images/logo.png" />
     <meta name="twitter:image:alt" content="Warraich Goods Transport Company Official Fleet Logo" />
 

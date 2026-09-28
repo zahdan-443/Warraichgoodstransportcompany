@@ -262,6 +262,8 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
                       <img 
                         src={category.image}
                         alt={categoryTitle}
+                        width={640}
+                        height={360}
                         className="w-full h-full object-cover"
                         loading="lazy"
                         referrerPolicy="no-referrer"

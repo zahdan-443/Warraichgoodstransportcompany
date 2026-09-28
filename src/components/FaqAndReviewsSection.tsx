@@ -111,11 +111,9 @@ export const FaqAndReviewsSection: React.FC = () => {
                     <ChevronDown className={`w-5 h-5 text-blue-600 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
                   </button>
 
-                  {isOpen && (
-                    <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-2 text-slate-700 text-xs sm:text-sm leading-relaxed border-t border-slate-100 bg-slate-50 font-urdu">
-                      {faq.a}
-                    </div>
-                  )}
+                  <div className={`px-4 sm:px-5 pb-4 sm:pb-5 pt-2 text-slate-700 text-xs sm:text-sm leading-relaxed border-t border-slate-100 bg-slate-50 font-urdu ${isOpen ? 'block' : 'hidden'}`}>
+                    {faq.a}
+                  </div>
                 </div>
               );
             })}

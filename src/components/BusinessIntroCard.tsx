@@ -83,6 +83,8 @@ export const BusinessIntroCard: React.FC = () => {
                     <img 
                       src="./images/logo.png" 
                       alt="Warraich Goods Logo" 
+                      width={80}
+                      height={80}
                       className="w-full h-full object-contain"
                       loading="lazy"
                       onError={(e) => {
@@ -173,6 +175,8 @@ export const BusinessIntroCard: React.FC = () => {
                     <img 
                       src="./images/owner-portrait.png" 
                       alt={isUrdu ? COMPANY_INFO.proprietorUrdu : COMPANY_INFO.proprietorEnglish}
+                      width={40}
+                      height={40}
                       className="w-10 h-10 rounded-full object-cover border-2 border-amber-400 shadow-sm"
                       loading="lazy"
                     />

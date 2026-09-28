@@ -32,10 +32,17 @@ export const Footer: React.FC = () => {
     : 'Warraich Goods Transport Company - Nationwide FTL Truck Booking & Logistics';
 
   const handleCopyLink = () => {
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(shareUrl);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2500);
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(shareUrl).then(() => {
+          setCopied(true);
+          setTimeout(() => setCopied(false), 2500);
+        }).catch(() => {
+          // Fallback or ignore in restrictive iframe environments
+        });
+      }
+    } catch {
+      // Ignore if clipboard API is disallowed in sandbox
     }
   };
 

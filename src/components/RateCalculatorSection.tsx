@@ -34,7 +34,7 @@ export const RateCalculatorSection: React.FC<RateCalculatorSectionProps> = ({ se
     vehicleType: 'shehzore',
     goodsType: language === 'ur' ? 'زرعی اجناس (گندم، چاول، مکئی، کپاس، چارہ - فل گاڑی)' : 'Agricultural Produce (Wheat, Corn, Rice, Cotton - Full Truckload)',
     weight: language === 'ur' ? 'فل گاڑی لوڈ' : 'Full Truckload',
-    loadingDate: new Date().toISOString().split('T')[0],
+    loadingDate: '',
     customerName: '',
     customerPhone: '',
     specialInstructions: '',
@@ -43,6 +43,16 @@ export const RateCalculatorSection: React.FC<RateCalculatorSectionProps> = ({ se
     monthlyTrips: '5-10 Trucks / Month',
     industryType: 'Textile / Mill',
   });
+
+  // Set default date on client-side mount without causing hydration mismatch
+  useEffect(() => {
+    setFormData(prev => {
+      if (!prev.loadingDate) {
+        return { ...prev, loadingDate: new Date().toISOString().split('T')[0] };
+      }
+      return prev;
+    });
+  }, []);
 
   useEffect(() => {
     if (selectedVehicleId) {
@@ -145,7 +155,14 @@ Please advise regarding the most competitive freight quotation and earliest vehi
     const text = generateWhatsAppMessage();
     const encoded = encodeURIComponent(text);
     const whatsappUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encoded}`;
-    window.open(whatsappUrl, '_blank');
+    try {
+      const win = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      if (!win) {
+        window.location.href = whatsappUrl;
+      }
+    } catch {
+      window.location.href = whatsappUrl;
+    }
   };
 
   return (
