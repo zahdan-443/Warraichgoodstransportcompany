@@ -89,8 +89,10 @@ function extractSafePublicBiltyFields(data: any, fallbackBiltyNo: string): Publi
 }
 
 /**
- * Performs read-only lookup in the Firestore 'bilties' collection.
- * Tries direct document ID lookup first, then falls back to `where("biltyNo", "==", normalizedNo)`.
+ * Performs read-only lookup strictly in the Firestore 'publicBiltyVerifications' collection.
+ * The internal 'bilties' collection remains completely private and unreachable from the website.
+ * Tries direct document ID lookup first (`publicBiltyVerifications/{normalizedNo}`),
+ * then falls back to `where("biltyNo", "==", normalizedNo)`.
  */
 export async function verifyBiltyRecord(rawBiltyNo: string): Promise<VerificationResult> {
   const normalizedNo = normalizeBiltyNo(rawBiltyNo);
@@ -99,8 +101,8 @@ export async function verifyBiltyRecord(rawBiltyNo: string): Promise<Verificatio
   }
 
   try {
-    // 1. Try direct Document ID lookup: bilties/{normalizedNo}
-    const docRef = doc(db, 'bilties', normalizedNo);
+    // 1. Try direct Document ID lookup: publicBiltyVerifications/{normalizedNo}
+    const docRef = doc(db, 'publicBiltyVerifications', normalizedNo);
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
@@ -111,8 +113,8 @@ export async function verifyBiltyRecord(rawBiltyNo: string): Promise<Verificatio
       };
     }
 
-    // 2. Query fallback: bilties where biltyNo == normalizedNo
-    const biltiesRef = collection(db, 'bilties');
+    // 2. Query fallback: publicBiltyVerifications where biltyNo == normalizedNo
+    const biltiesRef = collection(db, 'publicBiltyVerifications');
     const q = query(biltiesRef, where('biltyNo', '==', normalizedNo), limit(1));
     const querySnap = await getDocs(q);
 

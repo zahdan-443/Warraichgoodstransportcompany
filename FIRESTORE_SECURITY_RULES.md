@@ -1,41 +1,53 @@
-# Firestore Security Rules & Integration Guidelines
+# Firestore Security Rules & Architecture Guide
 
-## Project: Warraich Goods Transport Company
-- **Website App**: Bilty Verification Web App (Read-Only)
-- **Firebase Project ID**: `warraich-goods`
-- **Owner Account**: `warraichgoods43@gmail.com`
-- **Public Collection**: `bilties`
+## Security Architecture Overview
+
+To protect sensitive customer and financial information while providing a public Bilty Verification System on the website:
+
+1. **`bilties` (Private Collection):**
+   - Contains complete internal bilty records (CNICs, phone numbers, freight amounts, payment status, driver credentials).
+   - **Access:** Completely **PRIVATE**. Public website access is **STRICTLY DENIED**.
+   - **Write:** Restricted to authorized owner account (`warraichgoods43@gmail.com`) via Driver Dost App authentication.
+
+2. **`publicBiltyVerifications` (Public Collection):**
+   - Contains **ONLY** sanitized, non-sensitive verification fields:
+     - `biltyNo`: Normalized string (e.g. `"WGT-99214"`)
+     - `biltyDate`: Date string or Timestamp
+     - `origin`: Origin city (e.g. `"Samundri"`)
+     - `destination`: Destination city (e.g. `"Karachi Port"`)
+     - `goodsDescription`: General goods category (e.g. `"Textile Bales"`)
+     - `weightOrQty`: Package count / weight summary
+     - `vehicleNo`: Truck registration number (e.g. `"LES-8842"`)
+     - `status`: Verification status string (e.g. `"Verified Record in Transit"`)
+   - **Access:** **READ-ONLY for the public**.
+   - **Write:** Restricted exclusively to authorized owner (`warraichgoods43@gmail.com`). Public users **cannot create, edit, or delete** documents.
 
 ---
 
-## 1. Recommended Firestore Security Rules
+## Recommended Firestore Security Rules
 
-To ensure that the website can read public verification records without exposing private user databases or allowing unauthorized document creation/modification, deploy the following security rules in the Firebase Console:
+Copy and paste the following rules into the **Firebase Console -> Firestore Database -> Rules**:
 
-```firestore
+```javascript
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // ----------------------------------------------------
-    // Public Bilty Verification Collection (Read-Only)
-    // Document ID or normalized bilty number e.g. /bilties/WGT-4431
-    // ----------------------------------------------------
+    // 1. PRIVATE COLLECTION: Internal Bilties
+    // Stores full records including CNIC, phone numbers, financial details.
+    // Public website users HAVE NO ACCESS.
     match /bilties/{biltyId} {
-      // Allow public read access for verification
-      allow get, list: if true;
-
-      // Allow write access ONLY to the owner account
-      allow create, update, delete: if request.auth != null &&
-        request.auth.token.email == "warraichgoods43@gmail.com";
+      allow read, write: if request.auth != null && request.auth.token.email == "warraichgoods43@gmail.com";
     }
 
-    // ----------------------------------------------------
-    // Private Driver Dost User Data & Collections
-    // STRICTLY RESTRICTED - No public access permitted
-    // ----------------------------------------------------
-    match /users/{userId}/{document=**} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
+    // 2. PUBLIC COLLECTION: Sanitized Bilty Verifications
+    // Stores ONLY safe public verification fields.
+    match /publicBiltyVerifications/{biltyId} {
+      // Allow public read access for website verification queries
+      allow read: if true;
+
+      // Restrict write/update/delete strictly to the authenticated owner account
+      allow write: if request.auth != null && request.auth.token.email == "warraichgoods43@gmail.com";
     }
 
     // Default deny for all other collections
@@ -48,39 +60,15 @@ service cloud.firestore {
 
 ---
 
-## 2. Driver Dost App Integration & QR Code Setup
+## Technical Integration Details
 
-When updating the Driver Dost Android app, configure the generated QR Code URL to point directly to the company website verification page:
-
-### **QR URL Format:**
+### Website QR URL Format
+When scanning QR codes on printed bilties, the QR code URL must direct to:
 ```
-https://zahdan-443.github.io/Warraichgoodstransportcompany/?page=verify&bilty=WGT-4431
-```
-*or alternatively:*
-```
-https://zahdan-443.github.io/Warraichgoodstransportcompany/#tracking?bilty=WGT-4431
+https://zahdan-443.github.io/Warraichgoodstransportcompany/?page=verify&bilty={BILTY_NUMBER}
 ```
 
-### **Public Verification Document Writing in App:**
-When the owner creates a bilty in the Driver Dost app, write a public verification document to the `bilties` collection using the **normalized bilty number as the document ID**:
-
-- **Collection**: `bilties`
-- **Document ID**: `WGT-4431` (uppercase, trimmed)
-- **Fields to Include**:
-  - `biltyNo`: `"WGT-4431"`
-  - `biltyDate`: `"2025-05-20"` or Firestore Timestamp
-  - `origin`: `"Samundri"`
-  - `destination`: `"Karachi Port"`
-  - `goodsDescription`: `"Textile Yarn Bags"`
-  - `weightOrQty`: `"12 Tons / 240 Bags"`
-  - `vehicleNo`: `"FD-7844"`
-  - `status`: `"Dispatched - On Motorway M-5"`
-
----
-
-## 3. Sensitive Data Redaction Rules
-The website automatically strips and redacts any private or sensitive fields. **Do NOT include** the following in public `bilties` documents:
-- Sender / Consignee phone numbers
-- CNIC / Biometric numbers
-- Freight charges / Payment amounts / Commission details
-- Driver's private credentials
+### Driver Dost App Integration Requirement
+When the owner creates or updates a bilty in the Driver Dost app:
+1. Save the complete internal bilty record in `bilties/{biltyNo}`.
+2. Publish/sync the sanitized public record in `publicBiltyVerifications/{biltyNo}` containing only the non-sensitive public fields listed above.
