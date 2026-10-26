@@ -11,8 +11,11 @@ import { ServicesPage } from './pages/ServicesPage';
 import { BookingPage } from './pages/BookingPage';
 import { FaqPage } from './pages/FaqPage';
 import { AboutPage } from './pages/AboutPage';
+import { BiltyVerificationPage } from './pages/BiltyVerificationPage';
 
 export default function App() {
+  // Inspect query parameter page=verify to route directly to Bilty Verification Page
+  const isVerifyPage = typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('page') === 'verify';
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
   const handleToggleMenu = () => {
@@ -38,12 +41,13 @@ export default function App() {
       {/* 2. Route-Driven Main Content Area */}
       <main className="flex-1">
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={isVerifyPage ? <BiltyVerificationPage /> : <HomePage />} />
           <Route path="/fleet" element={<FleetPage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/booking" element={<BookingPage />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/verify" element={<BiltyVerificationPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
