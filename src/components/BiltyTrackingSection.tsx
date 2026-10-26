@@ -1,22 +1,29 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams, Link } from 'react-router-dom';
 import { 
   Search, 
   MapPin, 
   CheckCircle2, 
+  XCircle,
+  AlertCircle,
+  Loader2,
   Phone, 
   MessageCircle, 
   ArrowRight, 
-  FileText, 
   ShieldCheck,
   Navigation,
   Scale,
   Clock,
-  Truck
+  Truck,
+  Calendar,
+  Package,
+  FileCheck2,
+  Lock
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { COMPANY_INFO } from '../data/companyData';
 import { TRANSLATIONS } from '../data/translations';
+import { verifyBiltyRecord, normalizeBiltyNo, VerificationResult, PublicBiltyRecord } from '../lib/firebase';
 
 interface BiltyTrackingSectionProps {
   condensed?: boolean;
@@ -26,11 +33,83 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
   const { language } = useLanguage();
   const t = TRANSLATIONS[language].tracking;
 
+  const [searchParams] = useSearchParams();
   const [inputBilty, setInputBilty] = useState<string>('');
   const [activeReference, setActiveReference] = useState<string>('');
+
+  // Verification states
+  const [loading, setLoading] = useState<boolean>(false);
+  const [verifiedRecord, setVerifiedRecord] = useState<PublicBiltyRecord | null>(null);
+  const [notFound, setNotFound] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [hasSearched, setHasSearched] = useState<boolean>(false);
 
-  const sampleCodes = ['CN-452', 'FD-7844', 'LE-3190', 'CN-1048'];
+  const sampleCodes = ['WGT-4431', 'WGT-8924', 'CN-452', 'FD-7844'];
+
+  // Parse QR Code URL parameters automatically on load
+  // Supports: ?page=verify&bilty=WGT-1234 or ?bilty=WGT-1234
+  useEffect(() => {
+    const pageParam = searchParams.get('page');
+    const biltyParam = searchParams.get('bilty') || searchParams.get('id') || searchParams.get('biltyNo');
+
+    if (biltyParam || (pageParam === 'verify' && biltyParam)) {
+      const targetBilty = biltyParam || '';
+      setInputBilty(targetBilty);
+      handlePerformVerification(targetBilty);
+    }
+  }, [searchParams]);
+
+  const handlePerformVerification = async (codeToVerify: string) => {
+    const cleaned = normalizeBiltyNo(codeToVerify);
+    if (!cleaned) return;
+
+    setActiveReference(cleaned);
+    setLoading(true);
+    setHasSearched(true);
+    setVerifiedRecord(null);
+    setNotFound(false);
+    setErrorMessage(null);
+
+    try {
+      const result: VerificationResult = await verifyBiltyRecord(cleaned);
+
+      if (result.status === 'VERIFIED') {
+        setVerifiedRecord(result.record);
+      } else if (result.status === 'NOT_FOUND') {
+        setNotFound(true);
+      } else {
+        setErrorMessage(result.message);
+      }
+    } catch (err: any) {
+      console.error('Bilty verification error:', err);
+      setErrorMessage(
+        language === 'ur'
+          ? 'تصدیق ممکن نہیں ہو سکی — براہ کرم دوبارہ کوشش کریں'
+          : 'Unable to Verify — Please Try Again'
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (inputBilty.trim()) {
+      handlePerformVerification(inputBilty);
+    }
+  };
+
+  const handleSelectSample = (sample: string) => {
+    setInputBilty(sample);
+    handlePerformVerification(sample);
+  };
+
+  // WhatsApp prefilled message
+  const whatsappUrl = `https://wa.me/${COMPANY_INFO.phoneRaw1}?text=${encodeURIComponent(
+    language === 'ur'
+      ? `السلام علیکم! میں وڑائچ گڈز ٹرانسپورٹ کی بلٹی [${activeReference || inputBilty || 'CN-Ref'}] کی تصدیق اور لائیو لوکیشن معلوم کرنا چاہتا ہوں۔`
+      : `Hello! I would like to verify and check live updates for Warraich Goods Bilty # [${activeReference || inputBilty || 'CN-Ref'}].`
+  )}`;
 
   const corridorsList = [
     {
@@ -79,26 +158,6 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
     },
   ];
 
-  const handleTrack = (code?: string) => {
-    const query = (code || inputBilty).trim().toUpperCase();
-    if (!query) return;
-
-    setActiveReference(query);
-    setHasSearched(true);
-  };
-
-  const handleSelectSample = (sample: string) => {
-    setInputBilty(sample);
-    handleTrack(sample);
-  };
-
-  // WhatsApp prefilled message
-  const whatsappUrl = `https://wa.me/${COMPANY_INFO.phoneRaw1}?text=${encodeURIComponent(
-    language === 'ur'
-      ? `السلام علیکم زاہدان بھائی! میں وڑائچ گڈز ٹرانسپورٹ کی بلٹی / گاڑی نمبر [${activeReference || inputBilty || 'CN-Ref'}] کی لائیو لوکیشن اور ڈرائیور اپڈیٹ معلوم کرنا چاہتا ہوں۔`
-      : `Hello Zahdan brother! I would like to get the live location and driver update for Warraich Goods Bilty / Vehicle # [${activeReference || inputBilty || 'CN-Ref'}].`
-  )}`;
-
   return (
     <section 
       id="tracking" 
@@ -108,29 +167,25 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-700 mb-2 font-urdu">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-xs sm:text-sm font-bold text-blue-900 mb-3 font-urdu">
             <ShieldCheck className="w-4 h-4 text-blue-700 flex-shrink-0" />
-            <span>{t.badge}</span>
+            <span>{language === 'ur' ? 'آن لائن سیکور بلٹی تصدیق و ٹریکنگ' : 'Secure Bilty Verification & Tracking'}</span>
           </div>
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-urdu tracking-tight">
-            {t.title}
+            {language === 'ur' ? 'تصدیق بلٹی و لائیو لوکیشن سروس' : 'Verify Official Bilty Record'}
           </h2>
 
           <p className="mt-2 text-sm sm:text-base text-slate-600 font-urdu max-w-2xl mx-auto">
-            {t.subtitle}
+            {language === 'ur'
+              ? 'ڈرائیور دوست ایپ سے جاری کردہ بلٹی کا QR کوڈ اسکین کریں یا بلٹی نمبر درج کر کے آفیشل فل ٹرک لوڈ ریکارڈ کی تصدیق کریں۔'
+              : 'Scan the QR code printed on your bilty or enter the bilty number manually to verify the official record in our read-only system.'}
           </p>
         </div>
 
-        {/* Tracking Input Card */}
-        <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-sm border border-slate-200 p-5 sm:p-7 mb-10">
-          <form 
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleTrack();
-            }}
-            className="flex flex-col sm:flex-row gap-3"
-          >
+        {/* Search Input Box */}
+        <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-sm border border-slate-200 p-5 sm:p-7 mb-8">
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
             <div className="relative flex-1">
               <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                 <Search className="w-5 h-5" />
@@ -146,10 +201,20 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
 
             <button
               type="submit"
-              className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-7 py-3.5 rounded-lg text-sm sm:text-base transition-colors shadow-sm font-urdu whitespace-nowrap min-h-[48px] cursor-pointer"
+              disabled={loading}
+              className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-bold px-7 py-3.5 rounded-lg text-sm sm:text-base transition-colors shadow-sm font-urdu whitespace-nowrap min-h-[48px] cursor-pointer"
             >
-              <span>{t.btnTrack}</span>
-              <ArrowRight className="w-4 h-4" />
+              {loading ? (
+                <>
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  <span>{language === 'ur' ? 'تصدیق جاری ہے...' : 'Verifying...'}</span>
+                </>
+              ) : (
+                <>
+                  <span>{language === 'ur' ? 'بلٹی تصدیق کریں' : 'Verify Bilty'}</span>
+                  <ArrowRight className="w-4 h-4" />
+                </>
+              )}
             </button>
           </form>
 
@@ -171,85 +236,251 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
           </div>
         </div>
 
-        {/* Result Card when user has searched */}
-        {hasSearched && activeReference && (
-          <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden mb-12 animate-fadeIn">
-            {/* Header */}
-            <div className="bg-slate-900 text-white p-5 sm:p-6">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div>
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <span className="text-xs bg-amber-500 text-slate-950 font-bold px-2.5 py-0.5 rounded font-mono">
-                      {language === 'ur' ? 'کنسائنمنٹ ریفرنس' : 'CONSIGNMENT REF'}
+        {/* RESULTS SECTION */}
+        {hasSearched && (
+          <div className="max-w-3xl mx-auto mb-12">
+
+            {/* 1. LOADING STATE */}
+            {loading && (
+              <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-8 text-center space-y-4">
+                <Loader2 className="w-10 h-10 text-blue-600 animate-spin mx-auto" />
+                <p className="text-base font-bold text-slate-800 font-urdu">
+                  {language === 'ur' ? 'ڈیٹا بیس سے بلٹی ریکارڈ کی تصدیق کی جا رہی ہے...' : 'Verifying bilty record from Firebase database...'}
+                </p>
+                <p className="text-xs text-slate-500 font-urdu">
+                  {language === 'ur' ? 'براہ کرم چند سیکنڈ انتظار کریں' : 'Please wait a moment'}
+                </p>
+              </div>
+            )}
+
+            {/* 2. SUCCESS: VERIFIED BILTY RECORD */}
+            {!loading && verifiedRecord && (
+              <div className="bg-white rounded-xl shadow-md border-2 border-emerald-500 overflow-hidden animate-fadeIn">
+                {/* Header Banner */}
+                <div className="bg-emerald-700 text-white p-5 sm:p-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                        <CheckCircle2 className="w-6 h-6 text-emerald-200" />
+                      </div>
+                      <div>
+                        <span className="text-xs font-bold uppercase tracking-wider text-emerald-200 font-mono">
+                          {language === 'ur' ? 'تصدیق شدہ بلٹی ریکارڈ' : 'VERIFIED BILTY RECORD'}
+                        </span>
+                        <h3 className="text-xl sm:text-2xl font-black font-mono tracking-wide text-white">
+                          {verifiedRecord.biltyNo}
+                        </h3>
+                      </div>
+                    </div>
+
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-900/60 text-emerald-100 border border-emerald-400/40 font-urdu">
+                      <FileCheck2 className="w-4 h-4 text-emerald-300" />
+                      <span>{language === 'ur' ? 'اصلی وڑائچ گڈز بلٹی' : 'Authentic Record Verified'}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Body Details */}
+                <div className="p-6 sm:p-8 space-y-6">
+
+                  {/* Public Details Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-slate-50 p-4 sm:p-5 rounded-lg border border-slate-200 font-urdu text-sm">
+                    {verifiedRecord.biltyDate && (
+                      <div className="flex items-start gap-2.5">
+                        <Calendar className="w-4 h-4 text-slate-500 mt-1 flex-shrink-0" />
+                        <div>
+                          <span className="text-xs text-slate-500 block">
+                            {language === 'ur' ? 'تاریخِ بوکنگ:' : 'Booking Date:'}
+                          </span>
+                          <span className="font-bold text-slate-900 font-mono">{verifiedRecord.biltyDate}</span>
+                        </div>
+                      </div>
+                    )}
+
+                    {verifiedRecord.vehicleNo && (
+                      <div className="flex items-start gap-2.5">
+                        <Truck className="w-4 h-4 text-slate-500 mt-1 flex-shrink-0" />
+                        <div>
+                          <span className="text-xs text-slate-500 block">
+                            {language === 'ur' ? 'گاڑی نمبر:' : 'Vehicle No:'}
+                          </span>
+                          <span className="font-bold text-slate-900 font-mono">{verifiedRecord.vehicleNo}</span>
+                        </div>
+                      </div>
+                    )}
+
+                    {verifiedRecord.origin && (
+                      <div className="flex items-start gap-2.5">
+                        <MapPin className="w-4 h-4 text-emerald-600 mt-1 flex-shrink-0" />
+                        <div>
+                          <span className="text-xs text-slate-500 block">
+                            {language === 'ur' ? 'روانگی (Origin):' : 'Origin:'}
+                          </span>
+                          <span className="font-bold text-slate-900">{verifiedRecord.origin}</span>
+                        </div>
+                      </div>
+                    )}
+
+                    {verifiedRecord.destination && (
+                      <div className="flex items-start gap-2.5">
+                        <Navigation className="w-4 h-4 text-blue-600 mt-1 flex-shrink-0" />
+                        <div>
+                          <span className="text-xs text-slate-500 block">
+                            {language === 'ur' ? 'منزل (Destination):' : 'Destination:'}
+                          </span>
+                          <span className="font-bold text-slate-900">{verifiedRecord.destination}</span>
+                        </div>
+                      </div>
+                    )}
+
+                    {verifiedRecord.goodsDescription && (
+                      <div className="flex items-start gap-2.5 sm:col-span-2 pt-2 border-t border-slate-200/80">
+                        <Package className="w-4 h-4 text-amber-600 mt-1 flex-shrink-0" />
+                        <div>
+                          <span className="text-xs text-slate-500 block">
+                            {language === 'ur' ? 'سامان کی تفصیل:' : 'Goods Description:'}
+                          </span>
+                          <span className="font-bold text-slate-900">{verifiedRecord.goodsDescription}</span>
+                        </div>
+                      </div>
+                    )}
+
+                    {verifiedRecord.weightOrQty && (
+                      <div className="flex items-start gap-2.5 sm:col-span-2">
+                        <Scale className="w-4 h-4 text-slate-600 mt-1 flex-shrink-0" />
+                        <div>
+                          <span className="text-xs text-slate-500 block">
+                            {language === 'ur' ? 'وزن / تعداد:' : 'Weight / Quantity:'}
+                          </span>
+                          <span className="font-bold text-slate-900">{verifiedRecord.weightOrQty}</span>
+                        </div>
+                      </div>
+                    )}
+
+                    {verifiedRecord.status && (
+                      <div className="flex items-start gap-2.5 sm:col-span-2 pt-2 border-t border-slate-200/80">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-1 flex-shrink-0" />
+                        <div>
+                          <span className="text-xs text-slate-500 block">
+                            {language === 'ur' ? 'موجودہ اسٹیٹس:' : 'Current Status:'}
+                          </span>
+                          <span className="font-bold text-emerald-800">{verifiedRecord.status}</span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Safety & Privacy Notice */}
+                  <div className="flex items-center gap-2 bg-slate-100 p-3 rounded-lg text-xs text-slate-600 font-urdu">
+                    <Lock className="w-4 h-4 text-slate-500 flex-shrink-0" />
+                    <span>
+                      {language === 'ur'
+                        ? 'پرائیویسی سیکورٹی کی بنیاد پر شناختی کارڈ، پرسنل فون نمبرز اور کرایہ کی تفصیلات ظاہر نہیں کی جاتیں۔'
+                        : 'For security and privacy, CNIC numbers, contact numbers, and payment details are strictly kept confidential.'}
                     </span>
                   </div>
-                  <p className="text-xl sm:text-2xl font-black font-mono tracking-wide text-white">
-                    {activeReference}
+
+                  {/* Action Buttons */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <a
+                      href={whatsappUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold p-4 rounded-lg shadow-sm text-sm sm:text-base transition-colors font-urdu cursor-pointer"
+                    >
+                      <MessageCircle className="w-5 h-5" />
+                      <span>{t.contactDispatcher}</span>
+                    </a>
+
+                    <a
+                      href={`tel:${COMPANY_INFO.phoneRaw1}`}
+                      className="flex items-center justify-center gap-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold p-4 rounded-lg shadow-sm text-sm sm:text-base transition-colors font-urdu cursor-pointer"
+                    >
+                      <Phone className="w-5 h-5" />
+                      <span>{t.callHelpline}</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* 3. NOT FOUND STATE */}
+            {!loading && notFound && (
+              <div className="bg-white rounded-xl shadow-sm border-2 border-red-200 p-6 sm:p-8 text-center space-y-4 animate-fadeIn">
+                <div className="w-12 h-12 rounded-full bg-red-100 text-red-600 flex items-center justify-center mx-auto">
+                  <XCircle className="w-7 h-7" />
+                </div>
+
+                <div className="space-y-1">
+                  <h3 className="text-xl font-bold text-red-700 font-urdu">
+                    {language === 'ur' ? 'بلٹی نہیں ملی — تصدیق ناکام' : 'Bilty Not Found — Verification Failed'}
+                  </h3>
+                  <p className="text-sm font-mono text-slate-600 font-bold">
+                    Ref: [{activeReference}]
                   </p>
                 </div>
 
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-400/30 font-urdu">
-                  <CheckCircle2 className="w-4 h-4 text-amber-400" />
-                  <span>{language === 'ur' ? 'مستند FTL کنسائنمنٹ ٹرانزٹ' : 'Verified Dedicated FTL Transit'}</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Explanation & Action Box */}
-            <div className="p-6 sm:p-8 space-y-6">
-              <div className="bg-blue-50/70 border border-blue-200 rounded-lg p-4 sm:p-5 text-slate-800 space-y-2 font-urdu">
-                <p className="font-bold text-base text-blue-950 flex items-center gap-2">
-                  <Navigation className="w-5 h-5 text-blue-700 flex-shrink-0" />
-                  <span>
-                    {language === 'ur' 
-                      ? `بلٹی / گاڑی نمبر [${activeReference}] کی براہِ راست ٹریکنگ`
-                      : `Direct Transit Tracking for [${activeReference}]`}
-                  </span>
-                </p>
-                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 font-urdu max-w-lg mx-auto leading-relaxed">
                   {language === 'ur'
-                    ? 'وڑائچ گڈز پر ہر گاڑی آپ کے گودام یا فیکٹری سے لوڈ ہو کر کسی درمیانی مقام پر رکے بغیر سیدھی منزل کے لیے روانہ ہوتی ہے۔ ڈرائیور سے براہِ راست رابطہ اور واٹس ایپ پر تازہ لوکیشن معلوم کرنے کے لیے نیچے بٹن دبائیں:'
-                    : 'Warraich Goods operates dedicated Full Truckload (FTL) express service without intermediary transshipments. Use the direct buttons below to receive the truck driver’s live GPS coordinates and direct cellular status.'}
+                    ? 'ہمارے ڈیٹا بیس میں اس نمبر کا کوئی تصدیق شدہ ریکارڈ موجود نہیں ہے۔ اگر یہ ایک نئی بلٹی ہے تو برائے مہربانی ڈرائیور یا وڑائچ گڈز ہیلپ لائن سے رابطہ فرمائیں۔'
+                    : 'No matching bilty record was found in our database. If this is a recently issued bilty, please contact operations or our helpline.'}
                 </p>
-              </div>
 
-              {/* Action Buttons */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold p-4 rounded-lg shadow-sm text-sm sm:text-base transition-colors font-urdu cursor-pointer"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  <span>{t.contactDispatcher}</span>
-                </a>
-
-                <a
-                  href={`tel:${COMPANY_INFO.phoneRaw1}`}
-                  className="flex items-center justify-center gap-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold p-4 rounded-lg shadow-sm text-sm sm:text-base transition-colors font-urdu cursor-pointer"
-                >
-                  <Phone className="w-5 h-5" />
-                  <span>{t.callHelpline}</span>
-                </a>
-              </div>
-
-              {/* Guarantee highlights */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-slate-200 text-xs font-urdu text-slate-600">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                  <span>{language === 'ur' ? '100% سنگل پارٹی لوڈ' : '100% Single-Party Load'}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                  <span>{language === 'ur' ? 'ڈبل واٹر پروف ترپال' : 'Double Waterproof Tarpaulin'}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                  <span>{language === 'ur' ? 'نادرا تصدیق شدہ ڈرائیور' : 'NADRA Verified Driver'}</span>
+                <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-6 py-3 rounded-lg text-xs sm:text-sm font-urdu transition-colors"
+                  >
+                    <MessageCircle className="w-4 h-4 text-emerald-400" />
+                    <span>{t.contactDispatcher}</span>
+                  </a>
+                  <a
+                    href={`tel:${COMPANY_INFO.phoneRaw1}`}
+                    className="inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-6 py-3 rounded-lg text-xs sm:text-sm font-urdu transition-colors border border-slate-300"
+                  >
+                    <Phone className="w-4 h-4 text-blue-600" />
+                    <span>{t.callHelpline}</span>
+                  </a>
                 </div>
               </div>
-            </div>
+            )}
+
+            {/* 4. ERROR / CONNECTION STATE */}
+            {!loading && errorMessage && (
+              <div className="bg-white rounded-xl shadow-sm border-2 border-amber-200 p-6 sm:p-8 text-center space-y-4 animate-fadeIn">
+                <div className="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mx-auto">
+                  <AlertCircle className="w-7 h-7" />
+                </div>
+
+                <div className="space-y-1">
+                  <h3 className="text-xl font-bold text-amber-800 font-urdu">
+                    {language === 'ur' ? 'تصدیق ممکن نہیں ہو سکی — دوبارہ کوشش کریں' : 'Unable to Verify — Please Try Again'}
+                  </h3>
+                  <p className="text-xs text-amber-700 font-urdu font-medium">
+                    {errorMessage}
+                  </p>
+                </div>
+
+                <p className="text-xs sm:text-sm text-slate-600 font-urdu max-w-lg mx-auto leading-relaxed">
+                  {language === 'ur'
+                    ? 'انٹرنیٹ یا سرور کے عارضی مسئلے کی وجہ سے ڈیٹا بیس سے رابطہ نہیں ہو سکا۔ اس کا مطلب بلٹی کا جعلی ہونا نہیں ہے۔ براہ کرم انٹرنیٹ چیک کر کے دوبارہ کوشش کریں۔'
+                    : 'Could not connect to the database due to a network or connection issue. This does not imply the bilty is fake. Please check your internet connection and try again.'}
+                </p>
+
+                <div className="pt-2">
+                  <button
+                    type="button"
+                    onClick={() => handlePerformVerification(activeReference)}
+                    className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-lg text-xs sm:text-sm font-urdu transition-colors shadow-sm cursor-pointer"
+                  >
+                    <span>{language === 'ur' ? 'دوبارہ کوشش کریں' : 'Try Again'}</span>
+                  </button>
+                </div>
+              </div>
+            )}
+
           </div>
         )}
 
