@@ -1,5 +1,15 @@
 import { initializeApp, getApps, getApp } from 'firebase/app';
-import { getFirestore, doc, getDoc, collection, query, where, limit, getDocs } from 'firebase/firestore';
+import {
+  initializeFirestore,
+  getFirestore,
+  doc,
+  getDoc,
+  collection,
+  query,
+  where,
+  limit,
+  getDocs
+} from 'firebase/firestore';
 
 const env = (import.meta as any).env || {};
 
@@ -15,7 +25,14 @@ const firebaseConfig = {
 
 // Initialize Firebase App
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
-export const db = getFirestore(app);
+
+// Initialize Firestore with experimentalAutoDetectLongPolling enabled
+// This prevents "client is offline" errors when gRPC / WebChannel connections are blocked by proxies, networks, or cross-origin restrictions.
+export const db = getApps().length === 1 && typeof window !== 'undefined'
+  ? initializeFirestore(app, {
+      experimentalAutoDetectLongPolling: true,
+    })
+  : getFirestore(app);
 
 export interface PublicBiltyRecord {
   biltyNo: string;
@@ -32,7 +49,7 @@ export interface PublicBiltyRecord {
 export type VerificationResult =
   | { status: 'VERIFIED'; record: PublicBiltyRecord }
   | { status: 'NOT_FOUND' }
-  | { status: 'ERROR'; message: string };
+  | { status: 'ERROR'; code?: string; message: string };
 
 /**
  * Normalizes Bilty Number for consistent database queries (e.g. " wgt-1234 " -> "WGT-1234")
@@ -128,10 +145,20 @@ export async function verifyBiltyRecord(rawBiltyNo: string): Promise<Verificatio
 
     return { status: 'NOT_FOUND' };
   } catch (error: any) {
-    console.error('Firestore bilty verification error:', error);
+    console.error('Firestore bilty verification error:', error?.code || error?.message || error);
+    const errorCode = error?.code || '';
+    let sanitizedMsg = 'Unable to Verify — Please Try Again';
+
+    if (errorCode === 'permission-denied') {
+      sanitizedMsg = 'Access Denied: Firestore security rules restrict reading this record.';
+    } else if (errorCode === 'unavailable' || error?.message?.includes('offline')) {
+      sanitizedMsg = 'Connection Error: Database connection unavailable or network offline.';
+    }
+
     return {
       status: 'ERROR',
-      message: error?.message || 'Unable to Verify — Please Try Again'
+      code: errorCode,
+      message: sanitizedMsg
     };
   }
 }
