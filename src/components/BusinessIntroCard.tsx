@@ -25,6 +25,7 @@ import {
 } from 'lucide-react';
 import { COMPANY_INFO, SERVICE_AREAS, GOOGLE_REVIEW_URL } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
+import { getAssetUrl } from '../utils/assetPath';
 
 export const BusinessIntroCard: React.FC = () => {
   const { language } = useLanguage();
@@ -81,12 +82,13 @@ export const BusinessIntroCard: React.FC = () => {
                 <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg bg-amber-500 p-0.5 shadow-sm flex-shrink-0 flex items-center justify-center overflow-hidden">
                   <div className="w-full h-full bg-white rounded-md p-1.5 flex items-center justify-center">
                     <img 
-                      src="./images/logo.png" 
+                      src={getAssetUrl('images/logo.png')} 
                       alt="Warraich Goods Logo" 
                       width={80}
                       height={80}
                       className="w-full h-full object-contain"
                       loading="lazy"
+                      decoding="async"
                       onError={(e) => {
                         e.currentTarget.style.display = 'none';
                       }}
@@ -173,12 +175,13 @@ export const BusinessIntroCard: React.FC = () => {
                       <span>{isUrdu ? 'پروپرائٹر و قیادت' : 'Proprietor & Leadership'}</span>
                     </div>
                     <img 
-                      src="./images/owner-portrait.png" 
+                      src={getAssetUrl('images/owner-portrait.png')} 
                       alt={isUrdu ? COMPANY_INFO.proprietorUrdu : COMPANY_INFO.proprietorEnglish}
                       width={40}
                       height={40}
                       className="w-10 h-10 rounded-full object-cover border-2 border-amber-400 shadow-sm"
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   

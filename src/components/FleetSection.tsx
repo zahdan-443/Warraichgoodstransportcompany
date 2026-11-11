@@ -15,6 +15,7 @@ import { FLEET_DATA, COMPANY_INFO } from '../data/companyData';
 import { VehicleInfo } from '../types';
 import { useLanguage } from '../context/LanguageContext';
 import { TRANSLATIONS } from '../data/translations';
+import { getAssetUrl } from '../utils/assetPath';
 
 interface FleetSectionProps {
   onSelectVehicleForBooking?: (vehicleId: string) => void;
@@ -69,7 +70,8 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
             const truckBadge = language === 'ur' ? truck.badgeUrdu : (truck.badgeEnglish || truck.badgeUrdu);
             const idealList = language === 'ur' ? truck.idealForUrdu : truck.idealForEnglish;
             const altText = language === 'ur' ? (truck.altUrdu || truck.nameUrdu) : (truck.altEnglish || truck.nameEnglish);
-            const imgSrc = truck.image || `./images/${truck.id}-truck.png`;
+            const rawSrc = truck.image || `images/${truck.id}-truck.png`;
+            const imgSrc = getAssetUrl(rawSrc);
 
             return (
               <div 

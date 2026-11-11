@@ -11,6 +11,7 @@ import {
 import { COMPANY_INFO } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
 import { QuickQuoteCard } from './QuickQuoteCard';
+import { getAssetUrl } from '../utils/assetPath';
 
 export const HeroSection: React.FC = () => {
   const { language } = useLanguage();
@@ -32,16 +33,17 @@ export const HeroSection: React.FC = () => {
         {/* Background Image Container */}
         <div className="absolute inset-0 z-0">
           <img
-            src="./images/road-highway.webp"
+            src={getAssetUrl('images/road-highway.webp')}
             alt="Warraich Goods Transport Commercial FTL Highway Transit"
             width={1920}
             height={1080}
             loading="eager"
             fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover object-center"
             onError={(e) => {
               // Fallback to factory warehouse if highway image fails
-              e.currentTarget.src = './images/factory-warehouse.webp';
+              e.currentTarget.src = getAssetUrl('images/factory-warehouse.webp');
             }}
           />
           {/* Dark Navy 70-75% Scrim Overlay */}

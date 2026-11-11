@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
+import { getAssetUrl } from '../utils/assetPath';
 
 export const FtlWorkflowSection: React.FC = () => {
   const { language, translations } = useLanguage();
@@ -190,15 +191,16 @@ export const FtlWorkflowSection: React.FC = () => {
             {/* Visual Highway Showcase Banner */}
             <div className="lg:col-span-4 relative rounded-lg overflow-hidden shadow-sm border border-slate-200 flex flex-col justify-end min-h-[220px]">
               <img 
-                src="./images/road-highway.webp" 
+                src={getAssetUrl('images/road-highway.webp')} 
                 alt="Pakistan Motorway Freight Logistics Corridor - Warraich Goods" 
                 width={800}
                 height={450}
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
+                decoding="async"
                 referrerPolicy="no-referrer"
                 onError={(e) => {
-                  e.currentTarget.parentElement?.classList.add('hidden');
+                  e.currentTarget.style.display = 'none';
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent pointer-events-none" />

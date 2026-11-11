@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
+import { getAssetUrl } from '../utils/assetPath';
 
 export const CargoSafetySection: React.FC = () => {
   const { language, translations } = useLanguage();
@@ -122,15 +123,16 @@ export const CargoSafetySection: React.FC = () => {
           {/* Image Showcase Frame */}
           <div className="lg:col-span-5 relative rounded-lg overflow-hidden shadow-sm border border-amber-200">
             <img 
-              src="./images/cargo-safety.webp" 
+              src={getAssetUrl('images/cargo-safety.webp')} 
               alt="Waterproof Tarpaulin and Cargo Lashing Safety - Warraich Goods" 
               width={640}
               height={360}
               className="w-full h-48 sm:h-52 object-cover"
               loading="lazy"
+              decoding="async"
               referrerPolicy="no-referrer"
               onError={(e) => {
-                e.currentTarget.parentElement?.classList.add('hidden');
+                e.currentTarget.style.display = 'none';
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex items-end p-3">

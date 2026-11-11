@@ -25,6 +25,7 @@ import {
 } from 'lucide-react';
 import { COMPANY_INFO, CORPORATE_CREDENTIALS, FLEET_DATA } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
+import { getAssetUrl } from '../utils/assetPath';
 
 // ============================================================================
 // TASK 3: HUMAN-CENTRIC OPERATIONS & REAL ON-GROUND TEAM PHOTOGRAPHY
@@ -281,15 +282,16 @@ export const CorporateCredibilitySection: React.FC = () => {
             {/* Visual Factory Warehouse Dispatch Showcase */}
             <div className="lg:col-span-4 relative rounded-lg overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-end min-h-[260px] lg:min-h-full">
               <img 
-                src="./images/factory-warehouse.webp" 
+                src={getAssetUrl('images/factory-warehouse.webp')} 
                 alt="Industrial Factory and Warehouse Logistics Loading Bay - Warraich Goods" 
                 width={800}
                 height={450}
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
+                decoding="async"
                 referrerPolicy="no-referrer"
                 onError={(e) => {
-                  e.currentTarget.parentElement?.classList.add('hidden');
+                  e.currentTarget.style.display = 'none';
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent pointer-events-none" />
@@ -379,12 +381,13 @@ export const CorporateCredibilitySection: React.FC = () => {
                 {/* Image Container with Fallback Support */}
                 <div className="relative h-56 sm:h-64 overflow-hidden bg-slate-100">
                   <img 
-                    src={slot.imageSrc} 
+                    src={getAssetUrl(slot.imageSrc)} 
                     alt={slot.alt} 
                     width={400}
                     height={300}
                     className="w-full h-full object-cover"
                     loading="lazy"
+                    decoding="async"
                     referrerPolicy="no-referrer"
                     onError={(e) => {
                       e.currentTarget.style.display = 'none';

@@ -12,6 +12,7 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { getAssetUrl } from '../utils/assetPath';
 
 interface CargoCategoriesSectionProps {
   onSelectCategory?: (categoryName: string) => void;
@@ -262,12 +263,13 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
                     {/* Category Visual Image Preview with Rich Fallback */}
                     <div className="relative rounded-lg overflow-hidden shadow-sm border border-slate-200 h-44 bg-slate-900">
                       <img 
-                        src={category.image}
+                        src={getAssetUrl(category.image)}
                         alt={categoryTitle}
                         width={640}
                         height={360}
                         className="w-full h-full object-cover"
                         loading="lazy"
+                        decoding="async"
                         referrerPolicy="no-referrer"
                         onError={(e) => {
                           e.currentTarget.style.display = 'none';
