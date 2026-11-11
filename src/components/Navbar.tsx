@@ -93,8 +93,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header 
       id="main-navigation"
-      className={`sticky top-0 z-40 w-full transition-all duration-200 select-none bg-white border-b border-slate-200 ${
-        scrolled ? 'shadow-md backdrop-blur-md bg-white/95' : 'shadow-xs'
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-200 select-none bg-white/95 backdrop-blur-md border-b border-slate-200 ${
+        scrolled ? 'shadow-md' : 'shadow-xs'
       }`}
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
@@ -217,7 +217,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <>
           {/* Backdrop */}
           <div 
-            className="fixed inset-0 top-[56px] bg-slate-900/60 backdrop-blur-sm z-30 xl:hidden animate-fadeIn"
+            className="fixed inset-0 top-14 sm:top-16 bg-slate-900/60 backdrop-blur-sm z-30 xl:hidden animate-fadeIn"
             onClick={handleClose}
             aria-hidden="true"
           />

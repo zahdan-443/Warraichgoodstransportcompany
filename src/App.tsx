@@ -27,19 +27,19 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 overflow-x-hidden w-full pb-24 sm:pb-12">
+    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 w-full pb-24 sm:pb-12">
       {/* Scroll restoration on route transition */}
       <ScrollToTop />
 
-      {/* 1. Shared Sticky Navigation Header */}
+      {/* 1. Shared Sticky/Fixed Navigation Header */}
       <Navbar 
         isMenuOpen={isMobileMenuOpen} 
         onToggleMenu={handleToggleMenu} 
         onCloseMenu={handleCloseMenu} 
       />
 
-      {/* 2. Route-Driven Main Content Area */}
-      <main className="flex-1">
+      {/* 2. Route-Driven Main Content Area (Offset for fixed header) */}
+      <main className="flex-1 pt-14 sm:pt-16">
         <Routes>
           <Route path="/" element={isVerifyPage ? <BiltyVerificationPage /> : <HomePage />} />
           <Route path="/fleet" element={<FleetPage />} />

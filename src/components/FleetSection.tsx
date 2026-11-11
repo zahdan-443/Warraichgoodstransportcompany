@@ -38,21 +38,23 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
     navigate('/booking', { state: { vehicleId } });
   };
 
+  const fontClass = language === 'ur' ? 'font-urdu' : 'font-sans';
+
   return (
     <section id="fleet" className="py-10 sm:py-16 md:py-24 bg-white text-slate-900 relative border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-700 mb-2 font-urdu">
+          <div className={`inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-700 mb-2 ${fontClass}`}>
             <Truck className="w-4 h-4 text-amber-600 flex-shrink-0" />
             <span>{tFleet.badge}</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-urdu tracking-tight">
+          <h2 className={`text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 ${fontClass} tracking-tight`}>
             {tFleet.title}
           </h2>
-          <p className="text-slate-600 mt-2 text-sm sm:text-base font-urdu max-w-2xl mx-auto">
+          <p className={`text-slate-600 mt-2 text-sm sm:text-base ${fontClass} max-w-2xl mx-auto`}>
             {tFleet.subtitle}
           </p>
         </div>
@@ -105,7 +107,7 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
                   )}
                   
                   {/* Subtle Badge */}
-                  <div className="absolute top-2.5 right-2.5 bg-slate-900/90 text-white text-[11px] font-bold px-2 py-0.5 rounded font-urdu shadow-xs">
+                  <div className={`absolute top-2.5 right-2.5 bg-slate-900/90 text-white text-[11px] font-bold px-2 py-0.5 rounded ${fontClass} shadow-xs`}>
                     {truckBadge}
                   </div>
                 </div>
@@ -114,31 +116,31 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
                 <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
                   <div>
                     {/* Title & Subtitle */}
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-urdu">
+                    <h3 className={`text-lg sm:text-xl font-bold text-slate-900 ${fontClass}`}>
                       {truckName}
                     </h3>
-                    <p className="text-xs text-slate-500 mt-0.5 mb-3 font-urdu">
+                    <p className={`text-xs text-slate-500 mt-0.5 mb-3 ${fontClass}`}>
                       {truckSubtitle}
                     </p>
 
                     {/* Specs Cards */}
                     <div className="grid grid-cols-2 gap-2 mb-3 bg-slate-50 p-2.5 rounded-lg border border-slate-200/80">
                       <div>
-                        <div className="flex items-center gap-1.5 text-slate-500 text-xs mb-0.5 font-urdu">
+                        <div className={`flex items-center gap-1.5 text-slate-500 text-xs mb-0.5 ${fontClass}`}>
                           <Weight className="w-3.5 h-3.5 text-slate-600 flex-shrink-0" />
                           <span>{tFleet.capacityLabel}</span>
                         </div>
-                        <span className="text-xs sm:text-sm font-bold text-slate-900 block font-urdu">
+                        <span className={`text-xs sm:text-sm font-bold text-slate-900 block tabular-nums ${fontClass}`}>
                           {truckCapacity}
                         </span>
                       </div>
 
                       <div className="border-r border-slate-200 pr-2">
-                        <div className="flex items-center gap-1.5 text-slate-500 text-xs mb-0.5 font-urdu">
+                        <div className={`flex items-center gap-1.5 text-slate-500 text-xs mb-0.5 ${fontClass}`}>
                           <Ruler className="w-3.5 h-3.5 text-slate-600 flex-shrink-0" />
                           <span>{tFleet.dimensionsLabel}</span>
                         </div>
-                        <span className="text-xs sm:text-sm font-bold text-slate-900 block font-urdu">
+                        <span className={`text-xs sm:text-sm font-bold text-slate-900 block tabular-nums ${fontClass}`}>
                           {truck.dimensions}
                         </span>
                       </div>
@@ -146,12 +148,12 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
 
                     {/* Ideal Cargo List */}
                     <div className="space-y-1 mb-4">
-                      <p className="text-xs font-semibold text-slate-700 tracking-wide font-urdu">
+                      <p className={`text-xs font-semibold text-slate-700 tracking-wide ${fontClass}`}>
                         {tFleet.idealForLabel}
                       </p>
                       <ul className="space-y-1">
                         {idealList.map((item, idx) => (
-                          <li key={idx} className="flex items-start gap-1.5 text-xs text-slate-600 font-urdu">
+                          <li key={idx} className={`flex items-start gap-1.5 text-xs text-slate-600 ${fontClass}`}>
                             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0 mt-0.5" />
                             <span>{item}</span>
                           </li>
@@ -166,7 +168,7 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
                     <button
                       id={`book-vehicle-${truck.id}-btn`}
                       onClick={() => handleBook(truck.id)}
-                      className="w-full inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-2.5 px-4 rounded-lg transition-colors shadow-xs text-xs sm:text-sm cursor-pointer active:scale-98 min-h-[40px] font-urdu"
+                      className={`w-full inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-2.5 px-4 rounded-lg transition-colors shadow-xs text-xs sm:text-sm cursor-pointer active:scale-98 min-h-[40px] ${fontClass}`}
                     >
                       <Truck className="w-4 h-4 text-amber-400" />
                       <span>{language === 'ur' ? 'کرایہ معلوم کریں و بکنگ' : 'Calculate Freight & Book'}</span>
@@ -185,7 +187,7 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
           <div className="mt-8 text-center">
             <Link
               to="/fleet"
-              className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-7 py-3.5 rounded-lg text-sm transition-colors shadow-sm font-urdu"
+              className={`inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-7 py-3.5 rounded-lg text-sm transition-colors shadow-sm ${fontClass}`}
             >
               <span>{language === 'ur' ? 'تمام گاڑیوں کی تفصیلات اور کارگو کیٹیگریز دیکھیں' : 'View Full Fleet Specifications & Cargo Types'}</span>
               <ArrowRight className="w-4 h-4" />
@@ -193,7 +195,7 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
           </div>
         ) : (
           /* Special Services Note on Full Fleet Page */
-          <div className="mt-8 sm:mt-12 bg-slate-900 text-white rounded-lg p-5 sm:p-7 shadow-sm border border-slate-800 max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5 font-urdu">
+          <div className={`mt-8 sm:mt-12 bg-slate-900 text-white rounded-lg p-5 sm:p-7 shadow-sm border border-slate-800 max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5 ${fontClass}`}>
             <div>
               <p className="text-base sm:text-lg font-bold text-white">
                 {language === 'ur' ? 'کیا آپ کو مخصوص سائز یا لانگ ٹرم فیکٹری کنٹریکٹ چاہیے؟' : 'Need custom truck dimensions or monthly factory logistics contracts?'}
@@ -204,7 +206,7 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
             </div>
             <Link
               to="/about"
-              className="flex-shrink-0 inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-3 rounded-lg text-xs sm:text-sm transition-colors min-h-[44px] shadow-sm cursor-pointer font-urdu"
+              className={`flex-shrink-0 inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-3 rounded-lg text-xs sm:text-sm transition-colors min-h-[44px] shadow-sm cursor-pointer ${fontClass}`}
               aria-label="View Corporate Business Profile"
             >
               <span>

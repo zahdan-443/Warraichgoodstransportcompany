@@ -173,21 +173,23 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
     return 'bg-blue-50 text-blue-800 border-blue-200';
   };
 
+  const fontClass = language === 'ur' ? 'font-urdu' : 'font-sans';
+
   return (
     <section id="cargo" className="py-12 sm:py-16 md:py-20 bg-slate-50 text-slate-900 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 bg-blue-100 border border-blue-300 text-blue-900 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold mb-3 font-urdu">
+          <div className={`inline-flex items-center gap-2 bg-blue-100 border border-blue-300 text-blue-900 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold mb-3 ${fontClass}`}>
             <Package className="w-4 h-4 text-blue-700" />
             <span>{t.badge}</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-urdu">
+          <h2 className={`text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 ${fontClass}`}>
             {t.title}
           </h2>
-          <p className="text-slate-600 mt-2 text-sm sm:text-base font-urdu">
+          <p className={`text-slate-600 mt-2 text-sm sm:text-base ${fontClass}`}>
             {t.subtitle}
           </p>
         </div>
@@ -213,13 +215,13 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
                   
                   {/* Main Column */}
                   <div className={`lg:col-span-7 space-y-4 ${language === 'ur' ? 'text-right' : 'text-left'}`}>
-                    <div className={`inline-flex items-center gap-2 border px-3 py-1 rounded-lg text-xs font-semibold font-urdu ${getCategoryBadgeClass(category.id)}`}>
+                    <div className={`inline-flex items-center gap-2 border px-3 py-1 rounded-lg text-xs font-semibold ${fontClass} ${getCategoryBadgeClass(category.id)}`}>
                       <ShieldCheck className="w-3.5 h-3.5 flex-shrink-0" />
                       <span>{categoryBadge}</span>
                     </div>
 
                     {/* Accessibility & SEO Heading 3 for each Category */}
-                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-urdu">
+                    <h3 className={`text-xl sm:text-2xl font-bold text-slate-900 ${fontClass}`}>
                       {categoryTitle}
                     </h3>
 
@@ -227,14 +229,14 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
                       {categorySubtitle}
                     </p>
 
-                    <p className="text-slate-700 text-sm sm:text-base leading-relaxed font-urdu">
+                    <p className={`text-slate-700 text-sm sm:text-base leading-relaxed ${fontClass}`}>
                       {categoryDescription}
                     </p>
 
                     {/* Bullet Features */}
                     <div className="space-y-2 pt-1">
                       {detailsList.map((item, idx) => (
-                        <div key={idx} className="flex items-start gap-2.5 text-slate-700 text-xs sm:text-sm font-urdu">
+                        <div key={idx} className={`flex items-start gap-2.5 text-slate-700 text-xs sm:text-sm ${fontClass}`}>
                           <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                           <span>{item}</span>
                         </div>
@@ -246,7 +248,7 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
                         to="/booking"
                         state={{ goodsType: categoryTitle }}
                         onClick={() => onSelectCategory && onSelectCategory(categoryTitle)}
-                        className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3 rounded-lg text-sm transition-colors shadow-sm hover:shadow-md font-urdu cursor-pointer min-h-[44px]"
+                        className={`inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3 rounded-lg text-sm transition-colors shadow-sm hover:shadow-md ${fontClass} cursor-pointer min-h-[44px]`}
                       >
                         <Truck className="w-4 h-4 text-white" />
                         <span>{t.bookCategoryBtn}</span>
@@ -257,8 +259,8 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
                   {/* Info Column */}
                   <div className="lg:col-span-5 space-y-4">
                     
-                    {/* Category Visual Image Preview */}
-                    <div className="relative rounded-lg overflow-hidden shadow-sm border border-slate-200 h-44">
+                    {/* Category Visual Image Preview with Rich Fallback */}
+                    <div className="relative rounded-lg overflow-hidden shadow-sm border border-slate-200 h-44 bg-slate-900">
                       <img 
                         src={category.image}
                         alt={categoryTitle}
@@ -268,40 +270,40 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
                         loading="lazy"
                         referrerPolicy="no-referrer"
                         onError={(e) => {
-                          e.currentTarget.parentElement?.classList.add('hidden');
+                          e.currentTarget.style.display = 'none';
                         }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
-                        <span className="text-white text-xs font-semibold font-urdu bg-slate-900/80 px-2.5 py-1 rounded backdrop-blur-sm">
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent flex items-end p-3 pointer-events-none">
+                        <span className={`text-white text-xs font-semibold ${fontClass} bg-slate-900/80 px-2.5 py-1 rounded backdrop-blur-sm border border-white/10`}>
                           {categoryTitle}
                         </span>
                       </div>
                     </div>
 
                     <div className={`bg-slate-50 border border-slate-200 rounded-lg p-5 space-y-3.5 ${language === 'ur' ? 'text-right' : 'text-left'}`}>
-                      <p className="text-sm font-bold text-blue-950 font-urdu border-b border-slate-200 pb-2">
+                      <p className={`text-sm font-bold text-blue-950 ${fontClass} border-b border-slate-200 pb-2`}>
                         {language === 'ur' ? 'تجویز کردہ FTL گاڑی و تفصیلات' : 'Recommended Truck & Route Coverage'}
                       </p>
 
                       <div>
-                        <span className="text-xs text-slate-500 block font-urdu">
+                        <span className={`text-xs text-slate-500 block ${fontClass}`}>
                           {language === 'ur' ? 'موزوں ترین گاڑی (Dedicated Truck):' : 'Ideal Vehicle Class:'}
                         </span>
-                        <span className="text-sm font-bold text-slate-900 font-urdu mt-0.5 block">
+                        <span className={`text-sm font-bold text-slate-900 ${fontClass} mt-0.5 block`}>
                           {recommendedTruck}
                         </span>
                       </div>
 
                       <div>
-                        <span className="text-xs text-slate-500 block font-urdu">
+                        <span className={`text-xs text-slate-500 block ${fontClass}`}>
                           {language === 'ur' ? 'اہم تجارتی روٹس (Key FTL Routes):' : 'Key Nationwide Haulage Routes:'}
                         </span>
-                        <span className="text-xs font-medium text-slate-700 font-urdu mt-0.5 block leading-relaxed">
+                        <span className={`text-xs font-medium text-slate-700 ${fontClass} mt-0.5 block leading-relaxed`}>
                           {routeCoverage}
                         </span>
                       </div>
 
-                      <div className="p-3 bg-amber-50 rounded-lg border border-amber-200 text-xs text-amber-950 font-urdu">
+                      <div className={`p-3 bg-amber-50 rounded-lg border border-amber-200 text-xs text-amber-950 ${fontClass}`}>
                         🔒 <strong className="text-amber-800">{language === 'ur' ? 'سنگل پارٹی تحفظ:' : 'Single-Party Guarantee:'}</strong> {language === 'ur' ? 'پوری گاڑی میں صرف آپ کا مال لوڈ ہوگا، کوئی سامان مکس نہیں کیا جائے گا۔' : 'The entire vehicle is reserved for your goods only with zero cargo mixing.'}
                       </div>
                     </div>

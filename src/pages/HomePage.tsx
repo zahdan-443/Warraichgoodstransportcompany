@@ -1,30 +1,42 @@
 import React from 'react';
 import { HeroSection } from '../components/HeroSection';
-import { FleetCardsSection } from '../components/FleetCardsSection';
+import { FleetSection } from '../components/FleetSection';
+import { RateCalculatorSection } from '../components/RateCalculatorSection';
+import { CargoCategoriesSection } from '../components/CargoCategoriesSection';
+import { BiltyTrackingSection } from '../components/BiltyTrackingSection';
+import { BusinessIntroCard } from '../components/BusinessIntroCard';
 import { WhyUsSection } from '../components/WhyUsSection';
-import { CargoCategoriesPreview } from '../components/CargoCategoriesPreview';
 import { DriverAppSection } from '../components/DriverAppSection';
 import { DirectContactSection } from '../components/DirectContactSection';
 
 export const HomePage: React.FC = () => {
   return (
     <>
-      {/* 1. Hero Section (with Overlapping Quick Quote Card) */}
+      {/* 1. Hero Section (with Real Highway Photo & Overlapping Quick Quote Card) */}
       <HeroSection />
 
-      {/* 2. Commercial Fleet Services Cards (white background) */}
-      <FleetCardsSection />
+      {/* 2. Real Commercial Fleet Vehicles (Real Truck Photos: Shehzore, Mazda, Sample, Bedford, Tonnages & Specs) */}
+      <FleetSection preview={true} />
 
-      {/* 3. Why Us / Core Guarantees Cards (slate-50 background) */}
+      {/* 3. Real Freight Rate Calculator (Distances, Motorways, Live WhatsApp Booking Summary) */}
+      <RateCalculatorSection />
+
+      {/* 4. Real Cargo Specializations (Agriculture, Textiles, Industrial, Heavy Haulers Photos) */}
+      <CargoCategoriesSection />
+
+      {/* 5. Online Bilty Tracking & Firebase QR Verification */}
+      <BiltyTrackingSection condensed={true} />
+
+      {/* 6. Official Business Introduction (Proprietor Portrait Face, NTN: 7779394-1, Nationwide Service Areas) */}
+      <BusinessIntroCard />
+
+      {/* 7. Why Choose Us / Legal Guarantees */}
       <WhyUsSection />
 
-      {/* 4. Commercial Cargo Specializations Cards (white background) */}
-      <CargoCategoriesPreview />
-
-      {/* 5. Android Mobile App Download Section (slate-50 background) */}
+      {/* 8. Android Mobile App Download Section (Smartphone Frame Mockup) */}
       <DriverAppSection />
 
-      {/* 6. Direct Communication Contact Card (white background) */}
+      {/* 9. Direct Communication Helpline & Instant Booking */}
       <DirectContactSection />
     </>
   );

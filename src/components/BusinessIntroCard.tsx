@@ -149,17 +149,17 @@ export const BusinessIntroCard: React.FC = () => {
               {/* Pillar 1: Business Overview */}
               <div className="bg-slate-50 rounded-lg p-5 border border-slate-200 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-2 text-amber-800 font-bold text-sm mb-2 font-urdu">
+                  <div className={`flex items-center gap-2 text-amber-800 font-bold text-sm mb-2 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                     <Building2 className="w-4 h-4 text-amber-600" />
                     <span>{isUrdu ? 'کاروباری تعارف و تاریخ' : 'Business Introduction'}</span>
                   </div>
-                  <p className="text-xs sm:text-[13px] text-slate-700 leading-relaxed font-urdu">
+                  <p className={`text-xs sm:text-[13px] text-slate-700 leading-relaxed ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                     {isUrdu 
                       ? 'ہم پورے پاکستان کے لیے محفوظ اور بروقت مال برداری اور شفٹنگ کی خدمات فراہم کرتے ہیں۔ مناسب ریٹ اور بہترین سروس ہماری پہچان ہے۔ وڑائچ گڈز ٹرانسپورٹ کمپنی گھر کی شفٹنگ، دفتری منتقلی، کمرشل مال برداری اور 24/7 تیز رفتار گاڑی بکنگ کی قابل اعتماد سہولت فراہم کرتی ہے۔'
                       : 'Warraich Goods Transport Company offers trusted home shifting, office relocation, and local/inter-city goods transport services across Pakistan. We specialize in shifting, commercial load delivery, and fast vehicle booking with careful handling, clear bilty records, and affordable rates.'}
                   </p>
                 </div>
-                <div className="mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500 font-urdu">
+                <div className={`mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                   <span>{isUrdu ? '2020 سے خدمات • احتیاط سے ہینڈلنگ اور واضح بلٹی ریکارڈ' : 'Serving Since 2020 • Careful handling and clear bilty records'}</span>
                 </div>
               </div>
@@ -168,7 +168,7 @@ export const BusinessIntroCard: React.FC = () => {
               <div className="bg-slate-50 rounded-lg p-5 border border-slate-200 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center gap-2 text-blue-900 font-bold text-sm font-urdu">
+                    <div className={`flex items-center gap-2 text-blue-900 font-bold text-sm ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                       <UserCheck className="w-4 h-4 text-blue-600" />
                       <span>{isUrdu ? 'پروپرائٹر و قیادت' : 'Proprietor & Leadership'}</span>
                     </div>
@@ -182,7 +182,7 @@ export const BusinessIntroCard: React.FC = () => {
                     />
                   </div>
                   
-                  <div className="space-y-1.5 font-urdu">
+                  <div className={`space-y-1.5 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                     <p className="text-base font-extrabold text-slate-900">
                       {isUrdu ? COMPANY_INFO.proprietorUrdu : COMPANY_INFO.proprietorEnglish}
                     </p>
@@ -196,7 +196,7 @@ export const BusinessIntroCard: React.FC = () => {
                     </p>
                   </div>
                 </div>
-                <div className="mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500 font-urdu">
+                <div className={`mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                   <span>{isUrdu ? 'براہِ راست ذمے داری و شفاف لین دین' : 'Direct accountability & transparent billing'}</span>
                 </div>
               </div>
@@ -204,12 +204,12 @@ export const BusinessIntroCard: React.FC = () => {
               {/* Pillar 3: Core Freight Capabilities */}
               <div className="bg-slate-50 rounded-lg p-5 border border-slate-200 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-2 text-blue-900 font-bold text-sm mb-2 font-urdu">
+                  <div className={`flex items-center gap-2 text-blue-900 font-bold text-sm mb-2 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                     <Truck className="w-4 h-4 text-blue-600" />
                     <span>{isUrdu ? 'اہم خدمات و سہولیات' : 'Key Services & Fleet'}</span>
                   </div>
                   
-                  <ul className="space-y-2 text-xs text-slate-700 font-urdu">
+                  <ul className={`space-y-2 text-xs text-slate-700 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                     <li className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-600 flex-shrink-0" />
                       <span>{isUrdu ? 'مکمل گاڑی (FTL) براہ راست ترسیل' : 'Dedicated Full Truckload (FTL)'}</span>
@@ -229,7 +229,7 @@ export const BusinessIntroCard: React.FC = () => {
                   </ul>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500 font-urdu">
+                <div className={`mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                   <span>{isUrdu ? 'قانونی کمپیوٹرائزڈ بلٹی و وزن کی پرچی' : 'Computerized bilty & verified weight slips'}</span>
                 </div>
               </div>
