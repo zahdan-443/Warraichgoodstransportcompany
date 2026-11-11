@@ -13,11 +13,9 @@ export const COMPANY_INFO = {
   proprietorEnglish: 'Zahdan Nasar Warraich',
   proprietorRoleUrdu: 'پروپرائٹر و چیف ایگزیکٹو',
   proprietorRoleEnglish: 'Proprietor & Managing Director',
-  phone1: '0300-5370443',
-  phone2: '0339-5370443',
-  phoneRaw1: '03005370443',
-  phoneRaw2: '03395370443',
-  whatsappNumber: '923005370443',
+  phone: '0300-5370443',
+  phoneRaw: '03005370443',
+  whatsappNumber: '+923005370443',
   email: 'warraichgoods43@gmail.com',
   ntn: '7779394-1',
   youtubeHandle: '@Warraichgoodstransportcompany',
@@ -34,14 +32,14 @@ export const FLEET_DATA: VehicleInfo[] = [
   {
     id: 'shehzore',
     nameUrdu: 'شہزور (Shehzore Pickup)',
-    nameEnglish: 'Hyundai Shehzore Pickup (FTL)',
+    nameEnglish: 'Hyundai Shehzore Pickup',
     subtitleUrdu: 'تیز رفتار لوکل و انٹرسٹی فل گاڑی لوڈنگ',
     subtitleEnglish: 'High-speed local & intercity dedicated single-shipper pickup',
     capacity: '1 - 3.5 Tons',
-    capacityUrdu: '1 تا 3.5 ٹن وزن کی گنجائش (فل گاڑی)',
-    dimensions: '10 تا 12 فٹ اوپن / جالی باڈی',
+    capacityUrdu: '3.5 ٹن وزن کی گنجائش',
+    dimensions: '10 تا 9 فٹ اوپن / جنگلہ باڈی',
     idealForUrdu: [
-      'سنگل پارٹی مکمل گاڑی ارجنٹ ترسیل',
+      'سنگل پارٹی مکمل گاڑی ارجنٹ دستیاب',
       'زرعی اجناس، بیج اور کھاد کے تھیلے (فل لوڈ)',
       'فیکٹری خام مال و دکانوں کا مکمل اسٹاک',
       'گھریلو سامان اور مکمل فرنیچر شفٹنگ',
@@ -54,21 +52,21 @@ export const FLEET_DATA: VehicleInfo[] = [
     ],
     image: './images/shehzore-truck.png',
     fallbackImage: './images/shehzore-truck.png',
-    badgeUrdu: 'فل گاڑی ایکسپریس (1-3.5 ٹن)',
-    badgeEnglish: 'Express FTL (1-3.5 Tons)',
+    badgeUrdu: 'فل گاڑی ایکسپریس (3.5 ٹن تک)',
+    badgeEnglish: 'Express (1-3.5 Tons)',
     tagColor: 'bg-emerald-500',
-    altUrdu: 'شہزور پک اپ 1 تا 3.5 ٹن فل لوڈنگ ٹرک - وڑائچ گڈز ٹرانسپورٹ کمپنی',
+    altUrdu: 'شہزور پک اپ 3.5 ٹن تک فل لوڈنگ ٹرک - وڑائچ گڈز ٹرانسپورٹ کمپنی',
     altEnglish: 'Hyundai Shehzore 1-3.5 Ton FTL Loading Commercial Truck - Warraich Goods',
   },
   {
     id: 'mazda',
     nameUrdu: 'مزدا 6 وہیلر (Mazda Truck)',
     nameEnglish: 'Mazda / Isuzu Medium Freight (FTL)',
-    subtitleUrdu: 'درمیانے درجے کا کارگو اور بین الصوبائی فل ٹرک لوڈ',
+    subtitleUrdu: 'درمیانے درجے کا کارگو',
     subtitleEnglish: 'Medium-weight industrial freight & interprovincial highway hauls',
     capacity: '4 - 10 Tons',
-    capacityUrdu: '4 تا 10 ٹن وزن کی گنجائش (فل ٹرک)',
-    dimensions: '14 تا 18 فٹ باڈی / کنٹینر',
+    capacityUrdu: '10 ٹن وزن کی گنجائش (فل ٹرک)',
+    dimensions: '14 تا 20 فٹ باڈی / کنٹینر',
     idealForUrdu: [
       'فیکٹریوں اور ملز کا خام و تیار مال (پورا ٹرک)',
       'اناج، گندم، مکئی اور کپاس کی بوریاں',
@@ -83,11 +81,11 @@ export const FLEET_DATA: VehicleInfo[] = [
     ],
     image: './images/mazda-truck.png',
     fallbackImage: './images/mazda-truck.png',
-    badgeUrdu: 'سب سے زیادہ مقبول FTL (4-10 ٹن)',
-    badgeEnglish: 'Most Popular FTL (4-10 Tons)',
+    badgeUrdu: 'سب سے زیادہ مقبول  (10 ٹن)',
+    badgeEnglish: 'Most Popular (10 Tons)',
     tagColor: 'bg-amber-500',
-    altUrdu: 'مزدا 6 وہیلر 4 تا 10 ٹن کارگو ٹرک - وڑائچ گڈز ٹرانسپورٹ کمپنی',
-    altEnglish: 'Mazda 6-Wheeler 4-10 Ton Commercial Freight Truck - Warraich Goods',
+    altUrdu: 'مزدا 6 وہیلر 10 ٹن کارگو ٹرک - وڑائچ گڈز ٹرانسپورٹ کمپنی',
+    altEnglish: 'Mazda 6-Wheeler 10 Ton Commercial Freight Truck - Warraich Goods',
   },
   {
     id: 'sample',
@@ -202,24 +200,6 @@ const RATE_CALCULATOR_CITY_IDS: string[] = [
   'sukkur', 'hyderabad', 'abbottabad', 'mardan', 'gilgit'
 ];
 
-// Derived 14 Key Service Area Hubs for BusinessIntroCard & Schema
-export const SERVICE_AREAS: ServiceAreaCity[] = MASTER_CITIES
-  .filter(c => c.isServiceAreaHub)
-  .sort((a, b) => (a.serviceAreaOrder ?? 99) - (b.serviceAreaOrder ?? 99))
-  .map(c => {
-    const isKamalia = c.id === 'kamalia';
-    return {
-      id: c.id,
-      nameUrdu: c.nameUrdu,
-      nameEnglish: c.nameEnglish,
-      descriptionUrdu: 'مال کی بکنگ اور ٹرانسپورٹ سروس دستیاب ہے',
-      descriptionEnglish: 'Goods booking and transport service available',
-      phone: isKamalia ? '0339-5370443' : COMPANY_INFO.phone1,
-      phoneRaw: isKamalia ? '03395370443' : COMPANY_INFO.phoneRaw1,
-      whatsappUrl: isKamalia ? 'https://wa.me/923395370443' : `https://wa.me/${COMPANY_INFO.whatsappNumber}`,
-    };
-  });
-
 // Deprecated alias maintained for internal component compatibility
 export const BRANCHES_DATA: BranchInfo[] = [];
 
@@ -255,7 +235,6 @@ export const CORPORATE_CREDENTIALS = {
   servicePhilosophy: '100% Dedicated Full Truckload (FTL) for Corporate & Industrial Consignments with Zero Cargo Mixing',
   servicePhilosophyUrdu: 'کارپوریٹ و صنعتی کنسائنمنٹس کے لیے 100% مخصوص فل ٹرک لوڈ (FTL) — زیرو مکسنگ پالیسی',
   invoicingFeatures: [
-    { titleEn: 'Official Tax Invoicing', titleUr: 'باقاعدہ ٹیکس انوائسنگ', descEn: 'Formal invoices with NTN: 7779394-1 compliant with corporate withholding tax regulations.', descUr: 'کارپوریٹ ٹیکس قوانین کے مطابق رجسٹرڈ NTN کے ساتھ شفاف انوائس۔' },
     { titleEn: 'Computerized Weighbridge Slip', titleUr: 'کمپیوٹرائزڈ کانٹا پرچی', descEn: 'Certified weighbridge weight slips provided immediately post-loading for strict axle compliance.', descUr: 'لوڈنگ کے فوری بعد سرکاری کانٹا پرچی اور ایکسل لوڈ قوانین کی پاسداری۔' },
     { titleEn: 'Official Bilti & Signed POD', titleUr: 'سرکاری بلٹی اور دستخط شدہ POD', descEn: 'Formal Consignment Note (Bilti) and stamped Proof of Delivery (POD) returned for every shipment.', descUr: 'باقاعدہ ٹرانسپورٹ بلٹی اور منزل پر وصول کنندہ کی مہر و دستخط شدہ رسید۔' },
     { titleEn: 'Pre-Transit Vehicle Inspection', titleUr: 'روانگی سے قبل گاڑی کی جانچ', descEn: 'Rigorous mechanical, tire, and tarpaulin audit prior to highway dispatch.', descUr: 'ہائی وے روانگی سے قبل ٹرک فٹنس، ٹائرز اور ترپال کی مکمل جانچ۔' },
