@@ -55,8 +55,8 @@ export const BookingCtaBanner: React.FC = () => {
 
               <p className="text-slate-300 text-xs sm:text-sm lg:text-base font-urdu leading-relaxed max-w-3xl">
                 {isUrdu
-                  ? 'سمندری بائی پاس، کمالیہ رجانہ روڈ، فیصل آباد انڈسٹریل زون، لاہور، کراچی پورٹ اور ملک بھر کے تمام روٹس کے لیے شہزور، مزدا 6 وہیلر، سیمپل ٹرک اور بیڈفورڈ ہیوی ٹرکس کی باآسانی بکنگ۔ کوئی پوشیدہ چارجز نہیں۔'
-                  : 'Instant online FTL cost estimation for Hyundai Shehzore, Mazda 6-wheeler, Sample truck, and Bedford heavy trailers from Samundri, Kamalia, and nationwide industrial hubs. Zero hidden charges.'}
+                  ? 'ہم پورے پاکستان کے لیے محفوظ اور بروقت مال برداری اور شفٹنگ کی خدمات فراہم کرتے ہیں۔ مناسب ریٹ اور بہترین سروس ہماری پہچان ہے۔ مزدا ٹرک، شہزور پک اپ اور ہیوی ٹرکس کی 24/7 فوری آن لائن بکنگ۔'
+                  : 'Warraich Goods Transport Company offers trusted home shifting, office relocation, commercial load delivery, and fast vehicle booking across Pakistan with versatile Mazda trucks, Shahzore pickups, and heavy haulers.'}
               </p>
 
               {/* Guarantees Strip (Clean unboxed inline) */}
@@ -110,7 +110,7 @@ export const BookingCtaBanner: React.FC = () => {
               </div>
 
               <p className="text-[11px] text-center text-slate-400 font-mono">
-                {COMPANY_INFO.phone1} • {COMPANY_INFO.phone2}
+                {COMPANY_INFO.phone1}
               </p>
             </div>
 
@@ -120,12 +120,12 @@ export const BookingCtaBanner: React.FC = () => {
           <div className="mt-8 pt-8 border-t border-slate-800 grid grid-cols-1 md:grid-cols-3 gap-6 text-slate-300">
             <div className={`space-y-2 ${isUrdu ? 'text-right font-urdu' : 'text-left'}`}>
               <h3 className="text-white text-sm sm:text-base font-bold font-urdu">
-                {isUrdu ? 'سمندری و کمالیہ خصوصی ٹرانسپورٹ اڈا' : 'Samundri & Kamalia Freight Hubs'}
+                {isUrdu ? '24/7 ملک گیر مال برداری و شفٹنگ' : '24/7 Nationwide Goods Transport & Shifting'}
               </h3>
               <p className="text-xs leading-relaxed text-slate-300">
                 {isUrdu
-                  ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی سمندری بائی پاس اور کمالیہ رجانہ روڈ سے روزانہ کی بنیاد پر پورے پاکستان کے لیے نان اسٹاپ ہیوی ٹرک، مزدا، شہزور اور سیمپل ٹرالر روانہ کرتی ہے۔'
-                  : 'Operating specialized commercial dispatch centers at Samundri Bypass and Kamalia Rajana Road for uninterrupted nationwide freight movements.'}
+                  ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی روزانہ کی بنیاد پر پورے پاکستان کے تمام شہروں اور صنعتی روٹس کے لیے نان اسٹاپ مزدا ٹرکس، شہزور پک اپس اور ہیوی ہالرز روانہ کرتی ہے۔'
+                  : 'Operating daily reliable freight dispatches across all major cities, commercial hubs, and nationwide corridors across Pakistan since 2020.'}
               </p>
             </div>
 

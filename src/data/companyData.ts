@@ -13,33 +13,42 @@ export const COMPANY_INFO = {
   proprietorEnglish: 'Zahdan Nasar Warraich',
   proprietorRoleUrdu: 'پروپرائٹر و چیف ایگزیکٹو',
   proprietorRoleEnglish: 'Proprietor & Managing Director',
-  phone: '0300-5370443',
-  phoneRaw: '03005370443',
-  whatsappNumber: '+923005370443',
+  phone1: '0300-5370443',
+  phone2: '0300-5370443',
+  phoneRaw1: '03005370443',
+  phoneRaw2: '03005370443',
+  whatsappNumber: '923005370443',
   email: 'warraichgoods43@gmail.com',
+  addressUrdu: 'اوکاڑہ بائی پاس، سمندری، ضلع فیصل آباد',
+  addressEnglish: 'Okara Bypass, Samundri, District Faisalabad',
+  cityUrdu: 'سمندری',
+  cityEnglish: 'Samundri',
   ntn: '7779394-1',
+  sinceYear: '2020',
   youtubeHandle: '@Warraichgoodstransportcompany',
   youtubeUrl: 'https://www.youtube.com/@Warraichgoodstransportcompany',
   facebookUrl: 'https://www.facebook.com/share/1CVDcD1CsP/',
-  taglineUrdu: 'پورے پاکستان کے لیے ہر قسم کی لوڈنگ کے لیے شہزور، مزدا، سیمپل اور بیڈفورڈ مناسب ریٹ پر دستیاب ہے ۔',
-  taglineEnglish: 'Dedicated Full Truckload (FTL) transport across Pakistan with Shehzore, Mazda, Sample, and Bedford trucks.',
-  subTaglineUrdu: '100% فل ٹرک لوڈ (FTL) سروس — سنگل پارٹی ڈائریکٹ پوائنٹ ٹو پوائنٹ ترسیل (ہم پارٹ لوڈ یا عام پارسل ڈیل نہیں کرتے)۔',
-  serviceScopeUrdu: 'صرف اور صرف مکمل گاڑی کی بکنگ (Dedicated Full Truckload - FTL)',
+  taglineUrdu: 'ہم پورے پاکستان کے لیے محفوظ اور بروقت مال برداری اور شفٹنگ کی خدمات فراہم کرتے ہیں۔ مناسب ریٹ اور بہترین سروس ہماری پہچان ہے۔',
+  taglineEnglish: 'Trusted home shifting, office relocation, and local/inter-city goods transport services across Pakistan.',
+  profileDescriptionUrdu: 'ہم پورے پاکستان کے لیے محفوظ اور بروقت مال برداری اور شفٹنگ کی خدمات فراہم کرتے ہیں۔ مناسب ریٹ اور بہترین سروس ہماری پہچان ہے۔ مزدا ٹرک، شہزور پک اپ اور ہیوی ٹرکس کے ساتھ 24/7 تیز رفتار بکنگ۔',
+  profileDescriptionEnglish: 'Warraich Goods Transport Company offers trusted home shifting, office relocation, and local/inter-city goods transport services. We specialize in shifting, commercial load delivery, and fast vehicle booking across Pakistan. Our versatile fleet includes Mazda trucks, Shahzore pickups, and heavy haulers tailored for all load sizes. Whether you are moving house, transferring an office, or shipping goods to another city, we provide careful handling, clear bilty records, and affordable rates. Serving nationwide routes 24/7, Since 2020. Call today for a free quote and reliable truck booking!',
+  subTaglineUrdu: 'گھریلو سامان شفٹنگ، دفتری منتقلی اور کمرشل مال برداری کی 24/7 ملک گیر سروس۔',
+  serviceScopeUrdu: 'محفوظ اور بروقت مال برداری، گھریلو و دفتری شفٹنگ (24/7 ملک گیر سروس)',
   webAppUrl: 'https://zahdan-443.github.io/warraichgoods43/',
 };
 
 export const FLEET_DATA: VehicleInfo[] = [
   {
     id: 'shehzore',
-    nameUrdu: 'شہزور (Shehzore Pickup)',
+    nameUrdu: 'شہزور پک اپ',
     nameEnglish: 'Hyundai Shehzore Pickup',
     subtitleUrdu: 'تیز رفتار لوکل و انٹرسٹی فل گاڑی لوڈنگ',
     subtitleEnglish: 'High-speed local & intercity dedicated single-shipper pickup',
     capacity: '1 - 3.5 Tons',
-    capacityUrdu: '3.5 ٹن وزن کی گنجائش',
-    dimensions: '10 تا 9 فٹ اوپن / جنگلہ باڈی',
+    capacityUrdu: '1 تا 3.5 ٹن وزن کی گنجائش',
+    dimensions: '10 تا 12 فٹ اوپن / جالی باڈی',
     idealForUrdu: [
-      'سنگل پارٹی مکمل گاڑی ارجنٹ دستیاب',
+      'سنگل پارٹی مکمل گاڑی ارجنٹ ترسیل',
       'زرعی اجناس، بیج اور کھاد کے تھیلے (فل لوڈ)',
       'فیکٹری خام مال و دکانوں کا مکمل اسٹاک',
       'گھریلو سامان اور مکمل فرنیچر شفٹنگ',
@@ -52,21 +61,21 @@ export const FLEET_DATA: VehicleInfo[] = [
     ],
     image: './images/shehzore-truck.png',
     fallbackImage: './images/shehzore-truck.png',
-    badgeUrdu: 'فل گاڑی ایکسپریس (3.5 ٹن تک)',
-    badgeEnglish: 'Express (1-3.5 Tons)',
+    badgeUrdu: 'فل گاڑی ایکسپریس (1 تا 3.5 ٹن)',
+    badgeEnglish: 'Express FTL (1-3.5 Tons)',
     tagColor: 'bg-emerald-500',
-    altUrdu: 'شہزور پک اپ 3.5 ٹن تک فل لوڈنگ ٹرک - وڑائچ گڈز ٹرانسپورٹ کمپنی',
+    altUrdu: 'شہزور پک اپ 1 تا 3.5 ٹن فل لوڈنگ ٹرک - وڑائچ گڈز ٹرانسپورٹ کمپنی',
     altEnglish: 'Hyundai Shehzore 1-3.5 Ton FTL Loading Commercial Truck - Warraich Goods',
   },
   {
     id: 'mazda',
-    nameUrdu: 'مزدا 6 وہیلر (Mazda Truck)',
-    nameEnglish: 'Mazda / Isuzu Medium Freight (FTL)',
-    subtitleUrdu: 'درمیانے درجے کا کارگو',
+    nameUrdu: 'مزدا 6 وہیلر',
+    nameEnglish: 'Mazda 6-Wheeler Freight Truck',
+    subtitleUrdu: 'درمیانے درجے کا کارگو اور بین الصوبائی فل ٹرک لوڈ',
     subtitleEnglish: 'Medium-weight industrial freight & interprovincial highway hauls',
     capacity: '4 - 10 Tons',
-    capacityUrdu: '10 ٹن وزن کی گنجائش (فل ٹرک)',
-    dimensions: '14 تا 20 فٹ باڈی / کنٹینر',
+    capacityUrdu: '4 تا 10 ٹن وزن کی گنجائش',
+    dimensions: '14 تا 18 فٹ باڈی / کنٹینر',
     idealForUrdu: [
       'فیکٹریوں اور ملز کا خام و تیار مال (پورا ٹرک)',
       'اناج، گندم، مکئی اور کپاس کی بوریاں',
@@ -81,23 +90,23 @@ export const FLEET_DATA: VehicleInfo[] = [
     ],
     image: './images/mazda-truck.png',
     fallbackImage: './images/mazda-truck.png',
-    badgeUrdu: 'سب سے زیادہ مقبول  (10 ٹن)',
-    badgeEnglish: 'Most Popular (10 Tons)',
+    badgeUrdu: 'سب سے زیادہ مقبول (4 تا 10 ٹن)',
+    badgeEnglish: 'Most Popular FTL (4-10 Tons)',
     tagColor: 'bg-amber-500',
-    altUrdu: 'مزدا 6 وہیلر 10 ٹن کارگو ٹرک - وڑائچ گڈز ٹرانسپورٹ کمپنی',
-    altEnglish: 'Mazda 6-Wheeler 10 Ton Commercial Freight Truck - Warraich Goods',
+    altUrdu: 'مزدا 6 وہیلر 4 تا 10 ٹن کارگو ٹرک - وڑائچ گڈز ٹرانسپورٹ کمپنی',
+    altEnglish: 'Mazda 6-Wheeler 4-10 Ton Commercial Freight Truck - Warraich Goods',
   },
   {
     id: 'sample',
-    nameUrdu: 'سیمپل ٹرک (Sample Truck)',
-    nameEnglish: 'Extended Chassis Medium-Heavy Freight (FTL)',
+    nameUrdu: 'سیمپل ٹرک',
+    nameEnglish: 'Sample Extended Chassis Truck',
     subtitleUrdu: 'توسیع شدہ چیسز اور والیم بیسڈ بلک لوڈنگ',
     subtitleEnglish: 'Extended chassis hauler for high-volume and volumetric cargo loads',
     capacity: '8 - 16 Tons',
-    capacityUrdu: '8 تا 16 ٹن وزن کی گنجائش (فل لوڈ)',
+    capacityUrdu: '8 تا 16 ٹن وزن کی گنجائش',
     dimensions: '18 تا 22 فٹ ایکسٹینڈڈ باڈی',
     idealForUrdu: [
-      'زیادہ حجم (Volume) اور وزنی مال کا مکمل ٹرک',
+      'زیادہ حجم اور وزنی مال کا مکمل ٹرک',
       'کیمیکل ڈرمز اور صنعتی سامان کا فل لوڈ',
       'کاٹن بیلز، پولٹری فیڈ اور سیمنٹ بیگ',
       'براہ راست گودام تا منزل نان اسٹاپ سپلائی',
@@ -110,7 +119,7 @@ export const FLEET_DATA: VehicleInfo[] = [
     ],
     image: './images/sample-truck.png',
     fallbackImage: './images/sample-truck.png',
-    badgeUrdu: 'ہائی والیم FTL (8-16 ٹن)',
+    badgeUrdu: 'ہائی والیم ٹرک (8 تا 16 ٹن)',
     badgeEnglish: 'High Volume FTL (8-16 Tons)',
     tagColor: 'bg-indigo-600',
     altUrdu: 'سیمپل ٹرک 8 تا 16 ٹن والیم بیسڈ بلک لوڈنگ - وڑائچ گڈز ٹرانسپورٹ',
@@ -118,12 +127,12 @@ export const FLEET_DATA: VehicleInfo[] = [
   },
   {
     id: 'bedford',
-    nameUrdu: 'بیڈفورڈ ہیوی ٹرک (Bedford Hauler)',
-    nameEnglish: 'Bedford Heavy Long Haul Truck (FTL)',
+    nameUrdu: 'بیڈفورڈ ہیوی ٹرک',
+    nameEnglish: 'Bedford Heavy Long Haul Hauler',
     subtitleUrdu: 'انتہائی وزنی اور طویل فاصلاتی کارگو ٹرانسپورٹ',
     subtitleEnglish: 'Heavy-duty long haul freight, structural steel & bulk industrial hauls',
     capacity: '15 - 28+ Tons',
-    capacityUrdu: '15 تا 28+ ٹن وزنی کارگو (فل باڈی)',
+    capacityUrdu: '15 تا 28+ ٹن وزنی کارگو',
     dimensions: '22 تا 28+ فٹ ہیوی فریم',
     idealForUrdu: [
       'بھاری صنعتی مشینری، لوہا و اسٹیل گارڈرز (فل ٹرک)',
@@ -139,7 +148,7 @@ export const FLEET_DATA: VehicleInfo[] = [
     ],
     image: './images/bedford-truck.png',
     fallbackImage: './images/bedford-truck.png',
-    badgeUrdu: 'ہیوی ڈیوٹی لانگ ہال (15-28+ ٹن)',
+    badgeUrdu: 'ہیوی ڈیوٹی لانگ ہال (15 تا 28+ ٹن)',
     badgeEnglish: 'Heavy Duty Long Haul (15-28+ Tons)',
     tagColor: 'bg-blue-600',
     altUrdu: 'بیڈفورڈ ہیوی ٹرک 15 تا 28+ ٹن لانگ ہال کارگو - وڑائچ گڈز ٹرانسپورٹ',
@@ -150,9 +159,6 @@ export const FLEET_DATA: VehicleInfo[] = [
 // ============================================================================
 // SINGLE SOURCE OF TRUTH FOR PAKISTAN CITIES & SERVICE HUBS
 // ============================================================================
-// Both SERVICE_AREAS (14 key regional hubs) and PAKISTAN_CITIES (22 rate
-// calculator dropdown options) are derived from this master definition.
-// Any future city additions or updates should be made here in one place.
 export interface MasterCityEntry {
   id: string;
   nameUrdu: string;
@@ -165,31 +171,31 @@ export interface MasterCityEntry {
 
 export const MASTER_CITIES: MasterCityEntry[] = [
   // Primary Hubs & Key Service Areas
-  { id: 'samundri', nameUrdu: 'سمندری', nameEnglish: 'Samundri', dropdownUrdu: 'سمندری (Samundri)', dropdownEnglish: 'Samundri', isServiceAreaHub: true, serviceAreaOrder: 1 },
-  { id: 'kamalia', nameUrdu: 'کمالیہ', nameEnglish: 'Kamalia', dropdownUrdu: 'کمالیہ (Kamalia)', dropdownEnglish: 'Kamalia', isServiceAreaHub: true, serviceAreaOrder: 2 },
-  { id: 'toba-tek-singh', nameUrdu: 'ٹوبہ ٹیک سنگھ', nameEnglish: 'Toba Tek Singh', dropdownUrdu: 'ٹوبہ ٹیک سنگھ (Toba Tek Singh)', dropdownEnglish: 'Toba Tek Singh', isServiceAreaHub: true, serviceAreaOrder: 3 },
-  { id: 'jhang', nameUrdu: 'جھنگ', nameEnglish: 'Jhang', dropdownUrdu: 'جھنگ (Jhang)', dropdownEnglish: 'Jhang', isServiceAreaHub: true, serviceAreaOrder: 4 },
-  { id: 'faisalabad', nameUrdu: 'فیصل آباد', nameEnglish: 'Faisalabad', dropdownUrdu: 'فیصل آباد (Faisalabad)', dropdownEnglish: 'Faisalabad', isServiceAreaHub: true, serviceAreaOrder: 5 },
-  { id: 'sargodha', nameUrdu: 'سرگودھا', nameEnglish: 'Sargodha', dropdownUrdu: 'سرگودھا (Sargodha)', dropdownEnglish: 'Sargodha', isServiceAreaHub: true, serviceAreaOrder: 6 },
-  { id: 'sheikhupura', nameUrdu: 'شیخوپورہ', nameEnglish: 'Sheikhupura', dropdownUrdu: 'شیخوپورہ (Sheikhupura)', dropdownEnglish: 'Sheikhupura', isServiceAreaHub: true, serviceAreaOrder: 7 },
-  { id: 'gujranwala', nameUrdu: 'گوجرانوالہ', nameEnglish: 'Gujranwala', dropdownUrdu: 'گوجرانوالہ (Gujranwala)', dropdownEnglish: 'Gujranwala', isServiceAreaHub: true, serviceAreaOrder: 8 },
-  { id: 'lahore', nameUrdu: 'لاہور', nameEnglish: 'Lahore', dropdownUrdu: 'لاہور (Lahore)', dropdownEnglish: 'Lahore', isServiceAreaHub: true, serviceAreaOrder: 9 },
-  { id: 'multan', nameUrdu: 'ملتان', nameEnglish: 'Multan', dropdownUrdu: 'ملتان (Multan)', dropdownEnglish: 'Multan', isServiceAreaHub: true, serviceAreaOrder: 10 },
-  { id: 'islamabad', nameUrdu: 'اسلام آباد', nameEnglish: 'Islamabad', dropdownUrdu: 'راولپنڈی / اسلام آباد (Rawalpindi/Islamabad)', dropdownEnglish: 'Rawalpindi/Islamabad', isServiceAreaHub: true, serviceAreaOrder: 11 },
-  { id: 'karachi', nameUrdu: 'کراچی', nameEnglish: 'Karachi', dropdownUrdu: 'کراچی (Karachi)', dropdownEnglish: 'Karachi', isServiceAreaHub: true, serviceAreaOrder: 12 },
-  { id: 'sialkot', nameUrdu: 'سیالکوٹ', nameEnglish: 'Sialkot', dropdownUrdu: 'سیالکوٹ (Sialkot)', dropdownEnglish: 'Sialkot', isServiceAreaHub: true, serviceAreaOrder: 13 },
-  { id: 'peshawar', nameUrdu: 'پشاور', nameEnglish: 'Peshawar', dropdownUrdu: 'پشاور (Peshawar)', dropdownEnglish: 'Peshawar', isServiceAreaHub: true, serviceAreaOrder: 14 },
+  { id: 'samundri', nameUrdu: 'سمندری', nameEnglish: 'Samundri', dropdownUrdu: 'سمندری', dropdownEnglish: 'Samundri', isServiceAreaHub: true, serviceAreaOrder: 1 },
+  { id: 'kamalia', nameUrdu: 'کمالیہ', nameEnglish: 'Kamalia', dropdownUrdu: 'کمالیہ', dropdownEnglish: 'Kamalia', isServiceAreaHub: true, serviceAreaOrder: 2 },
+  { id: 'toba-tek-singh', nameUrdu: 'ٹوبہ ٹیک سنگھ', nameEnglish: 'Toba Tek Singh', dropdownUrdu: 'ٹوبہ ٹیک سنگھ', dropdownEnglish: 'Toba Tek Singh', isServiceAreaHub: true, serviceAreaOrder: 3 },
+  { id: 'jhang', nameUrdu: 'جھنگ', nameEnglish: 'Jhang', dropdownUrdu: 'جھنگ', dropdownEnglish: 'Jhang', isServiceAreaHub: true, serviceAreaOrder: 4 },
+  { id: 'faisalabad', nameUrdu: 'فیصل آباد', nameEnglish: 'Faisalabad', dropdownUrdu: 'فیصل آباد', dropdownEnglish: 'Faisalabad', isServiceAreaHub: true, serviceAreaOrder: 5 },
+  { id: 'sargodha', nameUrdu: 'سرگودھا', nameEnglish: 'Sargodha', dropdownUrdu: 'سرگودھا', dropdownEnglish: 'Sargodha', isServiceAreaHub: true, serviceAreaOrder: 6 },
+  { id: 'sheikhupura', nameUrdu: 'شیخوپورہ', nameEnglish: 'Sheikhupura', dropdownUrdu: 'شیخوپورہ', dropdownEnglish: 'Sheikhupura', isServiceAreaHub: true, serviceAreaOrder: 7 },
+  { id: 'gujranwala', nameUrdu: 'گوجرانوالہ', nameEnglish: 'Gujranwala', dropdownUrdu: 'گوجرانوالہ', dropdownEnglish: 'Gujranwala', isServiceAreaHub: true, serviceAreaOrder: 8 },
+  { id: 'lahore', nameUrdu: 'لاہور', nameEnglish: 'Lahore', dropdownUrdu: 'لاہور', dropdownEnglish: 'Lahore', isServiceAreaHub: true, serviceAreaOrder: 9 },
+  { id: 'multan', nameUrdu: 'ملتان', nameEnglish: 'Multan', dropdownUrdu: 'ملتان', dropdownEnglish: 'Multan', isServiceAreaHub: true, serviceAreaOrder: 10 },
+  { id: 'islamabad', nameUrdu: 'اسلام آباد', nameEnglish: 'Islamabad', dropdownUrdu: 'راولپنڈی و اسلام آباد', dropdownEnglish: 'Rawalpindi / Islamabad', isServiceAreaHub: true, serviceAreaOrder: 11 },
+  { id: 'karachi', nameUrdu: 'کراچی', nameEnglish: 'Karachi', dropdownUrdu: 'کراچی', dropdownEnglish: 'Karachi', isServiceAreaHub: true, serviceAreaOrder: 12 },
+  { id: 'sialkot', nameUrdu: 'سیالکوٹ', nameEnglish: 'Sialkot', dropdownUrdu: 'سیالکوٹ', dropdownEnglish: 'Sialkot', isServiceAreaHub: true, serviceAreaOrder: 13 },
+  { id: 'peshawar', nameUrdu: 'پشاور', nameEnglish: 'Peshawar', dropdownUrdu: 'پشاور', dropdownEnglish: 'Peshawar', isServiceAreaHub: true, serviceAreaOrder: 14 },
 
   // Additional Major Commercial Freight Destinations (Rate Calculator Network)
-  { id: 'quetta', nameUrdu: 'کوئٹہ', nameEnglish: 'Quetta', dropdownUrdu: 'کوئٹہ (Quetta)', dropdownEnglish: 'Quetta', isServiceAreaHub: false },
-  { id: 'sahiwal', nameUrdu: 'ساہیوال', nameEnglish: 'Sahiwal', dropdownUrdu: 'ساہیوال (Sahiwal)', dropdownEnglish: 'Sahiwal', isServiceAreaHub: false },
-  { id: 'rahim-yar-khan', nameUrdu: 'رحیم یار خان', nameEnglish: 'Rahim Yar Khan', dropdownUrdu: 'رحیم یار خان (Rahim Yar Khan)', dropdownEnglish: 'Rahim Yar Khan', isServiceAreaHub: false },
-  { id: 'bahawalpur', nameUrdu: 'بہاولپور', nameEnglish: 'Bahawalpur', dropdownUrdu: 'بہاولپور (Bahawalpur)', dropdownEnglish: 'Bahawalpur', isServiceAreaHub: false },
-  { id: 'sukkur', nameUrdu: 'سکھر', nameEnglish: 'Sukkur', dropdownUrdu: 'سکھر (Sukkur)', dropdownEnglish: 'Sukkur', isServiceAreaHub: false },
-  { id: 'hyderabad', nameUrdu: 'حیدرآباد', nameEnglish: 'Hyderabad', dropdownUrdu: 'حیدرآباد (Hyderabad)', dropdownEnglish: 'Hyderabad', isServiceAreaHub: false },
-  { id: 'abbottabad', nameUrdu: 'ایبٹ آباد', nameEnglish: 'Abbottabad', dropdownUrdu: 'ایبٹ آباد (Abbottabad)', dropdownEnglish: 'Abbottabad', isServiceAreaHub: false },
-  { id: 'mardan', nameUrdu: 'مردان', nameEnglish: 'Mardan', dropdownUrdu: 'مردان (Mardan)', dropdownEnglish: 'Mardan', isServiceAreaHub: false },
-  { id: 'gilgit', nameUrdu: 'گلگت', nameEnglish: 'Gilgit', dropdownUrdu: 'گلگت و بلتستان (Gilgit)', dropdownEnglish: 'Gilgit', isServiceAreaHub: false },
+  { id: 'quetta', nameUrdu: 'کوئٹہ', nameEnglish: 'Quetta', dropdownUrdu: 'کوئٹہ', dropdownEnglish: 'Quetta', isServiceAreaHub: false },
+  { id: 'sahiwal', nameUrdu: 'ساہیوال', nameEnglish: 'Sahiwal', dropdownUrdu: 'ساہیوال', dropdownEnglish: 'Sahiwal', isServiceAreaHub: false },
+  { id: 'rahim-yar-khan', nameUrdu: 'رحیم یار خان', nameEnglish: 'Rahim Yar Khan', dropdownUrdu: 'رحیم یار خان', dropdownEnglish: 'Rahim Yar Khan', isServiceAreaHub: false },
+  { id: 'bahawalpur', nameUrdu: 'بہاولپور', nameEnglish: 'Bahawalpur', dropdownUrdu: 'بہاولپور', dropdownEnglish: 'Bahawalpur', isServiceAreaHub: false },
+  { id: 'sukkur', nameUrdu: 'سکھر', nameEnglish: 'Sukkur', dropdownUrdu: 'سکھر', dropdownEnglish: 'Sukkur', isServiceAreaHub: false },
+  { id: 'hyderabad', nameUrdu: 'حیدرآباد', nameEnglish: 'Hyderabad', dropdownUrdu: 'حیدرآباد', dropdownEnglish: 'Hyderabad', isServiceAreaHub: false },
+  { id: 'abbottabad', nameUrdu: 'ایبٹ آباد', nameEnglish: 'Abbottabad', dropdownUrdu: 'ایبٹ آباد', dropdownEnglish: 'Abbottabad', isServiceAreaHub: false },
+  { id: 'mardan', nameUrdu: 'مردان', nameEnglish: 'Mardan', dropdownUrdu: 'مردان', dropdownEnglish: 'Mardan', isServiceAreaHub: false },
+  { id: 'gilgit', nameUrdu: 'گلگت', nameEnglish: 'Gilgit', dropdownUrdu: 'گلگت و بلتستان', dropdownEnglish: 'Gilgit & Baltistan', isServiceAreaHub: false },
 ];
 
 // Preserves the existing order of the Rate Calculator dropdown
@@ -199,6 +205,23 @@ const RATE_CALCULATOR_CITY_IDS: string[] = [
   'sahiwal', 'toba-tek-singh', 'jhang', 'rahim-yar-khan', 'bahawalpur',
   'sukkur', 'hyderabad', 'abbottabad', 'mardan', 'gilgit'
 ];
+
+// Derived 14 Key Service Area Hubs for BusinessIntroCard & Schema
+export const SERVICE_AREAS: ServiceAreaCity[] = MASTER_CITIES
+  .filter(c => c.isServiceAreaHub)
+  .sort((a, b) => (a.serviceAreaOrder ?? 99) - (b.serviceAreaOrder ?? 99))
+  .map(c => {
+    return {
+      id: c.id,
+      nameUrdu: c.nameUrdu,
+      nameEnglish: c.nameEnglish,
+      descriptionUrdu: 'مال کی بکنگ اور ٹرانسپورٹ سروس دستیاب ہے',
+      descriptionEnglish: 'Goods booking and transport service available',
+      phone: COMPANY_INFO.phone1,
+      phoneRaw: COMPANY_INFO.phoneRaw1,
+      whatsappUrl: `https://wa.me/${COMPANY_INFO.whatsappNumber}`,
+    };
+  });
 
 // Deprecated alias maintained for internal component compatibility
 export const BRANCHES_DATA: BranchInfo[] = [];
@@ -229,12 +252,13 @@ export const CORPORATE_CREDENTIALS = {
   proprietor: 'Zahdan Nasar Warraich',
   proprietorUrdu: 'زاہدان نصر وڑائچ',
   officialEmail: 'warraichgoods43@gmail.com',
-  officialPhones: ['0300-5370443', '0339-5370443'],
-  serviceCoverage: 'Samundri, Kamalia, Faisalabad, Toba Tek Singh, Lahore, Karachi & All Major Cities (Phone & WhatsApp Booking)',
-  serviceCoverageUrdu: 'سمندری، کمالیہ، فیصل آباد، ٹوبہ ٹیک سنگھ، لاہور، کراچی اور ملک گیر روٹس (آن کال و واٹس ایپ بکنگ)',
-  servicePhilosophy: '100% Dedicated Full Truckload (FTL) for Corporate & Industrial Consignments with Zero Cargo Mixing',
-  servicePhilosophyUrdu: 'کارپوریٹ و صنعتی کنسائنمنٹس کے لیے 100% مخصوص فل ٹرک لوڈ (FTL) — زیرو مکسنگ پالیسی',
+  officialPhones: ['0300-5370443'],
+  serviceCoverage: 'Nationwide Home Shifting, Office Relocation, Commercial Cargo & Fast Vehicle Booking across Pakistan. Head Office: Okara Bypass, Samundri, District Faisalabad.',
+  serviceCoverageUrdu: 'پورے پاکستان کے لیے محفوظ اور بروقت مال برداری اور شفٹنگ۔ ہیڈ آفس: اوکاڑہ بائی پاس، سمندری، ضلع فیصل آباد۔',
+  servicePhilosophy: 'Careful Handling, Clear Bilty Records, Affordable Rates & 24/7 Nationwide Service Since 2020',
+  servicePhilosophyUrdu: 'محفوظ ہینڈلنگ، شفاف بلٹی ریکارڈ، مناسب ریٹ اور 24/7 بروقت سروس',
   invoicingFeatures: [
+    { titleEn: 'Official Tax Invoicing', titleUr: 'باقاعدہ ٹیکس انوائسنگ', descEn: 'Formal invoices with NTN: 7779394-1 compliant with corporate withholding tax regulations.', descUr: 'کارپوریٹ ٹیکس قوانین کے مطابق رجسٹرڈ NTN کے ساتھ شفاف انوائس۔' },
     { titleEn: 'Computerized Weighbridge Slip', titleUr: 'کمپیوٹرائزڈ کانٹا پرچی', descEn: 'Certified weighbridge weight slips provided immediately post-loading for strict axle compliance.', descUr: 'لوڈنگ کے فوری بعد سرکاری کانٹا پرچی اور ایکسل لوڈ قوانین کی پاسداری۔' },
     { titleEn: 'Official Bilti & Signed POD', titleUr: 'سرکاری بلٹی اور دستخط شدہ POD', descEn: 'Formal Consignment Note (Bilti) and stamped Proof of Delivery (POD) returned for every shipment.', descUr: 'باقاعدہ ٹرانسپورٹ بلٹی اور منزل پر وصول کنندہ کی مہر و دستخط شدہ رسید۔' },
     { titleEn: 'Pre-Transit Vehicle Inspection', titleUr: 'روانگی سے قبل گاڑی کی جانچ', descEn: 'Rigorous mechanical, tire, and tarpaulin audit prior to highway dispatch.', descUr: 'ہائی وے روانگی سے قبل ٹرک فٹنس، ٹائرز اور ترپال کی مکمل جانچ۔' },
@@ -249,7 +273,7 @@ export const CORPORATE_CREDENTIALS = {
   ],
   corporateSectors: [
     { nameEn: 'Textile & Spinning Mills', nameUr: 'ٹیکسٹائل و اسپننگ ملز', detailsEn: 'Yarn cones, finished fabric, grey cloth & raw cotton across Faisalabad, Lahore, and Karachi Port.', detailsUr: 'دھاگہ، کپڑا، گرے کلوتھ اور کاٹن بیلز کی کراچی پورٹ اور ملکی منڈیوں میں ترسیل۔' },
-    { nameEn: 'Agricultural Traders & Mandis', nameUr: 'زرعی غلہ منڈی و آڑھتی', detailsEn: 'Wheat, corn, rice, cottonseeds, and fodder bulk haulage with zero moisture exposure.', detailsUr: 'گندم، مکئی، چاول اور کھاد کی بلک ترسیل سمندری، کمالیہ، چیچہ وطنی اور خانیوال روٹس پر۔' },
+    { nameEn: 'Agricultural Traders & Mandis', nameUr: 'زرعی غلہ منڈی و آڑھتی', detailsEn: 'Wheat, corn, rice, cottonseeds, and fodder bulk haulage with zero moisture exposure.', detailsUr: 'گندم، مکئی، چاول اور کھاد کی بلک ترسیل پنجاب، سندھ، کے پی کے اور ملک بھر کے تمام روٹس پر۔' },
     { nameEn: 'Construction & Steel Infrastructure', nameUr: 'تعمیراتی میٹریل و اسٹیل', detailsEn: 'Structural rebar, cement bags, PVC piping, and stone marble slabs using heavy Bedford haulers.', detailsUr: 'سیمنٹ، سریا، پائپ اور صنعتی ہارڈ ویئر کی بھاری بیڈفورڈ اور سیمپل ٹرکوں پر لوڈنگ۔' },
     { nameEn: 'Flour, Sugar & Food Processing Plants', nameUr: 'فلور، شوگر و فوڈ ملز', detailsEn: 'Refined sugar bags, flour sacks, packaging cartons, and poultry feed transport.', detailsUr: 'چینی، آٹا، پیکجنگ گتے اور پولٹری فیڈ کی صاف ستھری اور محفوظ FTL ترسیل۔' },
   ]

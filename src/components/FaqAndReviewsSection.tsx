@@ -31,12 +31,12 @@ export const FaqAndReviewsSection: React.FC = () => {
       a: 'جی بالکل! ہماری تمام اوپن اور جالی باڈی گاڑیوں میں ڈبل واٹر پروف ہیوی ترپالیں اور مضبوط ٹائی ڈاؤن رسیاں موجود ہوتی ہیں۔ بارش، گرد و غبار اور دھوپ سے سامان کا 100% تحفظ یقینی بنایا جاتا ہے۔'
     },
     {
-      q: 'سمندری اور کمالیہ سے مال برداری اور ٹرانسپورٹ سروس کیسے حاصل کریں؟',
-      a: 'سمندری اور کمالیہ سمیت پورے پنجاب اور پاکستان کے لیے مال کی بکنگ فون کال اور واٹس ایپ پر 24 گھنٹے دستیاب ہے۔ ہم سمندری اور کمالیہ کی معروف گڈز ٹرانسپورٹ کمپنی کے طور پر فیصل آباد ریجن (FIEDMC)، لاہور، کراچی پورٹ، راولپنڈی اور پورے پاکستان کے لیے 100% مخصوص FTL ٹرک بکنگ فراہم کرتے ہیں۔'
+      q: 'پورے پاکستان کے لیے مال برداری اور گھریلو و دفتری شفٹنگ سروس کیسے بک کریں؟',
+      a: 'پورے پاکستان کے لیے گھر کی شفٹنگ، دفتری منتقلی اور کمرشل مال برداری کی بکنگ فون کال اور واٹس ایپ (0300-5370443) پر 24 گھنٹے دستیاب ہے۔ ہم مناسب ریٹ، محفوظ ہینڈلنگ اور بروقت سروس فراہم کرتے ہیں۔'
     },
     {
-      q: 'کیا آپ سمندری سے ٹریلر اور فل ٹرک بکنگ فراہم کرتے ہیں؟',
-      a: 'جی ہاں! ہمارے پاس شہزور (1 تا 3.5 ٹن)، مزدا 6 وہیلر (4 تا 10 ٹن)، سیمپل ٹرک (8 تا 16 ٹن) اور 22 تا 28+ فٹ بیڈفورڈ ہیوی ٹرکس و ٹریلر ٹرانسپورٹ سمندری اور کمالیہ سے 24 گھنٹے آن ڈیمانڈ دستیاب ہیں۔ کمپیوٹرائزڈ کانٹا پرچی اور تصدیق شدہ بلٹی ہر گاڑی کے ساتھ دی جاتی ہے۔'
+      q: 'کیا آپ کے پاس گھریلو شفٹنگ اور کمرشل لوڈ کے لیے مختلف سائز کی گاڑیاں دستیاب ہیں؟',
+      a: 'جی ہاں! ہمارے پاس شہزور پک اپ (1 تا 3.5 ٹن)، مزدا 6 وہیلر (4 تا 10 ٹن)، سیمپل ٹرک اور بیڈفورڈ ہیوی ہالرز ہر سائز کے سامان کے لیے 24 گھنٹے دستیاب ہیں۔ واضح بلٹی ریکارڈ اور مناسب ترین کرایہ دیا جاتا ہے۔'
     },
     {
       q: 'کیا ڈرائیورز کی شناخت اور گاڑی کے کاغذات کی سرکاری تصدیق ہوتی ہے؟',
@@ -58,12 +58,12 @@ export const FaqAndReviewsSection: React.FC = () => {
       a: 'Yes, absolutely! Every vehicle in our fleet is equipped with heavy-duty double waterproof tarpaulins and high-tensile tie-down straps, ensuring 100% weather and moisture protection throughout transit.'
     },
     {
-      q: 'How can I book goods transport service from Samundri and Kamalia?',
-      a: 'Direct booking for Samundri, Kamalia, and all Pakistan routes is available 24/7 via phone call and WhatsApp. As a premier freight carrier in Samundri and Kamalia, we connect the Faisalabad industrial region directly to Karachi Port, Lahore, Rawalpindi, and all nationwide destinations with dedicated FTL trucks.'
+      q: 'How can I book home shifting, office relocation, or goods transport across Pakistan?',
+      a: 'Direct booking for home shifting, office relocation, and commercial goods delivery is available 24/7 via phone and WhatsApp at 0300-5370443. We provide instant free quotes, careful handling, and reliable truck booking nationwide.'
     },
     {
-      q: 'How can I arrange truck booking and trailer transport in Samundri for heavy commercial loads?',
-      a: 'Instant commercial truck and trailer booking in Samundri and Kamalia is available 24/7. Simply call or WhatsApp 0300-5370443 or 0339-5370443. We dispatch Hyundai Shehzore (1-3.5 Tons), Mazda 6-wheeler (4-10 Tons), Sample haulers (8-16 Tons), and heavy Bedford trucks / trailers (15-28+ Tons) with digital weighbridge scale slips.'
+      q: 'Do you provide versatile trucks for both household shifting and commercial loads?',
+      a: 'Yes! Our versatile fleet includes Mazda trucks, Shahzore pickups, and heavy haulers tailored for all load sizes. Whether moving house, transferring an office, or shipping cargo to another city, we provide careful handling, clear bilty records, and affordable rates.'
     },
     {
       q: 'Are your drivers and transport documentation officially verified?',

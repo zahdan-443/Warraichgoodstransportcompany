@@ -47,7 +47,7 @@ export const GROUND_OPERATIONS_PHOTOS = [
     badgeEn: 'Leadership & Fleet Supervision',
     titleUrdu: 'پروپرائٹر زاہدان نصر وڑائچ — آپریشنل نگرانی',
     titleEn: 'Proprietor Zahdan Nasar Warraich — Operational Oversight',
-    descUrdu: 'سمندری، کمالیہ اور پنجاب بھر میں فلیٹ کی براہ راست روانگی، کاغذات اور بلٹی کی نگرانی۔',
+    descUrdu: 'ملک بھر میں فلیٹ کی براہ راست روانگی، کاغذات اور بلٹی کی نگرانی۔',
     descEn: 'Direct hands-on oversight of daily fleet dispatch, vehicle inspections, and client coordination.',
     alt: 'Zahdan Nasar Warraich - Proprietor of Warraich Goods Transport Company supervising fleet operations',
     footerLabelUrdu: 'فیلڈ آپریشنز',
@@ -549,7 +549,7 @@ export const CorporateCredibilitySection: React.FC = () => {
                   <div className="py-1 border-b border-slate-100">
                     <span className="text-slate-500 block mb-0.5">{isUrdu ? 'سروس کوریج:' : 'Service Coverage:'}</span>
                     <span className="font-semibold text-slate-900 block font-urdu">
-                      {isUrdu ? 'سمندری، کمالیہ، فیصل آباد، ٹوبہ ٹیک سنگھ، لاہور، کراچی اور ملک بھر کے تمام روٹس' : 'Samundri, Kamalia, Faisalabad, Toba Tek Singh, Lahore, Karachi & all major routes'}
+                      {isUrdu ? 'پنجاب، سندھ، خیبر پختونخوا، بلوچستان اور ملک بھر کے تمام کمرشل و انڈسٹریل روٹس' : 'Punjab, Sindh, KPK, Balochistan & all major commercial routes nationwide'}
                     </span>
                   </div>
                   <div className="py-1 border-b border-slate-100">

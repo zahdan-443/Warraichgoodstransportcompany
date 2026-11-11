@@ -174,5 +174,28 @@ html[lang="en"] .font-urdu-nastaliq {
   animation: pulseGlow 2.5s infinite;
 }
 
+/* Light, accessible reveal animation - text remains visible in static prerender */
+@keyframes softReveal {
+  from {
+    opacity: 0.94;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+@media (prefers-reduced-motion: no-preference) {
+  .animate-soft-reveal {
+    animation: softReveal 0.35s ease-out forwards;
+  }
+}
 
+@media (prefers-reduced-motion: reduce) {
+  .animate-soft-reveal,
+  .pulse-glow {
+    animation: none !important;
+    transform: none !important;
+  }
+}

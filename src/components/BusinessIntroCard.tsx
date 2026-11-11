@@ -121,14 +121,14 @@ export const BusinessIntroCard: React.FC = () => {
 
               {/* Badges & Print Profile Action */}
               <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
-                <div className="inline-flex items-center gap-1.5 bg-amber-50 text-amber-900 border border-amber-200 px-3 py-1.5 rounded-lg text-xs font-bold font-mono">
-                  <FileCheck className="w-4 h-4 text-amber-700" />
+                <div className="inline-flex items-center gap-1.5 bg-amber-500 text-slate-950 font-black px-3.5 py-1.5 rounded-lg text-xs font-mono shadow-xs border border-amber-400">
+                  <FileCheck className="w-4 h-4 text-slate-950" />
                   <span>NTN: {COMPANY_INFO.ntn}</span>
                 </div>
 
-                <div className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-800 border border-blue-200 px-3 py-1.5 rounded-lg text-xs font-bold font-urdu">
-                  <ShieldCheck className="w-4 h-4 text-blue-600" />
-                  <span>{isUrdu ? 'ایکٹیو ٹیکس پیئر (FBR)' : 'Active Taxpayer (FBR)'}</span>
+                <div className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 border border-emerald-200 px-3 py-1.5 rounded-lg text-xs font-bold font-urdu">
+                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                  <span>{isUrdu ? 'ایف بی آر ایکٹو ٹیکس پیئر' : 'Active Taxpayer (FBR)'}</span>
                 </div>
 
                 <button
@@ -155,12 +155,12 @@ export const BusinessIntroCard: React.FC = () => {
                   </div>
                   <p className="text-xs sm:text-[13px] text-slate-700 leading-relaxed font-urdu">
                     {isUrdu 
-                      ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی سمندری و کمالیہ سے شروع ہو کر اب ملک کے تمام بڑے صنعتی و تجارتی مراکز تک تیز رفتار اور براہ راست مال برداری مہیا کر رہی ہے۔ ہمارا بنیادی فوکس معیاری گاڑیاں، وقت کی پابندی اور سامان کی مکمل حفاظت ہے۔'
-                      : 'Warraich Goods Transport Company delivers direct, dedicated Full Truckload freight transit connecting Punjab, Sindh, KPK, and Balochistan. Our core focus is vehicle reliability, strict schedule adherence, and cargo safety.'}
+                      ? 'ہم پورے پاکستان کے لیے محفوظ اور بروقت مال برداری اور شفٹنگ کی خدمات فراہم کرتے ہیں۔ مناسب ریٹ اور بہترین سروس ہماری پہچان ہے۔ وڑائچ گڈز ٹرانسپورٹ کمپنی گھر کی شفٹنگ، دفتری منتقلی، کمرشل مال برداری اور 24/7 تیز رفتار گاڑی بکنگ کی قابل اعتماد سہولت فراہم کرتی ہے۔'
+                      : 'Warraich Goods Transport Company offers trusted home shifting, office relocation, and local/inter-city goods transport services across Pakistan. We specialize in shifting, commercial load delivery, and fast vehicle booking with careful handling, clear bilty records, and affordable rates.'}
                   </p>
                 </div>
                 <div className="mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500 font-urdu">
-                  <span>{isUrdu ? 'ماہانہ فیکٹری کنٹریکٹس و کسٹم سائز گاڑیاں دستیاب' : 'Monthly corporate contracts and custom haulage available'}</span>
+                  <span>{isUrdu ? '2020 سے خدمات • احتیاط سے ہینڈلنگ اور واضح بلٹی ریکارڈ' : 'Serving Since 2020 • Careful handling and clear bilty records'}</span>
                 </div>
               </div>
 
@@ -254,25 +254,27 @@ export const BusinessIntroCard: React.FC = () => {
                 </p>
               </div>
 
-              {/* Two 60-Word Urdu SEO Paragraphs for Samundri & Kamalia */}
+              {/* Two Nationwide Service Cards from Google Business Profile */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                 
-                {/* Samundri Service Area Paragraph */}
+                {/* Nationwide Goods Transport & Commercial Cargo */}
                 <div className="bg-amber-50/40 border border-amber-200 rounded-lg p-5 shadow-sm">
                   <div className="flex items-center justify-between pb-2 mb-2.5 border-b border-amber-100">
                     <span className="font-bold text-slate-900 text-sm font-urdu flex items-center gap-1.5">
                       <Truck className="w-4 h-4 text-amber-600" />
-                      <span>سمندری سے مال برداری و بکنگ (Samundri Service)</span>
+                      <span>{isUrdu ? 'محفوظ اور بروقت مال برداری' : 'Commercial Goods Transport'}</span>
                     </span>
                     <span className="text-[11px] font-mono font-bold bg-amber-200/70 text-amber-950 px-2 py-0.5 rounded">
-                      24/7 On-Call
+                      24/7 Nationwide
                     </span>
                   </div>
                   <p className="text-xs sm:text-[13px] text-slate-700 font-urdu leading-relaxed">
-                    سمندری اور ملحقہ علاقوں کے تاجروں اور زمینداروں کے لیے سمندری سے مال کی بکنگ (Samundri se maal ki booking) چوبیس گھنٹے دستیاب ہے۔ ہمارے پاس زرعی اجناس، ٹیکسٹائل، کھاد اور انڈسٹریل سامان کی ترسیل کے لیے شہزور، مزدا، سیمپل اور بیڈفورڈ (Shehzore, Mazda, Bedford) ہر وقت تیار ہیں۔ آپ صرف فون یا واٹس ایپ پر رابطہ کریں۔ ہم فوری طور پر مخصوص FTL گاڑی آپ کے گودام یا فیکٹری روانہ کرتے ہیں۔ گاڑی بغیر کسی تاخیر کے سیدھی منزل پر پہنچتی ہے۔
+                    {isUrdu
+                      ? 'ہم پورے پاکستان کے لیے محفوظ اور بروقت مال برداری اور تیز رفتار گاڑی بکنگ کی خدمات فراہم کرتے ہیں۔ مناسب ریٹ اور بہترین سروس ہماری پہچان ہے۔ کمرشل کارگو، صنعتی سامان اور زرعی اجناس کی ترسیل کے لیے شہزور پک اپ، مزدا ٹرک، سیمپل اور بیڈفورڈ ہیوی ہالرز 24 گھنٹے دستیاب ہیں۔ واضح بلٹی ریکارڈ اور شفاف کرایہ ہماری ضمانت ہے۔'
+                      : 'Warraich Goods Transport Company specializes in commercial load delivery and fast vehicle booking across Pakistan. Our versatile fleet includes Mazda trucks, Shahzore pickups, and heavy haulers tailored for all load sizes with clear bilty records and affordable rates.'}
                   </p>
                   <div className="mt-3.5 pt-3 border-t border-amber-100/80 flex items-center justify-between gap-2">
-                    <span className="text-[11px] text-slate-500 font-urdu">آن کال و واٹس ایپ بکنگ:</span>
+                    <span className="text-[11px] text-slate-500 font-urdu">{isUrdu ? 'آن کال و واٹس ایپ بکنگ:' : 'Direct Booking:'}</span>
                     <div className="flex items-center gap-2">
                       <a
                         href="tel:03005370443"
@@ -294,32 +296,34 @@ export const BusinessIntroCard: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Kamalia Service Area Paragraph */}
+                {/* Home Shifting & Office Relocation */}
                 <div className="bg-slate-50 border border-slate-200 rounded-lg p-5 shadow-sm">
                   <div className="flex items-center justify-between pb-2 mb-2.5 border-b border-slate-200">
                     <span className="font-bold text-slate-900 text-sm font-urdu flex items-center gap-1.5">
                       <Truck className="w-4 h-4 text-blue-600" />
-                      <span>کمالیہ سے گڈز ٹرانسپورٹ (Kamalia Service)</span>
+                      <span>{isUrdu ? 'گھریلو سامان و دفتری شفٹنگ' : 'Home Shifting & Office Relocation'}</span>
                     </span>
                     <span className="text-[11px] font-mono font-bold bg-slate-200 text-slate-900 px-2 py-0.5 rounded">
-                      24/7 On-Call
+                      Since 2020
                     </span>
                   </div>
                   <p className="text-xs sm:text-[13px] text-slate-700 font-urdu leading-relaxed">
-                    کمالیہ، رجانہ، پیر محل اور غلہ منڈی کے تاجروں کے لیے کمالیہ سے گڈز ٹرانسپورٹ (Kamalia se goods transport) کی سروس دستیاب ہے۔ مکئی، گندم، چینی، کپاس اور پولٹری فیڈ کی ترسیل کے لیے شہزور، مزدا، سیمپل اور بیڈفورڈ (Shehzore, Mazda, Bedford) ہر وقت تیار رہتے ہیں۔ ہم 100% فل ٹرک لوڈ پر گاڑیاں فوری روانہ کرتے ہیں۔ پورے پاکستان کے لیے شفاف کرایہ اور محفوظ مال برداری اب ایک فون کال پر میسر ہے۔
+                    {isUrdu
+                      ? 'گھر کی شفٹنگ، دفتری منتقلی اور لوکل و انٹرسٹی مال برداری میں وڑائچ گڈز آپ کی بااعتماد پارٹنر ہے۔ فرنیچر، نازک سامان اور الیکٹرانکس کی احتیاط سے ہینڈلنگ کے لیے مخصوص گاڑیاں اور تربیت یافتہ عملہ فراہم کیا جاتا ہے۔ چاہے آپ ایک شہر کے اندر منتقل ہو رہے ہوں یا دوسرے شہر، ہم آسان اور سستی شفٹنگ یقینی بناتے ہیں۔'
+                      : 'Offering trusted home shifting, office relocation, and inter-city moving services nationwide. Whether you are moving house, transferring an office, or shipping goods to another city, we provide careful handling, clear bilty records, and affordable rates.'}
                   </p>
                   <div className="mt-3.5 pt-3 border-t border-slate-200 flex items-center justify-between gap-2">
-                    <span className="text-[11px] text-slate-500 font-urdu">آن کال و واٹس ایپ بکنگ:</span>
+                    <span className="text-[11px] text-slate-500 font-urdu">{isUrdu ? 'آن کال و واٹس ایپ بکنگ:' : 'Direct Booking:'}</span>
                     <div className="flex items-center gap-2">
                       <a
-                        href="tel:03395370443"
+                        href="tel:03005370443"
                         className="inline-flex items-center gap-1 text-[11px] font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 px-2.5 py-1 rounded-lg transition"
                       >
                         <Phone className="w-3 h-3 text-slate-700" />
-                        <span>0339-5370443</span>
+                        <span>0300-5370443</span>
                       </a>
                       <a
-                        href="https://wa.me/923395370443"
+                        href="https://wa.me/923005370443"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1 text-[11px] font-bold text-blue-700 bg-blue-50 hover:bg-blue-100 px-2.5 py-1 rounded-lg transition"

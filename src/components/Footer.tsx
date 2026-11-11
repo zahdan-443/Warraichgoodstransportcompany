@@ -28,8 +28,8 @@ export const Footer: React.FC = () => {
   const whatsappUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}`;
   const shareUrl = SITE_URL;
   const shareTitle = isUrdu 
-    ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی - سمندری و کمالیہ سے ملک گیر فل ٹرک لوڈ (FTL) مال برداری'
-    : 'Warraich Goods Transport Company - Nationwide FTL Truck Booking & Logistics';
+    ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی - پورے پاکستان کے لیے محفوظ اور بروقت مال برداری اور شفٹنگ'
+    : 'Warraich Goods Transport Company - Nationwide Goods Transport, Shifting & Truck Booking';
 
   const handleCopyLink = () => {
     try {
@@ -47,11 +47,11 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer id="footer" className="bg-slate-900 text-slate-300 text-sm border-t border-slate-800">
+    <footer id="footer" className="bg-slate-950 text-slate-300 text-sm border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
         
         {/* 1. Official Social Media & Verified Profiles Strip */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-800">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-800/80">
           <div className="text-center sm:text-start">
             <span className="text-[11px] font-mono uppercase tracking-widest text-amber-400 font-bold block">
               {isUrdu ? 'آفیشل سوشل میڈیا و نیٹ ورک' : 'Official Social Media & Channels'}
@@ -69,10 +69,10 @@ export const Footer: React.FC = () => {
               href={COMPANY_INFO.youtubeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 px-3.5 py-1.5 rounded-lg text-xs font-bold transition shadow-sm"
+              className="inline-flex items-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-white border border-slate-800 px-3.5 py-1.5 rounded-lg text-xs font-bold transition shadow-xs"
               aria-label="Warraich Goods YouTube Channel"
             >
-              <Youtube className="w-4 h-4 fill-current text-slate-300" />
+              <Youtube className="w-4 h-4 fill-current text-red-500" />
               <span>YouTube</span>
             </a>
 
@@ -81,7 +81,7 @@ export const Footer: React.FC = () => {
               href={COMPANY_INFO.facebookUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-500 text-white px-3.5 py-1.5 rounded-lg text-xs font-bold transition shadow-sm"
+              className="inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-500 text-white px-3.5 py-1.5 rounded-lg text-xs font-bold transition shadow-xs"
               aria-label="Warraich Goods Facebook Page"
             >
               <Facebook className="w-4 h-4 fill-current" />
@@ -93,7 +93,7 @@ export const Footer: React.FC = () => {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-500 text-white px-3.5 py-1.5 rounded-lg text-xs font-bold transition shadow-sm"
+              className="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-1.5 rounded-lg text-xs font-bold transition shadow-xs"
               aria-label="Warraich Goods WhatsApp"
             >
               <MessageCircle className="w-4 h-4 fill-current" />

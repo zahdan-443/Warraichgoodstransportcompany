@@ -27,7 +27,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 overflow-x-hidden w-full pb-16 sm:pb-0">
+    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 overflow-x-hidden w-full pb-24 sm:pb-12">
       {/* Scroll restoration on route transition */}
       <ScrollToTop />
 

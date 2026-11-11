@@ -113,8 +113,8 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
 
   const corridorsList = [
     {
-      corridorUr: 'سمندری / کمالیہ ⇋ کراچی پورٹ (KPT / QICT)',
-      corridorEn: 'Samundri / Kamalia ⇋ Karachi Port Hubs',
+      corridorUr: 'پنجاب ⇋ کراچی پورٹ (KPT / QICT)',
+      corridorEn: 'Punjab ⇋ Karachi Port Hubs',
       highwayUr: 'براستہ M-4، M-5 سکھر ملتان موٹروے و نیشنل ہائی وے',
       highwayEn: 'Via M-4, M-5 Motorway & N-5 National Highway',
       transitUr: '24 تا 30 گھنٹے (نان اسٹاپ ایکسپریس FTL)',
@@ -124,10 +124,10 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
       tagColor: 'bg-blue-100 text-blue-900 border-blue-200',
     },
     {
-      corridorUr: 'سمندری / کمالیہ ⇋ لاہور، شیخوپورہ و گوجرانوالہ',
-      corridorEn: 'Samundri / Kamalia ⇋ Lahore & Gujranwala Belts',
-      highwayUr: 'براستہ M-3 موٹروے (رجانہ / شرقپور انٹرچینج)',
-      highwayEn: 'Via M-3 Motorway (Rajana / Sharqpur Link)',
+      corridorUr: 'لاہور ⇋ شیخوپورہ، فیصل آباد و گوجرانوالہ',
+      corridorEn: 'Lahore ⇋ Faisalabad & Gujranwala Belts',
+      highwayUr: 'براستہ M-3 و M-2 موٹروے کوریڈور',
+      highwayEn: 'Via M-3 & M-2 Motorway Corridors',
       transitUr: '3 تا 4 گھنٹے (سیم ڈے ڈلیوری)',
       transitEn: '3 - 4 Hours (Same-Day Transit)',
       tagUr: 'انڈسٹریل روٹ',
@@ -135,8 +135,8 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
       tagColor: 'bg-slate-100 text-slate-800 border-slate-200',
     },
     {
-      corridorUr: 'سمندری / کمالیہ ⇋ راولپنڈی، اسلام آباد و خیبر پختونخوا',
-      corridorEn: 'Samundri / Kamalia ⇋ Rawalpindi, Islamabad & KPK',
+      corridorUr: 'وسطی پنجاب ⇋ راولپنڈی، اسلام آباد و پشاور',
+      corridorEn: 'Central Punjab ⇋ Rawalpindi, Islamabad & KPK',
       highwayUr: 'براستہ M-4 تا M-2 موٹروے و ایم-1 برہان / پشاور کوریڈور',
       highwayEn: 'Via M-4, M-2 & M-1 Motorway Corridors',
       transitUr: '6 تا 8 گھنٹے (اسلام آباد) | 10 تا 12 گھنٹے (پشاور)',
@@ -146,8 +146,8 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
       tagColor: 'bg-amber-100 text-amber-900 border-amber-200',
     },
     {
-      corridorUr: 'سمندری / کمالیہ ⇋ ملتان، بہاولپور، صادق آباد و سندھ',
-      corridorEn: 'Samundri / Kamalia ⇋ Multan, Sadiqabad & Upper Sindh',
+      corridorUr: 'پنجاب ⇋ ملتان، بہاولپور، صادق آباد و سندھ',
+      corridorEn: 'Punjab ⇋ Multan, Sadiqabad & Upper Sindh',
       highwayUr: 'براستہ M-4 و M-5 موٹروے ڈائریکٹ لنک',
       highwayEn: 'Via M-4 & M-5 Motorway Direct Link',
       transitUr: '3 تا 5 گھنٹے (ملتان/بہاولپور) | 8 تا 10 گھنٹے (سکھر)',

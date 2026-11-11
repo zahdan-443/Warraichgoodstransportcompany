@@ -34,8 +34,8 @@ export const RateCalculatorSection: React.FC<RateCalculatorSectionProps> = ({ se
   const [isCorporateMode, setIsCorporateMode] = useState<boolean>(false);
   const [copiedSummary, setCopiedSummary] = useState<boolean>(false);
   const [formData, setFormData] = useState<BookingFormData>({
-    originCity: language === 'ur' ? 'سمندری (Samundri)' : 'Samundri',
-    destinationCity: language === 'ur' ? 'لاہور (Lahore)' : 'Lahore',
+    originCity: language === 'ur' ? 'لاہور' : 'Lahore',
+    destinationCity: language === 'ur' ? 'کراچی' : 'Karachi',
     vehicleType: 'shehzore',
     goodsType: language === 'ur' ? 'زرعی اجناس (گندم، چاول، مکئی، کپاس، چارہ - فل گاڑی)' : 'Agricultural Produce (Wheat, Corn, Rice, Cotton - Full Truckload)',
     weight: language === 'ur' ? 'فل گاڑی لوڈ' : 'Full Truckload',
@@ -165,11 +165,11 @@ Please advise regarding the most competitive freight quotation and earliest vehi
   };
 
   const quickRoutes = [
-    { origin: isUrdu ? 'سمندری (Samundri)' : 'Samundri', dest: isUrdu ? 'کراچی (Karachi)' : 'Karachi', labelUr: 'سمندری ➔ کراچی پورٹ', labelEn: 'Samundri ➔ Karachi' },
-    { origin: isUrdu ? 'سمندری (Samundri)' : 'Samundri', dest: isUrdu ? 'لاہور (Lahore)' : 'Lahore', labelUr: 'سمندری ➔ لاہور', labelEn: 'Samundri ➔ Lahore' },
-    { origin: isUrdu ? 'کمالیہ (Kamalia)' : 'Kamalia', dest: isUrdu ? 'کراچی (Karachi)' : 'Karachi', labelUr: 'کمالیہ ➔ کراچی پورٹ', labelEn: 'Kamalia ➔ Karachi' },
-    { origin: isUrdu ? 'سمندری (Samundri)' : 'Samundri', dest: isUrdu ? 'اسلام آباد (Islamabad)' : 'Islamabad', labelUr: 'سمندری ➔ اسلام آباد', labelEn: 'Samundri ➔ Islamabad' },
-    { origin: isUrdu ? 'سمندری (Samundri)' : 'Samundri', dest: isUrdu ? 'ملتان (Multan)' : 'Multan', labelUr: 'سمندری ➔ ملتان', labelEn: 'Samundri ➔ Multan' },
+    { origin: isUrdu ? 'لاہور' : 'Lahore', dest: isUrdu ? 'کراچی' : 'Karachi', labelUr: 'لاہور ➔ کراچی پورٹ', labelEn: 'Lahore ➔ Karachi' },
+    { origin: isUrdu ? 'فیصل آباد' : 'Faisalabad', dest: isUrdu ? 'لاہور' : 'Lahore', labelUr: 'فیصل آباد ➔ لاہور', labelEn: 'Faisalabad ➔ Lahore' },
+    { origin: isUrdu ? 'راولپنڈی و اسلام آباد' : 'Rawalpindi / Islamabad', dest: isUrdu ? 'کراچی' : 'Karachi', labelUr: 'اسلام آباد ➔ کراچی', labelEn: 'Islamabad ➔ Karachi' },
+    { origin: isUrdu ? 'لاہور' : 'Lahore', dest: isUrdu ? 'راولپنڈی و اسلام آباد' : 'Rawalpindi / Islamabad', labelUr: 'لاہور ➔ اسلام آباد', labelEn: 'Lahore ➔ Islamabad' },
+    { origin: isUrdu ? 'ملتان' : 'Multan', dest: isUrdu ? 'کراچی' : 'Karachi', labelUr: 'ملتان ➔ کراچی', labelEn: 'Multan ➔ Karachi' },
   ];
 
   const getRouteInsight = () => {

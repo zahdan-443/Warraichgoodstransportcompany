@@ -28,7 +28,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
         return savedLang;
       }
     }
-    return 'ur'; // Default to Urdu
+    return 'en'; // Default to English as requested
   });
 
   const isRtl = language === 'ur';
@@ -103,12 +103,12 @@ export const useLanguage = (): LanguageContextType => {
   const context = useContext(LanguageContext);
   if (!context) {
     return {
-      language: 'ur',
+      language: 'en',
       setLanguage: () => {},
       toggleLanguage: () => {},
-      isRtl: true,
+      isRtl: false,
       translations: TRANSLATIONS,
-      t: TRANSLATIONS['ur']
+      t: TRANSLATIONS['en']
     };
   }
   return context;

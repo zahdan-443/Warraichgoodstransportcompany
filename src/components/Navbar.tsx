@@ -53,22 +53,36 @@ export const Navbar: React.FC<NavbarProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { label: tNav.home, to: '/' },
-    { label: tNav.fleet, to: '/fleet' },
-    { label: isUrdu ? 'سروسز و ساکھ' : 'Services', to: '/services' },
-    { label: isUrdu ? 'کرایہ و بکنگ' : 'Rates & Booking', to: '/booking' },
-    { label: isUrdu ? 'عام سوالات' : 'FAQs', to: '/faq' },
-    { label: isUrdu ? 'کاروباری تعارف' : 'About Us', to: '/about' },
+  const navLinks = isUrdu ? [
+    { label: 'مرکزی صفحہ', to: '/' },
+    { label: 'ہماری گاڑیاں', to: '/fleet' },
+    { label: 'سروسز و ساکھ', to: '/services' },
+    { label: 'کرایہ و بکنگ', to: '/booking' },
+    { label: 'عام سوالات', to: '/faq' },
+    { label: 'کاروباری تعارف', to: '/about' },
+  ] : [
+    { label: 'Home', to: '/' },
+    { label: 'Fleet', to: '/fleet' },
+    { label: 'Services', to: '/services' },
+    { label: 'Rates & Booking', to: '/booking' },
+    { label: 'FAQs', to: '/faq' },
+    { label: 'About Us', to: '/about' },
   ];
 
-  const allNavLinks = [
-    { label: tNav.home, to: '/' },
-    { label: tNav.fleet, to: '/fleet' },
-    { label: isUrdu ? 'سروسز و قانونی ساکھ' : 'Services & Credentials', to: '/services' },
-    { label: isUrdu ? 'آن لائن کرایہ و بلٹی ٹریکنگ' : 'Rate Calculator & Tracking', to: '/booking' },
-    { label: isUrdu ? 'عام سوالات و کلائنٹ ریویوز' : 'FAQs & Reviews', to: '/faq' },
-    { label: isUrdu ? 'کاروباری تعارف و شناختی کارڈ' : 'About Us & Company Card', to: '/about' },
+  const allNavLinks = isUrdu ? [
+    { label: 'مرکزی صفحہ', to: '/' },
+    { label: 'ہماری گاڑیاں (فلیٹ)', to: '/fleet' },
+    { label: 'سروسز و حفاظتی ضمانتیں', to: '/services' },
+    { label: 'آن لائن کرایہ و بکنگ', to: '/booking' },
+    { label: 'عام سوالات و جائزے', to: '/faq' },
+    { label: 'کاروباری تعارف و کوائف', to: '/about' },
+  ] : [
+    { label: 'Home', to: '/' },
+    { label: 'Commercial Fleet', to: '/fleet' },
+    { label: 'Services & Guarantees', to: '/services' },
+    { label: 'Rate Calculator & Booking', to: '/booking' },
+    { label: 'FAQs & Reviews', to: '/faq' },
+    { label: 'Business Profile & Credentials', to: '/about' },
   ];
 
   const isActive = (to: string) => {
@@ -79,29 +93,28 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header 
       id="main-navigation"
-      className={`sticky top-0 z-40 w-full transition-all duration-200 select-none ${
-        scrolled 
-          ? 'bg-white/98 backdrop-blur-md shadow-md border-b border-slate-200 py-2 sm:py-2.5' 
-          : 'bg-white border-b border-slate-200 py-2.5 sm:py-3.5 shadow-xs'
+      className={`sticky top-0 z-40 w-full transition-all duration-200 select-none bg-white border-b border-slate-200 ${
+        scrolled ? 'shadow-md backdrop-blur-md bg-white/95' : 'shadow-xs'
       }`}
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-2 sm:gap-4">
+        <div className="flex items-center justify-between h-14 sm:h-16 gap-2">
           
           {/* Left: Brand Logo & Single-Line Business Name */}
           <Link 
             to="/" 
-            className="flex items-center gap-2 sm:gap-3 group flex-shrink min-w-0 py-0.5" 
+            className="flex items-center gap-2.5 group flex-shrink min-w-0 py-1" 
             aria-label="Warraich Goods Transport Company Home"
+            onClick={handleClose}
           >
-            {/* Logo Emblem */}
-            <div className="relative w-10 h-10 xs:w-11 xs:h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg bg-amber-500 p-0.5 shadow-sm flex-shrink-0 flex items-center justify-center overflow-hidden">
-              <div className="w-full h-full bg-white rounded-lg p-1 flex items-center justify-center overflow-hidden">
+            {/* Logo Emblem (compact 36px on mobile, 42px on desktop) */}
+            <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-amber-500 p-0.5 shadow-xs flex-shrink-0 flex items-center justify-center overflow-hidden">
+              <div className="w-full h-full bg-white rounded-md p-0.5 flex items-center justify-center overflow-hidden">
                 <img
                   src="./images/logo.png"
                   alt="Warraich Goods Transport Company Official Logo"
-                  width={56}
-                  height={56}
+                  width={40}
+                  height={40}
                   loading="eager"
                   decoding="async"
                   className="w-full h-full object-contain"
@@ -109,26 +122,26 @@ export const Navbar: React.FC<NavbarProps> = ({
                     e.currentTarget.style.display = 'none';
                   }}
                 />
-                <Truck className="w-5 h-5 sm:w-6 sm:h-6 text-slate-900 absolute pointer-events-none -z-10" />
+                <Truck className="w-4 h-4 sm:w-5 sm:h-5 text-slate-900 absolute pointer-events-none -z-10" />
               </div>
             </div>
 
-            {/* Business Name: STRICTLY SINGLE LINE IN ACTIVE LANGUAGE */}
+            {/* Business Name: STRICTLY SINGLE LINE */}
             <div className="min-w-0 flex items-center">
               {isUrdu ? (
-                <span className="text-lg xs:text-xl sm:text-2xl lg:text-3xl font-black font-urdu text-slate-950 whitespace-nowrap leading-none tracking-tight">
+                <span className="text-base sm:text-xl lg:text-2xl font-black font-urdu text-slate-950 whitespace-nowrap leading-none tracking-tight truncate">
                   {COMPANY_INFO.nameUrdu}
                 </span>
               ) : (
-                <span className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-black font-sans uppercase tracking-tight text-slate-950 whitespace-nowrap leading-none">
+                <span className="text-xs sm:text-base lg:text-lg font-black font-sans uppercase tracking-tight text-slate-950 whitespace-nowrap leading-none truncate">
                   {COMPANY_INFO.nameEnglish}
                 </span>
               )}
             </div>
           </Link>
 
-          {/* Right: Integrated Header Items (NTN Badge, Navigation, Language, Portal & Menu) */}
-          <div className="flex items-center gap-1.5 sm:gap-2.5 flex-shrink-0">
+          {/* Right: Desktop Navigation vs Mobile Hamburger */}
+          <div className="flex items-center gap-2 flex-shrink-0">
             
             {/* Desktop Navigation Links */}
             <nav className="hidden xl:flex items-center gap-1" aria-label="Main navigation menu">
@@ -138,7 +151,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <Link
                     key={link.to}
                     to={link.to}
-                    className={`px-3 py-1.5 rounded-lg text-xs xl:text-sm font-semibold transition-colors font-urdu whitespace-nowrap ${
+                    className={`px-3 py-1.5 rounded-lg text-xs xl:text-sm font-semibold transition-colors ${isUrdu ? 'font-urdu' : 'font-sans'} whitespace-nowrap ${
                       active 
                         ? 'text-blue-700 bg-blue-50/80 font-bold' 
                         : 'text-slate-700 hover:text-slate-950 hover:bg-slate-50'
@@ -150,57 +163,48 @@ export const Navbar: React.FC<NavbarProps> = ({
               })}
             </nav>
 
-            {/* Govt Registered NTN (Subtle text, no pill island) */}
-            <div className="hidden 2xl:inline-flex items-center gap-1.5 text-xs text-slate-600 font-mono">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
-              <span>NTN: {COMPANY_INFO.ntn}</span>
-            </div>
-
-            {/* Driver Web Portal Link */}
+            {/* Desktop Driver Web Portal Link */}
             <a
               id="header-app-link-btn"
               href={COMPANY_INFO.webAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center gap-1.5 bg-slate-900 hover:bg-blue-600 text-white font-medium px-3 py-1.5 rounded-lg text-xs transition-colors shadow-sm cursor-pointer whitespace-nowrap"
-              title="Open Transport Driver Portal"
+              className="hidden md:inline-flex items-center gap-1.5 bg-slate-900 hover:bg-blue-600 text-white font-medium px-3 py-1.5 rounded-lg text-xs transition-colors shadow-xs cursor-pointer whitespace-nowrap"
+              title={isUrdu ? 'ڈرائیور پورٹل کھولیں' : 'Open Transport Driver Portal'}
               aria-label="Open Transport Portal"
             >
-              <span>Portal</span>
+              <span>{isUrdu ? 'ڈرائیور پورٹل' : 'Portal'}</span>
               <ExternalLink className="w-3 h-3 text-slate-300" />
             </a>
 
-            {/* Language Switcher Pill (Always accessible on all screen sizes) */}
+            {/* Desktop Language Switcher */}
             <button
-              id="lang-toggle-btn"
+              id="lang-toggle-btn-desktop"
               onClick={toggleLanguage}
-              className="inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 px-2.5 sm:px-3 py-1.5 rounded-lg transition-colors border border-slate-200 text-xs font-bold cursor-pointer shadow-sm active:scale-95 whitespace-nowrap min-h-[32px]"
+              className="hidden sm:inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 px-3 py-1.5 rounded-lg transition-colors border border-slate-200 text-xs font-bold cursor-pointer shadow-xs active:scale-95 whitespace-nowrap min-h-[34px]"
               aria-label={`Switch language to ${isUrdu ? 'English' : 'Urdu'}`}
-              title="Switch Language / زبان تبدیل کریں"
+              title={isUrdu ? 'Switch to English' : 'اردو میں دیکھیں'}
             >
               <Globe className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" />
-              <span className={isUrdu ? 'font-sans' : 'font-urdu'}>
+              <span className={isUrdu ? 'font-sans font-semibold' : 'font-urdu font-bold'}>
                 {isUrdu ? 'English' : 'اردو'}
               </span>
             </button>
 
-            {/* Mobile Menu Toggle Button (Mobile/Tablet only) */}
+            {/* Mobile Hamburger Toggle Button (Exclusively visible on mobile) */}
             <button
               id="mobile-menu-toggle-btn"
               onClick={handleToggle}
-              className="inline-flex xl:hidden items-center justify-center p-1.5 px-2.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold shadow-sm transition-colors active:scale-95 cursor-pointer gap-1.5 min-h-[32px]"
+              className="inline-flex xl:hidden items-center justify-center w-10 h-10 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold shadow-xs transition-colors active:scale-95 cursor-pointer"
               aria-label="Toggle Navigation Menu"
               aria-expanded={isMenuVisible}
               title={isMenuVisible ? "Close Menu" : "Open Menu"}
             >
               {isMenuVisible ? (
-                <X className="w-4 h-4 stroke-[2.5]" />
+                <X className="w-5 h-5 stroke-[2.5]" />
               ) : (
-                <Menu className="w-4 h-4 stroke-[2.5]" />
+                <Menu className="w-5 h-5 stroke-[2.5]" />
               )}
-              <span className="text-xs font-black font-urdu leading-none hidden xs:inline">
-                {isUrdu ? 'مینو' : 'Menu'}
-              </span>
             </button>
 
           </div>
@@ -213,19 +217,28 @@ export const Navbar: React.FC<NavbarProps> = ({
         <>
           {/* Backdrop */}
           <div 
-            className="fixed inset-0 top-[56px] sm:top-[64px] bg-slate-900/60 backdrop-blur-sm z-30 xl:hidden animate-fadeIn"
+            className="fixed inset-0 top-[56px] bg-slate-900/60 backdrop-blur-sm z-30 xl:hidden animate-fadeIn"
             onClick={handleClose}
             aria-hidden="true"
           />
           
-          <div className="absolute top-full left-0 right-0 z-40 xl:hidden bg-white border-b border-slate-200 shadow-md px-4 pt-3 pb-6 animate-fadeIn max-h-[calc(100vh-80px)] overflow-y-auto">
-            {/* Govt Registration Banner inside Mobile Drawer */}
-            <div className="flex items-center justify-between bg-amber-50 text-amber-900 border border-amber-200 px-3.5 py-2 rounded-lg mb-3 text-xs font-semibold">
-              <div className="flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-amber-600 flex-shrink-0" />
-                <span className="font-urdu">{isUrdu ? 'گورنمنٹ رجسٹرڈ ادارہ' : 'Govt. Registered Entity'}</span>
-              </div>
-              <span className="font-mono text-[11px] font-bold">NTN: {COMPANY_INFO.ntn}</span>
+          <div className="absolute top-full left-0 right-0 z-40 xl:hidden bg-white border-b border-slate-200 shadow-xl px-4 pt-4 pb-6 animate-fadeIn max-h-[calc(100vh-64px)] overflow-y-auto">
+            
+            {/* Top Row: Language Toggle inside Mobile Drawer */}
+            <div className="flex items-center justify-between gap-2 pb-3 mb-3 border-b border-slate-100">
+              <span className="text-xs text-slate-500 font-medium">
+                {isUrdu ? 'زبان منتخب کریں:' : 'Select Language:'}
+              </span>
+              <button
+                id="lang-toggle-btn-mobile"
+                onClick={toggleLanguage}
+                className="inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 text-xs font-bold transition cursor-pointer"
+              >
+                <Globe className="w-3.5 h-3.5 text-blue-600" />
+                <span className={isUrdu ? 'font-sans' : 'font-urdu'}>
+                  {isUrdu ? 'Switch to English' : 'اردو میں دیکھیں'}
+                </span>
+              </button>
             </div>
 
             {/* Navigation Links */}
@@ -237,7 +250,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     key={link.to}
                     to={link.to}
                     onClick={handleClose}
-                    className={`flex items-center min-h-[42px] px-4 py-2 rounded-lg text-sm font-urdu font-semibold transition-colors ${
+                    className={`flex items-center min-h-[44px] px-3.5 py-2.5 rounded-lg text-sm ${isUrdu ? 'font-urdu' : 'font-sans'} font-semibold transition-colors ${
                       active
                         ? 'text-blue-700 bg-blue-50 font-bold border border-blue-200'
                         : 'text-slate-800 hover:text-blue-600 hover:bg-slate-50'
@@ -253,30 +266,24 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="pt-3 border-t border-slate-200 flex flex-col gap-2.5">
               <a
                 href={`tel:${COMPANY_INFO.phoneRaw1}`}
-                className="w-full min-h-[44px] flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-2.5 rounded-lg text-center text-sm font-urdu active:scale-98"
+                className="w-full min-h-[46px] flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-2.5 rounded-lg text-center text-sm active:scale-98"
                 aria-label={`Call Helpline ${COMPANY_INFO.phone1}`}
               >
                 <Truck className="w-4 h-4 text-amber-400" />
-                <span>{isUrdu ? `فوری رابطہ: ${COMPANY_INFO.phone1}` : `Call: ${COMPANY_INFO.phone1}`}</span>
+                <span className={isUrdu ? 'font-urdu' : 'font-sans'}>
+                  {isUrdu ? `فوری رابطہ: ${COMPANY_INFO.phone1}` : `Call Now: ${COMPANY_INFO.phone1}`}
+                </span>
               </a>
-
-              <Link
-                to="/about"
-                onClick={handleClose}
-                className="w-full min-h-[44px] flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-lg text-center text-sm shadow-sm font-urdu active:scale-98"
-              >
-                <span>{isUrdu ? 'کاروباری تعارف و شناختی کارڈ' : 'View Business Card & Profile'}</span>
-              </Link>
 
               <a
                 href={COMPANY_INFO.webAppUrl}
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-full min-h-[44px] flex items-center justify-center gap-2 bg-slate-900 hover:bg-blue-700 text-white font-medium py-2.5 rounded-lg text-center text-sm"
+                className="w-full min-h-[44px] flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 font-medium py-2 rounded-lg text-center text-xs transition"
                 aria-label="Open Driver Web App Portal"
               >
-                <span>Driver Web Portal</span>
-                <ExternalLink className="w-4 h-4" />
+                <span>{isUrdu ? 'ڈرائیور ویب پورٹل' : 'Driver Web Portal'}</span>
+                <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>
@@ -285,3 +292,4 @@ export const Navbar: React.FC<NavbarProps> = ({
     </header>
   );
 };
+
