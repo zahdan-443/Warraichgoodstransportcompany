@@ -41,7 +41,7 @@ export const FLEET_DATA: VehicleInfo[] = [
   {
     id: 'shehzore',
     nameUrdu: 'شہزور پک اپ',
-    nameEnglish: 'Hyundai Shehzore Pickup',
+    nameEnglish: 'Shahzore Commercial Pickup',
     subtitleUrdu: 'تیز رفتار لوکل و انٹرسٹی فل گاڑی لوڈنگ',
     subtitleEnglish: 'High-speed local & intercity dedicated single-shipper pickup',
     capacity: '1 - 3.5 Tons',
@@ -65,7 +65,7 @@ export const FLEET_DATA: VehicleInfo[] = [
     badgeEnglish: 'Express FTL (1-3.5 Tons)',
     tagColor: 'bg-emerald-500',
     altUrdu: 'شہزور پک اپ 1 تا 3.5 ٹن فل لوڈنگ ٹرک - وڑائچ گڈز ٹرانسپورٹ کمپنی',
-    altEnglish: 'Hyundai Shehzore 1-3.5 Ton FTL Loading Commercial Truck - Warraich Goods',
+    altEnglish: 'Shahzore 1-3.5 Ton FTL Loading Commercial Truck - Warraich Goods',
   },
   {
     id: 'mazda',

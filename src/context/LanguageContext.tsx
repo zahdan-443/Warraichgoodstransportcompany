@@ -54,7 +54,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
         document.title = 'Warraich Goods Transport Company | Nationwide FTL Freight Pakistan';
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) {
-          metaDesc.setAttribute('content', 'Dedicated Full Truckload (FTL) freight transport across Pakistan. Hyundai Shehzore, Mazda 6-wheeler, Sample extended, and Bedford trucks.');
+          metaDesc.setAttribute('content', 'Dedicated Full Truckload (FTL) freight transport across Pakistan. Shahzore pickups, Mazda 6-wheelers, Sample extended, and heavy Bedford trucks.');
         }
       } else {
         document.title = 'وڑائچ گڈز ٹرانسپورٹ کمپنی | Warraich Goods Transport Company';

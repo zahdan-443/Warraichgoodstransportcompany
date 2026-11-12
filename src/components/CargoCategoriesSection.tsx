@@ -44,7 +44,7 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
         'Direct single-party loading from farms, wholesale grain markets, and mills',
         'Standard double waterproof PVC tarpaulins for complete rain protection',
         'Verified computerized weighbridge scale slips with zero weight discrepancy',
-        'Recommended trucks: Hyundai Shehzore, Mazda 6-wheeler, and Sample truck'
+        'Recommended trucks: Shahzore pickup, Mazda 6-wheeler, and Sample truck'
       ],
       recommendedTruck: 'مزدا 6 وہیلر (4 تا 10 ٹن) یا شہزور فل لوڈ',
       recommendedTruckEn: 'Mazda 6 Wheeler (4 to 10 Tons) or Shehzore Full Load',
@@ -160,7 +160,7 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
         'Truck exclusively carries your belongings with zero mixed cargo',
         'Extra cushioning and protective strapping against scratches',
         'Immediate direct transit from current residence to new home',
-        'Recommended trucks: Hyundai Shehzore pickup and Mazda closed body'
+        'Recommended trucks: Shahzore pickup and Mazda closed body'
       ],
       recommendedTruck: 'شہزور (1 تا 3.5 ٹن) یا مزدا 6 وہیلر (فل گاڑی)',
       recommendedTruckEn: 'Shehzore (1 to 3.5 Tons) or Mazda 6-Wheeler (FTL)',
