@@ -49,9 +49,9 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
             <span>{tFleet.badge}</span>
           </div>
 
-          <h2 className={`text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 ${fontClass} tracking-tight`}>
+          <h1 className={`text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 ${fontClass} tracking-tight`}>
             {tFleet.title}
-          </h2>
+          </h1>
           <p className={`text-slate-600 mt-2 text-sm sm:text-base ${fontClass} max-w-2xl mx-auto`}>
             {tFleet.subtitle}
           </p>

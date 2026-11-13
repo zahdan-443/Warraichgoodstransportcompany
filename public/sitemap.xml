@@ -1,47 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/images/road-highway.webp</image:loc>
+      <image:title>Warraich Goods Transport Company Highway Service</image:title>
+      <image:caption>Dedicated full truckload goods transport and home shifting across Pakistan</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/images/logo.png</image:loc>
+      <image:title>Warraich Goods Transport Company Logo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/images/owner-portrait.png</image:loc>
+      <image:title>Zahdan Nasar Warraich - Proprietor</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/fleet/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/images/shehzore-truck.png</image:loc>
+      <image:title>Shahzore Pickup - Warraich Goods</image:title>
+      <image:caption>1 to 3.5 ton Shahzore pickup for home shifting and local goods transport</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/images/mazda-truck.png</image:loc>
+      <image:title>Mazda 6-Wheeler Truck - Warraich Goods</image:title>
+      <image:caption>4 to 10 ton Mazda truck for inter-city goods transport and shifting</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/images/sample-truck.png</image:loc>
+      <image:title>Sample Extended Truck - Warraich Goods</image:title>
+      <image:caption>8 to 16 ton Sample truck for commercial and factory loads</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/images/bedford-truck.png</image:loc>
+      <image:title>Bedford Heavy Truck - Warraich Goods</image:title>
+      <image:caption>15 to 28+ ton Bedford truck for heavy machinery and long-distance freight</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/images/agricultural-freight.webp</image:loc>
+      <image:title>Agricultural Produce Freight Transport</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/services/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/images/factory-warehouse.webp</image:loc>
+      <image:title>Factory and Warehouse Goods Transport</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/images/cargo-safety.webp</image:loc>
+      <image:title>Waterproof Tarpaulin Cargo Protection</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/booking/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/faq/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/about/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/images/logo.png</image:loc>
+      <image:title>Warraich Goods Transport Company Office Samundri</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/images/owner-portrait.png</image:loc>
+      <image:title>Zahdan Nasar Warraich - Proprietor</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://zahdan-443.github.io/Warraichgoodstransportcompany/verify/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
 </urlset>

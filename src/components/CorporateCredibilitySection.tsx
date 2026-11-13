@@ -110,9 +110,9 @@ export const CorporateCredibilitySection: React.FC = () => {
             </span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-urdu leading-relaxed">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-urdu leading-relaxed">
             {isUrdu ? 'کارپوریٹ اعتبار، قانونی ساکھ اور B2B خدمات' : 'Corporate Credibility & Enterprise Freight Solutions'}
-          </h2>
+          </h1>
           <p className="text-slate-600 mt-2.5 text-sm sm:text-base lg:text-lg font-urdu leading-relaxed">
             {isUrdu 
               ? 'ٹیکسٹائل ملز، فلور ملز، زرعی آڑھتیوں اور ملٹی نیشنل تجارتی اداروں کے لیے 100% قابلِ اعتماد اور قانونی طور پر تصدیق شدہ FTL ٹرانسپورٹ۔' 

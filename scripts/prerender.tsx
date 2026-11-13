@@ -175,10 +175,10 @@ const ROUTES: RouteConfig[] = [
     path: '/verify',
     outputFile: 'verify/index.html',
     title: 'Bilty Verification | Warraich Goods',
-    description: 'Verify your bilty receipt and consignment details online with Warraich Goods Transport Company. Phone: 0300-5370443.',
+    description: 'Verify your official bilty receipt and consignment details online with Warraich Goods Transport Company. Phone: 0300-5370443.',
     canonicalUrl: `${BASE_SITE_URL}/verify/`,
     ogTitle: 'Bilty Verification | Warraich Goods',
-    ogDescription: 'Verify your bilty receipt and consignment details online with Warraich Goods Transport Company. Phone: 0300-5370443.',
+    ogDescription: 'Verify your official bilty receipt and consignment details online with Warraich Goods Transport Company. Phone: 0300-5370443.',
     breadcrumbList: [
       { name: 'Home', item: `${BASE_SITE_URL}/` },
       { name: 'Bilty Verification', item: `${BASE_SITE_URL}/verify/` },
@@ -244,10 +244,14 @@ async function prerender() {
       `<meta name="description" content="${route.description}" />`
     );
 
-    // 4. Replace Canonical Link
+    // 4. Replace Canonical Link & hreflang="en"
     pageHtml = pageHtml.replace(
       /<link\s+rel=["']canonical["']\s+href=["'][\s\S]*?["']\s*\/?>/i,
       `<link rel="canonical" href="${route.canonicalUrl}" />`
+    );
+    pageHtml = pageHtml.replace(
+      /<link\s+rel=["']alternate["']\s+hreflang=["']en["']\s+href=["'][\s\S]*?["']\s*\/?>/i,
+      `<link rel="alternate" hreflang="en" href="${route.canonicalUrl}" />`
     );
 
     // 5. Replace Open Graph Tags
@@ -278,15 +282,26 @@ async function prerender() {
       `<meta name="twitter:url" content="${route.canonicalUrl}" />`
     );
 
-    // 7. Inject Route-Specific BreadcrumbList JSON-LD (and FAQPage strictly on /faq)
+    // 7. Inject Route-Specific WebPage & BreadcrumbList JSON-LD (and FAQPage strictly on /faq)
     pageHtml = pageHtml.replace(
       /<script type="application\/ld\+json">([\s\S]*?)<\/script>/,
       (_match, jsonContent) => {
         const schemaObj = JSON.parse(jsonContent);
         if (Array.isArray(schemaObj['@graph'])) {
           schemaObj['@graph'] = schemaObj['@graph'].filter(
-            (node: any) => node['@type'] !== 'FAQPage'
+            (node: any) => node['@type'] !== 'FAQPage' && node['@type'] !== 'WebPage'
           );
+          const webPageNode = {
+            '@type': 'WebPage',
+            '@id': `${route.canonicalUrl}#webpage`,
+            url: route.canonicalUrl,
+            name: route.title,
+            description: route.description,
+            inLanguage: 'en',
+            isPartOf: { '@id': `${BASE_SITE_URL}/#website` },
+            about: { '@id': `${BASE_SITE_URL}/#business` },
+          };
+          schemaObj['@graph'].push(webPageNode);
           const breadcrumbIdx = schemaObj['@graph'].findIndex(
             (node: any) => node['@type'] === 'BreadcrumbList'
           );

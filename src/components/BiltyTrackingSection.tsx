@@ -27,9 +27,11 @@ import { verifyBiltyRecord, normalizeBiltyNo, VerificationResult, PublicBiltyRec
 
 interface BiltyTrackingSectionProps {
   condensed?: boolean;
+  headingAs?: 'h1' | 'h2';
 }
 
-export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ condensed = false }) => {
+export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ condensed = false, headingAs = 'h2' }) => {
+  const HeadingTag = headingAs;
   const { language } = useLanguage();
   const t = TRANSLATIONS[language].tracking;
 
@@ -172,9 +174,9 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
             <span>{language === 'ur' ? 'آن لائن سیکور بلٹی تصدیق و ٹریکنگ' : 'Secure Bilty Verification & Tracking'}</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-urdu tracking-tight">
+          <HeadingTag className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-urdu tracking-tight">
             {language === 'ur' ? 'تصدیق بلٹی و لائیو لوکیشن سروس' : 'Verify Official Bilty Record'}
-          </h2>
+          </HeadingTag>
 
           <p className="mt-2 text-sm sm:text-base text-slate-600 font-urdu max-w-2xl mx-auto">
             {language === 'ur'

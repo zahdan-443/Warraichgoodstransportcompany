@@ -239,6 +239,10 @@ export const Footer: React.FC = () => {
             {isUrdu ? 'کاروباری تعارف' : 'About Us'}
           </Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
+          <Link to="/verify" className="hover:text-amber-400 transition-colors py-1">
+            {isUrdu ? 'بلٹی تصدیق' : 'Verify Bilty'}
+          </Link>
+          <span className="text-slate-700 hidden sm:inline">•</span>
           <a 
             href={COMPANY_INFO.webAppUrl}
             target="_blank" 

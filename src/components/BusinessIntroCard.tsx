@@ -21,7 +21,12 @@ import { COMPANY_INFO, SERVICE_AREAS, GOOGLE_REVIEW_URL } from '../data/companyD
 import { useLanguage } from '../context/LanguageContext';
 import { getAssetUrl } from '../utils/assetPath';
 
-export const BusinessIntroCard: React.FC = () => {
+interface BusinessIntroCardProps {
+  headingAs?: 'h1' | 'h2';
+}
+
+export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs = 'h2' }) => {
+  const HeadingTag = headingAs;
   const { language } = useLanguage();
 
   const isUrdu = language === 'ur';
@@ -41,9 +46,9 @@ export const BusinessIntroCard: React.FC = () => {
             <Award className="w-4 h-4 text-amber-700" />
             <span>{isUrdu ? 'آفیشل بزنس پروفائل و تعارفی کارڈ' : 'Official Business Introduction & Directory'}</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 tracking-tight">
+          <HeadingTag className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 tracking-tight">
             {isUrdu ? 'کاروباری تعارف و مکمل رابطہ کوائف' : 'Business Profile & Official Credentials'}
-          </h2>
+          </HeadingTag>
           <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
             {isUrdu 
               ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی کے مصدقہ کوائف، سروس نیٹ ورک، پروپرائٹر معلومات اور قانونی رجسٹریشن'

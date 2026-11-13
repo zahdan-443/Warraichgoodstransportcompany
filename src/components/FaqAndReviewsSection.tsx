@@ -82,9 +82,9 @@ export const FaqAndReviewsSection: React.FC = () => {
               <span>{tFaq.badge}</span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-urdu">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-urdu">
               {tFaq.title}
-            </h2>
+            </h1>
             <p className="text-slate-600 mt-2 text-sm sm:text-base font-urdu">
               {tFaq.subtitle}
             </p>
