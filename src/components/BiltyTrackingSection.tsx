@@ -422,8 +422,8 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
 
                 <p className="text-xs sm:text-sm text-slate-600 font-urdu max-w-lg mx-auto leading-relaxed">
                   {language === 'ur'
-                    ? 'ہمارے ڈیٹا بیس میں اس نمبر کا کوئی تصدیق شدہ ریکارڈ موجود نہیں ہے۔ اگر یہ ایک نئی بلٹی ہے تو برائے مہربانی ڈرائیور یا وڑائچ گڈز ہیلپ لائن سے رابطہ فرمائیں۔'
-                    : 'No matching bilty record was found in our database. If this is a recently issued bilty, please contact operations or our helpline.'}
+                    ? 'کوئی ریکارڈ نہیں ملا۔ براہ کرم نمبر چیک کریں یا 0300-5370443 پر کال کریں۔'
+                    : 'No record found. Please check the number or call 0300-5370443.'}
                 </p>
 
                 <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">

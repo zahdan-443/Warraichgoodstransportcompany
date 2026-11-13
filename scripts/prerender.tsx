@@ -28,14 +28,68 @@ interface RouteConfig {
 const GITHUB_PAGES_BASENAME = '/Warraichgoodstransportcompany';
 const BASE_SITE_URL = 'https://zahdan-443.github.io/Warraichgoodstransportcompany';
 
+const FAQ_PAGE_SCHEMA = {
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Do you handle small parcels or loose packages?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No, we only book full dedicated trucks. The entire vehicle is reserved for your goods, so nothing is mixed with other shipments.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How are freight rates calculated?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Rates depend on the travel distance between cities, the truck size you need, and your cargo type. We provide clear rates with no hidden costs.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you protect cargo from rain and dust?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. All our trucks carry heavy waterproof tarpaulins and strong ropes to protect your goods in all weather conditions.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How can I book a truck for house shifting or commercial delivery?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Call or WhatsApp us at 0300-5370443 anytime. Share your pickup city, drop-off location, and load details for a quick quote and truck booking.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What types of trucks are in your fleet?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'We have Shahzore pickups (1 to 3.5 tons), Mazda 6-wheeler trucks (4 to 10 tons), Sample trucks (8 to 16 tons), and heavy Bedford haulers (15 to 28+ tons).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you provide bilty receipts and weighbridge slips?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Every shipment includes a bilty receipt with consignment details and computerized weighbridge scale slips.',
+      },
+    },
+  ],
+};
+
 const ROUTES: RouteConfig[] = [
   {
     path: '/',
     outputFile: 'index.html',
-    title: 'Warraich Goods Transport Company | Goods Transport & Shifting in Pakistan',
+    title: 'Warraich Goods | Transport & Shifting',
     description: 'Warraich Goods Transport Company offers home shifting, office relocation, and goods transport across Pakistan. Call 0300-5370443 for truck booking.',
     canonicalUrl: `${BASE_SITE_URL}/`,
-    ogTitle: 'Warraich Goods Transport Company | Goods Transport & Shifting in Pakistan',
+    ogTitle: 'Warraich Goods | Transport & Shifting',
     ogDescription: 'Warraich Goods Transport Company offers home shifting, office relocation, and goods transport across Pakistan. Call 0300-5370443 for truck booking.',
     breadcrumbList: [
       { name: 'Home', item: `${BASE_SITE_URL}/` },
@@ -50,10 +104,10 @@ const ROUTES: RouteConfig[] = [
   {
     path: '/fleet',
     outputFile: 'fleet/index.html',
-    title: 'Our Trucks - Mazda, Shahzore & Heavy Haulers | Warraich Goods',
+    title: 'Mazda, Shahzore & Truck | Warraich Goods',
     description: 'Shahzore pickups, Mazda trucks, and heavy haulers for home shifting and commercial transport across Pakistan. Call 0300-5370443.',
     canonicalUrl: `${BASE_SITE_URL}/fleet/`,
-    ogTitle: 'Our Trucks - Mazda, Shahzore & Heavy Haulers | Warraich Goods',
+    ogTitle: 'Mazda, Shahzore & Truck | Warraich Goods',
     ogDescription: 'Shahzore pickups, Mazda trucks, and heavy haulers for home shifting and commercial transport across Pakistan. Call 0300-5370443.',
     breadcrumbList: [
       { name: 'Home', item: `${BASE_SITE_URL}/` },
@@ -92,10 +146,10 @@ const ROUTES: RouteConfig[] = [
   {
     path: '/faq',
     outputFile: 'faq/index.html',
-    title: 'Frequently Asked Questions | Warraich Goods Transport',
+    title: 'Frequently Asked Questions | Warraich Goods',
     description: 'Answers to common questions about truck booking, freight charges, bilty receipts, and goods transport across Pakistan.',
     canonicalUrl: `${BASE_SITE_URL}/faq/`,
-    ogTitle: 'Frequently Asked Questions | Warraich Goods Transport',
+    ogTitle: 'Frequently Asked Questions | Warraich Goods',
     ogDescription: 'Answers to common questions about truck booking, freight charges, bilty receipts, and goods transport across Pakistan.',
     breadcrumbList: [
       { name: 'Home', item: `${BASE_SITE_URL}/` },
@@ -106,10 +160,10 @@ const ROUTES: RouteConfig[] = [
   {
     path: '/about',
     outputFile: 'about/index.html',
-    title: 'About Us & Contact Details | Warraich Goods Transport',
+    title: 'About Us & Contact Details | Warraich Goods',
     description: 'Warraich Goods Transport Company is a local transport business based in Samundri, Faisalabad, serving routes across Pakistan since 2020.',
     canonicalUrl: `${BASE_SITE_URL}/about/`,
-    ogTitle: 'About Us & Contact Details | Warraich Goods Transport',
+    ogTitle: 'About Us & Contact Details | Warraich Goods',
     ogDescription: 'Warraich Goods Transport Company is a local transport business based in Samundri, Faisalabad, serving routes across Pakistan since 2020.',
     breadcrumbList: [
       { name: 'Home', item: `${BASE_SITE_URL}/` },
@@ -120,10 +174,10 @@ const ROUTES: RouteConfig[] = [
   {
     path: '/verify',
     outputFile: 'verify/index.html',
-    title: 'Bilty Verification | Warraich Goods Transport',
+    title: 'Bilty Verification | Warraich Goods',
     description: 'Verify your bilty receipt and consignment details online with Warraich Goods Transport Company. Phone: 0300-5370443.',
     canonicalUrl: `${BASE_SITE_URL}/verify/`,
-    ogTitle: 'Bilty Verification | Warraich Goods Transport',
+    ogTitle: 'Bilty Verification | Warraich Goods',
     ogDescription: 'Verify your bilty receipt and consignment details online with Warraich Goods Transport Company. Phone: 0300-5370443.',
     breadcrumbList: [
       { name: 'Home', item: `${BASE_SITE_URL}/` },
@@ -147,6 +201,9 @@ async function prerender() {
   console.log('🚀 Starting multi-page static pre-rendering for Warraich Goods Transport Company...');
 
   for (const route of ROUTES) {
+    if (route.title.length > 60) {
+      throw new Error(`Route ${route.path} title exceeds 60 chars (${route.title.length}): "${route.title}"`);
+    }
     const isSubfolder = route.path !== '/';
     const targetFilePath = path.join(distDir, route.outputFile);
     const targetDir = path.dirname(targetFilePath);
@@ -221,24 +278,38 @@ async function prerender() {
       `<meta name="twitter:url" content="${route.canonicalUrl}" />`
     );
 
-    // 7. Inject Route-Specific BreadcrumbList JSON-LD
-    const breadcrumbJson = JSON.stringify(
-      {
-        '@type': 'BreadcrumbList',
-        itemListElement: route.breadcrumbList.map((item, idx) => ({
-          '@type': 'ListItem',
-          position: idx + 1,
-          name: item.name,
-          item: item.item,
-        })),
-      },
-      null,
-      2
-    );
-
+    // 7. Inject Route-Specific BreadcrumbList JSON-LD (and FAQPage strictly on /faq)
     pageHtml = pageHtml.replace(
-      /\{\s*"@type":\s*"BreadcrumbList"[\s\S]*?itemListElement":\s*\[[\s\S]*?\]\s*\}/,
-      breadcrumbJson
+      /<script type="application\/ld\+json">([\s\S]*?)<\/script>/,
+      (_match, jsonContent) => {
+        const schemaObj = JSON.parse(jsonContent);
+        if (Array.isArray(schemaObj['@graph'])) {
+          schemaObj['@graph'] = schemaObj['@graph'].filter(
+            (node: any) => node['@type'] !== 'FAQPage'
+          );
+          const breadcrumbIdx = schemaObj['@graph'].findIndex(
+            (node: any) => node['@type'] === 'BreadcrumbList'
+          );
+          const breadcrumbNode = {
+            '@type': 'BreadcrumbList',
+            itemListElement: route.breadcrumbList.map((item, idx) => ({
+              '@type': 'ListItem',
+              position: idx + 1,
+              name: item.name,
+              item: item.item,
+            })),
+          };
+          if (breadcrumbIdx >= 0) {
+            schemaObj['@graph'][breadcrumbIdx] = breadcrumbNode;
+          } else {
+            schemaObj['@graph'].push(breadcrumbNode);
+          }
+          if (route.path === '/faq') {
+            schemaObj['@graph'].push(FAQ_PAGE_SCHEMA);
+          }
+        }
+        return `<script type="application/ld+json">\n    ${JSON.stringify(schemaObj, null, 2)}\n    </script>`;
+      }
     );
 
     // 8. Fix relative paths for subfolder routes (e.g. dist/fleet/index.html needs ../assets/)
@@ -294,7 +365,7 @@ async function prerender() {
     }
   }
 
-  console.log('🎉 All 6 routes successfully prerendered into distinct static HTML pages!');
+  console.log(`🎉 All ${ROUTES.length} routes successfully prerendered into distinct static HTML pages!`);
 }
 
 prerender().catch((err) => {

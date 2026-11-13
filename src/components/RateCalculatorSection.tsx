@@ -13,7 +13,6 @@ import {
   Copy,
   Check,
   Clock,
-  ArrowRight,
   Building2
 } from 'lucide-react';
 import { COMPANY_INFO, FLEET_DATA, PAKISTAN_CITIES, GOODS_TYPES } from '../data/companyData';

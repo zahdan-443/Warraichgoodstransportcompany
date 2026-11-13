@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Truck, ArrowRight, ShieldCheck, Scale, Sparkles } from 'lucide-react';
+import { Truck, ArrowRight } from 'lucide-react';
 import { FLEET_DATA } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -47,7 +47,7 @@ export const FleetCardsSection: React.FC = () => {
           <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-600 font-urdu max-w-2xl mx-auto">
             {isUrdu
               ? 'شہزور سے لے کر بیڈفورڈ تک ہر قسم کے صنعتی، زرعی اور کمرشل کارگو کے لیے مکمل مخصوص گاڑیاں۔'
-              : 'From 1-ton Shehzore pickups to 28-ton heavy Bedford trailers, dedicated strictly to single-party freight.'}
+              : 'From 1-ton Shahzore pickups to 28-ton heavy Bedford trailers, dedicated strictly to single-party freight.'}
           </p>
         </div>
 
@@ -107,6 +107,17 @@ export const FleetCardsSection: React.FC = () => {
               </div>
             );
           })}
+        </div>
+
+        {/* View All Link */}
+        <div className="mt-8 text-center">
+          <Link
+            to="/fleet"
+            className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-blue-600 text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm transition-colors shadow-xs font-urdu"
+          >
+            <span>{isUrdu ? 'تمام گاڑیاں اور تفصیلات دیکھیں' : 'View all trucks & specs'}</span>
+            <ArrowRight className="w-4 h-4 flex-shrink-0" />
+          </Link>
         </div>
 
       </div>

@@ -5,13 +5,10 @@ import {
   Weight, 
   Ruler, 
   CheckCircle2, 
-  Phone, 
-  MessageCircle, 
-  Sparkles,
   ImageIcon,
   ArrowRight
 } from 'lucide-react';
-import { FLEET_DATA, COMPANY_INFO } from '../data/companyData';
+import { FLEET_DATA } from '../data/companyData';
 import { VehicleInfo } from '../types';
 import { useLanguage } from '../context/LanguageContext';
 import { TRANSLATIONS } from '../data/translations';
@@ -60,7 +57,7 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
           </p>
         </div>
 
-        {/* Fleet Cards Grid (4 Distinct Trucks: Shehzore, Mazda, Sample, Bedford) */}
+        {/* Fleet Cards Grid (4 Distinct Trucks: Shahzore, Mazda, Sample, Bedford) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
           {FLEET_DATA.map((truck: VehicleInfo) => {
             const hasError = imageErrorMap[truck.id];

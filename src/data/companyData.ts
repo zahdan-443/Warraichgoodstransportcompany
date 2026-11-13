@@ -172,7 +172,7 @@ export interface MasterCityEntry {
 export const MASTER_CITIES: MasterCityEntry[] = [
   // Primary Hubs & Key Service Areas
   { id: 'samundri', nameUrdu: 'سمندری', nameEnglish: 'Samundri', dropdownUrdu: 'سمندری', dropdownEnglish: 'Samundri', isServiceAreaHub: true, serviceAreaOrder: 1 },
-  { id: 'kamalia', nameUrdu: 'کمالیہ', nameEnglish: 'Kamalia', dropdownUrdu: 'کمالیہ', dropdownEnglish: 'Kamalia', isServiceAreaHub: true, serviceAreaOrder: 2 },
+  { id: 'kamalia', nameUrdu: 'کمالیہ', nameEnglish: 'Kamalia', dropdownUrdu: 'کمالیہ', dropdownEnglish: 'Kamalia', isServiceAreaHub: false },
   { id: 'toba-tek-singh', nameUrdu: 'ٹوبہ ٹیک سنگھ', nameEnglish: 'Toba Tek Singh', dropdownUrdu: 'ٹوبہ ٹیک سنگھ', dropdownEnglish: 'Toba Tek Singh', isServiceAreaHub: true, serviceAreaOrder: 3 },
   { id: 'jhang', nameUrdu: 'جھنگ', nameEnglish: 'Jhang', dropdownUrdu: 'جھنگ', dropdownEnglish: 'Jhang', isServiceAreaHub: true, serviceAreaOrder: 4 },
   { id: 'faisalabad', nameUrdu: 'فیصل آباد', nameEnglish: 'Faisalabad', dropdownUrdu: 'فیصل آباد', dropdownEnglish: 'Faisalabad', isServiceAreaHub: true, serviceAreaOrder: 5 },
@@ -253,8 +253,8 @@ export const CORPORATE_CREDENTIALS = {
   proprietorUrdu: 'زاہدان نصر وڑائچ',
   officialEmail: 'warraichgoods43@gmail.com',
   officialPhones: ['0300-5370443'],
-  serviceCoverage: 'Nationwide Home Shifting, Office Relocation, Commercial Cargo & Fast Vehicle Booking across Pakistan. Head Office: Okara Bypass, Samundri, District Faisalabad.',
-  serviceCoverageUrdu: 'پورے پاکستان کے لیے محفوظ اور بروقت مال برداری اور شفٹنگ۔ ہیڈ آفس: اوکاڑہ بائی پاس، سمندری، ضلع فیصل آباد۔',
+  serviceCoverage: 'Nationwide Home Shifting, Office Relocation, Commercial Cargo & Fast Vehicle Booking across Pakistan. Office: Okara Bypass, Samundri, District Faisalabad.',
+  serviceCoverageUrdu: 'پورے پاکستان کے لیے محفوظ اور بروقت مال برداری اور شفٹنگ۔ دفتر: اوکاڑہ بائی پاس، سمندری، ضلع فیصل آباد۔',
   servicePhilosophy: 'Careful Handling, Clear Bilty Records, Affordable Rates & 24/7 Nationwide Service Since 2020',
   servicePhilosophyUrdu: 'محفوظ ہینڈلنگ، شفاف بلٹی ریکارڈ، مناسب ریٹ اور 24/7 بروقت سروس',
   invoicingFeatures: [
@@ -267,7 +267,7 @@ export const CORPORATE_CREDENTIALS = {
   ],
   corporateContractPerks: [
     { titleEn: 'Annual & Monthly Freight Rate Contracts', titleUr: 'سالانہ و ماہانہ ریٹ کنٹریکٹس', descEn: 'Predictable fixed freight costs with priority truck reservation for peak seasons.', descUr: 'سیزنل تیزی کے دوران بھی گاڑیوں کی ترجیحی دستیابی اور فکسڈ ریٹس۔' },
-    { titleEn: 'Dedicated Fleet Allocation', titleUr: 'مخصوص فلیٹ کی فراہمی', descEn: 'Dedicated Shehzore, Mazda, Sample, or Bedford units assigned to regular corporate routes.', descUr: 'آپ کے باقاعدہ روٹس کے لیے مستقل گاڑیاں اور ڈرائیورز۔' },
+    { titleEn: 'Dedicated Fleet Allocation', titleUr: 'مخصوص فلیٹ کی فراہمی', descEn: 'Dedicated Shahzore, Mazda, Sample, or Bedford units assigned to regular corporate routes.', descUr: 'آپ کے باقاعدہ روٹس کے لیے مستقل گاڑیاں اور ڈرائیورز۔' },
     { titleEn: 'Single Point of Contact (Account Manager)', titleUr: 'مخصوص اکاؤنٹ مینیجر', descEn: 'Direct liaison with Chief Executive Zahdan Nasar Warraich for swift operational decisions.', descUr: 'براہ راست پروپرائٹر کے ساتھ فوری کوآرڈینیشن اور 24/7 رسپانس۔' },
     { titleEn: 'Corporate Payment & Credit Terms', titleUr: 'کارپوریٹ پیمنٹ و کریڈٹ ٹرمز', descEn: 'Flexible corporate settlement terms via official bank transfer for registered vendor companies.', descUr: 'رجسٹرڈ وینڈر کمپنیوں کے لیے باقاعدہ بینک ٹرانسفر اور منظور شدہ کریڈٹ شرائط۔' },
   ],

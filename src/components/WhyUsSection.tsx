@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Scale, Umbrella, Clock, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Scale, Umbrella, Clock } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export const WhyUsSection: React.FC = () => {

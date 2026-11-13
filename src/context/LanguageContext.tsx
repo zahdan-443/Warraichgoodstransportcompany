@@ -33,6 +33,29 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
 
   const isRtl = language === 'ur';
 
+  const getRouteEnglishTitle = () => {
+    if (typeof window === 'undefined') return 'Warraich Goods | Transport & Shifting';
+    const rawPath = window.location.pathname
+      .replace(/^\/Warraichgoodstransportcompany/i, '')
+      .replace(/\/+$/, '') || '/';
+    switch (rawPath) {
+      case '/fleet':
+        return 'Mazda, Shahzore & Truck | Warraich Goods';
+      case '/services':
+        return 'Goods Transport & Shifting Services | Warraich Goods';
+      case '/booking':
+        return 'Truck Booking & Rate Inquiry | Warraich Goods';
+      case '/faq':
+        return 'Frequently Asked Questions | Warraich Goods';
+      case '/about':
+        return 'About Us & Contact Details | Warraich Goods';
+      case '/verify':
+        return 'Bilty Verification | Warraich Goods';
+      default:
+        return 'Warraich Goods | Transport & Shifting';
+    }
+  };
+
   const setLanguage = (newLang: Language) => {
     setLanguageState(newLang);
     if (typeof window !== 'undefined') {
@@ -51,13 +74,13 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
 
       // Update document title and meta description dynamically
       if (newLang === 'en') {
-        document.title = 'Warraich Goods Transport Company | Goods Transport & Shifting in Pakistan';
+        document.title = getRouteEnglishTitle();
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) {
           metaDesc.setAttribute('content', 'Warraich Goods Transport Company offers home shifting, office relocation, and goods transport across Pakistan. Call 0300-5370443 for truck booking.');
         }
       } else {
-        document.title = 'وڑائچ گڈز ٹرانسپورٹ کمپنی | Warraich Goods Transport Company';
+        document.title = 'وڑائچ گڈز ٹرانسپورٹ کمپنی | Warraich Goods';
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) {
           metaDesc.setAttribute('content', 'ہم پورے پاکستان کے لیے محفوظ اور بروقت مال برداری اور شفٹنگ کی خدمات فراہم کرتے ہیں۔ مناسب ریٹ اور بہترین سروس ہماری پہچان ہے۔ فون: 0300-5370443');
@@ -76,9 +99,9 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
       document.documentElement.dir = language === 'ur' ? 'rtl' : 'ltr';
 
       if (language === 'en') {
-        document.title = 'Warraich Goods Transport Company | Goods Transport & Shifting in Pakistan';
+        document.title = getRouteEnglishTitle();
       } else {
-        document.title = 'وڑائچ گڈز ٹرانسپورٹ کمپنی | Warraich Goods Transport Company';
+        document.title = 'وڑائچ گڈز ٹرانسپورٹ کمپنی | Warraich Goods';
       }
     }
   }, [language]);

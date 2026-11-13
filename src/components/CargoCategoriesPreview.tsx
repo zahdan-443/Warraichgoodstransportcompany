@@ -127,6 +127,17 @@ export const CargoCategoriesPreview: React.FC = () => {
           })}
         </div>
 
+        {/* View All Link */}
+        <div className="mt-8 text-center">
+          <Link
+            to="/fleet#cargo"
+            className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-blue-600 text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm transition-colors shadow-xs font-urdu"
+          >
+            <span>{isUrdu ? 'تمام کارگو کی اقسام اور تفصیلات دیکھیں' : 'View all cargo categories'}</span>
+            <ArrowRight className="w-4 h-4 flex-shrink-0" />
+          </Link>
+        </div>
+
       </div>
     </section>
   );

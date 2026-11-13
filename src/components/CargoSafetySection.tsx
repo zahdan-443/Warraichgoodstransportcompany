@@ -5,10 +5,8 @@ import {
   Clock, 
   Lock, 
   Scale, 
-  FileCheck,
-  PhoneCall
+  FileCheck
 } from 'lucide-react';
-import { COMPANY_INFO } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
 import { getAssetUrl } from '../utils/assetPath';
 

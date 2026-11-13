@@ -47,7 +47,7 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
         'Recommended trucks: Shahzore pickup, Mazda 6-wheeler, and Sample truck'
       ],
       recommendedTruck: 'مزدا 6 وہیلر (4 تا 10 ٹن) یا شہزور فل لوڈ',
-      recommendedTruckEn: 'Mazda 6 Wheeler (4 to 10 Tons) or Shehzore Full Load',
+      recommendedTruckEn: 'Mazda 6 Wheeler (4 to 10 Tons) or Shahzore Full Load',
       routeCoverage: 'لاہور، فیصل آباد، کراچی، ساہیوال، ملتان، راولپنڈی',
       routeCoverageEn: 'Lahore, Faisalabad, Karachi, Sahiwal, Multan, Rawalpindi',
       image: './images/agricultural-freight.webp'
@@ -163,7 +163,7 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
         'Recommended trucks: Shahzore pickup and Mazda closed body'
       ],
       recommendedTruck: 'شہزور (1 تا 3.5 ٹن) یا مزدا 6 وہیلر (فل گاڑی)',
-      recommendedTruckEn: 'Shehzore (1 to 3.5 Tons) or Mazda 6-Wheeler (FTL)',
+      recommendedTruckEn: 'Shahzore (1 to 3.5 Tons) or Mazda 6-Wheeler (FTL)',
       routeCoverage: 'لوکل اور تمام بین الصوبائی و انٹرسٹی روٹس',
       routeCoverageEn: 'Local and All Interprovincial & Intercity Routes',
       image: './images/cargo-safety.webp'

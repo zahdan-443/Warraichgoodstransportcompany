@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { MessageCircle, Phone, Calculator, X } from 'lucide-react';
+import React from 'react';
+import { MessageCircle } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
 

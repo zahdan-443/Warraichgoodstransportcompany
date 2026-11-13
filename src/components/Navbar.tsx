@@ -3,14 +3,12 @@ import { Link, useLocation } from 'react-router-dom';
 import { 
   Truck, 
   ExternalLink,
-  ShieldCheck,
   Globe,
   Menu,
   X
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
-import { TRANSLATIONS } from '../data/translations';
 import { getAssetUrl } from '../utils/assetPath';
 
 interface NavbarProps {
@@ -30,7 +28,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   const { language, toggleLanguage } = useLanguage();
   const location = useLocation();
   const isUrdu = language === 'ur';
-  const tNav = TRANSLATIONS[language].nav;
 
   // Support both controlled from App and internal fallback
   const isMenuVisible = externalIsOpen !== undefined ? externalIsOpen : internalIsOpen;

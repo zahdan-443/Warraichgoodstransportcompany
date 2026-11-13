@@ -3,11 +3,8 @@ import {
   Smartphone, 
   Download, 
   CheckCircle2, 
-  ShieldCheck, 
   ExternalLink,
-  Truck,
-  FileText,
-  Navigation
+  Truck
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
@@ -186,7 +183,7 @@ export const DriverAppSection: React.FC = () => {
                 {/* Card 3: Direct Call */}
                 <div className="bg-blue-600 rounded-xl p-3 text-center text-white">
                   <span className={`text-[11px] font-bold block ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
-                    {isUrdu ? `ہیڈ آفس ہیلپ لائن: ${COMPANY_INFO.phone1}` : `Helpline: ${COMPANY_INFO.phone1}`}
+                    {isUrdu ? `ہیلپ لائن: ${COMPANY_INFO.phone1}` : `Helpline: ${COMPANY_INFO.phone1}`}
                   </span>
                   <span className="text-[10px] opacity-80 font-mono">
                     {isUrdu ? '24/7 فل ٹرک لوڈ سروس' : '24/7 Single-Party FTL Support'}

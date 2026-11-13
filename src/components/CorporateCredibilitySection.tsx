@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { 
   Building2, 
   ShieldCheck, 
@@ -8,13 +8,7 @@ import {
   Printer, 
   CheckCircle2, 
   Award, 
-  PhoneCall, 
-  ExternalLink,
-  ChevronRight,
   Briefcase,
-  Layers,
-  Sparkles,
-  Download,
   X,
   FileCheck2,
   Warehouse,
@@ -97,13 +91,6 @@ export const CorporateCredibilitySection: React.FC = () => {
 
   const handlePrint = () => {
     window.print();
-  };
-
-  const scrollToCalculator = () => {
-    const calcSection = document.getElementById('booking');
-    if (calcSection) {
-      calcSection.scrollIntoView({ behavior: 'smooth' });
-    }
   };
 
   return (
@@ -234,7 +221,7 @@ export const CorporateCredibilitySection: React.FC = () => {
                 <Building2 className="w-5 h-5" />
               </div>
               <span className="text-[11px] font-bold text-blue-800 font-urdu tracking-wider block mb-1">
-                {isUrdu ? 'ذاتی نگرانی اور 20+ سالہ تجربہ' : 'Personal Executive Governance'}
+                {isUrdu ? 'ذاتی نگرانی اور اعتماد' : 'Personal Executive Governance'}
               </span>
               <p className="text-base font-bold text-slate-900 font-urdu mb-2">
                 {isUrdu ? 'ڈائریکٹ پروپرائٹر رابطہ' : 'Direct Proprietor Accountability'}

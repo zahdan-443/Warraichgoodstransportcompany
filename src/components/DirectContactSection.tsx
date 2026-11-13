@@ -2,12 +2,9 @@ import React from 'react';
 import { 
   Phone, 
   MessageCircle, 
-  Mail, 
   Clock, 
   ShieldCheck, 
-  MapPin, 
-  Award,
-  ArrowRight
+  Award
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
@@ -32,7 +29,7 @@ export const DirectContactSection: React.FC = () => {
             {isUrdu ? 'براہِ راست رابطہ' : 'Direct Communication'}
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 font-urdu tracking-tight">
-            {isUrdu ? 'ہیڈ آفس و ایگزیکٹو کوآرڈینیشن' : 'Connect Directly With Management'}
+            {isUrdu ? 'دفتر اور ڈائریکٹ رابطہ' : 'Connect Directly With Management'}
           </h2>
           <p className="mt-2 text-xs sm:text-sm text-slate-600 font-urdu">
             {isUrdu
@@ -95,7 +92,7 @@ export const DirectContactSection: React.FC = () => {
                 {/* 2. Single Samundri Address */}
                 <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-4 space-y-1">
                   <span className="text-[11px] font-mono text-slate-400 block">
-                    {isUrdu ? 'مرکزی اڈا و پتہ' : 'HEAD OFFICE ADDRESS'}
+                    {isUrdu ? 'دفتر کا پتہ' : 'OFFICE ADDRESS'}
                   </span>
                   <p className={`text-sm sm:text-base font-bold text-white ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                     {isUrdu ? COMPANY_INFO.addressUrdu : COMPANY_INFO.addressEnglish}

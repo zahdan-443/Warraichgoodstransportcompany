@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { 
   Building2, 
   MapPin, 
@@ -10,14 +10,8 @@ import {
   UserCheck, 
   Clock, 
   Printer, 
-  Copy, 
-  Check, 
   ExternalLink,
   Award,
-  Route,
-  Navigation,
-  CheckCircle2,
-  Tag,
   Youtube,
   Facebook,
   MessageCircle,
@@ -29,17 +23,8 @@ import { getAssetUrl } from '../utils/assetPath';
 
 export const BusinessIntroCard: React.FC = () => {
   const { language } = useLanguage();
-  const [copiedKey, setCopiedKey] = useState<string | null>(null);
 
   const isUrdu = language === 'ur';
-
-  const handleCopy = (text: string, key: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedKey(key);
-    setTimeout(() => {
-      setCopiedKey(null);
-    }, 2000);
-  };
 
   const handlePrint = () => {
     window.print();
@@ -223,7 +208,7 @@ export const BusinessIntroCard: React.FC = () => {
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-600 flex-shrink-0" />
-                      <span>{isUrdu ? 'شہزور، مزدا، 22 تا 40 فٹ ٹرالر و بیڈفورڈ' : 'Shehzore, Mazda, Flatbeds & Bedford'}</span>
+                      <span>{isUrdu ? 'شہزور، مزدا، 22 تا 40 فٹ ٹرالر و بیڈفورڈ' : 'Shahzore, Mazda, Flatbeds & Bedford'}</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-600 flex-shrink-0" />

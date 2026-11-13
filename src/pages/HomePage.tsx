@@ -1,8 +1,7 @@
 import React from 'react';
 import { HeroSection } from '../components/HeroSection';
-import { FleetSection } from '../components/FleetSection';
-import { RateCalculatorSection } from '../components/RateCalculatorSection';
-import { CargoCategoriesSection } from '../components/CargoCategoriesSection';
+import { FleetCardsSection } from '../components/FleetCardsSection';
+import { CargoCategoriesPreview } from '../components/CargoCategoriesPreview';
 import { BiltyTrackingSection } from '../components/BiltyTrackingSection';
 import { BusinessIntroCard } from '../components/BusinessIntroCard';
 import { WhyUsSection } from '../components/WhyUsSection';
@@ -12,31 +11,28 @@ import { DirectContactSection } from '../components/DirectContactSection';
 export const HomePage: React.FC = () => {
   return (
     <>
-      {/* 1. Hero Section (with Real Highway Photo & Overlapping Quick Quote Card) */}
+      {/* 1. Hero Section (with Real Highway Photo & Overlapping Contact Strip) */}
       <HeroSection />
 
-      {/* 2. Real Commercial Fleet Vehicles (Real Truck Photos: Shehzore, Mazda, Sample, Bedford, Tonnages & Specs) */}
-      <FleetSection preview={true} />
+      {/* 2. Commercial Fleet Overview (Short cards linking to /fleet) */}
+      <FleetCardsSection />
 
-      {/* 3. Real Freight Rate Calculator (Distances, Motorways, Live WhatsApp Booking Summary) */}
-      <RateCalculatorSection />
+      {/* 3. Cargo Specializations Preview (Short cards linking to /fleet) */}
+      <CargoCategoriesPreview />
 
-      {/* 4. Real Cargo Specializations (Agriculture, Textiles, Industrial, Heavy Haulers Photos) */}
-      <CargoCategoriesSection />
-
-      {/* 5. Online Bilty Tracking & Firebase QR Verification */}
+      {/* 4. Online Bilty Tracking & Firebase Verification */}
       <BiltyTrackingSection condensed={true} />
 
-      {/* 6. Official Business Introduction (Proprietor Portrait Face, NTN: 7779394-1, Nationwide Service Areas) */}
+      {/* 5. Official Business Introduction */}
       <BusinessIntroCard />
 
-      {/* 7. Why Choose Us / Legal Guarantees */}
+      {/* 6. Why Choose Us / Guarantees */}
       <WhyUsSection />
 
-      {/* 8. Android Mobile App Download Section (Smartphone Frame Mockup) */}
+      {/* 7. Android Mobile App Download Section */}
       <DriverAppSection />
 
-      {/* 9. Direct Communication Helpline & Instant Booking */}
+      {/* 8. Direct Communication Helpline & Instant Booking */}
       <DirectContactSection />
     </>
   );

@@ -1,28 +1,19 @@
 import React from 'react';
-import { 
-  PhoneCall, 
-  ArrowRight, 
-  ShieldCheck, 
-  Award, 
-  Truck, 
-  MapPin, 
-  Clock 
-} from 'lucide-react';
+import { PhoneCall, MessageCircle } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
-import { QuickQuoteCard } from './QuickQuoteCard';
+import { ContactStrip } from './ContactStrip';
 import { getAssetUrl } from '../utils/assetPath';
 
 export const HeroSection: React.FC = () => {
   const { language } = useLanguage();
   const isUrdu = language === 'ur';
 
-  const scrollToQuote = () => {
-    const el = document.getElementById('quick-quote');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const whatsappUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(
+    isUrdu
+      ? 'السلام علیکم وڑائچ گڈز! مجھے گاڑی بکنگ اور کرایہ معلوم کرنا ہے۔'
+      : 'Hello Warraich Goods, I need details about truck booking and freight rates.'
+  )}`;
 
   return (
     <section id="hero" className="relative text-white overflow-hidden">
@@ -78,17 +69,20 @@ export const HeroSection: React.FC = () => {
               : 'We provide Shahzore pickups, Mazda trucks, and heavy haulers for full truckload trips anywhere in Pakistan. Careful handling, clear bilty receipts, and fair rates.'}
           </p>
 
-          {/* 2 Primary Hero Buttons: "Get Instant Quote" (amber) & "Call Now" (outlined) */}
+          {/* 2 Primary Hero Buttons: "WhatsApp Us" (amber) & "Call Now" (outlined) */}
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 max-w-md mx-auto">
             {/* Amber Primary Button */}
-            <button
-              id="hero-get-quote-btn"
-              onClick={scrollToQuote}
+            <a
+              id="hero-whatsapp-btn"
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-slate-950 font-black px-7 py-3.5 rounded-xl text-sm sm:text-base shadow-lg hover:shadow-amber-500/25 transition-all active:scale-98 cursor-pointer min-h-[48px] ${isUrdu ? 'font-urdu' : 'font-sans'}`}
+              aria-label="WhatsApp Warraich Goods"
             >
-              <span>{isUrdu ? 'آن لائن کرایہ معلوم کریں' : 'Get Instant Quote'}</span>
-              <ArrowRight className="w-4 h-4 flex-shrink-0" />
-            </button>
+              <MessageCircle className="w-4 h-4 flex-shrink-0" />
+              <span>{isUrdu ? 'واٹس ایپ کریں' : 'WhatsApp Us'}</span>
+            </a>
 
             {/* Outlined White Button */}
             <a
@@ -98,21 +92,21 @@ export const HeroSection: React.FC = () => {
               aria-label={`Call Warraich Goods at ${COMPANY_INFO.phone1}`}
             >
               <PhoneCall className="w-4 h-4 text-amber-400 flex-shrink-0" />
-              <span>{isUrdu ? `کال کریں: ${COMPANY_INFO.phone1}` : `Call Now: ${COMPANY_INFO.phone1}`}</span>
+              <span>{isUrdu ? 'کال کریں' : 'Call Now'}</span>
             </a>
           </div>
 
-          {/* Real Facts Stats Row (Years of Experience, Fleet Types, Cities Served) */}
+          {/* Real Facts Stats Row (Since 2020, Fleet Types, 24/7 Booking) */}
           <div className="pt-8 sm:pt-10 max-w-3xl mx-auto border-t border-slate-800/80">
             <div className="grid grid-cols-3 gap-2 sm:gap-6 text-center">
               
-              {/* Stat 1: Years */}
+              {/* Stat 1: Since 2020 */}
               <div className="space-y-0.5">
                 <span className="text-2xl sm:text-3xl lg:text-4xl font-black font-mono text-amber-400 block tracking-tight">
                   2020
                 </span>
                 <span className={`text-xs sm:text-sm font-bold text-white block ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
-                  {isUrdu ? 'سے خدمت میں' : 'Serving Since'}
+                  {isUrdu ? 'سے خدمت میں' : 'Since 2020'}
                 </span>
                 <span className={`text-[11px] text-slate-400 hidden sm:block ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                   {isUrdu ? '24/7 ملک گیر سروس' : '24/7 Nationwide Routes'}
@@ -128,11 +122,11 @@ export const HeroSection: React.FC = () => {
                   {isUrdu ? 'کمرشل فلیٹ ماڈلز' : 'Fleet Truck Types'}
                 </span>
                 <span className={`text-[11px] text-slate-400 hidden sm:block ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
-                  {isUrdu ? 'مزدا، شہزور، سیمپل، بیڈفورڈ' : 'Mazda, Shehzore, Heavy Haulers'}
+                  {isUrdu ? 'مزدا، شہزور، سیمپل، بیڈفورڈ' : 'Mazda, Shahzore, Heavy Haulers'}
                 </span>
               </div>
 
-              {/* Stat 3: Commercial Hubs */}
+              {/* Stat 3: 24/7 Booking */}
               <div className="space-y-0.5">
                 <span className="text-2xl sm:text-3xl lg:text-4xl font-black font-mono text-emerald-400 block tracking-tight">
                   24/7
@@ -152,9 +146,9 @@ export const HeroSection: React.FC = () => {
 
       </div>
 
-      {/* 2. Overlapping Quick Quote Card (Overlaps the bottom of the hero) */}
+      {/* 2. Overlapping Contact Strip (Call, WhatsApp, Email) */}
       <div className="-mt-12 sm:-mt-16 md:-mt-20 pb-8 sm:pb-12 bg-slate-50">
-        <QuickQuoteCard />
+        <ContactStrip />
       </div>
 
     </section>

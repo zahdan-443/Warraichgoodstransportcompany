@@ -1,21 +1,30 @@
 import { initializeApp, getApps, getApp } from 'firebase/app';
-import { getFirestore, doc, getDoc, collection, query, where, limit, getDocs } from 'firebase/firestore';
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
 
 const env = (import.meta as any).env || {};
 
-// Default Firebase configuration for warraich-goods project
 const firebaseConfig = {
-  apiKey: env.VITE_FIREBASE_API_KEY || "AIzaSyDummyKeyForPublicReadAccessOnly",
-  authDomain: env.VITE_FIREBASE_AUTH_DOMAIN || "warraich-goods.firebaseapp.com",
-  projectId: env.VITE_FIREBASE_PROJECT_ID || "warraich-goods",
-  storageBucket: env.VITE_FIREBASE_STORAGE_BUCKET || "warraich-goods.appspot.com",
-  messagingSenderId: env.VITE_FIREBASE_MESSAGING_SENDER_ID || "000000000000",
-  appId: env.VITE_FIREBASE_APP_ID || "1:000000000000:web:000000000000"
+  apiKey: env.VITE_FIREBASE_API_KEY,
+  authDomain: env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: env.VITE_FIREBASE_APP_ID,
 };
 
-// Initialize Firebase App
-const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
-export const db = getFirestore(app);
+const isFirebaseConfigured = Boolean(
+  firebaseConfig.apiKey &&
+  firebaseConfig.projectId &&
+  firebaseConfig.appId
+);
+
+const app = isFirebaseConfigured
+  ? (getApps().length === 0 ? initializeApp(firebaseConfig) : getApp())
+  : null;
+
+export const db = app ? getFirestore(app) : null;
+
+const BILTY_PATTERN = /^[A-Z0-9-]{4,24}$/;
 
 export interface PublicBiltyRecord {
   biltyNo: string;
@@ -46,7 +55,6 @@ export function normalizeBiltyNo(input: string): string {
  * Excludes sensitive fields like CNIC, phone numbers, driver credentials, freight charges, and private payment details.
  */
 function extractSafePublicBiltyFields(data: any, fallbackBiltyNo: string): PublicBiltyRecord {
-  // Format Firestore Timestamp or date string safely
   let dateFormatted = undefined;
   if (data.biltyDate || data.createdAt || data.date) {
     const rawDate = data.biltyDate || data.createdAt || data.date;
@@ -65,7 +73,6 @@ function extractSafePublicBiltyFields(data: any, fallbackBiltyNo: string): Publi
     }
   }
 
-  // Weight / Quantity combined representation
   let weightQtyStr = undefined;
   if (data.weight || data.quantity || data.weightOrQty || data.bags) {
     const parts = [];
@@ -89,40 +96,30 @@ function extractSafePublicBiltyFields(data: any, fallbackBiltyNo: string): Publi
 }
 
 /**
- * Performs read-only lookup strictly in the Firestore 'publicBiltyVerifications' collection.
- * The internal 'bilties' collection remains completely private and unreachable from the website.
- * Tries direct document ID lookup first (`publicBiltyVerifications/{normalizedNo}`),
- * then falls back to `where("biltyNo", "==", normalizedNo)`.
+ * Performs read-only lookup strictly on publicBiltyVerifications/{id}.
+ * Validates input against /^[A-Z0-9-]{4,24}$/.
  */
 export async function verifyBiltyRecord(rawBiltyNo: string): Promise<VerificationResult> {
   const normalizedNo = normalizeBiltyNo(rawBiltyNo);
-  if (!normalizedNo) {
+  if (!BILTY_PATTERN.test(normalizedNo)) {
     return { status: 'NOT_FOUND' };
   }
 
+  if (!db) {
+    return {
+      status: 'ERROR',
+      message: 'Unable to Verify — Firebase configuration is unavailable.'
+    };
+  }
+
   try {
-    // 1. Try direct Document ID lookup: publicBiltyVerifications/{normalizedNo}
     const docRef = doc(db, 'publicBiltyVerifications', normalizedNo);
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-      const data = docSnap.data();
       return {
         status: 'VERIFIED',
-        record: extractSafePublicBiltyFields(data, normalizedNo)
-      };
-    }
-
-    // 2. Query fallback: publicBiltyVerifications where biltyNo == normalizedNo
-    const biltiesRef = collection(db, 'publicBiltyVerifications');
-    const q = query(biltiesRef, where('biltyNo', '==', normalizedNo), limit(1));
-    const querySnap = await getDocs(q);
-
-    if (!querySnap.empty) {
-      const firstDoc = querySnap.docs[0];
-      return {
-        status: 'VERIFIED',
-        record: extractSafePublicBiltyFields(firstDoc.data(), normalizedNo)
+        record: extractSafePublicBiltyFields(docSnap.data(), normalizedNo)
       };
     }
 
