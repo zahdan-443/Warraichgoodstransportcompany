@@ -274,7 +274,7 @@ export const BusinessIntroCard: React.FC = () => {
                   <p className="text-xs sm:text-[13px] text-slate-700 font-urdu leading-relaxed">
                     {isUrdu
                       ? 'ہم پورے پاکستان کے لیے محفوظ اور بروقت مال برداری اور تیز رفتار گاڑی بکنگ کی خدمات فراہم کرتے ہیں۔ مناسب ریٹ اور بہترین سروس ہماری پہچان ہے۔ کمرشل کارگو، صنعتی سامان اور زرعی اجناس کی ترسیل کے لیے شہزور پک اپ، مزدا ٹرک، سیمپل اور بیڈفورڈ ہیوی ہالرز 24 گھنٹے دستیاب ہیں۔ واضح بلٹی ریکارڈ اور شفاف کرایہ ہماری ضمانت ہے۔'
-                      : 'Warraich Goods Transport Company specializes in commercial load delivery and fast vehicle booking across Pakistan. Our versatile fleet includes Mazda trucks, Shahzore pickups, and heavy haulers tailored for all load sizes with clear bilty records and affordable rates.'}
+                      : 'We handle commercial loads and fast truck booking across Pakistan. Our fleet includes Mazda trucks, Shahzore pickups, and heavy haulers for all load sizes, with clear bilty receipts and fair rates.'}
                   </p>
                   <div className="mt-3.5 pt-3 border-t border-amber-100/80 flex items-center justify-between gap-2">
                     <span className="text-[11px] text-slate-500 font-urdu">{isUrdu ? 'آن کال و واٹس ایپ بکنگ:' : 'Direct Booking:'}</span>

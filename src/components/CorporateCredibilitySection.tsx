@@ -35,7 +35,7 @@ import { getAssetUrl } from '../utils/assetPath';
 // To swap out any placeholder with final photos, simply replace the file path in ONE line below.
 // NOTE: These placeholder images use neutral "فیلڈ آپریشنز" / "گراؤنڈ فوٹو" labels.
 // Once genuine photos replace placeholders, stronger verification language can be restored:
-// - Re-add 'نادرا تصدیق شدہ روڈ کیپٹن' / 'NADRA-Verified Driver' in title
+// - 'Licensed Highway Driver' in title
 // - Re-add 'تصدیق شدہ گراؤنڈ فوٹیج' / 'Verified Ground Operations' in footerLabel
 // - Re-add 'حقیقی آپریشنز' / 'Live Ops' in footerStatus
 // ============================================================================
@@ -170,7 +170,7 @@ export const CorporateCredibilitySection: React.FC = () => {
               <p className="text-xs text-slate-600 leading-relaxed font-urdu">
                 {isUrdu 
                   ? 'ایف بی آر میں ایکٹو ٹیکس پیئر کے طور پر رجسٹرڈ۔ کارپوریٹ کلائنٹس اور انڈسٹریل ملز کے لیے سیلز ٹیکس اور ودہولڈنگ ٹیکس کی باقاعدہ رسیدیں۔' 
-                  : 'Active FBR taxpayer status enabling seamless corporate withholding tax compliance and corporate vendor audit approval.'}
+                  : 'Active FBR taxpayer (NTN 7779394-1). We issue proper invoices for businesses and mills.'}
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] text-amber-800 font-semibold font-urdu">
@@ -618,7 +618,7 @@ export const CorporateCredibilitySection: React.FC = () => {
                   </div>
                   <div className="flex items-center gap-2 text-slate-700">
                     <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" />
-                    <span>{isUrdu ? 'نادرا بائیو میٹرک و لائسنس تصدیق شدہ ڈرائیورز' : 'NADRA Verified Biometric Drivers'}</span>
+                    <span>{isUrdu ? 'لائسنس یافتہ اور تجربہ کار ڈرائیورز' : 'Licensed & Experienced Commercial Drivers'}</span>
                   </div>
                   <div className="flex items-center gap-2 text-slate-700">
                     <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" />

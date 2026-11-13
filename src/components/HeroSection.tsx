@@ -62,20 +62,20 @@ export const HeroSection: React.FC = () => {
             </h1>
           ) : (
             <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto font-sans">
-              Trusted <span className="text-amber-400">Goods Transport</span> & Shifting Across Pakistan
+              Reliable <span className="text-amber-400">Goods Transport</span> & Shifting Across Pakistan
             </h1>
           )}
 
           {/* Tagline Subtitle */}
           <p className={`text-base sm:text-xl font-bold text-slate-200 leading-relaxed max-w-3xl mx-auto ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
-            {isUrdu ? COMPANY_INFO.taglineUrdu : COMPANY_INFO.taglineEnglish}
+            {isUrdu ? COMPANY_INFO.taglineUrdu : 'Home shifting, office moving, and commercial goods transport since 2020.'}
           </p>
 
-          {/* Short Subtext (Directly from Google Business Profile) */}
+          {/* Short Subtext */}
           <p className={`text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed max-w-3xl mx-auto ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
             {isUrdu
               ? 'گھریلو سامان شفٹنگ، دفتری منتقلی اور کمرشل مال برداری کے لیے مزدا ٹرک، شہزور پک اپ اور ہیوی ٹرکس کی 24/7 تیز رفتار بکنگ۔ محفوظ ہینڈلنگ، کمپیوٹرائزڈ بلٹی اور مناسب ترین ریٹ۔'
-              : 'Warraich Goods Transport Company offers trusted home shifting, office relocation, commercial load delivery, and fast vehicle booking across Pakistan with versatile Mazda trucks, Shahzore pickups, and heavy haulers.'}
+              : 'We provide Shahzore pickups, Mazda trucks, and heavy haulers for full truckload trips anywhere in Pakistan. Careful handling, clear bilty receipts, and fair rates.'}
           </p>
 
           {/* 2 Primary Hero Buttons: "Get Instant Quote" (amber) & "Call Now" (outlined) */}

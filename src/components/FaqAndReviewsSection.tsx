@@ -19,55 +19,55 @@ export const FaqAndReviewsSection: React.FC = () => {
 
   const faqsUrdu = [
     {
-      q: 'کیا وڑائچ گڈز ٹرانسپورٹ چھوٹے پارسل یا لوز کارگو (LTL) بک کرتی ہے؟',
-      a: 'نہیں، ہم لوز کارگو، چھوٹے پارسل یا پارٹ لوڈ (LTL) ڈیل نہیں کرتے۔ ہماری تمام گاڑیاں (شہزور، مزدا، سیمپل، بیڈفورڈ) 100% فل ٹرک لوڈ (FTL) یعنی صرف ایک ہی پارٹی/گاہک کے مخصوص مال کے لیے روانہ کی جاتی ہیں۔'
+      q: 'کیا وڑائچ گڈز ٹرانسپورٹ چھوٹے پارسل یا کچا مال مکس کرتی ہے؟',
+      a: 'نہیں، ہم صرف پوری گاڑی (فل لوڈ) بک کرتے ہیں۔ پوری گاڑی صرف آپ کے مال کے لیے مخصوص ہوتی ہے اور مال مکس نہیں ہوتا۔'
     },
     {
-      q: 'فل ٹرک لوڈ (FTL) کرایہ کا تعین کس طرح ہوتا ہے؟',
-      a: 'کرایہ کا تعین فاصلہ (کلو میٹر)، مطلوبہ گاڑی کی قسم (شہزور، مزدا، سیمپل، بیڈفورڈ) اور لوڈنگ و ان لوڈنگ پوائنٹس کے مطابق شفاف انداز میں ہوتا ہے۔ بلنگ پر کوئی غیر متوقع پوشیدہ چارجز نہیں ہوتے۔'
+      q: 'کرایہ کا تعین کیسے ہوتا ہے؟',
+      a: 'کرایہ کا تعین شہروں کے درمیانی فاصلے، مطلوبہ گاڑی کے سائز اور سامان کی قسم کے مطابق ہوتا ہے۔ کوئی پوشیدہ چارجز نہیں ہوتے۔'
     },
     {
-      q: 'کیا بارش اور خراب موسم میں مال کے لیے ترپال کی مکمل ضمانت ہوتی ہے؟',
-      a: 'جی بالکل! ہماری تمام اوپن اور جالی باڈی گاڑیوں میں ڈبل واٹر پروف ہیوی ترپالیں اور مضبوط ٹائی ڈاؤن رسیاں موجود ہوتی ہیں۔ بارش، گرد و غبار اور دھوپ سے سامان کا 100% تحفظ یقینی بنایا جاتا ہے۔'
+      q: 'کیا بارش اور خراب موسم میں مال کی حفاظت کا انتظام ہوتا ہے؟',
+      a: 'جی بالکل! ہماری تمام گاڑیوں پر مضبوط واٹر پروف ترپالیں اور مضبوط رسیاں موجود ہوتی ہیں۔ بارش اور گرد و غبار سے سامان کا مکمل تحفظ یقینی بنایا جاتا ہے۔'
     },
     {
-      q: 'پورے پاکستان کے لیے مال برداری اور گھریلو و دفتری شفٹنگ سروس کیسے بک کریں؟',
-      a: 'پورے پاکستان کے لیے گھر کی شفٹنگ، دفتری منتقلی اور کمرشل مال برداری کی بکنگ فون کال اور واٹس ایپ (0300-5370443) پر 24 گھنٹے دستیاب ہے۔ ہم مناسب ریٹ، محفوظ ہینڈلنگ اور بروقت سروس فراہم کرتے ہیں۔'
+      q: 'گھریلو شفٹنگ یا مال برداری کے لیے گاڑی کیسے بک کریں؟',
+      a: 'آپ کسی بھی وقت فون کال یا واٹس ایپ (0300-5370443) پر رابطہ کر کے اپنا روٹ اور سامان بتا کر گاڑی بک کر سکتے ہیں۔'
     },
     {
-      q: 'کیا آپ کے پاس گھریلو شفٹنگ اور کمرشل لوڈ کے لیے مختلف سائز کی گاڑیاں دستیاب ہیں؟',
-      a: 'جی ہاں! ہمارے پاس شہزور پک اپ (1 تا 3.5 ٹن)، مزدا 6 وہیلر (4 تا 10 ٹن)، سیمپل ٹرک اور بیڈفورڈ ہیوی ہالرز ہر سائز کے سامان کے لیے 24 گھنٹے دستیاب ہیں۔ واضح بلٹی ریکارڈ اور مناسب ترین کرایہ دیا جاتا ہے۔'
+      q: 'آپ کے پاس کون کون سی گاڑیاں دستیاب ہیں؟',
+      a: 'ہمارے پاس شہزور پک اپ (1 تا 3.5 ٹن)، مزدا 6 وہیلر (4 تا 10 ٹن)، سیمپل ٹرک (8 تا 16 ٹن) اور بڑے بیڈفورڈ ٹرکس دستیاب ہیں۔'
     },
     {
-      q: 'کیا ڈرائیورز کی شناخت اور گاڑی کے کاغذات کی سرکاری تصدیق ہوتی ہے؟',
-      a: 'جی ہاں، تمام ڈرائیورز نادرا شناختی کارڈ، ڈرائیونگ لائسنس اور باقاعدہ تصدیق شدہ ٹریک ریکارڈ کے ساتھ رجسٹرڈ ہوتے ہیں۔'
+      q: 'کیا بلٹی اور کانٹا پرچی دی جاتی ہے؟',
+      a: 'جی ہاں، ہر مال کی روانگی پر باقاعدہ کمپیوٹرائزڈ کانٹا پرچی اور تصدیق شدہ بلٹی رسید دی جاتی ہے۔'
     }
   ];
 
   const faqsEnglish = [
     {
-      q: 'Does Warraich Goods handle small loose parcels or mixed LTL shipments?',
-      a: 'No, we do not accept loose parcel mixing or partial loads (LTL). All our trucks (Shehzore, Mazda, Sample, Bedford) operate strictly on a 100% Full Truckload (FTL) basis, dedicated exclusively to a single client with zero cargo mixing.'
+      q: 'Do you handle small parcels or loose packages?',
+      a: 'No, we only book full dedicated trucks. The entire vehicle is reserved for your goods, so nothing is mixed with other shipments.'
     },
     {
-      q: 'How is the freight rate for a Full Truckload (FTL) determined?',
-      a: 'Rates are determined transparently according to route distance (km), selected vehicle class (Shehzore, Mazda, Sample, Bedford), and specific loading/unloading terminals. There are strictly no hidden surprise fees.'
+      q: 'How are freight rates calculated?',
+      a: 'Rates depend on the travel distance between cities, the truck size you need, and your cargo type. We provide clear rates with no hidden costs.'
     },
     {
-      q: 'Do you provide full waterproof tarpaulin covers for bad weather & rain protection?',
-      a: 'Yes, absolutely! Every vehicle in our fleet is equipped with heavy-duty double waterproof tarpaulins and high-tensile tie-down straps, ensuring 100% weather and moisture protection throughout transit.'
+      q: 'Do you protect cargo from rain and dust?',
+      a: 'Yes. All our trucks carry heavy waterproof tarpaulins and strong ropes to protect your goods in all weather conditions.'
     },
     {
-      q: 'How can I book home shifting, office relocation, or goods transport across Pakistan?',
-      a: 'Direct booking for home shifting, office relocation, and commercial goods delivery is available 24/7 via phone and WhatsApp at 0300-5370443. We provide instant free quotes, careful handling, and reliable truck booking nationwide.'
+      q: 'How can I book a truck for house shifting or commercial delivery?',
+      a: 'Call or WhatsApp us at 0300-5370443 anytime. Share your pickup city, drop-off location, and load details for a quick quote and truck booking.'
     },
     {
-      q: 'Do you provide versatile trucks for both household shifting and commercial loads?',
-      a: 'Yes! Our versatile fleet includes Mazda trucks, Shahzore pickups, and heavy haulers tailored for all load sizes. Whether moving house, transferring an office, or shipping cargo to another city, we provide careful handling, clear bilty records, and affordable rates.'
+      q: 'What types of trucks are in your fleet?',
+      a: 'We have Shahzore pickups (1 to 3.5 tons), Mazda 6-wheeler trucks (4 to 10 tons), Sample trucks (8 to 16 tons), and heavy Bedford haulers (15 to 28+ tons).'
     },
     {
-      q: 'Are your drivers and transport documentation officially verified?',
-      a: 'Yes, all drivers are fully vetted with government NADRA CNIC verification, commercial driving licenses, and clean highway transit track records.'
+      q: 'Do you provide bilty receipts and weighbridge slips?',
+      a: 'Yes. Every shipment includes a bilty receipt with consignment details and computerized weighbridge scale slips.'
     }
   ];
 

@@ -216,27 +216,27 @@ export const Footer: React.FC = () => {
         {/* 3. Quick Navigation Links Bar (Distinct Internal Page Links) */}
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-urdu text-xs sm:text-sm text-slate-400">
           <Link to="/" className="hover:text-amber-400 transition-colors py-1">
-            {isUrdu ? 'مرکزی تعارف و ہوم' : 'Company Overview'}
+            {isUrdu ? 'مرکزی صفحہ' : 'Home'}
           </Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
           <Link to="/fleet" className="hover:text-amber-400 transition-colors py-1">
-            {isUrdu ? 'گاڑیوں اور ٹرکس کی اقسام' : 'Commercial Truck Fleet'}
+            {isUrdu ? 'ہماری گاڑیاں' : 'Our Trucks'}
           </Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
           <Link to="/services" className="hover:text-amber-400 transition-colors py-1">
-            {isUrdu ? 'سروسز، قانونی ساکھ و حفاظت' : 'Services & Cargo Safety'}
+            {isUrdu ? 'سروسز و حفاظت' : 'Services'}
           </Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
           <Link to="/booking" className="hover:text-amber-400 transition-colors py-1">
-            {isUrdu ? 'FTL کرایہ معلوم کریں اور بکنگ' : 'FTL Rate Estimation & Booking'}
+            {isUrdu ? 'کرایہ و بکنگ' : 'Rates & Booking'}
           </Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
           <Link to="/faq" className="hover:text-amber-400 transition-colors py-1">
-            {isUrdu ? 'عام سوالات و کلائنٹ ریویوز' : 'FAQs & Customer Reviews'}
+            {isUrdu ? 'عام سوالات' : 'FAQs'}
           </Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
           <Link to="/about" className="hover:text-amber-400 transition-colors py-1">
-            {isUrdu ? 'مصدقہ کاروباری تعارفی کارڈ' : 'Verified Business Card'}
+            {isUrdu ? 'کاروباری تعارف' : 'About Us'}
           </Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
           <a 
@@ -245,7 +245,7 @@ export const Footer: React.FC = () => {
             rel="noopener noreferrer"
             className="text-amber-400 font-bold inline-flex items-center gap-1 hover:underline py-1"
           >
-            <span>{isUrdu ? 'ڈرائیور پورٹل لاگ ان' : 'Driver Portal Access'}</span>
+            <span>{isUrdu ? 'ڈرائیور پورٹل' : 'Driver Portal'}</span>
             <ExternalLink className="w-3 h-3" />
           </a>
         </div>

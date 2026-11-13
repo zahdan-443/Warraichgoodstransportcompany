@@ -50,17 +50,17 @@ export const QuickQuoteCard: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 mb-5 border-b border-slate-100">
           <div>
             <span className="text-xs font-bold text-amber-600 font-mono tracking-wider uppercase">
-              {isUrdu ? 'فوری کوٹیشن' : 'Instant FTL Freight Quote'}
+              {isUrdu ? 'فوری کوٹیشن' : 'Fast Freight Quote'}
             </span>
             <h2 className={`text-lg sm:text-xl font-black text-slate-950 leading-snug ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
-              {isUrdu ? 'آن لائن کرایہ معلوم کریں اور گاڑی بک کریں' : 'Calculate Your Route Freight & Book Online'}
+              {isUrdu ? 'آن لائن کرایہ معلوم کریں اور گاڑی بک کریں' : 'Check Route Rates & Book Online'}
             </h2>
           </div>
           
           <div className="inline-flex items-center gap-1.5 text-xs text-slate-500 font-mono">
             <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
             <span className={isUrdu ? 'font-urdu' : 'font-sans'}>
-              {isUrdu ? '100% سنگل پارٹی فل لوڈ' : '100% Single-Party FTL'}
+              {isUrdu ? 'صرف مکمل گاڑی' : 'Dedicated Trucks Only'}
             </span>
           </div>
         </div>

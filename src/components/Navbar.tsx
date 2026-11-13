@@ -127,16 +127,26 @@ export const Navbar: React.FC<NavbarProps> = ({
               </div>
             </div>
 
-            {/* Business Name: STRICTLY SINGLE LINE */}
-            <div className="min-w-0 flex items-center">
+            {/* Business Name: Two Lines */}
+            <div className="min-w-0 flex flex-col justify-center">
               {isUrdu ? (
-                <span className="text-base sm:text-xl lg:text-2xl font-black font-urdu text-slate-950 whitespace-nowrap leading-none tracking-tight truncate">
-                  {COMPANY_INFO.nameUrdu}
-                </span>
+                <>
+                  <span className="text-base sm:text-xl font-black font-urdu text-slate-950 leading-tight">
+                    وڑائچ گڈز
+                  </span>
+                  <span className="text-[11px] sm:text-xs font-bold font-urdu text-amber-700 leading-none mt-0.5">
+                    ٹرانسپورٹ کمپنی
+                  </span>
+                </>
               ) : (
-                <span className="text-xs sm:text-base lg:text-lg font-black font-sans uppercase tracking-tight text-slate-950 whitespace-nowrap leading-none truncate">
-                  {COMPANY_INFO.nameEnglish}
-                </span>
+                <>
+                  <span className="text-sm sm:text-base lg:text-lg font-black font-sans uppercase tracking-tight text-slate-950 leading-tight">
+                    Warraich Goods
+                  </span>
+                  <span className="text-[10px] sm:text-xs font-bold font-sans uppercase tracking-wider text-amber-700 leading-none mt-0.5">
+                    Transport Company
+                  </span>
+                </>
               )}
             </div>
           </Link>

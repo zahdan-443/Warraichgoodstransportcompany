@@ -293,7 +293,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                 {isCorporateMode 
                   ? (language === 'ur' 
                       ? 'ملز اور کارپوریٹ اداروں کے لیے باقاعدہ ماہانہ کنٹریکٹ ریٹس، مخصوص فلیٹ اور FBR NTN انوائسنگ۔' 
-                      : 'Structured monthly B2B freight contracts with dedicated fleet allocation and certified NTN tax billing.')
+                      : 'Monthly contracts and tax invoices with NTN: 7779394-1 available for businesses and mills.')
                   : tCalc.ftlNotice}
               </span>
               <Lock className="w-4 h-4 flex-shrink-0 text-amber-600" />
@@ -306,7 +306,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                 <div className="bg-amber-50/60 border border-amber-200 p-4 rounded-lg space-y-4">
                   <div className="text-xs font-bold text-amber-900 font-urdu flex items-center gap-1.5">
                     <Building2 className="w-4 h-4 text-amber-600" />
-                    <span>{language === 'ur' ? 'کارپوریٹ و انڈسٹریل کوائف:' : 'Corporate Enterprise Information:'}</span>
+                    <span>{language === 'ur' ? 'کارپوریٹ و انڈسٹریل کوائف:' : 'Company / Mill Details:'}</span>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -606,7 +606,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
 
                 <p className="text-center text-xs text-slate-500 font-urdu">
                   {isCorporateMode 
-                    ? (language === 'ur' ? 'براہ راست پروپرائٹر کے ساتھ آفیشل واٹس ایپ پر رابطہ اور کوٹیشن شیئرنگ' : 'Direct liaison with Proprietor for corporate vendor evaluation and rate agreement.')
+                    ? (language === 'ur' ? 'براہ راست پروپرائٹر کے ساتھ آفیشل واٹس ایپ پر رابطہ اور کوٹیشن شیئرنگ' : 'Chat directly with the owner on WhatsApp to discuss your business requirements.')
                     : tCalc.submitHint}
                 </p>
               </div>

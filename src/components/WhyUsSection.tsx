@@ -10,9 +10,9 @@ export const WhyUsSection: React.FC = () => {
   const guarantees = [
     {
       id: 'ftl',
-      titleEn: '100% Dedicated FTL Only',
+      titleEn: 'Dedicated Trucks Only',
       titleUr: 'صرف مخصوص فل لوڈ گاڑی',
-      descEn: 'Zero cargo mixing, strictly single client per vehicle dispatch from pickup to destination.',
+      descEn: 'We book full trucks only, so your goods are never mixed with anyone else’s.',
       descUr: 'زیرو پارسل مکسنگ، صرف اور صرف سنگل پارٹی مال برداری بغیر کسی رکاوٹ کے۔',
       icon: ShieldCheck,
       to: '/services',
@@ -20,9 +20,9 @@ export const WhyUsSection: React.FC = () => {
     },
     {
       id: 'scale',
-      titleEn: 'Certified Scale Slips',
+      titleEn: 'Computer Scale Slips',
       titleUr: 'کمپیوٹرائزڈ کانٹا پرچی',
-      descEn: 'Official computerized weighbridge tickets provided immediately post-loading for axle compliance.',
+      descEn: 'Official weight slips from computer scales given right after loading.',
       descUr: 'لوڈنگ کے فوری بعد سرکاری کانٹا پرچی اور قانونی ایکسل لوڈ کی 100% پابندی۔',
       icon: Scale,
       to: '/services',
@@ -30,9 +30,9 @@ export const WhyUsSection: React.FC = () => {
     },
     {
       id: 'safety',
-      titleEn: 'Double Waterproof Tarpaulin',
+      titleEn: 'Waterproof Tarpaulins',
       titleUr: 'ڈبل واٹر پروف ترپال تحفظ',
-      descEn: 'Mandatory industrial double tarpaulins ensuring your cargo stays 100% dry and protected.',
+      descEn: 'Thick waterproof tarpaulins protect your load from rain, sun, and road dust.',
       descUr: 'بارش اور نمی سے مکمل حفاظت کے لیے ڈبل واٹر پروف ہیوی ترپال کی لازمی ضمانت۔',
       icon: Umbrella,
       to: '/services',
@@ -40,9 +40,9 @@ export const WhyUsSection: React.FC = () => {
     },
     {
       id: 'dispatch',
-      titleEn: '24/7 Express Dispatch',
+      titleEn: '24/7 Truck Booking',
       titleUr: '24/7 نان اسٹاپ روانگی',
-      descEn: 'Direct driver mobile contact and real-time highway coordination across all cities in Pakistan.',
+      descEn: 'Call anytime for quick truck booking and direct phone contact with the driver.',
       descUr: 'ڈرائیور کا ذاتی رابطہ اور موٹروے پر نان اسٹاپ سفر، بروقت اور محفوظ ترسیل۔',
       icon: Clock,
       to: '/booking',
@@ -57,15 +57,15 @@ export const WhyUsSection: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <span className="text-xs font-bold font-mono uppercase tracking-wider text-amber-600 block mb-1">
-            {isUrdu ? 'ہماری بنیادی ضمانتیں' : 'Core FTL Guarantees'}
+            {isUrdu ? 'ہماری بنیادی ضمانتیں' : 'Our Guarantees'}
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 font-urdu tracking-tight">
-            {isUrdu ? 'کارپوریٹ سطح کا اعتماد اور شفافیت' : 'Why Leading Shippers Choose Warraich Goods'}
+            {isUrdu ? 'کارپوریٹ سطح کا اعتماد اور شفافیت' : 'Why Customers Choose Warraich Goods'}
           </h2>
           <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-600 font-urdu max-w-2xl mx-auto">
             {isUrdu
-              ? 'ہم عام پارسل یا لوز کارگو نہیں کرتے؛ ہماری تمام سروسز صرف سنجیدہ صنعتی اور تجارتی کلائنٹس کے لیے مخصوص ہیں۔'
-              : 'Enterprise-grade transport accountability designed specifically for commercial and industrial supply chains.'}
+              ? 'ہم عام پارسل یا لوز کارگو نہیں کرتے؛ ہماری تمام سروسز صرف سنگل پارٹی مال برداری کے لیے مخصوص ہیں۔'
+              : 'We provide full dedicated trucks with clear rates, scale slips, and careful handling for every trip.'}
           </p>
         </div>
 

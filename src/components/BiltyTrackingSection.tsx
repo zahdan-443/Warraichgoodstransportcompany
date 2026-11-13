@@ -488,12 +488,12 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
         <div className="max-w-5xl mx-auto mt-6">
           <div className="text-center mb-6">
             <p className="text-lg sm:text-xl font-bold text-slate-900 font-urdu">
-              {language === 'ur' ? 'وڑائچ گڈز میں بلٹی اور گاڑی ٹریکنگ کا اصل طریقہ کار' : 'How Genuine FTL Freight Tracking Works at Warraich Goods'}
+              {language === 'ur' ? 'گاڑی اور مال کی تازہ معلومات کا طریقہ' : 'How to Check on Your Truck During the Trip'}
             </p>
             <p className="text-xs sm:text-sm text-slate-600 mt-1 font-urdu">
               {language === 'ur' 
-                ? 'ہم کسی فرضی GPS اینیمیشن کے بجائے حقیقی اور براہِ راست رابطے کے اصول پر عمل کرتے ہیں:'
-                : 'Instead of simulated animations, we provide direct cellular and real-time location sharing:'}
+                ? 'ہم آپ کو ڈرائیور سے براہ راست رابطے میں رکھتے ہیں:'
+                : 'We keep you in direct touch with your driver on the road:'}
             </p>
           </div>
 
@@ -504,12 +504,12 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
                 <Phone className="w-5 h-5" />
               </div>
               <p className="font-bold text-slate-900 text-base font-urdu mb-1.5">
-                {language === 'ur' ? '1. ڈرائیور کا ذاتی موبائل رابطہ' : '1. Direct Driver Cellular Contact'}
+                {language === 'ur' ? '1. ڈرائیور کا موبائل نمبر' : '1. Driver Mobile Number'}
               </p>
               <p className="text-xs text-slate-600 leading-relaxed font-urdu">
                 {language === 'ur'
-                  ? 'گاڑی لوڈ ہو کر روانہ ہوتے ہی گاہک کو ڈرائیور کا نادرا تصدیق شدہ موبائل نمبر فراہم کیا جاتا ہے تاکہ سفر کے دوران کسی بھی لمحے براہِ راست بات کی جا سکے۔'
-                  : 'Upon dispatch, the customer receives the assigned driver’s direct mobile contact for instant communication anytime during the highway journey.'}
+                  ? 'گاڑی لوڈ ہو کر روانہ ہوتے ہی گاہک کو ڈرائیور کا موبائل نمبر فراہم کیا جاتا ہے تاکہ سفر کے دوران کسی بھی وقت براہ راست بات کی جا سکے۔'
+                  : 'Once the truck is loaded, you receive the driver’s direct phone number to call anytime during the journey.'}
               </p>
             </div>
 
@@ -519,12 +519,12 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
                 <MapPin className="w-5 h-5" />
               </div>
               <p className="font-bold text-slate-900 text-base font-urdu mb-1.5">
-                {language === 'ur' ? '2. واٹس ایپ لائیو پن لوکیشن' : '2. WhatsApp Live GPS Pin Sharing'}
+                {language === 'ur' ? '2. واٹس ایپ پر لائیو لوکیشن' : '2. WhatsApp Live Location'}
               </p>
               <p className="text-xs text-slate-600 leading-relaxed font-urdu">
                 {language === 'ur'
-                  ? 'موٹروے یا جی ٹی روڈ پر سفر کے دوران ڈرائیور واٹس ایپ پر لائیو لوکیشن پن شیئر کرتا ہے جس سے گاہک اپنی گاڑی کی اصل رفتار اور مقام خود دیکھ سکتا ہے۔'
-                  : 'Drivers share live WhatsApp GPS location pins along motorways so clients can track the exact vehicle movement in real time.'}
+                  ? 'موٹروے یا جی ٹی روڈ پر سفر کے دوران ڈرائیور واٹس ایپ پر لائیو لوکیشن شیئر کر سکتا ہے تاکہ آپ کو گاڑی کا صحیح مقام معلوم رہے۔'
+                  : 'The driver can share live WhatsApp location pins so you see where the truck is on the motorway.'}
               </p>
             </div>
 
@@ -534,12 +534,12 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
                 <Scale className="w-5 h-5" />
               </div>
               <p className="font-bold text-slate-900 text-base font-urdu mb-1.5">
-                {language === 'ur' ? '3. کمپیوٹرائزڈ کانٹا و رسید دستخط' : '3. Scale Slip & Signed Delivery'}
+                {language === 'ur' ? '3. کانٹا پرچی اور بلٹی رسید' : '3. Scale Slip & Signed Bilty'}
               </p>
               <p className="text-xs text-slate-600 leading-relaxed font-urdu">
                 {language === 'ur'
                   ? 'مال لوڈنگ پر کمپیوٹرائزڈ وزن پرچی اور منزل پر سامان پہنچنے پر گاہک کے دستخط شدہ بلٹی ثبوت کے طور پر فراہم کی جاتی ہے۔'
-                  : 'Official computerized weighbridge scale slips at loading and signed bilty receipts at consignee delivery ensure 100% legal clarity.'}
+                  : 'You get a computer scale slip at pickup and a signed bilty receipt when your goods are safely delivered.'}
               </p>
             </div>
           </div>

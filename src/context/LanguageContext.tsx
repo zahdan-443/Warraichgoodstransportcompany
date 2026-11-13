@@ -42,8 +42,8 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
 
       // Update URL query parameter without full reload
       const url = new URL(window.location.href);
-      if (newLang === 'en') {
-        url.searchParams.set('lang', 'en');
+      if (newLang === 'ur') {
+        url.searchParams.set('lang', 'ur');
       } else {
         url.searchParams.delete('lang');
       }
@@ -51,16 +51,16 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
 
       // Update document title and meta description dynamically
       if (newLang === 'en') {
-        document.title = 'Warraich Goods Transport Company | Nationwide FTL Freight Pakistan';
+        document.title = 'Warraich Goods Transport Company | Goods Transport & Shifting in Pakistan';
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) {
-          metaDesc.setAttribute('content', 'Dedicated Full Truckload (FTL) freight transport across Pakistan. Shahzore pickups, Mazda 6-wheelers, Sample extended, and heavy Bedford trucks.');
+          metaDesc.setAttribute('content', 'Warraich Goods Transport Company offers home shifting, office relocation, and goods transport across Pakistan. Call 0300-5370443 for truck booking.');
         }
       } else {
         document.title = 'وڑائچ گڈز ٹرانسپورٹ کمپنی | Warraich Goods Transport Company';
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) {
-          metaDesc.setAttribute('content', 'پورے پاکستان کے لیے فل ٹرک لوڈ (FTL) سروس: شہزور، مزدا، سیمپل اور بیڈفورڈ ٹرک مناسب ترین ریٹ پر۔ پروپرائٹر: زاہدان نصر وڑائچ — 0300-5370443');
+          metaDesc.setAttribute('content', 'ہم پورے پاکستان کے لیے محفوظ اور بروقت مال برداری اور شفٹنگ کی خدمات فراہم کرتے ہیں۔ مناسب ریٹ اور بہترین سروس ہماری پہچان ہے۔ فون: 0300-5370443');
         }
       }
     }
@@ -76,7 +76,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
       document.documentElement.dir = language === 'ur' ? 'rtl' : 'ltr';
 
       if (language === 'en') {
-        document.title = 'Warraich Goods Transport Company | Nationwide FTL Freight Pakistan';
+        document.title = 'Warraich Goods Transport Company | Goods Transport & Shifting in Pakistan';
       } else {
         document.title = 'وڑائچ گڈز ٹرانسپورٹ کمپنی | Warraich Goods Transport Company';
       }

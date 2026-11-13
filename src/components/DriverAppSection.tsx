@@ -20,22 +20,22 @@ export const DriverAppSection: React.FC = () => {
 
   const featureLines = [
     {
-      titleEn: '1. Real-Time Consignment & Driver Tracking',
-      titleUr: '1. لائیو کنسائنمنٹ اور ڈرائیور ٹریکنگ',
-      descEn: 'Direct driver GPS coordinates and motorway progress updates throughout transit.',
-      descUr: 'سفر کے دوران ڈرائیور کا براہِ راست رابطہ اور موٹروے پر لائیو لوکیشن اپڈیٹس۔'
+      titleEn: '1. Direct Driver & Trip Updates',
+      titleUr: '1. ڈرائیور اور ٹرپ کی تازہ معلومات',
+      descEn: 'Stay in touch with your driver on the road for location and timing updates.',
+      descUr: 'سفر کے دوران ڈرائیور کا براہِ راست رابطہ اور لوکیشن اپڈیٹس۔'
     },
     {
-      titleEn: '2. Digital Loading Challan & Bilty Records',
-      titleUr: '2. ڈیجیٹل لوڈنگ چالان و کمپیوٹرائزڈ بلٹی',
-      descEn: 'Instant access to certified weighbridge slips, bilty numbers, and signed delivery receipts.',
-      descUr: 'سرکاری کانٹا پرچی، بلٹی نمبرز اور تصدیق شدہ ترسیلی رسیدوں تک فوری رسائی۔'
+      titleEn: '2. Loading Details & Bilty Records',
+      titleUr: '2. لوڈنگ تفصیلات اور بلٹی ریکارڈ',
+      descEn: 'Check bilty numbers, computer scale slips, and delivery receipts anytime.',
+      descUr: 'کانٹا پرچی، بلٹی نمبرز اور ترسیلی رسیدوں تک فوری رسائی۔'
     },
     {
-      titleEn: '3. Direct 24/7 Fleet & Dispatcher Coordination',
-      titleUr: '3. چوبیس گھنٹے فلیٹ کوآرڈینیشن و فوری رابطہ',
-      descEn: 'Direct liaison with Warraich Goods central dispatch for rapid load scheduling and delivery.',
-      descUr: 'فوری لوڈ شیڈولنگ اور تیز ترسیل کے لیے وڑائچ گڈز ہیڈ آفس سے براہِ راست رابطہ۔'
+      titleEn: '3. 24/7 Office Support',
+      titleUr: '3. 24 گھنٹے دفتر سے فوری رابطہ',
+      descEn: 'Call our Samundri office anytime for quick truck booking and dispatch help.',
+      descUr: 'گاڑی بک کرنے اور رہنمائی کے لیے ہمارے دفتر سے رابطہ۔'
     }
   ];
 
@@ -51,7 +51,7 @@ export const DriverAppSection: React.FC = () => {
             <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 px-3.5 py-1.5 rounded-full text-xs font-bold font-mono">
               <Smartphone className="w-4 h-4 text-emerald-600 flex-shrink-0" />
               <span className={isUrdu ? 'font-urdu' : 'font-sans'}>
-                {isUrdu ? 'آفیشل موبائل ایپلی کیشن' : 'Official Mobile Application'}
+                {isUrdu ? 'آفیشل موبائل ایپلی کیشن' : 'Official Mobile App'}
               </span>
             </div>
 
@@ -68,7 +68,7 @@ export const DriverAppSection: React.FC = () => {
             <p className={`text-base sm:text-lg font-bold text-slate-700 leading-normal ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
               {isUrdu 
                 ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی کی آفیشل اینڈرائیڈ ایپ ڈاؤن لوڈ کریں اور لوڈنگ مینجمنٹ آسان بنائیں'
-                : 'Warraich Goods Transport Company Official Fleet & Driver Logistics Portal.'}
+                : 'Warraich Goods Transport Company app for drivers and daily trip records.'}
             </p>
 
             <p className={`text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
