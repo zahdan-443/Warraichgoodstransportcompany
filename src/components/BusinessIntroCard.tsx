@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Building2, 
   MapPin, 
@@ -17,9 +18,22 @@ import {
   MessageCircle,
   Star
 } from 'lucide-react';
-import { COMPANY_INFO, SERVICE_AREAS, GOOGLE_REVIEW_URL } from '../data/companyData';
+import { COMPANY_INFO, MASTER_CITIES, GOOGLE_REVIEW_URL } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
 import { getAssetUrl } from '../utils/assetPath';
+
+const HOME_PREVIEW_CITY_IDS = [
+  'samundri',
+  'faisalabad',
+  'toba-tek-singh',
+  'gojra',
+  'jhang',
+  'lahore',
+  'multan',
+  'rawalpindi',
+  'islamabad',
+  'karachi',
+];
 
 interface BusinessIntroCardProps {
   headingAs?: 'h1' | 'h2';
@@ -330,52 +344,35 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
 
               </div>
 
-              {/* 14 Service Area Cards Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-4">
-                {SERVICE_AREAS.map((area) => (
-                  <div 
-                    key={area.id}
-                    className="bg-white hover:bg-slate-50/80 border border-slate-200 hover:border-blue-300 rounded-lg p-3.5 transition-all shadow-sm flex flex-col justify-between group"
+              {/* 10 City Chips Preview + Link to All Service Areas */}
+              <div className="bg-slate-50 border border-slate-200 rounded-lg p-5 shadow-sm">
+                <div className="flex flex-wrap gap-2.5">
+                  {HOME_PREVIEW_CITY_IDS
+                    .map((id) => MASTER_CITIES.find((c) => c.id === id))
+                    .filter((c): c is NonNullable<typeof c> => Boolean(c))
+                    .map((city) => (
+                      <span
+                        key={city.id}
+                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-800 text-xs sm:text-sm font-semibold ${
+                          isUrdu ? 'font-urdu' : 'font-sans'
+                        }`}
+                      >
+                        <MapPin className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />
+                        <span>{isUrdu ? city.nameUrdu : city.nameEnglish}</span>
+                      </span>
+                    ))}
+                </div>
+
+                <div className="mt-4 pt-3 border-t border-slate-200">
+                  <Link
+                    to="/service-areas"
+                    className={`inline-flex items-center gap-1 text-sm font-bold text-blue-700 hover:text-blue-600 hover:underline transition ${
+                      isUrdu ? 'font-urdu' : 'font-sans'
+                    }`}
                   >
-                    <div>
-                      <div className="flex items-center justify-between gap-1.5 mb-1.5">
-                        <div className="flex items-center gap-1.5">
-                          <MapPin className="w-4 h-4 text-amber-600 flex-shrink-0" />
-                          <span className="font-extrabold text-slate-900 text-sm font-urdu leading-snug">
-                            {area.nameUrdu} <span className="text-xs font-semibold text-slate-500 font-sans">({area.nameEnglish})</span>
-                          </span>
-                        </div>
-                      </div>
-                      <p className="text-[11px] text-slate-600 font-urdu leading-tight mb-3">
-                        {isUrdu ? area.descriptionUrdu : area.descriptionEnglish}
-                      </p>
-                    </div>
-
-                    <div className="pt-2 border-t border-slate-100 grid grid-cols-2 gap-1.5">
-                      <a
-                        href={`tel:${area.phoneRaw}`}
-                        className="inline-flex items-center justify-center gap-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-2 py-1.5 rounded-lg text-xs transition active:scale-95 shadow-sm font-urdu"
-                        title={`Call ${area.nameEnglish} (${area.phone})`}
-                        aria-label={`Call Warraich Goods for ${area.nameEnglish} (${area.phone})`}
-                      >
-                        <Phone className="w-3 h-3 fill-current" />
-                        <span>{isUrdu ? `کال ${area.nameUrdu}` : `Call ${area.nameEnglish}`}</span>
-                      </a>
-
-                      <a
-                        href={area.whatsappUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-1 bg-blue-600 hover:bg-blue-500 text-white font-bold px-2 py-1.5 rounded-lg text-xs transition active:scale-95 shadow-sm font-urdu"
-                        title={`WhatsApp booking for ${area.nameEnglish}`}
-                        aria-label={`WhatsApp Booking for ${area.nameEnglish}`}
-                      >
-                        <MessageCircle className="w-3 h-3 fill-current" />
-                        <span>{isUrdu ? `واٹس ایپ ${area.nameUrdu}` : `WhatsApp ${area.nameEnglish}`}</span>
-                      </a>
-                    </div>
-                  </div>
-                ))}
+                    <span>{isUrdu ? 'تمام سروس کے علاقے دیکھیں ←' : 'View all service areas →'}</span>
+                  </Link>
+                </div>
               </div>
 
               {/* Review us on Google Button Below Service Areas */}

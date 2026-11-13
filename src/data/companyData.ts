@@ -3,8 +3,8 @@ import { BranchInfo, VehicleInfo, ServiceAreaCity } from '../types';
 // Canonical marketing website URL (distinct from webAppUrl which points to the driver portal app)
 export const SITE_URL = 'https://zahdan-443.github.io/Warraichgoodstransportcompany/';
 
-// Google Business Profile Review URL: Falls back to Google Business Search until custom g.page shortlink is added
-export const GOOGLE_REVIEW_URL = "https://www.google.com/search?q=Warraich+Goods+Transport+Company+Samundri";
+// Google Business Profile Review URL
+export const GOOGLE_REVIEW_URL = 'https://g.page/r/CY6xd_P6BqIYEAI/review';
 
 export const COMPANY_INFO = {
   nameUrdu: 'وڑائچ گڈز ٹرانسپورٹ کمپنی',
@@ -27,7 +27,7 @@ export const COMPANY_INFO = {
   sinceYear: '2020',
   youtubeHandle: '@Warraichgoodstransportcompany',
   youtubeUrl: 'https://www.youtube.com/@Warraichgoodstransportcompany',
-  facebookUrl: 'https://www.facebook.com/share/1CVDcD1CsP/',
+  facebookUrl: 'https://www.facebook.com/Warraichgoodstransportcompany',
   taglineUrdu: 'ہم پورے پاکستان کے لیے محفوظ اور بروقت مال برداری اور شفٹنگ کی خدمات فراہم کرتے ہیں۔ مناسب ریٹ اور بہترین سروس ہماری پہچان ہے۔',
   taglineEnglish: 'Trusted home shifting, office relocation, and local/inter-city goods transport services across Pakistan.',
   profileDescriptionUrdu: 'ہم پورے پاکستان کے لیے محفوظ اور بروقت مال برداری اور شفٹنگ کی خدمات فراہم کرتے ہیں۔ مناسب ریٹ اور بہترین سروس ہماری پہچان ہے۔ مزدا ٹرک، شہزور پک اپ اور ہیوی ٹرکس کے ساتھ 24/7 تیز رفتار بکنگ۔',
@@ -159,54 +159,83 @@ export const FLEET_DATA: VehicleInfo[] = [
 // ============================================================================
 // SINGLE SOURCE OF TRUTH FOR PAKISTAN CITIES & SERVICE HUBS
 // ============================================================================
+export type ServiceAreaRegion = 'near-samundri' | 'punjab' | 'rest-of-pakistan';
+
 export interface MasterCityEntry {
   id: string;
   nameUrdu: string;
   nameEnglish: string;
   dropdownUrdu: string;
   dropdownEnglish: string;
+  region: ServiceAreaRegion;
   isServiceAreaHub: boolean;
   serviceAreaOrder?: number;
 }
 
 export const MASTER_CITIES: MasterCityEntry[] = [
-  // Primary Hubs & Key Service Areas
-  { id: 'samundri', nameUrdu: 'سمندری', nameEnglish: 'Samundri', dropdownUrdu: 'سمندری', dropdownEnglish: 'Samundri', isServiceAreaHub: true, serviceAreaOrder: 1 },
-  { id: 'kamalia', nameUrdu: 'کمالیہ', nameEnglish: 'Kamalia', dropdownUrdu: 'کمالیہ', dropdownEnglish: 'Kamalia', isServiceAreaHub: false },
-  { id: 'toba-tek-singh', nameUrdu: 'ٹوبہ ٹیک سنگھ', nameEnglish: 'Toba Tek Singh', dropdownUrdu: 'ٹوبہ ٹیک سنگھ', dropdownEnglish: 'Toba Tek Singh', isServiceAreaHub: true, serviceAreaOrder: 3 },
-  { id: 'jhang', nameUrdu: 'جھنگ', nameEnglish: 'Jhang', dropdownUrdu: 'جھنگ', dropdownEnglish: 'Jhang', isServiceAreaHub: true, serviceAreaOrder: 4 },
-  { id: 'faisalabad', nameUrdu: 'فیصل آباد', nameEnglish: 'Faisalabad', dropdownUrdu: 'فیصل آباد', dropdownEnglish: 'Faisalabad', isServiceAreaHub: true, serviceAreaOrder: 5 },
-  { id: 'sargodha', nameUrdu: 'سرگودھا', nameEnglish: 'Sargodha', dropdownUrdu: 'سرگودھا', dropdownEnglish: 'Sargodha', isServiceAreaHub: true, serviceAreaOrder: 6 },
-  { id: 'sheikhupura', nameUrdu: 'شیخوپورہ', nameEnglish: 'Sheikhupura', dropdownUrdu: 'شیخوپورہ', dropdownEnglish: 'Sheikhupura', isServiceAreaHub: true, serviceAreaOrder: 7 },
-  { id: 'gujranwala', nameUrdu: 'گوجرانوالہ', nameEnglish: 'Gujranwala', dropdownUrdu: 'گوجرانوالہ', dropdownEnglish: 'Gujranwala', isServiceAreaHub: true, serviceAreaOrder: 8 },
-  { id: 'lahore', nameUrdu: 'لاہور', nameEnglish: 'Lahore', dropdownUrdu: 'لاہور', dropdownEnglish: 'Lahore', isServiceAreaHub: true, serviceAreaOrder: 9 },
-  { id: 'multan', nameUrdu: 'ملتان', nameEnglish: 'Multan', dropdownUrdu: 'ملتان', dropdownEnglish: 'Multan', isServiceAreaHub: true, serviceAreaOrder: 10 },
-  { id: 'islamabad', nameUrdu: 'اسلام آباد', nameEnglish: 'Islamabad', dropdownUrdu: 'راولپنڈی و اسلام آباد', dropdownEnglish: 'Rawalpindi / Islamabad', isServiceAreaHub: true, serviceAreaOrder: 11 },
-  { id: 'karachi', nameUrdu: 'کراچی', nameEnglish: 'Karachi', dropdownUrdu: 'کراچی', dropdownEnglish: 'Karachi', isServiceAreaHub: true, serviceAreaOrder: 12 },
-  { id: 'sialkot', nameUrdu: 'سیالکوٹ', nameEnglish: 'Sialkot', dropdownUrdu: 'سیالکوٹ', dropdownEnglish: 'Sialkot', isServiceAreaHub: true, serviceAreaOrder: 13 },
-  { id: 'peshawar', nameUrdu: 'پشاور', nameEnglish: 'Peshawar', dropdownUrdu: 'پشاور', dropdownEnglish: 'Peshawar', isServiceAreaHub: true, serviceAreaOrder: 14 },
+  // Near Samundri (Samundri, District Faisalabad & neighbouring towns)
+  { id: 'samundri', nameUrdu: 'سمندری', nameEnglish: 'Samundri', dropdownUrdu: 'سمندری', dropdownEnglish: 'Samundri', region: 'near-samundri', isServiceAreaHub: true, serviceAreaOrder: 1 },
+  { id: 'gojra', nameUrdu: 'گوجرہ', nameEnglish: 'Gojra', dropdownUrdu: 'گوجرہ', dropdownEnglish: 'Gojra', region: 'near-samundri', isServiceAreaHub: true, serviceAreaOrder: 2 },
+  { id: 'tandlianwala', nameUrdu: 'تاندلیانوالہ', nameEnglish: 'Tandlianwala', dropdownUrdu: 'تاندلیانوالہ', dropdownEnglish: 'Tandlianwala', region: 'near-samundri', isServiceAreaHub: false },
+  { id: 'toba-tek-singh', nameUrdu: 'ٹوبہ ٹیک سنگھ', nameEnglish: 'Toba Tek Singh', dropdownUrdu: 'ٹوبہ ٹیک سنگھ', dropdownEnglish: 'Toba Tek Singh', region: 'near-samundri', isServiceAreaHub: true, serviceAreaOrder: 3 },
+  { id: 'jaranwala', nameUrdu: 'جڑانوالہ', nameEnglish: 'Jaranwala', dropdownUrdu: 'جڑانوالہ', dropdownEnglish: 'Jaranwala', region: 'near-samundri', isServiceAreaHub: false },
+  { id: 'kamalia', nameUrdu: 'کمالیہ', nameEnglish: 'Kamalia', dropdownUrdu: 'کمالیہ', dropdownEnglish: 'Kamalia', region: 'near-samundri', isServiceAreaHub: false },
+  { id: 'faisalabad', nameUrdu: 'فیصل آباد', nameEnglish: 'Faisalabad', dropdownUrdu: 'فیصل آباد', dropdownEnglish: 'Faisalabad', region: 'near-samundri', isServiceAreaHub: true, serviceAreaOrder: 4 },
+  { id: 'chiniot', nameUrdu: 'چنیوٹ', nameEnglish: 'Chiniot', dropdownUrdu: 'چنیوٹ', dropdownEnglish: 'Chiniot', region: 'near-samundri', isServiceAreaHub: false },
+  { id: 'jhang', nameUrdu: 'جھنگ', nameEnglish: 'Jhang', dropdownUrdu: 'جھنگ', dropdownEnglish: 'Jhang', region: 'near-samundri', isServiceAreaHub: true, serviceAreaOrder: 5 },
+  { id: 'sahiwal', nameUrdu: 'ساہیوال', nameEnglish: 'Sahiwal', dropdownUrdu: 'ساہیوال', dropdownEnglish: 'Sahiwal', region: 'near-samundri', isServiceAreaHub: false },
+  { id: 'okara', nameUrdu: 'اوکاڑہ', nameEnglish: 'Okara', dropdownUrdu: 'اوکاڑہ', dropdownEnglish: 'Okara', region: 'near-samundri', isServiceAreaHub: false },
 
-  // Additional Major Commercial Freight Destinations (Rate Calculator Network)
-  { id: 'quetta', nameUrdu: 'کوئٹہ', nameEnglish: 'Quetta', dropdownUrdu: 'کوئٹہ', dropdownEnglish: 'Quetta', isServiceAreaHub: false },
-  { id: 'sahiwal', nameUrdu: 'ساہیوال', nameEnglish: 'Sahiwal', dropdownUrdu: 'ساہیوال', dropdownEnglish: 'Sahiwal', isServiceAreaHub: false },
-  { id: 'rahim-yar-khan', nameUrdu: 'رحیم یار خان', nameEnglish: 'Rahim Yar Khan', dropdownUrdu: 'رحیم یار خان', dropdownEnglish: 'Rahim Yar Khan', isServiceAreaHub: false },
-  { id: 'bahawalpur', nameUrdu: 'بہاولپور', nameEnglish: 'Bahawalpur', dropdownUrdu: 'بہاولپور', dropdownEnglish: 'Bahawalpur', isServiceAreaHub: false },
-  { id: 'sukkur', nameUrdu: 'سکھر', nameEnglish: 'Sukkur', dropdownUrdu: 'سکھر', dropdownEnglish: 'Sukkur', isServiceAreaHub: false },
-  { id: 'hyderabad', nameUrdu: 'حیدرآباد', nameEnglish: 'Hyderabad', dropdownUrdu: 'حیدرآباد', dropdownEnglish: 'Hyderabad', isServiceAreaHub: false },
-  { id: 'abbottabad', nameUrdu: 'ایبٹ آباد', nameEnglish: 'Abbottabad', dropdownUrdu: 'ایبٹ آباد', dropdownEnglish: 'Abbottabad', isServiceAreaHub: false },
-  { id: 'mardan', nameUrdu: 'مردان', nameEnglish: 'Mardan', dropdownUrdu: 'مردان', dropdownEnglish: 'Mardan', isServiceAreaHub: false },
-  { id: 'gilgit', nameUrdu: 'گلگت', nameEnglish: 'Gilgit', dropdownUrdu: 'گلگت و بلتستان', dropdownEnglish: 'Gilgit & Baltistan', isServiceAreaHub: false },
+  // Punjab
+  { id: 'lahore', nameUrdu: 'لاہور', nameEnglish: 'Lahore', dropdownUrdu: 'لاہور', dropdownEnglish: 'Lahore', region: 'punjab', isServiceAreaHub: true, serviceAreaOrder: 6 },
+  { id: 'sheikhupura', nameUrdu: 'شیخوپورہ', nameEnglish: 'Sheikhupura', dropdownUrdu: 'شیخوپورہ', dropdownEnglish: 'Sheikhupura', region: 'punjab', isServiceAreaHub: true, serviceAreaOrder: 7 },
+  { id: 'gujranwala', nameUrdu: 'گوجرانوالہ', nameEnglish: 'Gujranwala', dropdownUrdu: 'گوجرانوالہ', dropdownEnglish: 'Gujranwala', region: 'punjab', isServiceAreaHub: true, serviceAreaOrder: 8 },
+  { id: 'sialkot', nameUrdu: 'سیالکوٹ', nameEnglish: 'Sialkot', dropdownUrdu: 'سیالکوٹ', dropdownEnglish: 'Sialkot', region: 'punjab', isServiceAreaHub: true, serviceAreaOrder: 13 },
+  { id: 'gujrat', nameUrdu: 'گجرات', nameEnglish: 'Gujrat', dropdownUrdu: 'گجرات', dropdownEnglish: 'Gujrat', region: 'punjab', isServiceAreaHub: false },
+  { id: 'kasur', nameUrdu: 'قصور', nameEnglish: 'Kasur', dropdownUrdu: 'قصور', dropdownEnglish: 'Kasur', region: 'punjab', isServiceAreaHub: false },
+  { id: 'hafizabad', nameUrdu: 'حافظ آباد', nameEnglish: 'Hafizabad', dropdownUrdu: 'حافظ آباد', dropdownEnglish: 'Hafizabad', region: 'punjab', isServiceAreaHub: false },
+  { id: 'narowal', nameUrdu: 'نارووال', nameEnglish: 'Narowal', dropdownUrdu: 'نارووال', dropdownEnglish: 'Narowal', region: 'punjab', isServiceAreaHub: false },
+  { id: 'wazirabad', nameUrdu: 'وزیرآباد', nameEnglish: 'Wazirabad', dropdownUrdu: 'وزیرآباد', dropdownEnglish: 'Wazirabad', region: 'punjab', isServiceAreaHub: false },
+  { id: 'sargodha', nameUrdu: 'سرگودھا', nameEnglish: 'Sargodha', dropdownUrdu: 'سرگودھا', dropdownEnglish: 'Sargodha', region: 'punjab', isServiceAreaHub: true, serviceAreaOrder: 9 },
+  { id: 'multan', nameUrdu: 'ملتان', nameEnglish: 'Multan', dropdownUrdu: 'ملتان', dropdownEnglish: 'Multan', region: 'punjab', isServiceAreaHub: true, serviceAreaOrder: 10 },
+  { id: 'pakpattan', nameUrdu: 'پاکپتن', nameEnglish: 'Pakpattan', dropdownUrdu: 'پاکپتن', dropdownEnglish: 'Pakpattan', region: 'punjab', isServiceAreaHub: false },
+  { id: 'vehari', nameUrdu: 'وہاڑی', nameEnglish: 'Vehari', dropdownUrdu: 'وہاڑی', dropdownEnglish: 'Vehari', region: 'punjab', isServiceAreaHub: false },
+  { id: 'khanewal', nameUrdu: 'خانیوال', nameEnglish: 'Khanewal', dropdownUrdu: 'خانیوال', dropdownEnglish: 'Khanewal', region: 'punjab', isServiceAreaHub: false },
+  { id: 'bahawalpur', nameUrdu: 'بہاولپور', nameEnglish: 'Bahawalpur', dropdownUrdu: 'بہاولپور', dropdownEnglish: 'Bahawalpur', region: 'punjab', isServiceAreaHub: false },
+  { id: 'rahim-yar-khan', nameUrdu: 'رحیم یار خان', nameEnglish: 'Rahim Yar Khan', dropdownUrdu: 'رحیم یار خان', dropdownEnglish: 'Rahim Yar Khan', region: 'punjab', isServiceAreaHub: false },
+  { id: 'dera-ghazi-khan', nameUrdu: 'ڈیرہ غازی خان', nameEnglish: 'Dera Ghazi Khan', dropdownUrdu: 'ڈیرہ غازی خان', dropdownEnglish: 'Dera Ghazi Khan', region: 'punjab', isServiceAreaHub: false },
+  { id: 'muzaffargarh', nameUrdu: 'مظفرگڑھ', nameEnglish: 'Muzaffargarh', dropdownUrdu: 'مظفرگڑھ', dropdownEnglish: 'Muzaffargarh', region: 'punjab', isServiceAreaHub: false },
+  { id: 'mianwali', nameUrdu: 'میانوالی', nameEnglish: 'Mianwali', dropdownUrdu: 'میانوالی', dropdownEnglish: 'Mianwali', region: 'punjab', isServiceAreaHub: false },
+  { id: 'bhakkar', nameUrdu: 'بھکر', nameEnglish: 'Bhakkar', dropdownUrdu: 'بھکر', dropdownEnglish: 'Bhakkar', region: 'punjab', isServiceAreaHub: false },
+  { id: 'jhelum', nameUrdu: 'جہلم', nameEnglish: 'Jhelum', dropdownUrdu: 'جہلم', dropdownEnglish: 'Jhelum', region: 'punjab', isServiceAreaHub: false },
+  { id: 'attock', nameUrdu: 'اٹک', nameEnglish: 'Attock', dropdownUrdu: 'اٹک', dropdownEnglish: 'Attock', region: 'punjab', isServiceAreaHub: false },
+  { id: 'rawalpindi', nameUrdu: 'راولپنڈی', nameEnglish: 'Rawalpindi', dropdownUrdu: 'راولپنڈی', dropdownEnglish: 'Rawalpindi', region: 'punjab', isServiceAreaHub: true, serviceAreaOrder: 11 },
+
+  // Rest of Pakistan
+  { id: 'islamabad', nameUrdu: 'اسلام آباد', nameEnglish: 'Islamabad', dropdownUrdu: 'راولپنڈی و اسلام آباد', dropdownEnglish: 'Rawalpindi / Islamabad', region: 'rest-of-pakistan', isServiceAreaHub: true, serviceAreaOrder: 12 },
+  { id: 'karachi', nameUrdu: 'کراچی', nameEnglish: 'Karachi', dropdownUrdu: 'کراچی', dropdownEnglish: 'Karachi', region: 'rest-of-pakistan', isServiceAreaHub: true, serviceAreaOrder: 14 },
+  { id: 'hyderabad', nameUrdu: 'حیدرآباد', nameEnglish: 'Hyderabad', dropdownUrdu: 'حیدرآباد', dropdownEnglish: 'Hyderabad', region: 'rest-of-pakistan', isServiceAreaHub: false },
+  { id: 'sukkur', nameUrdu: 'سکھر', nameEnglish: 'Sukkur', dropdownUrdu: 'سکھر', dropdownEnglish: 'Sukkur', region: 'rest-of-pakistan', isServiceAreaHub: false },
+  { id: 'peshawar', nameUrdu: 'پشاور', nameEnglish: 'Peshawar', dropdownUrdu: 'پشاور', dropdownEnglish: 'Peshawar', region: 'rest-of-pakistan', isServiceAreaHub: true, serviceAreaOrder: 15 },
+  { id: 'mardan', nameUrdu: 'مردان', nameEnglish: 'Mardan', dropdownUrdu: 'مردان', dropdownEnglish: 'Mardan', region: 'rest-of-pakistan', isServiceAreaHub: false },
+  { id: 'abbottabad', nameUrdu: 'ایبٹ آباد', nameEnglish: 'Abbottabad', dropdownUrdu: 'ایبٹ آباد', dropdownEnglish: 'Abbottabad', region: 'rest-of-pakistan', isServiceAreaHub: false },
+  { id: 'quetta', nameUrdu: 'کوئٹہ', nameEnglish: 'Quetta', dropdownUrdu: 'کوئٹہ', dropdownEnglish: 'Quetta', region: 'rest-of-pakistan', isServiceAreaHub: false },
+  { id: 'gilgit', nameUrdu: 'گلگت', nameEnglish: 'Gilgit', dropdownUrdu: 'گلگت و بلتستان', dropdownEnglish: 'Gilgit & Baltistan', region: 'rest-of-pakistan', isServiceAreaHub: false },
 ];
 
 // Preserves the existing order of the Rate Calculator dropdown
 const RATE_CALCULATOR_CITY_IDS: string[] = [
   'samundri', 'kamalia', 'faisalabad', 'lahore', 'karachi', 'islamabad',
-  'multan', 'gujranwala', 'sialkot', 'peshawar', 'quetta', 'sargodha',
-  'sahiwal', 'toba-tek-singh', 'jhang', 'rahim-yar-khan', 'bahawalpur',
-  'sukkur', 'hyderabad', 'abbottabad', 'mardan', 'gilgit'
+  'rawalpindi', 'multan', 'gujranwala', 'sialkot', 'peshawar', 'quetta',
+  'sargodha', 'sahiwal', 'okara', 'pakpattan', 'toba-tek-singh', 'gojra',
+  'jaranwala', 'tandlianwala', 'chiniot', 'jhang', 'rahim-yar-khan',
+  'bahawalpur', 'vehari', 'khanewal', 'dera-ghazi-khan', 'muzaffargarh',
+  'mianwali', 'bhakkar', 'kasur', 'gujrat', 'hafizabad', 'narowal',
+  'wazirabad', 'jhelum', 'attock', 'sukkur', 'hyderabad', 'abbottabad',
+  'mardan', 'gilgit'
 ];
 
-// Derived 14 Key Service Area Hubs for BusinessIntroCard & Schema
+// Derived Key Service Area Hubs for Home preview & Compatibility
 export const SERVICE_AREAS: ServiceAreaCity[] = MASTER_CITIES
   .filter(c => c.isServiceAreaHub)
   .sort((a, b) => (a.serviceAreaOrder ?? 99) - (b.serviceAreaOrder ?? 99))
@@ -226,7 +255,7 @@ export const SERVICE_AREAS: ServiceAreaCity[] = MASTER_CITIES
 // Deprecated alias maintained for internal component compatibility
 export const BRANCHES_DATA: BranchInfo[] = [];
 
-// Derived 22 Pakistan Cities for RateCalculatorSection dropdowns
+// Derived Pakistan Cities for RateCalculatorSection dropdowns
 export const PAKISTAN_CITIES: { urdu: string; en: string }[] = RATE_CALCULATOR_CITY_IDS
   .map(id => MASTER_CITIES.find(c => c.id === id)!)
   .filter(Boolean)

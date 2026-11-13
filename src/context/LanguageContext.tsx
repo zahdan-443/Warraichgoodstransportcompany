@@ -28,7 +28,7 @@ const ROUTE_SEO_MAP: Record<string, RouteSeoMeta> = {
     canonical: `${BASE_SITE_URL}/`,
   },
   '/fleet': {
-    title: 'Mazda, Shahzore & Truck | Warraich Goods',
+    title: 'Mazda, Shahzore & Bedford Truck Booking | Warraich Goods',
     description: 'Shahzore pickups, Mazda trucks, and heavy haulers for home shifting and commercial transport across Pakistan. Call 0300-5370443.',
     canonical: `${BASE_SITE_URL}/fleet/`,
   },
@@ -41,6 +41,11 @@ const ROUTE_SEO_MAP: Record<string, RouteSeoMeta> = {
     title: 'Truck Booking & Rate Inquiry | Warraich Goods',
     description: 'Get freight rates and book a truck for home shifting or goods delivery across Pakistan via WhatsApp or phone at 0300-5370443.',
     canonical: `${BASE_SITE_URL}/booking/`,
+  },
+  '/service-areas': {
+    title: 'Service Areas Across Pakistan | Warraich Goods',
+    description: 'Warraich Goods books trucks from Samundri, District Faisalabad to cities across Punjab and Pakistan, plus backhaul loads to Samundri.',
+    canonical: `${BASE_SITE_URL}/service-areas/`,
   },
   '/faq': {
     title: 'Frequently Asked Questions | Warraich Goods',

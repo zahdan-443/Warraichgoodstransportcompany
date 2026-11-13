@@ -6,6 +6,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import App from '../src/App';
 import { LanguageProvider } from '../src/context/LanguageContext';
+import { MASTER_CITIES } from '../src/data/companyData';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -104,10 +105,10 @@ const ROUTES: RouteConfig[] = [
   {
     path: '/fleet',
     outputFile: 'fleet/index.html',
-    title: 'Mazda, Shahzore & Truck | Warraich Goods',
+    title: 'Mazda, Shahzore & Bedford Truck Booking | Warraich Goods',
     description: 'Shahzore pickups, Mazda trucks, and heavy haulers for home shifting and commercial transport across Pakistan. Call 0300-5370443.',
     canonicalUrl: `${BASE_SITE_URL}/fleet/`,
-    ogTitle: 'Mazda, Shahzore & Truck | Warraich Goods',
+    ogTitle: 'Mazda, Shahzore & Bedford Truck Booking | Warraich Goods',
     ogDescription: 'Shahzore pickups, Mazda trucks, and heavy haulers for home shifting and commercial transport across Pakistan. Call 0300-5370443.',
     breadcrumbList: [
       { name: 'Home', item: `${BASE_SITE_URL}/` },
@@ -142,6 +143,20 @@ const ROUTES: RouteConfig[] = [
       { name: 'Rates & Booking', item: `${BASE_SITE_URL}/booking/` },
     ],
     expectedText: '0300-5370443',
+  },
+  {
+    path: '/service-areas',
+    outputFile: 'service-areas/index.html',
+    title: 'Service Areas Across Pakistan | Warraich Goods',
+    description: 'Warraich Goods books trucks from Samundri, District Faisalabad to cities across Punjab and Pakistan, plus backhaul loads to Samundri.',
+    canonicalUrl: `${BASE_SITE_URL}/service-areas/`,
+    ogTitle: 'Service Areas Across Pakistan | Warraich Goods',
+    ogDescription: 'Warraich Goods books trucks from Samundri, District Faisalabad to cities across Punjab and Pakistan, plus backhaul loads to Samundri.',
+    breadcrumbList: [
+      { name: 'Home', item: `${BASE_SITE_URL}/` },
+      { name: 'Service Areas', item: `${BASE_SITE_URL}/service-areas/` },
+    ],
+    expectedText: 'Service Areas',
   },
   {
     path: '/faq',
@@ -291,6 +306,15 @@ async function prerender() {
           schemaObj['@graph'] = schemaObj['@graph'].filter(
             (node: any) => node['@type'] !== 'FAQPage' && node['@type'] !== 'WebPage'
           );
+          const localBusinessNode = schemaObj['@graph'].find(
+            (node: any) => node['@type'] === 'LocalBusiness'
+          );
+          if (localBusinessNode) {
+            localBusinessNode.areaServed = [
+              ...MASTER_CITIES.map((city) => ({ '@type': 'City', name: city.nameEnglish })),
+              { '@type': 'Country', name: 'Pakistan' },
+            ];
+          }
           const webPageNode = {
             '@type': 'WebPage',
             '@id': `${route.canonicalUrl}#webpage`,
@@ -386,7 +410,7 @@ async function prerender() {
   }
 
   // Ensure critical server config and SEO files are guaranteed present in dist
-  const filesToSync = ['.htaccess', '_headers', 'robots.txt', 'sitemap.xml', 'sitemap.txt', 'favicon.ico', 'favicon.png'];
+  const filesToSync = ['.htaccess', '_headers', 'robots.txt', 'sitemap.txt', 'favicon.ico', 'favicon.png'];
   for (const file of filesToSync) {
     const srcPath = path.resolve(__dirname, `../public/${file}`);
     const destPath = path.join(distDir, file);
@@ -394,6 +418,13 @@ async function prerender() {
       fs.copyFileSync(srcPath, destPath);
       console.log(`   - Synced ${file} to dist/`);
     }
+  }
+
+  // Copy single canonical root sitemap.xml directly to dist/sitemap.xml
+  const rootSitemapSrc = path.resolve(__dirname, '../sitemap.xml');
+  if (fs.existsSync(rootSitemapSrc)) {
+    fs.copyFileSync(rootSitemapSrc, path.join(distDir, 'sitemap.xml'));
+    console.log('   - Synced root sitemap.xml to dist/sitemap.xml');
   }
 
   console.log(`🎉 All ${ROUTES.length} routes successfully prerendered into distinct static HTML pages!`);

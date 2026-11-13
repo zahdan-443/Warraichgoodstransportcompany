@@ -12,6 +12,7 @@ import { BookingPage } from './pages/BookingPage';
 import { FaqPage } from './pages/FaqPage';
 import { AboutPage } from './pages/AboutPage';
 import { BiltyVerificationPage } from './pages/BiltyVerificationPage';
+import { ServiceAreasPage } from './pages/ServiceAreasPage';
 
 export default function App() {
   // Inspect query parameter page=verify to route directly to Bilty Verification Page
@@ -45,6 +46,7 @@ export default function App() {
           <Route path="/fleet" element={<FleetPage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/booking" element={<BookingPage />} />
+          <Route path="/service-areas" element={<ServiceAreasPage />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/verify" element={<BiltyVerificationPage />} />

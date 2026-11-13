@@ -231,6 +231,10 @@ export const Footer: React.FC = () => {
             {isUrdu ? 'کرایہ و بکنگ' : 'Rates & Booking'}
           </Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
+          <Link to="/service-areas" className="hover:text-amber-400 transition-colors py-1">
+            {isUrdu ? 'سروس کے علاقے' : 'Service Areas'}
+          </Link>
+          <span className="text-slate-700 hidden sm:inline">•</span>
           <Link to="/faq" className="hover:text-amber-400 transition-colors py-1">
             {isUrdu ? 'عام سوالات' : 'FAQs'}
           </Link>
