@@ -337,6 +337,22 @@ async function prerender() {
   fs.writeFileSync(notFoundPath, indexHtml, 'utf-8');
   console.log(`   - Created dist/404.html for GitHub Pages SPA fallback`);
 
+  // Ensure images folder is explicitly synced from public/images to dist/images
+  const publicImagesDir = path.resolve(__dirname, '../public/images');
+  const distImagesDir = path.join(distDir, 'images');
+
+  if (fs.existsSync(publicImagesDir)) {
+    fs.mkdirSync(distImagesDir, { recursive: true });
+    const imageFiles = fs.readdirSync(publicImagesDir);
+    for (const imageFile of imageFiles) {
+      const srcImg = path.join(publicImagesDir, imageFile);
+      if (fs.statSync(srcImg).isFile()) {
+        fs.copyFileSync(srcImg, path.join(distImagesDir, imageFile));
+      }
+    }
+    console.log(`   - Synced ${imageFiles.length} image files to dist/images/`);
+  }
+
   // Ensure fonts folder is synced to dist/fonts and dist/assets/fonts
   const publicFontsDir = path.resolve(__dirname, '../public/fonts');
   const distFontsDir = path.join(distDir, 'fonts');
