@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { Suspense, useState, useEffect, useRef } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -7,15 +7,31 @@ import { ScrollToTop } from './components/ScrollToTop';
 import { useScrollReveal } from './hooks/useMotion';
 
 import { HomePage } from './pages/HomePage';
-import { FleetPage } from './pages/FleetPage';
-import { ServicesPage } from './pages/ServicesPage';
-import { BookingPage } from './pages/BookingPage';
-import { FaqPage } from './pages/FaqPage';
-import { AboutPage } from './pages/AboutPage';
-import { BiltyVerificationPage } from './pages/BiltyVerificationPage';
-import { ServiceAreasPage } from './pages/ServiceAreasPage';
+import {
+  LazyFleetPage,
+  LazyServicesPage,
+  LazyBookingPage,
+  LazyServiceAreasPage,
+  LazyFaqPage,
+  LazyAboutPage,
+  LazyBiltyVerificationPage,
+} from './routes';
 
-export default function App() {
+export interface SsrPagesMap {
+  '/fleet': React.ComponentType;
+  '/services': React.ComponentType;
+  '/booking': React.ComponentType;
+  '/service-areas': React.ComponentType;
+  '/faq': React.ComponentType;
+  '/about': React.ComponentType;
+  '/verify': React.ComponentType;
+}
+
+interface AppProps {
+  ssrPages?: SsrPagesMap;
+}
+
+export default function App({ ssrPages }: AppProps) {
   // Inspect query parameter page=verify to route directly to Bilty Verification Page
   const isVerifyPage = typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('page') === 'verify';
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
@@ -42,6 +58,14 @@ export default function App() {
     setIsMobileMenuOpen(false);
   };
 
+  const FleetComp = ssrPages?.['/fleet'] ?? LazyFleetPage.Component;
+  const ServicesComp = ssrPages?.['/services'] ?? LazyServicesPage.Component;
+  const BookingComp = ssrPages?.['/booking'] ?? LazyBookingPage.Component;
+  const ServiceAreasComp = ssrPages?.['/service-areas'] ?? LazyServiceAreasPage.Component;
+  const FaqComp = ssrPages?.['/faq'] ?? LazyFaqPage.Component;
+  const AboutComp = ssrPages?.['/about'] ?? LazyAboutPage.Component;
+  const VerifyComp = ssrPages?.['/verify'] ?? LazyBiltyVerificationPage.Component;
+
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 w-full pb-24 sm:pb-12">
       {/* Scroll restoration on route transition */}
@@ -57,17 +81,19 @@ export default function App() {
       {/* 2. Route-Driven Main Content Area (Offset for fixed header) */}
       <main className="flex-1 pt-14 sm:pt-16">
         <div key={location.pathname} className={animateRoute ? 'route-transition' : undefined}>
-          <Routes>
-            <Route path="/" element={isVerifyPage ? <BiltyVerificationPage /> : <HomePage />} />
-            <Route path="/fleet" element={<FleetPage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/booking" element={<BookingPage />} />
-            <Route path="/service-areas" element={<ServiceAreasPage />} />
-            <Route path="/faq" element={<FaqPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/verify" element={<BiltyVerificationPage />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
+          <Suspense fallback={<div className="min-h-[60vh] bg-slate-50" />}>
+            <Routes>
+              <Route path="/" element={isVerifyPage ? <VerifyComp /> : <HomePage />} />
+              <Route path="/fleet" element={<FleetComp />} />
+              <Route path="/services" element={<ServicesComp />} />
+              <Route path="/booking" element={<BookingComp />} />
+              <Route path="/service-areas" element={<ServiceAreasComp />} />
+              <Route path="/faq" element={<FaqComp />} />
+              <Route path="/about" element={<AboutComp />} />
+              <Route path="/verify" element={<VerifyComp />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </Suspense>
         </div>
       </main>
 

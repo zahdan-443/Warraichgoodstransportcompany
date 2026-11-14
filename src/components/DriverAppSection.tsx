@@ -131,12 +131,12 @@ export const DriverAppSection: React.FC = () => {
               </div>
 
               {/* Phone Screen Preview Image */}
-              <div className="relative rounded-[32px] bg-slate-900 overflow-hidden border border-slate-800 aspect-[9/17] flex items-center justify-center">
+              <div className="relative rounded-[32px] bg-slate-900 overflow-hidden border border-slate-800 aspect-[9/19] flex items-center justify-center">
                 <img
                   src={getAssetUrl('images/mobileapk.png')}
                   alt="Driver Dost Official Android App Screen Preview - Warraich Goods"
-                  width={540}
-                  height={960}
+                  width={520}
+                  height={1156}
                   loading="lazy"
                   decoding="async"
                   referrerPolicy="no-referrer"

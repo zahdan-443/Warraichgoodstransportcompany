@@ -3,6 +3,7 @@ import { createRoot, hydrateRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App.tsx';
 import { LanguageProvider } from './context/LanguageContext';
+import { preloadRouteForLocation } from './routes';
 import './index.css';
 
 const rootElement = document.getElementById('root')!;
@@ -18,29 +19,37 @@ const getRouterBasename = (): string => {
   return '/Warraichgoodstransportcompany';
 };
 
-const app = (
-  <StrictMode>
-    <BrowserRouter basename={getRouterBasename()}>
-      <LanguageProvider>
-        <App />
-      </LanguageProvider>
-    </BrowserRouter>
-  </StrictMode>
-);
+async function mountApp() {
+  if (typeof window !== 'undefined') {
+    await preloadRouteForLocation(window.location.pathname, window.location.search);
+  }
 
-// If pre-rendered content exists inside #root, hydrate it safely to preserve HTML and attach event listeners;
-// if hydration encounters any unexpected mismatch, cleanly fall back to createRoot.
-if (rootElement.hasChildNodes()) {
-  try {
-    hydrateRoot(rootElement, app, {
-      onRecoverableError(error) {
-        console.warn('Hydration recoverable warning:', error);
-      }
-    });
-  } catch (err) {
-    console.warn('Hydration fallback to client render:', err);
+  const app = (
+    <StrictMode>
+      <BrowserRouter basename={getRouterBasename()}>
+        <LanguageProvider>
+          <App />
+        </LanguageProvider>
+      </BrowserRouter>
+    </StrictMode>
+  );
+
+  // If pre-rendered content exists inside #root, hydrate it safely to preserve HTML and attach event listeners;
+  // if hydration encounters any unexpected mismatch, cleanly fall back to createRoot.
+  if (rootElement.hasChildNodes()) {
+    try {
+      hydrateRoot(rootElement, app, {
+        onRecoverableError(error) {
+          console.warn('Hydration recoverable warning:', error);
+        }
+      });
+    } catch (err) {
+      console.warn('Hydration fallback to client render:', err);
+      createRoot(rootElement).render(app);
+    }
+  } else {
     createRoot(rootElement).render(app);
   }
-} else {
-  createRoot(rootElement).render(app);
 }
+
+mountApp();

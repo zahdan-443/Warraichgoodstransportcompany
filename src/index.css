@@ -486,3 +486,17 @@ html[dir="rtl"] .timeline-connector {
     width: auto !important;
   }
 }
+
+/* Defer off-screen layout & paint work for faster initial rendering */
+@supports (content-visibility: auto) {
+  #fleet-overview,
+  #cargo-categories,
+  #tracking,
+  #business-intro,
+  #why-us,
+  #app-download,
+  footer {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 520px;
+  }
+}

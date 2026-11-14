@@ -1,5 +1,4 @@
-import { initializeApp, getApps, getApp } from 'firebase/app';
-import { getFirestore, doc, getDoc } from 'firebase/firestore';
+import type { Firestore } from 'firebase/firestore';
 
 const env = (import.meta as any).env || {};
 
@@ -18,11 +17,26 @@ const isFirebaseConfigured = Boolean(
   firebaseConfig.appId
 );
 
-const app = isFirebaseConfigured
-  ? (getApps().length === 0 ? initializeApp(firebaseConfig) : getApp())
-  : null;
+let dbPromise: Promise<Firestore | null> | null = null;
 
-export const db = app ? getFirestore(app) : null;
+async function getFirestoreDb(): Promise<Firestore | null> {
+  if (!isFirebaseConfigured) return null;
+  if (!dbPromise) {
+    dbPromise = Promise.all([
+      import('firebase/app'),
+      import('firebase/firestore'),
+    ])
+      .then(([{ initializeApp, getApps, getApp }, { getFirestore }]) => {
+        const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
+        return getFirestore(app);
+      })
+      .catch((err) => {
+        dbPromise = null;
+        throw err;
+      });
+  }
+  return dbPromise;
+}
 
 const BILTY_PATTERN = /^[A-Z0-9-]{4,24}$/;
 
@@ -97,6 +111,7 @@ function extractSafePublicBiltyFields(data: any, fallbackBiltyNo: string): Publi
 
 /**
  * Performs read-only lookup strictly on publicBiltyVerifications/{id}.
+ * Dynamically loads Firebase SDK only when invoked so initial page load stays fast.
  * Validates input against /^[A-Z0-9-]{4,24}$/.
  */
 export async function verifyBiltyRecord(rawBiltyNo: string): Promise<VerificationResult> {
@@ -105,7 +120,7 @@ export async function verifyBiltyRecord(rawBiltyNo: string): Promise<Verificatio
     return { status: 'NOT_FOUND' };
   }
 
-  if (!db) {
+  if (!isFirebaseConfigured) {
     return {
       status: 'ERROR',
       message: 'Unable to Verify — Firebase configuration is unavailable.'
@@ -113,6 +128,18 @@ export async function verifyBiltyRecord(rawBiltyNo: string): Promise<Verificatio
   }
 
   try {
+    const [db, { doc, getDoc }] = await Promise.all([
+      getFirestoreDb(),
+      import('firebase/firestore'),
+    ]);
+
+    if (!db) {
+      return {
+        status: 'ERROR',
+        message: 'Unable to Verify — Firebase configuration is unavailable.'
+      };
+    }
+
     const docRef = doc(db, 'publicBiltyVerifications', normalizedNo);
     const docSnap = await getDoc(docRef);
 

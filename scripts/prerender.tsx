@@ -4,9 +4,26 @@ import { StaticRouter } from 'react-router-dom';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import App from '../src/App';
+import App, { SsrPagesMap } from '../src/App';
 import { LanguageProvider } from '../src/context/LanguageContext';
 import { MASTER_CITIES } from '../src/data/companyData';
+import { FleetPage } from '../src/pages/FleetPage';
+import { ServicesPage } from '../src/pages/ServicesPage';
+import { BookingPage } from '../src/pages/BookingPage';
+import { ServiceAreasPage } from '../src/pages/ServiceAreasPage';
+import { FaqPage } from '../src/pages/FaqPage';
+import { AboutPage } from '../src/pages/AboutPage';
+import { BiltyVerificationPage } from '../src/pages/BiltyVerificationPage';
+
+const SSR_PAGES: SsrPagesMap = {
+  '/fleet': FleetPage,
+  '/services': ServicesPage,
+  '/booking': BookingPage,
+  '/service-areas': ServiceAreasPage,
+  '/faq': FaqPage,
+  '/about': AboutPage,
+  '/verify': BiltyVerificationPage,
+};
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -234,7 +251,7 @@ async function prerender() {
     const appHtml = renderToString(
       <StaticRouter basename={GITHUB_PAGES_BASENAME} location={routerLocation}>
         <LanguageProvider>
-          <App />
+          <App ssrPages={SSR_PAGES} />
         </LanguageProvider>
       </StaticRouter>
     );
