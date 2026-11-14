@@ -137,7 +137,7 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
       recommendedTruckEn: 'Bedford Heavy Truck (20 to 28+ Tons Full Load)',
       routeCoverage: 'پنجاب، خیبرپختونخوا، سندھ، بلوچستان پراجیکٹس',
       routeCoverageEn: 'Punjab, KPK, Sindh, Balochistan Mega Projects',
-      image: './images/factory-warehouse.webp'
+      image: './images/machinery-cargo.webp'
     },
     {
       id: 'household',
@@ -212,9 +212,23 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
                 id={`cargo-card-${category.id}`}
                 data-reveal=""
                 style={{ '--reveal-delay': `${Math.min(idx, 3) * 60}ms` } as React.CSSProperties}
-                className="bg-white text-slate-900 rounded-xl p-5 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md card-interactive"
+                className="relative overflow-hidden bg-white text-slate-900 rounded-xl p-5 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md card-interactive group"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
+                {/* Synced Subtle Card Background Photo */}
+                <img
+                  src={getAssetUrl(category.image)}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                  referrerPolicy="no-referrer"
+                  className="absolute inset-0 w-full h-full object-cover object-center opacity-[0.09] group-hover:opacity-[0.14] transition-opacity duration-500 pointer-events-none"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-white/75 pointer-events-none"
+                />
+                <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
                   
                   {/* Main Column */}
                   <div className={`lg:col-span-7 space-y-4 ${language === 'ur' ? 'text-right' : 'text-left'}`}>

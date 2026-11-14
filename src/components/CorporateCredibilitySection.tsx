@@ -367,33 +367,41 @@ export const CorporateCredibilitySection: React.FC = () => {
                 style={{ '--reveal-delay': `${idx * 80}ms` } as React.CSSProperties}
                 className="bg-white border border-slate-200 rounded-lg overflow-hidden hover:border-blue-300 hover:shadow-md flex flex-col group card-interactive"
               >
-                {/* Image Container with Fallback Support */}
-                <div className="relative h-56 sm:h-64 overflow-hidden bg-slate-100">
-                  <img 
-                    src={getAssetUrl(slot.imageSrc)} 
-                    alt={slot.alt} 
-                    width={400}
-                    height={300}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                    referrerPolicy="no-referrer"
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                      const parent = e.currentTarget.parentElement;
-                      if (parent) {
-                        const fallbackDiv = parent.querySelector('.photo-fallback');
-                        if (fallbackDiv) fallbackDiv.classList.remove('hidden');
-                      }
-                    }}
-                  />
-                  {/* Subtle Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 pointer-events-none" />
+                {/* Image Container with Executive Portrait Frame when yard-operations */}
+                <div
+                  className={`relative overflow-hidden ${
+                    slot.id === 'yard-operations'
+                      ? 'h-72 sm:h-80 p-2 bg-gradient-to-br from-amber-400 via-amber-500 to-slate-900'
+                      : 'h-56 sm:h-64 bg-slate-100'
+                  }`}
+                >
+                  <div className={slot.id === 'yard-operations' ? 'relative w-full h-full rounded-lg overflow-hidden border border-white/40 bg-slate-900' : 'relative w-full h-full'}>
+                    <img 
+                      src={getAssetUrl(slot.imageSrc)} 
+                      alt={slot.alt} 
+                      width={400}
+                      height={300}
+                      className={`w-full h-full object-cover ${slot.id === 'yard-operations' ? 'object-top' : 'object-center'}`}
+                      loading="lazy"
+                      decoding="async"
+                      referrerPolicy="no-referrer"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        const parent = e.currentTarget.parentElement;
+                        if (parent) {
+                          const fallbackDiv = parent.querySelector('.photo-fallback');
+                          if (fallbackDiv) fallbackDiv.classList.remove('hidden');
+                        }
+                      }}
+                    />
+                    {/* Subtle Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 pointer-events-none" />
 
-                  {/* Fallback Icon Box if image missing */}
-                  <div className="photo-fallback hidden absolute inset-0 bg-gradient-to-br from-slate-100 to-slate-200 flex flex-col items-center justify-center text-slate-400 p-4">
-                    <Camera className="w-10 h-10 mb-2 text-slate-400" />
-                    <span className="text-xs font-bold font-mono text-slate-500">{slot.id}.jpg</span>
+                    {/* Fallback Icon Box if image missing */}
+                    <div className="photo-fallback hidden absolute inset-0 bg-gradient-to-br from-slate-100 to-slate-200 flex flex-col items-center justify-center text-slate-400 p-4">
+                      <Camera className="w-10 h-10 mb-2 text-slate-400" />
+                      <span className="text-xs font-bold font-mono text-slate-500">{slot.id}.jpg</span>
+                    </div>
                   </div>
 
                   {/* Top Floating Badge */}

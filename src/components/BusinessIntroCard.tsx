@@ -175,34 +175,41 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
               {/* Pillar 2: Proprietor Leadership */}
               <div className="bg-slate-50 rounded-lg p-5 border border-slate-200 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <div className={`flex items-center gap-2 text-blue-900 font-bold text-sm ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
-                      <UserCheck className="w-4 h-4 text-blue-600" />
-                      <span>{isUrdu ? 'پروپرائٹر و قیادت' : 'Proprietor & Leadership'}</span>
-                    </div>
-                    <img 
-                      src={getAssetUrl('images/owner-portrait.png')} 
-                      alt={isUrdu ? COMPANY_INFO.proprietorUrdu : COMPANY_INFO.proprietorEnglish}
-                      width={40}
-                      height={40}
-                      className="w-10 h-10 rounded-full object-cover border-2 border-amber-400 shadow-sm"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                  <div className={`flex items-center gap-2 text-blue-900 font-bold text-sm mb-3 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
+                    <UserCheck className="w-4 h-4 text-blue-600" />
+                    <span>{isUrdu ? 'پروپرائٹر و قیادت' : 'Proprietor & Leadership'}</span>
                   </div>
-                  
-                  <div className={`space-y-1.5 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
-                    <p className="text-base font-extrabold text-slate-900">
-                      {isUrdu ? COMPANY_INFO.proprietorUrdu : COMPANY_INFO.proprietorEnglish}
-                    </p>
-                    <p className="text-xs font-semibold text-amber-700">
-                      {isUrdu ? COMPANY_INFO.proprietorRoleUrdu : COMPANY_INFO.proprietorRoleEnglish}
-                    </p>
-                    <p className="text-xs text-slate-600 leading-relaxed mt-2">
-                      {isUrdu
-                        ? 'تمام کارپوریٹ گاہکوں اور گاڑیوں کے شیڈول کی براہِ راست نگرانی پروپرائٹر خود کرتے ہیں، جس سے تاجر برادری اور فیکٹری مالکان کو مکمل شفافیت و تحفظ حاصل رہتا ہے۔'
-                        : 'Proprietor personally oversees fleet operations, industrial contracts, and schedule integrity, ensuring complete accountability.'}
-                    </p>
+
+                  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
+                    {/* Enlarged Executive Portrait Frame */}
+                    <div className="w-28 h-32 sm:w-28 sm:h-36 rounded-xl p-1 bg-gradient-to-br from-amber-400 via-amber-500 to-slate-900 shadow-md flex-shrink-0">
+                      <div className="w-full h-full rounded-lg overflow-hidden bg-white border border-white/70">
+                        <img 
+                          src={getAssetUrl('images/owner-portrait.png')} 
+                          alt={isUrdu ? COMPANY_INFO.proprietorUrdu : COMPANY_INFO.proprietorEnglish}
+                          width={160}
+                          height={192}
+                          className="w-full h-full object-cover object-top"
+                          loading="lazy"
+                          decoding="async"
+                          referrerPolicy="no-referrer"
+                        />
+                      </div>
+                    </div>
+
+                    <div className={`space-y-1.5 text-center sm:text-start ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
+                      <p className="text-base sm:text-lg font-extrabold text-slate-900 leading-tight">
+                        {isUrdu ? COMPANY_INFO.proprietorUrdu : COMPANY_INFO.proprietorEnglish}
+                      </p>
+                      <p className="text-xs font-semibold text-amber-700">
+                        {isUrdu ? COMPANY_INFO.proprietorRoleUrdu : COMPANY_INFO.proprietorRoleEnglish}
+                      </p>
+                      <p className="text-xs text-slate-600 leading-relaxed pt-1">
+                        {isUrdu
+                          ? 'تمام کارپوریٹ گاہکوں اور گاڑیوں کے شیڈول کی براہِ راست نگرانی پروپرائٹر خود کرتے ہیں، جس سے تاجر برادری کو مکمل شفافیت و تحفظ حاصل رہتا ہے۔'
+                          : 'Proprietor personally oversees fleet operations, industrial contracts, and schedule integrity, ensuring complete accountability.'}
+                      </p>
+                    </div>
                   </div>
                 </div>
                 <div className={`mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>

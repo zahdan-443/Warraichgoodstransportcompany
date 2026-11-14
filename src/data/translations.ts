@@ -151,10 +151,10 @@ export const TRANSLATIONS = {
     },
     // Driver App
     driverApp: {
-      badge: 'ڈرائیورز و روڈ پورٹل',
-      title: 'وڑائچ گڈز ڈرائیور و ٹرپ پورٹل',
-      subtitle: 'ڈرائیورز، روٹ کوآرڈینیشن اور روزمرہ ٹرپ کے ریکارڈ کے لیے ہمارا آن لائن پورٹل',
-      btnLaunch: 'ڈرائیور و ٹرپ پورٹل کھولیں',
+      badge: 'ڈرائیور دوست موبائل ایپ',
+      title: 'ڈرائیور دوست (Driver Dost) اینڈرائیڈ ایپ',
+      subtitle: 'فلیٹ ڈرائیورز، روزمرہ ٹرپ لاگز اور روٹ کوآرڈینیشن کے لیے ہماری آفیشل موبائل ایپ',
+      btnLaunch: 'ڈرائیور دوست ایپ ڈاؤن لوڈ کریں',
     },
     // Reviews & FAQs
     reviews: {
@@ -316,10 +316,10 @@ export const TRANSLATIONS = {
     },
     // Driver App
     driverApp: {
-      badge: 'Driver Portal',
-      title: 'Driver & Trip Log Portal',
-      subtitle: 'Our simple online portal for route coordination and trip records.',
-      btnLaunch: 'Open Driver Portal',
+      badge: 'Driver Dost Mobile App',
+      title: 'Driver Dost Android App',
+      subtitle: 'Our dedicated mobile app for driver trip logging, route coordination, and bilty tracking.',
+      btnLaunch: 'Download Driver Dost App',
     },
     // Reviews & FAQs
     reviews: {

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Truck, ArrowRight } from 'lucide-react';
 import { FLEET_DATA } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
+import { getAssetUrl } from '../utils/assetPath';
 
 export const FleetCardsSection: React.FC = () => {
   const { language } = useLanguage();
@@ -56,7 +57,9 @@ export const FleetCardsSection: React.FC = () => {
           {FLEET_DATA.map((truck, idx) => {
             const title = isUrdu ? truck.nameUrdu : truck.nameEnglish;
             const capacity = isUrdu ? truck.capacityUrdu : truck.capacity;
+            const altText = isUrdu ? (truck.altUrdu || truck.nameUrdu) : (truck.altEnglish || truck.nameEnglish);
             const singleLine = getSingleLineDesc(truck.id);
+            const bgSrc = getAssetUrl(truck.image || `images/${truck.id}-truck.png`);
 
             return (
               <div 
@@ -64,43 +67,54 @@ export const FleetCardsSection: React.FC = () => {
                 id={`fleet-card-${truck.id}`}
                 data-reveal=""
                 style={{ '--reveal-delay': `${idx * 70}ms` } as React.CSSProperties}
-                className="relative overflow-hidden bg-slate-50/60 hover:bg-white border border-slate-200/90 hover:border-amber-400 rounded-2xl p-5 sm:p-6 shadow-xs hover:shadow-md flex flex-col justify-between group card-interactive"
+                className="relative overflow-hidden bg-slate-900 border border-slate-800 hover:border-amber-400 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-xl flex flex-col justify-between min-h-[250px] group card-interactive"
               >
-                {/* Subtle Faint Large Watermark Icon in Corner */}
-                <Truck 
-                  className="absolute -bottom-3 -right-3 w-24 h-24 text-slate-900/5 group-hover:text-amber-500/10 transition-colors pointer-events-none" 
+                {/* Vehicle Background Image */}
+                <img
+                  src={bgSrc}
+                  alt={altText}
+                  width={640}
+                  height={360}
+                  loading="lazy"
+                  decoding="async"
+                  referrerPolicy="no-referrer"
+                  className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                />
+                {/* Dark Contrast Gradient Scrim */}
+                <div
                   aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/80 to-slate-950/55 group-hover:via-slate-950/75 transition-colors"
                 />
 
                 <div className="relative z-10 space-y-3">
                   
                   {/* Top: Rounded Icon Box & Capacity */}
-                  <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-600 flex items-center justify-center flex-shrink-0 card-icon-nudge">
-                      <Truck className="w-6 h-6" />
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="w-11 h-11 rounded-xl bg-amber-500/20 backdrop-blur-xs border border-amber-400/40 text-amber-400 flex items-center justify-center flex-shrink-0 card-icon-nudge">
+                      <Truck className="w-5 h-5" />
                     </div>
-                    <span className="text-[11px] font-mono font-bold text-slate-600 bg-white px-2 py-0.5 rounded-md border border-slate-200">
+                    <span className="text-[11px] font-mono font-bold text-amber-300 bg-slate-950/80 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/15">
                       {capacity}
                     </span>
                   </div>
 
                   {/* Short Title */}
-                  <h3 className="text-base sm:text-lg font-black text-slate-900 group-hover:text-blue-700 transition-colors font-urdu">
+                  <h3 className="text-base sm:text-lg font-black text-white group-hover:text-amber-300 transition-colors font-urdu pt-2">
                     {title}
                   </h3>
 
-                  {/* ONE Line of Text (Strictly no bullet list) */}
-                  <p className="text-xs sm:text-sm text-slate-600 font-urdu leading-normal line-clamp-2">
+                  {/* ONE Line of Text */}
+                  <p className="text-xs sm:text-sm text-slate-200 font-urdu leading-normal line-clamp-2">
                     {singleLine}
                   </p>
 
                 </div>
 
                 {/* Bottom: Learn More Link */}
-                <div className="relative z-10 pt-4 mt-4 border-t border-slate-200/60">
+                <div className="relative z-10 pt-4 mt-5 border-t border-white/15">
                   <Link
                     to="/fleet"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-600 font-urdu group-hover:translate-x-1 transition-transform"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300 font-urdu group-hover:translate-x-1 transition-transform"
                   >
                     <span>{isUrdu ? 'مزید معلومات اور تفصیلات ←' : 'Learn more →'}</span>
                   </Link>

@@ -2,11 +2,10 @@ import React from 'react';
 import { 
   Smartphone, 
   Download, 
-  CheckCircle2, 
-  ExternalLink,
-  Truck
+  ExternalLink
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { getAssetUrl } from '../utils/assetPath';
 
 export const DriverAppSection: React.FC = () => {
   const { language } = useLanguage();
@@ -30,7 +29,7 @@ export const DriverAppSection: React.FC = () => {
     {
       titleEn: '3. 24/7 Office Support',
       titleUr: '3. 24 گھنٹے دفتر سے فوری رابطہ',
-      descEn: 'Call our Samundri office anytime for quick truck booking and dispatch help.',
+      descEn: 'Connect with our Samundri office anytime for quick truck booking and dispatch help.',
       descUr: 'گاڑی بک کرنے اور رہنمائی کے لیے ہمارے دفتر سے رابطہ۔'
     }
   ];
@@ -47,24 +46,24 @@ export const DriverAppSection: React.FC = () => {
             <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 px-3.5 py-1.5 rounded-full text-xs font-bold font-mono">
               <Smartphone className="w-4 h-4 text-emerald-600 flex-shrink-0" />
               <span className={isUrdu ? 'font-urdu' : 'font-sans'}>
-                {isUrdu ? 'آفیشل موبائل ایپلی کیشن' : 'Official Mobile App'}
+                {isUrdu ? 'ڈرائیور دوست — آفیشل موبائل ایپ' : 'Driver Dost — Official Android App'}
               </span>
             </div>
 
             {isUrdu ? (
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 tracking-tight leading-tight font-urdu">
-                ہماری <span className="text-amber-500">اینڈرائیڈ ایپ</span> ڈاؤن لوڈ کریں
+                ہماری اینڈرائیڈ ایپ <span className="text-amber-500">ڈرائیور دوست (Driver Dost)</span> ڈاؤن لوڈ کریں
               </h2>
             ) : (
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 tracking-tight leading-tight font-sans">
-                Download our <span className="text-amber-500">Android App</span>
+                Download <span className="text-amber-500">Driver Dost</span> Android App
               </h2>
             )}
 
             <p className={`text-base sm:text-lg font-bold text-slate-700 leading-normal ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
               {isUrdu 
-                ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی کی آفیشل اینڈرائیڈ ایپ ڈاؤن لوڈ کریں اور لوڈنگ مینجمنٹ آسان بنائیں'
-                : 'Warraich Goods Transport Company app for drivers and daily trip records.'}
+                ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی کی آفیشل "ڈرائیور دوست" ایپ ڈاؤن لوڈ کریں اور لوڈنگ مینجمنٹ آسان بنائیں'
+                : 'Warraich Goods official "Driver Dost" app for drivers, bilty slips, and daily trip records.'}
             </p>
 
             <p className={`text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
@@ -105,10 +104,10 @@ export const DriverAppSection: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`inline-flex items-center justify-center gap-2.5 bg-slate-900 hover:bg-slate-800 active:bg-slate-950 text-white font-bold px-7 py-3.5 rounded-xl text-sm sm:text-base transition-all shadow-md active:scale-98 cursor-pointer min-h-[48px] ${isUrdu ? 'font-urdu' : 'font-sans'}`}
-                aria-label="Download Warraich Goods Android App"
+                aria-label="Download Driver Dost Android App"
               >
                 <Download className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                <span>{isUrdu ? 'اینڈرائیڈ ایپ ڈاؤن لوڈ کریں' : 'Download Android App'}</span>
+                <span>{isUrdu ? 'ڈرائیور دوست ایپ ڈاؤن لوڈ کریں' : 'Download Driver Dost App'}</span>
                 <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
               </a>
 
@@ -119,84 +118,36 @@ export const DriverAppSection: React.FC = () => {
 
           </div>
 
-          {/* Right Column: Smartphone Frame Mockup */}
+          {/* Right Column: Smartphone Frame Mockup displaying /images/mobileapk.png */}
           <div data-reveal="" style={{ '--reveal-delay': '120ms' } as React.CSSProperties} className="lg:col-span-5 flex justify-center">
             
             {/* Phone Outer Chassis Frame */}
             <div className="relative w-64 sm:w-72 rounded-[40px] bg-slate-950 p-3 shadow-2xl border-4 border-slate-800 card-interactive">
               
               {/* Speaker / Camera Notch */}
-              <div className="absolute top-5 left-1/2 -translate-x-1/2 w-24 h-4 bg-slate-900 rounded-full z-20 flex items-center justify-center gap-1.5">
+              <div className="absolute top-5 left-1/2 -translate-x-1/2 w-24 h-4 bg-slate-950 rounded-full z-20 flex items-center justify-center gap-1.5 border border-slate-800/80">
                 <div className="w-2.5 h-2.5 rounded-full bg-slate-800" />
                 <div className="w-10 h-1.5 rounded-full bg-slate-800" />
               </div>
 
-              {/* Phone Screen Display */}
-              <div className="relative rounded-[32px] bg-slate-900 overflow-hidden border border-slate-800 p-4 pt-10 text-white space-y-3">
-                
-                {/* App Screen Header */}
-                <div className="flex items-center justify-between pb-2 border-b border-slate-800">
-                  <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 rounded bg-amber-500 p-0.5 flex items-center justify-center">
-                      <Truck className="w-4 h-4 text-slate-950" />
-                    </div>
-                    <span className="text-xs font-bold font-mono tracking-tight text-white">
-                      {isUrdu ? 'وڑائچ گڈز ایپ' : 'Warraich Goods'}
-                    </span>
-                  </div>
-                  <span className="text-[10px] font-mono text-emerald-400 bg-emerald-400/10 px-1.5 py-0.5 rounded">
-                    {isUrdu ? 'ورژن 2.4 فعال' : 'v2.4 Active'}
-                  </span>
-                </div>
+              {/* Phone Screen Preview Image */}
+              <div className="relative rounded-[32px] bg-slate-900 overflow-hidden border border-slate-800 aspect-[9/17] flex items-center justify-center">
+                <img
+                  src={getAssetUrl('images/mobileapk.png')}
+                  alt="Driver Dost Official Android App Screen Preview - Warraich Goods"
+                  width={540}
+                  height={960}
+                  loading="lazy"
+                  decoding="async"
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover object-top"
+                />
 
-                {/* Card 1: Active Trip */}
-                <div className="bg-slate-800/80 rounded-xl p-3 border border-slate-700/60 space-y-1">
-                  <span className="text-[10px] font-mono text-amber-400 font-bold block">
-                    {isUrdu ? 'لائیو ڈسپیچ چالان #452' : 'LIVE DISPATCH #CN-452'}
-                  </span>
-                  <p className={`text-xs font-bold text-white ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
-                    {isUrdu ? 'پنجاب ➔ کراچی پورٹ' : 'Punjab ➔ Karachi Port'}
-                  </p>
-                  <div className="flex items-center justify-between text-[10px] text-slate-400 font-mono pt-1">
-                    <span>{isUrdu ? 'ایم 5 سکھر موٹروے' : 'M-5 Sukkur Motorway'}</span>
-                    <span className="text-emerald-400">{isUrdu ? 'بروقت سفر' : 'On Schedule'}</span>
-                  </div>
-                </div>
-
-                {/* Card 2: Driver Checklist */}
-                <div className="bg-slate-800/80 rounded-xl p-3 border border-slate-700/60 space-y-1.5">
-                  <span className="text-[10px] font-mono text-slate-400">
-                    {isUrdu ? 'لوڈنگ تفصیلات' : 'LOADING SPECIFICATIONS'}
-                  </span>
-                  <div className="flex items-center justify-between text-xs">
-                    <span className={`text-slate-300 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
-                      {isUrdu ? 'گاڑی: مزدا 6 وہیلر' : 'Truck: Mazda 6-Wheeler'}
-                    </span>
-                    <span className="font-mono text-amber-400 font-bold">
-                      {isUrdu ? '8.5 ٹن وزن' : '8.5 Tons'}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1.5 text-[11px] text-emerald-400">
-                    <CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0" />
-                    <span className={isUrdu ? 'font-urdu' : 'font-sans'}>
-                      {isUrdu ? 'ڈبل واٹر پروف ترپال مکمل' : 'Double Tarpaulin Verified'}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Card 3: Dispatch Status */}
-                <div className="bg-blue-600 rounded-xl p-3 text-center text-white">
-                  <span className={`text-[11px] font-bold block ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
-                    {isUrdu ? '24/7 ڈسپیچ سپورٹ فعال' : '24/7 Dispatch Desk Active'}
-                  </span>
-                  <span className="text-[10px] opacity-80 font-mono">
-                    {isUrdu ? '24/7 فل ٹرک لوڈ سروس' : '24/7 Single-Party FTL Service'}
-                  </span>
-                </div>
-
-                {/* Home Indicator Bar */}
-                <div className="w-20 h-1 bg-slate-700 rounded-full mx-auto mt-2" />
-
+                {/* Bottom Home Indicator Bar */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute bottom-2 left-1/2 -translate-x-1/2 w-20 h-1 bg-white/40 rounded-full"
+                />
               </div>
 
             </div>

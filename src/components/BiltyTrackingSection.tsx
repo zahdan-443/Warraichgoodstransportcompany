@@ -22,6 +22,7 @@ import {
 import { useLanguage } from '../context/LanguageContext';
 import { TRANSLATIONS } from '../data/translations';
 import { verifyBiltyRecord, normalizeBiltyNo, VerificationResult, PublicBiltyRecord } from '../lib/firebase';
+import { getAssetUrl } from '../utils/assetPath';
 
 interface BiltyTrackingSectionProps {
   condensed?: boolean;
@@ -509,57 +510,105 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
               <div
                 data-reveal=""
                 style={{ '--reveal-delay': '0ms' } as React.CSSProperties}
-                className="card-interactive group bg-white p-5 sm:p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md"
+                className="relative overflow-hidden card-interactive group bg-slate-900 p-5 sm:p-6 rounded-xl border border-slate-800 hover:border-amber-400 shadow-sm hover:shadow-xl min-h-[210px] flex flex-col justify-end"
               >
-                <div className="card-icon-nudge w-10 h-10 rounded-lg bg-blue-50 border border-blue-200 text-blue-700 flex items-center justify-center mb-3">
-                  <Phone className="w-5 h-5" />
+                <img
+                  src={getAssetUrl('images/trip-driver-call.webp')}
+                  alt={language === 'ur' ? 'ڈرائیور کا موبائل نمبر' : 'Driver Mobile Number'}
+                  width={800}
+                  height={600}
+                  loading="lazy"
+                  decoding="async"
+                  referrerPolicy="no-referrer"
+                  className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/80 to-slate-950/50"
+                />
+                <div className="relative z-10">
+                  <div className="card-icon-nudge w-10 h-10 rounded-lg bg-blue-500/20 backdrop-blur-xs border border-blue-400/40 text-blue-300 flex items-center justify-center mb-3">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <p className="font-bold text-white text-base font-urdu mb-1.5">
+                    {language === 'ur' ? '1. ڈرائیور کا موبائل نمبر' : '1. Driver Mobile Number'}
+                  </p>
+                  <p className="text-xs text-slate-200 leading-relaxed font-urdu">
+                    {language === 'ur'
+                      ? 'گاڑی لوڈ ہو کر روانہ ہوتے ہی گاہک کو ڈرائیور کا موبائل نمبر فراہم کیا جاتا ہے تاکہ سفر کے دوران کسی بھی وقت براہ راست بات کی جا سکے۔'
+                      : 'Once the truck is loaded, you receive the driver’s direct phone number to call anytime during the journey.'}
+                  </p>
                 </div>
-                <p className="font-bold text-slate-900 text-base font-urdu mb-1.5">
-                  {language === 'ur' ? '1. ڈرائیور کا موبائل نمبر' : '1. Driver Mobile Number'}
-                </p>
-                <p className="text-xs text-slate-600 leading-relaxed font-urdu">
-                  {language === 'ur'
-                    ? 'گاڑی لوڈ ہو کر روانہ ہوتے ہی گاہک کو ڈرائیور کا موبائل نمبر فراہم کیا جاتا ہے تاکہ سفر کے دوران کسی بھی وقت براہ راست بات کی جا سکے۔'
-                    : 'Once the truck is loaded, you receive the driver’s direct phone number to call anytime during the journey.'}
-                </p>
               </div>
 
               {/* Pillar 2 */}
               <div
                 data-reveal=""
                 style={{ '--reveal-delay': '160ms' } as React.CSSProperties}
-                className="card-interactive group bg-white p-5 sm:p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md"
+                className="relative overflow-hidden card-interactive group bg-slate-900 p-5 sm:p-6 rounded-xl border border-slate-800 hover:border-amber-400 shadow-sm hover:shadow-xl min-h-[210px] flex flex-col justify-end"
               >
-                <div className="card-icon-nudge w-10 h-10 rounded-lg bg-blue-50 border border-blue-200 text-blue-700 flex items-center justify-center mb-3">
-                  <MapPin className="w-5 h-5" />
+                <img
+                  src={getAssetUrl('images/trip-live-location.webp')}
+                  alt={language === 'ur' ? 'واٹس ایپ پر لائیو لوکیشن' : 'WhatsApp Live Location'}
+                  width={800}
+                  height={600}
+                  loading="lazy"
+                  decoding="async"
+                  referrerPolicy="no-referrer"
+                  className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/80 to-slate-950/50"
+                />
+                <div className="relative z-10">
+                  <div className="card-icon-nudge w-10 h-10 rounded-lg bg-emerald-500/20 backdrop-blur-xs border border-emerald-400/40 text-emerald-300 flex items-center justify-center mb-3">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <p className="font-bold text-white text-base font-urdu mb-1.5">
+                    {language === 'ur' ? '2. واٹس ایپ پر لائیو لوکیشن' : '2. WhatsApp Live Location'}
+                  </p>
+                  <p className="text-xs text-slate-200 leading-relaxed font-urdu">
+                    {language === 'ur'
+                      ? 'موٹروے یا جی ٹی روڈ پر سفر کے دوران ڈرائیور واٹس ایپ پر لائیو لوکیشن شیئر کر سکتا ہے تاکہ آپ کو گاڑی کا صحیح مقام معلوم رہے۔'
+                      : 'The driver can share live WhatsApp location pins so you see where the truck is on the motorway.'}
+                  </p>
                 </div>
-                <p className="font-bold text-slate-900 text-base font-urdu mb-1.5">
-                  {language === 'ur' ? '2. واٹس ایپ پر لائیو لوکیشن' : '2. WhatsApp Live Location'}
-                </p>
-                <p className="text-xs text-slate-600 leading-relaxed font-urdu">
-                  {language === 'ur'
-                    ? 'موٹروے یا جی ٹی روڈ پر سفر کے دوران ڈرائیور واٹس ایپ پر لائیو لوکیشن شیئر کر سکتا ہے تاکہ آپ کو گاڑی کا صحیح مقام معلوم رہے۔'
-                    : 'The driver can share live WhatsApp location pins so you see where the truck is on the motorway.'}
-                </p>
               </div>
 
               {/* Pillar 3 */}
               <div
                 data-reveal=""
                 style={{ '--reveal-delay': '320ms' } as React.CSSProperties}
-                className="card-interactive group bg-white p-5 sm:p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md"
+                className="relative overflow-hidden card-interactive group bg-slate-900 p-5 sm:p-6 rounded-xl border border-slate-800 hover:border-amber-400 shadow-sm hover:shadow-xl min-h-[210px] flex flex-col justify-end"
               >
-                <div className="card-icon-nudge w-10 h-10 rounded-lg bg-amber-50 border border-amber-200 text-amber-700 flex items-center justify-center mb-3">
-                  <Scale className="w-5 h-5" />
+                <img
+                  src={getAssetUrl('images/trip-scale-bilty.webp')}
+                  alt={language === 'ur' ? 'کانٹا پرچی اور بلٹی رسید' : 'Scale Slip & Signed Bilty'}
+                  width={800}
+                  height={600}
+                  loading="lazy"
+                  decoding="async"
+                  referrerPolicy="no-referrer"
+                  className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/80 to-slate-950/50"
+                />
+                <div className="relative z-10">
+                  <div className="card-icon-nudge w-10 h-10 rounded-lg bg-amber-500/20 backdrop-blur-xs border border-amber-400/40 text-amber-300 flex items-center justify-center mb-3">
+                    <Scale className="w-5 h-5" />
+                  </div>
+                  <p className="font-bold text-white text-base font-urdu mb-1.5">
+                    {language === 'ur' ? '3. کانٹا پرچی اور بلٹی رسید' : '3. Scale Slip & Signed Bilty'}
+                  </p>
+                  <p className="text-xs text-slate-200 leading-relaxed font-urdu">
+                    {language === 'ur'
+                      ? 'مال لوڈنگ پر کمپیوٹرائزڈ وزن پرچی اور منزل پر سامان پہنچنے پر گاہک کے دستخط شدہ بلٹی ثبوت کے طور پر فراہم کی جاتی ہے۔'
+                      : 'You get a computer scale slip at pickup and a signed bilty receipt when your goods are safely delivered.'}
+                  </p>
                 </div>
-                <p className="font-bold text-slate-900 text-base font-urdu mb-1.5">
-                  {language === 'ur' ? '3. کانٹا پرچی اور بلٹی رسید' : '3. Scale Slip & Signed Bilty'}
-                </p>
-                <p className="text-xs text-slate-600 leading-relaxed font-urdu">
-                  {language === 'ur'
-                    ? 'مال لوڈنگ پر کمپیوٹرائزڈ وزن پرچی اور منزل پر سامان پہنچنے پر گاہک کے دستخط شدہ بلٹی ثبوت کے طور پر فراہم کی جاتی ہے۔'
-                    : 'You get a computer scale slip at pickup and a signed bilty receipt when your goods are safely delivered.'}
-                </p>
               </div>
             </div>
           </div>

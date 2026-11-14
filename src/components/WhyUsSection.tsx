@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, Scale, Umbrella, Clock } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { getAssetUrl } from '../utils/assetPath';
 
 export const WhyUsSection: React.FC = () => {
   const { language } = useLanguage();
@@ -16,7 +17,8 @@ export const WhyUsSection: React.FC = () => {
       descUr: 'زیرو پارسل مکسنگ، صرف اور صرف سنگل پارٹی مال برداری بغیر کسی رکاوٹ کے۔',
       icon: ShieldCheck,
       to: '/services',
-      accent: 'text-blue-600 bg-blue-500/10 border-blue-500/20'
+      image: './images/road-highway.webp',
+      accent: 'text-blue-300 bg-blue-500/20 border-blue-400/40'
     },
     {
       id: 'scale',
@@ -26,7 +28,8 @@ export const WhyUsSection: React.FC = () => {
       descUr: 'لوڈنگ کے فوری بعد سرکاری کانٹا پرچی اور قانونی ایکسل لوڈ کی 100% پابندی۔',
       icon: Scale,
       to: '/services',
-      accent: 'text-amber-600 bg-amber-500/10 border-amber-500/20'
+      image: './images/trip-scale-bilty.webp',
+      accent: 'text-amber-300 bg-amber-500/20 border-amber-400/40'
     },
     {
       id: 'safety',
@@ -36,7 +39,8 @@ export const WhyUsSection: React.FC = () => {
       descUr: 'بارش اور نمی سے مکمل حفاظت کے لیے ڈبل واٹر پروف ہیوی ترپال کی لازمی ضمانت۔',
       icon: Umbrella,
       to: '/services',
-      accent: 'text-emerald-600 bg-emerald-500/10 border-emerald-500/20'
+      image: './images/cargo-safety.webp',
+      accent: 'text-emerald-300 bg-emerald-500/20 border-emerald-400/40'
     },
     {
       id: 'dispatch',
@@ -46,7 +50,8 @@ export const WhyUsSection: React.FC = () => {
       descUr: 'ڈرائیور کا ذاتی رابطہ اور موٹروے پر نان اسٹاپ سفر، بروقت اور محفوظ ترسیل۔',
       icon: Clock,
       to: '/booking',
-      accent: 'text-indigo-600 bg-indigo-500/10 border-indigo-500/20'
+      image: './images/why-night-dispatch.webp',
+      accent: 'text-indigo-300 bg-indigo-500/20 border-indigo-400/40'
     },
   ];
 
@@ -81,38 +86,49 @@ export const WhyUsSection: React.FC = () => {
                 key={item.id}
                 data-reveal=""
                 style={{ '--reveal-delay': `${idx * 70}ms` } as React.CSSProperties}
-                className="relative overflow-hidden bg-white hover:bg-white border border-slate-200 hover:border-blue-400 rounded-2xl p-5 sm:p-6 shadow-xs hover:shadow-md flex flex-col justify-between group card-interactive"
+                className="relative overflow-hidden bg-slate-900 border border-slate-800 hover:border-amber-400 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-xl flex flex-col justify-between min-h-[245px] group card-interactive"
               >
-                {/* Subtle Faint Large Watermark Icon in Corner */}
-                <IconComponent 
-                  className="absolute -bottom-3 -right-3 w-24 h-24 text-slate-900/5 group-hover:text-blue-500/10 transition-colors pointer-events-none" 
+                {/* Background Photo */}
+                <img
+                  src={getAssetUrl(item.image)}
+                  alt={title}
+                  width={800}
+                  height={600}
+                  loading="lazy"
+                  decoding="async"
+                  referrerPolicy="no-referrer"
+                  className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                />
+                {/* Dark Contrast Gradient Scrim */}
+                <div
                   aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/80 to-slate-950/55 group-hover:via-slate-950/75 transition-colors"
                 />
 
                 <div className="relative z-10 space-y-3">
                   
                   {/* Rounded Icon Box */}
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 border ${item.accent} card-icon-nudge`}>
-                    <IconComponent className="w-6 h-6" />
+                  <div className={`w-11 h-11 rounded-xl backdrop-blur-xs flex items-center justify-center flex-shrink-0 border ${item.accent} card-icon-nudge`}>
+                    <IconComponent className="w-5 h-5" />
                   </div>
 
                   {/* Short Title */}
-                  <h3 className="text-base sm:text-lg font-black text-slate-900 group-hover:text-blue-700 transition-colors font-urdu">
+                  <h3 className="text-base sm:text-lg font-black text-white group-hover:text-amber-300 transition-colors font-urdu pt-2">
                     {title}
                   </h3>
 
                   {/* ONE Line of Text */}
-                  <p className="text-xs sm:text-sm text-slate-600 font-urdu leading-normal line-clamp-2">
+                  <p className="text-xs sm:text-sm text-slate-200 font-urdu leading-normal line-clamp-2">
                     {desc}
                   </p>
 
                 </div>
 
                 {/* Learn More Link */}
-                <div className="relative z-10 pt-4 mt-4 border-t border-slate-100">
+                <div className="relative z-10 pt-4 mt-5 border-t border-white/15">
                   <Link
                     to={item.to}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 hover:text-blue-600 font-urdu group-hover:translate-x-1 transition-transform"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300 font-urdu group-hover:translate-x-1 transition-transform"
                   >
                     <span>{isUrdu ? 'مزید معلومات اور طریقہ کار ←' : 'Learn more →'}</span>
                   </Link>
