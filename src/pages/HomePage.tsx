@@ -6,12 +6,11 @@ import { BiltyTrackingSection } from '../components/BiltyTrackingSection';
 import { BusinessIntroCard } from '../components/BusinessIntroCard';
 import { WhyUsSection } from '../components/WhyUsSection';
 import { DriverAppSection } from '../components/DriverAppSection';
-import { DirectContactSection } from '../components/DirectContactSection';
 
 export const HomePage: React.FC = () => {
   return (
     <>
-      {/* 1. Hero Section (with Real Highway Photo & Overlapping Contact Strip) */}
+      {/* 1. Hero Section */}
       <HeroSection />
 
       {/* 2. Commercial Fleet Overview (Short cards linking to /fleet) */}
@@ -23,7 +22,7 @@ export const HomePage: React.FC = () => {
       {/* 4. Online Bilty Tracking & Firebase Verification */}
       <BiltyTrackingSection condensed={true} />
 
-      {/* 5. Official Business Introduction */}
+      {/* 5. Official Company Information & Credentials */}
       <BusinessIntroCard />
 
       {/* 6. Why Choose Us / Guarantees */}
@@ -31,9 +30,6 @@ export const HomePage: React.FC = () => {
 
       {/* 7. Android Mobile App Download Section */}
       <DriverAppSection />
-
-      {/* 8. Direct Communication Helpline & Instant Booking */}
-      <DirectContactSection />
     </>
   );
 };

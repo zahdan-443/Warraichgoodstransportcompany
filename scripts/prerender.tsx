@@ -61,7 +61,7 @@ const FAQ_PAGE_SCHEMA = {
       name: 'How can I book a truck for house shifting or commercial delivery?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Call or WhatsApp us at 0300-5370443 anytime. Share your pickup city, drop-off location, and load details for a quick quote and truck booking.',
+        text: 'Use the Call or WhatsApp buttons in our homepage hero, the floating WhatsApp button, or our Rates & Booking page anytime to share your route and load details for a quick quote.',
       },
     },
     {
@@ -142,7 +142,7 @@ const ROUTES: RouteConfig[] = [
       { name: 'Home', item: `${BASE_SITE_URL}/` },
       { name: 'Rates & Booking', item: `${BASE_SITE_URL}/booking/` },
     ],
-    expectedText: '0300-5370443',
+    expectedText: 'Booking Summary',
   },
   {
     path: '/service-areas',
@@ -170,7 +170,7 @@ const ROUTES: RouteConfig[] = [
       { name: 'Home', item: `${BASE_SITE_URL}/` },
       { name: 'FAQs', item: `${BASE_SITE_URL}/faq/` },
     ],
-    expectedText: '0300-5370443',
+    expectedText: 'Frequently Asked Questions',
   },
   {
     path: '/about',
@@ -198,7 +198,7 @@ const ROUTES: RouteConfig[] = [
       { name: 'Home', item: `${BASE_SITE_URL}/` },
       { name: 'Bilty Verification', item: `${BASE_SITE_URL}/verify/` },
     ],
-    expectedText: '0300-5370443',
+    expectedText: 'Verify Official Bilty Record',
   },
 ];
 

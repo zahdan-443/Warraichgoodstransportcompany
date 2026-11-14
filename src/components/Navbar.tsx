@@ -322,21 +322,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Bottom Actions inside Mobile Drawer */}
             <div className="pt-3 border-t border-slate-200 flex flex-col gap-2.5">
               <a
-                href={`tel:${COMPANY_INFO.phoneRaw1}`}
-                className="w-full min-h-[46px] flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-2.5 rounded-lg text-center text-sm active:scale-98"
-                aria-label={`Call Helpline ${COMPANY_INFO.phone1}`}
-              >
-                <Truck className="w-4 h-4 text-amber-400" />
-                <span className={isUrdu ? 'font-urdu' : 'font-sans'}>
-                  {isUrdu ? `فوری رابطہ: ${COMPANY_INFO.phone1}` : `Call Now: ${COMPANY_INFO.phone1}`}
-                </span>
-              </a>
-
-              <a
                 href={COMPANY_INFO.webAppUrl}
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-full min-h-[44px] flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 font-medium py-2 rounded-lg text-center text-xs transition"
+                className="w-full min-h-[44px] flex items-center justify-center gap-2 bg-slate-900 hover:bg-blue-600 text-white font-semibold py-2.5 rounded-lg text-center text-xs transition"
                 aria-label="Open Driver Web App Portal"
               >
                 <span>{isUrdu ? 'ڈرائیور ویب پورٹل' : 'Driver Web Portal'}</span>

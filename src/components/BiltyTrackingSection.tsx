@@ -8,7 +8,6 @@ import {
   AlertCircle,
   Loader2,
   Phone, 
-  MessageCircle, 
   ArrowRight, 
   ShieldCheck,
   Navigation,
@@ -21,7 +20,6 @@ import {
   Lock
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import { COMPANY_INFO } from '../data/companyData';
 import { TRANSLATIONS } from '../data/translations';
 import { verifyBiltyRecord, normalizeBiltyNo, VerificationResult, PublicBiltyRecord } from '../lib/firebase';
 
@@ -105,13 +103,6 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
     setInputBilty(sample);
     handlePerformVerification(sample);
   };
-
-  // WhatsApp prefilled message
-  const whatsappUrl = `https://wa.me/${COMPANY_INFO.phoneRaw1}?text=${encodeURIComponent(
-    language === 'ur'
-      ? `السلام علیکم! میں وڑائچ گڈز ٹرانسپورٹ کی بلٹی [${activeReference || inputBilty || 'CN-Ref'}] کی تصدیق اور لائیو لوکیشن معلوم کرنا چاہتا ہوں۔`
-      : `Hello! I would like to verify and check live updates for Warraich Goods Bilty # [${activeReference || inputBilty || 'CN-Ref'}].`
-  )}`;
 
   const corridorsList = [
     {
@@ -396,25 +387,22 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
                     </span>
                   </div>
 
-                  {/* Action Buttons */}
+                  {/* Helpful Navigation Links */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <a
-                      href={whatsappUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold p-4 rounded-lg shadow-sm text-sm sm:text-base transition-colors font-urdu cursor-pointer"
+                    <Link
+                      to="/about"
+                      className="flex items-center justify-center gap-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold p-4 rounded-lg shadow-sm text-sm sm:text-base transition-colors font-urdu"
                     >
-                      <MessageCircle className="w-5 h-5" />
-                      <span>{t.contactDispatcher}</span>
-                    </a>
+                      <span>{language === 'ur' ? 'دفتر و رابطہ معلومات دیکھیں' : 'View Office & Contact Info'}</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
 
-                    <a
-                      href={`tel:${COMPANY_INFO.phoneRaw1}`}
-                      className="flex items-center justify-center gap-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold p-4 rounded-lg shadow-sm text-sm sm:text-base transition-colors font-urdu cursor-pointer"
+                    <Link
+                      to="/booking"
+                      className="flex items-center justify-center gap-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold p-4 rounded-lg shadow-sm text-sm sm:text-base transition-colors font-urdu"
                     >
-                      <Phone className="w-5 h-5" />
-                      <span>{t.callHelpline}</span>
-                    </a>
+                      <span>{language === 'ur' ? 'نئی گاڑی کا کرایہ چیک کریں' : 'Check Rates & Book Truck'}</span>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -438,27 +426,23 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
 
                 <p className="text-xs sm:text-sm text-slate-600 font-urdu max-w-lg mx-auto leading-relaxed">
                   {language === 'ur'
-                    ? 'کوئی ریکارڈ نہیں ملا۔ براہ کرم نمبر چیک کریں یا 0300-5370443 پر کال کریں۔'
-                    : 'No record found. Please check the number or call 0300-5370443.'}
+                    ? 'کوئی ریکارڈ نہیں ملا۔ براہ کرم بلٹی نمبر چیک کریں یا اسکرین پر موجود فلوٹنگ واٹس ایپ بٹن یا کمپنی کوائف کے صفحے سے رابطہ کریں۔'
+                    : 'No record found. Please check the bilty number or visit Company Information for Samundri office contact details.'}
                 </p>
 
                 <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
-                  <a
-                    href={whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    to="/about"
                     className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-6 py-3 rounded-lg text-xs sm:text-sm font-urdu transition-colors"
                   >
-                    <MessageCircle className="w-4 h-4 text-emerald-400" />
-                    <span>{t.contactDispatcher}</span>
-                  </a>
-                  <a
-                    href={`tel:${COMPANY_INFO.phoneRaw1}`}
+                    <span>{language === 'ur' ? 'دفتر و رابطہ کوائف دیکھیں' : 'View Company Contact Info'}</span>
+                  </Link>
+                  <Link
+                    to="/booking"
                     className="inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-6 py-3 rounded-lg text-xs sm:text-sm font-urdu transition-colors border border-slate-300"
                   >
-                    <Phone className="w-4 h-4 text-blue-600" />
-                    <span>{t.callHelpline}</span>
-                  </a>
+                    <span>{language === 'ur' ? 'کرایہ و بکنگ فارم' : 'Go to Rates & Booking'}</span>
+                  </Link>
                 </div>
               </div>
             )}

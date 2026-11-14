@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import { PhoneCall, MessageCircle, Truck } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
-import { ContactStrip } from './ContactStrip';
 import { getAssetUrl } from '../utils/assetPath';
 import { useInView, useCountUp } from '../hooks/useMotion';
 
@@ -31,7 +30,7 @@ export const HeroSection: React.FC = () => {
     >
       
       {/* 1. Full-Width Real Photo Background with Dark Navy Overlay (~70%) */}
-      <div className="relative pt-12 pb-24 sm:pt-20 sm:pb-32 lg:pt-24 lg:pb-36 overflow-hidden">
+      <div className="relative pt-12 pb-16 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28 overflow-hidden">
         
         {/* Background Image Container (Ken Burns transform only; never animate opacity) */}
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -165,7 +164,7 @@ export const HeroSection: React.FC = () => {
         <div
           dir="ltr"
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 bottom-14 sm:bottom-16 md:bottom-20 h-6 overflow-hidden z-10"
+          className="pointer-events-none absolute inset-x-0 bottom-3 sm:bottom-5 h-6 overflow-hidden z-10"
         >
           <div className="absolute inset-x-0 bottom-1 border-b border-dashed border-amber-400/35" />
           <div className="hero-truck-drive absolute left-0 bottom-1.5 flex items-center gap-1 text-amber-400/90">
@@ -173,11 +172,6 @@ export const HeroSection: React.FC = () => {
           </div>
         </div>
 
-      </div>
-
-      {/* 2. Overlapping Contact Strip (Call, WhatsApp, Email) */}
-      <div className="-mt-12 sm:-mt-16 md:-mt-20 pb-8 sm:pb-12 bg-slate-50">
-        <ContactStrip />
       </div>
 
     </section>

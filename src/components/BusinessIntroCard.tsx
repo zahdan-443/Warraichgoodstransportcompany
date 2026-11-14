@@ -11,14 +11,9 @@ import {
   UserCheck, 
   Clock, 
   Printer, 
-  ExternalLink,
-  Award,
-  Youtube,
-  Facebook,
-  MessageCircle,
-  Star
+  Award
 } from 'lucide-react';
-import { COMPANY_INFO, MASTER_CITIES, GOOGLE_REVIEW_URL } from '../data/companyData';
+import { COMPANY_INFO, MASTER_CITIES } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
 import { getAssetUrl } from '../utils/assetPath';
 import { useInView } from '../hooks/useMotion';
@@ -65,15 +60,15 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
         <div data-reveal="" className={`text-center max-w-3xl mx-auto mb-8 sm:mb-12 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
           <div className="inline-flex items-center gap-2 bg-amber-50 text-amber-900 border border-amber-200 px-3.5 py-1 rounded-full text-xs font-bold mb-3 shadow-sm">
             <Award className="w-4 h-4 text-amber-700" />
-            <span>{isUrdu ? 'آفیشل بزنس پروفائل و تعارفی کارڈ' : 'Official Business Introduction & Directory'}</span>
+            <span>{isUrdu ? 'کمپنی کی معلومات و رابطہ کوائف' : 'Official Company Information'}</span>
           </div>
           <HeadingTag className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 tracking-tight">
-            {isUrdu ? 'کاروباری تعارف و مکمل رابطہ کوائف' : 'Business Profile & Official Credentials'}
+            {isUrdu ? 'کمپنی کا تعارف، دفتر کا پتہ اور رابطہ' : 'Company Information & Office Address'}
           </HeadingTag>
           <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
             {isUrdu 
-              ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی کے مصدقہ کوائف، سروس نیٹ ورک، پروپرائٹر معلومات اور قانونی رجسٹریشن'
-              : 'Verified credentials, nationwide service coverage network, proprietor leadership, and tax compliance summary.'}
+              ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی کے مصدقہ کوائف، دفتر کا پتہ، موبائل نمبر، سروس نیٹ ورک اور قانونی رجسٹریشن'
+              : 'Verified business credentials, Samundri office address, contact details, and nationwide service coverage.'}
           </p>
         </div>
 
@@ -263,92 +258,9 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600 font-urdu mt-1.5 max-w-3xl">
                   {isUrdu
-                    ? 'ہم پورے پاکستان میں سنگل پارٹی 100% مخصوص فل ٹرک لوڈ (FTL) مال برداری کی آن کال و آن لائن سہولت فراہم کرتے ہیں۔ نیچے دیے گئے تمام شہروں اور صنعتی روٹس کے لیے فوری بکنگ دستیاب ہے:'
-                    : 'We provide dedicated 100% Full Truckload (FTL) freight haulage across Pakistan with direct phone and WhatsApp booking. Daily fleet availability across all key commercial hubs:'}
+                    ? 'سمندری سے پاکستان کے تمام بڑے شہروں اور صنعتی مراکز کے لیے مکمل گاڑی (FTL) بکنگ دستیاب ہے۔'
+                    : 'Dedicated Full Truckload (FTL) haulage from Samundri to commercial hubs across Pakistan:'}
                 </p>
-              </div>
-
-              {/* Two Nationwide Service Cards from Google Business Profile */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                
-                {/* Nationwide Goods Transport & Commercial Cargo */}
-                <div className="bg-amber-50/40 border border-amber-200 rounded-lg p-5 shadow-sm">
-                  <div className="flex items-center justify-between pb-2 mb-2.5 border-b border-amber-100">
-                    <span className="font-bold text-slate-900 text-sm font-urdu flex items-center gap-1.5">
-                      <Truck className="w-4 h-4 text-amber-600" />
-                      <span>{isUrdu ? 'محفوظ اور بروقت مال برداری' : 'Commercial Goods Transport'}</span>
-                    </span>
-                    <span className="text-[11px] font-mono font-bold bg-amber-200/70 text-amber-950 px-2 py-0.5 rounded">
-                      24/7 Nationwide
-                    </span>
-                  </div>
-                  <p className="text-xs sm:text-[13px] text-slate-700 font-urdu leading-relaxed">
-                    {isUrdu
-                      ? 'ہم پورے پاکستان کے لیے محفوظ اور بروقت مال برداری اور تیز رفتار گاڑی بکنگ کی خدمات فراہم کرتے ہیں۔ مناسب ریٹ اور بہترین سروس ہماری پہچان ہے۔ کمرشل کارگو، صنعتی سامان اور زرعی اجناس کی ترسیل کے لیے شہزور پک اپ، مزدا ٹرک، سیمپل اور بیڈفورڈ ہیوی ہالرز 24 گھنٹے دستیاب ہیں۔ واضح بلٹی ریکارڈ اور شفاف کرایہ ہماری ضمانت ہے۔'
-                      : 'We handle commercial loads and fast truck booking across Pakistan. Our fleet includes Mazda trucks, Shahzore pickups, and heavy haulers for all load sizes, with clear bilty receipts and fair rates.'}
-                  </p>
-                  <div className="mt-3.5 pt-3 border-t border-amber-100/80 flex items-center justify-between gap-2">
-                    <span className="text-[11px] text-slate-500 font-urdu">{isUrdu ? 'آن کال و واٹس ایپ بکنگ:' : 'Direct Booking:'}</span>
-                    <div className="flex items-center gap-2">
-                      <a
-                        href="tel:03005370443"
-                        className="inline-flex items-center gap-1 text-[11px] font-bold text-amber-900 bg-amber-100 hover:bg-amber-200 px-2.5 py-1 rounded-lg transition"
-                      >
-                        <Phone className="w-3 h-3 text-amber-700" />
-                        <span>0300-5370443</span>
-                      </a>
-                      <a
-                        href="https://wa.me/923005370443"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-[11px] font-bold text-blue-700 bg-blue-50 hover:bg-blue-100 px-2.5 py-1 rounded-lg transition"
-                      >
-                        <MessageCircle className="w-3 h-3 text-blue-600" />
-                        <span>WhatsApp</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Home Shifting & Office Relocation */}
-                <div className="bg-slate-50 border border-slate-200 rounded-lg p-5 shadow-sm">
-                  <div className="flex items-center justify-between pb-2 mb-2.5 border-b border-slate-200">
-                    <span className="font-bold text-slate-900 text-sm font-urdu flex items-center gap-1.5">
-                      <Truck className="w-4 h-4 text-blue-600" />
-                      <span>{isUrdu ? 'گھریلو سامان و دفتری شفٹنگ' : 'Home Shifting & Office Relocation'}</span>
-                    </span>
-                    <span className="text-[11px] font-mono font-bold bg-slate-200 text-slate-900 px-2 py-0.5 rounded">
-                      Since 2020
-                    </span>
-                  </div>
-                  <p className="text-xs sm:text-[13px] text-slate-700 font-urdu leading-relaxed">
-                    {isUrdu
-                      ? 'گھر کی شفٹنگ، دفتری منتقلی اور لوکل و انٹرسٹی مال برداری میں وڑائچ گڈز آپ کی بااعتماد پارٹنر ہے۔ فرنیچر، نازک سامان اور الیکٹرانکس کی احتیاط سے ہینڈلنگ کے لیے مخصوص گاڑیاں اور تربیت یافتہ عملہ فراہم کیا جاتا ہے۔ چاہے آپ ایک شہر کے اندر منتقل ہو رہے ہوں یا دوسرے شہر، ہم آسان اور سستی شفٹنگ یقینی بناتے ہیں۔'
-                      : 'Offering trusted home shifting, office relocation, and inter-city moving services nationwide. Whether you are moving house, transferring an office, or shipping goods to another city, we provide careful handling, clear bilty records, and affordable rates.'}
-                  </p>
-                  <div className="mt-3.5 pt-3 border-t border-slate-200 flex items-center justify-between gap-2">
-                    <span className="text-[11px] text-slate-500 font-urdu">{isUrdu ? 'آن کال و واٹس ایپ بکنگ:' : 'Direct Booking:'}</span>
-                    <div className="flex items-center gap-2">
-                      <a
-                        href="tel:03005370443"
-                        className="inline-flex items-center gap-1 text-[11px] font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 px-2.5 py-1 rounded-lg transition"
-                      >
-                        <Phone className="w-3 h-3 text-slate-700" />
-                        <span>0300-5370443</span>
-                      </a>
-                      <a
-                        href="https://wa.me/923005370443"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-[11px] font-bold text-blue-700 bg-blue-50 hover:bg-blue-100 px-2.5 py-1 rounded-lg transition"
-                      >
-                        <MessageCircle className="w-3 h-3 text-blue-600" />
-                        <span>WhatsApp</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
               </div>
 
               {/* 10 City Chips Auto-Scrolling Row (pauses on hover & off-screen) + Link */}
@@ -403,115 +315,71 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
                 </div>
               </div>
 
-              {/* Review us on Google Button Below Service Areas */}
-              <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 bg-amber-50/40 border border-amber-200 rounded-lg p-4 sm:p-5 shadow-sm">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-amber-100 border border-amber-300 flex items-center justify-center flex-shrink-0">
-                    <Star className="w-5 h-5 fill-amber-500 text-amber-600" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 text-sm font-urdu">
-                      {isUrdu ? 'کیا آپ نے وڑائچ گڈز ٹرانسپورٹ کے ساتھ مال کی بکنگ کی ہے؟' : 'Have you booked cargo with Warraich Goods?'}
-                    </h4>
-                    <p className="text-xs text-slate-600 font-urdu mt-0.5">
-                      {isUrdu ? 'ہمارے ڈرائیورز، بکنگ اور ترسیل کے متعلق اپنی قیمتی رائے اور ریٹنگ گوگل پر شیئر کریں۔' : 'Share your rating and feedback on our Google profile.'}
-                    </p>
-                  </div>
-                </div>
-
-                <a
-                  href={GOOGLE_REVIEW_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 sm:px-5 py-2.5 rounded-lg text-xs sm:text-sm font-urdu transition shadow-sm active:scale-95 flex-shrink-0"
-                  aria-label="Review Warraich Goods Transport Company on Google"
-                >
-                  <Star className="w-4 h-4 fill-slate-950 text-slate-950" />
-                  <span>{isUrdu ? 'گوگل پر ہمارا ریویو دیں' : 'Review us on Google'}</span>
-                  <ExternalLink className="w-3.5 h-3.5 text-slate-900" />
-                </a>
-              </div>
-
             </div>
 
-              {/* Universal Official Email & Support Timing Ribbon */}
-              <div className="mt-6 bg-slate-900 text-white rounded-lg p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-5 h-5 text-amber-400" />
-                  </div>
-                  <div>
-                    <span className="text-[11px] text-slate-400 uppercase tracking-wider font-mono">Official Email</span>
-                    <p className="text-xs sm:text-sm font-bold font-mono text-white">
-                      {COMPANY_INFO.email}
-                    </p>
-                  </div>
+            {/* 4. Office Address & Single Written Contact Details */}
+            <div className="mt-6 bg-slate-900 text-white rounded-lg p-5 sm:p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {/* Office Address */}
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-5 h-5 text-amber-400" />
                 </div>
-
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-5 h-5 text-amber-400" />
-                  </div>
-                  <div className="font-urdu">
-                    <span className="text-[11px] text-slate-400 uppercase tracking-wider">
-                      {isUrdu ? 'ورکنگ اوقات' : 'Operating Hours'}
-                    </span>
-                    <p className="text-xs sm:text-sm font-bold text-amber-400">
-                      {isUrdu ? '24/7 راؤنڈ دی کلاک ترسیل و لوڈنگ' : '24/7 Round-the-Clock Transit'}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Official Social Media Channels Banner */}
-              <div className="mt-4 bg-slate-50 border border-slate-200 rounded-lg p-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-                <div className="flex items-center gap-2.5">
-                  <span className="text-xs font-bold text-slate-700 font-urdu">
-                    {isUrdu ? 'آفیشل سوشل چینلز و تصدیق شدہ نیٹ ورک:' : 'Official Verified Channels:'}
+                <div>
+                  <span className={`text-[11px] text-slate-400 uppercase tracking-wider block ${isUrdu ? 'font-urdu' : 'font-mono'}`}>
+                    {isUrdu ? 'دفتر کا پتہ' : 'Office Address'}
                   </span>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-2.5">
-                  {/* YouTube Link */}
-                  <a
-                    href={COMPANY_INFO.youtubeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 px-3 py-1.5 rounded-lg text-xs font-bold font-mono transition shadow-sm"
-                    title="Official YouTube Channel"
-                  >
-                    <Youtube className="w-4 h-4 fill-current text-slate-700" />
-                    <span>{COMPANY_INFO.youtubeHandle}</span>
-                    <ExternalLink className="w-3 h-3 text-slate-400" />
-                  </a>
-
-                  {/* Facebook Link */}
-                  <a
-                    href={COMPANY_INFO.facebookUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 hover:border-blue-300 px-3 py-1.5 rounded-lg text-xs font-bold font-urdu transition shadow-sm"
-                    title="Official Facebook Page"
-                  >
-                    <Facebook className="w-4 h-4 fill-current text-blue-600" />
-                    <span>{isUrdu ? 'فیس بک پیج' : 'Facebook Page'}</span>
-                    <ExternalLink className="w-3 h-3 text-blue-400" />
-                  </a>
+                  <p className={`text-xs sm:text-sm font-bold text-white mt-0.5 leading-snug ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
+                    {isUrdu ? COMPANY_INFO.addressUrdu : COMPANY_INFO.addressEnglish}
+                  </p>
                 </div>
               </div>
 
+              {/* Single Written Mobile Number */}
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-5 h-5 text-amber-400" />
+                </div>
+                <div>
+                  <span className={`text-[11px] text-slate-400 uppercase tracking-wider block ${isUrdu ? 'font-urdu' : 'font-mono'}`}>
+                    {isUrdu ? 'موبائل نمبر' : 'Mobile Number'}
+                  </span>
+                  <p dir="ltr" className="text-sm sm:text-base font-black font-mono text-amber-400 mt-0.5 select-all">
+                    {COMPANY_INFO.phone1}
+                  </p>
+                </div>
+              </div>
+
+              {/* Official Email */}
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-5 h-5 text-amber-400" />
+                </div>
+                <div className="min-w-0">
+                  <span className={`text-[11px] text-slate-400 uppercase tracking-wider block ${isUrdu ? 'font-urdu' : 'font-mono'}`}>
+                    {isUrdu ? 'آفیشل ای میل' : 'Official Email'}
+                  </span>
+                  <p className="text-xs sm:text-sm font-bold font-mono text-white mt-0.5 break-all">
+                    {COMPANY_INFO.email}
+                  </p>
+                </div>
+              </div>
+
+              {/* Operating Hours */}
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-5 h-5 text-amber-400" />
+                </div>
+                <div>
+                  <span className={`text-[11px] text-slate-400 uppercase tracking-wider block ${isUrdu ? 'font-urdu' : 'font-mono'}`}>
+                    {isUrdu ? 'ورکنگ اوقات' : 'Operating Hours'}
+                  </span>
+                  <p className={`text-xs sm:text-sm font-bold text-emerald-400 mt-0.5 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
+                    {isUrdu ? '24/7 سروس دستیاب' : '24/7 Round-the-Clock'}
+                  </p>
+                </div>
+              </div>
             </div>
 
-          {/* Bottom Card Footer Watermark */}
-          <div className="bg-slate-50 px-6 sm:px-10 py-3 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-slate-500 font-urdu">
-            <span>
-              {isUrdu 
-                ? '© وڑائچ گڈز ٹرانسپورٹ کمپنی - جملہ حقوق بحقِ ادارہ محفوظ ہیں' 
-                : '© Warraich Goods Transport Company. All rights reserved.'}
-            </span>
-            <span className="font-mono text-[10px] text-slate-400">
-              VERIFIED TRANSPORT BUSINESS • NTN {COMPANY_INFO.ntn}
-            </span>
           </div>
 
         </div>

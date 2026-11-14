@@ -354,8 +354,8 @@ export const CorporateCredibilitySection: React.FC = () => {
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 mt-2 font-urdu max-w-2xl mx-auto leading-relaxed">
               {isUrdu 
-                ? 'پروپرائٹر زاہدان نصر وڑائچ کی فلیٹ نگرانی، تجربہ کار کمرشل ڈرائیورز اور فیلڈ میں براہ راست لوڈنگ و روانگی کا منظم نظام۔' 
-                : 'Hands-on operational oversight by Proprietor Zahdan Nasar Warraich, professional highway drivers, and dedicated dispatch standards.'}
+                ? 'براہِ راست آپریشنل نگرانی، تجربہ کار کمرشل ڈرائیورز اور فیلڈ میں منظم لوڈنگ و روانگی کا نظام۔' 
+                : 'Hands-on operational oversight, professional highway drivers, and dedicated dispatch standards.'}
             </p>
           </div>
 
@@ -497,8 +497,7 @@ export const CorporateCredibilitySection: React.FC = () => {
 
                 <div className="text-xs space-y-1 bg-white p-3 rounded-lg border border-slate-200 shadow-sm font-mono text-center sm:text-right">
                   <div className="font-bold text-amber-600">NTN: {COMPANY_INFO.ntn}</div>
-                  <div className="text-slate-700">Phone: {COMPANY_INFO.phone1}</div>
-                  <div className="text-slate-700">{COMPANY_INFO.phone2}</div>
+                  <div className="text-slate-700">{COMPANY_INFO.cityEnglish}, Punjab</div>
                   <div className="text-slate-500">{COMPANY_INFO.email}</div>
                 </div>
               </div>
@@ -547,7 +546,7 @@ export const CorporateCredibilitySection: React.FC = () => {
                   <div className="py-1 border-b border-slate-100">
                     <span className="text-slate-500 block mb-0.5">{isUrdu ? 'بکنگ کا طریقہ کار:' : 'Booking Mode:'}</span>
                     <span className="font-semibold text-slate-900 block font-urdu">
-                      {isUrdu ? 'فون کال (0300-5370443) اور واٹس ایپ پر 24 گھنٹے فوری بکنگ' : '24/7 Direct Booking via Phone (0300-5370443) & WhatsApp'}
+                      {isUrdu ? '24 گھنٹے ڈائریکٹ فلیٹ ڈسپیچ و آن لائن کرایہ انکوائری' : '24/7 Direct Fleet Dispatch & Online Rate Inquiry'}
                     </span>
                   </div>
                   <div className="flex justify-between py-1">

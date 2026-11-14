@@ -5,8 +5,6 @@ import {
   ArrowUp,
   Youtube,
   Facebook,
-  MessageCircle,
-  Phone,
   Star,
   Share2,
   Check,
@@ -25,7 +23,6 @@ export const Footer: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const whatsappUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}`;
   const shareUrl = SITE_URL;
   const shareTitle = isUrdu 
     ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی - پورے پاکستان کے لیے محفوظ اور بروقت مال برداری اور شفٹنگ'
@@ -88,28 +85,6 @@ export const Footer: React.FC = () => {
               <span>Facebook</span>
             </a>
 
-            {/* WhatsApp */}
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-1.5 rounded-lg text-xs font-bold transition shadow-xs"
-              aria-label="Warraich Goods WhatsApp"
-            >
-              <MessageCircle className="w-4 h-4 fill-current" />
-              <span>WhatsApp</span>
-            </a>
-
-            {/* Phone Helpline */}
-            <a
-              href={`tel:${COMPANY_INFO.phoneRaw1}`}
-              className="inline-flex items-center gap-1.5 bg-amber-500 hover:bg-amber-400 text-slate-950 px-3.5 py-1.5 rounded-lg text-xs font-bold transition shadow-sm"
-              aria-label="Warraich Goods Phone Helpline"
-            >
-              <Phone className="w-3.5 h-3.5 fill-current" />
-              <span>{COMPANY_INFO.phone1}</span>
-            </a>
-
             {/* Review us on Google */}
             <a
               href={GOOGLE_REVIEW_URL}
@@ -136,25 +111,13 @@ export const Footer: React.FC = () => {
               </span>
               <p className="text-[11px] text-slate-400 font-urdu mt-0.5">
                 {isUrdu 
-                  ? 'واٹس ایپ، فیس بک یا لنکڈ ان پر شیئر کریں تاکہ دیگر تاجر بھی معیاری FTL ٹرانسپورٹ سے فائدہ اٹھا سکیں' 
-                  : 'Spread the word across WhatsApp, Facebook, LinkedIn & Twitter'}
+                  ? 'فیس بک، لنکڈ ان یا ایکس پر شیئر کریں تاکہ دیگر تاجر بھی معیاری FTL ٹرانسپورٹ سے فائدہ اٹھا سکیں' 
+                  : 'Spread the word across Facebook, LinkedIn & Twitter'}
               </p>
             </div>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-2">
-            {/* Share on WhatsApp */}
-            <a
-              href={`https://api.whatsapp.com/send?text=${encodeURIComponent(`${shareTitle}\n${shareUrl}`)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-500 text-white px-3 py-1.5 rounded-lg text-xs font-bold font-urdu transition shadow-sm"
-              aria-label="Share on WhatsApp"
-            >
-              <MessageCircle className="w-3.5 h-3.5 fill-current" />
-              <span>{isUrdu ? 'واٹس ایپ پر شیئر' : 'Share WhatsApp'}</span>
-            </a>
-
             {/* Share on Facebook */}
             <a
               href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}

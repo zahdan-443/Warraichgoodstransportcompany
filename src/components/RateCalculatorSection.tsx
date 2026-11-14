@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Calculator, 
   MapPin, 
@@ -7,13 +8,13 @@ import {
   Phone, 
   User, 
   Package, 
-  MessageCircle, 
   CheckCircle2,
   Lock,
   Copy,
   Check,
   Clock,
-  Building2
+  Building2,
+  ArrowRight
 } from 'lucide-react';
 import { COMPANY_INFO, FLEET_DATA, PAKISTAN_CITIES, GOODS_TYPES } from '../data/companyData';
 import { BookingFormData } from '../types';
@@ -215,19 +216,9 @@ Please advise regarding the most competitive freight quotation and earliest vehi
 
   const routeInsight = getRouteInsight();
 
-  const handleWhatsAppSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const text = generateWhatsAppMessage();
-    const encoded = encodeURIComponent(text);
-    const whatsappUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encoded}`;
-    try {
-      const win = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-      if (!win) {
-        window.location.href = whatsappUrl;
-      }
-    } catch {
-      window.location.href = whatsappUrl;
-    }
+    handleCopySummary();
   };
 
   return (
@@ -298,7 +289,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
               <Lock className="w-4 h-4 flex-shrink-0 text-amber-600" />
             </div>
 
-            <form onSubmit={handleWhatsAppSubmit} className="space-y-4 sm:space-y-5">
+            <form onSubmit={handleFormSubmit} className="space-y-4 sm:space-y-5">
               
               {/* Corporate Exclusive Fields (When in Corporate Mode) */}
               {isCorporateMode && (
@@ -564,49 +555,40 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                 ></textarea>
               </div>
 
-              {/* Submit & Copy Actions */}
+              {/* Generate & Copy Quote Summary Action */}
               <div className="pt-2 space-y-2.5">
-                <div className="grid grid-cols-1 sm:grid-cols-12 gap-2.5">
-                  <button
-                    id="booking-submit-whatsapp-btn"
-                    type="submit"
-                    className={`cta-subtle-pulse sm:col-span-8 flex items-center justify-center gap-2.5 font-bold py-3.5 px-6 rounded-xl shadow-xs text-sm sm:text-base transition-all cursor-pointer min-h-[48px] font-urdu active:scale-98 ${
-                      isCorporateMode
-                        ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                        : 'bg-emerald-600 hover:bg-emerald-500 text-white'
-                    }`}
-                  >
-                    <MessageCircle className="w-5 h-5 fill-current flex-shrink-0" />
-                    <span>
-                      {isCorporateMode 
-                        ? (language === 'ur' ? 'کارپوریٹ انکوائری واٹس ایپ پر بھیجیں' : 'Send B2B Inquiry on WhatsApp')
-                        : tCalc.submitBtn}
-                    </span>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={handleCopySummary}
-                    className="sm:col-span-4 flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3.5 px-4 rounded-xl border border-slate-200 transition-all cursor-pointer min-h-[48px] font-urdu text-xs sm:text-sm active:scale-98"
-                  >
-                    {copiedSummary ? (
-                      <>
-                        <Check className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                        <span className="text-emerald-700 font-bold">{isUrdu ? 'کوائف کاپی ہو گئے!' : 'Copied!'}</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="w-4 h-4 text-slate-600 flex-shrink-0" />
-                        <span>{isUrdu ? 'کوائف کاپی کریں' : 'Copy Load Info'}</span>
-                      </>
-                    )}
-                  </button>
-                </div>
+                <button
+                  id="booking-copy-summary-btn"
+                  type="submit"
+                  className={`w-full flex items-center justify-center gap-2.5 font-bold py-3.5 px-6 rounded-xl shadow-xs text-sm sm:text-base transition-all cursor-pointer min-h-[48px] font-urdu active:scale-98 ${
+                    copiedSummary
+                      ? 'bg-emerald-600 text-white'
+                      : isCorporateMode
+                      ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                      : 'bg-amber-500 hover:bg-amber-400 text-slate-950'
+                  }`}
+                >
+                  {copiedSummary ? (
+                    <>
+                      <Check className="w-5 h-5 flex-shrink-0" />
+                      <span>{isUrdu ? 'لوڈ کی تفصیلات کاپی ہو گئیں!' : 'Quote Summary Copied!'}</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-5 h-5 flex-shrink-0" />
+                      <span>
+                        {isCorporateMode
+                          ? (isUrdu ? 'کارپوریٹ انکوائری کی تفصیل کاپی کریں' : 'Generate & Copy B2B Inquiry')
+                          : (isUrdu ? 'گاڑی بکنگ و کرایہ کا خلاصہ کاپی کریں' : 'Generate & Copy Quote Summary')}
+                      </span>
+                    </>
+                  )}
+                </button>
 
                 <p className="text-center text-xs text-slate-500 font-urdu">
-                  {isCorporateMode 
-                    ? (language === 'ur' ? 'براہ راست پروپرائٹر کے ساتھ آفیشل واٹس ایپ پر رابطہ اور کوٹیشن شیئرنگ' : 'Chat directly with the owner on WhatsApp to discuss your business requirements.')
-                    : tCalc.submitHint}
+                  {isUrdu
+                    ? 'خلاصہ کاپی کر کے دائیں نیچے موجود واٹس ایپ بٹن یا ہوم ہیرو کے کال بٹن سے شیئر کریں۔'
+                    : 'Copy your formatted route summary and send it via our floating WhatsApp button or Hero Call option.'}
                 </p>
               </div>
 
@@ -652,17 +634,18 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                 </div>
               </div>
 
-              {/* Direct Booking Helpline */}
+              {/* Link to Company Contact Info */}
               <div className="mt-5 pt-3 border-t border-slate-200 text-center">
-                <p className="text-xs text-slate-500 mb-2 font-urdu">{language === 'ur' ? 'فوری ٹیلی فونک تصدیق کے لیے:' : 'For instant phone confirmation:'}</p>
-                <a
-                  href={`tel:${COMPANY_INFO.phoneRaw1}`}
-                  className="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 px-4 rounded-lg w-full text-sm transition-colors shadow-sm cursor-pointer min-h-[44px]"
-                  aria-label={`Call ${COMPANY_INFO.phone1}`}
+                <p className="text-xs text-slate-500 mb-2 font-urdu">
+                  {language === 'ur' ? 'دفتر کا پتہ و رابطہ معلومات:' : 'Office Address & Contact Details:'}
+                </p>
+                <Link
+                  to="/about"
+                  className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-2.5 px-4 rounded-lg w-full text-sm transition-colors shadow-sm min-h-[44px]"
                 >
-                  <Phone className="w-4 h-4 fill-current" />
-                  <span className="font-urdu font-bold">{language === 'ur' ? 'بکنگ کے لیے ابھی کال ملائیں' : 'Call for Booking'}</span>
-                </a>
+                  <span className="font-urdu font-bold">{language === 'ur' ? 'کمپنی و دفتر کوائف دیکھیں' : 'View Company Information'}</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
             </div>
 

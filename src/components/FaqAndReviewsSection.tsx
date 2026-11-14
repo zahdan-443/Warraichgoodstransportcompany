@@ -29,7 +29,7 @@ export const FaqAndReviewsSection: React.FC = () => {
     },
     {
       q: 'گھریلو شفٹنگ یا مال برداری کے لیے گاڑی کیسے بک کریں؟',
-      a: 'آپ کسی بھی وقت فون کال یا واٹس ایپ (0300-5370443) پر رابطہ کر کے اپنا روٹ اور سامان بتا کر گاڑی بک کر سکتے ہیں۔'
+      a: 'آپ کسی بھی وقت ہوم پیج کے ہیرو سیکشن یا فلوٹنگ واٹس ایپ بٹن سے رابطہ کر کے یا کرایہ و بکنگ فارم کے ذریعے اپنا روٹ اور سامان بتا کر گاڑی بک کر سکتے ہیں۔'
     },
     {
       q: 'آپ کے پاس کون کون سی گاڑیاں دستیاب ہیں؟',
@@ -56,7 +56,7 @@ export const FaqAndReviewsSection: React.FC = () => {
     },
     {
       q: 'How can I book a truck for house shifting or commercial delivery?',
-      a: 'Call or WhatsApp us at 0300-5370443 anytime. Share your pickup city, drop-off location, and load details for a quick quote and truck booking.'
+      a: 'Use the Call or WhatsApp buttons in our homepage hero, the floating WhatsApp button, or our Rates & Booking page anytime to share your route and load details for a quick quote.'
     },
     {
       q: 'What types of trucks are in your fleet?',

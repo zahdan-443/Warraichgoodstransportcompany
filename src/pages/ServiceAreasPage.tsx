@@ -1,8 +1,8 @@
 import React from 'react';
-import { MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { MapPin, ArrowRight } from 'lucide-react';
 import { MASTER_CITIES, ServiceAreaRegion } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
-import { ContactStrip } from '../components/ContactStrip';
 
 const REGION_GROUPS: {
   id: ServiceAreaRegion;
@@ -94,9 +94,41 @@ export const ServiceAreasPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Contact Strip */}
+      {/* Internal Navigation CTA (No duplicate phone/Call/WhatsApp buttons) */}
       <section className="pb-12 sm:pb-16 pt-2">
-        <ContactStrip />
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className={isUrdu ? 'font-urdu text-center sm:text-start' : 'font-sans text-center sm:text-start'}>
+              <h2 className="text-lg sm:text-xl font-black text-slate-950">
+                {isUrdu ? 'گاڑی بک کرنی ہے یا کرایہ معلوم کرنا ہے؟' : 'Need a Truck or Freight Rate for These Cities?'}
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 mt-1">
+                {isUrdu
+                  ? 'روٹ کا کرایہ چیک کریں یا ہمارے سمندری دفتر کی مکمل معلومات دیکھیں۔'
+                  : 'Use our rate inquiry form or view our Samundri office address and contact details.'}
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center justify-center gap-3 flex-shrink-0">
+              <Link
+                to="/booking"
+                className={`inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-xs sm:text-sm transition-colors shadow-sm ${
+                  isUrdu ? 'font-urdu' : 'font-sans'
+                }`}
+              >
+                <span>{isUrdu ? 'کرایہ و بکنگ' : 'Rates & Booking'}</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                to="/about"
+                className={`inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-5 py-2.5 rounded-xl text-xs sm:text-sm transition-colors ${
+                  isUrdu ? 'font-urdu' : 'font-sans'
+                }`}
+              >
+                <span>{isUrdu ? 'کمپنی و رابطہ کوائف' : 'Company Contact Info'}</span>
+              </Link>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );

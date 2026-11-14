@@ -192,7 +192,7 @@ export const TRANSLATIONS = {
       benefit2: 'Commercial goods delivery across all cities',
       benefit3: 'Careful handling, bilty receipts, and fair rates',
       btnCalculate: 'Check Rates Online',
-      btnCall: 'Call 0300-5370443',
+      btnCall: 'Call Now',
       stats: {
         trucks: 'Truck Types',
         trucksVal: 'Mazda, Shahzore & Heavy Trucks',
@@ -305,7 +305,7 @@ export const TRANSLATIONS = {
       notFoundTitle: 'Bilty Record Details',
       notFoundDesc: 'For current truck location and driver phone number, please contact us on WhatsApp or call our office.',
       contactDispatcher: 'Get Location on WhatsApp',
-      callHelpline: 'Call 0300-5370443',
+      callHelpline: 'Office Contact Details',
       statusInTransit: 'On the road to destination',
       statusDelivered: 'Delivered safely with signed receipt',
       statusDispatched: 'Loaded and departed',
