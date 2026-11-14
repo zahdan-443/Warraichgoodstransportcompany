@@ -55,7 +55,7 @@ export const WhyUsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+        <div data-reveal="" className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <span className="text-xs font-bold font-mono uppercase tracking-wider text-amber-600 block mb-1">
             {isUrdu ? 'ہماری بنیادی ضمانتیں' : 'Our Guarantees'}
           </span>
@@ -71,7 +71,7 @@ export const WhyUsSection: React.FC = () => {
 
         {/* 4 Clean Cards: Single column on mobile, 2 on tablet, 4 on desktop */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {guarantees.map((item) => {
+          {guarantees.map((item, idx) => {
             const IconComponent = item.icon;
             const title = isUrdu ? item.titleUr : item.titleEn;
             const desc = isUrdu ? item.descUr : item.descEn;
@@ -79,7 +79,9 @@ export const WhyUsSection: React.FC = () => {
             return (
               <div 
                 key={item.id}
-                className="relative overflow-hidden bg-white hover:bg-white border border-slate-200 hover:border-blue-400 rounded-2xl p-5 sm:p-6 transition-all duration-300 shadow-xs hover:shadow-md flex flex-col justify-between group"
+                data-reveal=""
+                style={{ '--reveal-delay': `${idx * 70}ms` } as React.CSSProperties}
+                className="relative overflow-hidden bg-white hover:bg-white border border-slate-200 hover:border-blue-400 rounded-2xl p-5 sm:p-6 shadow-xs hover:shadow-md flex flex-col justify-between group card-interactive"
               >
                 {/* Subtle Faint Large Watermark Icon in Corner */}
                 <IconComponent 
@@ -90,7 +92,7 @@ export const WhyUsSection: React.FC = () => {
                 <div className="relative z-10 space-y-3">
                   
                   {/* Rounded Icon Box */}
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 border ${item.accent} group-hover:scale-105 transition-transform`}>
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 border ${item.accent} card-icon-nudge`}>
                     <IconComponent className="w-6 h-6" />
                   </div>
 
@@ -110,7 +112,7 @@ export const WhyUsSection: React.FC = () => {
                 <div className="relative z-10 pt-4 mt-4 border-t border-slate-100">
                   <Link
                     to={item.to}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 hover:text-blue-600 font-urdu group-hover:translate-x-1 transition-all"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 hover:text-blue-600 font-urdu group-hover:translate-x-1 transition-transform"
                   >
                     <span>{isUrdu ? 'مزید معلومات اور طریقہ کار ←' : 'Learn more →'}</span>
                   </Link>

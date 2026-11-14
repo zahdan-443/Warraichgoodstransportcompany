@@ -53,12 +53,14 @@ export const ServiceAreasPage: React.FC = () => {
       {/* City Groups */}
       <section className="py-10 sm:py-14">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 space-y-8">
-          {REGION_GROUPS.map((group) => {
+          {REGION_GROUPS.map((group, idx) => {
             const cities = MASTER_CITIES.filter((city) => city.region === group.id);
             return (
               <div
                 key={group.id}
-                className="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm"
+                data-reveal=""
+                style={{ '--reveal-delay': `${idx * 80}ms` } as React.CSSProperties}
+                className="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm card-interactive group"
               >
                 <div className="flex items-center justify-between gap-3 pb-4 mb-5 border-b border-slate-100">
                   <h2
@@ -77,7 +79,7 @@ export const ServiceAreasPage: React.FC = () => {
                   {cities.map((city) => (
                     <span
                       key={city.id}
-                      className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 text-sm font-semibold ${
+                      className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 text-sm font-semibold transition-colors hover:border-amber-300 hover:bg-amber-50/40 ${
                         isUrdu ? 'font-urdu' : 'font-sans'
                       }`}
                     >

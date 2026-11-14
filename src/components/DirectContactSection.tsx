@@ -24,7 +24,7 @@ export const DirectContactSection: React.FC = () => {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10">
+        <div data-reveal="" className="text-center max-w-2xl mx-auto mb-10">
           <span className="text-xs font-bold font-mono uppercase tracking-wider text-amber-600 block mb-1">
             {isUrdu ? 'براہِ راست رابطہ' : 'Direct Communication'}
           </span>
@@ -39,7 +39,7 @@ export const DirectContactSection: React.FC = () => {
         </div>
 
         {/* ONE Single "Direct Communication" Card */}
-        <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 md:p-10 shadow-xl border border-slate-800 relative overflow-hidden">
+        <div data-reveal="" style={{ '--reveal-delay': '80ms' } as React.CSSProperties} className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 md:p-10 shadow-xl border border-slate-800 relative overflow-hidden">
           
           {/* Subtle Accent Glow */}
           <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -77,7 +77,7 @@ export const DirectContactSection: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
                 
                 {/* 1. Main Single Phone */}
-                <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-4 space-y-1">
+                <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-4 space-y-1 card-interactive">
                   <span className="text-[11px] font-mono text-slate-400 block">
                     {isUrdu ? 'مرکزی رابطہ نمبر' : 'PRIMARY PHONE'}
                   </span>
@@ -90,7 +90,7 @@ export const DirectContactSection: React.FC = () => {
                 </div>
 
                 {/* 2. Single Samundri Address */}
-                <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-4 space-y-1">
+                <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-4 space-y-1 card-interactive">
                   <span className="text-[11px] font-mono text-slate-400 block">
                     {isUrdu ? 'دفتر کا پتہ' : 'OFFICE ADDRESS'}
                   </span>
@@ -103,7 +103,7 @@ export const DirectContactSection: React.FC = () => {
                 </div>
 
                 {/* 3. WhatsApp */}
-                <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-4 space-y-1">
+                <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-4 space-y-1 card-interactive">
                   <span className="text-[11px] font-mono text-slate-400 block">
                     {isUrdu ? 'آفیشل واٹس ایپ' : 'OFFICIAL WHATSAPP'}
                   </span>
@@ -116,7 +116,7 @@ export const DirectContactSection: React.FC = () => {
                 </div>
 
                 {/* 4. Official Email */}
-                <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-4 space-y-1">
+                <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-4 space-y-1 card-interactive">
                   <span className="text-[11px] font-mono text-slate-400 block">
                     {isUrdu ? 'کارپوریٹ ای میل' : 'OFFICIAL EMAIL'}
                   </span>
@@ -155,7 +155,7 @@ export const DirectContactSection: React.FC = () => {
               <a
                 id="direct-call-btn"
                 href={`tel:${COMPANY_INFO.phoneRaw1}`}
-                className={`w-full inline-flex items-center justify-center gap-2.5 bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-slate-950 font-black px-6 py-4 rounded-xl text-base shadow-md hover:shadow-lg transition-all active:scale-98 cursor-pointer min-h-[50px] ${isUrdu ? 'font-urdu' : 'font-sans'}`}
+                className={`cta-subtle-pulse w-full inline-flex items-center justify-center gap-2.5 bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-slate-950 font-black px-6 py-4 rounded-xl text-base shadow-md hover:shadow-lg transition-all active:scale-98 cursor-pointer min-h-[50px] ${isUrdu ? 'font-urdu' : 'font-sans'}`}
               >
                 <Phone className="w-5 h-5 fill-current" />
                 <span>{isUrdu ? `کال کریں: ${COMPANY_INFO.phone1}` : `Call Now: ${COMPANY_INFO.phone1}`}</span>

@@ -61,9 +61,9 @@ export const ContactStrip: React.FC = () => {
               href={card.href}
               target={card.external ? '_blank' : undefined}
               rel={card.external ? 'noopener noreferrer' : undefined}
-              className="bg-white hover:bg-slate-50 rounded-2xl shadow-xl border border-slate-200/90 hover:border-amber-400 p-4 sm:p-5 transition-all flex items-center gap-3.5 group"
+              className="card-interactive bg-white hover:bg-slate-50 rounded-2xl shadow-xl border border-slate-200/90 hover:border-amber-400 p-4 sm:p-5 flex items-center gap-3.5 group"
             >
-              <div className={`w-11 h-11 rounded-xl border flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform ${card.iconWrapClass}`}>
+              <div className={`card-icon-nudge w-11 h-11 rounded-xl border flex items-center justify-center flex-shrink-0 ${card.iconWrapClass}`}>
                 <IconComponent className="w-5 h-5" />
               </div>
               <div className="min-w-0 flex-1 text-start">

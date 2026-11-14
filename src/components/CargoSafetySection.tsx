@@ -76,7 +76,7 @@ export const CargoSafetySection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+        <div data-reveal="" className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-3 font-urdu shadow-sm">
             <ShieldCheck className="w-4 h-4 text-blue-700 flex-shrink-0" />
             <span>{t.badge}</span>
@@ -97,10 +97,12 @@ export const CargoSafetySection: React.FC = () => {
             return (
               <div 
                 key={idx} 
-                className={`bg-white p-5 rounded-lg border ${feat.borderColor} hover:shadow-md transition-all shadow-sm flex flex-col justify-between`}
+                data-reveal=""
+                style={{ '--reveal-delay': `${(idx % 3) * 70}ms` } as React.CSSProperties}
+                className={`bg-white p-5 rounded-lg border ${feat.borderColor} hover:shadow-md shadow-sm flex flex-col justify-between group card-interactive`}
               >
                 <div>
-                  <div className={`w-10 h-10 rounded-lg ${feat.iconBg} border flex items-center justify-center mb-3.5 ${language === 'ur' ? 'ml-auto' : 'mr-auto'}`}>
+                  <div className={`w-10 h-10 rounded-lg ${feat.iconBg} border flex items-center justify-center mb-3.5 card-icon-nudge ${language === 'ur' ? 'ml-auto' : 'mr-auto'}`}>
                     <Icon className="w-5 h-5" />
                   </div>
                   <p className="font-bold text-base text-slate-900 font-urdu mb-1.5">
@@ -116,7 +118,7 @@ export const CargoSafetySection: React.FC = () => {
         </div>
 
         {/* Reassurance Banner with Visual Tarpaulin Protection Showcase */}
-        <div className={`mt-8 sm:mt-12 bg-amber-50/40 text-slate-900 rounded-lg p-5 sm:p-7 border border-amber-200 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-6 items-center ${language === 'ur' ? 'text-right' : 'text-left'}`}>
+        <div data-reveal="" className={`mt-8 sm:mt-12 bg-amber-50/40 text-slate-900 rounded-lg p-5 sm:p-7 border border-amber-200 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-6 items-center ${language === 'ur' ? 'text-right' : 'text-left'}`}>
           
           {/* Image Showcase Frame */}
           <div className="lg:col-span-5 relative rounded-lg overflow-hidden shadow-sm border border-amber-200">

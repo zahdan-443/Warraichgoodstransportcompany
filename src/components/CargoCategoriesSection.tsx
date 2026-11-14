@@ -181,7 +181,7 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+        <div data-reveal="" className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <div className={`inline-flex items-center gap-2 bg-blue-100 border border-blue-300 text-blue-900 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold mb-3 ${fontClass}`}>
             <Package className="w-4 h-4 text-blue-700" />
             <span>{t.badge}</span>
@@ -197,7 +197,7 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
 
         {/* All 5 Categories Stacked Vertically as Distinct Detailed Cards */}
         <div className="space-y-8 sm:space-y-12">
-          {categories.map((category) => {
+          {categories.map((category, idx) => {
             const categoryTitle = language === 'ur' ? category.titleUrdu : category.titleEnglish;
             const categoryBadge = language === 'ur' ? category.badgeUrdu : category.badgeEnglish;
             const categorySubtitle = language === 'ur' ? category.titleEnglish : category.titleUrdu;
@@ -210,7 +210,9 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
               <div 
                 key={category.id}
                 id={`cargo-card-${category.id}`}
-                className="bg-white text-slate-900 rounded-xl p-5 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
+                data-reveal=""
+                style={{ '--reveal-delay': `${Math.min(idx, 3) * 60}ms` } as React.CSSProperties}
+                className="bg-white text-slate-900 rounded-xl p-5 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md card-interactive"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
                   

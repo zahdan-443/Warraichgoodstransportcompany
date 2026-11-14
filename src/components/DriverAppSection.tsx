@@ -43,7 +43,7 @@ export const DriverAppSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left Column: Download Info & 3 Feature Lines */}
-          <div className="lg:col-span-7 space-y-5">
+          <div data-reveal="" className="lg:col-span-7 space-y-5">
             
             <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 px-3.5 py-1.5 rounded-full text-xs font-bold font-mono">
               <Smartphone className="w-4 h-4 text-emerald-600 flex-shrink-0" />
@@ -77,8 +77,13 @@ export const DriverAppSection: React.FC = () => {
             {/* 3 Short Feature Lines */}
             <div className="space-y-3 pt-2">
               {featureLines.map((feat, idx) => (
-                <div key={idx} className="flex items-start gap-3 bg-white border border-slate-200/80 rounded-xl p-3.5 shadow-2xs">
-                  <div className="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 mt-0.5 font-mono text-xs font-bold">
+                <div
+                  key={idx}
+                  data-reveal=""
+                  style={{ '--reveal-delay': `${idx * 70}ms` } as React.CSSProperties}
+                  className="flex items-start gap-3 bg-white border border-slate-200/80 rounded-xl p-3.5 shadow-2xs card-interactive group"
+                >
+                  <div className="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 mt-0.5 font-mono text-xs font-bold card-icon-nudge">
                     0{idx + 1}
                   </div>
                   <div>
@@ -116,10 +121,10 @@ export const DriverAppSection: React.FC = () => {
           </div>
 
           {/* Right Column: Smartphone Frame Mockup */}
-          <div className="lg:col-span-5 flex justify-center">
+          <div data-reveal="" style={{ '--reveal-delay': '120ms' } as React.CSSProperties} className="lg:col-span-5 flex justify-center">
             
             {/* Phone Outer Chassis Frame */}
-            <div className="relative w-64 sm:w-72 rounded-[40px] bg-slate-950 p-3 shadow-2xl border-4 border-slate-800">
+            <div className="relative w-64 sm:w-72 rounded-[40px] bg-slate-950 p-3 shadow-2xl border-4 border-slate-800 card-interactive">
               
               {/* Speaker / Camera Notch */}
               <div className="absolute top-5 left-1/2 -translate-x-1/2 w-24 h-4 bg-slate-900 rounded-full z-20 flex items-center justify-center gap-1.5">

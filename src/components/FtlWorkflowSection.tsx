@@ -116,7 +116,7 @@ export const FtlWorkflowSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-16">
+        <div data-reveal="" className="text-center max-w-3xl mx-auto mb-8 sm:mb-16">
           <div className="inline-flex items-center gap-2 bg-blue-100 border border-blue-300 text-blue-900 px-3.5 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-3 font-urdu shadow-sm">
             <Truck className="w-4 h-4 text-blue-700 flex-shrink-0" />
             <span>{t.badge}</span>
@@ -137,7 +137,9 @@ export const FtlWorkflowSection: React.FC = () => {
             return (
               <div 
                 key={idx} 
-                className={`bg-white border ${s.borderColor} rounded-lg p-5 relative transition-all duration-300 shadow-sm hover:shadow-md flex flex-col justify-between`}
+                data-reveal=""
+                style={{ '--reveal-delay': `${idx * 75}ms` } as React.CSSProperties}
+                className={`bg-white border ${s.borderColor} rounded-lg p-5 relative shadow-sm hover:shadow-md flex flex-col justify-between group card-interactive`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-3.5">
@@ -149,7 +151,7 @@ export const FtlWorkflowSection: React.FC = () => {
                     </span>
                   </div>
 
-                  <div className={`w-10 h-10 rounded-lg ${s.iconBg} flex items-center justify-center mb-3.5 border ${language === 'ur' ? 'ml-auto' : 'mr-auto'}`}>
+                  <div className={`w-10 h-10 rounded-lg ${s.iconBg} flex items-center justify-center mb-3.5 border card-icon-nudge ${language === 'ur' ? 'ml-auto' : 'mr-auto'}`}>
                     <Icon className="w-5 h-5" />
                   </div>
 
@@ -166,7 +168,7 @@ export const FtlWorkflowSection: React.FC = () => {
         </div>
 
         {/* FTL Core Advantages vs Loose Cargo Notice Banner */}
-        <div className="bg-white border border-slate-200 rounded-lg p-5 sm:p-8 shadow-sm">
+        <div data-reveal="" className="bg-white border border-slate-200 rounded-lg p-5 sm:p-8 shadow-sm">
           
           <div className={`flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 sm:gap-6 border-b border-slate-200 pb-5 sm:pb-6 mb-6 sm:mb-8 ${language === 'ur' ? 'text-right' : 'text-left'}`}>
             <div>

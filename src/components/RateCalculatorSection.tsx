@@ -570,7 +570,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                   <button
                     id="booking-submit-whatsapp-btn"
                     type="submit"
-                    className={`sm:col-span-8 flex items-center justify-center gap-2.5 font-bold py-3.5 px-6 rounded-xl shadow-xs text-sm sm:text-base transition-all cursor-pointer min-h-[48px] font-urdu active:scale-98 ${
+                    className={`cta-subtle-pulse sm:col-span-8 flex items-center justify-center gap-2.5 font-bold py-3.5 px-6 rounded-xl shadow-xs text-sm sm:text-base transition-all cursor-pointer min-h-[48px] font-urdu active:scale-98 ${
                       isCorporateMode
                         ? 'bg-blue-600 hover:bg-blue-700 text-white'
                         : 'bg-emerald-600 hover:bg-emerald-500 text-white'

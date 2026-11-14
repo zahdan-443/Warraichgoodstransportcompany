@@ -24,7 +24,7 @@ export const FloatingActions: React.FC = () => {
         aria-label={isUrdu ? 'واٹس ایپ پر فوری رابطہ کریں' : 'Chat on WhatsApp'}
         title={isUrdu ? 'واٹس ایپ پر فوری رابطہ کریں' : 'Chat on WhatsApp'}
       >
-        <span className="absolute inset-0 rounded-full bg-emerald-400 animate-ping opacity-20 pointer-events-none" />
+        <span className="wa-soft-ring absolute inset-0 rounded-full bg-emerald-400/60 pointer-events-none" aria-hidden="true" />
         <MessageCircle className="w-7 h-7 sm:w-8 sm:h-8 fill-current text-white relative z-10" />
       </a>
     </aside>

@@ -1,13 +1,21 @@
-import React from 'react';
-import { PhoneCall, MessageCircle } from 'lucide-react';
+import React, { useRef } from 'react';
+import { PhoneCall, MessageCircle, Truck } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
 import { ContactStrip } from './ContactStrip';
 import { getAssetUrl } from '../utils/assetPath';
+import { useInView, useCountUp } from '../hooks/useMotion';
 
 export const HeroSection: React.FC = () => {
   const { language } = useLanguage();
   const isUrdu = language === 'ur';
+  const heroRef = useRef<HTMLElement | null>(null);
+  const isHeroInView = useInView(heroRef, '100px');
+
+  // Count-up preserves final numbers in SSR/initial HTML (2020, 4, 24/7)
+  const yearVal = useCountUp(2020, 1995, 650);
+  const fleetVal = useCountUp(4, 1, 500);
+  const hoursVal = useCountUp(24, 0, 600);
 
   const whatsappUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(
     isUrdu
@@ -16,24 +24,27 @@ export const HeroSection: React.FC = () => {
   )}`;
 
   return (
-    <section id="hero" className="relative text-white overflow-hidden">
+    <section
+      ref={heroRef}
+      id="hero"
+      className={`relative text-white overflow-hidden ${isHeroInView ? '' : 'anim-paused'}`}
+    >
       
       {/* 1. Full-Width Real Photo Background with Dark Navy Overlay (~70%) */}
       <div className="relative pt-12 pb-24 sm:pt-20 sm:pb-32 lg:pt-24 lg:pb-36 overflow-hidden">
         
-        {/* Background Image Container */}
-        <div className="absolute inset-0 z-0">
+        {/* Background Image Container (Ken Burns transform only; never animate opacity) */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <img
             src={getAssetUrl('images/road-highway.webp')}
             alt="Warraich Goods Transport Commercial FTL Highway Transit"
-            width={1920}
-            height={1080}
+            width={1280}
+            height={714}
             loading="eager"
             fetchPriority="high"
             decoding="async"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-center hero-ken-burns"
             onError={(e) => {
-              // Fallback to factory warehouse if highway image fails
               e.currentTarget.src = getAssetUrl('images/factory-warehouse.webp');
             }}
           />
@@ -47,37 +58,43 @@ export const HeroSection: React.FC = () => {
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5 sm:space-y-6">
           
           {/* Primary Large Headline with ONE Highlighted Amber Word */}
-          {isUrdu ? (
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto font-urdu">
-              پورے پاکستان کے لیے بااعتماد <span className="text-amber-400">مال برداری و شفٹنگ</span> سروس
-            </h1>
-          ) : (
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto font-sans">
-              Reliable <span className="text-amber-400">Goods Transport</span> & Shifting Across Pakistan
-            </h1>
-          )}
+          <div className="hero-stagger-1">
+            {isUrdu ? (
+              <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto font-urdu">
+                پورے پاکستان کے لیے بااعتماد <span className="text-amber-400">مال برداری و شفٹنگ</span> سروس
+              </h1>
+            ) : (
+              <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto font-sans">
+                Reliable <span className="text-amber-400">Goods Transport</span> & Shifting Across Pakistan
+              </h1>
+            )}
+          </div>
 
           {/* Tagline Subtitle */}
-          <p className={`text-base sm:text-xl font-bold text-slate-200 leading-relaxed max-w-3xl mx-auto ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
-            {isUrdu ? COMPANY_INFO.taglineUrdu : 'Home shifting, office moving, and commercial goods transport since 2020.'}
-          </p>
+          <div className="hero-stagger-2">
+            <p className={`text-base sm:text-xl font-bold text-slate-200 leading-relaxed max-w-3xl mx-auto ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
+              {isUrdu ? COMPANY_INFO.taglineUrdu : 'Home shifting, office moving, and commercial goods transport since 2020.'}
+            </p>
+          </div>
 
           {/* Short Subtext */}
-          <p className={`text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed max-w-3xl mx-auto ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
-            {isUrdu
-              ? 'گھریلو سامان شفٹنگ، دفتری منتقلی اور کمرشل مال برداری کے لیے مزدا ٹرک، شہزور پک اپ اور ہیوی ٹرکس کی 24/7 تیز رفتار بکنگ۔ محفوظ ہینڈلنگ، کمپیوٹرائزڈ بلٹی اور مناسب ترین ریٹ۔'
-              : 'We provide Shahzore pickups, Mazda trucks, and heavy haulers for full truckload trips anywhere in Pakistan. Careful handling, clear bilty receipts, and fair rates.'}
-          </p>
+          <div className="hero-stagger-3">
+            <p className={`text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed max-w-3xl mx-auto ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
+              {isUrdu
+                ? 'گھریلو سامان شفٹنگ، دفتری منتقلی اور کمرشل مال برداری کے لیے مزدا ٹرک، شہزور پک اپ اور ہیوی ٹرکس کی 24/7 تیز رفتار بکنگ۔ محفوظ ہینڈلنگ، کمپیوٹرائزڈ بلٹی اور مناسب ترین ریٹ۔'
+                : 'We provide Shahzore pickups, Mazda trucks, and heavy haulers for full truckload trips anywhere in Pakistan. Careful handling, clear bilty receipts, and fair rates.'}
+            </p>
+          </div>
 
           {/* 2 Primary Hero Buttons: "WhatsApp Us" (amber) & "Call Now" (outlined) */}
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 max-w-md mx-auto">
-            {/* Amber Primary Button */}
+          <div className="hero-stagger-4 pt-2 flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 max-w-md mx-auto">
+            {/* Amber Primary Button with subtle pulse */}
             <a
               id="hero-whatsapp-btn"
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-slate-950 font-black px-7 py-3.5 rounded-xl text-sm sm:text-base shadow-lg hover:shadow-amber-500/25 transition-all active:scale-98 cursor-pointer min-h-[48px] ${isUrdu ? 'font-urdu' : 'font-sans'}`}
+              className={`cta-subtle-pulse w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-slate-950 font-black px-7 py-3.5 rounded-xl text-sm sm:text-base shadow-lg hover:shadow-amber-500/25 transition-all active:scale-98 cursor-pointer min-h-[48px] ${isUrdu ? 'font-urdu' : 'font-sans'}`}
               aria-label="WhatsApp Warraich Goods"
             >
               <MessageCircle className="w-4 h-4 flex-shrink-0" />
@@ -102,8 +119,8 @@ export const HeroSection: React.FC = () => {
               
               {/* Stat 1: Since 2020 */}
               <div className="space-y-0.5">
-                <span className="text-2xl sm:text-3xl lg:text-4xl font-black font-mono text-amber-400 block tracking-tight">
-                  2020
+                <span className="text-2xl sm:text-3xl lg:text-4xl font-black font-mono tabular-nums text-amber-400 block tracking-tight">
+                  {yearVal}
                 </span>
                 <span className={`text-xs sm:text-sm font-bold text-white block ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                   {isUrdu ? 'سے خدمت میں' : 'Since 2020'}
@@ -115,8 +132,8 @@ export const HeroSection: React.FC = () => {
 
               {/* Stat 2: Fleet Types */}
               <div className="space-y-0.5 border-x border-slate-800">
-                <span className="text-2xl sm:text-3xl lg:text-4xl font-black font-mono text-blue-400 block tracking-tight">
-                  4
+                <span className="text-2xl sm:text-3xl lg:text-4xl font-black font-mono tabular-nums text-blue-400 block tracking-tight">
+                  {fleetVal}
                 </span>
                 <span className={`text-xs sm:text-sm font-bold text-white block ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                   {isUrdu ? 'کمرشل فلیٹ ماڈلز' : 'Fleet Truck Types'}
@@ -128,8 +145,8 @@ export const HeroSection: React.FC = () => {
 
               {/* Stat 3: 24/7 Booking */}
               <div className="space-y-0.5">
-                <span className="text-2xl sm:text-3xl lg:text-4xl font-black font-mono text-emerald-400 block tracking-tight">
-                  24/7
+                <span className="text-2xl sm:text-3xl lg:text-4xl font-black font-mono tabular-nums text-emerald-400 block tracking-tight">
+                  {hoursVal}/7
                 </span>
                 <span className={`text-xs sm:text-sm font-bold text-white block ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                   {isUrdu ? 'فاسٹ گاڑی بکنگ' : 'Fast Vehicle Booking'}
@@ -142,6 +159,18 @@ export const HeroSection: React.FC = () => {
             </div>
           </div>
 
+        </div>
+
+        {/* Road Line + Small Driving Truck at Bottom of Hero (CSS infinite, pauses when off-screen) */}
+        <div
+          dir="ltr"
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 bottom-14 sm:bottom-16 md:bottom-20 h-6 overflow-hidden z-10"
+        >
+          <div className="absolute inset-x-0 bottom-1 border-b border-dashed border-amber-400/35" />
+          <div className="hero-truck-drive absolute left-0 bottom-1.5 flex items-center gap-1 text-amber-400/90">
+            <Truck className="w-4 h-4" />
+          </div>
         </div>
 
       </div>

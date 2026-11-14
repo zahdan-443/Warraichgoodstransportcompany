@@ -37,7 +37,7 @@ export const FleetCardsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+        <div data-reveal="" className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <span className="text-xs font-bold font-mono uppercase tracking-wider text-amber-600 block mb-1">
             {isUrdu ? 'کمرشل ٹرک فلیٹ' : 'Commercial Fleet Types'}
           </span>
@@ -53,7 +53,7 @@ export const FleetCardsSection: React.FC = () => {
 
         {/* 4 Cards: Single Column on Mobile, 2 on Tablet, 4 on Desktop */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {FLEET_DATA.map((truck) => {
+          {FLEET_DATA.map((truck, idx) => {
             const title = isUrdu ? truck.nameUrdu : truck.nameEnglish;
             const capacity = isUrdu ? truck.capacityUrdu : truck.capacity;
             const singleLine = getSingleLineDesc(truck.id);
@@ -62,7 +62,9 @@ export const FleetCardsSection: React.FC = () => {
               <div 
                 key={truck.id}
                 id={`fleet-card-${truck.id}`}
-                className="relative overflow-hidden bg-slate-50/60 hover:bg-white border border-slate-200/90 hover:border-amber-400 rounded-2xl p-5 sm:p-6 transition-all duration-300 shadow-xs hover:shadow-md flex flex-col justify-between group"
+                data-reveal=""
+                style={{ '--reveal-delay': `${idx * 70}ms` } as React.CSSProperties}
+                className="relative overflow-hidden bg-slate-50/60 hover:bg-white border border-slate-200/90 hover:border-amber-400 rounded-2xl p-5 sm:p-6 shadow-xs hover:shadow-md flex flex-col justify-between group card-interactive"
               >
                 {/* Subtle Faint Large Watermark Icon in Corner */}
                 <Truck 
@@ -74,7 +76,7 @@ export const FleetCardsSection: React.FC = () => {
                   
                   {/* Top: Rounded Icon Box & Capacity */}
                   <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                    <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-600 flex items-center justify-center flex-shrink-0 card-icon-nudge">
                       <Truck className="w-6 h-6" />
                     </div>
                     <span className="text-[11px] font-mono font-bold text-slate-600 bg-white px-2 py-0.5 rounded-md border border-slate-200">
@@ -98,7 +100,7 @@ export const FleetCardsSection: React.FC = () => {
                 <div className="relative z-10 pt-4 mt-4 border-t border-slate-200/60">
                   <Link
                     to="/fleet"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-600 font-urdu group-hover:translate-x-1 transition-all"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-600 font-urdu group-hover:translate-x-1 transition-transform"
                   >
                     <span>{isUrdu ? 'مزید معلومات اور تفصیلات ←' : 'Learn more →'}</span>
                   </Link>
@@ -110,10 +112,10 @@ export const FleetCardsSection: React.FC = () => {
         </div>
 
         {/* View All Link */}
-        <div className="mt-8 text-center">
+        <div data-reveal="" className="mt-8 text-center">
           <Link
             to="/fleet"
-            className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-blue-600 text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm transition-colors shadow-xs font-urdu"
+            className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-blue-600 text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm transition-colors shadow-xs active:scale-[0.98] font-urdu"
           >
             <span>{isUrdu ? 'تمام گاڑیاں اور تفصیلات دیکھیں' : 'View all trucks & specs'}</span>
             <ArrowRight className="w-4 h-4 flex-shrink-0" />

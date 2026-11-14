@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Building2, 
@@ -21,6 +21,7 @@ import {
 import { COMPANY_INFO, MASTER_CITIES, GOOGLE_REVIEW_URL } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
 import { getAssetUrl } from '../utils/assetPath';
+import { useInView } from '../hooks/useMotion';
 
 const HOME_PREVIEW_CITY_IDS = [
   'samundri',
@@ -42,8 +43,14 @@ interface BusinessIntroCardProps {
 export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs = 'h2' }) => {
   const HeadingTag = headingAs;
   const { language } = useLanguage();
+  const marqueeRef = useRef<HTMLDivElement | null>(null);
+  const isMarqueeInView = useInView(marqueeRef, '80px');
 
   const isUrdu = language === 'ur';
+
+  const previewCities = HOME_PREVIEW_CITY_IDS
+    .map((id) => MASTER_CITIES.find((c) => c.id === id))
+    .filter((c): c is NonNullable<typeof c> => Boolean(c));
 
   const handlePrint = () => {
     window.print();
@@ -55,7 +62,7 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
-        <div className={`text-center max-w-3xl mx-auto mb-8 sm:mb-12 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
+        <div data-reveal="" className={`text-center max-w-3xl mx-auto mb-8 sm:mb-12 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
           <div className="inline-flex items-center gap-2 bg-amber-50 text-amber-900 border border-amber-200 px-3.5 py-1 rounded-full text-xs font-bold mb-3 shadow-sm">
             <Award className="w-4 h-4 text-amber-700" />
             <span>{isUrdu ? 'آفیشل بزنس پروفائل و تعارفی کارڈ' : 'Official Business Introduction & Directory'}</span>
@@ -344,23 +351,44 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
 
               </div>
 
-              {/* 10 City Chips Preview + Link to All Service Areas */}
-              <div className="bg-slate-50 border border-slate-200 rounded-lg p-5 shadow-sm">
-                <div className="flex flex-wrap gap-2.5">
-                  {HOME_PREVIEW_CITY_IDS
-                    .map((id) => MASTER_CITIES.find((c) => c.id === id))
-                    .filter((c): c is NonNullable<typeof c> => Boolean(c))
-                    .map((city) => (
-                      <span
-                        key={city.id}
-                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-800 text-xs sm:text-sm font-semibold ${
-                          isUrdu ? 'font-urdu' : 'font-sans'
-                        }`}
-                      >
-                        <MapPin className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />
-                        <span>{isUrdu ? city.nameUrdu : city.nameEnglish}</span>
-                      </span>
-                    ))}
+              {/* 10 City Chips Auto-Scrolling Row (pauses on hover & off-screen) + Link */}
+              <div
+                ref={marqueeRef}
+                data-reveal=""
+                className={`bg-slate-50 border border-slate-200 rounded-lg p-5 shadow-sm ${
+                  isMarqueeInView ? '' : 'anim-paused'
+                }`}
+              >
+                <div className="marquee-container overflow-hidden">
+                  <div className="marquee-track">
+                    <div className="flex items-center gap-2.5 pr-2.5 flex-shrink-0">
+                      {previewCities.map((city) => (
+                        <span
+                          key={city.id}
+                          className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-800 text-xs sm:text-sm font-semibold whitespace-nowrap ${
+                            isUrdu ? 'font-urdu' : 'font-sans'
+                          }`}
+                        >
+                          <MapPin className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />
+                          <span>{isUrdu ? city.nameUrdu : city.nameEnglish}</span>
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex items-center gap-2.5 pr-2.5 flex-shrink-0" aria-hidden="true">
+                      {previewCities.map((city) => (
+                        <span
+                          key={`dup-${city.id}`}
+                          className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-800 text-xs sm:text-sm font-semibold whitespace-nowrap ${
+                            isUrdu ? 'font-urdu' : 'font-sans'
+                          }`}
+                        >
+                          <MapPin className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />
+                          <span>{isUrdu ? city.nameUrdu : city.nameEnglish}</span>
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
 
                 <div className="mt-4 pt-3 border-t border-slate-200">

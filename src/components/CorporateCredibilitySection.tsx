@@ -143,9 +143,9 @@ export const CorporateCredibilitySection: React.FC = () => {
         <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-12 sm:mb-16 ${isUrdu ? 'text-right' : 'text-left'}`}>
           
           {/* Pillar 1: Tax & Legal Registration */}
-          <div className="bg-white border border-amber-200 rounded-lg p-5 hover:border-amber-400 hover:shadow-md transition-all shadow-sm flex flex-col justify-between">
+          <div data-reveal="" style={{ '--reveal-delay': '0ms' } as React.CSSProperties} className="bg-white border border-amber-200 rounded-lg p-5 hover:border-amber-400 hover:shadow-md shadow-sm flex flex-col justify-between group card-interactive">
             <div>
-              <div className={`w-11 h-11 rounded-lg bg-amber-50 border border-amber-200 text-amber-700 flex items-center justify-center mb-4 ${isUrdu ? 'ml-auto' : 'mr-auto'}`}>
+              <div className={`w-11 h-11 rounded-lg bg-amber-50 border border-amber-200 text-amber-700 flex items-center justify-center mb-4 card-icon-nudge ${isUrdu ? 'ml-auto' : 'mr-auto'}`}>
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <span className="text-[11px] font-bold text-amber-800 font-urdu block mb-1">
@@ -167,9 +167,9 @@ export const CorporateCredibilitySection: React.FC = () => {
           </div>
 
           {/* Pillar 2: Computerized Weighbridge & POD */}
-          <div className="bg-white border border-slate-200 rounded-lg p-5 hover:border-blue-400 hover:shadow-md transition-all shadow-sm flex flex-col justify-between">
+          <div data-reveal="" style={{ '--reveal-delay': '70ms' } as React.CSSProperties} className="bg-white border border-slate-200 rounded-lg p-5 hover:border-blue-400 hover:shadow-md shadow-sm flex flex-col justify-between group card-interactive">
             <div>
-              <div className={`w-11 h-11 rounded-lg bg-slate-100 border border-slate-200 text-slate-700 flex items-center justify-center mb-4 ${isUrdu ? 'ml-auto' : 'mr-auto'}`}>
+              <div className={`w-11 h-11 rounded-lg bg-slate-100 border border-slate-200 text-slate-700 flex items-center justify-center mb-4 card-icon-nudge ${isUrdu ? 'ml-auto' : 'mr-auto'}`}>
                 <Scale className="w-5 h-5" />
               </div>
               <span className="text-[11px] font-bold text-slate-700 font-urdu tracking-wider block mb-1">
@@ -191,9 +191,9 @@ export const CorporateCredibilitySection: React.FC = () => {
           </div>
 
           {/* Pillar 3: Dedicated Full Truckload Policy */}
-          <div className="bg-white border border-blue-200 rounded-lg p-5 hover:border-blue-400 hover:shadow-md transition-all shadow-sm flex flex-col justify-between">
+          <div data-reveal="" style={{ '--reveal-delay': '140ms' } as React.CSSProperties} className="bg-white border border-blue-200 rounded-lg p-5 hover:border-blue-400 hover:shadow-md shadow-sm flex flex-col justify-between group card-interactive">
             <div>
-              <div className={`w-11 h-11 rounded-lg bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center mb-4 ${isUrdu ? 'ml-auto' : 'mr-auto'}`}>
+              <div className={`w-11 h-11 rounded-lg bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center mb-4 card-icon-nudge ${isUrdu ? 'ml-auto' : 'mr-auto'}`}>
                 <Truck className="w-5 h-5" />
               </div>
               <span className="text-[11px] font-bold text-blue-800 font-urdu tracking-wider block mb-1">
@@ -215,9 +215,9 @@ export const CorporateCredibilitySection: React.FC = () => {
           </div>
 
           {/* Pillar 4: Leadership & Proprietor Governance */}
-          <div className="bg-white border border-slate-200 rounded-lg p-5 hover:border-blue-400 hover:shadow-md transition-all shadow-sm flex flex-col justify-between">
+          <div data-reveal="" style={{ '--reveal-delay': '210ms' } as React.CSSProperties} className="bg-white border border-slate-200 rounded-lg p-5 hover:border-blue-400 hover:shadow-md shadow-sm flex flex-col justify-between group card-interactive">
             <div>
-              <div className={`w-11 h-11 rounded-lg bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center mb-4 ${isUrdu ? 'ml-auto' : 'mr-auto'}`}>
+              <div className={`w-11 h-11 rounded-lg bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center mb-4 card-icon-nudge ${isUrdu ? 'ml-auto' : 'mr-auto'}`}>
                 <Building2 className="w-5 h-5" />
               </div>
               <span className="text-[11px] font-bold text-blue-800 font-urdu tracking-wider block mb-1">
@@ -244,7 +244,7 @@ export const CorporateCredibilitySection: React.FC = () => {
         </div>
 
         {/* Corporate B2B Long-Term Contract Capabilities */}
-        <div className="bg-white border border-slate-200 rounded-lg p-5 sm:p-8 lg:p-10 shadow-sm mb-12 sm:mb-16">
+        <div data-reveal="" className="bg-white border border-slate-200 rounded-lg p-5 sm:p-8 lg:p-10 shadow-sm mb-12 sm:mb-16">
           <div className={`flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 sm:gap-6 border-b border-slate-200 pb-5 sm:pb-6 mb-6 sm:mb-8 ${isUrdu ? 'text-right' : 'text-left'}`}>
             <div>
               <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-800 border border-blue-200 px-3 py-1 rounded-full text-xs font-semibold font-urdu mb-2">
@@ -360,10 +360,12 @@ export const CorporateCredibilitySection: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
-            {GROUND_OPERATIONS_PHOTOS.map((slot) => (
+            {GROUND_OPERATIONS_PHOTOS.map((slot, idx) => (
               <div 
                 key={slot.id}
-                className="bg-white border border-slate-200 rounded-lg overflow-hidden hover:border-blue-300 hover:shadow-md transition-all duration-300 flex flex-col group"
+                data-reveal=""
+                style={{ '--reveal-delay': `${idx * 80}ms` } as React.CSSProperties}
+                className="bg-white border border-slate-200 rounded-lg overflow-hidden hover:border-blue-300 hover:shadow-md flex flex-col group card-interactive"
               >
                 {/* Image Container with Fallback Support */}
                 <div className="relative h-56 sm:h-64 overflow-hidden bg-slate-100">

@@ -37,7 +37,7 @@ export const BookingCtaBanner: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="bg-slate-850/80 border border-slate-700/80 rounded-2xl p-6 sm:p-10 lg:p-12 shadow-xl backdrop-blur-sm">
+        <div data-reveal="" className="bg-slate-850/80 border border-slate-700/80 rounded-2xl p-6 sm:p-10 lg:p-12 shadow-xl backdrop-blur-sm">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             {/* Left/Main Column */}
@@ -80,7 +80,7 @@ export const BookingCtaBanner: React.FC = () => {
             <div className="lg:col-span-4 flex flex-col gap-3.5 sm:gap-4">
               <Link
                 to="/booking"
-                className="w-full inline-flex items-center justify-center gap-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-6 py-4 rounded-xl text-sm sm:text-base font-urdu transition-all duration-200 shadow-lg hover:shadow-amber-500/20 active:scale-98 min-h-[52px]"
+                className="cta-subtle-pulse w-full inline-flex items-center justify-center gap-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-6 py-4 rounded-xl text-sm sm:text-base font-urdu transition-all duration-200 shadow-lg hover:shadow-amber-500/20 active:scale-98 min-h-[52px]"
               >
                 <Calculator className="w-5 h-5 flex-shrink-0" />
                 <span>{isUrdu ? 'آن لائن کرایہ کیلکولیٹر کھولیں' : 'Open Freight Rate Calculator'}</span>

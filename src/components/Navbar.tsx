@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
   Truck, 
@@ -25,6 +25,13 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [internalIsOpen, setInternalIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [underline, setUnderline] = useState<{ left: number; width: number; visible: boolean }>({
+    left: 0,
+    width: 0,
+    visible: false,
+  });
+  const navRef = useRef<HTMLElement | null>(null);
+  const progressBarRef = useRef<HTMLDivElement | null>(null);
   const { language, toggleLanguage } = useLanguage();
   const location = useLocation();
   const isUrdu = language === 'ur';
@@ -44,12 +51,43 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+    const updateScrollState = () => {
+      const y = window.scrollY;
+      setScrolled(y > 20);
+      if (progressBarRef.current) {
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? Math.min(1, Math.max(0, y / docHeight)) : 0;
+        progressBarRef.current.style.transform = `scaleX(${progress.toFixed(4)})`;
+      }
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    updateScrollState();
+    window.addEventListener('scroll', updateScrollState, { passive: true });
+    window.addEventListener('resize', updateScrollState, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', updateScrollState);
+      window.removeEventListener('resize', updateScrollState);
+    };
   }, []);
+
+  useEffect(() => {
+    const updateUnderline = () => {
+      const navEl = navRef.current;
+      if (!navEl) return;
+      const activeEl = navEl.querySelector<HTMLElement>('[data-nav-active="true"]');
+      if (activeEl) {
+        setUnderline({
+          left: activeEl.offsetLeft,
+          width: activeEl.offsetWidth,
+          visible: true,
+        });
+      } else {
+        setUnderline((prev) => ({ ...prev, visible: false }));
+      }
+    };
+    updateUnderline();
+    window.addEventListener('resize', updateUnderline, { passive: true });
+    return () => window.removeEventListener('resize', updateUnderline);
+  }, [location.pathname, language]);
 
   const navLinks = isUrdu ? [
     { label: 'مرکزی صفحہ', to: '/' },
@@ -96,7 +134,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       }`}
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14 sm:h-16 gap-2">
+        <div className={`flex items-center justify-between gap-2 transition-[height] duration-200 ${scrolled ? 'h-12 sm:h-14' : 'h-14 sm:h-16'}`}>
           
           {/* Left: Brand Logo & Single-Line Business Name */}
           <Link 
@@ -151,14 +189,15 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Right: Desktop Navigation vs Mobile Hamburger */}
           <div className="flex items-center gap-2 flex-shrink-0">
             
-            {/* Desktop Navigation Links */}
-            <nav className="hidden xl:flex items-center gap-1" aria-label="Main navigation menu">
+            {/* Desktop Navigation Links with Sliding Active Underline */}
+            <nav ref={navRef} className="hidden xl:flex items-center gap-1 relative py-1" aria-label="Main navigation menu">
               {navLinks.map((link) => {
                 const active = isActive(link.to);
                 return (
                   <Link
                     key={link.to}
                     to={link.to}
+                    data-nav-active={active ? 'true' : undefined}
                     className={`px-3 py-1.5 rounded-lg text-xs xl:text-sm font-semibold transition-colors ${isUrdu ? 'font-urdu' : 'font-sans'} whitespace-nowrap ${
                       active 
                         ? 'text-blue-700 bg-blue-50/80 font-bold' 
@@ -169,6 +208,15 @@ export const Navbar: React.FC<NavbarProps> = ({
                   </Link>
                 );
               })}
+              <span
+                aria-hidden="true"
+                className="nav-active-underline pointer-events-none absolute bottom-0 left-0 h-0.5 rounded-full bg-amber-500"
+                style={{
+                  transform: `translate3d(${underline.left}px, 0, 0)`,
+                  width: `${underline.width}px`,
+                  opacity: underline.visible ? 1 : 0,
+                }}
+              />
             </nav>
 
             {/* Desktop Driver Web Portal Link */}
@@ -230,7 +278,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             aria-hidden="true"
           />
           
-          <div className="absolute top-full left-0 right-0 z-40 xl:hidden bg-white border-b border-slate-200 shadow-xl px-4 pt-4 pb-6 animate-fadeIn max-h-[calc(100vh-64px)] overflow-y-auto">
+          <div className="mobile-drawer-enter absolute top-full left-0 right-0 z-40 xl:hidden bg-white border-b border-slate-200 shadow-xl px-4 pt-4 pb-6 max-h-[calc(100vh-64px)] overflow-y-auto">
             
             {/* Top Row: Language Toggle inside Mobile Drawer */}
             <div className="flex items-center justify-between gap-2 pb-3 mb-3 border-b border-slate-100">
@@ -251,14 +299,15 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             {/* Navigation Links */}
             <div className="space-y-1 mb-4">
-              {allNavLinks.map((link) => {
+              {allNavLinks.map((link, idx) => {
                 const active = isActive(link.to);
                 return (
                   <Link
                     key={link.to}
                     to={link.to}
                     onClick={handleClose}
-                    className={`flex items-center min-h-[44px] px-3.5 py-2.5 rounded-lg text-sm ${isUrdu ? 'font-urdu' : 'font-sans'} font-semibold transition-colors ${
+                    style={{ animationDelay: `${idx * 35}ms` }}
+                    className={`mobile-item-stagger flex items-center min-h-[44px] px-3.5 py-2.5 rounded-lg text-sm ${isUrdu ? 'font-urdu' : 'font-sans'} font-semibold transition-colors ${
                       active
                         ? 'text-blue-700 bg-blue-50 font-bold border border-blue-200'
                         : 'text-slate-800 hover:text-blue-600 hover:bg-slate-50'
@@ -297,6 +346,18 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
         </>
       )}
+
+      {/* Thin Amber Scroll-Progress Bar Under Navbar */}
+      <div className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-transparent pointer-events-none overflow-hidden" aria-hidden="true">
+        <div
+          ref={progressBarRef}
+          className="h-full w-full bg-amber-500"
+          style={{
+            transform: 'scaleX(0)',
+            transformOrigin: isUrdu ? 'right center' : 'left center',
+          }}
+        />
+      </div>
     </header>
   );
 };

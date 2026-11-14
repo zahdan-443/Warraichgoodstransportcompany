@@ -59,7 +59,7 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
 
         {/* Fleet Cards Grid (4 Distinct Trucks: Shahzore, Mazda, Sample, Bedford) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-          {FLEET_DATA.map((truck: VehicleInfo) => {
+          {FLEET_DATA.map((truck: VehicleInfo, idx) => {
             const hasError = imageErrorMap[truck.id];
             const truckName = language === 'ur' ? truck.nameUrdu : truck.nameEnglish;
             const truckSubtitle = language === 'ur' ? truck.subtitleUrdu : (truck.subtitleEnglish || truck.subtitleUrdu);
@@ -74,7 +74,9 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
               <div 
                 key={truck.id}
                 id={`fleet-card-${truck.id}`}
-                className="bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-xs hover:shadow-md hover:border-slate-300 transition-all duration-200 flex flex-col group"
+                data-reveal=""
+                style={{ '--reveal-delay': `${idx * 70}ms` } as React.CSSProperties}
+                className="bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-xs hover:shadow-md hover:border-slate-300 flex flex-col group card-interactive"
               >
                 {/* Truck Photo Image Container with Clean Containment */}
                 <div className="relative h-44 sm:h-48 bg-gradient-to-b from-slate-50 to-white overflow-hidden flex items-center justify-center p-3 border-b border-slate-100">

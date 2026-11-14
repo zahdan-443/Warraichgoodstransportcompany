@@ -168,7 +168,7 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+        <div data-reveal="" className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-xs sm:text-sm font-bold text-blue-900 mb-3 font-urdu">
             <ShieldCheck className="w-4 h-4 text-blue-700 flex-shrink-0" />
             <span>{language === 'ur' ? 'آن لائن سیکور بلٹی تصدیق و ٹریکنگ' : 'Secure Bilty Verification & Tracking'}</span>
@@ -242,28 +242,42 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
         {hasSearched && (
           <div className="max-w-3xl mx-auto mb-12">
 
-            {/* 1. LOADING STATE */}
+            {/* 1. LOADING STATE WITH SHIMMER */}
             {loading && (
-              <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-8 text-center space-y-4">
-                <Loader2 className="w-10 h-10 text-blue-600 animate-spin mx-auto" />
-                <p className="text-base font-bold text-slate-800 font-urdu">
-                  {language === 'ur' ? 'ڈیٹا بیس سے بلٹی ریکارڈ کی تصدیق کی جا رہی ہے...' : 'Verifying bilty record from Firebase database...'}
-                </p>
-                <p className="text-xs text-slate-500 font-urdu">
-                  {language === 'ur' ? 'براہ کرم چند سیکنڈ انتظار کریں' : 'Please wait a moment'}
-                </p>
+              <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden" role="status" aria-live="polite">
+                <div className="bg-slate-100 p-5 sm:p-6 border-b border-slate-200 flex items-center gap-3">
+                  <Loader2 className="w-6 h-6 text-blue-600 animate-spin flex-shrink-0" />
+                  <div className="flex-1 space-y-2">
+                    <div className="bilty-shimmer h-3 w-32 rounded" />
+                    <div className="bilty-shimmer h-5 w-48 rounded" />
+                  </div>
+                </div>
+                <div className="p-6 sm:p-8 space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="bilty-shimmer h-14 rounded-lg" />
+                    <div className="bilty-shimmer h-14 rounded-lg" />
+                    <div className="bilty-shimmer h-14 rounded-lg" />
+                    <div className="bilty-shimmer h-14 rounded-lg" />
+                  </div>
+                  <p className="text-xs sm:text-sm font-bold text-slate-600 font-urdu text-center pt-1">
+                    {language === 'ur' ? 'ڈیٹا بیس سے بلٹی ریکارڈ کی تصدیق کی جا رہی ہے...' : 'Verifying bilty record from Firebase database...'}
+                  </p>
+                </div>
               </div>
             )}
 
-            {/* 2. SUCCESS: VERIFIED BILTY RECORD */}
+            {/* 2. SUCCESS: VERIFIED BILTY RECORD WITH ANIMATED CHECK MARK */}
             {!loading && verifiedRecord && (
-              <div className="bg-white rounded-xl shadow-md border-2 border-emerald-500 overflow-hidden animate-fadeIn">
+              <div className="bg-white rounded-xl shadow-md border-2 border-emerald-500 overflow-hidden route-transition">
                 {/* Header Banner */}
                 <div className="bg-emerald-700 text-white p-5 sm:p-6">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
-                        <CheckCircle2 className="w-6 h-6 text-emerald-200" />
+                        <svg viewBox="0 0 24 24" className="w-6 h-6 text-emerald-200" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <circle cx="12" cy="12" r="10" className="check-circle-draw" />
+                          <path d="m9 12 2 2 4-4" className="check-tick-draw" />
+                        </svg>
                       </div>
                       <div>
                         <span className="text-xs font-bold uppercase tracking-wider text-emerald-200 font-mono">
@@ -408,7 +422,7 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
 
             {/* 3. NOT FOUND STATE */}
             {!loading && notFound && (
-              <div className="bg-white rounded-xl shadow-sm border-2 border-red-200 p-6 sm:p-8 text-center space-y-4 animate-fadeIn">
+              <div className="bg-white rounded-xl shadow-sm border-2 border-red-200 p-6 sm:p-8 text-center space-y-4 route-transition">
                 <div className="w-12 h-12 rounded-full bg-red-100 text-red-600 flex items-center justify-center mx-auto">
                   <XCircle className="w-7 h-7" />
                 </div>
@@ -451,7 +465,7 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
 
             {/* 4. ERROR / CONNECTION STATE */}
             {!loading && errorMessage && (
-              <div className="bg-white rounded-xl shadow-sm border-2 border-amber-200 p-6 sm:p-8 text-center space-y-4 animate-fadeIn">
+              <div className="bg-white rounded-xl shadow-sm border-2 border-amber-200 p-6 sm:p-8 text-center space-y-4 route-transition">
                 <div className="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mx-auto">
                   <AlertCircle className="w-7 h-7" />
                 </div>
@@ -486,9 +500,9 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
           </div>
         )}
 
-        {/* 3 Pillars of Authentic FTL Tracking */}
+        {/* 3 Pillars of Authentic FTL Tracking (Sequential Timeline with Drawing Line) */}
         <div className="max-w-5xl mx-auto mt-6">
-          <div className="text-center mb-6">
+          <div data-reveal="" className="text-center mb-6">
             <p className="text-lg sm:text-xl font-bold text-slate-900 font-urdu">
               {language === 'ur' ? 'گاڑی اور مال کی تازہ معلومات کا طریقہ' : 'How to Check on Your Truck During the Trip'}
             </p>
@@ -499,50 +513,70 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {/* Pillar 1 */}
-            <div className="bg-white p-5 sm:p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-200 text-blue-700 flex items-center justify-center mb-3">
-                <Phone className="w-5 h-5" />
-              </div>
-              <p className="font-bold text-slate-900 text-base font-urdu mb-1.5">
-                {language === 'ur' ? '1. ڈرائیور کا موبائل نمبر' : '1. Driver Mobile Number'}
-              </p>
-              <p className="text-xs text-slate-600 leading-relaxed font-urdu">
-                {language === 'ur'
-                  ? 'گاڑی لوڈ ہو کر روانہ ہوتے ہی گاہک کو ڈرائیور کا موبائل نمبر فراہم کیا جاتا ہے تاکہ سفر کے دوران کسی بھی وقت براہ راست بات کی جا سکے۔'
-                  : 'Once the truck is loaded, you receive the driver’s direct phone number to call anytime during the journey.'}
-              </p>
-            </div>
+          <div data-reveal="" className="relative">
+            {/* Desktop connecting timeline line drawing in sequence */}
+            <div
+              aria-hidden="true"
+              className="hidden md:block timeline-connector absolute top-11 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-blue-300 via-amber-400 to-emerald-400 z-0"
+            />
 
-            {/* Pillar 2 */}
-            <div className="bg-white p-5 sm:p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-200 text-blue-700 flex items-center justify-center mb-3">
-                <MapPin className="w-5 h-5" />
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-5">
+              {/* Pillar 1 */}
+              <div
+                data-reveal=""
+                style={{ '--reveal-delay': '0ms' } as React.CSSProperties}
+                className="card-interactive group bg-white p-5 sm:p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md"
+              >
+                <div className="card-icon-nudge w-10 h-10 rounded-lg bg-blue-50 border border-blue-200 text-blue-700 flex items-center justify-center mb-3">
+                  <Phone className="w-5 h-5" />
+                </div>
+                <p className="font-bold text-slate-900 text-base font-urdu mb-1.5">
+                  {language === 'ur' ? '1. ڈرائیور کا موبائل نمبر' : '1. Driver Mobile Number'}
+                </p>
+                <p className="text-xs text-slate-600 leading-relaxed font-urdu">
+                  {language === 'ur'
+                    ? 'گاڑی لوڈ ہو کر روانہ ہوتے ہی گاہک کو ڈرائیور کا موبائل نمبر فراہم کیا جاتا ہے تاکہ سفر کے دوران کسی بھی وقت براہ راست بات کی جا سکے۔'
+                    : 'Once the truck is loaded, you receive the driver’s direct phone number to call anytime during the journey.'}
+                </p>
               </div>
-              <p className="font-bold text-slate-900 text-base font-urdu mb-1.5">
-                {language === 'ur' ? '2. واٹس ایپ پر لائیو لوکیشن' : '2. WhatsApp Live Location'}
-              </p>
-              <p className="text-xs text-slate-600 leading-relaxed font-urdu">
-                {language === 'ur'
-                  ? 'موٹروے یا جی ٹی روڈ پر سفر کے دوران ڈرائیور واٹس ایپ پر لائیو لوکیشن شیئر کر سکتا ہے تاکہ آپ کو گاڑی کا صحیح مقام معلوم رہے۔'
-                  : 'The driver can share live WhatsApp location pins so you see where the truck is on the motorway.'}
-              </p>
-            </div>
 
-            {/* Pillar 3 */}
-            <div className="bg-white p-5 sm:p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 rounded-lg bg-amber-50 border border-amber-200 text-amber-700 flex items-center justify-center mb-3">
-                <Scale className="w-5 h-5" />
+              {/* Pillar 2 */}
+              <div
+                data-reveal=""
+                style={{ '--reveal-delay': '160ms' } as React.CSSProperties}
+                className="card-interactive group bg-white p-5 sm:p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md"
+              >
+                <div className="card-icon-nudge w-10 h-10 rounded-lg bg-blue-50 border border-blue-200 text-blue-700 flex items-center justify-center mb-3">
+                  <MapPin className="w-5 h-5" />
+                </div>
+                <p className="font-bold text-slate-900 text-base font-urdu mb-1.5">
+                  {language === 'ur' ? '2. واٹس ایپ پر لائیو لوکیشن' : '2. WhatsApp Live Location'}
+                </p>
+                <p className="text-xs text-slate-600 leading-relaxed font-urdu">
+                  {language === 'ur'
+                    ? 'موٹروے یا جی ٹی روڈ پر سفر کے دوران ڈرائیور واٹس ایپ پر لائیو لوکیشن شیئر کر سکتا ہے تاکہ آپ کو گاڑی کا صحیح مقام معلوم رہے۔'
+                    : 'The driver can share live WhatsApp location pins so you see where the truck is on the motorway.'}
+                </p>
               </div>
-              <p className="font-bold text-slate-900 text-base font-urdu mb-1.5">
-                {language === 'ur' ? '3. کانٹا پرچی اور بلٹی رسید' : '3. Scale Slip & Signed Bilty'}
-              </p>
-              <p className="text-xs text-slate-600 leading-relaxed font-urdu">
-                {language === 'ur'
-                  ? 'مال لوڈنگ پر کمپیوٹرائزڈ وزن پرچی اور منزل پر سامان پہنچنے پر گاہک کے دستخط شدہ بلٹی ثبوت کے طور پر فراہم کی جاتی ہے۔'
-                  : 'You get a computer scale slip at pickup and a signed bilty receipt when your goods are safely delivered.'}
-              </p>
+
+              {/* Pillar 3 */}
+              <div
+                data-reveal=""
+                style={{ '--reveal-delay': '320ms' } as React.CSSProperties}
+                className="card-interactive group bg-white p-5 sm:p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md"
+              >
+                <div className="card-icon-nudge w-10 h-10 rounded-lg bg-amber-50 border border-amber-200 text-amber-700 flex items-center justify-center mb-3">
+                  <Scale className="w-5 h-5" />
+                </div>
+                <p className="font-bold text-slate-900 text-base font-urdu mb-1.5">
+                  {language === 'ur' ? '3. کانٹا پرچی اور بلٹی رسید' : '3. Scale Slip & Signed Bilty'}
+                </p>
+                <p className="text-xs text-slate-600 leading-relaxed font-urdu">
+                  {language === 'ur'
+                    ? 'مال لوڈنگ پر کمپیوٹرائزڈ وزن پرچی اور منزل پر سامان پہنچنے پر گاہک کے دستخط شدہ بلٹی ثبوت کے طور پر فراہم کی جاتی ہے۔'
+                    : 'You get a computer scale slip at pickup and a signed bilty receipt when your goods are safely delivered.'}
+                </p>
+              </div>
             </div>
           </div>
         </div>
