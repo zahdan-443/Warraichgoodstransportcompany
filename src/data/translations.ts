@@ -38,9 +38,9 @@ export const TRANSLATIONS = {
       },
       trustCounters: [
         {
-          num: '2020',
+          num: '2008 سے پہلے',
           badge: 'قیام',
-          title: 'سے خدمت میں',
+          title: '2008 سے پہلے سے خدمت میں',
           sub: '24/7 ملک گیر سروس نیٹ ورک',
         },
         {
@@ -134,7 +134,7 @@ export const TRANSLATIONS = {
       badge: 'بلٹی و گاڑی کی معلومات',
       title: 'اپنی بلٹی یا گاڑی کی تازہ لوکیشن اور معلومات',
       subtitle: 'ہماری ہر گاڑی کے ڈرائیور سے براہ راست رابطہ رہتا ہے اور واٹس ایپ پر لائیو پن لوکیشن ملتی ہے تاکہ آپ کو معلوم رہے گاڑی اس وقت کہاں پہنچی ہے۔ بلٹی یا گاڑی کا نمبر لکھ کر معلومات لیں۔',
-      inputPlaceholder: 'بلٹی نمبر یا گاڑی کا نمبر درج کریں (مثلاً 452، CN-452، FD-7844)...',
+      inputPlaceholder: 'بلٹی نمبر درج کریں (مثلاً WGT-4431)',
       btnTrack: 'گاڑی کی لوکیشن معلوم کریں',
       sampleNotice: 'یا نمونے کے طور پر کوئی نمبر منتخب کریں:',
       notFoundTitle: 'بلٹی و گاڑی کی معلومات',
@@ -203,9 +203,9 @@ export const TRANSLATIONS = {
       },
       trustCounters: [
         {
-          num: '2020',
+          num: 'Before 2008',
           badge: 'ESTABLISHED',
-          title: 'Serving Since 2020',
+          title: 'Serving since before 2008',
           sub: 'Local and nationwide routes',
         },
         {
@@ -299,7 +299,7 @@ export const TRANSLATIONS = {
       badge: 'Bilty Information',
       title: 'Check Bilty & Truck Information',
       subtitle: 'Enter your bilty number or vehicle number to view your consignment record and driver contact.',
-      inputPlaceholder: 'Enter Bilty or Vehicle # (e.g. 452, CN-452, FD-7844)...',
+      inputPlaceholder: 'Enter bilty number (e.g. WGT-4431)',
       btnTrack: 'Check Details',
       sampleNotice: 'Or click a sample reference:',
       notFoundTitle: 'Bilty Record Details',

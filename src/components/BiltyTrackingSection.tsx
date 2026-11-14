@@ -24,6 +24,8 @@ import { TRANSLATIONS } from '../data/translations';
 import { verifyBiltyRecord, normalizeBiltyNo, VerificationResult, PublicBiltyRecord } from '../lib/firebase';
 import { getAssetUrl } from '../utils/assetPath';
 
+const SHOW_SAMPLE_CHIPS = false;
+
 interface BiltyTrackingSectionProps {
   condensed?: boolean;
   headingAs?: 'h1' | 'h2';
@@ -213,21 +215,23 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
           </form>
 
           {/* Quick Test Chips */}
-          <div className="mt-4 pt-4 border-t border-slate-100 flex flex-wrap items-center gap-2 text-xs">
-            <span className="text-slate-500 font-urdu font-medium mr-1">
-              {t.sampleNotice}
-            </span>
-            {sampleCodes.map((code) => (
-              <button
-                key={code}
-                type="button"
-                onClick={() => handleSelectSample(code)}
-                className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-800 border border-slate-200 hover:border-blue-300 font-mono transition-colors text-[11px] cursor-pointer"
-              >
-                {code}
-              </button>
-            ))}
-          </div>
+          {SHOW_SAMPLE_CHIPS && (
+            <div className="mt-4 pt-4 border-t border-slate-100 flex flex-wrap items-center gap-2 text-xs">
+              <span className="text-slate-500 font-urdu font-medium mr-1">
+                {t.sampleNotice}
+              </span>
+              {sampleCodes.map((code) => (
+                <button
+                  key={code}
+                  type="button"
+                  onClick={() => handleSelectSample(code)}
+                  className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-800 border border-slate-200 hover:border-blue-300 font-mono transition-colors text-[11px] cursor-pointer"
+                >
+                  {code}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* RESULTS SECTION */}
@@ -510,7 +514,7 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
               <div
                 data-reveal=""
                 style={{ '--reveal-delay': '0ms' } as React.CSSProperties}
-                className="relative overflow-hidden card-interactive group bg-slate-900 p-5 sm:p-6 rounded-xl border border-slate-800 hover:border-amber-400 shadow-sm hover:shadow-xl min-h-[210px] flex flex-col justify-end"
+                className="relative overflow-hidden card-interactive group bg-slate-900 p-5 sm:p-6 rounded-xl border border-slate-800 hover:border-amber-400 shadow-sm hover:shadow-xl min-h-[250px] flex flex-col justify-between"
               >
                 <img
                   src={getAssetUrl('images/trip-driver-call.webp')}
@@ -524,16 +528,18 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
                 />
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/80 to-slate-950/50"
+                  className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/45 to-slate-950/5 group-hover:via-slate-950/35 transition-colors"
                 />
                 <div className="relative z-10">
-                  <div className="card-icon-nudge w-10 h-10 rounded-lg bg-blue-500/20 backdrop-blur-xs border border-blue-400/40 text-blue-300 flex items-center justify-center mb-3">
+                  <div className="card-icon-nudge w-10 h-10 rounded-lg bg-slate-950/65 backdrop-blur-xs border border-blue-400/50 text-blue-300 flex items-center justify-center shadow-sm">
                     <Phone className="w-5 h-5" />
                   </div>
-                  <p className="font-bold text-white text-base font-urdu mb-1.5">
+                </div>
+                <div className="relative z-10 pt-12">
+                  <p className="font-bold text-white text-base font-urdu mb-1.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)]">
                     {language === 'ur' ? '1. ڈرائیور کا موبائل نمبر' : '1. Driver Mobile Number'}
                   </p>
-                  <p className="text-xs text-slate-200 leading-relaxed font-urdu">
+                  <p className="text-xs text-slate-100 leading-relaxed font-urdu drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)]">
                     {language === 'ur'
                       ? 'گاڑی لوڈ ہو کر روانہ ہوتے ہی گاہک کو ڈرائیور کا موبائل نمبر فراہم کیا جاتا ہے تاکہ سفر کے دوران کسی بھی وقت براہ راست بات کی جا سکے۔'
                       : 'Once the truck is loaded, you receive the driver’s direct phone number to call anytime during the journey.'}
@@ -545,7 +551,7 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
               <div
                 data-reveal=""
                 style={{ '--reveal-delay': '160ms' } as React.CSSProperties}
-                className="relative overflow-hidden card-interactive group bg-slate-900 p-5 sm:p-6 rounded-xl border border-slate-800 hover:border-amber-400 shadow-sm hover:shadow-xl min-h-[210px] flex flex-col justify-end"
+                className="relative overflow-hidden card-interactive group bg-slate-900 p-5 sm:p-6 rounded-xl border border-slate-800 hover:border-amber-400 shadow-sm hover:shadow-xl min-h-[250px] flex flex-col justify-between"
               >
                 <img
                   src={getAssetUrl('images/trip-live-location.webp')}
@@ -559,16 +565,18 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
                 />
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/80 to-slate-950/50"
+                  className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/45 to-slate-950/5 group-hover:via-slate-950/35 transition-colors"
                 />
                 <div className="relative z-10">
-                  <div className="card-icon-nudge w-10 h-10 rounded-lg bg-emerald-500/20 backdrop-blur-xs border border-emerald-400/40 text-emerald-300 flex items-center justify-center mb-3">
+                  <div className="card-icon-nudge w-10 h-10 rounded-lg bg-slate-950/65 backdrop-blur-xs border border-emerald-400/50 text-emerald-300 flex items-center justify-center shadow-sm">
                     <MapPin className="w-5 h-5" />
                   </div>
-                  <p className="font-bold text-white text-base font-urdu mb-1.5">
+                </div>
+                <div className="relative z-10 pt-12">
+                  <p className="font-bold text-white text-base font-urdu mb-1.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)]">
                     {language === 'ur' ? '2. واٹس ایپ پر لائیو لوکیشن' : '2. WhatsApp Live Location'}
                   </p>
-                  <p className="text-xs text-slate-200 leading-relaxed font-urdu">
+                  <p className="text-xs text-slate-100 leading-relaxed font-urdu drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)]">
                     {language === 'ur'
                       ? 'موٹروے یا جی ٹی روڈ پر سفر کے دوران ڈرائیور واٹس ایپ پر لائیو لوکیشن شیئر کر سکتا ہے تاکہ آپ کو گاڑی کا صحیح مقام معلوم رہے۔'
                       : 'The driver can share live WhatsApp location pins so you see where the truck is on the motorway.'}
@@ -580,7 +588,7 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
               <div
                 data-reveal=""
                 style={{ '--reveal-delay': '320ms' } as React.CSSProperties}
-                className="relative overflow-hidden card-interactive group bg-slate-900 p-5 sm:p-6 rounded-xl border border-slate-800 hover:border-amber-400 shadow-sm hover:shadow-xl min-h-[210px] flex flex-col justify-end"
+                className="relative overflow-hidden card-interactive group bg-slate-900 p-5 sm:p-6 rounded-xl border border-slate-800 hover:border-amber-400 shadow-sm hover:shadow-xl min-h-[250px] flex flex-col justify-between"
               >
                 <img
                   src={getAssetUrl('images/trip-scale-bilty.webp')}
@@ -594,16 +602,18 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
                 />
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/80 to-slate-950/50"
+                  className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/45 to-slate-950/5 group-hover:via-slate-950/35 transition-colors"
                 />
                 <div className="relative z-10">
-                  <div className="card-icon-nudge w-10 h-10 rounded-lg bg-amber-500/20 backdrop-blur-xs border border-amber-400/40 text-amber-300 flex items-center justify-center mb-3">
+                  <div className="card-icon-nudge w-10 h-10 rounded-lg bg-slate-950/65 backdrop-blur-xs border border-amber-400/50 text-amber-300 flex items-center justify-center shadow-sm">
                     <Scale className="w-5 h-5" />
                   </div>
-                  <p className="font-bold text-white text-base font-urdu mb-1.5">
+                </div>
+                <div className="relative z-10 pt-12">
+                  <p className="font-bold text-white text-base font-urdu mb-1.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)]">
                     {language === 'ur' ? '3. کانٹا پرچی اور بلٹی رسید' : '3. Scale Slip & Signed Bilty'}
                   </p>
-                  <p className="text-xs text-slate-200 leading-relaxed font-urdu">
+                  <p className="text-xs text-slate-100 leading-relaxed font-urdu drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)]">
                     {language === 'ur'
                       ? 'مال لوڈنگ پر کمپیوٹرائزڈ وزن پرچی اور منزل پر سامان پہنچنے پر گاہک کے دستخط شدہ بلٹی ثبوت کے طور پر فراہم کی جاتی ہے۔'
                       : 'You get a computer scale slip at pickup and a signed bilty receipt when your goods are safely delivered.'}

@@ -86,7 +86,7 @@ export const WhyUsSection: React.FC = () => {
                 key={item.id}
                 data-reveal=""
                 style={{ '--reveal-delay': `${idx * 70}ms` } as React.CSSProperties}
-                className="relative overflow-hidden bg-slate-900 border border-slate-800 hover:border-amber-400 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-xl flex flex-col justify-between min-h-[245px] group card-interactive"
+                className="relative overflow-hidden bg-slate-900 border border-slate-800 hover:border-amber-400 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-xl flex flex-col justify-between min-h-[280px] group card-interactive"
               >
                 {/* Background Photo */}
                 <img
@@ -99,39 +99,37 @@ export const WhyUsSection: React.FC = () => {
                   referrerPolicy="no-referrer"
                   className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
-                {/* Dark Contrast Gradient Scrim */}
+                {/* Balanced Contrast Gradient Scrim (keeps upper photo bright) */}
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/80 to-slate-950/55 group-hover:via-slate-950/75 transition-colors"
+                  className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/45 to-slate-950/5 group-hover:via-slate-950/35 transition-colors"
                 />
 
-                <div className="relative z-10 space-y-3">
-                  
-                  {/* Rounded Icon Box */}
-                  <div className={`w-11 h-11 rounded-xl backdrop-blur-xs flex items-center justify-center flex-shrink-0 border ${item.accent} card-icon-nudge`}>
+                {/* Top: Rounded Icon Box */}
+                <div className="relative z-10">
+                  <div className={`w-11 h-11 rounded-xl bg-slate-950/65 backdrop-blur-xs flex items-center justify-center flex-shrink-0 border ${item.accent} card-icon-nudge shadow-sm`}>
                     <IconComponent className="w-5 h-5" />
                   </div>
+                </div>
 
-                  {/* Short Title */}
-                  <h3 className="text-base sm:text-lg font-black text-white group-hover:text-amber-300 transition-colors font-urdu pt-2">
+                {/* Bottom Title, Description & Link */}
+                <div className="relative z-10 pt-14 space-y-2.5">
+                  <h3 className="text-base sm:text-lg font-black text-white group-hover:text-amber-300 transition-colors font-urdu drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)]">
                     {title}
                   </h3>
 
-                  {/* ONE Line of Text */}
-                  <p className="text-xs sm:text-sm text-slate-200 font-urdu leading-normal line-clamp-2">
+                  <p className="text-xs sm:text-sm text-slate-100 font-urdu leading-normal line-clamp-2 drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)]">
                     {desc}
                   </p>
 
-                </div>
-
-                {/* Learn More Link */}
-                <div className="relative z-10 pt-4 mt-5 border-t border-white/15">
-                  <Link
-                    to={item.to}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300 font-urdu group-hover:translate-x-1 transition-transform"
-                  >
-                    <span>{isUrdu ? 'مزید معلومات اور طریقہ کار ←' : 'Learn more →'}</span>
-                  </Link>
+                  <div className="pt-3 border-t border-white/20">
+                    <Link
+                      to={item.to}
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300 font-urdu group-hover:translate-x-1 transition-transform"
+                    >
+                      <span>{isUrdu ? 'مزید معلومات اور طریقہ کار ←' : 'Learn more →'}</span>
+                    </Link>
+                  </div>
                 </div>
 
               </div>

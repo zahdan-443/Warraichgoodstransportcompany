@@ -139,7 +139,7 @@ export const FaqAndReviewsSection: React.FC = () => {
                 <p className="text-slate-300 text-xs sm:text-sm max-w-xl leading-relaxed">
                   {language === 'ur' 
                     ? 'ہم کسی قسم کے فرضی جائزے یا خود سے لکھے ہوئے ریویوز شائع نہیں کرتے۔ ہماری ساکھ اور پہچان فیلڈ میں برسوں کی ایمانداری ہے۔ آپ ہمارے سروس علاقے ملاحظہ فرما سکتے ہیں یا براہِ راست فون و واٹس ایپ پر رابطہ کر سکتے ہیں۔'
-                    : 'We do not publish artificial testimonials. Our reputation is built on dependable freight service since 2020. You can explore our service areas network or contact us directly on WhatsApp.'}
+                    : 'We do not publish artificial testimonials. Our reputation is built on dependable freight service, serving since before 2008. You can explore our service areas network or contact us directly on WhatsApp.'}
                 </p>
               </div>
 

@@ -68,7 +68,7 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
           <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
             {isUrdu 
               ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی کے مصدقہ کوائف، دفتر کا پتہ، موبائل نمبر، سروس نیٹ ورک اور قانونی رجسٹریشن'
-              : 'Verified business credentials, Samundri office address, contact details, and nationwide service coverage.'}
+              : 'Business details, Samundri office address, contact details, and nationwide service coverage.'}
           </p>
         </div>
 
@@ -168,7 +168,7 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
                   </p>
                 </div>
                 <div className={`mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
-                  <span>{isUrdu ? '2020 سے خدمات • احتیاط سے ہینڈلنگ اور واضح بلٹی ریکارڈ' : 'Serving Since 2020 • Careful handling and clear bilty records'}</span>
+                  <span>{isUrdu ? '2008 سے پہلے سے خدمت میں • احتیاط سے ہینڈلنگ اور واضح بلٹی ریکارڈ' : 'Serving since before 2008 • Careful handling and clear bilty records'}</span>
                 </div>
               </div>
 
@@ -207,7 +207,7 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
                       <p className="text-xs text-slate-600 leading-relaxed pt-1">
                         {isUrdu
                           ? 'تمام کارپوریٹ گاہکوں اور گاڑیوں کے شیڈول کی براہِ راست نگرانی پروپرائٹر خود کرتے ہیں، جس سے تاجر برادری کو مکمل شفافیت و تحفظ حاصل رہتا ہے۔'
-                          : 'Proprietor personally oversees fleet operations, industrial contracts, and schedule integrity, ensuring complete accountability.'}
+                          : 'The proprietor personally oversees fleet operations and trip scheduling, so every booking has one person accountable.'}
                       </p>
                     </div>
                   </div>
@@ -350,9 +350,13 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
                   <span className={`text-[11px] text-slate-400 uppercase tracking-wider block ${isUrdu ? 'font-urdu' : 'font-mono'}`}>
                     {isUrdu ? 'موبائل نمبر' : 'Mobile Number'}
                   </span>
-                  <p dir="ltr" className="text-sm sm:text-base font-black font-mono text-amber-400 mt-0.5 select-all">
+                  <a
+                    href={`tel:${COMPANY_INFO.phoneRaw1}`}
+                    dir="ltr"
+                    className="inline-block text-sm sm:text-base font-black font-mono text-amber-400 hover:text-amber-300 transition-colors mt-0.5 select-all"
+                  >
                     {COMPANY_INFO.phone1}
-                  </p>
+                  </a>
                 </div>
               </div>
 
@@ -365,9 +369,12 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
                   <span className={`text-[11px] text-slate-400 uppercase tracking-wider block ${isUrdu ? 'font-urdu' : 'font-mono'}`}>
                     {isUrdu ? 'آفیشل ای میل' : 'Official Email'}
                   </span>
-                  <p className="text-xs sm:text-sm font-bold font-mono text-white mt-0.5 break-all">
+                  <a
+                    href={`mailto:${COMPANY_INFO.email}`}
+                    className="inline-block text-xs sm:text-sm font-bold font-mono text-white hover:text-amber-300 transition-colors mt-0.5 break-all"
+                  >
                     {COMPANY_INFO.email}
-                  </p>
+                  </a>
                 </div>
               </div>
 

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, RefObject } from 'react';
+import { useEffect, useState, RefObject } from 'react';
 
 const prefersReducedMotion = (): boolean =>
   typeof window !== 'undefined' &&
@@ -63,26 +63,4 @@ export function useScrollReveal(routeKey: string): void {
     toObserve.forEach((el) => io.observe(el));
     return () => io.disconnect();
   }, [routeKey]);
-}
-
-export function useCountUp(target: number, startFrom = 0, duration = 650): number {
-  const [val, setVal] = useState(target);
-  const ranRef = useRef(false);
-
-  useEffect(() => {
-    if (ranRef.current || prefersReducedMotion() || typeof requestAnimationFrame === 'undefined') return;
-    ranRef.current = true;
-    const start = performance.now();
-    let raf = 0;
-    const tick = (now: number) => {
-      const p = Math.min(1, (now - start) / duration);
-      const eased = 1 - Math.pow(1 - p, 3);
-      setVal(Math.round(startFrom + (target - startFrom) * eased));
-      if (p < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [target, startFrom, duration]);
-
-  return val;
 }

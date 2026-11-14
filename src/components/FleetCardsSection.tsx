@@ -67,7 +67,7 @@ export const FleetCardsSection: React.FC = () => {
                 id={`fleet-card-${truck.id}`}
                 data-reveal=""
                 style={{ '--reveal-delay': `${idx * 70}ms` } as React.CSSProperties}
-                className="relative overflow-hidden bg-slate-900 border border-slate-800 hover:border-amber-400 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-xl flex flex-col justify-between min-h-[250px] group card-interactive"
+                className="relative overflow-hidden bg-slate-900 border border-slate-800 hover:border-amber-400 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-xl flex flex-col justify-between min-h-[280px] group card-interactive"
               >
                 {/* Vehicle Background Image */}
                 <img
@@ -80,44 +80,40 @@ export const FleetCardsSection: React.FC = () => {
                   referrerPolicy="no-referrer"
                   className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
-                {/* Dark Contrast Gradient Scrim */}
+                {/* Balanced Contrast Gradient Scrim (keeps upper vehicle photo clear and bright) */}
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/80 to-slate-950/55 group-hover:via-slate-950/75 transition-colors"
+                  className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/45 to-slate-950/5 group-hover:via-slate-950/35 transition-colors"
                 />
 
-                <div className="relative z-10 space-y-3">
-                  
-                  {/* Top: Rounded Icon Box & Capacity */}
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="w-11 h-11 rounded-xl bg-amber-500/20 backdrop-blur-xs border border-amber-400/40 text-amber-400 flex items-center justify-center flex-shrink-0 card-icon-nudge">
-                      <Truck className="w-5 h-5" />
-                    </div>
-                    <span className="text-[11px] font-mono font-bold text-amber-300 bg-slate-950/80 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/15">
-                      {capacity}
-                    </span>
+                {/* Top: Rounded Icon Box & Capacity */}
+                <div className="relative z-10 flex items-center justify-between gap-2">
+                  <div className="w-11 h-11 rounded-xl bg-slate-950/65 backdrop-blur-xs border border-amber-400/50 text-amber-400 flex items-center justify-center flex-shrink-0 card-icon-nudge shadow-sm">
+                    <Truck className="w-5 h-5" />
                   </div>
+                  <span className="text-[11px] font-mono font-bold text-amber-300 bg-slate-950/75 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/20 shadow-sm">
+                    {capacity}
+                  </span>
+                </div>
 
-                  {/* Short Title */}
-                  <h3 className="text-base sm:text-lg font-black text-white group-hover:text-amber-300 transition-colors font-urdu pt-2">
+                {/* Bottom Content & Link */}
+                <div className="relative z-10 pt-14 space-y-2.5">
+                  <h3 className="text-base sm:text-lg font-black text-white group-hover:text-amber-300 transition-colors font-urdu drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)]">
                     {title}
                   </h3>
 
-                  {/* ONE Line of Text */}
-                  <p className="text-xs sm:text-sm text-slate-200 font-urdu leading-normal line-clamp-2">
+                  <p className="text-xs sm:text-sm text-slate-100 font-urdu leading-normal line-clamp-2 drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)]">
                     {singleLine}
                   </p>
 
-                </div>
-
-                {/* Bottom: Learn More Link */}
-                <div className="relative z-10 pt-4 mt-5 border-t border-white/15">
-                  <Link
-                    to="/fleet"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300 font-urdu group-hover:translate-x-1 transition-transform"
-                  >
-                    <span>{isUrdu ? 'مزید معلومات اور تفصیلات ←' : 'Learn more →'}</span>
-                  </Link>
+                  <div className="pt-3 border-t border-white/20">
+                    <Link
+                      to="/fleet"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300 font-urdu group-hover:translate-x-1 transition-transform"
+                    >
+                      <span>{isUrdu ? 'مزید معلومات اور تفصیلات ←' : 'Learn more →'}</span>
+                    </Link>
+                  </div>
                 </div>
 
               </div>

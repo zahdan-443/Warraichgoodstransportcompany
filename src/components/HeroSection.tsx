@@ -3,18 +3,13 @@ import { PhoneCall, MessageCircle, Truck } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
 import { getAssetUrl } from '../utils/assetPath';
-import { useInView, useCountUp } from '../hooks/useMotion';
+import { useInView } from '../hooks/useMotion';
 
 export const HeroSection: React.FC = () => {
   const { language } = useLanguage();
   const isUrdu = language === 'ur';
   const heroRef = useRef<HTMLElement | null>(null);
   const isHeroInView = useInView(heroRef, '100px');
-
-  // Count-up preserves final numbers in SSR/initial HTML (2020, 4, 24/7)
-  const yearVal = useCountUp(2020, 1995, 650);
-  const fleetVal = useCountUp(4, 1, 500);
-  const hoursVal = useCountUp(24, 0, 600);
 
   const whatsappUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(
     isUrdu
@@ -72,7 +67,7 @@ export const HeroSection: React.FC = () => {
           {/* Tagline Subtitle */}
           <div className="hero-stagger-2">
             <p className={`text-base sm:text-xl font-bold text-slate-200 leading-relaxed max-w-3xl mx-auto ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
-              {isUrdu ? COMPANY_INFO.taglineUrdu : 'Home shifting, office moving, and commercial goods transport since 2020.'}
+              {isUrdu ? COMPANY_INFO.taglineUrdu : 'Home shifting, office moving and goods transport from Samundri across Pakistan. Serving since before 2008.'}
             </p>
           </div>
 
@@ -112,46 +107,37 @@ export const HeroSection: React.FC = () => {
             </a>
           </div>
 
-          {/* Real Facts Stats Row (Since 2020, Fleet Types, 24/7 Booking) */}
+          {/* Real Facts Stats Row (Before 2008, Fleet Truck Types, 24/7 Booking & Support) */}
           <div className="pt-8 sm:pt-10 max-w-3xl mx-auto border-t border-slate-800/80">
-            <div className="grid grid-cols-3 gap-2 sm:gap-6 text-center">
+            <div className="grid grid-cols-3 gap-2 sm:gap-6 text-center items-center">
               
-              {/* Stat 1: Since 2020 */}
-              <div className="space-y-0.5">
-                <span className="text-2xl sm:text-3xl lg:text-4xl font-black font-mono tabular-nums text-amber-400 block tracking-tight">
-                  {yearVal}
+              {/* Stat 1: Before 2008 | Serving Since */}
+              <div className="space-y-1">
+                <span className={`text-xl sm:text-3xl lg:text-4xl font-black text-amber-400 block tracking-tight ${isUrdu ? 'font-urdu' : 'font-mono'}`}>
+                  {isUrdu ? '2008 سے پہلے' : 'Before 2008'}
                 </span>
                 <span className={`text-xs sm:text-sm font-bold text-white block ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
-                  {isUrdu ? 'سے خدمت میں' : 'Since 2020'}
-                </span>
-                <span className={`text-[11px] text-slate-400 hidden sm:block ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
-                  {isUrdu ? '24/7 ملک گیر سروس' : '24/7 Nationwide Routes'}
+                  {isUrdu ? '2008 سے پہلے سے خدمت میں' : 'Serving Since'}
                 </span>
               </div>
 
-              {/* Stat 2: Fleet Types */}
-              <div className="space-y-0.5 border-x border-slate-800">
+              {/* Stat 2: 4 | Fleet Truck Types */}
+              <div className="space-y-1 border-x border-slate-800">
                 <span className="text-2xl sm:text-3xl lg:text-4xl font-black font-mono tabular-nums text-blue-400 block tracking-tight">
-                  {fleetVal}
+                  4
                 </span>
                 <span className={`text-xs sm:text-sm font-bold text-white block ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                   {isUrdu ? 'کمرشل فلیٹ ماڈلز' : 'Fleet Truck Types'}
                 </span>
-                <span className={`text-[11px] text-slate-400 hidden sm:block ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
-                  {isUrdu ? 'مزدا، شہزور، سیمپل، بیڈفورڈ' : 'Mazda, Shahzore, Heavy Haulers'}
-                </span>
               </div>
 
-              {/* Stat 3: 24/7 Booking */}
-              <div className="space-y-0.5">
+              {/* Stat 3: 24/7 | Booking & Support */}
+              <div className="space-y-1">
                 <span className="text-2xl sm:text-3xl lg:text-4xl font-black font-mono tabular-nums text-emerald-400 block tracking-tight">
-                  {hoursVal}/7
+                  24/7
                 </span>
                 <span className={`text-xs sm:text-sm font-bold text-white block ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
-                  {isUrdu ? 'فاسٹ گاڑی بکنگ' : 'Fast Vehicle Booking'}
-                </span>
-                <span className={`text-[11px] text-slate-400 hidden sm:block ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
-                  {isUrdu ? 'شفٹنگ و مال برداری' : 'Shifting & Goods Transport'}
+                  {isUrdu ? 'بکنگ و سپورٹ' : 'Booking & Support'}
                 </span>
               </div>
 

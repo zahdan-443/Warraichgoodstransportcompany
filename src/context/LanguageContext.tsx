@@ -24,7 +24,7 @@ const BASE_SITE_URL = 'https://zahdan-443.github.io/Warraichgoodstransportcompan
 const ROUTE_SEO_MAP: Record<string, RouteSeoMeta> = {
   '/': {
     title: 'Warraich Goods | Transport & Shifting',
-    description: 'Warraich Goods Transport Company offers home shifting, office relocation, and goods transport across Pakistan. Call 0300-5370443 for truck booking.',
+    description: 'Home shifting, office relocation and goods transport from Samundri across Pakistan and from all Pakistan To Samundri. Call 0300-5370443 for truck booking.',
     canonical: `${BASE_SITE_URL}/`,
   },
   '/fleet': {
@@ -54,7 +54,7 @@ const ROUTE_SEO_MAP: Record<string, RouteSeoMeta> = {
   },
   '/about': {
     title: 'About Us & Contact Details | Warraich Goods',
-    description: 'Warraich Goods Transport Company is a local transport business based in Samundri, Faisalabad, serving routes across Pakistan since 2020.',
+    description: 'Warraich Goods Transport Company is a local transport business based in Samundri, Faisalabad, serving routes across Pakistan since before 2008.',
     canonical: `${BASE_SITE_URL}/about/`,
   },
   '/verify': {
