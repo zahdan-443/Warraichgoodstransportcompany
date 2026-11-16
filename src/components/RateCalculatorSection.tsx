@@ -16,17 +16,24 @@ import {
   Building2,
   ArrowRight
 } from 'lucide-react';
-import { COMPANY_INFO, FLEET_DATA, PAKISTAN_CITIES, GOODS_TYPES } from '../data/companyData';
+import { COMPANY_INFO, FLEET_DATA, MASTER_CITIES, PAKISTAN_CITIES, GOODS_TYPES } from '../data/companyData';
 import { BookingFormData } from '../types';
 import { useLanguage } from '../context/LanguageContext';
 import { TRANSLATIONS } from '../data/translations';
 
 interface RateCalculatorSectionProps {
+  selectedOriginId?: string;
+  selectedDestinationId?: string;
   selectedVehicleId?: string;
   selectedGoodsType?: string;
 }
 
-export const RateCalculatorSection: React.FC<RateCalculatorSectionProps> = ({ selectedVehicleId, selectedGoodsType }) => {
+export const RateCalculatorSection: React.FC<RateCalculatorSectionProps> = ({
+  selectedOriginId,
+  selectedDestinationId,
+  selectedVehicleId,
+  selectedGoodsType,
+}) => {
   const { language } = useLanguage();
   const tCalc = TRANSLATIONS[language].calculator;
   const isUrdu = language === 'ur';
@@ -58,6 +65,30 @@ export const RateCalculatorSection: React.FC<RateCalculatorSectionProps> = ({ se
       return prev;
     });
   }, []);
+
+  useEffect(() => {
+    if (selectedOriginId) {
+      const originEntry = MASTER_CITIES.find((c) => c.id === selectedOriginId);
+      if (originEntry) {
+        setFormData((prev) => ({
+          ...prev,
+          originCity: language === 'ur' ? originEntry.dropdownUrdu : originEntry.dropdownEnglish,
+        }));
+      }
+    }
+  }, [selectedOriginId, language]);
+
+  useEffect(() => {
+    if (selectedDestinationId) {
+      const destEntry = MASTER_CITIES.find((c) => c.id === selectedDestinationId);
+      if (destEntry) {
+        setFormData((prev) => ({
+          ...prev,
+          destinationCity: language === 'ur' ? destEntry.dropdownUrdu : destEntry.dropdownEnglish,
+        }));
+      }
+    }
+  }, [selectedDestinationId, language]);
 
   useEffect(() => {
     if (selectedVehicleId) {

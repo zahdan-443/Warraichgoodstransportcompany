@@ -1,5 +1,6 @@
 import React from 'react';
 import { HeroSection } from '../components/HeroSection';
+import { QuickRouteRateBar } from '../components/QuickRouteRateBar';
 import { FleetCardsSection } from '../components/FleetCardsSection';
 import { CargoCategoriesPreview } from '../components/CargoCategoriesPreview';
 import { BiltyTrackingSection } from '../components/BiltyTrackingSection';
@@ -12,6 +13,9 @@ export const HomePage: React.FC = () => {
     <>
       {/* 1. Hero Section */}
       <HeroSection />
+
+      {/* 1b. Quick Route & Rate Bar */}
+      <QuickRouteRateBar />
 
       {/* 2. Commercial Fleet Overview (Short cards linking to /fleet) */}
       <FleetCardsSection />

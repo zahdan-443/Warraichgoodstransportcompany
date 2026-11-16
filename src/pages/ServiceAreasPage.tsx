@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, ArrowRight } from 'lucide-react';
+import { MapPin, ArrowRight, Clock } from 'lucide-react';
 import { MASTER_CITIES, ServiceAreaRegion } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -12,6 +12,63 @@ const REGION_GROUPS: {
   { id: 'near-samundri', titleEn: 'Near Samundri', titleUr: 'سمندری کے قریبی شہر' },
   { id: 'punjab', titleEn: 'Punjab', titleUr: 'پنجاب' },
   { id: 'rest-of-pakistan', titleEn: 'Rest of Pakistan', titleUr: 'پاکستان کے دیگر شہر' },
+];
+
+const TOP_SAMUNDRI_CORRIDORS = [
+  {
+    destId: 'lahore',
+    routeEn: 'Samundri ➔ Lahore',
+    routeUr: 'سمندری ➔ لاہور',
+    highwayEn: 'M-3 Motorway Corridor',
+    highwayUr: 'براستہ M-3 موٹروے',
+    transitEn: '2.5 – 3.5 hrs',
+    transitUr: '2.5 تا 3.5 گھنٹے',
+  },
+  {
+    destId: 'gujranwala',
+    routeEn: 'Samundri ➔ Sargodha / Gujranwala',
+    routeUr: 'سمندری ➔ سرگودھا / گوجرانوالہ',
+    highwayEn: 'Regional Punjab Belts',
+    highwayUr: 'وسطی پنجاب کوریڈور',
+    transitEn: '2.5 – 3.5 hrs',
+    transitUr: '2.5 تا 3.5 گھنٹے',
+  },
+  {
+    destId: 'multan',
+    routeEn: 'Samundri ➔ Multan',
+    routeUr: 'سمندری ➔ ملتان',
+    highwayEn: 'M-4 & M-5 Motorway',
+    highwayUr: 'براستہ M-4 و M-5 موٹروے',
+    transitEn: '3.5 – 4.5 hrs',
+    transitUr: '3.5 تا 4.5 گھنٹے',
+  },
+  {
+    destId: 'islamabad',
+    routeEn: 'Samundri ➔ Rawalpindi / Islamabad',
+    routeUr: 'سمندری ➔ راولپنڈی و اسلام آباد',
+    highwayEn: 'M-4 & M-2 Motorway',
+    highwayUr: 'براستہ M-4 و M-2 موٹروے',
+    transitEn: '4.5 – 5.5 hrs',
+    transitUr: '4.5 تا 5.5 گھنٹے',
+  },
+  {
+    destId: 'peshawar',
+    routeEn: 'Samundri ➔ Peshawar',
+    routeUr: 'سمندری ➔ پشاور',
+    highwayEn: 'M-2 & M-1 Motorway',
+    highwayUr: 'براستہ M-2 و M-1 موٹروے',
+    transitEn: '7 – 8.5 hrs',
+    transitUr: '7 تا 8.5 گھنٹے',
+  },
+  {
+    destId: 'karachi',
+    routeEn: 'Samundri ➔ Karachi Port (KPT / QICT)',
+    routeUr: 'سمندری ➔ کراچی پورٹ (KPT / QICT)',
+    highwayEn: 'M-4, M-5 & N-5 Highway',
+    highwayUr: 'براستہ M-4، M-5 اور N-5',
+    transitEn: '24 – 30 hrs',
+    transitUr: '24 تا 30 گھنٹے',
+  },
 ];
 
 export const ServiceAreasPage: React.FC = () => {
@@ -91,6 +148,75 @@ export const ServiceAreasPage: React.FC = () => {
               </div>
             );
           })}
+        </div>
+      </section>
+
+      {/* Top Routes & Estimated Transit Times from Samundri */}
+      <section className="pb-10 sm:pb-12">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div
+            data-reveal=""
+            className="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm"
+          >
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 mb-5 border-b border-slate-100">
+              <div>
+                <span className="text-[11px] font-bold font-mono uppercase tracking-wider text-amber-600 block">
+                  {isUrdu ? 'ٹرانزٹ ٹائم گائیڈ' : 'Express Transit Guide'}
+                </span>
+                <h2
+                  className={`text-xl sm:text-2xl font-black text-slate-950 mt-0.5 ${
+                    isUrdu ? 'font-urdu' : 'font-sans'
+                  }`}
+                >
+                  {isUrdu
+                    ? 'سمندری سے اہم شہروں کے روٹس اور متوقع وقت'
+                    : 'Top Routes & Estimated Transit Times from Samundri'}
+                </h2>
+              </div>
+              <span className="text-xs font-mono text-slate-500">
+                {isUrdu ? 'نان اسٹاپ FTL ڈسپیچ' : 'Direct Non-Stop FTL'}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+              {TOP_SAMUNDRI_CORRIDORS.map((corridor) => (
+                <div
+                  key={corridor.destId}
+                  className="bg-slate-50 border border-slate-200 hover:border-amber-300 rounded-xl p-4 flex items-center justify-between gap-3 transition-colors"
+                >
+                  <div className="min-w-0">
+                    <h3
+                      className={`text-sm sm:text-base font-bold text-slate-950 truncate ${
+                        isUrdu ? 'font-urdu' : 'font-sans'
+                      }`}
+                    >
+                      {isUrdu ? corridor.routeUr : corridor.routeEn}
+                    </h3>
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-xs text-slate-600">
+                      <span className={isUrdu ? 'font-urdu' : 'font-sans'}>
+                        {isUrdu ? corridor.highwayUr : corridor.highwayEn}
+                      </span>
+                      <span className="inline-flex items-center gap-1 font-mono font-bold text-blue-700">
+                        <Clock className="w-3.5 h-3.5 flex-shrink-0" />
+                        <span>{isUrdu ? corridor.transitUr : corridor.transitEn}</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <Link
+                    to="/booking"
+                    state={{ originId: 'samundri', destinationId: corridor.destId }}
+                    className={`flex-shrink-0 inline-flex items-center gap-1 bg-white hover:bg-amber-500 text-slate-900 border border-slate-300 hover:border-amber-500 font-bold px-3 py-2 rounded-lg text-xs transition-colors ${
+                      isUrdu ? 'font-urdu' : 'font-sans'
+                    }`}
+                  >
+                    <span>{isUrdu ? 'کرایہ' : 'Rate'}</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
