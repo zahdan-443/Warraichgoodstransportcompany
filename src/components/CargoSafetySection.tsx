@@ -136,7 +136,7 @@ export const CargoSafetySection: React.FC = () => {
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex items-end p-3">
-              <span className="text-white text-xs font-semibold font-urdu bg-slate-900/80 px-2.5 py-1 rounded backdrop-blur-sm">
+              <span className="text-white text-xs font-semibold font-urdu bg-slate-950/80 px-2.5 py-1 rounded">
                 {language === 'ur' ? '100% واٹر پروف ڈبل ترپال و مضبوط بندھائی' : 'Double Waterproof Tarpaulin & Heavy Tie-Downs'}
               </span>
             </div>

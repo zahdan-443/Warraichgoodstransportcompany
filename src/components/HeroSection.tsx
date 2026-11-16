@@ -43,7 +43,7 @@ export const HeroSection: React.FC = () => {
             }}
           />
           {/* Dark Navy 70-75% Scrim Overlay */}
-          <div className="absolute inset-0 bg-slate-950/75 backdrop-contrast-125" />
+          <div className="absolute inset-0 bg-slate-950/75" />
           {/* Subtle bottom gradient to blend smoothly */}
           <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" />
         </div>

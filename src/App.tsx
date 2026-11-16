@@ -4,7 +4,8 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { FloatingActions } from './components/FloatingActions';
 import { ScrollToTop } from './components/ScrollToTop';
-import { useScrollReveal } from './hooks/useMotion';
+import { useScrollReveal, useScrollPause } from './hooks/useMotion';
+import { useWarmImages } from './hooks/useWarmImages';
 
 import { HomePage } from './pages/HomePage';
 import {
@@ -15,7 +16,29 @@ import {
   LazyFaqPage,
   LazyAboutPage,
   LazyBiltyVerificationPage,
+  preloadAllRoutes,
 } from './routes';
+
+const SITE_WARM_IMAGE_URLS = [
+  'images/shehzore-truck.png',
+  'images/mazda-truck.png',
+  'images/sample-truck.png',
+  'images/bedford-truck.png',
+  'images/agricultural-freight.webp',
+  'images/factory-warehouse.webp',
+  'images/machinery-cargo.webp',
+  'images/fmcg-cargo.webp',
+  'images/cargo-safety.webp',
+  'images/road-highway.webp',
+  'images/trip-driver-call.webp',
+  'images/trip-live-location.webp',
+  'images/trip-scale-bilty.webp',
+  'images/why-night-dispatch.webp',
+  'images/owner-portrait.png',
+  'images/mobileapk.webp',
+  'images/placeholder-driver-vehicle.jpg',
+  'images/placeholder-loading-dispatch.jpg',
+] as const;
 
 export interface SsrPagesMap {
   '/fleet': React.ComponentType;
@@ -41,6 +64,10 @@ export default function App({ ssrPages }: AppProps) {
 
   // Enable scroll reveal for below-the-fold sections after hydration
   useScrollReveal(location.pathname);
+  // Pause infinite animations while actively scrolling to eliminate frame drops
+  useScrollPause(150);
+  // Warm and decode all site images & lazy route chunks once window load + hero LCP finish
+  useWarmImages(SITE_WARM_IMAGE_URLS, preloadAllRoutes);
 
   // Apply 200ms route transition only after initial load
   useEffect(() => {

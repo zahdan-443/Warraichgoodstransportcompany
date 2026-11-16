@@ -206,7 +206,6 @@ html[lang="en"] .font-sans {
 
 .hero-ken-burns {
   animation: heroKenBurns 22s ease-in-out infinite;
-  will-change: transform;
 }
 
 /* Small truck driving along hero bottom road line */
@@ -217,25 +216,51 @@ html[lang="en"] .font-sans {
 
 .hero-truck-drive {
   animation: heroTruckDrive 14s linear infinite;
+}
+
+/* Pause infinite animations when off-screen or while actively scrolling */
+.anim-paused,
+.anim-paused *,
+.anim-paused *::before,
+.anim-paused *::after,
+html.is-scrolling .hero-ken-burns,
+html.is-scrolling .hero-truck-drive,
+html.is-scrolling .marquee-track,
+html.is-scrolling .cta-subtle-pulse::after,
+html.is-scrolling .wa-soft-ring,
+html.is-scrolling .bilty-shimmer::after {
+  animation-play-state: paused !important;
+  will-change: auto !important;
+}
+
+/* Apply will-change strictly while infinite animations are actively running */
+html:not(.is-scrolling) section:not(.anim-paused) .hero-ken-burns,
+html:not(.is-scrolling) section:not(.anim-paused) .hero-truck-drive,
+html:not(.is-scrolling) div:not(.anim-paused) > .marquee-container .marquee-track {
   will-change: transform;
 }
 
-/* Pause infinite animations when off-screen */
-.anim-paused,
-.anim-paused * {
-  animation-play-state: paused !important;
+html:not(.is-scrolling) .wa-soft-ring {
+  will-change: transform, opacity;
 }
 
-/* 4. Card hover/tap lift & icon nudge */
+/* 4. Card hover/tap lift, hover-only image zoom & icon nudge */
 .card-interactive {
   transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.22s ease,
               border-color 0.22s ease;
 }
 
+.card-hover-zoom {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 @media (hover: hover) {
   .card-interactive:hover {
     transform: translate3d(0, -4px, 0);
+  }
+  .group:hover .card-hover-zoom {
+    transform: scale(1.05);
   }
 }
 
@@ -247,8 +272,10 @@ html[lang="en"] .font-sans {
   transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.group:hover .card-icon-nudge {
-  transform: translate3d(0, -2px, 0) scale(1.06);
+@media (hover: hover) {
+  .group:hover .card-icon-nudge {
+    transform: translate3d(0, -2px, 0) scale(1.06);
+  }
 }
 
 /* 5. Navbar sliding active underline & mobile menu stagger */
@@ -256,7 +283,6 @@ html[lang="en"] .font-sans {
   transition: transform 0.26s cubic-bezier(0.16, 1, 0.3, 1),
               width 0.26s cubic-bezier(0.16, 1, 0.3, 1),
               opacity 0.2s ease;
-  will-change: transform, width;
 }
 
 @keyframes mobileDrawerSlide {
@@ -304,7 +330,6 @@ html[lang="en"] .font-sans {
   display: flex;
   width: max-content;
   animation: marqueeLtr 28s linear infinite;
-  will-change: transform;
 }
 
 html[dir="rtl"] .marquee-track {
@@ -360,7 +385,6 @@ html[dir="rtl"] .marquee-track {
 
 .wa-soft-ring {
   animation: waSoftRing 2.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
-  will-change: transform, opacity;
 }
 
 /* 8. Route transition: 200ms fade/slide (applied only after first route change) */
@@ -429,7 +453,6 @@ html[dir="rtl"] .timeline-connector {
   inset: 0;
   background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.7) 50%, transparent 100%);
   animation: shimmerSlide 1.3s ease-in-out infinite;
-  will-change: transform;
 }
 
 @keyframes checkDrawCircle {
@@ -487,16 +510,10 @@ html[dir="rtl"] .timeline-connector {
   }
 }
 
-/* Defer off-screen layout & paint work for faster initial rendering */
+/* Defer footer paint work off-screen without delaying card image sections */
 @supports (content-visibility: auto) {
-  #fleet-overview,
-  #cargo-categories,
-  #tracking,
-  #business-intro,
-  #why-us,
-  #app-download,
   footer {
     content-visibility: auto;
-    contain-intrinsic-size: auto 520px;
+    contain-intrinsic-size: auto 420px;
   }
 }

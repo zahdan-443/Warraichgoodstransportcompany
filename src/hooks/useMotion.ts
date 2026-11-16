@@ -64,3 +64,31 @@ export function useScrollReveal(routeKey: string): void {
     return () => io.disconnect();
   }, [routeKey]);
 }
+
+export function useScrollPause(delayMs = 150): void {
+  useEffect(() => {
+    if (typeof window === 'undefined' || prefersReducedMotion()) return;
+    const root = document.documentElement;
+    let timer: ReturnType<typeof setTimeout> | null = null;
+    let scrolling = false;
+
+    const onScroll = () => {
+      if (!scrolling) {
+        scrolling = true;
+        root.classList.add('is-scrolling');
+      }
+      if (timer !== null) clearTimeout(timer);
+      timer = setTimeout(() => {
+        scrolling = false;
+        root.classList.remove('is-scrolling');
+      }, delayMs);
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (timer !== null) clearTimeout(timer);
+      root.classList.remove('is-scrolling');
+    };
+  }, [delayMs]);
+}

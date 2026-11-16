@@ -222,7 +222,7 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
                   loading="lazy"
                   decoding="async"
                   referrerPolicy="no-referrer"
-                  className="absolute inset-0 w-full h-full object-cover object-center opacity-[0.09] group-hover:opacity-[0.14] transition-opacity duration-500 pointer-events-none"
+                  className="absolute inset-0 w-full h-full object-cover object-center opacity-[0.11] pointer-events-none"
                 />
                 <div
                   aria-hidden="true"
@@ -292,7 +292,7 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
                         }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent flex items-end p-3 pointer-events-none">
-                        <span className={`text-white text-xs font-semibold ${fontClass} bg-slate-900/80 px-2.5 py-1 rounded backdrop-blur-sm border border-white/10`}>
+                        <span className={`text-white text-xs font-semibold ${fontClass} bg-slate-950/80 px-2.5 py-1 rounded border border-white/10`}>
                           {categoryTitle}
                         </span>
                       </div>

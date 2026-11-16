@@ -82,3 +82,13 @@ export async function preloadRouteForLocation(pathname: string, search = ''): Pr
       break;
   }
 }
+
+export function preloadAllRoutes(): void {
+  void LazyFleetPage.preload();
+  void LazyServicesPage.preload();
+  void LazyBookingPage.preload();
+  void LazyServiceAreasPage.preload();
+  void LazyFaqPage.preload();
+  void LazyAboutPage.preload();
+  void LazyBiltyVerificationPage.preload();
+}

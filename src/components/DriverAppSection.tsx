@@ -110,15 +110,11 @@ export const DriverAppSection: React.FC = () => {
                 <span>{isUrdu ? 'ڈرائیور دوست ایپ ڈاؤن لوڈ کریں' : 'Download Driver Dost App'}</span>
                 <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
               </a>
-
-              <span className="text-xs text-slate-500 font-mono text-center sm:text-left truncate">
-                zahdan-443.github.io/Warraich-Goods
-              </span>
             </div>
 
           </div>
 
-          {/* Right Column: Smartphone Frame Mockup displaying /images/mobileapk.png */}
+          {/* Right Column: Smartphone Frame Mockup displaying /images/mobileapk.webp */}
           <div data-reveal="" style={{ '--reveal-delay': '120ms' } as React.CSSProperties} className="lg:col-span-5 flex justify-center">
             
             {/* Phone Outer Chassis Frame */}
@@ -133,10 +129,10 @@ export const DriverAppSection: React.FC = () => {
               {/* Phone Screen Preview Image */}
               <div className="relative rounded-[32px] bg-slate-900 overflow-hidden border border-slate-800 aspect-[9/19] flex items-center justify-center">
                 <img
-                  src={getAssetUrl('images/mobileapk.png')}
+                  src={getAssetUrl('images/mobileapk.webp')}
                   alt="Driver Dost Official Android App Screen Preview - Warraich Goods"
-                  width={520}
-                  height={1156}
+                  width={400}
+                  height={889}
                   loading="lazy"
                   decoding="async"
                   referrerPolicy="no-referrer"

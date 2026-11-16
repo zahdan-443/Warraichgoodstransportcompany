@@ -97,7 +97,7 @@ export const WhyUsSection: React.FC = () => {
                   loading="lazy"
                   decoding="async"
                   referrerPolicy="no-referrer"
-                  className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  className="absolute inset-0 w-full h-full object-cover object-center card-hover-zoom"
                 />
                 {/* Balanced Contrast Gradient Scrim (keeps upper photo bright) */}
                 <div
@@ -107,7 +107,7 @@ export const WhyUsSection: React.FC = () => {
 
                 {/* Top: Rounded Icon Box */}
                 <div className="relative z-10">
-                  <div className={`w-11 h-11 rounded-xl bg-slate-950/65 backdrop-blur-xs flex items-center justify-center flex-shrink-0 border ${item.accent} card-icon-nudge shadow-sm`}>
+                  <div className={`w-11 h-11 rounded-xl bg-slate-950/80 flex items-center justify-center flex-shrink-0 border ${item.accent} card-icon-nudge shadow-sm`}>
                     <IconComponent className="w-5 h-5" />
                   </div>
                 </div>

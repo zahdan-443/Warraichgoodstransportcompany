@@ -524,14 +524,14 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
                   loading="lazy"
                   decoding="async"
                   referrerPolicy="no-referrer"
-                  className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  className="absolute inset-0 w-full h-full object-cover object-center card-hover-zoom"
                 />
                 <div
                   aria-hidden="true"
                   className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/45 to-slate-950/5 group-hover:via-slate-950/35 transition-colors"
                 />
                 <div className="relative z-10">
-                  <div className="card-icon-nudge w-10 h-10 rounded-lg bg-slate-950/65 backdrop-blur-xs border border-blue-400/50 text-blue-300 flex items-center justify-center shadow-sm">
+                  <div className="card-icon-nudge w-10 h-10 rounded-lg bg-slate-950/80 border border-blue-400/50 text-blue-300 flex items-center justify-center shadow-sm">
                     <Phone className="w-5 h-5" />
                   </div>
                 </div>
@@ -561,14 +561,14 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
                   loading="lazy"
                   decoding="async"
                   referrerPolicy="no-referrer"
-                  className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  className="absolute inset-0 w-full h-full object-cover object-center card-hover-zoom"
                 />
                 <div
                   aria-hidden="true"
                   className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/45 to-slate-950/5 group-hover:via-slate-950/35 transition-colors"
                 />
                 <div className="relative z-10">
-                  <div className="card-icon-nudge w-10 h-10 rounded-lg bg-slate-950/65 backdrop-blur-xs border border-emerald-400/50 text-emerald-300 flex items-center justify-center shadow-sm">
+                  <div className="card-icon-nudge w-10 h-10 rounded-lg bg-slate-950/80 border border-emerald-400/50 text-emerald-300 flex items-center justify-center shadow-sm">
                     <MapPin className="w-5 h-5" />
                   </div>
                 </div>
@@ -598,14 +598,14 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
                   loading="lazy"
                   decoding="async"
                   referrerPolicy="no-referrer"
-                  className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  className="absolute inset-0 w-full h-full object-cover object-center card-hover-zoom"
                 />
                 <div
                   aria-hidden="true"
                   className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/45 to-slate-950/5 group-hover:via-slate-950/35 transition-colors"
                 />
                 <div className="relative z-10">
-                  <div className="card-icon-nudge w-10 h-10 rounded-lg bg-slate-950/65 backdrop-blur-xs border border-amber-400/50 text-amber-300 flex items-center justify-center shadow-sm">
+                  <div className="card-icon-nudge w-10 h-10 rounded-lg bg-slate-950/80 border border-amber-400/50 text-amber-300 flex items-center justify-center shadow-sm">
                     <Scale className="w-5 h-5" />
                   </div>
                 </div>

@@ -406,7 +406,7 @@ export const CorporateCredibilitySection: React.FC = () => {
 
                   {/* Top Floating Badge */}
                   <div className={`absolute top-3 z-10 ${isUrdu ? 'left-3' : 'right-3'}`}>
-                    <span className="inline-flex items-center gap-1 bg-slate-900/90 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-1 rounded-md border border-white/20 font-urdu shadow-sm">
+                    <span className="inline-flex items-center gap-1 bg-slate-950/80 text-white text-[11px] font-bold px-2.5 py-1 rounded-md border border-white/20 font-urdu shadow-sm">
                       <Camera className="w-3 h-3 text-amber-400 flex-shrink-0" />
                       <span>{isUrdu ? slot.badgeUrdu : slot.badgeEn}</span>
                     </span>

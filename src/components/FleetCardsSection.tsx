@@ -78,7 +78,7 @@ export const FleetCardsSection: React.FC = () => {
                   loading="lazy"
                   decoding="async"
                   referrerPolicy="no-referrer"
-                  className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  className="absolute inset-0 w-full h-full object-cover object-center card-hover-zoom"
                 />
                 {/* Balanced Contrast Gradient Scrim (keeps upper vehicle photo clear and bright) */}
                 <div
@@ -88,10 +88,10 @@ export const FleetCardsSection: React.FC = () => {
 
                 {/* Top: Rounded Icon Box & Capacity */}
                 <div className="relative z-10 flex items-center justify-between gap-2">
-                  <div className="w-11 h-11 rounded-xl bg-slate-950/65 backdrop-blur-xs border border-amber-400/50 text-amber-400 flex items-center justify-center flex-shrink-0 card-icon-nudge shadow-sm">
+                  <div className="w-11 h-11 rounded-xl bg-slate-950/80 border border-amber-400/50 text-amber-400 flex items-center justify-center flex-shrink-0 card-icon-nudge shadow-sm">
                     <Truck className="w-5 h-5" />
                   </div>
-                  <span className="text-[11px] font-mono font-bold text-amber-300 bg-slate-950/75 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/20 shadow-sm">
+                  <span className="text-[11px] font-mono font-bold text-amber-300 bg-slate-950/80 px-2.5 py-1 rounded-md border border-white/20 shadow-sm">
                     {capacity}
                   </span>
                 </div>
