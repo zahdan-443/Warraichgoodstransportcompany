@@ -38,7 +38,7 @@ async function getFirestoreDb(): Promise<Firestore | null> {
   return dbPromise;
 }
 
-const BILTY_PATTERN = /^[A-Z0-9-]{4,24}$/;
+const BILTY_PATTERN = /^[A-Z0-9_-]{1,64}$/;
 
 export interface PublicBiltyRecord {
   biltyNo: string;
@@ -78,12 +78,27 @@ function extractSafePublicBiltyFields(data: any, fallbackBiltyNo: string): Publi
         month: 'short',
         day: 'numeric'
       });
-    } else if (typeof rawDate === 'string' || typeof rawDate === 'number') {
-      dateFormatted = new Date(rawDate).toLocaleDateString('en-PK', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric'
-      });
+    } else if (typeof rawDate === 'number') {
+      const parsed = new Date(rawDate);
+      if (!Number.isNaN(parsed.getTime())) {
+        dateFormatted = parsed.toLocaleDateString('en-PK', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric'
+        });
+      }
+    } else if (typeof rawDate === 'string') {
+      const trimmed = rawDate.trim();
+      const parsed = /^\d{4}-\d{2}-\d{2}/.test(trimmed) ? new Date(trimmed) : null;
+      if (parsed && !Number.isNaN(parsed.getTime())) {
+        dateFormatted = parsed.toLocaleDateString('en-PK', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric'
+        });
+      } else if (trimmed) {
+        dateFormatted = trimmed;
+      }
     }
   }
 
@@ -112,7 +127,7 @@ function extractSafePublicBiltyFields(data: any, fallbackBiltyNo: string): Publi
 /**
  * Performs read-only lookup strictly on publicBiltyVerifications/{id}.
  * Dynamically loads Firebase SDK only when invoked so initial page load stays fast.
- * Validates input against /^[A-Z0-9-]{4,24}$/.
+ * Validates input against /^[A-Z0-9_-]{1,64}$/.
  */
 export async function verifyBiltyRecord(rawBiltyNo: string): Promise<VerificationResult> {
   const normalizedNo = normalizeBiltyNo(rawBiltyNo);
