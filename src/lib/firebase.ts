@@ -64,13 +64,20 @@ export function normalizeBiltyNo(input: string): string {
   return input.trim().toUpperCase();
 }
 
+function sanitizePublicString(value: unknown, maxLen = 300): string | undefined {
+  if (typeof value !== 'string') return undefined;
+  const cleaned = value.trim();
+  if (!cleaned) return undefined;
+  return cleaned.length > maxLen ? cleaned.slice(0, maxLen) : cleaned;
+}
+
 /**
  * Safely extracts only public fields from a raw Firestore document.
  * Excludes sensitive fields like CNIC, phone numbers, driver credentials, freight charges, and private payment details.
  */
 function extractSafePublicBiltyFields(data: any, fallbackBiltyNo: string): PublicBiltyRecord {
-  let dateFormatted = undefined;
-  if (data.biltyDate || data.createdAt || data.date) {
+  let dateFormatted: string | undefined = undefined;
+  if (data?.biltyDate || data?.createdAt || data?.date) {
     const rawDate = data.biltyDate || data.createdAt || data.date;
     if (rawDate && typeof rawDate.toDate === 'function') {
       dateFormatted = rawDate.toDate().toLocaleDateString('en-PK', {
@@ -97,29 +104,37 @@ function extractSafePublicBiltyFields(data: any, fallbackBiltyNo: string): Publi
           day: 'numeric'
         });
       } else if (trimmed) {
-        dateFormatted = trimmed;
+        dateFormatted = trimmed.slice(0, 64);
       }
     }
   }
 
-  let weightQtyStr = undefined;
-  if (data.weight || data.quantity || data.weightOrQty || data.bags) {
-    const parts = [];
-    if (data.weight) parts.push(`Weight: ${data.weight}`);
-    if (data.quantity || data.bags) parts.push(`Qty: ${data.quantity || data.bags}`);
-    if (data.weightOrQty) parts.push(data.weightOrQty);
-    weightQtyStr = parts.join(' | ');
+  let weightQtyStr: string | undefined = undefined;
+  if (data?.weight || data?.quantity || data?.weightOrQty || data?.bags) {
+    const parts: string[] = [];
+    if (typeof data.weight === 'string' || typeof data.weight === 'number') {
+      parts.push(`Weight: ${String(data.weight).slice(0, 48)}`);
+    }
+    const qtyVal = data.quantity ?? data.bags;
+    if (typeof qtyVal === 'string' || typeof qtyVal === 'number') {
+      parts.push(`Qty: ${String(qtyVal).slice(0, 48)}`);
+    }
+    const directWeightOrQty = sanitizePublicString(data.weightOrQty, 120);
+    if (directWeightOrQty) parts.push(directWeightOrQty);
+    if (parts.length > 0) {
+      weightQtyStr = parts.join(' | ').slice(0, 120);
+    }
   }
 
   return {
-    biltyNo: data.biltyNo || fallbackBiltyNo,
-    biltyDate: dateFormatted || data.biltyDate || data.date || undefined,
-    origin: data.origin || data.source || data.fromCity || data.from || undefined,
-    destination: data.destination || data.target || data.toCity || data.to || undefined,
-    goodsDescription: data.goodsDescription || data.goods || data.items || data.cargo || undefined,
-    weightOrQty: weightQtyStr || undefined,
-    vehicleNo: data.vehicleNo || data.truckNo || data.vehicleNumber || undefined,
-    status: data.status || data.deliveryStatus || 'Verified Record in Transit',
+    biltyNo: sanitizePublicString(data?.biltyNo, 64) || fallbackBiltyNo,
+    biltyDate: dateFormatted || sanitizePublicString(data?.biltyDate ?? data?.date, 64),
+    origin: sanitizePublicString(data?.origin ?? data?.source ?? data?.fromCity ?? data?.from, 120),
+    destination: sanitizePublicString(data?.destination ?? data?.target ?? data?.toCity ?? data?.to, 120),
+    goodsDescription: sanitizePublicString(data?.goodsDescription ?? data?.goods ?? data?.items ?? data?.cargo, 300),
+    weightOrQty: weightQtyStr,
+    vehicleNo: sanitizePublicString(data?.vehicleNo ?? data?.truckNo ?? data?.vehicleNumber, 64),
+    status: sanitizePublicString(data?.status ?? data?.deliveryStatus, 64) || 'Verified Record in Transit',
     verified: true
   };
 }
@@ -166,11 +181,10 @@ export async function verifyBiltyRecord(rawBiltyNo: string): Promise<Verificatio
     }
 
     return { status: 'NOT_FOUND' };
-  } catch (error: any) {
-    console.error('Firestore bilty verification error:', error);
+  } catch {
     return {
       status: 'ERROR',
-      message: error?.message || 'Unable to Verify — Please Try Again'
+      message: 'Unable to Verify — Please Try Again'
     };
   }
 }

@@ -63,7 +63,7 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
   }, [searchParams]);
 
   const handlePerformVerification = async (codeToVerify: string) => {
-    const cleaned = normalizeBiltyNo(codeToVerify);
+    const cleaned = normalizeBiltyNo(codeToVerify).slice(0, 64);
     if (!cleaned) return;
 
     setActiveReference(cleaned);
@@ -83,8 +83,7 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
       } else {
         setErrorMessage(result.message);
       }
-    } catch (err: any) {
-      console.error('Bilty verification error:', err);
+    } catch {
       setErrorMessage(
         language === 'ur'
           ? 'تصدیق ممکن نہیں ہو سکی — براہ کرم دوبارہ کوشش کریں'

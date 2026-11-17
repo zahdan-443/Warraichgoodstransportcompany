@@ -6,3 +6,20 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Security: never commit Firebase local configs, service accounts, keys, or certificates
+firebase-applet-config.json
+firebase-debug.log*
+firestore-debug.log*
+.firebase/
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*serviceAccount*.json
+*service-account*.json
+*adminsdk*.json
+.aistudio/
+

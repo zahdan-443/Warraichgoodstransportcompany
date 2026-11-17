@@ -1,74 +1,51 @@
-# Firestore Security Rules & Architecture Guide
+# Public Bilty Verification — Security Policy
 
-## Security Architecture Overview
+## Public Website Data Boundary
 
-To protect sensitive customer and financial information while providing a public Bilty Verification System on the website:
+This public marketing website uses **read-only** Firestore lookups against the sanitized `publicBiltyVerifications/{biltyId}` collection solely to verify official consignment numbers.
 
-1. **`bilties` (Private Collection):**
-   - Contains complete internal bilty records (CNICs, phone numbers, freight amounts, payment status, driver credentials).
-   - **Access:** Completely **PRIVATE**. Public website access is **STRICTLY DENIED**.
-   - **Write:** Restricted to authorized owner account (`warraichgoods43@gmail.com`) via Driver Dost App authentication.
+### Allowed Public Fields Only
+Each document in `publicBiltyVerifications` is strictly constrained by Firestore Security Rules to expose **only** non-PII, non-financial shipment verification fields:
+- `biltyNo`
+- `biltyDate`
+- `origin`
+- `destination`
+- `goodsDescription`
+- `weightOrQty`
+- `vehicleNo`
+- `status`
 
-2. **`publicBiltyVerifications` (Public Collection):**
-   - Contains **ONLY** sanitized, non-sensitive verification fields:
-     - `biltyNo`: Normalized string (e.g. `"WGT-99214"`)
-     - `biltyDate`: Date string or Timestamp
-     - `origin`: Origin city (e.g. `"Samundri"`)
-     - `destination`: Destination city (e.g. `"Karachi Port"`)
-     - `goodsDescription`: General goods category (e.g. `"Textile Bales"`)
-     - `weightOrQty`: Package count / weight summary
-     - `vehicleNo`: Truck registration number (e.g. `"LES-8842"`)
-     - `status`: Verification status string (e.g. `"Verified Record in Transit"`)
-   - **Access:** **READ-ONLY for the public**.
-   - **Write:** Restricted exclusively to authorized owner (`warraichgoods43@gmail.com`). Public users **cannot create, edit, or delete** documents.
+All PII and financial data (CNICs, mobile/phone numbers, freight totals, advances, payables, commissions, driver credentials, and party addresses) are strictly forbidden from `publicBiltyVerifications` and blocked by default-deny Firestore rules.
 
 ---
 
-## Recommended Firestore Security Rules
-
-Copy and paste the following rules into the **Firebase Console -> Firestore Database -> Rules**:
+## Hardened Reference Rules (Public Website Scope)
 
 ```javascript
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-
-    // 1. PRIVATE COLLECTION: Internal Bilties
-    // Stores full records including CNIC, phone numbers, financial details.
-    // Public website users HAVE NO ACCESS.
-    match /bilties/{biltyId} {
-      allow read, write: if request.auth != null && request.auth.token.email == "warraichgoods43@gmail.com";
-    }
-
-    // 2. PUBLIC COLLECTION: Sanitized Bilty Verifications
-    // Stores ONLY safe public verification fields.
-    match /publicBiltyVerifications/{biltyId} {
-      // Allow public read access for website verification queries
-      allow read: if true;
-
-      // Restrict write/update/delete strictly to the authenticated owner account
-      allow write: if request.auth != null && request.auth.token.email == "warraichgoods43@gmail.com";
-    }
-
-    // Default deny for all other collections
+    // Global default deny
     match /{document=**} {
       allow read, write: if false;
+    }
+
+    // Sanitized public verification documents: single-document get only (no collection listing)
+    match /publicBiltyVerifications/{biltyId} {
+      allow get: if true;
+      allow list: if false;
+      allow write: if false; // Managed exclusively by verified admin/internal rules
     }
   }
 }
 ```
 
+> **Note:** Internal collections, owner/staff authorization, and strict field schema validators (`hasOnlyPublicBiltyFields`) are maintained directly in Firebase Console and intentionally omitted from this public repository.
+
 ---
 
-## Technical Integration Details
+## Public Repository Security Checklist
 
-### Website QR URL Format
-When scanning QR codes on printed bilties, the QR code URL must direct to:
-```
-https://zahdan-443.github.io/Warraichgoodstransportcompany/?page=verify&bilty={BILTY_NUMBER}
-```
-
-### Driver Dost App Integration Requirement
-When the owner creates or updates a bilty in the Driver Dost app:
-1. Save the complete internal bilty record in `bilties/{biltyNo}`.
-2. Publish/sync the sanitized public record in `publicBiltyVerifications/{biltyNo}` containing only the non-sensitive public fields listed above.
+1. **GitHub Actions Secrets:** `VITE_FIREBASE_*` keys are injected only at build time via GitHub repository secrets—never commit `.env` or local Firebase config files.
+2. **HTTP Referrer Restriction (Google Cloud Console):** Restrict the Firebase Browser API Key to `https://zahdan-443.github.io/*`.
+3. **Firebase App Check:** Enable reCAPTCHA Enterprise / App Check on Firestore to mitigate automated scraping.
