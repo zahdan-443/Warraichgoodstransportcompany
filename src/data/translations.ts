@@ -38,9 +38,9 @@ export const TRANSLATIONS = {
       },
       trustCounters: [
         {
-          num: '2008 سے پہلے',
+          num: '18+ سال',
           badge: 'قیام',
-          title: '2008 سے پہلے سے خدمت میں',
+          title: '2008 سے خدمت میں',
           sub: '24/7 ملک گیر سروس نیٹ ورک',
         },
         {
@@ -203,9 +203,9 @@ export const TRANSLATIONS = {
       },
       trustCounters: [
         {
-          num: 'Before 2008',
+          num: '18+ Years',
           badge: 'ESTABLISHED',
-          title: 'Serving since before 2008',
+          title: 'Serving since 2008',
           sub: 'Local and nationwide routes',
         },
         {

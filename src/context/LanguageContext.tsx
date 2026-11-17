@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';
 import { TRANSLATIONS } from '../data/translations';
+import { MOTION_CONFIG } from '../config/motionConfig';
 
 export type Language = 'ur' | 'en';
 
@@ -54,7 +55,7 @@ const ROUTE_SEO_MAP: Record<string, RouteSeoMeta> = {
   },
   '/about': {
     title: 'About Us & Contact Details | Warraich Goods',
-    description: 'Warraich Goods Transport Company is a local transport business based in Samundri, Faisalabad, serving routes across Pakistan since before 2008.',
+    description: 'Warraich Goods Transport Company is a local transport business based in Samundri, Faisalabad, serving routes across Pakistan since 2008.',
     canonical: `${BASE_SITE_URL}/about/`,
   },
   '/verify': {
@@ -140,6 +141,19 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
         localStorage.setItem(LANG_STORAGE_KEY, newLang);
       } catch {
         // Ignore storage errors
+      }
+
+      // Brief smooth cross-transition on language change
+      if (
+        MOTION_CONFIG.languageTransition &&
+        typeof window.matchMedia === 'function' &&
+        !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      ) {
+        const root = document.documentElement;
+        root.classList.remove('lang-switching');
+        void root.offsetWidth;
+        root.classList.add('lang-switching');
+        window.setTimeout(() => root.classList.remove('lang-switching'), 240);
       }
 
       // Update URL query parameter without full reload

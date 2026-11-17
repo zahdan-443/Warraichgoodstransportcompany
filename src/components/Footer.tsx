@@ -48,7 +48,7 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
         
         {/* 1. Official Social Media & Verified Profiles Strip */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-800/80">
+        <div data-reveal="" className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-800/80">
           <div className="text-center sm:text-start">
             <span className="text-[11px] font-mono uppercase tracking-widest text-amber-400 font-bold block">
               {isUrdu ? 'آفیشل سوشل میڈیا و نیٹ ورک' : 'Official Social Media & Channels'}
@@ -100,7 +100,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* 2. Social Media Sharing Bar */}
-        <div className="bg-slate-800/60 border border-slate-700/80 rounded-lg p-4 sm:p-5 mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div data-reveal="" style={{ '--reveal-delay': '70ms' } as React.CSSProperties} className="bg-slate-800/60 border border-slate-700/80 rounded-lg p-4 sm:p-5 mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3 text-center sm:text-start">
             <div className="w-10 h-10 rounded-lg bg-amber-400/10 border border-amber-400/30 flex items-center justify-center flex-shrink-0">
               <Share2 className="w-5 h-5 text-amber-400" />
@@ -177,7 +177,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* 3. Quick Navigation Links Bar (Distinct Internal Page Links) */}
-        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-urdu text-xs sm:text-sm text-slate-400">
+        <div data-reveal="" style={{ '--reveal-delay': '130ms' } as React.CSSProperties} className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-urdu text-xs sm:text-sm text-slate-400">
           <Link to="/" className="hover:text-amber-400 transition-colors py-1">
             {isUrdu ? 'مرکزی صفحہ' : 'Home'}
           </Link>
@@ -231,11 +231,11 @@ export const Footer: React.FC = () => {
 
           <button
             onClick={scrollToTop}
-            className="inline-flex items-center justify-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-3.5 py-1.5 rounded-lg border border-slate-700 transition-colors cursor-pointer min-h-[38px]"
+            className="btn-animated inline-flex items-center justify-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-3.5 py-1.5 rounded-lg border border-slate-700 cursor-pointer min-h-[38px]"
             aria-label="Back to top of page"
           >
             <span>{isUrdu ? 'اوپر جائیں' : 'Back to Top'}</span>
-            <ArrowUp className="w-3.5 h-3.5 flex-shrink-0" />
+            <ArrowUp className="w-3.5 h-3.5 flex-shrink-0 transition-transform group-hover:-translate-y-0.5" />
           </button>
         </div>
 

@@ -10,6 +10,7 @@ import {
 import { COMPANY_INFO } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
 import { getAssetUrl } from '../utils/assetPath';
+import { MOTION_CONFIG } from '../config/motionConfig';
 
 interface NavbarProps {
   onOpenBookingModal?: () => void;
@@ -129,12 +130,29 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header 
       id="main-navigation"
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-200 select-none bg-white/95 backdrop-blur-md border-b border-slate-200 ${
-        scrolled ? 'shadow-md' : 'shadow-xs'
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-200 select-none border-b ${
+        scrolled && MOTION_CONFIG.navbarScrollAndUnderline
+          ? 'bg-white/95 backdrop-blur-xl border-slate-200 shadow-md'
+          : 'bg-white/90 backdrop-blur-md border-slate-200/80 shadow-xs'
       }`}
     >
+      {/* Sleek Amber Scroll-Progress Bar at Top of Page (GPU scaleX, RTL-mirrored) */}
+      {MOTION_CONFIG.scrollProgressBar && (
+        <div className="absolute top-0 left-0 right-0 h-[3px] bg-transparent pointer-events-none overflow-hidden z-50" aria-hidden="true">
+          <div
+            ref={progressBarRef}
+            className="h-full w-full bg-gradient-to-r from-amber-400 via-amber-500 to-blue-600"
+            style={{
+              transform: 'scaleX(0)',
+              transformOrigin: isUrdu ? 'right center' : 'left center',
+              transition: 'transform 60ms linear',
+            }}
+          />
+        </div>
+      )}
+
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className={`flex items-center justify-between gap-2 transition-[height] duration-200 ${scrolled ? 'h-12 sm:h-14' : 'h-14 sm:h-16'}`}>
+        <div className={`flex items-center justify-between gap-2 transition-[height] duration-200 ${scrolled && MOTION_CONFIG.navbarScrollAndUnderline ? 'h-12 sm:h-14' : 'h-14 sm:h-16'}`}>
           
           {/* Left: Brand Logo & Single-Line Business Name */}
           <Link 
@@ -208,15 +226,16 @@ export const Navbar: React.FC<NavbarProps> = ({
                   </Link>
                 );
               })}
-              <span
-                aria-hidden="true"
-                className="nav-active-underline pointer-events-none absolute bottom-0 left-0 h-0.5 rounded-full bg-amber-500"
-                style={{
-                  transform: `translate3d(${underline.left}px, 0, 0)`,
-                  width: `${underline.width}px`,
-                  opacity: underline.visible ? 1 : 0,
-                }}
-              />
+              {MOTION_CONFIG.navbarScrollAndUnderline && (
+                <span
+                  aria-hidden="true"
+                  className="nav-active-underline pointer-events-none absolute bottom-0 left-0 h-0.5 w-[100px] rounded-full bg-amber-500"
+                  style={{
+                    transform: `translate3d(${underline.left}px, 0, 0) scaleX(${(underline.width / 100).toFixed(4)})`,
+                    opacity: underline.visible ? 1 : 0,
+                  }}
+                />
+              )}
             </nav>
 
             {/* Desktop Driver Web Portal Link */}
@@ -225,7 +244,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               href={COMPANY_INFO.webAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center gap-1.5 bg-slate-900 hover:bg-blue-600 text-white font-medium px-3 py-1.5 rounded-lg text-xs transition-colors shadow-xs cursor-pointer whitespace-nowrap"
+              className="hidden md:inline-flex items-center gap-1.5 bg-slate-900 hover:bg-blue-600 text-white font-medium px-3 py-1.5 rounded-lg text-xs transition-colors shadow-xs cursor-pointer whitespace-nowrap btn-animated"
               title={isUrdu ? 'ڈرائیور پورٹل کھولیں' : 'Open Transport Driver Portal'}
               aria-label="Open Transport Portal"
             >
@@ -237,11 +256,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               id="lang-toggle-btn-desktop"
               onClick={toggleLanguage}
-              className="hidden sm:inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 px-3 py-1.5 rounded-lg transition-colors border border-slate-200 text-xs font-bold cursor-pointer shadow-xs active:scale-95 whitespace-nowrap min-h-[34px]"
+              className="hidden sm:inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 px-3 py-1.5 rounded-lg transition-colors border border-slate-200 text-xs font-bold cursor-pointer shadow-xs active:scale-95 whitespace-nowrap min-h-[34px] group btn-animated"
               aria-label={`Switch language to ${isUrdu ? 'English' : 'Urdu'}`}
               title={isUrdu ? 'Switch to English' : 'اردو میں دیکھیں'}
             >
-              <Globe className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" />
+              <Globe className={`w-3.5 h-3.5 text-blue-600 flex-shrink-0 transition-transform duration-300 ${isUrdu ? 'rotate-180' : 'rotate-0'}`} />
               <span className={isUrdu ? 'font-sans font-semibold' : 'font-urdu font-bold'}>
                 {isUrdu ? 'English' : 'اردو'}
               </span>
@@ -278,7 +297,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             aria-hidden="true"
           />
           
-          <div className="mobile-drawer-enter absolute top-full left-0 right-0 z-40 xl:hidden bg-white border-b border-slate-200 shadow-xl px-4 pt-4 pb-6 max-h-[calc(100vh-64px)] overflow-y-auto">
+          <div className={`${MOTION_CONFIG.navbarScrollAndUnderline ? 'mobile-drawer-enter ' : ''}absolute top-full left-0 right-0 z-40 xl:hidden bg-white border-b border-slate-200 shadow-xl px-4 pt-4 pb-6 max-h-[calc(100vh-64px)] overflow-y-auto`}>
             
             {/* Top Row: Language Toggle inside Mobile Drawer */}
             <div className="flex items-center justify-between gap-2 pb-3 mb-3 border-b border-slate-100">
@@ -288,7 +307,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 id="lang-toggle-btn-mobile"
                 onClick={toggleLanguage}
-                className="inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 text-xs font-bold transition cursor-pointer"
+                className="inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 text-xs font-bold transition cursor-pointer btn-animated"
               >
                 <Globe className="w-3.5 h-3.5 text-blue-600" />
                 <span className={isUrdu ? 'font-sans' : 'font-urdu'}>
@@ -306,8 +325,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                     key={link.to}
                     to={link.to}
                     onClick={handleClose}
-                    style={{ animationDelay: `${idx * 35}ms` }}
-                    className={`mobile-item-stagger flex items-center min-h-[44px] px-3.5 py-2.5 rounded-lg text-sm ${isUrdu ? 'font-urdu' : 'font-sans'} font-semibold transition-colors ${
+                    style={MOTION_CONFIG.navbarScrollAndUnderline ? { animationDelay: `${idx * 35}ms` } : undefined}
+                    className={`${MOTION_CONFIG.navbarScrollAndUnderline ? 'mobile-item-stagger ' : ''}flex items-center min-h-[44px] px-3.5 py-2.5 rounded-lg text-sm ${isUrdu ? 'font-urdu' : 'font-sans'} font-semibold transition-colors ${
                       active
                         ? 'text-blue-700 bg-blue-50 font-bold border border-blue-200'
                         : 'text-slate-800 hover:text-blue-600 hover:bg-slate-50'
@@ -335,18 +354,6 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
         </>
       )}
-
-      {/* Thin Amber Scroll-Progress Bar Under Navbar */}
-      <div className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-transparent pointer-events-none overflow-hidden" aria-hidden="true">
-        <div
-          ref={progressBarRef}
-          className="h-full w-full bg-amber-500"
-          style={{
-            transform: 'scaleX(0)',
-            transformOrigin: isUrdu ? 'right center' : 'left center',
-          }}
-        />
-      </div>
     </header>
   );
 };

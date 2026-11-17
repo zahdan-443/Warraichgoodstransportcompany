@@ -20,6 +20,7 @@ import {
 import { COMPANY_INFO, CORPORATE_CREDENTIALS, FLEET_DATA } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
 import { getAssetUrl } from '../utils/assetPath';
+import { TiltCard } from './MotionPrimitives';
 
 // ============================================================================
 // TASK 3: HUMAN-CENTRIC OPERATIONS & REAL ON-GROUND TEAM PHOTOGRAPHY
@@ -102,7 +103,7 @@ export const CorporateCredibilitySection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Top Header Badge */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+        <div data-reveal="" className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-900 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-3.5 font-urdu shadow-sm">
             <Award className="w-4 h-4 text-amber-700 flex-shrink-0" />
             <span>
@@ -123,7 +124,7 @@ export const CorporateCredibilitySection: React.FC = () => {
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4 font-urdu">
             <button
               onClick={() => setShowProfileModal(true)}
-              className="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-3 rounded-lg text-xs sm:text-sm shadow-sm hover:shadow-md transition-colors cursor-pointer min-h-[44px]"
+              className="btn-animated inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-3 rounded-lg text-xs sm:text-sm shadow-sm hover:shadow-md transition-colors cursor-pointer min-h-[44px]"
             >
               <FileText className="w-4 h-4 fill-current flex-shrink-0" />
               <span>{isUrdu ? 'آفیشل کمپنی پروفائل اور وینڈر کارڈ دیکھیں' : 'View Corporate Profile & Vendor Deck'}</span>
@@ -131,7 +132,7 @@ export const CorporateCredibilitySection: React.FC = () => {
 
             <Link
               to="/booking"
-              className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-5 py-3 rounded-lg text-xs sm:text-sm transition-colors shadow-sm hover:shadow-md cursor-pointer min-h-[44px]"
+              className="btn-animated inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-5 py-3 rounded-lg text-xs sm:text-sm transition-colors shadow-sm hover:shadow-md cursor-pointer min-h-[44px]"
             >
               <Briefcase className="w-4 h-4 text-white flex-shrink-0" />
               <span>{isUrdu ? 'کارپوریٹ B2B کنٹریکٹ انکوائری' : 'Corporate Contract Inquiry'}</span>
@@ -267,13 +268,13 @@ export const CorporateCredibilitySection: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
             
             {/* Visual Factory Warehouse Dispatch Showcase */}
-            <div className="lg:col-span-4 relative rounded-lg overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-end min-h-[260px] lg:min-h-full">
+            <div data-reveal="" data-reveal-variant="slide-left" className="lg:col-span-4 relative rounded-lg overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-end min-h-[260px] lg:min-h-full group">
               <img 
                 src={getAssetUrl('images/factory-warehouse.webp')} 
                 alt="Industrial Factory and Warehouse Logistics Loading Bay - Warraich Goods" 
                 width={800}
                 height={450}
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover card-hover-zoom"
                 loading="lazy"
                 decoding="async"
                 referrerPolicy="no-referrer"
@@ -300,7 +301,13 @@ export const CorporateCredibilitySection: React.FC = () => {
             {/* 4 Contract Perks Grid */}
             <div className={`lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4 ${isUrdu ? 'text-right' : 'text-left'}`}>
               {CORPORATE_CREDENTIALS.corporateContractPerks.map((perk, idx) => (
-                <div key={idx} className="bg-slate-50 border border-slate-200 p-4 rounded-lg flex items-start gap-3.5 hover:border-blue-300 transition-colors shadow-sm">
+                <div
+                  key={idx}
+                  data-reveal=""
+                  data-reveal-variant="slide-right"
+                  style={{ '--reveal-delay': `${idx * 65}ms` } as React.CSSProperties}
+                  className="bg-slate-50 border border-slate-200 p-4 rounded-lg flex items-start gap-3.5 hover:border-blue-300 transition-colors shadow-sm card-interactive"
+                >
                   <div className="w-9 h-9 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center flex-shrink-0 border border-blue-200 mt-0.5">
                     <CheckCircle2 className="w-4 h-4" />
                   </div>
@@ -344,7 +351,7 @@ export const CorporateCredibilitySection: React.FC = () => {
         {/* ========================================================================= */}
         <div className="mt-12 sm:mt-16 pt-8 border-t border-slate-200/90">
           
-          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+          <div data-reveal="" className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
             <div className="inline-flex items-center gap-2 bg-blue-100 border border-blue-300 text-blue-900 px-3.5 py-1.5 rounded-full text-xs font-bold font-urdu mb-3 shadow-xs">
               <Users className="w-4 h-4 text-blue-700 flex-shrink-0" />
               <span>{isUrdu ? 'فیلڈ مینجمنٹ اور آن گراؤنڈ سروس' : 'Field Management & Ground Service'}</span>
@@ -361,9 +368,10 @@ export const CorporateCredibilitySection: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
             {GROUND_OPERATIONS_PHOTOS.map((slot, idx) => (
-              <div 
+              <TiltCard
                 key={slot.id}
                 data-reveal=""
+                data-reveal-variant="zoom-in"
                 style={{ '--reveal-delay': `${idx * 80}ms` } as React.CSSProperties}
                 className="bg-white border border-slate-200 rounded-lg overflow-hidden hover:border-blue-300 hover:shadow-md flex flex-col group card-interactive"
               >
@@ -381,7 +389,7 @@ export const CorporateCredibilitySection: React.FC = () => {
                       alt={slot.alt} 
                       width={400}
                       height={300}
-                      className={`w-full h-full object-cover ${slot.id === 'yard-operations' ? 'object-top' : 'object-center'}`}
+                      className={`w-full h-full object-cover card-hover-zoom ${slot.id === 'yard-operations' ? 'object-top' : 'object-center'}`}
                       loading="lazy"
                       decoding="async"
                       referrerPolicy="no-referrer"
@@ -435,7 +443,7 @@ export const CorporateCredibilitySection: React.FC = () => {
                   </div>
                 </div>
 
-              </div>
+              </TiltCard>
             ))}
           </div>
 

@@ -1,15 +1,31 @@
-import React, { useRef } from 'react';
+import React, { useMemo, useRef } from 'react';
 import { PhoneCall, MessageCircle, Truck } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
 import { getAssetUrl } from '../utils/assetPath';
-import { useInView } from '../hooks/useMotion';
+import { useInView, useParallax } from '../hooks/useMotion';
+import { MOTION_CONFIG } from '../config/motionConfig';
+import { CountUp } from './MotionPrimitives';
 
 export const HeroSection: React.FC = () => {
   const { language } = useLanguage();
   const isUrdu = language === 'ur';
   const heroRef = useRef<HTMLElement | null>(null);
+  const bgLayerRef = useRef<HTMLDivElement | null>(null);
+  const contentLayerRef = useRef<HTMLDivElement | null>(null);
+  const roadLayerRef = useRef<HTMLDivElement | null>(null);
   const isHeroInView = useInView(heroRef, '100px');
+
+  const parallaxLayers = useMemo(
+    () => [
+      { ref: bgLayerRef, speed: 0.16, maxOffset: 64 },
+      { ref: contentLayerRef, speed: -0.05, maxOffset: 24 },
+      { ref: roadLayerRef, speed: 0.08, maxOffset: 28 },
+    ],
+    []
+  );
+
+  useParallax(heroRef, parallaxLayers, isHeroInView);
 
   const whatsappUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(
     isUrdu
@@ -27,8 +43,8 @@ export const HeroSection: React.FC = () => {
       {/* 1. Full-Width Real Photo Background with Dark Navy Overlay (~70%) */}
       <div className="relative pt-12 pb-16 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28 overflow-hidden">
         
-        {/* Background Image Container (Ken Burns transform only; never animate opacity) */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
+        {/* Layer 1: Parallax Background Image Container (Ken Burns transform only; never animate opacity) */}
+        <div ref={bgLayerRef} className="absolute inset-0 z-0 overflow-hidden">
           <img
             src={getAssetUrl('images/road-highway.webp')}
             alt="Warraich Goods Transport Commercial FTL Highway Transit"
@@ -48,8 +64,8 @@ export const HeroSection: React.FC = () => {
           <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" />
         </div>
 
-        {/* Content Container */}
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5 sm:space-y-6">
+        {/* Layer 2: Foreground Content Container */}
+        <div ref={contentLayerRef} className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5 sm:space-y-6">
           
           {/* Primary Large Headline with ONE Highlighted Amber Word */}
           <div className="hero-stagger-1">
@@ -67,7 +83,7 @@ export const HeroSection: React.FC = () => {
           {/* Tagline Subtitle */}
           <div className="hero-stagger-2">
             <p className={`text-base sm:text-xl font-bold text-slate-200 leading-relaxed max-w-3xl mx-auto ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
-              {isUrdu ? COMPANY_INFO.taglineUrdu : 'Home shifting, office moving and goods transport from Samundri across Pakistan. Serving since before 2008.'}
+              {isUrdu ? COMPANY_INFO.taglineUrdu : 'Home shifting, office moving and goods transport from Samundri across Pakistan. Serving since 2008.'}
             </p>
           </div>
 
@@ -80,26 +96,28 @@ export const HeroSection: React.FC = () => {
             </p>
           </div>
 
-          {/* 2 Primary Hero Buttons: "WhatsApp Us" (amber) & "Call Now" (outlined) */}
+          {/* 2 Primary Hero Buttons: "WhatsApp Us" (amber floating + pulse) & "Call Now" (outlined) */}
           <div className="hero-stagger-4 pt-2 flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 max-w-md mx-auto">
-            {/* Amber Primary Button with subtle pulse */}
-            <a
-              id="hero-whatsapp-btn"
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`cta-subtle-pulse w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-slate-950 font-black px-7 py-3.5 rounded-xl text-sm sm:text-base shadow-lg hover:shadow-amber-500/25 transition-all active:scale-98 cursor-pointer min-h-[48px] ${isUrdu ? 'font-urdu' : 'font-sans'}`}
-              aria-label="WhatsApp Warraich Goods"
-            >
-              <MessageCircle className="w-4 h-4 flex-shrink-0" />
-              <span>{isUrdu ? 'واٹس ایپ کریں' : 'WhatsApp Us'}</span>
-            </a>
+            {/* Amber Primary Button with gentle floating + subtle pulse */}
+            <div className={`w-full sm:w-auto ${MOTION_CONFIG.heroFloatingCta ? 'cta-gentle-float' : ''}`}>
+              <a
+                id="hero-whatsapp-btn"
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`cta-subtle-pulse btn-animated w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-slate-950 font-black px-7 py-3.5 rounded-xl text-sm sm:text-base shadow-lg hover:shadow-amber-500/25 min-h-[48px] cursor-pointer ${isUrdu ? 'font-urdu' : 'font-sans'}`}
+                aria-label="WhatsApp Warraich Goods"
+              >
+                <MessageCircle className="w-4 h-4 flex-shrink-0" />
+                <span>{isUrdu ? 'واٹس ایپ کریں' : 'WhatsApp Us'}</span>
+              </a>
+            </div>
 
             {/* Outlined White Button */}
             <a
               id="hero-call-now-btn"
               href={`tel:${COMPANY_INFO.phoneRaw1}`}
-              className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 border-2 border-white/80 hover:border-white hover:bg-white/10 active:bg-white/20 text-white font-bold px-7 py-3.5 rounded-xl text-sm sm:text-base transition-all active:scale-98 cursor-pointer min-h-[48px] ${isUrdu ? 'font-urdu' : 'font-sans'}`}
+              className={`btn-animated w-full sm:w-auto inline-flex items-center justify-center gap-2 border-2 border-white/80 hover:border-white hover:bg-white/10 active:bg-white/20 text-white font-bold px-7 py-3.5 rounded-xl text-sm sm:text-base cursor-pointer min-h-[48px] ${isUrdu ? 'font-urdu' : 'font-sans'}`}
               aria-label={`Call Warraich Goods at ${COMPANY_INFO.phone1}`}
             >
               <PhoneCall className="w-4 h-4 text-amber-400 flex-shrink-0" />
@@ -107,24 +125,32 @@ export const HeroSection: React.FC = () => {
             </a>
           </div>
 
-          {/* Real Facts Stats Row (Before 2008, Fleet Truck Types, 24/7 Booking & Support) */}
+          {/* Real Facts Stats Row with CountUp (18+ Years, 4 Fleet Truck Types, 24/7 Booking & Support) */}
           <div className="pt-8 sm:pt-10 max-w-3xl mx-auto border-t border-slate-800/80">
             <div className="grid grid-cols-3 gap-2 sm:gap-6 text-center items-center">
               
-              {/* Stat 1: Before 2008 | Serving Since */}
+              {/* Stat 1: 18+ Years | Serving Since 2008 */}
               <div className="space-y-1">
-                <span className={`text-xl sm:text-3xl lg:text-4xl font-black text-amber-400 block tracking-tight ${isUrdu ? 'font-urdu' : 'font-mono'}`}>
-                  {isUrdu ? '2008 سے پہلے' : 'Before 2008'}
+                <span className={`text-2xl sm:text-3xl lg:text-4xl font-black text-amber-400 block tracking-tight ${isUrdu ? 'font-urdu' : 'font-mono tabular-nums'}`}>
+                  {isUrdu ? (
+                    <>
+                      <CountUp end={18} start={1} suffix="+" duration={650} /> سال
+                    </>
+                  ) : (
+                    <>
+                      <CountUp end={18} start={1} suffix="+" duration={650} /> Years
+                    </>
+                  )}
                 </span>
                 <span className={`text-xs sm:text-sm font-bold text-white block ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
-                  {isUrdu ? '2008 سے پہلے سے خدمت میں' : 'Serving Since'}
+                  {isUrdu ? '2008 سے خدمت میں' : 'Serving Since 2008'}
                 </span>
               </div>
 
               {/* Stat 2: 4 | Fleet Truck Types */}
               <div className="space-y-1 border-x border-slate-800">
                 <span className="text-2xl sm:text-3xl lg:text-4xl font-black font-mono tabular-nums text-blue-400 block tracking-tight">
-                  4
+                  <CountUp end={4} start={1} duration={500} />
                 </span>
                 <span className={`text-xs sm:text-sm font-bold text-white block ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                   {isUrdu ? 'کمرشل فلیٹ ماڈلز' : 'Fleet Truck Types'}
@@ -134,7 +160,7 @@ export const HeroSection: React.FC = () => {
               {/* Stat 3: 24/7 | Booking & Support */}
               <div className="space-y-1">
                 <span className="text-2xl sm:text-3xl lg:text-4xl font-black font-mono tabular-nums text-emerald-400 block tracking-tight">
-                  24/7
+                  <CountUp end={24} start={0} suffix="/7" duration={600} />
                 </span>
                 <span className={`text-xs sm:text-sm font-bold text-white block ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                   {isUrdu ? 'بکنگ و سپورٹ' : 'Booking & Support'}
@@ -146,17 +172,20 @@ export const HeroSection: React.FC = () => {
 
         </div>
 
-        {/* Road Line + Small Driving Truck at Bottom of Hero (CSS infinite, pauses when off-screen) */}
-        <div
-          dir="ltr"
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 bottom-3 sm:bottom-5 h-6 overflow-hidden z-10"
-        >
-          <div className="absolute inset-x-0 bottom-1 border-b border-dashed border-amber-400/35" />
-          <div className="hero-truck-drive absolute left-0 bottom-1.5 flex items-center gap-1 text-amber-400/90">
-            <Truck className="w-4 h-4" />
+        {/* Layer 3: Animated Highway Road Lines + Driving Truck at Bottom of Hero */}
+        {MOTION_CONFIG.heroRoadAndTruck && (
+          <div
+            ref={roadLayerRef}
+            dir="ltr"
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 bottom-3 sm:bottom-5 h-6 overflow-hidden z-10"
+          >
+            <div className="hero-road-lines absolute left-0 bottom-1 h-[1.5px]" />
+            <div className="hero-truck-drive absolute left-0 bottom-1.5 flex items-center gap-1 text-amber-400/90">
+              <Truck className="w-4 h-4" />
+            </div>
           </div>
-        </div>
+        )}
 
       </div>
 

@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { getAssetUrl } from '../utils/assetPath';
+import { TiltCard } from './MotionPrimitives';
 
 export const CargoCategoriesPreview: React.FC = () => {
   const { language } = useLanguage();
@@ -88,10 +89,11 @@ export const CargoCategoriesPreview: React.FC = () => {
             const desc = isUrdu ? cat.descUr : cat.descEn;
 
             return (
-              <div 
+              <TiltCard
                 key={cat.id}
                 data-reveal=""
-                style={{ '--reveal-delay': `${idx * 70}ms` } as React.CSSProperties}
+                data-reveal-variant="zoom-in"
+                style={{ '--reveal-delay': `${idx * 75}ms` } as React.CSSProperties}
                 className="relative overflow-hidden bg-slate-900 border border-slate-800 hover:border-emerald-400 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-xl flex flex-col justify-between min-h-[280px] group card-interactive"
               >
                 {/* Category Background Image */}
@@ -138,7 +140,7 @@ export const CargoCategoriesPreview: React.FC = () => {
                   </div>
                 </div>
 
-              </div>
+              </TiltCard>
             );
           })}
         </div>
@@ -147,10 +149,10 @@ export const CargoCategoriesPreview: React.FC = () => {
         <div data-reveal="" className="mt-8 text-center">
           <Link
             to="/fleet#cargo"
-            className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-blue-600 text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm transition-colors shadow-xs active:scale-[0.98] font-urdu"
+            className="btn-animated inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-blue-600 text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm transition-colors shadow-xs font-urdu"
           >
             <span>{isUrdu ? 'تمام کارگو کی اقسام اور تفصیلات دیکھیں' : 'View all cargo categories'}</span>
-            <ArrowRight className="w-4 h-4 flex-shrink-0" />
+            <ArrowRight className={`btn-arrow-icon w-4 h-4 flex-shrink-0 ${isUrdu ? 'rotate-180' : ''}`} />
           </Link>
         </div>
 

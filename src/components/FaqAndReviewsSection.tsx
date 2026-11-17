@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { TRANSLATIONS } from '../data/translations';
+import { TrustCarousel } from './MotionPrimitives';
 
 export const FaqAndReviewsSection: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -76,7 +77,7 @@ export const FaqAndReviewsSection: React.FC = () => {
         
         {/* Section: FAQs */}
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8 sm:mb-10">
+          <div data-reveal="" className="text-center mb-8 sm:mb-10">
             <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-900 border border-blue-200 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-3 font-urdu shadow-sm">
               <HelpCircle className="w-4 h-4 text-blue-700 flex-shrink-0" />
               <span>{tFaq.badge}</span>
@@ -109,7 +110,7 @@ export const FaqAndReviewsSection: React.FC = () => {
                     <span className="font-bold text-sm sm:text-base text-slate-900 leading-relaxed text-start font-urdu">
                       {faq.q}
                     </span>
-                    <ChevronDown className={`w-5 h-5 text-blue-600 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`faq-chevron w-5 h-5 text-blue-600 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
                   </button>
 
                   <div className={`faq-accordion ${isOpen ? 'faq-accordion-open' : ''}`} aria-hidden={!isOpen}>
@@ -124,8 +125,13 @@ export const FaqAndReviewsSection: React.FC = () => {
             })}
           </div>
 
+          {/* Auto-Sliding Verified Trust & Service Standards Carousel (pauses on hover) */}
+          <div data-reveal="">
+            <TrustCarousel />
+          </div>
+
           {/* Transparent Google Business Profile & Direct Feedback Box (No fake reviews) */}
-          <div className="mt-10 sm:mt-12 bg-slate-900 text-white rounded-lg p-6 sm:p-8 shadow-sm border border-slate-800">
+          <div data-reveal="" data-reveal-variant="zoom-in" className="mt-8 bg-slate-900 text-white rounded-lg p-6 sm:p-8 shadow-sm border border-slate-800">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="space-y-2 text-center md:text-start font-urdu">
                 <div className="inline-flex items-center gap-1.5 bg-blue-500/20 text-blue-300 border border-blue-400/30 px-3 py-1 rounded-full text-xs font-semibold">
@@ -139,14 +145,14 @@ export const FaqAndReviewsSection: React.FC = () => {
                 <p className="text-slate-300 text-xs sm:text-sm max-w-xl leading-relaxed">
                   {language === 'ur' 
                     ? 'ہم کسی قسم کے فرضی جائزے یا خود سے لکھے ہوئے ریویوز شائع نہیں کرتے۔ ہماری ساکھ اور پہچان فیلڈ میں برسوں کی ایمانداری ہے۔ آپ ہمارے سروس علاقے ملاحظہ فرما سکتے ہیں یا براہِ راست فون و واٹس ایپ پر رابطہ کر سکتے ہیں۔'
-                    : 'We do not publish artificial testimonials. Our reputation is built on dependable freight service, serving since before 2008. You can explore our service areas network or contact us directly on WhatsApp.'}
+                    : 'We do not publish artificial testimonials. Our reputation is built on dependable freight service, serving since 2008. You can explore our service areas network or contact us directly on WhatsApp.'}
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
                 <Link
                   to="/booking"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2.5 rounded-lg text-xs sm:text-sm transition-colors shadow-sm hover:shadow-md active:scale-95 cursor-pointer font-urdu"
+                  className="btn-animated w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2.5 rounded-lg text-xs sm:text-sm transition-colors shadow-sm hover:shadow-md cursor-pointer font-urdu"
                   title="View Service Areas"
                 >
                   <MapPin className="w-4 h-4 text-white" />
@@ -155,7 +161,7 @@ export const FaqAndReviewsSection: React.FC = () => {
 
                 <Link
                   to="/about"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2.5 rounded-lg text-xs sm:text-sm transition-colors shadow-sm hover:shadow-md active:scale-95 cursor-pointer font-urdu"
+                  className="btn-animated w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2.5 rounded-lg text-xs sm:text-sm transition-colors shadow-sm hover:shadow-md cursor-pointer font-urdu"
                   title="View Warraich Goods Business Profile"
                 >
                   <ShieldCheck className="w-4 h-4 text-slate-950" />

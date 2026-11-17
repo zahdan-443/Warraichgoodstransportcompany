@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { getAssetUrl } from '../utils/assetPath';
+import { TiltCard } from './MotionPrimitives';
 
 interface CargoCategoriesSectionProps {
   onSelectCategory?: (categoryName: string) => void;
@@ -207,11 +208,12 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
             const routeCoverage = language === 'ur' ? category.routeCoverage : category.routeCoverageEn;
 
             return (
-              <div 
+              <TiltCard
                 key={category.id}
                 id={`cargo-card-${category.id}`}
                 data-reveal=""
-                style={{ '--reveal-delay': `${Math.min(idx, 3) * 60}ms` } as React.CSSProperties}
+                data-reveal-variant={idx % 2 === 0 ? 'slide-left' : 'slide-right'}
+                style={{ '--reveal-delay': `${Math.min(idx, 3) * 65}ms` } as React.CSSProperties}
                 className="relative overflow-hidden bg-white text-slate-900 rounded-xl p-5 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md card-interactive group"
               >
                 {/* Synced Subtle Card Background Photo */}
@@ -265,7 +267,7 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
                         to="/booking"
                         state={{ goodsType: categoryTitle }}
                         onClick={() => onSelectCategory && onSelectCategory(categoryTitle)}
-                        className={`inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3 rounded-lg text-sm transition-colors shadow-sm hover:shadow-md ${fontClass} cursor-pointer min-h-[44px]`}
+                        className={`btn-animated inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3 rounded-lg text-sm transition-colors shadow-sm hover:shadow-md ${fontClass} cursor-pointer min-h-[44px]`}
                       >
                         <Truck className="w-4 h-4 text-white" />
                         <span>{t.bookCategoryBtn}</span>
@@ -328,7 +330,7 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
                   </div>
 
                 </div>
-              </div>
+              </TiltCard>
             );
           })}
         </div>

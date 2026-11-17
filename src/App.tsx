@@ -6,6 +6,7 @@ import { FloatingActions } from './components/FloatingActions';
 import { ScrollToTop } from './components/ScrollToTop';
 import { useScrollReveal, useScrollPause } from './hooks/useMotion';
 import { useWarmImages } from './hooks/useWarmImages';
+import { MOTION_CONFIG } from './config/motionConfig';
 
 import { HomePage } from './pages/HomePage';
 import {
@@ -69,7 +70,14 @@ export default function App({ ssrPages }: AppProps) {
   // Warm and decode all site images & lazy route chunks once window load + hero LCP finish
   useWarmImages(SITE_WARM_IMAGE_URLS, preloadAllRoutes);
 
-  // Apply 200ms route transition only after initial load
+  // Sync CSS-level motion config flags on root <html>
+  useEffect(() => {
+    const root = document.documentElement;
+    root.classList.toggle('no-btn-motion', !MOTION_CONFIG.buttonMicroInteractions);
+    root.classList.toggle('no-faq-motion', !MOTION_CONFIG.faqAccordion);
+  }, []);
+
+  // Apply 220ms route transition only after initial load
   useEffect(() => {
     if (prevPathRef.current !== location.pathname) {
       prevPathRef.current = location.pathname;
@@ -107,7 +115,7 @@ export default function App({ ssrPages }: AppProps) {
 
       {/* 2. Route-Driven Main Content Area (Offset for fixed header) */}
       <main className="flex-1 pt-14 sm:pt-16">
-        <div key={location.pathname} className={animateRoute ? 'route-transition' : undefined}>
+        <div key={location.pathname} className={animateRoute && MOTION_CONFIG.pageTransitions ? 'route-transition' : undefined}>
           <Suspense fallback={<div className="min-h-[60vh] bg-slate-50" />}>
             <Routes>
               <Route path="/" element={isVerifyPage ? <VerifyComp /> : <HomePage />} />

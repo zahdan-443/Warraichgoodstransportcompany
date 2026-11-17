@@ -193,10 +193,10 @@ const ROUTES: RouteConfig[] = [
     path: '/about',
     outputFile: 'about/index.html',
     title: 'About Us & Contact Details | Warraich Goods',
-    description: 'Warraich Goods Transport Company is a local transport business based in Samundri, Faisalabad, serving routes across Pakistan since before 2008.',
+    description: 'Warraich Goods Transport Company is a local transport business based in Samundri, Faisalabad, serving routes across Pakistan since 2008.',
     canonicalUrl: `${BASE_SITE_URL}/about/`,
     ogTitle: 'About Us & Contact Details | Warraich Goods',
-    ogDescription: 'Warraich Goods Transport Company is a local transport business based in Samundri, Faisalabad, serving routes across Pakistan since before 2008.',
+    ogDescription: 'Warraich Goods Transport Company is a local transport business based in Samundri, Faisalabad, serving routes across Pakistan since 2008.',
     breadcrumbList: [
       { name: 'Home', item: `${BASE_SITE_URL}/` },
       { name: 'About Us', item: `${BASE_SITE_URL}/about/` },

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { MapPin, ArrowRight, Clock } from 'lucide-react';
 import { MASTER_CITIES, ServiceAreaRegion } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
+import { CountUp } from '../components/MotionPrimitives';
 
 const REGION_GROUPS: {
   id: ServiceAreaRegion;
@@ -128,7 +129,7 @@ export const ServiceAreasPage: React.FC = () => {
                     {isUrdu ? group.titleUr : group.titleEn}
                   </h2>
                   <span className="text-xs font-mono font-semibold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md">
-                    {cities.length} {isUrdu ? 'شہر' : 'Cities'}
+                    <CountUp end={cities.length} start={0} duration={550} /> {isUrdu ? 'شہر' : 'Cities'}
                   </span>
                 </div>
 
@@ -179,10 +180,12 @@ export const ServiceAreasPage: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-              {TOP_SAMUNDRI_CORRIDORS.map((corridor) => (
+              {TOP_SAMUNDRI_CORRIDORS.map((corridor, idx) => (
                 <div
                   key={corridor.destId}
-                  className="bg-slate-50 border border-slate-200 hover:border-amber-300 rounded-xl p-4 flex items-center justify-between gap-3 transition-colors"
+                  data-reveal=""
+                  style={{ '--reveal-delay': `${idx * 55}ms` } as React.CSSProperties}
+                  className="bg-slate-50 border border-slate-200 hover:border-amber-300 rounded-xl p-4 flex items-center justify-between gap-3 transition-colors card-interactive"
                 >
                   <div className="min-w-0">
                     <h3
@@ -206,12 +209,12 @@ export const ServiceAreasPage: React.FC = () => {
                   <Link
                     to="/booking"
                     state={{ originId: 'samundri', destinationId: corridor.destId }}
-                    className={`flex-shrink-0 inline-flex items-center gap-1 bg-white hover:bg-amber-500 text-slate-900 border border-slate-300 hover:border-amber-500 font-bold px-3 py-2 rounded-lg text-xs transition-colors ${
+                    className={`btn-animated flex-shrink-0 inline-flex items-center gap-1 bg-white hover:bg-amber-500 text-slate-900 border border-slate-300 hover:border-amber-500 font-bold px-3 py-2 rounded-lg text-xs transition-colors ${
                       isUrdu ? 'font-urdu' : 'font-sans'
                     }`}
                   >
                     <span>{isUrdu ? 'کرایہ' : 'Rate'}</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className={`btn-arrow-icon w-3.5 h-3.5 ${isUrdu ? 'rotate-180' : ''}`} />
                   </Link>
                 </div>
               ))}
@@ -223,7 +226,7 @@ export const ServiceAreasPage: React.FC = () => {
       {/* Internal Navigation CTA (No duplicate phone/Call/WhatsApp buttons) */}
       <section className="pb-12 sm:pb-16 pt-2">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div data-reveal="" data-reveal-variant="zoom-in" className="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className={isUrdu ? 'font-urdu text-center sm:text-start' : 'font-sans text-center sm:text-start'}>
               <h2 className="text-lg sm:text-xl font-black text-slate-950">
                 {isUrdu ? 'گاڑی بک کرنی ہے یا کرایہ معلوم کرنا ہے؟' : 'Need a Truck or Freight Rate for These Cities?'}
@@ -237,16 +240,16 @@ export const ServiceAreasPage: React.FC = () => {
             <div className="flex flex-wrap items-center justify-center gap-3 flex-shrink-0">
               <Link
                 to="/booking"
-                className={`inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-xs sm:text-sm transition-colors shadow-sm ${
+                className={`btn-animated inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-xs sm:text-sm transition-colors shadow-sm ${
                   isUrdu ? 'font-urdu' : 'font-sans'
                 }`}
               >
                 <span>{isUrdu ? 'کرایہ و بکنگ' : 'Rates & Booking'}</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className={`btn-arrow-icon w-4 h-4 ${isUrdu ? 'rotate-180' : ''}`} />
               </Link>
               <Link
                 to="/about"
-                className={`inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-5 py-2.5 rounded-xl text-xs sm:text-sm transition-colors ${
+                className={`btn-animated inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-5 py-2.5 rounded-xl text-xs sm:text-sm transition-colors ${
                   isUrdu ? 'font-urdu' : 'font-sans'
                 }`}
               >

@@ -20,6 +20,7 @@ import { COMPANY_INFO, FLEET_DATA, MASTER_CITIES, PAKISTAN_CITIES, GOODS_TYPES }
 import { BookingFormData } from '../types';
 import { useLanguage } from '../context/LanguageContext';
 import { TRANSLATIONS } from '../data/translations';
+import { AnimatedNumberRoll, RouteTruckTrack } from './MotionPrimitives';
 
 interface RateCalculatorSectionProps {
   selectedOriginId?: string;
@@ -257,7 +258,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+        <div data-reveal="" className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-900 border border-blue-300 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-3 font-urdu shadow-sm">
             <Calculator className="w-4 h-4 text-blue-700 flex-shrink-0" />
             <span>{tCalc.badge}</span>
@@ -274,7 +275,11 @@ Please advise regarding the most competitive freight quotation and earliest vehi
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
           
           {/* Booking Form Card */}
-          <div className="lg:col-span-8 bg-white rounded-lg p-5 sm:p-8 shadow-sm border border-slate-200">
+          <div
+            data-reveal=""
+            data-reveal-variant="slide-left"
+            className="lg:col-span-8 bg-white rounded-lg p-5 sm:p-8 shadow-sm border border-slate-200"
+          >
             
             {/* Booking Mode Selector Tabs (Single FTL vs Corporate B2B) */}
             <div className="flex bg-slate-100 p-1.5 rounded-lg mb-5 sm:mb-6 border border-slate-200">
@@ -432,15 +437,22 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                 </div>
               </div>
 
-              {/* Dynamic Route Transit Insight */}
-              <div className="bg-slate-50 border border-slate-200/80 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-urdu text-slate-700">
-                <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-amber-600 flex-shrink-0" />
-                  <span className="font-semibold text-slate-900">{isUrdu ? routeInsight.corridorUr : routeInsight.corridorEn}</span>
+              {/* Live Route Visual Track & Dynamic Transit Insight */}
+              <div className="space-y-2.5">
+                <RouteTruckTrack
+                  fromLabel={formData.originCity}
+                  toLabel={formData.destinationCity}
+                />
+                <div className="bg-slate-50 border border-slate-200/80 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-urdu text-slate-700">
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-4 h-4 text-amber-600 flex-shrink-0" />
+                    <span className="font-semibold text-slate-900">{isUrdu ? routeInsight.corridorUr : routeInsight.corridorEn}</span>
+                  </div>
+                  <AnimatedNumberRoll
+                    value={isUrdu ? routeInsight.transitUr : routeInsight.transitEn}
+                    className="font-mono font-bold text-blue-700 whitespace-nowrap self-start sm:self-auto"
+                  />
                 </div>
-                <span className="font-mono font-bold text-blue-700 whitespace-nowrap self-start sm:self-auto">
-                  {isUrdu ? routeInsight.transitUr : routeInsight.transitEn}
-                </span>
               </div>
 
               {/* Row 2: Vehicle Visual Selector & Dropdown */}
@@ -591,7 +603,7 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                 <button
                   id="booking-copy-summary-btn"
                   type="submit"
-                  className={`w-full flex items-center justify-center gap-2.5 font-bold py-3.5 px-6 rounded-xl shadow-xs text-sm sm:text-base transition-all cursor-pointer min-h-[48px] font-urdu active:scale-98 ${
+                  className={`btn-animated w-full flex items-center justify-center gap-2.5 font-bold py-3.5 px-6 rounded-xl shadow-xs text-sm sm:text-base transition-all cursor-pointer min-h-[48px] font-urdu ${
                     copiedSummary
                       ? 'bg-emerald-600 text-white'
                       : isCorporateMode
@@ -627,10 +639,15 @@ Please advise regarding the most competitive freight quotation and earliest vehi
           </div>
 
           {/* Inquiry Summary & Quick Help Card */}
-          <div className="lg:col-span-4 space-y-4 sm:space-y-5">
+          <div
+            data-reveal=""
+            data-reveal-variant="slide-right"
+            style={{ '--reveal-delay': '80ms' } as React.CSSProperties}
+            className="lg:col-span-4 space-y-4 sm:space-y-5"
+          >
             
             {/* Selected Vehicle & Route Preview */}
-            <div className="bg-white text-slate-900 rounded-lg p-5 shadow-sm border border-slate-200">
+            <div className="bg-white text-slate-900 rounded-lg p-5 shadow-sm border border-slate-200 card-interactive">
               <div className="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
                 <span className="text-xs font-bold text-blue-700 font-urdu">{tCalc.summaryTitle}</span>
                 <Calculator className="w-4 h-4 text-amber-500" />
@@ -639,16 +656,17 @@ Please advise regarding the most competitive freight quotation and earliest vehi
               <div className="space-y-3.5 text-sm">
                 <div>
                   <span className="text-xs text-slate-500 block font-urdu">{language === 'ur' ? 'روٹ (Route):' : 'Route:'}</span>
-                  <p className="font-bold text-sm sm:text-base text-slate-900">
-                    {formData.originCity} ➔ {formData.destinationCity}
-                  </p>
+                  <AnimatedNumberRoll
+                    value={`${formData.originCity} ➔ ${formData.destinationCity}`}
+                    className="font-bold text-sm sm:text-base text-slate-900 block"
+                  />
                 </div>
 
                 <div className="bg-blue-50/70 p-3 rounded-lg border border-blue-200">
                   <span className="text-xs text-blue-800 block mb-1 font-urdu font-medium">{language === 'ur' ? 'منتخب FTL گاڑی:' : 'Selected FTL Vehicle:'}</span>
-                  <div className="flex items-center justify-between">
-                    <span className="font-bold text-blue-900 text-sm sm:text-base">{vehicleName}</span>
-                    <span className="text-xs bg-white px-2 py-0.5 rounded text-blue-800 border border-blue-200 font-bold">{vehicleCapacity}</span>
+                  <div className="flex items-center justify-between gap-2">
+                    <AnimatedNumberRoll value={vehicleName} className="font-bold text-blue-900 text-sm sm:text-base" />
+                    <AnimatedNumberRoll value={vehicleCapacity} className="text-xs bg-white px-2 py-0.5 rounded text-blue-800 border border-blue-200 font-bold" />
                   </div>
                   <p className="text-xs text-blue-700 mt-1 font-urdu">{vehicleSubtitle}</p>
                 </div>
@@ -672,10 +690,10 @@ Please advise regarding the most competitive freight quotation and earliest vehi
                 </p>
                 <Link
                   to="/about"
-                  className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-2.5 px-4 rounded-lg w-full text-sm transition-colors shadow-sm min-h-[44px]"
+                  className="btn-animated inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-2.5 px-4 rounded-lg w-full text-sm transition-colors shadow-sm min-h-[44px]"
                 >
                   <span className="font-urdu font-bold">{language === 'ur' ? 'کمپنی و دفتر کوائف دیکھیں' : 'View Company Information'}</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className={`btn-arrow-icon w-4 h-4 ${isUrdu ? 'rotate-180' : ''}`} />
                 </Link>
               </div>
             </div>

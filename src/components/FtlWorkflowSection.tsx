@@ -138,6 +138,7 @@ export const FtlWorkflowSection: React.FC = () => {
               <div 
                 key={idx} 
                 data-reveal=""
+                data-reveal-variant="zoom-in"
                 style={{ '--reveal-delay': `${idx * 75}ms` } as React.CSSProperties}
                 className={`bg-white border ${s.borderColor} rounded-lg p-5 relative shadow-sm hover:shadow-md flex flex-col justify-between group card-interactive`}
               >
@@ -190,7 +191,7 @@ export const FtlWorkflowSection: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-6">
             
             {/* Visual Highway Showcase Banner */}
-            <div className="lg:col-span-4 relative rounded-lg overflow-hidden shadow-sm border border-slate-200 flex flex-col justify-end min-h-[220px]">
+            <div data-reveal="" data-reveal-variant="slide-left" className="lg:col-span-4 relative rounded-lg overflow-hidden shadow-sm border border-slate-200 flex flex-col justify-end min-h-[220px] group">
               <img 
                 src={getAssetUrl('images/road-highway.webp')} 
                 alt="Pakistan Motorway Freight Logistics Corridor - Warraich Goods" 
@@ -223,7 +224,13 @@ export const FtlWorkflowSection: React.FC = () => {
               {ftlPillars.map((p, idx) => {
                 const Icon = p.icon;
                 return (
-                  <div key={idx} className="bg-slate-50 border border-slate-200 p-3.5 rounded-lg flex items-start gap-3 hover:border-slate-300 transition-colors">
+                  <div
+                    key={idx}
+                    data-reveal=""
+                    data-reveal-variant="slide-right"
+                    style={{ '--reveal-delay': `${idx * 65}ms` } as React.CSSProperties}
+                    className="bg-slate-50 border border-slate-200 p-3.5 rounded-lg flex items-start gap-3 hover:border-slate-300 transition-colors card-interactive"
+                  >
                     <div className={`w-8 h-8 rounded-lg ${p.iconBg} border flex items-center justify-center flex-shrink-0 mt-0.5`}>
                       <Icon className="w-4 h-4" />
                     </div>
@@ -250,7 +257,7 @@ export const FtlWorkflowSection: React.FC = () => {
 
             <Link
               to="/booking"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-blue-600 text-white font-bold px-5 py-3 rounded-lg transition-colors cursor-pointer text-xs sm:text-sm font-urdu shadow-sm hover:shadow-md min-h-[44px]"
+              className="btn-animated w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-blue-600 text-white font-bold px-5 py-3 rounded-lg transition-colors cursor-pointer text-xs sm:text-sm font-urdu shadow-sm hover:shadow-md min-h-[44px]"
               aria-label="Calculate dedicated truckload freight rates"
             >
               <Truck className="w-4 h-4 text-amber-400 flex-shrink-0" />

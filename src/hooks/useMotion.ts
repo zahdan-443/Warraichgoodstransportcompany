@@ -1,6 +1,7 @@
 import { useEffect, useState, RefObject } from 'react';
+import { MOTION_CONFIG } from '../config/motionConfig';
 
-const prefersReducedMotion = (): boolean =>
+export const prefersReducedMotion = (): boolean =>
   typeof window !== 'undefined' &&
   typeof window.matchMedia === 'function' &&
   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -28,7 +29,7 @@ export function useScrollReveal(routeKey: string): void {
     const nodes = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'));
     if (!nodes.length) return;
 
-    if (prefersReducedMotion() || typeof IntersectionObserver === 'undefined') {
+    if (!MOTION_CONFIG.scrollReveal || prefersReducedMotion() || typeof IntersectionObserver === 'undefined') {
       nodes.forEach((n) => n.setAttribute('data-reveal', 'visible'));
       return;
     }
@@ -91,4 +92,68 @@ export function useScrollPause(delayMs = 150): void {
       root.classList.remove('is-scrolling');
     };
   }, [delayMs]);
+}
+
+interface ParallaxLayer {
+  ref: RefObject<HTMLElement | null>;
+  speed: number;
+  maxOffset?: number;
+}
+
+/**
+ * Lightweight passive scroll + requestAnimationFrame parallax for Hero layers.
+ * Mutates only compositor transform: translate3d(0, y, 0) directly on refs.
+ */
+export function useParallax(
+  containerRef: RefObject<HTMLElement | null>,
+  layers: ParallaxLayer[],
+  enabled = true
+): void {
+  useEffect(() => {
+    if (
+      !enabled ||
+      !MOTION_CONFIG.heroParallax ||
+      typeof window === 'undefined' ||
+      prefersReducedMotion()
+    ) {
+      return;
+    }
+
+    let rafId: number | null = null;
+
+    const update = () => {
+      rafId = null;
+      const container = containerRef.current;
+      if (!container) return;
+      const rect = container.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+
+      const scrollY = Math.max(0, window.scrollY);
+      for (const layer of layers) {
+        const el = layer.ref.current;
+        if (!el) continue;
+        const limit = layer.maxOffset ?? 80;
+        const offset = Math.max(-limit, Math.min(limit, scrollY * layer.speed));
+        el.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0)`;
+      }
+    };
+
+    const onScroll = () => {
+      if (rafId === null) {
+        rafId = window.requestAnimationFrame(update);
+      }
+    };
+
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (rafId !== null) window.cancelAnimationFrame(rafId);
+      for (const layer of layers) {
+        if (layer.ref.current) {
+          layer.ref.current.style.transform = '';
+        }
+      }
+    };
+  }, [containerRef, layers, enabled]);
 }

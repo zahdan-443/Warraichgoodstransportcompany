@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ShieldCheck, Scale, Umbrella, Clock } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { getAssetUrl } from '../utils/assetPath';
+import { TiltCard } from './MotionPrimitives';
 
 export const WhyUsSection: React.FC = () => {
   const { language } = useLanguage();
@@ -82,10 +83,11 @@ export const WhyUsSection: React.FC = () => {
             const desc = isUrdu ? item.descUr : item.descEn;
 
             return (
-              <div 
+              <TiltCard
                 key={item.id}
                 data-reveal=""
-                style={{ '--reveal-delay': `${idx * 70}ms` } as React.CSSProperties}
+                data-reveal-variant="zoom-in"
+                style={{ '--reveal-delay': `${idx * 75}ms` } as React.CSSProperties}
                 className="relative overflow-hidden bg-slate-900 border border-slate-800 hover:border-amber-400 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-xl flex flex-col justify-between min-h-[280px] group card-interactive"
               >
                 {/* Background Photo */}
@@ -132,7 +134,7 @@ export const WhyUsSection: React.FC = () => {
                   </div>
                 </div>
 
-              </div>
+              </TiltCard>
             );
           })}
         </div>

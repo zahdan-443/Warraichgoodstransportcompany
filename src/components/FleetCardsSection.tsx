@@ -4,6 +4,7 @@ import { Truck, ArrowRight } from 'lucide-react';
 import { FLEET_DATA } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
 import { getAssetUrl } from '../utils/assetPath';
+import { TiltCard } from './MotionPrimitives';
 
 export const FleetCardsSection: React.FC = () => {
   const { language } = useLanguage();
@@ -62,11 +63,12 @@ export const FleetCardsSection: React.FC = () => {
             const bgSrc = getAssetUrl(truck.image || `images/${truck.id}-truck.png`);
 
             return (
-              <div 
+              <TiltCard
                 key={truck.id}
                 id={`fleet-card-${truck.id}`}
                 data-reveal=""
-                style={{ '--reveal-delay': `${idx * 70}ms` } as React.CSSProperties}
+                data-reveal-variant="zoom-in"
+                style={{ '--reveal-delay': `${idx * 75}ms` } as React.CSSProperties}
                 className="relative overflow-hidden bg-slate-900 border border-slate-800 hover:border-amber-400 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-xl flex flex-col justify-between min-h-[280px] group card-interactive"
               >
                 {/* Vehicle Background Image */}
@@ -116,7 +118,7 @@ export const FleetCardsSection: React.FC = () => {
                   </div>
                 </div>
 
-              </div>
+              </TiltCard>
             );
           })}
         </div>
@@ -125,10 +127,10 @@ export const FleetCardsSection: React.FC = () => {
         <div data-reveal="" className="mt-8 text-center">
           <Link
             to="/fleet"
-            className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-blue-600 text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm transition-colors shadow-xs active:scale-[0.98] font-urdu"
+            className="btn-animated inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-blue-600 text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm transition-colors shadow-xs font-urdu"
           >
             <span>{isUrdu ? 'تمام گاڑیاں اور تفصیلات دیکھیں' : 'View all trucks & specs'}</span>
-            <ArrowRight className="w-4 h-4 flex-shrink-0" />
+            <ArrowRight className={`btn-arrow-icon w-4 h-4 flex-shrink-0 ${isUrdu ? 'rotate-180' : ''}`} />
           </Link>
         </div>
 

@@ -13,6 +13,7 @@ import { VehicleInfo } from '../types';
 import { useLanguage } from '../context/LanguageContext';
 import { TRANSLATIONS } from '../data/translations';
 import { getAssetUrl } from '../utils/assetPath';
+import { TiltCard } from './MotionPrimitives';
 
 interface FleetSectionProps {
   onSelectVehicleForBooking?: (vehicleId: string) => void;
@@ -43,7 +44,7 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+        <div data-reveal="" className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
           <div className={`inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-700 mb-2 ${fontClass}`}>
             <Truck className="w-4 h-4 text-amber-600 flex-shrink-0" />
             <span>{tFleet.badge}</span>
@@ -71,11 +72,12 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
             const imgSrc = getAssetUrl(rawSrc);
 
             return (
-              <div 
+              <TiltCard
                 key={truck.id}
                 id={`fleet-card-${truck.id}`}
                 data-reveal=""
-                style={{ '--reveal-delay': `${idx * 70}ms` } as React.CSSProperties}
+                data-reveal-variant="zoom-in"
+                style={{ '--reveal-delay': `${idx * 75}ms` } as React.CSSProperties}
                 className="bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-xs hover:shadow-md hover:border-slate-300 flex flex-col group card-interactive"
               >
                 {/* Truck Photo Image Container with Clean Containment */}
@@ -169,34 +171,34 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
                     <button
                       id={`book-vehicle-${truck.id}-btn`}
                       onClick={() => handleBook(truck.id)}
-                      className={`w-full inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-2.5 px-4 rounded-lg transition-colors shadow-xs text-xs sm:text-sm cursor-pointer active:scale-98 min-h-[40px] ${fontClass}`}
+                      className={`btn-animated w-full inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-2.5 px-4 rounded-lg transition-colors shadow-xs text-xs sm:text-sm cursor-pointer min-h-[40px] ${fontClass}`}
                     >
                       <Truck className="w-4 h-4 text-amber-400" />
                       <span>{language === 'ur' ? 'کرایہ معلوم کریں و بکنگ' : 'Calculate Freight & Book'}</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <ArrowRight className={`btn-arrow-icon w-3.5 h-3.5 ${language === 'ur' ? 'rotate-180' : ''}`} />
                     </button>
                   </div>
 
                 </div>
-              </div>
+              </TiltCard>
             );
           })}
         </div>
 
         {/* If in Preview Mode on Home Page, show CTA to full Fleet page */}
         {preview ? (
-          <div className="mt-8 text-center">
+          <div data-reveal="" className="mt-8 text-center">
             <Link
               to="/fleet"
-              className={`inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-7 py-3.5 rounded-lg text-sm transition-colors shadow-sm ${fontClass}`}
+              className={`btn-animated inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-7 py-3.5 rounded-lg text-sm transition-colors shadow-sm ${fontClass}`}
             >
               <span>{language === 'ur' ? 'تمام گاڑیوں کی تفصیلات اور کارگو کیٹیگریز دیکھیں' : 'View Full Fleet Specifications & Cargo Types'}</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className={`btn-arrow-icon w-4 h-4 ${language === 'ur' ? 'rotate-180' : ''}`} />
             </Link>
           </div>
         ) : (
           /* Special Services Note on Full Fleet Page */
-          <div className={`mt-8 sm:mt-12 bg-slate-900 text-white rounded-lg p-5 sm:p-7 shadow-sm border border-slate-800 max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5 ${fontClass}`}>
+          <div data-reveal="" data-reveal-variant="zoom-in" className={`mt-8 sm:mt-12 bg-slate-900 text-white rounded-lg p-5 sm:p-7 shadow-sm border border-slate-800 max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5 ${fontClass}`}>
             <div>
               <p className="text-base sm:text-lg font-bold text-white">
                 {language === 'ur' ? 'کیا آپ کو مخصوص سائز یا لانگ ٹرم فیکٹری کنٹریکٹ چاہیے؟' : 'Need custom truck dimensions or monthly factory logistics contracts?'}
@@ -207,7 +209,7 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
             </div>
             <Link
               to="/about"
-              className={`flex-shrink-0 inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-3 rounded-lg text-xs sm:text-sm transition-colors min-h-[44px] shadow-sm cursor-pointer ${fontClass}`}
+              className={`btn-animated flex-shrink-0 inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-3 rounded-lg text-xs sm:text-sm transition-colors min-h-[44px] shadow-sm cursor-pointer ${fontClass}`}
               aria-label="View Corporate Business Profile"
             >
               <span>

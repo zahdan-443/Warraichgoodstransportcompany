@@ -9,6 +9,7 @@ import {
   ShieldCheck,
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { CountUp, TiltCard } from './MotionPrimitives';
 
 interface BookingTrustGuidesProps {
   onSelectVehicle?: (vehicleId: string) => void;
@@ -121,10 +122,11 @@ export const BookingTrustGuides: React.FC<BookingTrustGuidesProps> = ({
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {truckFitTiers.map((tier, idx) => (
-              <div
+              <TiltCard
                 key={tier.id}
                 data-reveal=""
-                style={{ '--reveal-delay': `${idx * 60}ms` } as React.CSSProperties}
+                data-reveal-variant="zoom-in"
+                style={{ '--reveal-delay': `${idx * 65}ms` } as React.CSSProperties}
                 className="bg-slate-50 border border-slate-200 hover:border-amber-400 rounded-xl p-5 flex flex-col justify-between shadow-2xs card-interactive group"
               >
                 <div>
@@ -149,7 +151,7 @@ export const BookingTrustGuides: React.FC<BookingTrustGuidesProps> = ({
                     <button
                       type="button"
                       onClick={() => onSelectVehicle(tier.id)}
-                      className={`inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 hover:text-amber-600 cursor-pointer transition-colors ${isUrdu ? 'font-urdu' : 'font-sans'}`}
+                      className={`btn-animated inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 hover:text-amber-600 cursor-pointer transition-colors ${isUrdu ? 'font-urdu' : 'font-sans'}`}
                     >
                       <span>{isUrdu ? 'یہ گاڑی منتخب کریں ←' : 'Select this truck →'}</span>
                     </button>
@@ -157,14 +159,14 @@ export const BookingTrustGuides: React.FC<BookingTrustGuidesProps> = ({
                     <Link
                       to="/booking"
                       state={{ vehicleId: tier.id }}
-                      className={`inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 hover:text-amber-600 transition-colors ${isUrdu ? 'font-urdu' : 'font-sans'}`}
+                      className={`btn-animated inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 hover:text-amber-600 transition-colors ${isUrdu ? 'font-urdu' : 'font-sans'}`}
                     >
                       <span>{isUrdu ? 'کرایہ معلوم کریں' : 'Check rate'}</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <ArrowRight className={`btn-arrow-icon w-3.5 h-3.5 ${isUrdu ? 'rotate-180' : ''}`} />
                     </Link>
                   )}
                 </div>
-              </div>
+              </TiltCard>
             ))}
           </div>
         </div>
@@ -197,13 +199,21 @@ export const BookingTrustGuides: React.FC<BookingTrustGuidesProps> = ({
               return (
                 <div
                   key={idx}
-                  className="bg-white border border-slate-200/90 rounded-xl p-4 flex flex-col gap-2.5"
+                  data-reveal=""
+                  style={{ '--reveal-delay': `${idx * 65}ms` } as React.CSSProperties}
+                  className="bg-white border border-slate-200/90 rounded-xl p-4 flex flex-col gap-2.5 card-interactive"
                 >
                   <div className={`w-9 h-9 rounded-lg border flex items-center justify-center flex-shrink-0 ${pt.iconColor}`}>
                     <IconComp className="w-4 h-4" />
                   </div>
                   <h4 className={`text-xs sm:text-sm font-bold text-slate-900 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
-                    {isUrdu ? pt.titleUr : pt.titleEn}
+                    {idx === 3 && !isUrdu ? (
+                      <>
+                        <CountUp end={100} start={75} suffix="%" /> Dedicated Single-Party Load
+                      </>
+                    ) : (
+                      isUrdu ? pt.titleUr : pt.titleEn
+                    )}
                   </h4>
                   <p className={`text-xs text-slate-600 leading-relaxed ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                     {isUrdu ? pt.descUr : pt.descEn}

@@ -98,6 +98,7 @@ export const CargoSafetySection: React.FC = () => {
               <div 
                 key={idx} 
                 data-reveal=""
+                data-reveal-variant="blur-in"
                 style={{ '--reveal-delay': `${(idx % 3) * 70}ms` } as React.CSSProperties}
                 className={`bg-white p-5 rounded-lg border ${feat.borderColor} hover:shadow-md shadow-sm flex flex-col justify-between group card-interactive`}
               >
@@ -118,7 +119,7 @@ export const CargoSafetySection: React.FC = () => {
         </div>
 
         {/* Reassurance Banner with Visual Tarpaulin Protection Showcase */}
-        <div data-reveal="" className={`mt-8 sm:mt-12 bg-amber-50/40 text-slate-900 rounded-lg p-5 sm:p-7 border border-amber-200 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-6 items-center ${language === 'ur' ? 'text-right' : 'text-left'}`}>
+        <div data-reveal="" data-reveal-variant="zoom-in" className={`mt-8 sm:mt-12 bg-amber-50/40 text-slate-900 rounded-lg p-5 sm:p-7 border border-amber-200 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-6 items-center ${language === 'ur' ? 'text-right' : 'text-left'}`}>
           
           {/* Image Showcase Frame */}
           <div className="lg:col-span-5 relative rounded-lg overflow-hidden shadow-sm border border-amber-200">
@@ -156,7 +157,7 @@ export const CargoSafetySection: React.FC = () => {
             <div>
               <a
                 href="#corporate-credibility"
-                className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-blue-600 text-white font-bold px-6 py-3 rounded-lg text-xs sm:text-sm transition-colors shadow-sm hover:shadow-md font-urdu whitespace-nowrap cursor-pointer min-h-[44px]"
+                className="btn-animated inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-blue-600 text-white font-bold px-6 py-3 rounded-lg text-xs sm:text-sm transition-colors shadow-sm hover:shadow-md font-urdu whitespace-nowrap cursor-pointer min-h-[44px]"
                 aria-label="View Safety Certification and Corporate Credibility"
               >
                 <ShieldCheck className="w-4 h-4 text-amber-400 flex-shrink-0" />

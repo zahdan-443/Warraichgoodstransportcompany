@@ -166,8 +166,9 @@ html[lang="en"] .font-sans {
 
 /* 1. Scroll reveal (visible in SSR/no-JS, hidden only post-hydration below fold) */
 [data-reveal] {
-  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.48s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.48s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.48s cubic-bezier(0.16, 1, 0.3, 1);
   transition-delay: var(--reveal-delay, 0ms);
 }
 
@@ -176,9 +177,36 @@ html[lang="en"] .font-sans {
   transform: translate3d(0, 18px, 0);
 }
 
+/* Variants: slide-left, slide-right (RTL mirrored), zoom-in, blur-in */
+[data-reveal="hidden"][data-reveal-variant="slide-left"] {
+  transform: translate3d(-26px, 0, 0);
+}
+
+[data-reveal="hidden"][data-reveal-variant="slide-right"] {
+  transform: translate3d(26px, 0, 0);
+}
+
+html[dir="rtl"] [data-reveal="hidden"][data-reveal-variant="slide-left"] {
+  transform: translate3d(26px, 0, 0);
+}
+
+html[dir="rtl"] [data-reveal="hidden"][data-reveal-variant="slide-right"] {
+  transform: translate3d(-26px, 0, 0);
+}
+
+[data-reveal="hidden"][data-reveal-variant="zoom-in"] {
+  transform: scale(0.95);
+}
+
+[data-reveal="hidden"][data-reveal-variant="blur-in"] {
+  transform: translate3d(0, 12px, 0);
+  filter: blur(4px);
+}
+
 [data-reveal="visible"] {
   opacity: 1;
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
 }
 
 /* 2. Hero staggered entrance (<=600ms total; visible opacity in SSR, never hides LCP image) */
@@ -208,6 +236,22 @@ html[lang="en"] .font-sans {
   animation: heroKenBurns 22s ease-in-out infinite;
 }
 
+/* Animated highway dashed road lines */
+@keyframes heroRoadScroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-64px, 0, 0); }
+}
+
+.hero-road-lines {
+  width: calc(100% + 64px);
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(251, 191, 36, 0.55) 0 18px,
+    transparent 18px 32px
+  );
+  animation: heroRoadScroll 1.6s linear infinite;
+}
+
 /* Small truck driving along hero bottom road line */
 @keyframes heroTruckDrive {
   from { transform: translate3d(-36px, 0, 0); }
@@ -218,13 +262,26 @@ html[lang="en"] .font-sans {
   animation: heroTruckDrive 14s linear infinite;
 }
 
+/* Gentle floating motion on Hero CTA button */
+@keyframes ctaGentleFloat {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -3px, 0); }
+}
+
+.cta-gentle-float {
+  animation: ctaGentleFloat 3.6s ease-in-out infinite;
+}
+
 /* Pause infinite animations when off-screen or while actively scrolling */
 .anim-paused,
 .anim-paused *,
 .anim-paused *::before,
 .anim-paused *::after,
 html.is-scrolling .hero-ken-burns,
+html.is-scrolling .hero-road-lines,
 html.is-scrolling .hero-truck-drive,
+html.is-scrolling .cta-gentle-float,
+html.is-scrolling .route-track-truck,
 html.is-scrolling .marquee-track,
 html.is-scrolling .cta-subtle-pulse::after,
 html.is-scrolling .wa-soft-ring,
@@ -235,7 +292,9 @@ html.is-scrolling .bilty-shimmer::after {
 
 /* Apply will-change strictly while infinite animations are actively running */
 html:not(.is-scrolling) section:not(.anim-paused) .hero-ken-burns,
+html:not(.is-scrolling) section:not(.anim-paused) .hero-road-lines,
 html:not(.is-scrolling) section:not(.anim-paused) .hero-truck-drive,
+html:not(.is-scrolling) div:not(.anim-paused) > .route-track-truck,
 html:not(.is-scrolling) div:not(.anim-paused) > .marquee-container .marquee-track {
   will-change: transform;
 }
@@ -244,11 +303,44 @@ html:not(.is-scrolling) .wa-soft-ring {
   will-change: transform, opacity;
 }
 
-/* 4. Card hover/tap lift, hover-only image zoom & icon nudge */
+/* 4. Card hover/tap lift, hover-only 3D Tilt + Border Glow & image zoom */
 .card-interactive {
-  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.22s ease,
-              border-color 0.22s ease;
+  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.24s ease,
+              border-color 0.24s ease;
+}
+
+.tilt-card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s ease,
+              border-color 0.28s ease;
+}
+
+.tilt-card.is-tilting {
+  transition: transform 0.08s linear, box-shadow 0.24s ease, border-color 0.24s ease;
+}
+
+.tilt-card-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 20;
+  transition: opacity 0.25s ease;
+  background: radial-gradient(
+    260px circle at var(--glow-x, 50%) var(--glow-y, 50%),
+    rgba(245, 158, 11, 0.16),
+    transparent 68%
+  );
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tilt-card.is-tilting .tilt-card-glow {
+    opacity: 1;
+  }
 }
 
 .card-hover-zoom {
@@ -264,8 +356,9 @@ html:not(.is-scrolling) .wa-soft-ring {
   }
 }
 
-.card-interactive:active {
-  transform: scale(0.985);
+.card-interactive:active,
+.tilt-card:active {
+  transform: scale(0.985) !important;
 }
 
 .card-icon-nudge {
@@ -278,10 +371,10 @@ html:not(.is-scrolling) .wa-soft-ring {
   }
 }
 
-/* 5. Navbar sliding active underline & mobile menu stagger */
+/* 5. Navbar sliding active underline (GPU transform-only scaleX) & mobile menu stagger */
 .nav-active-underline {
+  transform-origin: left center;
   transition: transform 0.26s cubic-bezier(0.16, 1, 0.3, 1),
-              width 0.26s cubic-bezier(0.16, 1, 0.3, 1),
               opacity 0.2s ease;
 }
 
@@ -315,6 +408,22 @@ html:not(.is-scrolling) .wa-soft-ring {
   animation: mobileItemFade 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* Smooth language toggle cross-transition */
+@keyframes langSwapFade {
+  from {
+    opacity: 0.72;
+    transform: translate3d(0, 3px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+html.lang-switching main {
+  animation: langSwapFade 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 /* 6. Service-area city chips slow marquee (pause on hover & off-screen) */
 @keyframes marqueeLtr {
   from { transform: translate3d(0, 0, 0); }
@@ -341,7 +450,12 @@ html[dir="rtl"] .marquee-track {
   animation-play-state: paused;
 }
 
-/* 7. Primary CTA subtle pulse every few seconds & Floating WhatsApp soft ring */
+/* Trust guarantees carousel smooth sliding easing */
+.trust-carousel-track {
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 7. Primary CTA subtle pulse, Route track truck & Floating WhatsApp entrance + pulse */
 @keyframes ctaRingPulse {
   0%, 70% {
     opacity: 0;
@@ -372,6 +486,58 @@ html[dir="rtl"] .marquee-track {
   animation: ctaRingPulse 4.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
 }
 
+@keyframes routeTrackTruckLtr {
+  0% { left: 0%; transform: translate3d(-8px, -50%, 0); opacity: 0; }
+  12% { opacity: 1; }
+  88% { opacity: 1; }
+  100% { left: 100%; transform: translate3d(-8px, -50%, 0); opacity: 0; }
+}
+
+@keyframes routeTrackTruckRtl {
+  0% { left: 100%; transform: translate3d(-8px, -50%, 0); opacity: 0; }
+  12% { opacity: 1; }
+  88% { opacity: 1; }
+  100% { left: 0%; transform: translate3d(-8px, -50%, 0); opacity: 0; }
+}
+
+.route-track-truck {
+  animation: routeTrackTruckLtr 3.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+html[dir="rtl"] .route-track-truck {
+  animation-name: routeTrackTruckRtl;
+}
+
+@keyframes numberRollIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.number-roll-enter {
+  animation: numberRollIn 0.26s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes fabEntrance {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.fab-enter {
+  animation: fabEntrance 0.42s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+}
+
 @keyframes waSoftRing {
   0% {
     opacity: 0.5;
@@ -387,7 +553,7 @@ html[dir="rtl"] .marquee-track {
   animation: waSoftRing 2.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
 }
 
-/* 8. Route transition: 200ms fade/slide (applied only after first route change) */
+/* 8. Route transition: 220ms fade/slide (<300ms, applied only after first route change) */
 @keyframes routeEnter {
   from {
     opacity: 0;
@@ -400,7 +566,7 @@ html[dir="rtl"] .marquee-track {
 }
 
 .route-transition {
-  animation: routeEnter 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: routeEnter 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 /* 9. FAQ smooth height accordion & Tracking timeline line draw */
@@ -408,8 +574,8 @@ html[dir="rtl"] .marquee-track {
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
-  transition: grid-template-rows 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.22s ease;
+  transition: grid-template-rows 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.24s ease;
 }
 
 .faq-accordion-open {
@@ -435,7 +601,7 @@ html[dir="rtl"] .timeline-connector {
   transform: scaleX(0);
 }
 
-/* 10. Bilty loading shimmer & animated check mark */
+/* 10. Bilty loading shimmer, animated check mark & error/not-found shake */
 @keyframes shimmerSlide {
   from { transform: translate3d(-100%, 0, 0); }
   to { transform: translate3d(100%, 0, 0); }
@@ -477,6 +643,75 @@ html[dir="rtl"] .timeline-connector {
   animation: checkDrawTick 0.28s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
 }
 
+@keyframes biltyShake {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  20% { transform: translate3d(-6px, 0, 0); }
+  40% { transform: translate3d(5px, 0, 0); }
+  60% { transform: translate3d(-4px, 0, 0); }
+  80% { transform: translate3d(3px, 0, 0); }
+}
+
+.bilty-shake {
+  animation: biltyShake 0.42s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* 11. Button micro-interactions: tactile press, ripple burst & arrow slide */
+.btn-animated {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.2s ease,
+              box-shadow 0.2s ease,
+              border-color 0.2s ease;
+}
+
+.btn-animated::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.35) 10%, transparent 65%);
+  opacity: 0;
+  transform: scale(0.2);
+  pointer-events: none;
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.38s ease;
+}
+
+.btn-animated:active {
+  transform: scale(0.97);
+}
+
+.btn-animated:active::after {
+  opacity: 1;
+  transform: scale(1.8);
+  transition: 0s;
+}
+
+.btn-arrow-icon {
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (hover: hover) {
+  .btn-animated:hover .btn-arrow-icon {
+    transform: translate3d(4px, 0, 0);
+  }
+  html[dir="rtl"] .btn-animated:hover .btn-arrow-icon {
+    transform: translate3d(-4px, 0, 0);
+  }
+}
+
+html.no-btn-motion .btn-animated,
+html.no-btn-motion .btn-animated::after,
+html.no-btn-motion .btn-arrow-icon {
+  transition: none !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+html.no-faq-motion .faq-accordion,
+html.no-faq-motion .faq-chevron {
+  transition: none !important;
+}
+
 /* Master Reduced Motion Guard: disables ALL animations & transitions */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -491,17 +726,30 @@ html[dir="rtl"] .timeline-connector {
   [data-reveal="visible"] {
     opacity: 1 !important;
     transform: none !important;
+    filter: none !important;
     transition: none !important;
   }
 
   .hero-ken-burns,
+  .hero-road-lines,
   .hero-truck-drive,
+  .cta-gentle-float,
+  .route-track-truck,
   .cta-subtle-pulse::after,
   .wa-soft-ring,
   .bilty-shimmer::after,
+  .bilty-shake,
+  .fab-enter,
+  .number-roll-enter,
   .marquee-track {
     animation: none !important;
     transform: none !important;
+  }
+
+  .tilt-card,
+  .tilt-card-glow {
+    transform: none !important;
+    opacity: 0 !important;
   }
 
   .marquee-track {

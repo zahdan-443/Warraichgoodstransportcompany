@@ -23,6 +23,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { TRANSLATIONS } from '../data/translations';
 import { verifyBiltyRecord, normalizeBiltyNo, VerificationResult, PublicBiltyRecord } from '../lib/firebase';
 import { getAssetUrl } from '../utils/assetPath';
+import { MOTION_CONFIG } from '../config/motionConfig';
 
 const SHOW_SAMPLE_CHIPS = false;
 
@@ -197,7 +198,7 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
             <button
               type="submit"
               disabled={loading}
-              className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-bold px-7 py-3.5 rounded-lg text-sm sm:text-base transition-colors shadow-sm font-urdu whitespace-nowrap min-h-[48px] cursor-pointer"
+              className="btn-animated inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-bold px-7 py-3.5 rounded-lg text-sm sm:text-base transition-colors shadow-sm font-urdu whitespace-nowrap min-h-[48px] cursor-pointer"
             >
               {loading ? (
                 <>
@@ -207,7 +208,7 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
               ) : (
                 <>
                   <span>{language === 'ur' ? 'بلٹی تصدیق کریں' : 'Verify Bilty'}</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className={`btn-arrow-icon w-4 h-4 ${language === 'ur' ? 'rotate-180' : ''}`} />
                 </>
               )}
             </button>
@@ -243,16 +244,16 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
                 <div className="bg-slate-100 p-5 sm:p-6 border-b border-slate-200 flex items-center gap-3">
                   <Loader2 className="w-6 h-6 text-blue-600 animate-spin flex-shrink-0" />
                   <div className="flex-1 space-y-2">
-                    <div className="bilty-shimmer h-3 w-32 rounded" />
-                    <div className="bilty-shimmer h-5 w-48 rounded" />
+                    <div className={`${MOTION_CONFIG.biltyShakeAndDraw ? 'bilty-shimmer' : 'bg-slate-200'} h-3 w-32 rounded`} />
+                    <div className={`${MOTION_CONFIG.biltyShakeAndDraw ? 'bilty-shimmer' : 'bg-slate-200'} h-5 w-48 rounded`} />
                   </div>
                 </div>
                 <div className="p-6 sm:p-8 space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="bilty-shimmer h-14 rounded-lg" />
-                    <div className="bilty-shimmer h-14 rounded-lg" />
-                    <div className="bilty-shimmer h-14 rounded-lg" />
-                    <div className="bilty-shimmer h-14 rounded-lg" />
+                    <div className={`${MOTION_CONFIG.biltyShakeAndDraw ? 'bilty-shimmer' : 'bg-slate-200'} h-14 rounded-lg`} />
+                    <div className={`${MOTION_CONFIG.biltyShakeAndDraw ? 'bilty-shimmer' : 'bg-slate-200'} h-14 rounded-lg`} />
+                    <div className={`${MOTION_CONFIG.biltyShakeAndDraw ? 'bilty-shimmer' : 'bg-slate-200'} h-14 rounded-lg`} />
+                    <div className={`${MOTION_CONFIG.biltyShakeAndDraw ? 'bilty-shimmer' : 'bg-slate-200'} h-14 rounded-lg`} />
                   </div>
                   <p className="text-xs sm:text-sm font-bold text-slate-600 font-urdu text-center pt-1">
                     {language === 'ur' ? 'ڈیٹا بیس سے بلٹی ریکارڈ کی تصدیق کی جا رہی ہے...' : 'Verifying bilty record from Firebase database...'}
@@ -263,15 +264,18 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
 
             {/* 2. SUCCESS: VERIFIED BILTY RECORD WITH ANIMATED CHECK MARK */}
             {!loading && verifiedRecord && (
-              <div className="bg-white rounded-xl shadow-md border-2 border-emerald-500 overflow-hidden route-transition">
+              <div
+                key={`verified-${verifiedRecord.biltyNo}`}
+                className={`bg-white rounded-xl shadow-md border-2 border-emerald-500 overflow-hidden ${MOTION_CONFIG.biltyShakeAndDraw ? 'route-transition' : ''}`}
+              >
                 {/* Header Banner */}
                 <div className="bg-emerald-700 text-white p-5 sm:p-6">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
                         <svg viewBox="0 0 24 24" className="w-6 h-6 text-emerald-200" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                          <circle cx="12" cy="12" r="10" className="check-circle-draw" />
-                          <path d="m9 12 2 2 4-4" className="check-tick-draw" />
+                          <circle cx="12" cy="12" r="10" className={MOTION_CONFIG.biltyShakeAndDraw ? 'check-circle-draw' : undefined} />
+                          <path d="m9 12 2 2 4-4" className={MOTION_CONFIG.biltyShakeAndDraw ? 'check-tick-draw' : undefined} />
                         </svg>
                       </div>
                       <div>
@@ -395,15 +399,15 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <Link
                       to="/about"
-                      className="flex items-center justify-center gap-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold p-4 rounded-lg shadow-sm text-sm sm:text-base transition-colors font-urdu"
+                      className="btn-animated flex items-center justify-center gap-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold p-4 rounded-lg shadow-sm text-sm sm:text-base transition-colors font-urdu"
                     >
                       <span>{language === 'ur' ? 'دفتر و رابطہ معلومات دیکھیں' : 'View Office & Contact Info'}</span>
-                      <ArrowRight className="w-4 h-4" />
+                      <ArrowRight className={`btn-arrow-icon w-4 h-4 ${language === 'ur' ? 'rotate-180' : ''}`} />
                     </Link>
 
                     <Link
                       to="/booking"
-                      className="flex items-center justify-center gap-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold p-4 rounded-lg shadow-sm text-sm sm:text-base transition-colors font-urdu"
+                      className="btn-animated flex items-center justify-center gap-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold p-4 rounded-lg shadow-sm text-sm sm:text-base transition-colors font-urdu"
                     >
                       <span>{language === 'ur' ? 'نئی گاڑی کا کرایہ چیک کریں' : 'Check Rates & Book Truck'}</span>
                     </Link>
@@ -414,7 +418,10 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
 
             {/* 3. NOT FOUND STATE */}
             {!loading && notFound && (
-              <div className="bg-white rounded-xl shadow-sm border-2 border-red-200 p-6 sm:p-8 text-center space-y-4 route-transition">
+              <div
+                key={`notfound-${activeReference}`}
+                className={`bg-white rounded-xl shadow-sm border-2 border-red-200 p-6 sm:p-8 text-center space-y-4 ${MOTION_CONFIG.biltyShakeAndDraw ? 'bilty-shake' : ''}`}
+              >
                 <div className="w-12 h-12 rounded-full bg-red-100 text-red-600 flex items-center justify-center mx-auto">
                   <XCircle className="w-7 h-7" />
                 </div>
@@ -437,13 +444,13 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
                 <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
                   <Link
                     to="/about"
-                    className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-6 py-3 rounded-lg text-xs sm:text-sm font-urdu transition-colors"
+                    className="btn-animated inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-6 py-3 rounded-lg text-xs sm:text-sm font-urdu transition-colors"
                   >
                     <span>{language === 'ur' ? 'دفتر و رابطہ کوائف دیکھیں' : 'View Company Contact Info'}</span>
                   </Link>
                   <Link
                     to="/booking"
-                    className="inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-6 py-3 rounded-lg text-xs sm:text-sm font-urdu transition-colors border border-slate-300"
+                    className="btn-animated inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-6 py-3 rounded-lg text-xs sm:text-sm font-urdu transition-colors border border-slate-300"
                   >
                     <span>{language === 'ur' ? 'کرایہ و بکنگ فارم' : 'Go to Rates & Booking'}</span>
                   </Link>
@@ -453,7 +460,10 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
 
             {/* 4. ERROR / CONNECTION STATE */}
             {!loading && errorMessage && (
-              <div className="bg-white rounded-xl shadow-sm border-2 border-amber-200 p-6 sm:p-8 text-center space-y-4 route-transition">
+              <div
+                key={`error-${activeReference}`}
+                className={`bg-white rounded-xl shadow-sm border-2 border-amber-200 p-6 sm:p-8 text-center space-y-4 ${MOTION_CONFIG.biltyShakeAndDraw ? 'bilty-shake' : ''}`}
+              >
                 <div className="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mx-auto">
                   <AlertCircle className="w-7 h-7" />
                 </div>
@@ -477,7 +487,7 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
                   <button
                     type="button"
                     onClick={() => handlePerformVerification(activeReference)}
-                    className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-lg text-xs sm:text-sm font-urdu transition-colors shadow-sm cursor-pointer"
+                    className="btn-animated inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-lg text-xs sm:text-sm font-urdu transition-colors shadow-sm cursor-pointer"
                   >
                     <span>{language === 'ur' ? 'دوبارہ کوشش کریں' : 'Try Again'}</span>
                   </button>

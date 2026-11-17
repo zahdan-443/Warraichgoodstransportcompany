@@ -10,13 +10,14 @@ import {
   Truck, 
   UserCheck, 
   Clock, 
-  Printer, 
+  Download, 
   Award
 } from 'lucide-react';
 import { COMPANY_INFO, MASTER_CITIES } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
 import { getAssetUrl } from '../utils/assetPath';
 import { useInView } from '../hooks/useMotion';
+import { CountUp } from './MotionPrimitives';
 
 const HOME_PREVIEW_CITY_IDS = [
   'samundri',
@@ -47,9 +48,7 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
     .map((id) => MASTER_CITIES.find((c) => c.id === id))
     .filter((c): c is NonNullable<typeof c> => Boolean(c));
 
-  const handlePrint = () => {
-    window.print();
-  };
+  const cardImageUrl = getAssetUrl('images/business-card.png');
 
   return (
     <section id="business-intro" className="py-12 sm:py-16 bg-slate-100 border-t border-slate-200 scroll-mt-20">
@@ -139,14 +138,16 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
                   <span>{isUrdu ? 'ایف بی آر ایکٹو ٹیکس پیئر' : 'Active Taxpayer (FBR)'}</span>
                 </div>
 
-                <button
-                  onClick={handlePrint}
-                  className="inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 px-3.5 py-1.5 rounded-lg text-xs font-bold transition shadow-sm cursor-pointer print:hidden"
-                  title="Print Business Card"
+                <a
+                  href={cardImageUrl}
+                  download="Warraich-Goods-Visiting-Card.png"
+                  className="btn-animated inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 px-3.5 py-1.5 rounded-lg text-xs font-bold transition shadow-sm cursor-pointer print:hidden"
+                  title={isUrdu ? 'وزٹنگ کارڈ ڈاؤن لوڈ کریں' : 'Download Visiting Card'}
+                  aria-label={isUrdu ? 'وڑائچ گڈز وزٹنگ کارڈ ڈاؤن لوڈ کریں' : 'Download Warraich Goods Business Card'}
                 >
-                  <Printer className="w-3.5 h-3.5 text-slate-600" />
+                  <Download className="w-3.5 h-3.5 text-slate-600" />
                   <span>{isUrdu ? 'پرنٹ کارڈ' : 'Print Card'}</span>
-                </button>
+                </a>
               </div>
 
             </div>
@@ -155,7 +156,7 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-8 border-b border-slate-200">
               
               {/* Pillar 1: Business Overview */}
-              <div className="bg-slate-50 rounded-lg p-5 border border-slate-200 flex flex-col justify-between">
+              <div data-reveal="" data-reveal-variant="slide-left" className="bg-slate-50 rounded-lg p-5 border border-slate-200 flex flex-col justify-between card-interactive">
                 <div>
                   <div className={`flex items-center gap-2 text-amber-800 font-bold text-sm mb-2 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                     <Building2 className="w-4 h-4 text-amber-600" />
@@ -168,12 +169,16 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
                   </p>
                 </div>
                 <div className={`mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
-                  <span>{isUrdu ? '2008 سے پہلے سے خدمت میں • احتیاط سے ہینڈلنگ اور واضح بلٹی ریکارڈ' : 'Serving since before 2008 • Careful handling and clear bilty records'}</span>
+                  {isUrdu ? (
+                    <span><CountUp end={2008} start={1998} duration={700} /> سے خدمت میں • احتیاط سے ہینڈلنگ اور واضح بلٹی ریکارڈ</span>
+                  ) : (
+                    <span>Serving since <CountUp end={2008} start={1998} duration={700} /> • Careful handling and clear bilty records</span>
+                  )}
                 </div>
               </div>
 
               {/* Pillar 2: Proprietor Leadership */}
-              <div className="bg-slate-50 rounded-lg p-5 border border-slate-200 flex flex-col justify-between">
+              <div data-reveal="" style={{ '--reveal-delay': '80ms' } as React.CSSProperties} className="bg-slate-50 rounded-lg p-5 border border-slate-200 flex flex-col justify-between card-interactive">
                 <div>
                   <div className={`flex items-center gap-2 text-blue-900 font-bold text-sm mb-3 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                     <UserCheck className="w-4 h-4 text-blue-600" />
@@ -218,7 +223,7 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
               </div>
 
               {/* Pillar 3: Core Freight Capabilities */}
-              <div className="bg-slate-50 rounded-lg p-5 border border-slate-200 flex flex-col justify-between">
+              <div data-reveal="" data-reveal-variant="slide-right" style={{ '--reveal-delay': '160ms' } as React.CSSProperties} className="bg-slate-50 rounded-lg p-5 border border-slate-200 flex flex-col justify-between card-interactive">
                 <div>
                   <div className={`flex items-center gap-2 text-blue-900 font-bold text-sm mb-2 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                     <Truck className="w-4 h-4 text-blue-600" />
