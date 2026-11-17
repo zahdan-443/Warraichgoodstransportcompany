@@ -10,7 +10,7 @@ interface LanguageContextType {
   toggleLanguage: () => void;
   isRtl: boolean;
   translations: typeof TRANSLATIONS;
-  t: typeof TRANSLATIONS['ur'];
+  t: typeof TRANSLATIONS['en'];
 }
 
 interface RouteSeoMeta {
@@ -64,24 +64,36 @@ const ROUTE_SEO_MAP: Record<string, RouteSeoMeta> = {
   },
 };
 
+const LANG_STORAGE_KEY = 'warraich_goods_lang_v2';
+const LEGACY_LANG_STORAGE_KEY = 'warraich_goods_lang';
+
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const location = useLocation();
   const [language, setLanguageState] = useState<Language>(() => {
-    // Read from localStorage or URL parameter
+    // Read explicit URL parameter or versioned saved preference; otherwise default to English
     if (typeof window !== 'undefined') {
+      try {
+        localStorage.removeItem(LEGACY_LANG_STORAGE_KEY);
+      } catch {
+        // Ignore storage errors
+      }
       const urlParams = new URLSearchParams(window.location.search);
       const urlLang = urlParams.get('lang');
       if (urlLang === 'en' || urlLang === 'ur') {
         return urlLang;
       }
-      const savedLang = localStorage.getItem('warraich_goods_lang');
-      if (savedLang === 'en' || savedLang === 'ur') {
-        return savedLang;
+      try {
+        const savedLang = localStorage.getItem(LANG_STORAGE_KEY);
+        if (savedLang === 'en' || savedLang === 'ur') {
+          return savedLang;
+        }
+      } catch {
+        // Ignore storage errors
       }
     }
-    return 'en'; // Default to English as requested
+    return 'en';
   });
 
   const isRtl = language === 'ur';
@@ -124,7 +136,11 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
   const setLanguage = (newLang: Language) => {
     setLanguageState(newLang);
     if (typeof window !== 'undefined') {
-      localStorage.setItem('warraich_goods_lang', newLang);
+      try {
+        localStorage.setItem(LANG_STORAGE_KEY, newLang);
+      } catch {
+        // Ignore storage errors
+      }
 
       // Update URL query parameter without full reload
       const url = new URL(window.location.href);
