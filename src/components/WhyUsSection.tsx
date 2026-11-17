@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Scale, Umbrella, Clock } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { getAssetUrl } from '../utils/assetPath';
 import { TiltCard } from './MotionPrimitives';
@@ -16,10 +15,8 @@ export const WhyUsSection: React.FC = () => {
       titleUr: 'صرف مخصوص فل لوڈ گاڑی',
       descEn: 'We book full trucks only, so your goods are never mixed with anyone else’s.',
       descUr: 'زیرو پارسل مکسنگ، صرف اور صرف سنگل پارٹی مال برداری بغیر کسی رکاوٹ کے۔',
-      icon: ShieldCheck,
       to: '/services',
-      image: './images/road-highway.webp',
-      accent: 'text-blue-300 bg-blue-500/20 border-blue-400/40'
+      image: './images/why-dedicated-trucks-only.webp',
     },
     {
       id: 'scale',
@@ -27,10 +24,8 @@ export const WhyUsSection: React.FC = () => {
       titleUr: 'کمپیوٹرائزڈ کانٹا پرچی',
       descEn: 'Official weight slips from computer scales given right after loading.',
       descUr: 'لوڈنگ کے فوری بعد سرکاری کانٹا پرچی اور قانونی ایکسل لوڈ کی 100% پابندی۔',
-      icon: Scale,
       to: '/services',
-      image: './images/trip-scale-bilty.webp',
-      accent: 'text-amber-300 bg-amber-500/20 border-amber-400/40'
+      image: './images/why-computer-scale-slips.webp',
     },
     {
       id: 'safety',
@@ -38,10 +33,8 @@ export const WhyUsSection: React.FC = () => {
       titleUr: 'ڈبل واٹر پروف ترپال تحفظ',
       descEn: 'Thick waterproof tarpaulins protect your load from rain, sun, and road dust.',
       descUr: 'بارش اور نمی سے مکمل حفاظت کے لیے ڈبل واٹر پروف ہیوی ترپال کی لازمی ضمانت۔',
-      icon: Umbrella,
       to: '/services',
-      image: './images/cargo-safety.webp',
-      accent: 'text-emerald-300 bg-emerald-500/20 border-emerald-400/40'
+      image: './images/why-waterproof-tarpaulins.webp',
     },
     {
       id: 'dispatch',
@@ -49,10 +42,8 @@ export const WhyUsSection: React.FC = () => {
       titleUr: '24/7 نان اسٹاپ روانگی',
       descEn: 'Call anytime for quick truck booking and direct phone contact with the driver.',
       descUr: 'ڈرائیور کا ذاتی رابطہ اور موٹروے پر نان اسٹاپ سفر، بروقت اور محفوظ ترسیل۔',
-      icon: Clock,
       to: '/booking',
-      image: './images/why-night-dispatch.webp',
-      accent: 'text-indigo-300 bg-indigo-500/20 border-indigo-400/40'
+      image: './images/why-24-7-truck-booking.webp',
     },
   ];
 
@@ -78,7 +69,6 @@ export const WhyUsSection: React.FC = () => {
         {/* 4 Clean Cards: Single column on mobile, 2 on tablet, 4 on desktop */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {guarantees.map((item, idx) => {
-            const IconComponent = item.icon;
             const title = isUrdu ? item.titleUr : item.titleEn;
             const desc = isUrdu ? item.descUr : item.descEn;
 
@@ -88,7 +78,7 @@ export const WhyUsSection: React.FC = () => {
                 data-reveal=""
                 data-reveal-variant="zoom-in"
                 style={{ '--reveal-delay': `${idx * 75}ms` } as React.CSSProperties}
-                className="relative overflow-hidden bg-slate-900 border border-slate-800 hover:border-amber-400 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-xl flex flex-col justify-between min-h-[280px] group card-interactive"
+                className="relative overflow-hidden bg-slate-900 border border-slate-800 hover:border-amber-400 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-xl flex flex-col justify-end min-h-[280px] group card-interactive"
               >
                 {/* Background Photo */}
                 <img
@@ -107,15 +97,8 @@ export const WhyUsSection: React.FC = () => {
                   className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/45 to-slate-950/5 group-hover:via-slate-950/35 transition-colors"
                 />
 
-                {/* Top: Rounded Icon Box */}
-                <div className="relative z-10">
-                  <div className={`w-11 h-11 rounded-xl bg-slate-950/80 flex items-center justify-center flex-shrink-0 border ${item.accent} card-icon-nudge shadow-sm`}>
-                    <IconComponent className="w-5 h-5" />
-                  </div>
-                </div>
-
                 {/* Bottom Title, Description & Link */}
-                <div className="relative z-10 pt-14 space-y-2.5">
+                <div className="relative z-10 pt-24 space-y-2.5">
                   <h3 className="text-base sm:text-lg font-black text-white group-hover:text-amber-300 transition-colors font-urdu drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)]">
                     {title}
                   </h3>

@@ -105,10 +105,10 @@ const ROUTES: RouteConfig[] = [
     path: '/',
     outputFile: 'index.html',
     title: 'Warraich Goods | Transport & Shifting',
-    description: 'Home shifting, office relocation and goods transport from Samundri across Pakistan and from all Pakistan To Samundri. Call 0300-5370443 for truck booking.',
+    description: 'Home shifting, office relocation and goods transport from Samundri across Pakistan and from anywhere in Pakistan to Samundri. Call 0300-5370443 for truck booking.',
     canonicalUrl: `${BASE_SITE_URL}/`,
     ogTitle: 'Warraich Goods | Transport & Shifting',
-    ogDescription: 'Home shifting, office relocation and goods transport from Samundri across Pakistan and from all Pakistan To Samundri. Call 0300-5370443 for truck booking.',
+    ogDescription: 'Home shifting, office relocation and goods transport from Samundri across Pakistan and from anywhere in Pakistan to Samundri. Call 0300-5370443 for truck booking.',
     breadcrumbList: [
       { name: 'Home', item: `${BASE_SITE_URL}/` },
       { name: 'Our Trucks', item: `${BASE_SITE_URL}/fleet/` },

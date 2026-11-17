@@ -4,7 +4,7 @@
 [![NTN](https://img.shields.io/badge/FBR%20NTN-7779394--1-blue?style=for-the-badge)](https://zahdan-443.github.io/Warraichgoodstransportcompany/)
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-0300--5370443-25D366?style=for-the-badge)](https://wa.me/923005370443)
 
-> **Home shifting, office relocation, and dedicated full-truckload goods transport across Pakistan — serving since before 2008.**  
+> **Home shifting, office relocation, and dedicated full-truckload goods transport across Pakistan — serving since 2008 (18+ years).**  
 > **پورے پاکستان کے لیے محفوظ اور بروقت مال برداری اور شفٹنگ کی خدمات — مناسب ریٹ، کمپیوٹرائزڈ بلٹی اور 24/7 بکنگ۔**
 
 ---
@@ -27,7 +27,7 @@
 * **Company Name:** Warraich Goods Transport Company (وڑائچ گڈز ٹرانسپورٹ کمپنی)
 * **Proprietor:** Zahdan Nasar Warraich (زاہدان نصر وڑائچ)
 * **Office Address:** Okara Bypass, Samundri, District Faisalabad, Punjab, Pakistan
-* **Established:** Before 2008
+* **Established:** 2008 (18+ Years)
 * **FBR NTN:** `7779394-1`
 * **Service Type:** Dedicated Full Truckload (FTL) only, Home Shifting & Office Relocation
 * **Phone / WhatsApp (24/7):** `0300-5370443`

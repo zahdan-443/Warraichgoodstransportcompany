@@ -56,7 +56,7 @@ export const Footer: React.FC = () => {
             <p className="text-xs text-slate-400 font-urdu mt-0.5">
               {isUrdu 
                 ? 'تازہ ترین فلیٹ ویڈیوز، لوڈنگ اپڈیٹس اور کسٹمر ریویوز کے لیے ہمارے ساتھ جڑیں' 
-                : 'Follow our official channels for fleet dispatch updates, video tours, and customer feedback'}
+                : 'Follow our pages for loading videos, truck updates, and customer reviews'}
             </p>
           </div>
 

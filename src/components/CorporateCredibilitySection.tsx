@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Building2, 
-  ShieldCheck, 
   FileText, 
-  Scale, 
   Printer, 
   CheckCircle2, 
   Award, 
@@ -37,15 +35,14 @@ import { TiltCard } from './MotionPrimitives';
 export const GROUND_OPERATIONS_PHOTOS = [
   {
     id: 'yard-operations',
-    // "Proprietor supervising operations"
-    imageSrc: './images/owner-portrait.png',
+    imageSrc: './images/proprietor-zahdan-nasar-warraich.png',
     badgeUrdu: 'قیادت و فلیٹ سپروائزری',
     badgeEn: 'Leadership & Fleet Supervision',
     titleUrdu: 'پروپرائٹر زاہدان نصر وڑائچ — آپریشنل نگرانی',
     titleEn: 'Proprietor Zahdan Nasar Warraich — Operational Oversight',
     descUrdu: 'ملک بھر میں فلیٹ کی براہ راست روانگی، کاغذات اور بلٹی کی نگرانی۔',
-    descEn: 'Direct hands-on oversight of daily fleet dispatch, vehicle inspections, and client coordination.',
-    alt: 'Zahdan Nasar Warraich - Proprietor of Warraich Goods Transport Company supervising fleet operations',
+    descEn: 'Direct hands-on oversight of daily truck dispatch, vehicle checks, and customer coordination.',
+    alt: 'Zahdan Nasar Warraich - Proprietor of Warraich Goods Transport Company',
     footerLabelUrdu: 'فیلڈ آپریشنز',
     footerLabelEn: 'Field Operations',
     footerStatusUrdu: 'گراؤنڈ فوٹو',
@@ -53,14 +50,13 @@ export const GROUND_OPERATIONS_PHOTOS = [
   },
   {
     id: 'driver-vehicle',
-    // "Driver with vehicle (representative placeholder)"
-    imageSrc: './images/placeholder-driver-vehicle.jpg',
+    imageSrc: './images/field-driver-with-vehicle.jpg',
     badgeUrdu: 'ڈرائیور مع گاڑی',
     badgeEn: 'Driver with Vehicle',
     titleUrdu: 'کمرشل روڈ کیپٹن مع گاڑی',
     titleEn: 'Commercial Highway Driver with Vehicle',
     descUrdu: 'تمام ہائی وے روٹس کے تجربہ کار، بااخلاق اور لائسنس یافتہ کمرشل ڈرائیورز۔',
-    descEn: 'Experienced commercial highway drivers holding valid HTV licenses and transit records.',
+    descEn: 'Experienced highway drivers holding valid HTV licenses and clean road records.',
     alt: 'Commercial Highway Driver with Freight Vehicle - Field Operations',
     footerLabelUrdu: 'فیلڈ آپریشنز',
     footerLabelEn: 'Field Operations',
@@ -69,14 +65,13 @@ export const GROUND_OPERATIONS_PHOTOS = [
   },
   {
     id: 'loading-dispatch',
-    // "Loading/dispatch point photo (representative placeholder)"
-    imageSrc: './images/placeholder-loading-dispatch.jpg',
+    imageSrc: './images/field-loading-dispatch-bay.jpg',
     badgeUrdu: 'لوڈنگ و ڈسپیچ پوائنٹ',
     badgeEn: 'Loading & Dispatch Point',
     titleUrdu: 'فیکٹری و گودام لوڈنگ اور ڈسپیچ پوائنٹ',
     titleEn: 'Warehouse Loading & Dispatch Bay',
     descUrdu: 'ڈبل واٹر پروف ترپال بندی، کانٹا معائنہ اور سیدھی نان اسٹاپ روانگی۔',
-    descEn: 'Double waterproof tarpaulin sealing, scale verification, and direct highway departure.',
+    descEn: 'Double waterproof tarpaulin covering, computer scale check, and direct highway departure.',
     alt: 'Warehouse Loading Bay and Direct Highway Dispatch Point - Field Operations',
     footerLabelUrdu: 'فیلڈ آپریشنز',
     footerLabelEn: 'Field Operations',
@@ -112,12 +107,12 @@ export const CorporateCredibilitySection: React.FC = () => {
           </div>
 
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-urdu leading-relaxed">
-            {isUrdu ? 'کارپوریٹ اعتبار، قانونی ساکھ اور B2B خدمات' : 'Corporate Credibility & Enterprise Freight Solutions'}
+            {isUrdu ? 'کارپوریٹ اعتبار، قانونی ساکھ اور B2B خدمات' : 'Company Registration & Business Contracts'}
           </h1>
           <p className="text-slate-600 mt-2.5 text-sm sm:text-base lg:text-lg font-urdu leading-relaxed">
             {isUrdu 
               ? 'ٹیکسٹائل ملز، فلور ملز، زرعی آڑھتیوں اور ملٹی نیشنل تجارتی اداروں کے لیے 100% قابلِ اعتماد اور قانونی طور پر تصدیق شدہ FTL ٹرانسپورٹ۔' 
-              : 'Official vendor credibility for industrial mills, manufacturing plants, grain traders, and corporate procurement managers across Pakistan.'}
+              : 'Registered transport service for textile mills, flour mills, grain traders, and businesses across Pakistan.'}
           </p>
 
           {/* Quick Actions (View Profile Deck & Corporate Inquiry) */}
@@ -146,9 +141,6 @@ export const CorporateCredibilitySection: React.FC = () => {
           {/* Pillar 1: Tax & Legal Registration */}
           <div data-reveal="" style={{ '--reveal-delay': '0ms' } as React.CSSProperties} className="bg-white border border-amber-200 rounded-lg p-5 hover:border-amber-400 hover:shadow-md shadow-sm flex flex-col justify-between group card-interactive">
             <div>
-              <div className={`w-11 h-11 rounded-lg bg-amber-50 border border-amber-200 text-amber-700 flex items-center justify-center mb-4 card-icon-nudge ${isUrdu ? 'ml-auto' : 'mr-auto'}`}>
-                <ShieldCheck className="w-5 h-5" />
-              </div>
               <span className="text-[11px] font-bold text-amber-800 font-urdu block mb-1">
                 {isUrdu ? 'ایف بی آر تصدیق شدہ' : 'FBR Verified'}
               </span>
@@ -158,7 +150,7 @@ export const CorporateCredibilitySection: React.FC = () => {
               <p className="text-xs text-slate-600 leading-relaxed font-urdu">
                 {isUrdu 
                   ? 'ایف بی آر میں ایکٹو ٹیکس پیئر کے طور پر رجسٹرڈ۔ کارپوریٹ کلائنٹس اور انڈسٹریل ملز کے لیے سیلز ٹیکس اور ودہولڈنگ ٹیکس کی باقاعدہ رسیدیں۔' 
-                  : 'Active FBR taxpayer (NTN 7779394-1). We issue proper invoices for businesses and mills.'}
+                  : 'Active FBR taxpayer (NTN 7779394-1). We issue proper tax invoices for factories, mills, and corporate companies.'}
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] text-amber-800 font-semibold font-urdu">
@@ -170,43 +162,37 @@ export const CorporateCredibilitySection: React.FC = () => {
           {/* Pillar 2: Computerized Weighbridge & POD */}
           <div data-reveal="" style={{ '--reveal-delay': '70ms' } as React.CSSProperties} className="bg-white border border-slate-200 rounded-lg p-5 hover:border-blue-400 hover:shadow-md shadow-sm flex flex-col justify-between group card-interactive">
             <div>
-              <div className={`w-11 h-11 rounded-lg bg-slate-100 border border-slate-200 text-slate-700 flex items-center justify-center mb-4 card-icon-nudge ${isUrdu ? 'ml-auto' : 'mr-auto'}`}>
-                <Scale className="w-5 h-5" />
-              </div>
               <span className="text-[11px] font-bold text-slate-700 font-urdu tracking-wider block mb-1">
-                {isUrdu ? 'کانٹا پرچی اور باقاعدہ بلٹی' : 'Certified Scale Slip & POD'}
+                {isUrdu ? 'کانٹا پرچی اور باقاعدہ بلٹی' : 'Scale Slip & Signed Bilty'}
               </span>
               <p className="text-base font-bold text-slate-900 font-urdu mb-2">
-                {isUrdu ? 'شفاف وزن اور دستخط شدہ POD' : 'Official Bilti & Signed POD'}
+                {isUrdu ? 'شفاف وزن اور دستخط شدہ POD' : 'Official Bilty & Signed POD'}
               </p>
               <p className="text-xs text-slate-600 leading-relaxed font-urdu">
                 {isUrdu 
                   ? 'لوڈنگ کے فوری بعد کمپیوٹرائزڈ کانٹا پرچی اور سرکاری بلٹی جاری کی جاتی ہے۔ ان لوڈنگ پر وصول کنندہ کی مہر و دستخط کے ساتھ تصدیق۔' 
-                  : 'Certified computerized weighbridge slips provided post-loading. Official consignment Bilti and receiver-stamped Proof of Delivery (POD) returned.'}
+                  : 'Computer scale slips are provided right after loading, and signed Proof of Delivery (POD) receipts are returned on unloading.'}
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] text-slate-700 font-semibold font-urdu">
               <FileCheck2 className="w-3.5 h-3.5 flex-shrink-0 text-slate-600" />
-              <span>{isUrdu ? 'زیرو وزن تنازعہ' : 'Zero Weight Discrepancy'}</span>
+              <span>{isUrdu ? 'زیرو وزن تنازعہ' : 'Accurate Weight Records'}</span>
             </div>
           </div>
 
           {/* Pillar 3: Dedicated Full Truckload Policy */}
           <div data-reveal="" style={{ '--reveal-delay': '140ms' } as React.CSSProperties} className="bg-white border border-blue-200 rounded-lg p-5 hover:border-blue-400 hover:shadow-md shadow-sm flex flex-col justify-between group card-interactive">
             <div>
-              <div className={`w-11 h-11 rounded-lg bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center mb-4 card-icon-nudge ${isUrdu ? 'ml-auto' : 'mr-auto'}`}>
-                <Truck className="w-5 h-5" />
-              </div>
               <span className="text-[11px] font-bold text-blue-800 font-urdu tracking-wider block mb-1">
-                {isUrdu ? '100% وقف شدہ سنگل پارٹی گاڑی' : '100% Dedicated Single Shipper'}
+                {isUrdu ? '100% وقف شدہ سنگل پارٹی گاڑی' : '100% Dedicated Single-Party Truck'}
               </span>
               <p className="text-base font-bold text-slate-900 font-urdu mb-2">
-                {isUrdu ? 'زیرو مکسنگ اور ڈائریکٹ ترسیل' : 'Zero Cargo Mix & Direct Transit'}
+                {isUrdu ? 'زیرو مکسنگ اور ڈائریکٹ ترسیل' : 'No Mixed Loads & Direct Delivery'}
               </p>
               <p className="text-xs text-slate-600 leading-relaxed font-urdu">
                 {isUrdu 
                   ? 'ہم پارسل یا مکس مال نہیں اٹھاتے۔ پوری گاڑی صرف آپ کے مال کے لیے مخصوص ہوتی ہے۔ فیکٹری گیٹ سے منزل تک بغیر رکے ترسیل۔' 
-                  : 'We strictly reject loose shared parcel mixing. Entire cargo bay is exclusively sealed for your consignment, delivering direct from factory to destination.'}
+                  : 'We do not take loose parcels or mix goods from different customers. The whole truck goes straight from your gate to the destination.'}
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] text-blue-800 font-semibold font-urdu">
@@ -218,11 +204,8 @@ export const CorporateCredibilitySection: React.FC = () => {
           {/* Pillar 4: Leadership & Proprietor Governance */}
           <div data-reveal="" style={{ '--reveal-delay': '210ms' } as React.CSSProperties} className="bg-white border border-slate-200 rounded-lg p-5 hover:border-blue-400 hover:shadow-md shadow-sm flex flex-col justify-between group card-interactive">
             <div>
-              <div className={`w-11 h-11 rounded-lg bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center mb-4 card-icon-nudge ${isUrdu ? 'ml-auto' : 'mr-auto'}`}>
-                <Building2 className="w-5 h-5" />
-              </div>
               <span className="text-[11px] font-bold text-blue-800 font-urdu tracking-wider block mb-1">
-                {isUrdu ? 'ذاتی نگرانی اور اعتماد' : 'Personal Executive Governance'}
+                {isUrdu ? 'ذاتی نگرانی اور اعتماد' : 'Direct Owner Supervision'}
               </span>
               <p className="text-base font-bold text-slate-900 font-urdu mb-2">
                 {isUrdu ? 'ڈائریکٹ پروپرائٹر رابطہ' : 'Direct Proprietor Accountability'}
@@ -230,7 +213,7 @@ export const CorporateCredibilitySection: React.FC = () => {
               <p className="text-xs text-slate-600 leading-relaxed font-urdu">
                 {isUrdu 
                   ? `پروپرائٹر ${COMPANY_INFO.proprietorUrdu} تمام کارپوریٹ کنٹریکٹس اور گاڑیوں کے شیڈول کی ذاتی نگرانی کرتے ہیں، جس سے مکمل اعتماد ملتا ہے۔` 
-                  : `Proprietor ${COMPANY_INFO.proprietorEnglish} personally manages fleet dispatches and major B2B contracts, ensuring zero corporate bottlenecks.`}
+                  : `Proprietor ${COMPANY_INFO.proprietorEnglish} personally oversees daily truck dispatches and company contracts so every booking gets fast decisions.`}
               </p>
             </div>
             <Link
@@ -253,14 +236,14 @@ export const CorporateCredibilitySection: React.FC = () => {
                 <span>{isUrdu ? 'صنعتی و تجارتی اداروں کے لیے معاہدے' : 'B2B Enterprise Transport Agreements'}</span>
               </div>
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 font-urdu">
-                {isUrdu ? 'کارپوریٹ کنٹریکٹ لاجسٹکس کے امتیازی فوائد' : 'Long-Term Corporate Freight Contract Privileges'}
+                {isUrdu ? 'کارپوریٹ کنٹریکٹ لاجسٹکس کے امتیازی فوائد' : 'Monthly & Annual Transport Contracts'}
               </h3>
             </div>
 
             <p className="text-xs sm:text-sm text-slate-600 max-w-md font-urdu leading-relaxed">
               {isUrdu 
                 ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی ٹیکسٹائل ملز، شوگر ملز اور ڈسٹری بیوٹرز کے ساتھ سالانہ اور ماہانہ باقاعدہ ٹرانسپورٹیشن ایگریمنٹس پر فلیٹ فراہم کرتی ہے۔' 
-                : 'Warraich Goods offers structured annual and monthly transportation contracts with dedicated fleet allocation and formal computerized billing.'}
+                : 'Warraich Goods works with textile mills, sugar mills, and distributors on monthly and yearly contracts with steady trucks and proper tax billing.'}
             </p>
           </div>
 
@@ -270,7 +253,7 @@ export const CorporateCredibilitySection: React.FC = () => {
             {/* Visual Factory Warehouse Dispatch Showcase */}
             <div data-reveal="" data-reveal-variant="slide-left" className="lg:col-span-4 relative rounded-lg overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-end min-h-[260px] lg:min-h-full group">
               <img 
-                src={getAssetUrl('images/factory-warehouse.webp')} 
+                src={getAssetUrl('images/corporate-factory-dispatch.webp')} 
                 alt="Industrial Factory and Warehouse Logistics Loading Bay - Warraich Goods" 
                 width={800}
                 height={450}
@@ -306,11 +289,8 @@ export const CorporateCredibilitySection: React.FC = () => {
                   data-reveal=""
                   data-reveal-variant="slide-right"
                   style={{ '--reveal-delay': `${idx * 65}ms` } as React.CSSProperties}
-                  className="bg-slate-50 border border-slate-200 p-4 rounded-lg flex items-start gap-3.5 hover:border-blue-300 transition-colors shadow-sm card-interactive"
+                  className="bg-slate-50 border border-slate-200 p-4 sm:p-5 rounded-lg hover:border-blue-300 transition-colors shadow-sm card-interactive"
                 >
-                  <div className="w-9 h-9 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center flex-shrink-0 border border-blue-200 mt-0.5">
-                    <CheckCircle2 className="w-4 h-4" />
-                  </div>
                   <div className="space-y-1">
                     <p className="text-sm font-bold text-slate-900 font-urdu">
                       {isUrdu ? perk.titleUr : perk.titleEn}
@@ -408,7 +388,7 @@ export const CorporateCredibilitySection: React.FC = () => {
                     {/* Fallback Icon Box if image missing */}
                     <div className="photo-fallback hidden absolute inset-0 bg-gradient-to-br from-slate-100 to-slate-200 flex flex-col items-center justify-center text-slate-400 p-4">
                       <Camera className="w-10 h-10 mb-2 text-slate-400" />
-                      <span className="text-xs font-bold font-mono text-slate-500">{slot.id}.jpg</span>
+                      <span className="text-xs font-bold font-mono text-slate-500">{slot.imageSrc.replace('./images/', '')}</span>
                     </div>
                   </div>
 

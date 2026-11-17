@@ -291,14 +291,14 @@ export const RouteTruckTrack: React.FC<RouteTruckTrackProps> = ({
       </div>
 
       {/* Highway Track + Moving Truck */}
-      <div className="relative flex-1 h-5 flex items-center overflow-hidden min-w-[68px]" aria-hidden="true">
+      <div className="relative flex-1 h-8 flex items-center overflow-x-clip overflow-y-visible min-w-[76px]" aria-hidden="true">
         <div
           className={`w-full border-b border-dashed ${
             compact ? 'border-amber-500/70' : 'border-amber-400/60'
           }`}
         />
-        <div className="route-track-truck absolute top-1/2 -translate-y-1/2 left-0 flex items-center text-amber-500">
-          <Truck className={`w-4 h-4 ${isRtl ? '-scale-x-100' : ''}`} />
+        <div className="route-track-truck absolute top-1/2 left-0 flex items-center justify-center w-5 h-5 text-amber-500">
+          <Truck className={`w-5 h-5 shrink-0 ${isRtl ? '-scale-x-100' : ''}`} />
         </div>
         {badgeLabel && (
           <span

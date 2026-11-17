@@ -1,12 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Sprout, 
-  Factory, 
-  Hammer, 
-  PackageCheck, 
-  ArrowRight 
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { getAssetUrl } from '../utils/assetPath';
 import { TiltCard } from './MotionPrimitives';
@@ -20,45 +14,37 @@ export const CargoCategoriesPreview: React.FC = () => {
       id: 'agri',
       titleEn: 'Agricultural Produce & Grains',
       titleUr: 'زرعی اجناس، گندم و غلہ',
-      descEn: 'Wheat, corn, cotton bales, seeds, and fertilizer bulk haulage with zero moisture exposure.',
+      descEn: 'Bulk loads of wheat, corn, cotton bales, seeds, and fertilizer kept dry in transit.',
       descUr: 'گندم، مکئی، کپاس اور کھاد کی بلک ترسیل پنجاب اور ملک بھر کی تمام غلہ منڈیوں سے۔',
-      icon: Sprout,
       to: '/fleet#cargo',
-      image: './images/agricultural-freight.webp',
-      accent: 'text-emerald-300 bg-emerald-500/20 border-emerald-400/40',
+      image: './images/cargo-agricultural-produce-grains.webp',
     },
     {
       id: 'textile',
       titleEn: 'Textile & Industrial Supplies',
       titleUr: 'ٹیکسٹائل، دھاگہ و فیکٹری میٹریل',
-      descEn: 'Yarn cones, fabric, chemicals, and manufactured supplies for Faisalabad, Lahore, and Karachi Port.',
+      descEn: 'Yarn cones, cloth, chemicals, and mill goods delivered across Faisalabad, Lahore, and Karachi Port.',
       descUr: 'دھاگہ، کپڑا، گرے کلوتھ اور صنعتی کیمیکلز کی براہِ راست ملز اور پورٹ پر ترسیل۔',
-      icon: Factory,
       to: '/fleet#cargo',
-      image: './images/factory-warehouse.webp',
-      accent: 'text-blue-300 bg-blue-500/20 border-blue-400/40',
+      image: './images/cargo-textile-industrial-supplies.webp',
     },
     {
       id: 'machinery',
       titleEn: 'Heavy Machinery & Steel',
       titleUr: 'ہیوی مشینری و اسٹیل گارڈرز',
-      descEn: 'Industrial plant equipment, rebar, pipes, and marble slabs using heavy-duty Bedford haulers.',
+      descEn: 'Factory machinery, steel bars, pipes, and marble slabs hauled safely on heavy Bedford trucks.',
       descUr: 'صنعتی پلانٹ مشینری، لوہا، سریا اور ماربل سلیبز کی ہیوی ڈیوٹی ٹرکوں پر لوڈنگ۔',
-      icon: Hammer,
       to: '/fleet#cargo',
-      image: './images/machinery-cargo.webp',
-      accent: 'text-amber-300 bg-amber-500/20 border-amber-400/40',
+      image: './images/cargo-heavy-machinery-steel.webp',
     },
     {
       id: 'fmcg',
       titleEn: 'Food Processing & Packaging',
       titleUr: 'شوگر، فلور ملز و فوڈ پیکجنگ',
-      descEn: 'Refined sugar sacks, flour bags, corrugated packaging, and feed supplies safely lashed.',
+      descEn: 'Sugar sacks, flour bags, cartons, and poultry feed tied securely and covered for the road.',
       descUr: 'چینی کی بوریاں، آٹا، کارٹن اور پولٹری فیڈ کی صاف ستھری اور محفوظ واٹر پروف ترسیل۔',
-      icon: PackageCheck,
       to: '/fleet#cargo',
-      image: './images/fmcg-cargo.webp',
-      accent: 'text-indigo-300 bg-indigo-500/20 border-indigo-400/40',
+      image: './images/cargo-food-processing-packaging.webp',
     },
   ];
 
@@ -77,14 +63,13 @@ export const CargoCategoriesPreview: React.FC = () => {
           <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-600 font-urdu max-w-2xl mx-auto">
             {isUrdu
               ? 'پنجاب، سندھ، خیبر پختونخوا اور بلوچستان کے تمام صنعتی کوریڈورز کے لیے مخصوص فل ٹرک لوڈ کارگو۔'
-              : 'Dedicated FTL transport customized for manufacturing, agriculture, and construction industries.'}
+              : 'Dedicated full-truck transport for farms, textile mills, factories, and building suppliers.'}
           </p>
         </div>
 
         {/* 4 Cards: Single Column on Mobile, 2 on Tablet, 4 on Desktop */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {categories.map((cat, idx) => {
-            const IconComp = cat.icon;
             const title = isUrdu ? cat.titleUr : cat.titleEn;
             const desc = isUrdu ? cat.descUr : cat.descEn;
 
@@ -94,7 +79,7 @@ export const CargoCategoriesPreview: React.FC = () => {
                 data-reveal=""
                 data-reveal-variant="zoom-in"
                 style={{ '--reveal-delay': `${idx * 75}ms` } as React.CSSProperties}
-                className="relative overflow-hidden bg-slate-900 border border-slate-800 hover:border-emerald-400 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-xl flex flex-col justify-between min-h-[280px] group card-interactive"
+                className="relative overflow-hidden bg-slate-900 border border-slate-800 hover:border-emerald-400 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-xl flex flex-col justify-end min-h-[280px] group card-interactive"
               >
                 {/* Category Background Image */}
                 <img
@@ -113,15 +98,8 @@ export const CargoCategoriesPreview: React.FC = () => {
                   className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/45 to-slate-950/5 group-hover:via-slate-950/35 transition-colors"
                 />
 
-                {/* Top: Rounded Icon Box */}
-                <div className="relative z-10">
-                  <div className={`w-11 h-11 rounded-xl bg-slate-950/80 flex items-center justify-center flex-shrink-0 border ${cat.accent} card-icon-nudge shadow-sm`}>
-                    <IconComp className="w-5 h-5" />
-                  </div>
-                </div>
-
                 {/* Bottom Title, Description & Link */}
-                <div className="relative z-10 pt-14 space-y-2.5">
+                <div className="relative z-10 pt-24 space-y-2.5">
                   <h3 className="text-base sm:text-lg font-black text-white group-hover:text-emerald-300 transition-colors font-urdu drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)]">
                     {title}
                   </h3>

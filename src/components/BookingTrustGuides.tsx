@@ -1,13 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-  Truck,
-  ArrowRight,
-  Receipt,
-  Users,
-  Wallet,
-  ShieldCheck,
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { CountUp, TiltCard } from './MotionPrimitives';
 
@@ -68,36 +61,28 @@ export const BookingTrustGuides: React.FC<BookingTrustGuidesProps> = ({
 
   const transparencyPoints = [
     {
-      icon: Receipt,
       titleEn: 'Motorway & Highway Toll Tax',
       titleUr: 'موٹروے و ہائی وے ٹول ٹیکس',
-      descEn: 'All route toll charges (M-3, M-4, M-5) are clarified upfront before truck dispatch with zero surprise fees.',
+      descEn: 'All route toll charges (M-3, M-4, M-5) are agreed upfront before dispatch with no surprise charges.',
       descUr: 'روٹ کے تمام ٹول ٹیکس (M-3، M-4، M-5) روانگی سے پہلے طے کیے جاتے ہیں، کوئی پوشیدہ چارجز نہیں۔',
-      iconColor: 'text-blue-600 bg-blue-50 border-blue-200',
     },
     {
-      icon: Users,
       titleEn: 'Loading Labor & Packing Options',
       titleUr: 'لوڈنگ لیبر اور پیکنگ سہولت',
       descEn: 'Standard quotes cover dedicated truck transport; loading/unloading labor and packing wraps can be arranged on request.',
       descUr: 'بنیادی کرایہ صرف مکمل گاڑی کا ہوتا ہے؛ ضرورت پڑنے پر لوڈنگ/ان لوڈنگ لیبر اور پیکنگ کا انتظام الگ ہو سکتا ہے۔',
-      iconColor: 'text-amber-600 bg-amber-50 border-amber-200',
     },
     {
-      icon: Wallet,
-      titleEn: 'Clear Advance & Delivery Payment',
+      titleEn: 'Clear Advance & Balance Payment',
       titleUr: 'ادائیگی کا شفاف طریقہ کار',
-      descEn: 'Agreed partial advance upon loading and computer scale slip, with the balance settled safely upon unloading.',
+      descEn: 'Agreed advance upon loading with computer scale slip, and remaining balance settled safely upon unloading.',
       descUr: 'لوڈنگ اور کانٹا پرچی کے وقت طے شدہ ایڈوانس اور باقی کرایہ منزل پر سامان پہنچنے کے بعد ادا کیا جاتا ہے۔',
-      iconColor: 'text-emerald-600 bg-emerald-50 border-emerald-200',
     },
     {
-      icon: ShieldCheck,
       titleEn: '100% Dedicated Single-Party Load',
       titleUr: 'صرف سنگل پارٹی فل لوڈ پالیسی',
-      descEn: 'You never share space with another shipper. Sealed tarpaulins, verified bilty, and direct driver contact included.',
+      descEn: 'You never share space with another customer. Heavy tarpaulins, official bilty, and direct driver contact included.',
       descUr: 'گاڑی میں کسی دوسرے کا مال نہیں رکھا جاتا۔ مضبوط ترپال، آفیشل بلٹی اور ڈرائیور کا نمبر ساتھ ملتا ہے۔',
-      iconColor: 'text-slate-700 bg-slate-100 border-slate-300',
     },
   ];
 
@@ -130,11 +115,8 @@ export const BookingTrustGuides: React.FC<BookingTrustGuidesProps> = ({
                 className="bg-slate-50 border border-slate-200 hover:border-amber-400 rounded-xl p-5 flex flex-col justify-between shadow-2xs card-interactive group"
               >
                 <div>
-                  <div className="flex items-center justify-between gap-2 mb-3">
-                    <div className="w-9 h-9 rounded-lg bg-slate-900 text-amber-400 flex items-center justify-center flex-shrink-0 card-icon-nudge">
-                      <Truck className="w-4 h-4" />
-                    </div>
-                    <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-md border font-mono ${tier.badgeClass}`}>
+                  <div className="mb-3">
+                    <span className={`inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-md border font-mono ${tier.badgeClass}`}>
                       {isUrdu ? tier.specUr : tier.specEn}
                     </span>
                   </div>
@@ -194,19 +176,14 @@ export const BookingTrustGuides: React.FC<BookingTrustGuidesProps> = ({
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {transparencyPoints.map((pt, idx) => {
-              const IconComp = pt.icon;
-              return (
-                <div
-                  key={idx}
-                  data-reveal=""
-                  style={{ '--reveal-delay': `${idx * 65}ms` } as React.CSSProperties}
-                  className="bg-white border border-slate-200/90 rounded-xl p-4 flex flex-col gap-2.5 card-interactive"
-                >
-                  <div className={`w-9 h-9 rounded-lg border flex items-center justify-center flex-shrink-0 ${pt.iconColor}`}>
-                    <IconComp className="w-4 h-4" />
-                  </div>
-                  <h4 className={`text-xs sm:text-sm font-bold text-slate-900 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
+            {transparencyPoints.map((pt, idx) => (
+              <div
+                key={idx}
+                data-reveal=""
+                style={{ '--reveal-delay': `${idx * 65}ms` } as React.CSSProperties}
+                className="bg-white border border-slate-200/90 rounded-xl p-4 flex flex-col gap-2 card-interactive"
+              >
+                <h4 className={`text-xs sm:text-sm font-bold text-slate-900 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                     {idx === 3 && !isUrdu ? (
                       <>
                         <CountUp end={100} start={75} suffix="%" /> Dedicated Single-Party Load
@@ -219,8 +196,7 @@ export const BookingTrustGuides: React.FC<BookingTrustGuidesProps> = ({
                     {isUrdu ? pt.descUr : pt.descEn}
                   </p>
                 </div>
-              );
-            })}
+            ))}
           </div>
         </div>
       </div>

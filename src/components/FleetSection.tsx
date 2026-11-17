@@ -68,7 +68,7 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
             const truckBadge = language === 'ur' ? truck.badgeUrdu : (truck.badgeEnglish || truck.badgeUrdu);
             const idealList = language === 'ur' ? truck.idealForUrdu : truck.idealForEnglish;
             const altText = language === 'ur' ? (truck.altUrdu || truck.nameUrdu) : (truck.altEnglish || truck.nameEnglish);
-            const rawSrc = truck.image || `images/${truck.id}-truck.png`;
+            const rawSrc = truck.image;
             const imgSrc = getAssetUrl(rawSrc);
 
             return (
@@ -104,7 +104,7 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
                       <span className="text-sm font-bold text-slate-800 font-urdu">{truckName}</span>
                       <span className="text-[10px] text-slate-500 font-mono mt-1 flex items-center gap-1">
                         <ImageIcon className="w-3 h-3 text-blue-500" />
-                        {truck.id}-truck.png
+                        {rawSrc.replace('./images/', '')}
                       </span>
                     </div>
                   )}

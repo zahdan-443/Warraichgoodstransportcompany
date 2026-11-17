@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Truck, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { FLEET_DATA } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
 import { getAssetUrl } from '../utils/assetPath';
@@ -10,25 +10,24 @@ export const FleetCardsSection: React.FC = () => {
   const { language } = useLanguage();
   const isUrdu = language === 'ur';
 
-  // Short single-line descriptions strictly derived from companyData.ts
   const getSingleLineDesc = (id: string) => {
     switch (id) {
       case 'shehzore':
         return isUrdu
           ? 'تیز رفتار لوکل و انٹرسٹی سنگل پارٹی فل گاڑی لوڈنگ۔'
-          : 'High-speed local & intercity dedicated single-shipper pickup.';
+          : 'Fast Shahzore pickups for local and city-to-city loads.';
       case 'mazda':
         return isUrdu
           ? 'درمیانے درجے کا کارگو اور بین الصوبائی فل ٹرک لوڈ۔'
-          : 'Medium-weight industrial freight & interprovincial highway hauls.';
+          : 'Mid-size 6-wheeler trucks for factory stock and intercity trips.';
       case 'sample':
         return isUrdu
           ? 'توسیع شدہ چیسز اور والیم بیسڈ بلک صنعتی لوڈنگ۔'
-          : 'Extended chassis hauler for high-volume volumetric cargo.';
+          : 'Extended-body trucks for bulky and high-volume cargo.';
       case 'bedford':
         return isUrdu
           ? 'انتہائی وزنی اور طویل فاصلاتی کارگو و بندرگاہ ٹرانسپورٹ۔'
-          : 'Heavy-duty long haul freight, structural steel & bulk port hauls.';
+          : 'Heavy haulers for steel, machinery, and Karachi Port runs.';
       default:
         return '';
     }
@@ -44,12 +43,12 @@ export const FleetCardsSection: React.FC = () => {
             {isUrdu ? 'کمرشل ٹرک فلیٹ' : 'Commercial Fleet Types'}
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 font-urdu tracking-tight">
-            {isUrdu ? 'ہماری 4 بنیادی کمرشل فلیٹ گاڑیاں' : 'Our 4 Core Commercial Fleet Models'}
+            {isUrdu ? 'ہماری 4 بنیادی کمرشل فلیٹ گاڑیاں' : 'Our 4 Core Truck Types'}
           </h2>
           <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-600 font-urdu max-w-2xl mx-auto">
             {isUrdu
               ? 'شہزور سے لے کر بیڈفورڈ تک ہر قسم کے صنعتی، زرعی اور کمرشل کارگو کے لیے مکمل مخصوص گاڑیاں۔'
-              : 'From 1-ton Shahzore pickups to 28-ton heavy Bedford trailers, dedicated strictly to single-party freight.'}
+              : 'From 1-ton Shahzore pickups to 28-ton Bedford trucks — every vehicle is booked strictly for your load alone.'}
           </p>
         </div>
 
@@ -60,7 +59,7 @@ export const FleetCardsSection: React.FC = () => {
             const capacity = isUrdu ? truck.capacityUrdu : truck.capacity;
             const altText = isUrdu ? (truck.altUrdu || truck.nameUrdu) : (truck.altEnglish || truck.nameEnglish);
             const singleLine = getSingleLineDesc(truck.id);
-            const bgSrc = getAssetUrl(truck.image || `images/${truck.id}-truck.png`);
+            const bgSrc = getAssetUrl(truck.image);
 
             return (
               <TiltCard
@@ -88,11 +87,8 @@ export const FleetCardsSection: React.FC = () => {
                   className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/45 to-slate-950/5 group-hover:via-slate-950/35 transition-colors"
                 />
 
-                {/* Top: Rounded Icon Box & Capacity */}
-                <div className="relative z-10 flex items-center justify-between gap-2">
-                  <div className="w-11 h-11 rounded-xl bg-slate-950/80 border border-amber-400/50 text-amber-400 flex items-center justify-center flex-shrink-0 card-icon-nudge shadow-sm">
-                    <Truck className="w-5 h-5" />
-                  </div>
+                {/* Top: Capacity Badge only (unobstructed upper-left corner) */}
+                <div className="relative z-10 flex items-center justify-end">
                   <span className="text-[11px] font-mono font-bold text-amber-300 bg-slate-950/80 px-2.5 py-1 rounded-md border border-white/20 shadow-sm">
                     {capacity}
                   </span>

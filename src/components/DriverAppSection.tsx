@@ -68,8 +68,8 @@ export const DriverAppSection: React.FC = () => {
 
             <p className={`text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
               {isUrdu
-                ? 'روزمرہ روڈ کے استعمال، ڈرائیور لاگز، کارگو ڈسپیچ کوآرڈینیشن اور کمپیوٹرائزڈ بلٹی ریکارڈز تک اپنے موبائل سے براہِ راست رسائی حاصل کریں۔'
-                : 'Access daily road usages, driver logs, cargo dispatch coordination, and computerized consignment records directly from your Android phone or tablet.'}
+                ? 'روزمرہ ٹرپس، ڈرائیور لاگز، ڈسپیچ اپڈیٹس اور کمپیوٹرائزڈ بلٹی ریکارڈز تک اپنے موبائل سے براہِ راست رسائی حاصل کریں۔'
+                : 'Check daily trips, driver logs, dispatch updates, and official bilty records directly from your Android phone or tablet.'}
             </p>
 
             {/* 3 Short Feature Lines */}
@@ -114,7 +114,7 @@ export const DriverAppSection: React.FC = () => {
 
           </div>
 
-          {/* Right Column: Smartphone Frame Mockup displaying /images/mobileapk.webp */}
+          {/* Right Column: Smartphone Frame Mockup displaying /images/app-driver-dost-preview.webp */}
           <div data-reveal="" data-reveal-variant="slide-right" style={{ '--reveal-delay': '120ms' } as React.CSSProperties} className="lg:col-span-5 flex justify-center">
             
             {/* Phone Outer Chassis Frame */}
@@ -129,7 +129,7 @@ export const DriverAppSection: React.FC = () => {
               {/* Phone Screen Preview Image */}
               <div className="relative rounded-[32px] bg-slate-900 overflow-hidden border border-slate-800 aspect-[9/19] flex items-center justify-center">
                 <img
-                  src={getAssetUrl('images/mobileapk.webp')}
+                  src={getAssetUrl('images/app-driver-dost-preview.webp')}
                   alt="Driver Dost Official Android App Screen Preview - Warraich Goods"
                   width={400}
                   height={889}

@@ -487,17 +487,17 @@ html[dir="rtl"] .marquee-track {
 }
 
 @keyframes routeTrackTruckLtr {
-  0% { left: 0%; transform: translate3d(-8px, -50%, 0); opacity: 0; }
-  12% { opacity: 1; }
-  88% { opacity: 1; }
-  100% { left: 100%; transform: translate3d(-8px, -50%, 0); opacity: 0; }
+  0% { left: 0px; transform: translate3d(0, -50%, 0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { left: calc(100% - 20px); transform: translate3d(0, -50%, 0); opacity: 0; }
 }
 
 @keyframes routeTrackTruckRtl {
-  0% { left: 100%; transform: translate3d(-8px, -50%, 0); opacity: 0; }
-  12% { opacity: 1; }
-  88% { opacity: 1; }
-  100% { left: 0%; transform: translate3d(-8px, -50%, 0); opacity: 0; }
+  0% { left: calc(100% - 20px); transform: translate3d(0, -50%, 0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { left: 0px; transform: translate3d(0, -50%, 0); opacity: 0; }
 }
 
 .route-track-truck {

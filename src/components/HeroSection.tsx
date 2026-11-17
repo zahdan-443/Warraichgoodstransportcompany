@@ -20,7 +20,7 @@ export const HeroSection: React.FC = () => {
     () => [
       { ref: bgLayerRef, speed: 0.16, maxOffset: 64 },
       { ref: contentLayerRef, speed: -0.05, maxOffset: 24 },
-      { ref: roadLayerRef, speed: 0.08, maxOffset: 28 },
+      { ref: roadLayerRef, speed: -0.04, maxOffset: 16 },
     ],
     []
   );
@@ -41,12 +41,12 @@ export const HeroSection: React.FC = () => {
     >
       
       {/* 1. Full-Width Real Photo Background with Dark Navy Overlay (~70%) */}
-      <div className="relative pt-12 pb-16 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28 overflow-hidden">
+      <div className="relative pt-12 pb-20 sm:pt-20 sm:pb-28 lg:pt-24 lg:pb-32 overflow-hidden">
         
         {/* Layer 1: Parallax Background Image Container (Ken Burns transform only; never animate opacity) */}
         <div ref={bgLayerRef} className="absolute inset-0 z-0 overflow-hidden">
           <img
-            src={getAssetUrl('images/road-highway.webp')}
+            src={getAssetUrl('images/hero-highway-background.webp')}
             alt="Warraich Goods Transport Commercial FTL Highway Transit"
             width={1280}
             height={714}
@@ -55,7 +55,7 @@ export const HeroSection: React.FC = () => {
             decoding="async"
             className="w-full h-full object-cover object-center hero-ken-burns"
             onError={(e) => {
-              e.currentTarget.src = getAssetUrl('images/factory-warehouse.webp');
+              e.currentTarget.src = getAssetUrl('images/corporate-factory-dispatch.webp');
             }}
           />
           {/* Dark Navy 70-75% Scrim Overlay */}
@@ -178,11 +178,11 @@ export const HeroSection: React.FC = () => {
             ref={roadLayerRef}
             dir="ltr"
             aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 bottom-3 sm:bottom-5 h-6 overflow-hidden z-10"
+            className="pointer-events-none absolute inset-x-0 bottom-5 sm:bottom-6 h-10 overflow-x-clip overflow-y-visible z-10"
           >
             <div className="hero-road-lines absolute left-0 bottom-1 h-[1.5px]" />
-            <div className="hero-truck-drive absolute left-0 bottom-1.5 flex items-center gap-1 text-amber-400/90">
-              <Truck className="w-4 h-4" />
+            <div className="hero-truck-drive absolute left-0 bottom-2.5 flex items-center text-amber-400/95">
+              <Truck className="w-5 h-5 shrink-0" />
             </div>
           </div>
         )}

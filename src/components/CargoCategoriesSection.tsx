@@ -2,11 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Package, 
-  Wheat, 
-  Layers, 
-  Factory, 
-  Building2, 
-  Home, 
   ShieldCheck, 
   Truck, 
   CheckCircle2
@@ -26,15 +21,12 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
   const categories = [
     {
       id: 'agri',
-      icon: Wheat,
-      shortTitleUrdu: 'زرعی اجناس',
-      shortTitleEnglish: 'Agriculture',
       titleUrdu: 'زرعی اجناس و اناج (FTL لوڈ)',
       titleEnglish: 'Agricultural Produce & Grains (Full Load)',
       badgeUrdu: 'ملک گیر زرعی کارگو ہب اسپیشل',
-      badgeEnglish: 'Nationwide Agro Freight Hub',
+      badgeEnglish: 'Nationwide Agro Freight',
       descriptionUrdu: 'گندم، چاول، مکئی، آلو، گنا، چارہ، بیج اور کھاد کی بوریوں کا مکمل ٹرک لوڈ (FTL)۔ ملک بھر کی غلہ منڈیوں، فلور ملز اور فیڈ فیکٹریوں تک بلا تعطل نان اسٹاپ ترسیل۔',
-      descriptionEnglish: 'Dedicated full truckload freight for wheat, corn, rice, potatoes, sugar crops, seeds, and fertilizer bags with computerized weighbridge slips nationwide.',
+      descriptionEnglish: 'Dedicated full truckloads for wheat, corn, rice, potatoes, seeds, and fertilizer sacks with computer scale slips nationwide.',
       detailsUrdu: [
         'زرعی بیلٹ اور فارمز سے براہ راست فل ٹرک سنگل پارٹی لوڈنگ',
         'بارش سے مکمل تحفظ کے لیے معیاری ڈبل واٹر پروف ترپال کورنگ',
@@ -42,28 +34,25 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
         'موزوں گاڑیاں: شہزور، مزدا 6 وہیلر اور سیمپل ٹرک'
       ],
       detailsEnglish: [
-        'Direct single-party loading from farms, wholesale grain markets, and mills',
-        'Standard double waterproof PVC tarpaulins for complete rain protection',
-        'Verified computerized weighbridge scale slips with zero weight discrepancy',
+        'Direct single-party loading from farms, grain markets, and mills',
+        'Double waterproof PVC tarpaulins for complete rain protection',
+        'Verified computerized scale weight slips at loading',
         'Recommended trucks: Shahzore pickup, Mazda 6-wheeler, and Sample truck'
       ],
       recommendedTruck: 'مزدا 6 وہیلر (4 تا 10 ٹن) یا شہزور فل لوڈ',
-      recommendedTruckEn: 'Mazda 6 Wheeler (4 to 10 Tons) or Shahzore Full Load',
+      recommendedTruckEn: 'Mazda 6-Wheeler (4 to 10 Tons) or Shahzore Full Load',
       routeCoverage: 'لاہور، فیصل آباد، کراچی، ساہیوال، ملتان، راولپنڈی',
       routeCoverageEn: 'Lahore, Faisalabad, Karachi, Sahiwal, Multan, Rawalpindi',
-      image: './images/agricultural-freight.webp'
+      image: './images/cargo-agricultural-produce-grains.webp'
     },
     {
       id: 'textile',
-      icon: Layers,
-      shortTitleUrdu: 'ٹیکسٹائل',
-      shortTitleEnglish: 'Textiles',
       titleUrdu: 'ٹیکسٹائل، دھاگہ و گارمنٹس (FTL)',
       titleEnglish: 'Textiles, Yarn & Garments (Dedicated)',
       badgeUrdu: 'ملک گیر ٹیکسٹائل لاجسٹکس سروس',
-      badgeEnglish: 'Nationwide Textile Logistics',
+      badgeEnglish: 'Nationwide Textile Transport',
       descriptionUrdu: 'دھاگہ (Yarn)، کاٹن بیلز، گرے کپڑا، ڈائنگ کیمیکلز اور تیار شدہ گارمنٹس۔ تمام ٹیکسٹائل و صنعتی کوریڈورز کے لیے کنٹینر اور جالی باڈی ٹرکس میں 100% خشک اور محفوظ ترسیل۔',
-      descriptionEnglish: 'Dedicated FTL freight logistics for yarn spools, cotton bales, grey fabric, dyeing chemicals, and export garments across Pakistan industrial networks.',
+      descriptionEnglish: 'Dedicated truck transport for yarn cones, cotton bales, grey cloth, dyeing chemicals, and export garments across Pakistan.',
       detailsUrdu: [
         'سیل بند کنٹینر اور کسٹم جالی باڈی ٹرکس دستیاب',
         'دھول، مٹی اور نمی سے 100% محفوظ FTL ٹرانسپورٹ',
@@ -71,28 +60,25 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
         'موزوں گاڑیاں: مزدا کنٹینر، سیمپل و بیڈفورڈ'
       ],
       detailsEnglish: [
-        'Sealed container boxes and customized ventilated mesh bodies available',
-        '100% weather and dustproof protection for delicate textile fabrics',
-        'Formal long-term logistics agreements with spinning and textile mills',
+        'Closed container boxes and mesh-body trucks available',
+        'Weather and dust protection for delicate fabrics and yarn',
+        'Monthly and regular contracts for spinning and textile mills',
         'Recommended trucks: Mazda Container, Sample truck, and Bedford'
       ],
       recommendedTruck: 'سیمپل ٹرک و مزدا کنٹینر (8 تا 16 ٹن فل لوڈ)',
       recommendedTruckEn: 'Sample Truck & Mazda Container (8 to 16 Tons FTL)',
       routeCoverage: 'فیصل آباد، لاہور، کراچی پورٹ، سیالکوٹ، گوجرانوالہ',
       routeCoverageEn: 'Faisalabad, Lahore, Karachi Port, Sialkot, Gujranwala',
-      image: './images/factory-warehouse.webp'
+      image: './images/cargo-textile-industrial-supplies.webp'
     },
     {
       id: 'industrial',
-      icon: Factory,
-      shortTitleUrdu: 'صنعتی',
-      shortTitleEnglish: 'Industrial',
       titleUrdu: 'صنعتی خام مال و مشینری (FTL)',
       titleEnglish: 'Industrial Cargo & Machinery (Dedicated FTL)',
       badgeUrdu: 'کمرشل مال برداری و تیز رفتار گاڑی بکنگ',
-      badgeEnglish: 'Commercial Freight & Fast Truck Booking',
+      badgeEnglish: 'Commercial Freight & Fast Booking',
       descriptionUrdu: 'صنعتی مشینیں، موٹرز، جنریٹرز، کیمیکل کے ڈرمز، پیویسی پائپ اور فیکٹری خام مال۔ ملک بھر کے صنعتی علاقوں کے لیے 24/7 تیز رفتار فل ٹرک بکنگ۔',
-      descriptionEnglish: 'Direct commercial truck booking for industrial machinery, heavy generators, chemical drums, PVC pipes, hardware, and factory supplies across Pakistan.',
+      descriptionEnglish: 'Direct truck booking for factory machines, heavy generators, chemical drums, PVC pipes, hardware, and raw supplies across Pakistan.',
       detailsUrdu: [
         'ہیوی کرین لوڈنگ و ان لوڈنگ کے لیے اوپن باڈی گاڑیاں',
         'سامان کو فکس رکھنے کے لیے مضبوط ٹائی ڈاؤن بیلٹس',
@@ -100,28 +86,25 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
         'موزوں گاڑیاں: سیمپل ٹرک اور بیڈفورڈ ہیوی ڈیوٹی'
       ],
       detailsEnglish: [
-        'Open flatbed bodies suited for crane and forklift top/side loading',
-        'Heavy-duty industrial tie-down ratchet straps preventing shift',
-        'Direct highway express transit with zero intermediate stops',
+        'Open-body trucks ready for crane or forklift top/side loading',
+        'Heavy ratchet straps and ropes to keep machinery steady',
+        'Direct highway travel with no unnecessary stops',
         'Recommended trucks: Sample Truck and Bedford Heavy Duty'
       ],
       recommendedTruck: 'بیڈفورڈ ہیوی ڈیوٹی (15 تا 28+ ٹن) یا سیمپل ٹرک',
       recommendedTruckEn: 'Bedford Heavy Duty (15 to 28+ Tons) or Sample Truck',
       routeCoverage: 'پورے پاکستان کے تمام انڈسٹریل زونز و پورٹس',
-      routeCoverageEn: 'All Special Economic Zones, Ports, and Industrial Estates',
-      image: './images/factory-warehouse.webp'
+      routeCoverageEn: 'All Industrial Zones, Mills, and Ports Nationwide',
+      image: './images/cargo-industrial-machinery-supplies.webp'
     },
     {
       id: 'construction',
-      icon: Building2,
-      shortTitleUrdu: 'تعمیراتی',
-      shortTitleEnglish: 'Construction',
       titleUrdu: 'تعمیراتی سامان و لوہا/اسٹیل (FTL)',
       titleEnglish: 'Construction Materials & Steel (Full Load)',
       badgeUrdu: 'ملک گیر ہیوی ٹرانسپورٹ کمپنی',
-      badgeEnglish: 'Nationwide Heavy Transport Company',
+      badgeEnglish: 'Nationwide Heavy Transport',
       descriptionUrdu: 'اسٹیل گارڈرز، سریا، سیمنٹ بوری، ریت، بجری، ٹائلز، ماربل سلیبز اور میگا پراجیکٹ بلڈنگ میٹریل۔ ہیوی بیڈفورڈ و ٹریلر ٹرانسپورٹ کی 24 گھنٹے فراہمی۔',
-      descriptionEnglish: 'Heavy haulage transport for reinforced steel bars, girders, cement bags, tiles, marble slabs, and infrastructure building materials nationwide.',
+      descriptionEnglish: 'Heavy haulage for steel bars, girders, cement bags, tiles, marble slabs, and project building materials anywhere in Pakistan.',
       detailsUrdu: [
         'انتہائی وزنی اور سخت سامان کے لیے مضبوط فرش والے ہیوی ٹرک',
         'روڈ سیفٹی اور این ایچ اے وزن کے ضوابط کی مکمل پابندی',
@@ -129,28 +112,25 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
         'موزوں گاڑیاں: بیڈفورڈ 10 وہیلر، سیمپل اور مزدا'
       ],
       detailsEnglish: [
-        'Heavy reinforced floors designed for ultra-heavy steel and masonry loads',
-        'Full compliance with National Highway Authority axle load guidelines',
-        'Direct unloading at project depots and on-site construction yards',
+        'Reinforced truck beds built for heavy steel and stone loads',
+        'Follows National Highway axle weight regulations',
+        'Direct unloading at project sites and depots',
         'Recommended trucks: Bedford 10-wheeler, Sample, and Mazda'
       ],
       recommendedTruck: 'بیڈفورڈ ہیوی ٹرک (20 تا 28+ ٹن فل لوڈ)',
       recommendedTruckEn: 'Bedford Heavy Truck (20 to 28+ Tons Full Load)',
       routeCoverage: 'پنجاب، خیبرپختونخوا، سندھ، بلوچستان پراجیکٹس',
-      routeCoverageEn: 'Punjab, KPK, Sindh, Balochistan Mega Projects',
-      image: './images/machinery-cargo.webp'
+      routeCoverageEn: 'Punjab, KPK, Sindh, and Balochistan Projects',
+      image: './images/cargo-construction-materials-steel.webp'
     },
     {
       id: 'household',
-      icon: Home,
-      shortTitleUrdu: 'گھریلو شفٹنگ',
-      shortTitleEnglish: 'Home Shifting',
       titleUrdu: 'گھریلو سامان و دفتری شفٹنگ (مخصوص گاڑی)',
       titleEnglish: 'Home Shifting & Office Relocation (Dedicated Vehicle)',
       badgeUrdu: 'محفوظ گھریلو و دفتری شفٹنگ سروس',
-      badgeEnglish: 'Trusted Relocation Service',
+      badgeEnglish: 'Trusted Home Shifting Service',
       descriptionUrdu: 'گھر کے فرنیچر، الیکٹرانکس، دفتری سامان اور کراکری کی لوکل اور ایک شہر سے دوسرے شہر محفوظ منتقلی۔ پورے پاکستان کے لیے 100% مخصوص سنگل پارٹی گاڑی۔',
-      descriptionEnglish: 'Trusted home shifting, office relocation, and delicate goods transport across Pakistan with dedicated single-party truck assignment.',
+      descriptionEnglish: 'Careful home shifting, office relocation, and furniture transport across Pakistan with a full truck booked for your move alone.',
       detailsUrdu: [
         'گاڑی میں صرف اور صرف آپ کے گھر کا سامان ہوگا',
         'سامان کی ٹوٹ پھوٹ سے بچاؤ کے لیے اضافی نگہداشت',
@@ -158,16 +138,16 @@ export const CargoCategoriesSection: React.FC<CargoCategoriesSectionProps> = ({ 
         'موزوں گاڑیاں: شہزور پک اپ اور مزدا کلوزڈ باڈی'
       ],
       detailsEnglish: [
-        'Truck exclusively carries your belongings with zero mixed cargo',
-        'Extra cushioning and protective strapping against scratches',
-        'Immediate direct transit from current residence to new home',
+        'Only your household belongings ride in the truck',
+        'Careful strapping and padding to prevent scratches',
+        'Direct door-to-door delivery from your old home to your new one',
         'Recommended trucks: Shahzore pickup and Mazda closed body'
       ],
       recommendedTruck: 'شہزور (1 تا 3.5 ٹن) یا مزدا 6 وہیلر (فل گاڑی)',
       recommendedTruckEn: 'Shahzore (1 to 3.5 Tons) or Mazda 6-Wheeler (FTL)',
       routeCoverage: 'لوکل اور تمام بین الصوبائی و انٹرسٹی روٹس',
-      routeCoverageEn: 'Local and All Interprovincial & Intercity Routes',
-      image: './images/cargo-safety.webp'
+      routeCoverageEn: 'Local and All Intercity Routes Nationwide',
+      image: './images/cargo-home-shifting-relocation.webp'
     }
   ];
 

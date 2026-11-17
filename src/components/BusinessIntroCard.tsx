@@ -165,7 +165,7 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
                   <p className={`text-xs sm:text-[13px] text-slate-700 leading-relaxed ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                     {isUrdu 
                       ? 'ہم پورے پاکستان کے لیے محفوظ اور بروقت مال برداری اور شفٹنگ کی خدمات فراہم کرتے ہیں۔ مناسب ریٹ اور بہترین سروس ہماری پہچان ہے۔ وڑائچ گڈز ٹرانسپورٹ کمپنی گھر کی شفٹنگ، دفتری منتقلی، کمرشل مال برداری اور 24/7 تیز رفتار گاڑی بکنگ کی قابل اعتماد سہولت فراہم کرتی ہے۔'
-                      : 'Warraich Goods Transport Company offers trusted home shifting, office relocation, and local/inter-city goods transport services across Pakistan. We specialize in shifting, commercial load delivery, and fast vehicle booking with careful handling, clear bilty records, and affordable rates.'}
+                      : 'Warraich Goods Transport Company handles home shifting, office relocation, and local or inter-city freight across Pakistan. Whether you are moving household furniture or sending commercial stock to another city, we arrange the right truck quickly with careful handling, clear bilty records, and fair rates.'}
                   </p>
                 </div>
                 <div className={`mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
@@ -190,7 +190,7 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
                     <div className="w-28 h-32 sm:w-28 sm:h-36 rounded-xl p-1 bg-gradient-to-br from-amber-400 via-amber-500 to-slate-900 shadow-md flex-shrink-0">
                       <div className="w-full h-full rounded-lg overflow-hidden bg-white border border-white/70">
                         <img 
-                          src={getAssetUrl('images/owner-portrait.png')} 
+                          src={getAssetUrl('images/proprietor-zahdan-nasar-warraich.png')} 
                           alt={isUrdu ? COMPANY_INFO.proprietorUrdu : COMPANY_INFO.proprietorEnglish}
                           width={160}
                           height={192}

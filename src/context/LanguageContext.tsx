@@ -25,7 +25,7 @@ const BASE_SITE_URL = 'https://zahdan-443.github.io/Warraichgoodstransportcompan
 const ROUTE_SEO_MAP: Record<string, RouteSeoMeta> = {
   '/': {
     title: 'Warraich Goods | Transport & Shifting',
-    description: 'Home shifting, office relocation and goods transport from Samundri across Pakistan and from all Pakistan To Samundri. Call 0300-5370443 for truck booking.',
+    description: 'Home shifting, office relocation and goods transport from Samundri across Pakistan and from anywhere in Pakistan to Samundri. Call 0300-5370443 for truck booking.',
     canonical: `${BASE_SITE_URL}/`,
   },
   '/fleet': {

@@ -1,14 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  Phone, 
   Truck, 
-  Scale, 
-  CheckCircle2, 
-  ShieldCheck, 
-  Clock, 
-  Zap, 
-  Lock
+  ShieldCheck 
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { getAssetUrl } from '../utils/assetPath';
@@ -24,27 +18,23 @@ export const FtlWorkflowSection: React.FC = () => {
       titleEnglish: '1. Fast Quote & Booking',
       descUrdu: t.step1Desc,
       descEnglish: 'Call or message us with your pickup city, destination, and load details to get a clear upfront rate.',
-      icon: Phone,
       tagUrdu: '5 منٹ رسپانس',
       tagEnglish: 'Fast Quote',
       borderColor: 'border-blue-200 hover:border-blue-400',
       numColor: 'text-blue-600',
       badgeBg: 'bg-blue-50 text-blue-700 border-blue-200',
-      iconBg: 'bg-blue-50 text-blue-600 border-blue-100',
     },
     {
       stepNumber: '02',
       titleUrdu: t.step2Title,
       titleEnglish: '2. Truck Arrives for Loading',
       descUrdu: t.step2Desc,
-      descEnglish: 'The right truck arrives at your house, shop, or godown for dedicated loading.',
-      icon: Truck,
+      descEnglish: 'The right truck reaches your home, shop, or godown for loading.',
       tagUrdu: '100% مخصوص گاڑی',
       tagEnglish: 'Full Truck',
       borderColor: 'border-slate-200 hover:border-blue-400',
       numColor: 'text-blue-600',
       badgeBg: 'bg-slate-100 text-slate-800 border-slate-200',
-      iconBg: 'bg-blue-50 text-blue-600 border-blue-100',
     },
     {
       stepNumber: '03',
@@ -52,62 +42,50 @@ export const FtlWorkflowSection: React.FC = () => {
       titleEnglish: '3. Covering & Tying Goods',
       descUrdu: t.step3Desc,
       descEnglish: 'Your goods are loaded carefully, covered with waterproof tarpaulins, and tied down with strong ropes.',
-      icon: Scale,
       tagUrdu: 'مکمل واٹر پروفنگ',
       tagEnglish: 'Waterproof Covers',
       borderColor: 'border-amber-200 hover:border-amber-400',
       numColor: 'text-amber-600',
       badgeBg: 'bg-amber-50 text-amber-800 border-amber-200',
-      iconBg: 'bg-amber-50 text-amber-600 border-amber-100',
     },
     {
       stepNumber: '04',
       titleUrdu: t.step4Title,
       titleEnglish: '4. Direct Highway Delivery',
       descUrdu: t.step4Desc,
-      descEnglish: 'The truck moves straight to your destination with no stops in between, and delivers with a signed bilty receipt.',
-      icon: CheckCircle2,
+      descEnglish: 'The truck drives straight to your destination with no stops in between and delivers with a signed bilty receipt.',
       tagUrdu: 'زیرو کارگو مکسنگ',
       tagEnglish: 'Direct Delivery',
       borderColor: 'border-slate-200 hover:border-blue-400',
       numColor: 'text-blue-600',
       badgeBg: 'bg-blue-50 text-blue-700 border-blue-200',
-      iconBg: 'bg-blue-50 text-blue-600 border-blue-100',
     }
   ];
 
   const ftlPillars = [
     {
-      icon: Zap,
       titleUrdu: 'براہ راست تیز ترین ترسیل (Non-Stop Transit)',
       titleEnglish: 'Direct Non-Stop Travel',
       descUrdu: 'عام پارسل (LTL) کے برعکس، FTL میں گاڑی کسی اور کا مال اٹھانے کے لیے نہیں رکتی۔ لوڈنگ کے بعد گاڑی سیدھی منزل کی طرف روانہ ہوتی ہے۔',
-      descEnglish: 'The truck does not stop to pick up anyone else’s goods. It goes straight from your location to the destination.',
-      iconBg: 'bg-amber-50 text-amber-700 border-amber-200',
+      descEnglish: 'The truck never stops to pick up anyone else’s goods. Once loaded, it goes straight to your destination.',
     },
     {
-      icon: Lock,
       titleUrdu: '100% محفوظ — کوئی سامان مکس نہیں ہوتا',
       titleEnglish: 'Your Goods Stay Together',
       descUrdu: 'پوری گاڑی میں صرف اور صرف آپ کا مال لوڈ ہوتا ہے۔ کسی دوسرے گاہک کا سامان ساتھ نہ ہونے کی وجہ سے گمشدگی یا ٹوٹ پھوٹ کا خطرہ صفر ہے۔',
-      descEnglish: 'The entire truck is booked for you alone, so your items are never mixed or lost.',
-      iconBg: 'bg-blue-50 text-blue-700 border-blue-200',
+      descEnglish: 'You book the whole truck for your load alone, so nothing gets mixed up or misplaced.',
     },
     {
-      icon: ShieldCheck,
       titleUrdu: 'گوداموں میں سامان کی بار بار ان لوڈنگ نہیں',
       titleEnglish: 'No Unloading on the Way',
       descUrdu: 'LTL سروسز میں سامان کو بار بار مختلف گوداموں میں منتقل کیا جاتا ہے جس سے نقصان ہوتا ہے۔ FTL میں گاڑی لوڈ ہو کر سیدھی ان لوڈنگ پوائنٹ پر ہی کھلتی ہے۔',
-      descEnglish: 'Items are loaded once and only unloaded at your final stop, preventing damage from multiple handlings.',
-      iconBg: 'bg-slate-100 text-slate-700 border-slate-200',
+      descEnglish: 'Goods are loaded once at your pickup point and only unloaded when the truck reaches your destination.',
     },
     {
-      icon: Clock,
       titleUrdu: 'آپ کی مرضی کا شیڈول اور ٹائمنگ',
       titleEnglish: 'You Choose the Timing',
       descUrdu: 'گاڑی کب لوڈ ہونی ہے اور کب پہنچنی ہے، یہ وقت آپ اپنی کاروباری ضرورت کے مطابق طے کرتے ہیں۔ 24 گھنٹے سروس دستیاب ہے۔',
-      descEnglish: 'Book the truck at whatever time suits you. We operate 24 hours a day, 7 days a week.',
-      iconBg: 'bg-blue-50 text-blue-700 border-blue-200',
+      descEnglish: 'Book your truck at whatever time suits your schedule. We take bookings 24 hours a day, 7 days a week.',
     }
   ];
 
@@ -130,11 +108,9 @@ export const FtlWorkflowSection: React.FC = () => {
           </p>
         </div>
 
-        {/* 4-Step Process Grid (Multi-Color Light Cards) */}
+        {/* 4-Step Process Grid */}
         <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-8 sm:mb-12 ${language === 'ur' ? 'text-right' : 'text-left'}`}>
-          {workflowSteps.map((s, idx) => {
-            const Icon = s.icon;
-            return (
+          {workflowSteps.map((s, idx) => (
               <div 
                 key={idx} 
                 data-reveal=""
@@ -152,10 +128,6 @@ export const FtlWorkflowSection: React.FC = () => {
                     </span>
                   </div>
 
-                  <div className={`w-10 h-10 rounded-lg ${s.iconBg} flex items-center justify-center mb-3.5 border card-icon-nudge ${language === 'ur' ? 'ml-auto' : 'mr-auto'}`}>
-                    <Icon className="w-5 h-5" />
-                  </div>
-
                   <p className="text-base font-bold text-slate-900 font-urdu mb-1.5">
                     {language === 'ur' ? s.titleUrdu : s.titleEnglish}
                   </p>
@@ -164,8 +136,7 @@ export const FtlWorkflowSection: React.FC = () => {
                   </p>
                 </div>
               </div>
-            );
-          })}
+            ))}
         </div>
 
         {/* FTL Core Advantages vs Loose Cargo Notice Banner */}
@@ -175,15 +146,15 @@ export const FtlWorkflowSection: React.FC = () => {
             <div>
               <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-800 border border-blue-200 px-3 py-1 rounded text-xs font-semibold font-urdu mb-2">
                 <ShieldCheck className="w-3.5 h-3.5 flex-shrink-0 text-blue-600" />
-                <span>{language === 'ur' ? 'کاروباری اداروں اور فیکٹریوں کے لیے بہترین انتخاب' : 'Best Choice for Commercial Shippers'}</span>
+                <span>{language === 'ur' ? 'کاروباری اداروں اور فیکٹریوں کے لیے بہترین انتخاب' : 'Built for Shops, Homes & Factories'}</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-urdu">
-                {language === 'ur' ? 'فل ٹرک لوڈ (FTL) کے اہم فوائد' : 'Core Dedicated Full Truckload (FTL) Advantages'}
+                {language === 'ur' ? 'فل ٹرک لوڈ (FTL) کے اہم فوائد' : 'Why Book a Full Truck (FTL)'}
               </h3>
             </div>
 
             <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 text-xs text-amber-900 max-w-md font-urdu shadow-sm">
-              🔒 <strong className="text-amber-800">{language === 'ur' ? 'واضح پالیسی:' : 'Clear Policy:'}</strong> {language === 'ur' ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی لوز کارگو / پارسل (LTL) بک نہیں کرتی۔ ہماری تمام گاڑیاں سنگل پارٹی کے مکمل لوڈ کے لیے وقف ہوتی ہیں۔' : 'Warraich Goods strictly does NOT accept loose parcels or mixed LTL cargo. All fleet trucks are 100% reserved for single-shipper full loads.'}
+              🔒 <strong className="text-amber-800">{language === 'ur' ? 'واضح پالیسی:' : 'Full Truck Policy:'}</strong> {language === 'ur' ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی لوز کارگو / پارسل (LTL) بک نہیں کرتی۔ ہماری تمام گاڑیاں سنگل پارٹی کے مکمل لوڈ کے لیے وقف ہوتی ہیں۔' : 'Warraich Goods does not carry loose parcels or shared cargo. Every truck is booked solely for one customer’s load.'}
             </div>
           </div>
 
@@ -193,7 +164,7 @@ export const FtlWorkflowSection: React.FC = () => {
             {/* Visual Highway Showcase Banner */}
             <div data-reveal="" data-reveal-variant="slide-left" className="lg:col-span-4 relative rounded-lg overflow-hidden shadow-sm border border-slate-200 flex flex-col justify-end min-h-[220px] group">
               <img 
-                src={getAssetUrl('images/road-highway.webp')} 
+                src={getAssetUrl('images/workflow-motorway-corridor.webp')} 
                 alt="Pakistan Motorway Freight Logistics Corridor - Warraich Goods" 
                 width={800}
                 height={450}
@@ -211,30 +182,25 @@ export const FtlWorkflowSection: React.FC = () => {
                   Motorway M-4 / M-2 / N-5
                 </span>
                 <p className="font-bold text-sm sm:text-base font-urdu text-white leading-snug">
-                  {language === 'ur' ? 'نان سٹاپ موٹروے کوریڈور سروس' : 'Direct Highway & Motorway Corridor'}
+                  {language === 'ur' ? 'نان سٹاپ موٹروے کوریڈور سروس' : 'Direct Motorway & Highway Travel'}
                 </p>
                 <p className="text-[11px] text-slate-200 font-urdu mt-0.5 leading-relaxed">
-                  {language === 'ur' ? 'لوڈنگ پوائنٹ سے منزل تک بغیر رکے تیز ترین ترسیل' : 'Express point-to-point transit with zero intermediate stops'}
+                  {language === 'ur' ? 'لوڈنگ پوائنٹ سے منزل تک بغیر رکے تیز ترین ترسیل' : 'Straight point-to-point travel with no stops along the way'}
                 </p>
               </div>
             </div>
 
             {/* 4 Pillars in a 2x2 Grid */}
             <div className={`lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-3.5 ${language === 'ur' ? 'text-right' : 'text-left'}`}>
-              {ftlPillars.map((p, idx) => {
-                const Icon = p.icon;
-                return (
+              {ftlPillars.map((p, idx) => (
                   <div
                     key={idx}
                     data-reveal=""
                     data-reveal-variant="slide-right"
                     style={{ '--reveal-delay': `${idx * 65}ms` } as React.CSSProperties}
-                    className="bg-slate-50 border border-slate-200 p-3.5 rounded-lg flex items-start gap-3 hover:border-slate-300 transition-colors card-interactive"
+                    className="bg-slate-50 border border-slate-200 p-4 rounded-lg hover:border-slate-300 transition-colors card-interactive"
                   >
-                    <div className={`w-8 h-8 rounded-lg ${p.iconBg} border flex items-center justify-center flex-shrink-0 mt-0.5`}>
-                      <Icon className="w-4 h-4" />
-                    </div>
-                    <div className="space-y-0.5">
+                    <div className="space-y-1">
                       <p className="text-xs sm:text-sm font-bold text-slate-900 font-urdu">
                         {language === 'ur' ? p.titleUrdu : p.titleEnglish}
                       </p>
@@ -243,8 +209,7 @@ export const FtlWorkflowSection: React.FC = () => {
                       </p>
                     </div>
                   </div>
-                );
-              })}
+                ))}
             </div>
 
           </div>
@@ -252,7 +217,7 @@ export const FtlWorkflowSection: React.FC = () => {
           {/* Workflow Action */}
           <div className={`mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 text-xs font-urdu ${language === 'ur' ? 'text-right' : 'text-left'}`}>
             <span className="text-slate-600">
-              {language === 'ur' ? 'کیا آپ کو فیکٹری خام مال، زرعی غلہ یا ہیوی سامان کے لیے مکمل گاڑی چاہیے؟' : 'Need dedicated freight haulage for factory raw material, agricultural grains, or heavy cargo?'}
+              {language === 'ur' ? 'کیا آپ کو فیکٹری خام مال، زرعی غلہ یا ہیوی سامان کے لیے مکمل گاڑی چاہیے؟' : 'Need a dedicated truck for factory raw material, grain sacks, or heavy loads?'}
             </span>
 
             <Link

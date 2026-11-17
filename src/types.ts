@@ -18,31 +18,6 @@ export interface VehicleInfo {
   altEnglish?: string;
 }
 
-export interface BranchInfo {
-  id: string;
-  nameUrdu: string;
-  nameEnglish: string;
-  cityUrdu: string;
-  cityEnglish: string;
-  addressUrdu: string;
-  addressEnglish: string;
-  landmarkUrdu?: string;
-  landmarkEnglish?: string;
-  phone1: string;
-  phone2: string;
-  mapUrl: string;
-  isHeadOffice?: boolean;
-  hubBadgeUrdu?: string;
-  hubBadgeEnglish?: string;
-  seoHeadingUrdu?: string;
-  seoHeadingEnglish?: string;
-  targetKeywords?: string[];
-  keyRoutesUrdu?: string[];
-  keyRoutesEnglish?: string[];
-  operationalCapabilitiesUrdu?: string[];
-  operationalCapabilitiesEnglish?: string[];
-}
-
 export interface ServiceAreaCity {
   id: string;
   nameUrdu: string;
@@ -68,23 +43,4 @@ export interface BookingFormData {
   companyName?: string;
   monthlyTrips?: string;
   industryType?: string;
-}
-
-export interface CorporateProfileData {
-  companyNameUrdu: string;
-  companyNameEnglish: string;
-  ntn: string;
-  proprietorUrdu: string;
-  proprietorEnglish: string;
-  proprietorRoleUrdu: string;
-  proprietorRoleEnglish: string;
-  primaryPhone: string;
-  secondaryPhone: string;
-  email: string;
-  registeredAddressUrdu: string;
-  registeredAddressEnglish: string;
-  fleetCapacityRange: string;
-  serviceModel: string;
-  taxCompliance: string;
-  paymentMethods: string[];
 }
