@@ -1,7 +1,7 @@
 # Warraich Goods Transport Company | وڑائچ گڈز ٹرانسپورٹ کمپنی
 
-[![Official Website](https://img.shields.io/badge/Official%20Website-Live-brightgreen?style=for-the-badge)](https://zahdan-443.github.io/Warraichgoodstransportcompany/)
-[![NTN](https://img.shields.io/badge/FBR%20NTN-7779394--1-blue?style=for-the-badge)](https://zahdan-443.github.io/Warraichgoodstransportcompany/)
+[![Official Website](https://img.shields.io/badge/Official%20Website-Live-brightgreen?style=for-the-badge)](https://warraichgoods.eu.cc/)
+[![NTN](https://img.shields.io/badge/FBR%20NTN-7779394--1-blue?style=for-the-badge)](https://warraichgoods.eu.cc/)
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-0300--5370443-25D366?style=for-the-badge)](https://wa.me/923005370443)
 
 > **Home shifting, office relocation, and dedicated full-truckload goods transport across Pakistan — serving since 2008 (18+ years).**  
@@ -11,13 +11,13 @@
 
 ## Official Website Links
 
-* **Home:** [https://zahdan-443.github.io/Warraichgoodstransportcompany/](https://zahdan-443.github.io/Warraichgoodstransportcompany/)
-* **Our Trucks (Fleet):** [https://zahdan-443.github.io/Warraichgoodstransportcompany/fleet/](https://zahdan-443.github.io/Warraichgoodstransportcompany/fleet/)
-* **Services & Safety:** [https://zahdan-443.github.io/Warraichgoodstransportcompany/services/](https://zahdan-443.github.io/Warraichgoodstransportcompany/services/)
-* **Rates & Truck Booking:** [https://zahdan-443.github.io/Warraichgoodstransportcompany/booking/](https://zahdan-443.github.io/Warraichgoodstransportcompany/booking/)
-* **FAQs:** [https://zahdan-443.github.io/Warraichgoodstransportcompany/faq/](https://zahdan-443.github.io/Warraichgoodstransportcompany/faq/)
-* **About Us & Contact:** [https://zahdan-443.github.io/Warraichgoodstransportcompany/about/](https://zahdan-443.github.io/Warraichgoodstransportcompany/about/)
-* **Bilty Verification:** [https://zahdan-443.github.io/Warraichgoodstransportcompany/verify/](https://zahdan-443.github.io/Warraichgoodstransportcompany/verify/)
+* **Home:** [https://warraichgoods.eu.cc/](https://warraichgoods.eu.cc/)
+* **Our Trucks (Fleet):** [https://warraichgoods.eu.cc/fleet/](https://warraichgoods.eu.cc/fleet/)
+* **Services & Safety:** [https://warraichgoods.eu.cc/services/](https://warraichgoods.eu.cc/services/)
+* **Rates & Truck Booking:** [https://warraichgoods.eu.cc/booking/](https://warraichgoods.eu.cc/booking/)
+* **FAQs:** [https://warraichgoods.eu.cc/faq/](https://warraichgoods.eu.cc/faq/)
+* **About Us & Contact:** [https://warraichgoods.eu.cc/about/](https://warraichgoods.eu.cc/about/)
+* **Bilty Verification:** [https://warraichgoods.eu.cc/verify/](https://warraichgoods.eu.cc/verify/)
 * **Driver & Trip Portal:** [https://zahdan-443.github.io/warraichgoods43/](https://zahdan-443.github.io/warraichgoods43/)
 
 ---
@@ -49,7 +49,7 @@
 ## Online Bilty Verification
 
 Customers can verify their bilty receipt on `/verify/`:
-1. Open [https://zahdan-443.github.io/Warraichgoodstransportcompany/verify/](https://zahdan-443.github.io/Warraichgoodstransportcompany/verify/).
+1. Open [https://warraichgoods.eu.cc/verify/](https://warraichgoods.eu.cc/verify/).
 2. Enter a valid bilty number (4–24 uppercase alphanumeric characters or hyphens, e.g., `WGT-4431`).
 3. Or call `0300-5370443` for dispatch updates.
 

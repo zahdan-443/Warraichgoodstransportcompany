@@ -261,7 +261,7 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
 
                     <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-900/60 text-emerald-100 border border-emerald-400/40 font-urdu">
                       <FileCheck2 className="w-4 h-4 text-emerald-300" />
-                      <span>{language === 'ur' ? 'اصلی وڑائچ گڈز بلٹی' : 'Authentic Record Verified'}</span>
+                      <span>{language === 'ur' ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی — مصدقہ بلٹی' : 'Authentic Record Verified'}</span>
                     </div>
                   </div>
                 </div>
@@ -276,7 +276,7 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
                         <Calendar className="w-4 h-4 text-slate-500 mt-1 flex-shrink-0" />
                         <div>
                           <span className="text-xs text-slate-500 block">
-                            {language === 'ur' ? 'تاریخِ بوکنگ:' : 'Booking Date:'}
+                            {language === 'ur' ? 'تاریخِ بکنگ:' : 'Booking Date:'}
                           </span>
                           <span className="font-bold text-slate-900 font-mono">{verifiedRecord.biltyDate}</span>
                         </div>

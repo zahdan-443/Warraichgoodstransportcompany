@@ -1,11 +1,13 @@
 import React, { Suspense, useState, useEffect, useRef } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { RefreshCw } from 'lucide-react';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { FloatingActions } from './components/FloatingActions';
 import { ScrollToTop } from './components/ScrollToTop';
 import { useScrollReveal, useScrollPause } from './hooks/useMotion';
 import { useWarmImages } from './hooks/useWarmImages';
+import { useLanguage, type Language } from './context/LanguageContext';
 import { MOTION_CONFIG } from './config/motionConfig';
 
 import { HomePage } from './pages/HomePage';
@@ -63,10 +65,83 @@ interface AppProps {
   ssrPages?: SsrPagesMap;
 }
 
+interface RouteErrorBoundaryProps {
+  resetKey: string;
+  language: Language;
+  children: React.ReactNode;
+}
+
+interface RouteErrorBoundaryState {
+  hasError: boolean;
+  retryCount: number;
+}
+
+class RouteErrorBoundary extends React.Component<
+  RouteErrorBoundaryProps,
+  RouteErrorBoundaryState
+> {
+  declare readonly props: Readonly<RouteErrorBoundaryProps>;
+  declare setState: (
+    updater:
+      | Partial<RouteErrorBoundaryState>
+      | ((prevState: RouteErrorBoundaryState) => Partial<RouteErrorBoundaryState>)
+  ) => void;
+
+  state: RouteErrorBoundaryState = { hasError: false, retryCount: 0 };
+
+  static getDerivedStateFromError(): Partial<RouteErrorBoundaryState> {
+    return { hasError: true };
+  }
+
+  componentDidUpdate(prevProps: RouteErrorBoundaryProps) {
+    if (prevProps.resetKey !== this.props.resetKey && this.state.hasError) {
+      this.setState({ hasError: false });
+    }
+  }
+
+  handleRetry = () => {
+    this.setState((prev) => ({ hasError: false, retryCount: prev.retryCount + 1 }));
+  };
+
+  render() {
+    if (this.state.hasError) {
+      const isUr = this.props.language === 'ur';
+      return (
+        <div
+          dir={isUr ? 'rtl' : 'ltr'}
+          className="min-h-[60vh] flex items-center justify-center px-4 py-16 bg-slate-50"
+        >
+          <div className="max-w-md w-full rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 text-center shadow-sm">
+            <h2 className="text-lg sm:text-xl font-bold text-slate-900 mb-2">
+              {isUr ? 'صفحہ لوڈ نہیں ہو سکا' : 'Unable to Load Page'}
+            </h2>
+            <p className="text-sm text-slate-600 mb-6">
+              {isUr
+                ? 'انٹرنیٹ یا کنکشن میں عارضی مسئلہ پیش آ گیا ہے۔ براہِ کرم دوبارہ کوشش کریں۔'
+                : 'A temporary connection issue prevented this page from loading. Please try again.'}
+            </p>
+            <button
+              type="button"
+              onClick={this.handleRetry}
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-semibold px-5 py-2.5 text-sm transition-colors cursor-pointer"
+            >
+              <RefreshCw className="w-4 h-4" />
+              <span>{isUr ? 'دوبارہ کوشش کریں' : 'Try Again'}</span>
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    return <React.Fragment key={this.state.retryCount}>{this.props.children}</React.Fragment>;
+  }
+}
+
 export default function App({ ssrPages }: AppProps) {
   // Inspect query parameter page=verify to route directly to Bilty Verification Page
   const isVerifyPage = typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('page') === 'verify';
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+  const { language } = useLanguage();
   const location = useLocation();
   const prevPathRef = useRef<string>(location.pathname);
   const [animateRoute, setAnimateRoute] = useState<boolean>(false);
@@ -124,19 +199,21 @@ export default function App({ ssrPages }: AppProps) {
       {/* 2. Route-Driven Main Content Area (Offset for fixed header) */}
       <main className="flex-1 pt-14 sm:pt-16">
         <div key={location.pathname} className={animateRoute && MOTION_CONFIG.pageTransitions ? 'route-transition' : undefined}>
-          <Suspense fallback={<div className="min-h-[60vh] bg-slate-50" />}>
-            <Routes>
-              <Route path="/" element={isVerifyPage ? <VerifyComp /> : <HomePage />} />
-              <Route path="/fleet" element={<FleetComp />} />
-              <Route path="/services" element={<ServicesComp />} />
-              <Route path="/booking" element={<BookingComp />} />
-              <Route path="/service-areas" element={<ServiceAreasComp />} />
-              <Route path="/faq" element={<FaqComp />} />
-              <Route path="/about" element={<AboutComp />} />
-              <Route path="/verify" element={<VerifyComp />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
-          </Suspense>
+          <RouteErrorBoundary resetKey={location.pathname} language={language}>
+            <Suspense fallback={<div className="min-h-[60vh] bg-slate-50" />}>
+              <Routes>
+                <Route path="/" element={isVerifyPage ? <VerifyComp /> : <HomePage />} />
+                <Route path="/fleet" element={<FleetComp />} />
+                <Route path="/services" element={<ServicesComp />} />
+                <Route path="/booking" element={<BookingComp />} />
+                <Route path="/service-areas" element={<ServiceAreasComp />} />
+                <Route path="/faq" element={<FaqComp />} />
+                <Route path="/about" element={<AboutComp />} />
+                <Route path="/verify" element={<VerifyComp />} />
+                <Route path="*" element={<Navigate to="/" replace />} />
+              </Routes>
+            </Suspense>
+          </RouteErrorBoundary>
         </div>
       </main>
 

@@ -1,7 +1,7 @@
 import { VehicleInfo, ServiceAreaCity } from '../types';
 
 // Canonical marketing website URL (distinct from webAppUrl which points to the driver portal app)
-export const SITE_URL = 'https://zahdan-443.github.io/Warraichgoodstransportcompany/';
+export const SITE_URL = 'https://warraichgoods.eu.cc/';
 
 // Google Business Profile Review URL
 export const GOOGLE_REVIEW_URL = 'https://g.page/r/CY6xd_P6BqIYEAI/review';
@@ -123,7 +123,7 @@ export const FLEET_DATA: VehicleInfo[] = [
     badgeUrdu: 'ہائی والیم ٹرک (8 تا 16 ٹن)',
     badgeEnglish: 'High Volume FTL (8-16 Tons)',
     tagColor: 'bg-indigo-600',
-    altUrdu: 'سیمپل ٹرک 8 تا 16 ٹن والیم بیسڈ بلک لوڈنگ - وڑائچ گڈز ٹرانسپورٹ',
+    altUrdu: 'سیمپل ٹرک 8 تا 16 ٹن والیم بیسڈ بلک لوڈنگ - وڑائچ گڈز ٹرانسپورٹ کمپنی',
     altEnglish: 'Extended Chassis Sample Truck 8-16 Ton High Volume Freight - Warraich Goods',
   },
   {
@@ -152,7 +152,7 @@ export const FLEET_DATA: VehicleInfo[] = [
     badgeUrdu: 'ہیوی ڈیوٹی لانگ ہال (15 تا 28+ ٹن)',
     badgeEnglish: 'Heavy Duty Long Haul (15-28+ Tons)',
     tagColor: 'bg-blue-600',
-    altUrdu: 'بیڈفورڈ ہیوی ٹرک 15 تا 28+ ٹن لانگ ہال کارگو - وڑائچ گڈز ٹرانسپورٹ',
+    altUrdu: 'بیڈفورڈ ہیوی ٹرک 15 تا 28+ ٹن لانگ ہال کارگو - وڑائچ گڈز ٹرانسپورٹ کمپنی',
     altEnglish: 'Bedford Heavy Hauler 15-28+ Ton Long Haul Commercial Truck - Warraich Goods',
   },
 ];

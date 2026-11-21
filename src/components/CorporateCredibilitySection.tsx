@@ -308,7 +308,7 @@ export const CorporateCredibilitySection: React.FC = () => {
           {/* Sectors Served Showcase */}
           <div className="mt-8 pt-6 border-t border-slate-200">
             <p className="text-xs uppercase tracking-wider text-slate-500 font-bold mb-4 text-center font-urdu">
-              {isUrdu ? 'اہم صنعتی شعبے جو وڑائچ گڈز پر اعتماد کرتے ہیں:' : 'Key Industrial Sectors Trusting Warraich Goods:'}
+              {isUrdu ? 'اہم صنعتی شعبے جو وڑائچ گڈز ٹرانسپورٹ کمپنی پر اعتماد کرتے ہیں:' : 'Key Industrial Sectors Trusting Warraich Goods:'}
             </p>
             
             <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 ${isUrdu ? 'text-right' : 'text-left'}`}>

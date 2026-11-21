@@ -1,16 +1,38 @@
 import React from 'react';
 
+const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
 function lazyWithPreload<T extends React.ComponentType<any>>(
   factory: () => Promise<{ default: T }>
 ) {
   let Loaded: T | null = null;
   let pending: Promise<{ default: T }> | null = null;
 
-  const preload = () => {
-    if (!pending) {
-      pending = factory().then((mod) => {
+  const loadWithRetry = async (retries = 2): Promise<{ default: T }> => {
+    let lastError: unknown;
+    for (let attempt = 0; attempt <= retries; attempt++) {
+      try {
+        const mod = await factory();
         Loaded = mod.default;
         return mod;
+      } catch (err) {
+        lastError = err;
+        if (attempt < retries) {
+          await wait(250 * (attempt + 1));
+        }
+      }
+    }
+    throw lastError;
+  };
+
+  const preload = () => {
+    if (Loaded) {
+      return Promise.resolve({ default: Loaded });
+    }
+    if (!pending) {
+      pending = loadWithRetry().catch((err) => {
+        pending = null;
+        throw err;
       });
     }
     return pending;
@@ -47,48 +69,68 @@ export const LazyBiltyVerificationPage = lazyWithPreload(() =>
 );
 
 export async function preloadRouteForLocation(pathname: string, search = ''): Promise<void> {
-  const isVerifyQuery = new URLSearchParams(search).get('page') === 'verify';
-  if (isVerifyQuery) {
-    await LazyBiltyVerificationPage.preload();
-    return;
-  }
-
-  const normalized =
-    pathname.replace(/^\/Warraichgoodstransportcompany/i, '').replace(/\/+$/, '') || '/';
-
-  switch (normalized) {
-    case '/fleet':
-      await LazyFleetPage.preload();
-      break;
-    case '/services':
-      await LazyServicesPage.preload();
-      break;
-    case '/booking':
-      await LazyBookingPage.preload();
-      break;
-    case '/service-areas':
-      await LazyServiceAreasPage.preload();
-      break;
-    case '/faq':
-      await LazyFaqPage.preload();
-      break;
-    case '/about':
-      await LazyAboutPage.preload();
-      break;
-    case '/verify':
+  try {
+    const isVerifyQuery = new URLSearchParams(search).get('page') === 'verify';
+    if (isVerifyQuery) {
       await LazyBiltyVerificationPage.preload();
-      break;
-    default:
-      break;
+      return;
+    }
+
+    const normalized =
+      pathname.replace(/^\/Warraichgoodstransportcompany/i, '').replace(/\/+$/, '') || '/';
+
+    switch (normalized) {
+      case '/fleet':
+        await LazyFleetPage.preload();
+        break;
+      case '/services':
+        await LazyServicesPage.preload();
+        break;
+      case '/booking':
+        await LazyBookingPage.preload();
+        break;
+      case '/service-areas':
+        await LazyServiceAreasPage.preload();
+        break;
+      case '/faq':
+        await LazyFaqPage.preload();
+        break;
+      case '/about':
+        await LazyAboutPage.preload();
+        break;
+      case '/verify':
+        await LazyBiltyVerificationPage.preload();
+        break;
+      default:
+        break;
+    }
+  } catch {
+    // Allow React Suspense + RouteErrorBoundary to handle recovery during navigation
   }
 }
 
-export function preloadAllRoutes(): void {
-  void LazyFleetPage.preload();
-  void LazyServicesPage.preload();
-  void LazyBookingPage.preload();
-  void LazyServiceAreasPage.preload();
-  void LazyFaqPage.preload();
-  void LazyAboutPage.preload();
-  void LazyBiltyVerificationPage.preload();
+let isPreloadingAll = false;
+
+export async function preloadAllRoutes(): Promise<void> {
+  if (isPreloadingAll) return;
+  isPreloadingAll = true;
+
+  const routes = [
+    LazyFleetPage,
+    LazyServicesPage,
+    LazyBookingPage,
+    LazyServiceAreasPage,
+    LazyFaqPage,
+    LazyAboutPage,
+    LazyBiltyVerificationPage,
+  ];
+
+  try {
+    for (const route of routes) {
+      await route.preload().catch(() => {});
+      await wait(120);
+    }
+  } finally {
+    isPreloadingAll = false;
+  }
 }

@@ -8,15 +8,15 @@ import './index.css';
 
 const rootElement = document.getElementById('root')!;
 
-// Determine basename for GitHub Pages deployment (/Warraichgoodstransportcompany)
-// or root fallback in local dev / AI Studio preview environments.
+// Determine basename for custom domain root (https://warraichgoods.eu.cc)
+// or legacy GitHub Pages repository subpath if accessed directly.
 const getRouterBasename = (): string => {
   if (typeof window !== 'undefined') {
     return window.location.pathname.startsWith('/Warraichgoodstransportcompany')
       ? '/Warraichgoodstransportcompany'
       : '';
   }
-  return '/Warraichgoodstransportcompany';
+  return '';
 };
 
 async function mountApp() {

@@ -43,8 +43,8 @@ interface RouteConfig {
   expectedText: string;
 }
 
-const GITHUB_PAGES_BASENAME = '/Warraichgoodstransportcompany';
-const BASE_SITE_URL = 'https://zahdan-443.github.io/Warraichgoodstransportcompany';
+const SITE_BASENAME = '';
+const BASE_SITE_URL = 'https://warraichgoods.eu.cc';
 
 const FAQ_PAGE_SCHEMA = {
   '@type': 'FAQPage',
@@ -244,12 +244,12 @@ async function prerender() {
       fs.mkdirSync(targetDir, { recursive: true });
     }
 
-    // Full location inside StaticRouter with GitHub Pages basename
-    const routerLocation = `${GITHUB_PAGES_BASENAME}${route.path === '/' ? '' : route.path}`;
+    // Full location inside StaticRouter rooted at custom domain (https://warraichgoods.eu.cc/)
+    const routerLocation = route.path;
 
     // Render the React application for this specific route
     const appHtml = renderToString(
-      <StaticRouter basename={GITHUB_PAGES_BASENAME} location={routerLocation}>
+      <StaticRouter basename={SITE_BASENAME} location={routerLocation}>
         <LanguageProvider>
           <App ssrPages={SSR_PAGES} />
         </LanguageProvider>
@@ -427,7 +427,7 @@ async function prerender() {
   }
 
   // Ensure critical server config and SEO files are guaranteed present in dist
-  const filesToSync = ['.htaccess', '_headers', 'robots.txt', 'sitemap.txt', 'favicon.ico', 'favicon.png'];
+  const filesToSync = ['.htaccess', '_headers', 'CNAME', 'robots.txt', 'sitemap.txt', 'favicon.ico', 'favicon.png'];
   for (const file of filesToSync) {
     const srcPath = path.resolve(__dirname, `../public/${file}`);
     const destPath = path.join(distDir, file);

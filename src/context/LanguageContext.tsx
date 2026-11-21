@@ -20,7 +20,7 @@ interface RouteSeoMeta {
   canonical: string;
 }
 
-const BASE_SITE_URL = 'https://zahdan-443.github.io/Warraichgoodstransportcompany';
+const BASE_SITE_URL = 'https://warraichgoods.eu.cc';
 
 const ROUTE_SEO_MAP: Record<string, RouteSeoMeta> = {
   '/': {

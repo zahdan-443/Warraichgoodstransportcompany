@@ -29,7 +29,7 @@ export const HeroSection: React.FC = () => {
 
   const whatsappUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(
     isUrdu
-      ? 'السلام علیکم وڑائچ گڈز! مجھے گاڑی بکنگ اور کرایہ معلوم کرنا ہے۔'
+      ? 'السلام علیکم وڑائچ گڈز ٹرانسپورٹ کمپنی! مجھے گاڑی بکنگ اور کرایہ معلوم کرنا ہے۔'
       : 'Hello Warraich Goods, I need details about truck booking and freight rates.'
   )}`;
 

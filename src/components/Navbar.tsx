@@ -184,10 +184,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="min-w-0 flex flex-col justify-center">
               {isUrdu ? (
                 <>
-                  <span className="text-base sm:text-xl font-black font-urdu text-slate-950 leading-tight">
+                  <span className="text-base sm:text-xl font-bold font-urdu text-slate-950 leading-normal">
                     وڑائچ گڈز
                   </span>
-                  <span className="text-[11px] sm:text-xs font-bold font-urdu text-amber-700 leading-none mt-0.5">
+                  <span className="text-[11px] sm:text-xs font-semibold font-urdu text-amber-700 leading-normal">
                     ٹرانسپورٹ کمپنی
                   </span>
                 </>

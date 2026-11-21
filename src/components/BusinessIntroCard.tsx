@@ -106,7 +106,7 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
                 <div>
                   {isUrdu ? (
                     <div className="font-urdu">
-                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-950 leading-tight">
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-950 leading-relaxed">
                         {COMPANY_INFO.nameUrdu}
                       </h3>
                       <p className="text-xs text-slate-500 mt-1 font-urdu">
@@ -141,9 +141,9 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
                 <a
                   href={cardImageUrl}
                   download="Warraich-Goods-Visiting-Card.png"
-                  className="btn-animated inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 px-3.5 py-1.5 rounded-lg text-xs font-bold transition shadow-sm cursor-pointer print:hidden"
+                  className={`btn-animated inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 px-3.5 py-1.5 rounded-lg text-xs font-bold transition shadow-sm cursor-pointer print:hidden ${isUrdu ? 'font-urdu' : ''}`}
                   title={isUrdu ? 'وزٹنگ کارڈ ڈاؤن لوڈ کریں' : 'Download Visiting Card'}
-                  aria-label={isUrdu ? 'وڑائچ گڈز وزٹنگ کارڈ ڈاؤن لوڈ کریں' : 'Download Warraich Goods Business Card'}
+                  aria-label={isUrdu ? 'وڑائچ گڈز ٹرانسپورٹ کمپنی کا وزٹنگ کارڈ ڈاؤن لوڈ کریں' : 'Download Warraich Goods Business Card'}
                 >
                   <Download className="w-3.5 h-3.5 text-slate-600" />
                   <span>{isUrdu ? 'پرنٹ کارڈ' : 'Print Card'}</span>
