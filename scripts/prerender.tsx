@@ -105,10 +105,10 @@ const ROUTES: RouteConfig[] = [
     path: '/',
     outputFile: 'index.html',
     title: 'Warraich Goods | Transport & Shifting',
-    description: 'Home shifting, office relocation and goods transport from Samundri across Pakistan and from anywhere in Pakistan to Samundri. Call 0300-5370443 for truck booking.',
+    description: 'Dedicated truckload transport & home shifting across Pakistan from Okara Bypass, Near 466 Chowk, Samundri. Call 0300-5370443 for 24/7 truck booking.',
     canonicalUrl: `${BASE_SITE_URL}/`,
     ogTitle: 'Warraich Goods | Transport & Shifting',
-    ogDescription: 'Home shifting, office relocation and goods transport from Samundri across Pakistan and from anywhere in Pakistan to Samundri. Call 0300-5370443 for truck booking.',
+    ogDescription: 'Dedicated truckload transport & home shifting across Pakistan from Okara Bypass, Near 466 Chowk, Samundri. Call 0300-5370443 for 24/7 truck booking.',
     breadcrumbList: [
       { name: 'Home', item: `${BASE_SITE_URL}/` },
       { name: 'Our Trucks', item: `${BASE_SITE_URL}/fleet/` },
@@ -193,10 +193,10 @@ const ROUTES: RouteConfig[] = [
     path: '/about',
     outputFile: 'about/index.html',
     title: 'About Us & Contact Details | Warraich Goods',
-    description: 'Warraich Goods Transport Company is a local transport business based in Samundri, Faisalabad, serving routes across Pakistan since 2008.',
+    description: 'Warraich Goods Transport Company, based at Okara Bypass, Near 466 Chowk, Samundri, Faisalabad, serving routes across Pakistan since 2008.',
     canonicalUrl: `${BASE_SITE_URL}/about/`,
     ogTitle: 'About Us & Contact Details | Warraich Goods',
-    ogDescription: 'Warraich Goods Transport Company is a local transport business based in Samundri, Faisalabad, serving routes across Pakistan since 2008.',
+    ogDescription: 'Warraich Goods Transport Company, based at Okara Bypass, Near 466 Chowk, Samundri, Faisalabad, serving routes across Pakistan since 2008.',
     breadcrumbList: [
       { name: 'Home', item: `${BASE_SITE_URL}/` },
       { name: 'About Us', item: `${BASE_SITE_URL}/about/` },
@@ -293,6 +293,10 @@ async function prerender() {
     pageHtml = pageHtml.replace(
       /<link\s+rel=["']alternate["']\s+hreflang=["']en["']\s+href=["'][\s\S]*?["']\s*\/?>/i,
       `<link rel="alternate" hreflang="en" href="${route.canonicalUrl}" />`
+    );
+    pageHtml = pageHtml.replace(
+      /<link\s+rel=["']alternate["']\s+hreflang=["']x-default["']\s+href=["'][\s\S]*?["']\s*\/?>/i,
+      `<link rel="alternate" hreflang="x-default" href="${route.canonicalUrl}" />`
     );
 
     // 5. Replace Open Graph Tags

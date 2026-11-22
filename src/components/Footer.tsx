@@ -9,9 +9,11 @@ import {
   Share2,
   Check,
   Twitter,
-  Linkedin
+  Linkedin,
+  MapPin,
+  MessageCircle
 } from 'lucide-react';
-import { COMPANY_INFO, GOOGLE_REVIEW_URL, SITE_URL } from '../data/companyData';
+import { COMPANY_INFO, GOOGLE_MAPS_URL, GOOGLE_REVIEW_URL, SITE_URL } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
 
 export const Footer: React.FC = () => {
@@ -61,6 +63,18 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="flex flex-wrap items-center justify-center sm:justify-end gap-2.5">
+            {/* WhatsApp Direct */}
+            <a
+              href={`https://wa.me/${COMPANY_INFO.whatsappNumber}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 bg-emerald-700 hover:bg-emerald-600 text-white px-3.5 py-1.5 rounded-lg text-xs font-bold transition shadow-xs"
+              aria-label="Warraich Goods WhatsApp Contact"
+            >
+              <MessageCircle className="w-4 h-4 flex-shrink-0" />
+              <span>WhatsApp</span>
+            </a>
+
             {/* YouTube Channel */}
             <a
               href={COMPANY_INFO.youtubeUrl}
@@ -85,6 +99,18 @@ export const Footer: React.FC = () => {
               <span>Facebook</span>
             </a>
 
+            {/* Google Maps Office Location */}
+            <a
+              href={GOOGLE_MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 px-3.5 py-1.5 rounded-lg text-xs font-bold font-urdu transition shadow-sm"
+              aria-label="Warraich Goods Google Maps Location"
+            >
+              <MapPin className="w-3.5 h-3.5 text-amber-400 flex-shrink-0" />
+              <span>{isUrdu ? 'گوگل میپس' : 'Google Maps'}</span>
+            </a>
+
             {/* Review us on Google */}
             <a
               href={GOOGLE_REVIEW_URL}
@@ -94,7 +120,7 @@ export const Footer: React.FC = () => {
               aria-label="Review Warraich Goods Transport Company on Google"
             >
               <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400 flex-shrink-0" />
-              <span>{isUrdu ? 'گوگل پر ہمارا ریویو دیں' : 'Review us on Google'}</span>
+              <span>{isUrdu ? 'گوگل پر ریویو دیں' : 'Review on Google'}</span>
             </a>
           </div>
         </div>

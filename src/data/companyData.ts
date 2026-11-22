@@ -3,8 +3,10 @@ import { VehicleInfo, ServiceAreaCity } from '../types';
 // Canonical marketing website URL (distinct from webAppUrl which points to the driver portal app)
 export const SITE_URL = 'https://warraichgoods.eu.cc/';
 
-// Google Business Profile Review URL
+// Google Business Profile Review & Maps URLs
 export const GOOGLE_REVIEW_URL = 'https://g.page/r/CY6xd_P6BqIYEAI/review';
+export const GOOGLE_MAPS_URL =
+  'https://www.google.com/maps/search/?api=1&query=Warraich+Goods+Transport+Company+Okara+Bypass+Near+466+Chowk+Samundri';
 
 export const COMPANY_INFO = {
   nameUrdu: 'وڑائچ گڈز ٹرانسپورٹ کمپنی',
@@ -19,8 +21,8 @@ export const COMPANY_INFO = {
   phoneRaw2: '03005370443',
   whatsappNumber: '923005370443',
   email: 'warraichgoods43@gmail.com',
-  addressUrdu: 'اوکاڑہ بائی پاس، سمندری، ضلع فیصل آباد',
-  addressEnglish: 'Okara Bypass, Samundri, District Faisalabad',
+  addressUrdu: 'اوکاڑہ بائی پاس، نزد 466 چوک، سمندری',
+  addressEnglish: 'Okara Bypass, Near 466 Chowk, Samundri',
   cityUrdu: 'سمندری',
   cityEnglish: 'Samundri',
   ntn: '7779394-1',
@@ -280,8 +282,8 @@ export const CORPORATE_CREDENTIALS = {
   proprietorUrdu: 'زاہدان نصر وڑائچ',
   officialEmail: 'warraichgoods43@gmail.com',
   officialPhones: ['0300-5370443'],
-  serviceCoverage: 'Home shifting, office moves, and commercial freight across Pakistan. Office: Okara Bypass, Samundri, District Faisalabad.',
-  serviceCoverageUrdu: 'پورے پاکستان کے لیے محفوظ اور بروقت مال برداری اور شفٹنگ۔ دفتر: اوکاڑہ بائی پاس، سمندری، ضلع فیصل آباد۔',
+  serviceCoverage: 'Home shifting, office moves, and commercial freight across Pakistan. Office: Okara Bypass, Near 466 Chowk, Samundri, District Faisalabad.',
+  serviceCoverageUrdu: 'پورے پاکستان کے لیے محفوظ اور بروقت مال برداری اور شفٹنگ۔ دفتر: اوکاڑہ بائی پاس، نزد 466 چوک، سمندری، ضلع فیصل آباد۔',
   servicePhilosophy: 'Careful handling, clear bilty records, fair rates, and 24/7 dispatch (Serving since 2008)',
   servicePhilosophyUrdu: 'محفوظ ہینڈلنگ، شفاف بلٹی ریکارڈ، مناسب ریٹ اور 24/7 بروقت سروس',
   invoicingFeatures: [

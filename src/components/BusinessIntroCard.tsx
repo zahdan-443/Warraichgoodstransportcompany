@@ -11,9 +11,11 @@ import {
   UserCheck, 
   Clock, 
   Download, 
-  Award
+  Award,
+  ExternalLink,
+  MessageCircle
 } from 'lucide-react';
-import { COMPANY_INFO, MASTER_CITIES } from '../data/companyData';
+import { COMPANY_INFO, GOOGLE_MAPS_URL, MASTER_CITIES } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
 import { getAssetUrl } from '../utils/assetPath';
 import { useInView } from '../hooks/useMotion';
@@ -343,6 +345,15 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
                   <p className={`text-xs sm:text-sm font-bold text-white mt-0.5 leading-snug ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                     {isUrdu ? COMPANY_INFO.addressUrdu : COMPANY_INFO.addressEnglish}
                   </p>
+                  <a
+                    href={GOOGLE_MAPS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-center gap-1 text-[11px] font-semibold text-amber-300 hover:text-amber-200 hover:underline mt-1.5 ${isUrdu ? 'font-urdu' : 'font-sans'}`}
+                  >
+                    <span>{isUrdu ? 'گوگل میپس پر لوکیشن دیکھیں' : 'View on Google Maps'}</span>
+                    <ExternalLink className="w-3 h-3 flex-shrink-0" />
+                  </a>
                 </div>
               </div>
 
@@ -362,6 +373,17 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
                   >
                     {COMPANY_INFO.phone1}
                   </a>
+                  <div>
+                    <a
+                      href={`https://wa.me/${COMPANY_INFO.whatsappNumber}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-300 hover:text-emerald-200 hover:underline mt-1 ${isUrdu ? 'font-urdu' : 'font-sans'}`}
+                    >
+                      <MessageCircle className="w-3 h-3 flex-shrink-0" />
+                      <span>{isUrdu ? 'واٹس ایپ چیٹ' : 'WhatsApp Chat'}</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 

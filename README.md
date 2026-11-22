@@ -26,7 +26,7 @@
 
 * **Company Name:** Warraich Goods Transport Company (وڑائچ گڈز ٹرانسپورٹ کمپنی)
 * **Proprietor:** Zahdan Nasar Warraich (زاہدان نصر وڑائچ)
-* **Office Address:** Okara Bypass, Samundri, District Faisalabad, Punjab, Pakistan
+* **Office Address:** Okara Bypass, Near 466 Chowk, Samundri, District Faisalabad, Punjab, Pakistan
 * **Established:** 2008 (18+ Years)
 * **FBR NTN:** `7779394-1`
 * **Service Type:** Dedicated Full Truckload (FTL) only, Home Shifting & Office Relocation
@@ -60,6 +60,9 @@ Customers can verify their bilty receipt on `/verify/`:
 * **Call:** [0300-5370443](tel:03005370443)
 * **WhatsApp:** [https://wa.me/923005370443](https://wa.me/923005370443)
 * **Email:** [warraichgoods43@gmail.com](mailto:warraichgoods43@gmail.com)
+* **Facebook Page:** [Warraich Goods Transport Company](https://www.facebook.com/Warraichgoodstransportcompany)
+* **YouTube Channel:** [@Warraichgoodstransportcompany](https://www.youtube.com/@Warraichgoodstransportcompany)
+* **Google Maps:** [Okara Bypass, Near 466 Chowk, Samundri](https://www.google.com/maps/search/?api=1&query=Warraich+Goods+Transport+Company+Okara+Bypass+Near+466+Chowk+Samundri)
 
 ---
 
