@@ -508,7 +508,7 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
                 />
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/45 to-slate-950/5 group-hover:via-slate-950/35 transition-colors"
+                  className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/55 to-slate-950/5 group-hover:via-slate-950/45 transition-colors"
                 />
                 <div className="relative z-10 pt-20">
                   <p className="font-bold text-white text-base font-urdu mb-1.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)]">
@@ -540,7 +540,7 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
                 />
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/45 to-slate-950/5 group-hover:via-slate-950/35 transition-colors"
+                  className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/55 to-slate-950/5 group-hover:via-slate-950/45 transition-colors"
                 />
                 <div className="relative z-10 pt-20">
                   <p className="font-bold text-white text-base font-urdu mb-1.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)]">
@@ -572,7 +572,7 @@ export const BiltyTrackingSection: React.FC<BiltyTrackingSectionProps> = ({ cond
                 />
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/45 to-slate-950/5 group-hover:via-slate-950/35 transition-colors"
+                  className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/55 to-slate-950/5 group-hover:via-slate-950/45 transition-colors"
                 />
                 <div className="relative z-10 pt-20">
                   <p className="font-bold text-white text-base font-urdu mb-1.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)]">

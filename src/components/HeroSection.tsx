@@ -47,9 +47,11 @@ export const HeroSection: React.FC = () => {
         <div ref={bgLayerRef} className="absolute inset-0 z-0 overflow-hidden">
           <img
             src={getAssetUrl('images/hero-highway-background.webp')}
+            srcSet={`${getAssetUrl('images/hero-highway-background-mobile.webp')} 640w, ${getAssetUrl('images/hero-highway-background.webp')} 1120w`}
+            sizes="100vw"
             alt="Warraich Goods Transport Commercial FTL Highway Transit"
-            width={1280}
-            height={714}
+            width={1120}
+            height={625}
             loading="eager"
             fetchPriority="high"
             decoding="async"
@@ -181,7 +183,7 @@ export const HeroSection: React.FC = () => {
             className="pointer-events-none absolute inset-x-0 bottom-5 sm:bottom-6 h-10 overflow-x-clip overflow-y-visible z-10"
           >
             <div className="hero-road-lines absolute left-0 bottom-1 h-[1.5px]" />
-            <div className="hero-truck-drive absolute left-0 bottom-2.5 flex items-center text-amber-400/95">
+            <div className="hero-truck-drive absolute inset-x-0 bottom-2.5 flex items-center text-amber-400/95">
               <Truck className="w-5 h-5 shrink-0" />
             </div>
           </div>

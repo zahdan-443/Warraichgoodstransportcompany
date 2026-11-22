@@ -35,7 +35,7 @@ import { TiltCard } from './MotionPrimitives';
 export const GROUND_OPERATIONS_PHOTOS = [
   {
     id: 'yard-operations',
-    imageSrc: './images/proprietor-zahdan-nasar-warraich.png',
+    imageSrc: './images/proprietor-zahdan-nasar-warraich.webp',
     badgeUrdu: 'قیادت و فلیٹ سپروائزری',
     badgeEn: 'Leadership & Fleet Supervision',
     titleUrdu: 'پروپرائٹر زاہدان نصر وڑائچ — آپریشنل نگرانی',
@@ -307,7 +307,7 @@ export const CorporateCredibilitySection: React.FC = () => {
 
           {/* Sectors Served Showcase */}
           <div className="mt-8 pt-6 border-t border-slate-200">
-            <p className="text-xs uppercase tracking-wider text-slate-500 font-bold mb-4 text-center font-urdu">
+            <p className="text-xs uppercase tracking-wider text-slate-600 font-bold mb-4 text-center font-urdu">
               {isUrdu ? 'اہم صنعتی شعبے جو وڑائچ گڈز ٹرانسپورٹ کمپنی پر اعتماد کرتے ہیں:' : 'Key Industrial Sectors Trusting Warraich Goods:'}
             </p>
             
@@ -412,12 +412,12 @@ export const CorporateCredibilitySection: React.FC = () => {
                     </p>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-urdu">
+                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-600 font-urdu">
                     <span className="flex items-center gap-1 text-blue-700 font-semibold">
                       <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" />
                       <span>{isUrdu ? slot.footerLabelUrdu : slot.footerLabelEn}</span>
                     </span>
-                    <span className="font-mono text-[10px] text-slate-400">
+                    <span className="font-mono text-[10px] text-slate-600">
                       {isUrdu ? slot.footerStatusUrdu : slot.footerStatusEn}
                     </span>
                   </div>

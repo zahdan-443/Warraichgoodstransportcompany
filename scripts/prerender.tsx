@@ -227,8 +227,17 @@ async function prerender() {
     throw new Error(`dist/index.html not found at ${templatePath}. Please run vite build first.`);
   }
 
-  // Load the built template HTML
-  const templateHtml = fs.readFileSync(templatePath, 'utf-8');
+  // Load the built template HTML and inline compiled CSS to eliminate render-blocking stylesheet requests
+  let templateHtml = fs.readFileSync(templatePath, 'utf-8');
+  const stylesheetMatch = templateHtml.match(/<link\s+rel=["']stylesheet["'][^>]*href=["'](\.\/assets\/[^"']+\.css)["'][^>]*>/i);
+  if (stylesheetMatch) {
+    const cssRelPath = stylesheetMatch[1].replace(/^\.\//, '');
+    const cssAbsPath = path.join(distDir, cssRelPath);
+    if (fs.existsSync(cssAbsPath)) {
+      const cssContent = fs.readFileSync(cssAbsPath, 'utf-8');
+      templateHtml = templateHtml.replace(stylesheetMatch[0], `<style>${cssContent}</style>`);
+    }
+  }
 
   console.log('🚀 Starting multi-page static pre-rendering for Warraich Goods Transport Company...');
 
@@ -368,15 +377,15 @@ async function prerender() {
       }
     );
 
-    // 8. Fix relative paths for subfolder routes (e.g. dist/fleet/index.html needs ../assets/)
+    // 8. Fix relative paths for subfolder routes (e.g. dist/fleet/index.html needs ../assets/) and omit Home-only hero preload
     if (isSubfolder) {
+      pageHtml = pageHtml.replace(/<link\s+rel=["']preload["']\s+as=["']image["'][^>]*>/i, '');
       pageHtml = pageHtml.replace(/href="\.\/assets\//g, 'href="../assets/');
       pageHtml = pageHtml.replace(/src="\.\/assets\//g, 'src="../assets/');
       pageHtml = pageHtml.replace(/href="\.\/fonts\//g, 'href="../fonts/');
       pageHtml = pageHtml.replace(/src="\.\/fonts\//g, 'src="../fonts/');
       pageHtml = pageHtml.replace(/href="\.\/favicon/g, 'href="../favicon');
-      pageHtml = pageHtml.replace(/href="\.\/images\//g, 'href="../images/');
-      pageHtml = pageHtml.replace(/src="\.\/images\//g, 'src="../images/');
+      pageHtml = pageHtml.replace(/(^|["',\s])\.\/images\//g, '$1../images/');
     }
 
     fs.writeFileSync(targetFilePath, pageHtml, 'utf-8');

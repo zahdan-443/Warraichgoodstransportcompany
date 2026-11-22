@@ -12,6 +12,9 @@ export default defineConfig(({ command }) => {
         '@': path.resolve(__dirname, '.'),
       },
     },
+    esbuild: {
+      legalComments: 'none',
+    },
     build: {
       target: 'es2020',
       minify: 'esbuild' as const,
@@ -21,7 +24,7 @@ export default defineConfig(({ command }) => {
       rollupOptions: {
         output: {
           manualChunks: {
-            'vendor-react': ['react', 'react-dom'],
+            'vendor-react': ['react', 'react-dom', 'react-dom/client'],
             'vendor-router': ['react-router', 'react-router-dom'],
             'vendor-icons': ['lucide-react'],
             'vendor-firebase': ['firebase/app', 'firebase/firestore'],

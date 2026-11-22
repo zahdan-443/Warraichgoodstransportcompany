@@ -39,7 +39,7 @@ export const FleetCardsSection: React.FC = () => {
         
         {/* Section Header */}
         <div data-reveal="" className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-          <span className="text-xs font-bold font-mono uppercase tracking-wider text-amber-600 block mb-1">
+          <span className="text-xs font-bold font-mono uppercase tracking-wider text-amber-700 block mb-1">
             {isUrdu ? 'کمرشل ٹرک فلیٹ' : 'Commercial Fleet Types'}
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 font-urdu tracking-tight">
@@ -74,8 +74,8 @@ export const FleetCardsSection: React.FC = () => {
                 <img
                   src={bgSrc}
                   alt={altText}
-                  width={640}
-                  height={360}
+                  width={560}
+                  height={312}
                   loading="lazy"
                   decoding="async"
                   referrerPolicy="no-referrer"
@@ -84,7 +84,7 @@ export const FleetCardsSection: React.FC = () => {
                 {/* Balanced Contrast Gradient Scrim (keeps upper vehicle photo clear and bright) */}
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/45 to-slate-950/5 group-hover:via-slate-950/35 transition-colors"
+                  className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/55 to-slate-950/5 group-hover:via-slate-950/45 transition-colors"
                 />
 
                 {/* Top: Capacity Badge only (unobstructed upper-left corner) */}
@@ -107,7 +107,7 @@ export const FleetCardsSection: React.FC = () => {
                   <div className="pt-3 border-t border-white/20">
                     <Link
                       to="/fleet"
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300 font-urdu group-hover:translate-x-1 transition-transform"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-300 hover:text-amber-200 font-urdu group-hover:translate-x-1 transition-transform"
                     >
                       <span>{isUrdu ? 'مزید معلومات اور تفصیلات ←' : 'Learn more →'}</span>
                     </Link>

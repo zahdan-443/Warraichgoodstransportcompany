@@ -86,8 +86,8 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicleForBo
                     <img
                       src={imgSrc}
                       alt={altText}
-                      width={640}
-                      height={360}
+                      width={560}
+                      height={312}
                       loading="lazy"
                       decoding="async"
                       className="w-full h-full object-contain card-hover-zoom"

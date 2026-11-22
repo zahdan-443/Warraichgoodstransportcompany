@@ -6,7 +6,6 @@ import { Footer } from './components/Footer';
 import { FloatingActions } from './components/FloatingActions';
 import { ScrollToTop } from './components/ScrollToTop';
 import { useScrollReveal, useScrollPause } from './hooks/useMotion';
-import { useWarmImages } from './hooks/useWarmImages';
 import { useLanguage, type Language } from './context/LanguageContext';
 import { MOTION_CONFIG } from './config/motionConfig';
 
@@ -19,37 +18,7 @@ import {
   LazyFaqPage,
   LazyAboutPage,
   LazyBiltyVerificationPage,
-  preloadAllRoutes,
 } from './routes';
-
-const SITE_WARM_IMAGE_URLS = [
-  'images/hero-highway-background.webp',
-  'images/fleet-shahzore-pickup.png',
-  'images/fleet-mazda-6-wheeler.png',
-  'images/fleet-sample-extended.png',
-  'images/fleet-bedford-heavy.png',
-  'images/cargo-agricultural-produce-grains.webp',
-  'images/cargo-textile-industrial-supplies.webp',
-  'images/cargo-industrial-machinery-supplies.webp',
-  'images/cargo-construction-materials-steel.webp',
-  'images/cargo-home-shifting-relocation.webp',
-  'images/cargo-food-processing-packaging.webp',
-  'images/cargo-heavy-machinery-steel.webp',
-  'images/safety-waterproof-tarpaulin.webp',
-  'images/workflow-motorway-corridor.webp',
-  'images/corporate-factory-dispatch.webp',
-  'images/trip-1-driver-mobile-number.webp',
-  'images/trip-2-whatsapp-live-location.webp',
-  'images/trip-3-scale-slip-signed-bilty.webp',
-  'images/why-dedicated-trucks-only.webp',
-  'images/why-computer-scale-slips.webp',
-  'images/why-waterproof-tarpaulins.webp',
-  'images/why-24-7-truck-booking.webp',
-  'images/proprietor-zahdan-nasar-warraich.png',
-  'images/app-driver-dost-preview.webp',
-  'images/field-driver-with-vehicle.jpg',
-  'images/field-loading-dispatch-bay.jpg',
-] as const;
 
 export interface SsrPagesMap {
   '/fleet': React.ComponentType;
@@ -150,8 +119,6 @@ export default function App({ ssrPages }: AppProps) {
   useScrollReveal(location.pathname);
   // Pause infinite animations while actively scrolling to eliminate frame drops
   useScrollPause(150);
-  // Warm and decode all site images & lazy route chunks once window load + hero LCP finish
-  useWarmImages(SITE_WARM_IMAGE_URLS, preloadAllRoutes);
 
   // Sync CSS-level motion config flags on root <html>
   useEffect(() => {

@@ -87,7 +87,7 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
                 <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg bg-amber-500 p-0.5 shadow-sm flex-shrink-0 flex items-center justify-center overflow-hidden">
                   <div className="w-full h-full bg-white rounded-md p-1.5 flex items-center justify-center">
                     <img 
-                      src={getAssetUrl('images/logo.png')} 
+                      src={getAssetUrl('images/logo-sm.webp')} 
                       alt="Warraich Goods Logo" 
                       width={80}
                       height={80}
@@ -109,7 +109,7 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
                       <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-950 leading-relaxed">
                         {COMPANY_INFO.nameUrdu}
                       </h3>
-                      <p className="text-xs text-slate-500 mt-1 font-urdu">
+                      <p className="text-xs text-slate-600 mt-1 font-urdu">
                         پاکستان بھر میں تیز رفتار اور محفوظ فل ٹرک لوڈ (FTL) مال برداری
                       </p>
                     </div>
@@ -118,7 +118,7 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
                       <h3 className="text-lg sm:text-xl lg:text-2xl font-black text-slate-950 uppercase tracking-tight leading-none">
                         {COMPANY_INFO.nameEnglish}
                       </h3>
-                      <p className="text-xs text-slate-500 mt-1">
+                      <p className="text-xs text-slate-600 mt-1">
                         Nationwide Full Truckload (FTL) Freight Haulage Across Pakistan
                       </p>
                     </div>
@@ -168,7 +168,7 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
                       : 'Warraich Goods Transport Company handles home shifting, office relocation, and local or inter-city freight across Pakistan. Whether you are moving household furniture or sending commercial stock to another city, we arrange the right truck quickly with careful handling, clear bilty records, and fair rates.'}
                   </p>
                 </div>
-                <div className={`mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
+                <div className={`mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-600 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                   {isUrdu ? (
                     <span><CountUp end={2008} start={1998} duration={700} /> سے خدمت میں • احتیاط سے ہینڈلنگ اور واضح بلٹی ریکارڈ</span>
                   ) : (
@@ -190,10 +190,10 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
                     <div className="w-28 h-32 sm:w-28 sm:h-36 rounded-xl p-1 bg-gradient-to-br from-amber-400 via-amber-500 to-slate-900 shadow-md flex-shrink-0">
                       <div className="w-full h-full rounded-lg overflow-hidden bg-white border border-white/70">
                         <img 
-                          src={getAssetUrl('images/proprietor-zahdan-nasar-warraich.png')} 
+                          src={getAssetUrl('images/proprietor-zahdan-nasar-warraich.webp')} 
                           alt={isUrdu ? COMPANY_INFO.proprietorUrdu : COMPANY_INFO.proprietorEnglish}
-                          width={160}
-                          height={192}
+                          width={320}
+                          height={427}
                           className="w-full h-full object-cover object-top"
                           loading="lazy"
                           decoding="async"
@@ -217,7 +217,7 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
                     </div>
                   </div>
                 </div>
-                <div className={`mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
+                <div className={`mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-600 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                   <span>{isUrdu ? 'براہِ راست ذمے داری و شفاف لین دین' : 'Direct accountability & transparent billing'}</span>
                 </div>
               </div>
@@ -250,7 +250,7 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
                   </ul>
                 </div>
 
-                <div className={`mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
+                <div className={`mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-600 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                   <span>{isUrdu ? 'قانونی کمپیوٹرائزڈ بلٹی و وزن کی پرچی' : 'Computerized bilty & verified weight slips'}</span>
                 </div>
               </div>

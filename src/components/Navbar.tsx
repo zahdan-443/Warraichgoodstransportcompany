@@ -11,6 +11,7 @@ import { COMPANY_INFO } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
 import { getAssetUrl } from '../utils/assetPath';
 import { MOTION_CONFIG } from '../config/motionConfig';
+import { preloadRouteForLocation } from '../routes';
 
 interface NavbarProps {
   onOpenBookingModal?: () => void;
@@ -130,7 +131,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header 
       id="main-navigation"
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-200 select-none border-b ${
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-colors duration-200 select-none border-b ${
         scrolled && MOTION_CONFIG.navbarScrollAndUnderline
           ? 'bg-white/95 backdrop-blur-xl border-slate-200 shadow-md'
           : 'bg-white/90 backdrop-blur-md border-slate-200/80 shadow-xs'
@@ -165,7 +166,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-amber-500 p-0.5 shadow-xs flex-shrink-0 flex items-center justify-center overflow-hidden">
               <div className="w-full h-full bg-white rounded-md p-0.5 flex items-center justify-center overflow-hidden">
                 <img
-                  src={getAssetUrl('images/logo.png')}
+                  src={getAssetUrl('images/logo-sm.webp')}
                   alt="Warraich Goods Transport Company Official Logo"
                   width={40}
                   height={40}
@@ -216,6 +217,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                     key={link.to}
                     to={link.to}
                     data-nav-active={active ? 'true' : undefined}
+                    onMouseEnter={() => void preloadRouteForLocation(link.to)}
+                    onFocus={() => void preloadRouteForLocation(link.to)}
                     className={`px-3 py-1.5 rounded-lg text-xs xl:text-sm font-semibold transition-colors ${isUrdu ? 'font-urdu' : 'font-sans'} whitespace-nowrap ${
                       active 
                         ? 'text-blue-700 bg-blue-50/80 font-bold' 
@@ -325,6 +328,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     key={link.to}
                     to={link.to}
                     onClick={handleClose}
+                    onTouchStart={() => void preloadRouteForLocation(link.to)}
                     style={MOTION_CONFIG.navbarScrollAndUnderline ? { animationDelay: `${idx * 35}ms` } : undefined}
                     className={`${MOTION_CONFIG.navbarScrollAndUnderline ? 'mobile-item-stagger ' : ''}flex items-center min-h-[44px] px-3.5 py-2.5 rounded-lg text-sm ${isUrdu ? 'font-urdu' : 'font-sans'} font-semibold transition-colors ${
                       active

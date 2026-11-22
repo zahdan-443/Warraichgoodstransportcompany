@@ -76,7 +76,7 @@ export const QuickRouteRateBar: React.FC = () => {
                   <p className={`text-xs sm:text-sm font-black text-slate-950 leading-tight ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                     {isUrdu ? 'فوری کرایہ و بکنگ' : 'Quick Route Quote'}
                   </p>
-                  <p className={`text-[11px] text-slate-500 leading-tight mt-0.5 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
+                  <p className={`text-[11px] text-slate-600 leading-tight mt-0.5 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                     {isUrdu ? 'روٹ اور گاڑی منتخب کریں' : 'Pick cities & truck type'}
                   </p>
                 </div>
@@ -174,7 +174,7 @@ export const QuickRouteRateBar: React.FC = () => {
                 toLabel={destCity ? (isUrdu ? destCity.nameUrdu : destCity.nameEnglish) : destinationId}
               />
               <div className="flex items-center justify-between sm:justify-end gap-2 px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200/90 text-[11px] flex-shrink-0">
-                <span className={`text-slate-500 font-semibold ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
+                <span className={`text-slate-600 font-semibold ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                   {isUrdu ? 'لوڈ گنجائش:' : 'Payload:'}
                 </span>
                 <AnimatedNumberRoll

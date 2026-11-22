@@ -167,9 +167,14 @@ html[lang="en"] .font-sans {
 /* 1. Scroll reveal (visible in SSR/no-JS, hidden only post-hydration below fold) */
 [data-reveal] {
   transition: opacity 0.48s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.48s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+[data-reveal][data-reveal-variant="blur-in"] {
+  transition: opacity 0.48s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.48s cubic-bezier(0.16, 1, 0.3, 1),
               filter 0.48s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: var(--reveal-delay, 0ms);
 }
 
 [data-reveal="hidden"] {
@@ -206,6 +211,9 @@ html[dir="rtl"] [data-reveal="hidden"][data-reveal-variant="slide-right"] {
 [data-reveal="visible"] {
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(1);
+}
+
+[data-reveal="visible"][data-reveal-variant="blur-in"] {
   filter: blur(0);
 }
 
@@ -252,10 +260,10 @@ html[dir="rtl"] [data-reveal="hidden"][data-reveal-variant="slide-right"] {
   animation: heroRoadScroll 1.6s linear infinite;
 }
 
-/* Small truck driving along hero bottom road line */
+/* Small truck driving along hero bottom road line (pure GPU transform across full-width container) */
 @keyframes heroTruckDrive {
-  from { transform: translate3d(-36px, 0, 0); }
-  to { transform: translate3d(calc(100vw + 36px), 0, 0); }
+  from { transform: translate3d(-32px, 0, 0); }
+  to { transform: translate3d(100%, 0, 0); }
 }
 
 .hero-truck-drive {
@@ -294,7 +302,7 @@ html.is-scrolling .bilty-shimmer::after {
 html:not(.is-scrolling) section:not(.anim-paused) .hero-ken-burns,
 html:not(.is-scrolling) section:not(.anim-paused) .hero-road-lines,
 html:not(.is-scrolling) section:not(.anim-paused) .hero-truck-drive,
-html:not(.is-scrolling) div:not(.anim-paused) > .route-track-truck,
+html:not(.is-scrolling) div:not(.anim-paused) .route-track-truck,
 html:not(.is-scrolling) div:not(.anim-paused) > .marquee-container .marquee-track {
   will-change: transform;
 }
@@ -487,17 +495,17 @@ html[dir="rtl"] .marquee-track {
 }
 
 @keyframes routeTrackTruckLtr {
-  0% { left: 0px; transform: translate3d(0, -50%, 0); opacity: 0; }
+  0% { transform: translate3d(0, -50%, 0); opacity: 0; }
   10% { opacity: 1; }
   90% { opacity: 1; }
-  100% { left: calc(100% - 20px); transform: translate3d(0, -50%, 0); opacity: 0; }
+  100% { transform: translate3d(100%, -50%, 0); opacity: 0; }
 }
 
 @keyframes routeTrackTruckRtl {
-  0% { left: calc(100% - 20px); transform: translate3d(0, -50%, 0); opacity: 0; }
+  0% { transform: translate3d(100%, -50%, 0); opacity: 0; }
   10% { opacity: 1; }
   90% { opacity: 1; }
-  100% { left: 0px; transform: translate3d(0, -50%, 0); opacity: 0; }
+  100% { transform: translate3d(0, -50%, 0); opacity: 0; }
 }
 
 .route-track-truck {

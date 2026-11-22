@@ -53,7 +53,7 @@ export const WhyUsSection: React.FC = () => {
         
         {/* Section Header */}
         <div data-reveal="" className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-          <span className="text-xs font-bold font-mono uppercase tracking-wider text-amber-600 block mb-1">
+          <span className="text-xs font-bold font-mono uppercase tracking-wider text-amber-700 block mb-1">
             {isUrdu ? 'ہماری بنیادی ضمانتیں' : 'Our Guarantees'}
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 font-urdu tracking-tight">
@@ -94,7 +94,7 @@ export const WhyUsSection: React.FC = () => {
                 {/* Balanced Contrast Gradient Scrim (keeps upper photo bright) */}
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/45 to-slate-950/5 group-hover:via-slate-950/35 transition-colors"
+                  className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/55 to-slate-950/5 group-hover:via-slate-950/45 transition-colors"
                 />
 
                 {/* Bottom Title, Description & Link */}
@@ -110,7 +110,7 @@ export const WhyUsSection: React.FC = () => {
                   <div className="pt-3 border-t border-white/20">
                     <Link
                       to={item.to}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300 font-urdu group-hover:translate-x-1 transition-transform"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-300 hover:text-amber-200 font-urdu group-hover:translate-x-1 transition-transform"
                     >
                       <span>{isUrdu ? 'مزید معلومات اور طریقہ کار ←' : 'Learn more →'}</span>
                     </Link>

@@ -290,20 +290,22 @@ export const RouteTruckTrack: React.FC<RouteTruckTrackProps> = ({
         </span>
       </div>
 
-      {/* Highway Track + Moving Truck */}
+      {/* Highway Track + Moving Truck (pure GPU transform inside width-compensated lane) */}
       <div className="relative flex-1 h-8 flex items-center overflow-x-clip overflow-y-visible min-w-[76px]" aria-hidden="true">
         <div
           className={`w-full border-b border-dashed ${
             compact ? 'border-amber-500/70' : 'border-amber-400/60'
           }`}
         />
-        <div className="route-track-truck absolute top-1/2 left-0 flex items-center justify-center w-5 h-5 text-amber-500">
-          <Truck className={`w-5 h-5 shrink-0 ${isRtl ? '-scale-x-100' : ''}`} />
+        <div dir="ltr" className="route-track-lane absolute inset-y-0 left-0 right-5 pointer-events-none">
+          <div className="route-track-truck absolute top-1/2 left-0 w-full flex items-center text-amber-600">
+            <Truck className={`w-5 h-5 shrink-0 ${isRtl ? '-scale-x-100' : ''}`} />
+          </div>
         </div>
         {badgeLabel && (
           <span
             className={`relative z-10 mx-auto px-1.5 text-[10px] font-mono font-bold rounded ${
-              compact ? 'bg-slate-50 text-slate-500' : 'bg-slate-900 text-amber-300'
+              compact ? 'bg-slate-50 text-slate-600' : 'bg-slate-900 text-amber-300'
             }`}
           >
             {badgeLabel}

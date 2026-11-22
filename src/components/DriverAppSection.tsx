@@ -52,11 +52,11 @@ export const DriverAppSection: React.FC = () => {
 
             {isUrdu ? (
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 tracking-tight leading-tight font-urdu">
-                ہماری اینڈرائیڈ ایپ <span className="text-amber-500">ڈرائیور دوست (Driver Dost)</span> ڈاؤن لوڈ کریں
+                ہماری اینڈرائیڈ ایپ <span className="text-amber-700">ڈرائیور دوست (Driver Dost)</span> ڈاؤن لوڈ کریں
               </h2>
             ) : (
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 tracking-tight leading-tight font-sans">
-                Download <span className="text-amber-500">Driver Dost</span> Android App
+                Download <span className="text-amber-700">Driver Dost</span> Android App
               </h2>
             )}
 
@@ -88,7 +88,7 @@ export const DriverAppSection: React.FC = () => {
                     <h3 className={`text-xs sm:text-sm font-bold text-slate-900 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                       {isUrdu ? feat.titleUr : feat.titleEn}
                     </h3>
-                    <p className={`text-xs text-slate-500 mt-0.5 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
+                    <p className={`text-xs text-slate-600 mt-0.5 ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
                       {isUrdu ? feat.descUr : feat.descEn}
                     </p>
                   </div>
