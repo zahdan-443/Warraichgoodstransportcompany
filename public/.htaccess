@@ -76,7 +76,7 @@
     Header set Content-Type "application/xml; charset=UTF-8"
     Header set Access-Control-Allow-Origin "*"
   </FilesMatch>
-  <FilesMatch "^(sitemap\.txt|robots\.txt)$">
+  <FilesMatch "^(sitemap\.txt|robots\.txt|llms\.txt)$">
     ForceType text/plain
     Header set Content-Type "text/plain; charset=UTF-8"
     Header set Access-Control-Allow-Origin "*"

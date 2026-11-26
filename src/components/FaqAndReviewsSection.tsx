@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { TRANSLATIONS } from '../data/translations';
+import { MAIN_FAQS } from '../data/faqData';
 import { TrustCarousel } from './MotionPrimitives';
 
 export const FaqAndReviewsSection: React.FC = () => {
@@ -15,61 +16,10 @@ export const FaqAndReviewsSection: React.FC = () => {
   const { language } = useLanguage();
   const tFaq = TRANSLATIONS[language].reviews;
 
-  const faqsUrdu = [
-    {
-      q: 'کیا وڑائچ گڈز ٹرانسپورٹ کمپنی چھوٹے پارسل یا کچا مال مکس کرتی ہے؟',
-      a: 'نہیں، ہم صرف پوری گاڑی (فل لوڈ) بک کرتے ہیں۔ پوری گاڑی صرف آپ کے مال کے لیے مخصوص ہوتی ہے اور مال مکس نہیں ہوتا۔'
-    },
-    {
-      q: 'کرایہ کا تعین کیسے ہوتا ہے؟',
-      a: 'کرایہ کا تعین شہروں کے درمیانی فاصلے، مطلوبہ گاڑی کے سائز اور سامان کی قسم کے مطابق ہوتا ہے۔ کوئی پوشیدہ چارجز نہیں ہوتے۔'
-    },
-    {
-      q: 'کیا بارش اور خراب موسم میں مال کی حفاظت کا انتظام ہوتا ہے؟',
-      a: 'جی بالکل! ہماری تمام گاڑیوں پر مضبوط واٹر پروف ترپالیں اور مضبوط رسیاں موجود ہوتی ہیں۔ بارش اور گرد و غبار سے سامان کا مکمل تحفظ یقینی بنایا جاتا ہے۔'
-    },
-    {
-      q: 'گھریلو شفٹنگ یا مال برداری کے لیے گاڑی کیسے بک کریں؟',
-      a: 'آپ کسی بھی وقت ہوم پیج کے ہیرو سیکشن یا فلوٹنگ واٹس ایپ بٹن سے رابطہ کر کے یا کرایہ و بکنگ فارم کے ذریعے اپنا روٹ اور سامان بتا کر گاڑی بک کر سکتے ہیں۔'
-    },
-    {
-      q: 'آپ کے پاس کون کون سی گاڑیاں دستیاب ہیں؟',
-      a: 'ہمارے پاس شہزور پک اپ (1 تا 3.5 ٹن)، مزدا 6 وہیلر (4 تا 10 ٹن)، سیمپل ٹرک (8 تا 16 ٹن) اور بڑے بیڈفورڈ ٹرکس دستیاب ہیں۔'
-    },
-    {
-      q: 'کیا بلٹی اور کانٹا پرچی دی جاتی ہے؟',
-      a: 'جی ہاں، ہر مال کی روانگی پر باقاعدہ کمپیوٹرائزڈ کانٹا پرچی اور تصدیق شدہ بلٹی رسید دی جاتی ہے۔'
-    }
-  ];
-
-  const faqsEnglish = [
-    {
-      q: 'Do you handle small parcels or loose packages?',
-      a: 'No, we only book full dedicated trucks. The entire vehicle is reserved for your goods, so nothing is mixed with other shipments.'
-    },
-    {
-      q: 'How are freight rates calculated?',
-      a: 'Rates depend on the travel distance between cities, the truck size you need, and your cargo type. We provide clear rates with no hidden costs.'
-    },
-    {
-      q: 'Do you protect cargo from rain and dust?',
-      a: 'Yes. All our trucks carry heavy waterproof tarpaulins and strong ropes to protect your goods in all weather conditions.'
-    },
-    {
-      q: 'How can I book a truck for house shifting or commercial delivery?',
-      a: 'Use the Call or WhatsApp buttons in our homepage hero, the floating WhatsApp button, or our Rates & Booking page anytime to share your route and load details for a quick quote.'
-    },
-    {
-      q: 'What types of trucks are in your fleet?',
-      a: 'We have Shahzore pickups (1 to 3.5 tons), Mazda 6-wheeler trucks (4 to 10 tons), Sample trucks (8 to 16 tons), and heavy Bedford haulers (15 to 28+ tons).'
-    },
-    {
-      q: 'Do you provide bilty receipts and weighbridge slips?',
-      a: 'Yes. Every shipment includes a bilty receipt with consignment details and computerized weighbridge scale slips.'
-    }
-  ];
-
-  const currentFaqs = language === 'ur' ? faqsUrdu : faqsEnglish;
+  const currentFaqs = MAIN_FAQS.map((item) => ({
+    q: language === 'ur' ? item.questionUr : item.questionEn,
+    a: language === 'ur' ? item.answerUr : item.answerEn,
+  }));
 
   return (
     <section id="faq-reviews" className="py-12 sm:py-16 md:py-20 bg-white text-slate-900 border-b border-slate-200">

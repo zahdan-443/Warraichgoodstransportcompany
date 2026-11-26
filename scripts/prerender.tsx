@@ -8,6 +8,8 @@ import App, { SsrPagesMap } from '../src/App';
 import { LanguageProvider } from '../src/context/LanguageContext';
 import { MASTER_CITIES } from '../src/data/companyData';
 import { CORRIDOR_SEO_PAGES } from '../src/data/corridorsData';
+import { MAIN_FAQS as SHARED_MAIN_FAQS } from '../src/data/faqData';
+import { buildSchemaGraph } from '../src/data/schemaBuilder';
 import { SEO_METADATA_MAP } from '../src/data/seoMetadata';
 import { FleetPage } from '../src/pages/FleetPage';
 import { ServicesPage } from '../src/pages/ServicesPage';
@@ -67,32 +69,10 @@ const IMAGE_METADATA_MAP: Record<string, { type: string; width: number; height: 
   'images/cargo-heavy-machinery-steel.webp': { type: 'image/webp', width: 600, height: 450 },
 };
 
-const MAIN_FAQS: { q: string; a: string }[] = [
-  {
-    q: 'Do you handle small parcels or loose packages?',
-    a: 'No, we only book full dedicated trucks. The entire vehicle is reserved for your goods, so nothing is mixed with other shipments.',
-  },
-  {
-    q: 'How are freight rates calculated?',
-    a: 'Rates depend on the travel distance between cities, the truck size you need, and your cargo type. We provide clear rates with no hidden costs.',
-  },
-  {
-    q: 'Do you protect cargo from rain and dust?',
-    a: 'Yes. All our trucks carry heavy waterproof tarpaulins and strong ropes to protect your goods in all weather conditions.',
-  },
-  {
-    q: 'How can I book a truck for house shifting or commercial delivery?',
-    a: 'Use the Call or WhatsApp buttons in our homepage hero, the floating WhatsApp button, or our Rates & Booking page anytime to share your route and load details for a quick quote.',
-  },
-  {
-    q: 'What types of trucks are in your fleet?',
-    a: 'We have Shahzore pickups (1 to 3.5 tons), Mazda 6-wheeler trucks (4 to 10 tons), Sample trucks (8 to 16 tons), and heavy Bedford haulers (15 to 28+ tons).',
-  },
-  {
-    q: 'Do you provide bilty receipts and weighbridge slips?',
-    a: 'Yes. Every shipment includes a bilty receipt with consignment details and computerized weighbridge scale slips.',
-  },
-];
+const MAIN_FAQS: { q: string; a: string }[] = SHARED_MAIN_FAQS.map((f) => ({
+  q: f.questionEn,
+  a: f.answerEn,
+}));
 
 const CORE_ROUTES: RouteConfig[] = [
   {
@@ -461,77 +441,17 @@ async function prerender() {
       `<meta name="twitter:image:alt" content="${escapeAttr(route.ogImageAlt)}" />`
     );
 
-    // 7. Inject Route-Specific WebPage (+ primaryImageOfPage), BreadcrumbList, and FAQPage JSON-LD
+    // 7. Inject Route-Specific Schema.org JSON-LD Graph (Organization, Person, LocalBusiness, WebSite, WebPage, BreadcrumbList, FAQPage, Fleet ItemList)
+    const schemaObj = buildSchemaGraph({
+      path: route.path,
+      language: 'en',
+      seo: clientSeo,
+      breadcrumbs: route.breadcrumbList,
+      faqs: route.faqs,
+    });
     pageHtml = pageHtml.replace(
-      /<script type="application\/ld\+json">([\s\S]*?)<\/script>/,
-      (_match, jsonContent) => {
-        const schemaObj = JSON.parse(jsonContent);
-        if (Array.isArray(schemaObj['@graph'])) {
-          schemaObj['@graph'] = schemaObj['@graph'].filter(
-            (node: any) => node['@type'] !== 'FAQPage' && node['@type'] !== 'WebPage'
-          );
-          const localBusinessNode = schemaObj['@graph'].find(
-            (node: any) =>
-              node['@type'] === 'LocalBusiness' ||
-              (Array.isArray(node['@type']) && node['@type'].includes('LocalBusiness'))
-          );
-          if (localBusinessNode) {
-            localBusinessNode.areaServed = [
-              ...MASTER_CITIES.map((city) => ({ '@type': 'City', name: city.nameEnglish })),
-              { '@type': 'Country', name: 'Pakistan' },
-            ];
-          }
-          const webPageNode = {
-            '@type': 'WebPage',
-            '@id': `${route.canonicalUrl}#webpage`,
-            url: route.canonicalUrl,
-            name: route.title,
-            description: route.description,
-            inLanguage: 'en',
-            primaryImageOfPage: {
-              '@type': 'ImageObject',
-              url: route.ogImage,
-              width: route.ogImageWidth,
-              height: route.ogImageHeight,
-              caption: route.ogImageAlt,
-            },
-            isPartOf: { '@id': `${BASE_SITE_URL}/#website` },
-            about: { '@id': `${BASE_SITE_URL}/#business` },
-          };
-          schemaObj['@graph'].push(webPageNode);
-          const breadcrumbIdx = schemaObj['@graph'].findIndex(
-            (node: any) => node['@type'] === 'BreadcrumbList'
-          );
-          const breadcrumbNode = {
-            '@type': 'BreadcrumbList',
-            itemListElement: route.breadcrumbList.map((item, idx) => ({
-              '@type': 'ListItem',
-              position: idx + 1,
-              name: item.name,
-              item: item.item,
-            })),
-          };
-          if (breadcrumbIdx >= 0) {
-            schemaObj['@graph'][breadcrumbIdx] = breadcrumbNode;
-          } else {
-            schemaObj['@graph'].push(breadcrumbNode);
-          }
-          if (route.faqs && route.faqs.length > 0) {
-            schemaObj['@graph'].push({
-              '@type': 'FAQPage',
-              mainEntity: route.faqs.map((faq) => ({
-                '@type': 'Question',
-                name: faq.q,
-                acceptedAnswer: {
-                  '@type': 'Answer',
-                  text: faq.a,
-                },
-              })),
-            });
-          }
-        }
-        return `<script type="application/ld+json">\n    ${JSON.stringify(schemaObj, null, 2)}\n    </script>`;
-      }
+      /<script(?:\s+id=["']structured-data-jsonld["'])?\s+type=["']application\/ld\+json["'](?:\s+id=["']structured-data-jsonld["'])?>([\s\S]*?)<\/script>/i,
+      `<script id="structured-data-jsonld" type="application/ld+json">\n    ${JSON.stringify(schemaObj, null, 2)}\n    </script>`
     );
 
     // 8. Fix relative paths for subfolder routes (dist/*/index.html needs ../) and omit Home-only hero preload
@@ -599,6 +519,7 @@ async function prerender() {
     '_headers',
     'CNAME',
     'robots.txt',
+    'llms.txt',
     'sitemap.txt',
     'favicon.ico',
     'favicon.png',

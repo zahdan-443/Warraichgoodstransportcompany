@@ -86,11 +86,20 @@
       />
     </noscript>
 
-    <!-- JSON-LD Structured Data: WebSite, LocalBusiness, Services, BreadcrumbList -->
-    <script type="application/ld+json">
+    <!-- JSON-LD Structured Data: WebSite, Organization, Person, LocalBusiness, WebPage, Services, BreadcrumbList -->
+    <script id="structured-data-jsonld" type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "https://warraichgoods.eu.cc/#logo",
+          "url": "https://warraichgoods.eu.cc/images/logo.png",
+          "contentUrl": "https://warraichgoods.eu.cc/images/logo.png",
+          "width": 503,
+          "height": 496,
+          "caption": "Warraich Goods Transport Company Official Logo"
+        },
         {
           "@type": "WebSite",
           "@id": "https://warraichgoods.eu.cc/#website",
@@ -102,32 +111,115 @@
             "Warraich Transport"
           ],
           "url": "https://warraichgoods.eu.cc/",
-          "publisher": { "@id": "https://warraichgoods.eu.cc/#business" },
+          "publisher": { "@id": "https://warraichgoods.eu.cc/#organization" },
+          "about": { "@id": "https://warraichgoods.eu.cc/#business" },
           "sameAs": [
             "https://www.youtube.com/@Warraichgoodstransportcompany",
             "https://www.facebook.com/Warraichgoodstransportcompany"
           ],
-          "inLanguage": ["ur", "en"]
+          "inLanguage": ["en", "ur"]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://warraichgoods.eu.cc/#person",
+          "name": "Zahdan Nasar Warraich",
+          "alternateName": "زاہدان نصر وڑائچ",
+          "jobTitle": "Proprietor & Managing Director",
+          "description": "Proprietor and Managing Director of Warraich Goods Transport Company, overseeing nationwide full-truckload freight dispatch, home shifting, and commercial cargo operations from Samundri, Faisalabad since 2008.",
+          "url": "https://warraichgoods.eu.cc/about/",
+          "image": {
+            "@type": "ImageObject",
+            "url": "https://warraichgoods.eu.cc/images/proprietor-zahdan-nasar-warraich.webp",
+            "width": 320,
+            "height": 427,
+            "caption": "Zahdan Nasar Warraich - Proprietor & Managing Director"
+          },
+          "telephone": "+92-300-5370443",
+          "email": "warraichgoods43@gmail.com",
+          "worksFor": { "@id": "https://warraichgoods.eu.cc/#organization" },
+          "affiliation": { "@id": "https://warraichgoods.eu.cc/#business" },
+          "nationality": { "@type": "Country", "name": "Pakistan" },
+          "workLocation": {
+            "@type": "Place",
+            "name": "Okara Bypass, Near 466 Chowk, Samundri, District Faisalabad, Punjab, Pakistan"
+          },
+          "knowsLanguage": ["Urdu", "Punjabi", "English"],
+          "sameAs": [
+            "https://www.youtube.com/@Warraichgoodstransportcompany",
+            "https://www.facebook.com/Warraichgoodstransportcompany"
+          ]
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://warraichgoods.eu.cc/#organization",
+          "name": "Warraich Goods Transport Company",
+          "legalName": "Warraich Goods Transport Company",
+          "alternateName": [
+            "وڑائچ گڈز ٹرانسپورٹ کمپنی",
+            "Warraich Goods",
+            "Warraich Goods Transport",
+            "Warraich Transport"
+          ],
+          "url": "https://warraichgoods.eu.cc/",
+          "logo": { "@id": "https://warraichgoods.eu.cc/#logo" },
+          "image": [
+            { "@id": "https://warraichgoods.eu.cc/#logo" },
+            "https://warraichgoods.eu.cc/images/proprietor-zahdan-nasar-warraich.webp",
+            "https://warraichgoods.eu.cc/images/corporate-factory-dispatch.webp"
+          ],
+          "description": "Registered Pakistani commercial goods carrier and household shifting company operating nationwide full-truckload (FTL) freight dispatch from Samundri, District Faisalabad since 2008.",
+          "foundingDate": "2008",
+          "foundingLocation": {
+            "@type": "Place",
+            "name": "Samundri, District Faisalabad, Punjab, Pakistan"
+          },
+          "founder": { "@id": "https://warraichgoods.eu.cc/#person" },
+          "taxID": "7779394-1",
+          "telephone": "+92-300-5370443",
+          "email": "warraichgoods43@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Okara Bypass, Near 466 Chowk",
+            "addressLocality": "Samundri",
+            "addressRegion": "Punjab",
+            "addressCountry": "PK"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+92-300-5370443",
+            "url": "https://wa.me/923005370443",
+            "email": "warraichgoods43@gmail.com",
+            "contactType": "customer service",
+            "areaServed": "PK",
+            "availableLanguage": ["Urdu", "Punjabi", "English"]
+          },
+          "knowsAbout": [
+            "Full Truckload (FTL) Freight Transport",
+            "Home Shifting & Household Furniture Relocation",
+            "Office Relocation",
+            "Agricultural & Mandi Grain Transport",
+            "Textile & Industrial Mill Cargo",
+            "Computerized Weighbridge & Bilty Documentation"
+          ],
+          "sameAs": [
+            "https://www.youtube.com/@Warraichgoodstransportcompany",
+            "https://www.facebook.com/Warraichgoodstransportcompany",
+            "https://www.google.com/maps/search/?api=1&query=Warraich+Goods+Transport+Company+Okara+Bypass+Near+466+Chowk+Samundri"
+          ]
         },
         {
           "@type": ["LocalBusiness", "MovingCompany"],
           "@id": "https://warraichgoods.eu.cc/#business",
+          "additionalType": "https://en.wikipedia.org/wiki/Freight_transport",
           "name": "Warraich Goods Transport Company",
           "alternateName": [
             "Warraich Goods",
             "وڑائچ گڈز ٹرانسپورٹ کمپنی",
             "Warraich Goods Transport Samundri"
           ],
+          "disambiguatingDescription": "Commercial Goods Transport, Full Truckload (FTL) Freight, Home Shifting & Office Relocation Company",
           "url": "https://warraichgoods.eu.cc/",
-          "logo": {
-            "@type": "ImageObject",
-            "@id": "https://warraichgoods.eu.cc/#logo",
-            "url": "https://warraichgoods.eu.cc/images/logo.png",
-            "contentUrl": "https://warraichgoods.eu.cc/images/logo.png",
-            "width": 503,
-            "height": 496,
-            "caption": "Warraich Goods Transport Company Official Logo"
-          },
+          "logo": { "@id": "https://warraichgoods.eu.cc/#logo" },
           "image": [
             { "@id": "https://warraichgoods.eu.cc/#logo" },
             "https://warraichgoods.eu.cc/images/proprietor-zahdan-nasar-warraich.webp",
@@ -138,8 +230,12 @@
           ],
           "sameAs": [
             "https://www.youtube.com/@Warraichgoodstransportcompany",
-            "https://www.facebook.com/Warraichgoodstransportcompany"
+            "https://www.facebook.com/Warraichgoodstransportcompany",
+            "https://www.google.com/maps/search/?api=1&query=Warraich+Goods+Transport+Company+Okara+Bypass+Near+466+Chowk+Samundri"
           ],
+          "parentOrganization": { "@id": "https://warraichgoods.eu.cc/#organization" },
+          "founder": { "@id": "https://warraichgoods.eu.cc/#person" },
+          "employee": { "@id": "https://warraichgoods.eu.cc/#person" },
           "description": "Warraich Goods Transport Company provides home shifting, office relocation, and inter-city goods transport across Pakistan, serving since 2008. Office at Okara Bypass, Near 466 Chowk, Samundri, District Faisalabad.",
           "address": {
             "@type": "PostalAddress",
@@ -154,18 +250,12 @@
             "longitude": 72.9522
           },
           "hasMap": "https://www.google.com/maps/search/?api=1&query=Warraich+Goods+Transport+Company+Okara+Bypass+Near+466+Chowk+Samundri",
-          "founder": {
-            "@type": "Person",
-            "name": "Zahdan Nasar Warraich",
-            "alternateName": "زاہدان نصر وڑائچ",
-            "jobTitle": "Proprietor & Managing Director",
-            "telephone": "+92-300-5370443"
-          },
           "telephone": "+92-300-5370443",
           "contactPoint": {
             "@type": "ContactPoint",
             "telephone": "+92-300-5370443",
             "url": "https://wa.me/923005370443",
+            "email": "warraichgoods43@gmail.com",
             "contactType": "customer service",
             "areaServed": "PK",
             "availableLanguage": ["Urdu", "Punjabi", "English"]
@@ -190,6 +280,25 @@
               ],
               "opens": "00:00",
               "closes": "23:59"
+            }
+          ],
+          "potentialAction": [
+            {
+              "@type": "ReserveAction",
+              "name": "Book a Truck or Request Freight Quote",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://warraichgoods.eu.cc/booking/",
+                "actionPlatform": [
+                  "http://schema.org/DesktopWebPlatform",
+                  "http://schema.org/MobileWebPlatform"
+                ]
+              }
+            },
+            {
+              "@type": "ReviewAction",
+              "name": "Leave a Verified Google Review",
+              "target": "https://g.page/r/CY6xd_P6BqIYEAI/review"
             }
           ],
           "areaServed": [
@@ -247,8 +356,10 @@
                 "itemOffered": {
                   "@type": "Service",
                   "name": "Shahzore Pickup Transport",
+                  "serviceType": "Commercial Goods Transport & Light Freight",
                   "description": "Dedicated 1 to 3.5 ton Shahzore pickups for local and inter-city goods transport.",
-                  "provider": { "@id": "https://warraichgoods.eu.cc/#business" }
+                  "provider": { "@id": "https://warraichgoods.eu.cc/#business" },
+                  "areaServed": "Pakistan"
                 }
               },
               {
@@ -256,8 +367,10 @@
                 "itemOffered": {
                   "@type": "Service",
                   "name": "Mazda 6-Wheeler Truck Transport",
+                  "serviceType": "Full Truckload (FTL) Freight Transport",
                   "description": "4 to 10 ton Mazda 6-wheeler trucks for factory materials, grains, and commercial cargo.",
-                  "provider": { "@id": "https://warraichgoods.eu.cc/#business" }
+                  "provider": { "@id": "https://warraichgoods.eu.cc/#business" },
+                  "areaServed": "Pakistan"
                 }
               },
               {
@@ -265,8 +378,10 @@
                 "itemOffered": {
                   "@type": "Service",
                   "name": "Sample Extended Truck Transport",
+                  "serviceType": "High-Volume Commercial Goods Transport",
                   "description": "8 to 16 ton Sample extended trucks for high-volume freight across Pakistan.",
-                  "provider": { "@id": "https://warraichgoods.eu.cc/#business" }
+                  "provider": { "@id": "https://warraichgoods.eu.cc/#business" },
+                  "areaServed": "Pakistan"
                 }
               },
               {
@@ -274,8 +389,10 @@
                 "itemOffered": {
                   "@type": "Service",
                   "name": "Bedford Heavy Truck Transport",
+                  "serviceType": "Heavy Haulage & Long-Distance Freight Transport",
                   "description": "15 to 28+ ton Bedford heavy haulers for industrial machinery, steel, and long-distance cargo.",
-                  "provider": { "@id": "https://warraichgoods.eu.cc/#business" }
+                  "provider": { "@id": "https://warraichgoods.eu.cc/#business" },
+                  "areaServed": "Pakistan"
                 }
               },
               {
@@ -283,8 +400,10 @@
                 "itemOffered": {
                   "@type": "Service",
                   "name": "Home Shifting",
+                  "serviceType": "Household Moving & Shifting",
                   "description": "Dedicated trucks for local and inter-city household furniture and goods shifting across Pakistan.",
-                  "provider": { "@id": "https://warraichgoods.eu.cc/#business" }
+                  "provider": { "@id": "https://warraichgoods.eu.cc/#business" },
+                  "areaServed": "Pakistan"
                 }
               },
               {
@@ -292,15 +411,35 @@
                 "itemOffered": {
                   "@type": "Service",
                   "name": "Office Relocation",
+                  "serviceType": "Commercial Office Moving",
                   "description": "Dedicated vehicles for office equipment, furniture, and file relocation anywhere in Pakistan.",
-                  "provider": { "@id": "https://warraichgoods.eu.cc/#business" }
+                  "provider": { "@id": "https://warraichgoods.eu.cc/#business" },
+                  "areaServed": "Pakistan"
                 }
               }
             ]
           }
         },
         {
+          "@type": "WebPage",
+          "@id": "https://warraichgoods.eu.cc/#webpage",
+          "url": "https://warraichgoods.eu.cc/",
+          "name": "Warraich Goods | Samundri & Faisalabad Truck Transport",
+          "description": "Reliable Goods Transport Company in Samundri & Faisalabad. Book Shahzore, Mazda, Sample & Bedford trucks across Pakistan. Call 0300-5370443.",
+          "inLanguage": "en",
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://warraichgoods.eu.cc/images/logo.png",
+            "width": 503,
+            "height": 496,
+            "caption": "Warraich Goods Transport Company Official Logo"
+          },
+          "isPartOf": { "@id": "https://warraichgoods.eu.cc/#website" },
+          "about": { "@id": "https://warraichgoods.eu.cc/#business" }
+        },
+        {
           "@type": "BreadcrumbList",
+          "@id": "https://warraichgoods.eu.cc/#breadcrumb",
           "itemListElement": [
             {
               "@type": "ListItem",
@@ -329,12 +468,18 @@
             {
               "@type": "ListItem",
               "position": 5,
+              "name": "Service Areas",
+              "item": "https://warraichgoods.eu.cc/service-areas/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 6,
               "name": "FAQs",
               "item": "https://warraichgoods.eu.cc/faq/"
             },
             {
               "@type": "ListItem",
-              "position": 6,
+              "position": 7,
               "name": "About Us",
               "item": "https://warraichgoods.eu.cc/about/"
             }

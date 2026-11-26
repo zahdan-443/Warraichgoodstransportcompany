@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { TRANSLATIONS } from '../data/translations';
 import { MOTION_CONFIG } from '../config/motionConfig';
 import { SEO_METADATA_MAP, RouteSeoEntry } from '../data/seoMetadata';
+import { buildSchemaGraph } from '../data/schemaBuilder';
 
 export type Language = 'ur' | 'en';
 
@@ -49,17 +50,20 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
 
   const isRtl = language === 'ur';
 
+  const getNormalizedPath = (): string =>
+    location.pathname
+      .replace(/^\/Warraichgoodstransportcompany/i, '')
+      .replace(/\/+$/, '') || '/';
+
   const getRouteSeoMeta = (): RouteSeoEntry => {
-    const normalized =
-      location.pathname
-        .replace(/^\/Warraichgoodstransportcompany/i, '')
-        .replace(/\/+$/, '') || '/';
+    const normalized = getNormalizedPath();
     return SEO_METADATA_MAP[normalized] || SEO_METADATA_MAP['/'];
   };
 
   const applyHeadMetadata = (targetLang: Language) => {
     if (typeof window === 'undefined') return;
-    const seo = getRouteSeoMeta();
+    const normalizedPath = getNormalizedPath();
+    const seo = SEO_METADATA_MAP[normalizedPath] || SEO_METADATA_MAP['/'];
     const title = targetLang === 'en' ? seo.titleEn : seo.titleUr;
     const description = targetLang === 'en' ? seo.descriptionEn : seo.descriptionUr;
 
@@ -90,6 +94,18 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
     setMeta('meta[name="twitter:url"]', 'content', seo.canonicalUrl);
     setMeta('meta[name="twitter:image"]', 'content', seo.ogImage);
     setMeta('meta[name="twitter:image:alt"]', 'content', seo.ogImageAlt);
+
+    const schemaScript =
+      document.getElementById('structured-data-jsonld') ||
+      document.querySelector('script[type="application/ld+json"]');
+    if (schemaScript) {
+      const schemaGraph = buildSchemaGraph({
+        path: normalizedPath,
+        language: targetLang,
+        seo,
+      });
+      schemaScript.textContent = JSON.stringify(schemaGraph, null, 2);
+    }
   };
 
   const setLanguage = (newLang: Language) => {
