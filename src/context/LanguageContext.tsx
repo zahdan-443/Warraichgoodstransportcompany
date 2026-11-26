@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 import { useLocation } from 'react-router-dom';
 import { TRANSLATIONS } from '../data/translations';
 import { MOTION_CONFIG } from '../config/motionConfig';
+import { SEO_METADATA_MAP, RouteSeoEntry } from '../data/seoMetadata';
 
 export type Language = 'ur' | 'en';
 
@@ -13,57 +14,6 @@ interface LanguageContextType {
   translations: typeof TRANSLATIONS;
   t: typeof TRANSLATIONS['en'];
 }
-
-interface RouteSeoMeta {
-  title: string;
-  description: string;
-  canonical: string;
-}
-
-const BASE_SITE_URL = 'https://warraichgoods.eu.cc';
-
-const ROUTE_SEO_MAP: Record<string, RouteSeoMeta> = {
-  '/': {
-    title: 'Warraich Goods | Transport & Shifting',
-    description: 'Home shifting, office relocation and goods transport from Samundri across Pakistan and from anywhere in Pakistan to Samundri. Call 0300-5370443 for truck booking.',
-    canonical: `${BASE_SITE_URL}/`,
-  },
-  '/fleet': {
-    title: 'Mazda, Shahzore & Bedford Truck Booking | Warraich Goods',
-    description: 'Shahzore pickups, Mazda trucks, and heavy haulers for home shifting and commercial transport across Pakistan. Call 0300-5370443.',
-    canonical: `${BASE_SITE_URL}/fleet/`,
-  },
-  '/services': {
-    title: 'Goods Transport & Shifting Services | Warraich Goods',
-    description: 'Dedicated truck transport, home shifting, and office moving services from Samundri to all cities in Pakistan. NTN 7779394-1.',
-    canonical: `${BASE_SITE_URL}/services/`,
-  },
-  '/booking': {
-    title: 'Truck Booking & Rate Inquiry | Warraich Goods',
-    description: 'Get freight rates and book a truck for home shifting or goods delivery across Pakistan via WhatsApp or phone at 0300-5370443.',
-    canonical: `${BASE_SITE_URL}/booking/`,
-  },
-  '/service-areas': {
-    title: 'Service Areas Across Pakistan | Warraich Goods',
-    description: 'Warraich Goods books trucks from Samundri, District Faisalabad to cities across Punjab and Pakistan, plus backhaul loads to Samundri.',
-    canonical: `${BASE_SITE_URL}/service-areas/`,
-  },
-  '/faq': {
-    title: 'Frequently Asked Questions | Warraich Goods',
-    description: 'Answers to common questions about truck booking, freight charges, bilty receipts, and goods transport across Pakistan.',
-    canonical: `${BASE_SITE_URL}/faq/`,
-  },
-  '/about': {
-    title: 'About Us & Contact Details | Warraich Goods',
-    description: 'Warraich Goods Transport Company is a local transport business based in Samundri, Faisalabad, serving routes across Pakistan since 2008.',
-    canonical: `${BASE_SITE_URL}/about/`,
-  },
-  '/verify': {
-    title: 'Bilty Verification | Warraich Goods',
-    description: 'Verify your official bilty receipt and consignment details online with Warraich Goods Transport Company. Phone: 0300-5370443.',
-    canonical: `${BASE_SITE_URL}/verify/`,
-  },
-};
 
 const LANG_STORAGE_KEY = 'warraich_goods_lang_v2';
 const LEGACY_LANG_STORAGE_KEY = 'warraich_goods_lang';
@@ -99,20 +49,19 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
 
   const isRtl = language === 'ur';
 
-  const getRouteSeoMeta = (): RouteSeoMeta => {
-    const normalized = location.pathname
-      .replace(/^\/Warraichgoodstransportcompany/i, '')
-      .replace(/\/+$/, '') || '/';
-    return ROUTE_SEO_MAP[normalized] || ROUTE_SEO_MAP['/'];
+  const getRouteSeoMeta = (): RouteSeoEntry => {
+    const normalized =
+      location.pathname
+        .replace(/^\/Warraichgoodstransportcompany/i, '')
+        .replace(/\/+$/, '') || '/';
+    return SEO_METADATA_MAP[normalized] || SEO_METADATA_MAP['/'];
   };
 
   const applyHeadMetadata = (targetLang: Language) => {
     if (typeof window === 'undefined') return;
     const seo = getRouteSeoMeta();
-    const title = targetLang === 'en' ? seo.title : 'وڑائچ گڈز ٹرانسپورٹ کمپنی | Warraich Goods';
-    const description = targetLang === 'en'
-      ? seo.description
-      : 'ہم پورے پاکستان کے لیے محفوظ اور بروقت مال برداری اور شفٹنگ کی خدمات فراہم کرتے ہیں۔ مناسب ریٹ اور بہترین سروس ہماری پہچان ہے۔ فون: 0300-5370443';
+    const title = targetLang === 'en' ? seo.titleEn : seo.titleUr;
+    const description = targetLang === 'en' ? seo.descriptionEn : seo.descriptionUr;
 
     document.documentElement.lang = targetLang;
     document.documentElement.dir = targetLang === 'ur' ? 'rtl' : 'ltr';
@@ -124,14 +73,23 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
     };
 
     setMeta('meta[name="description"]', 'content', description);
-    setMeta('link[rel="canonical"]', 'href', seo.canonical);
-    setMeta('link[rel="alternate"][hreflang="en"]', 'href', seo.canonical);
+    setMeta('link[rel="canonical"]', 'href', seo.canonicalUrl);
+    setMeta('link[rel="alternate"][hreflang="en"]', 'href', seo.canonicalUrl);
+    setMeta('link[rel="alternate"][hreflang="x-default"]', 'href', seo.canonicalUrl);
     setMeta('meta[property="og:title"]', 'content', title);
     setMeta('meta[property="og:description"]', 'content', description);
-    setMeta('meta[property="og:url"]', 'content', seo.canonical);
+    setMeta('meta[property="og:url"]', 'content', seo.canonicalUrl);
+    setMeta('meta[property="og:image"]', 'content', seo.ogImage);
+    setMeta('meta[property="og:image:secure_url"]', 'content', seo.ogImage);
+    setMeta('meta[property="og:image:type"]', 'content', seo.ogImageType);
+    setMeta('meta[property="og:image:width"]', 'content', String(seo.ogImageWidth));
+    setMeta('meta[property="og:image:height"]', 'content', String(seo.ogImageHeight));
+    setMeta('meta[property="og:image:alt"]', 'content', seo.ogImageAlt);
     setMeta('meta[name="twitter:title"]', 'content', title);
     setMeta('meta[name="twitter:description"]', 'content', description);
-    setMeta('meta[name="twitter:url"]', 'content', seo.canonical);
+    setMeta('meta[name="twitter:url"]', 'content', seo.canonicalUrl);
+    setMeta('meta[name="twitter:image"]', 'content', seo.ogImage);
+    setMeta('meta[name="twitter:image:alt"]', 'content', seo.ogImageAlt);
   };
 
   const setLanguage = (newLang: Language) => {
@@ -183,7 +141,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
     toggleLanguage,
     isRtl,
     translations: TRANSLATIONS,
-    t: TRANSLATIONS[language]
+    t: TRANSLATIONS[language],
   };
 
   return (
@@ -202,9 +160,8 @@ export const useLanguage = (): LanguageContextType => {
       toggleLanguage: () => {},
       isRtl: false,
       translations: TRANSLATIONS,
-      t: TRANSLATIONS['en']
+      t: TRANSLATIONS['en'],
     };
   }
   return context;
 };
-

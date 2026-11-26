@@ -8,6 +8,7 @@ import App, { SsrPagesMap } from '../src/App';
 import { LanguageProvider } from '../src/context/LanguageContext';
 import { MASTER_CITIES } from '../src/data/companyData';
 import { CORRIDOR_SEO_PAGES } from '../src/data/corridorsData';
+import { SEO_METADATA_MAP } from '../src/data/seoMetadata';
 import { FleetPage } from '../src/pages/FleetPage';
 import { ServicesPage } from '../src/pages/ServicesPage';
 import { BookingPage } from '../src/pages/BookingPage';
@@ -106,8 +107,8 @@ const CORE_ROUTES: RouteConfig[] = [
       'Reliable Goods Transport Company in Samundri & Faisalabad. Book Shahzore, Mazda, Sample & Bedford trucks across Pakistan. Call 0300-5370443.',
     ogImage: `${BASE_SITE_URL}/images/logo.png`,
     ogImageType: 'image/png',
-    ogImageWidth: 512,
-    ogImageHeight: 512,
+    ogImageWidth: 503,
+    ogImageHeight: 496,
     ogImageAlt: 'Warraich Goods Transport Company Official Logo',
     breadcrumbList: [
       { name: 'Home', item: `${BASE_SITE_URL}/` },
@@ -330,10 +331,21 @@ async function prerender() {
 
   console.log('🚀 Starting multi-page static pre-rendering for Warraich Goods Transport Company...');
 
+  const seenTitles = new Set<string>();
   for (const route of ROUTES) {
     if (route.title.length > 60) {
       throw new Error(
         `Route ${route.path} title exceeds 60 chars (${route.title.length}): "${route.title}"`
+      );
+    }
+    if (seenTitles.has(route.title)) {
+      throw new Error(`Duplicate route title detected: "${route.title}"`);
+    }
+    seenTitles.add(route.title);
+    const clientSeo = SEO_METADATA_MAP[route.path];
+    if (!clientSeo || clientSeo.titleEn !== route.title) {
+      throw new Error(
+        `Client SEO_METADATA_MAP mismatch for ${route.path}: client="${clientSeo?.titleEn}" vs ssr="${route.title}"`
       );
     }
     const isSubfolder = route.path !== '/';
@@ -459,7 +471,9 @@ async function prerender() {
             (node: any) => node['@type'] !== 'FAQPage' && node['@type'] !== 'WebPage'
           );
           const localBusinessNode = schemaObj['@graph'].find(
-            (node: any) => node['@type'] === 'LocalBusiness'
+            (node: any) =>
+              node['@type'] === 'LocalBusiness' ||
+              (Array.isArray(node['@type']) && node['@type'].includes('LocalBusiness'))
           );
           if (localBusinessNode) {
             localBusinessNode.areaServed = [
@@ -601,11 +615,16 @@ async function prerender() {
     }
   }
 
-  // Copy single canonical root sitemap.xml directly to dist/sitemap.xml
+  // Copy single canonical root sitemap.xml and BingSiteAuth.xml directly to dist/
   const rootSitemapSrc = path.resolve(__dirname, '../sitemap.xml');
   if (fs.existsSync(rootSitemapSrc)) {
     fs.copyFileSync(rootSitemapSrc, path.join(distDir, 'sitemap.xml'));
     console.log('   - Synced root sitemap.xml to dist/sitemap.xml');
+  }
+  const rootBingAuthSrc = path.resolve(__dirname, '../BingSiteAuth.xml');
+  if (fs.existsSync(rootBingAuthSrc)) {
+    fs.copyFileSync(rootBingAuthSrc, path.join(distDir, 'BingSiteAuth.xml'));
+    console.log('   - Synced root BingSiteAuth.xml to dist/BingSiteAuth.xml');
   }
 
   console.log(`🎉 All ${ROUTES.length} routes successfully prerendered into distinct static HTML pages!`);

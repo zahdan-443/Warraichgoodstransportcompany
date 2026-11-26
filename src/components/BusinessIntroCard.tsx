@@ -89,7 +89,7 @@ export const BusinessIntroCard: React.FC<BusinessIntroCardProps> = ({ headingAs 
                 <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg bg-amber-500 p-0.5 shadow-sm flex-shrink-0 flex items-center justify-center overflow-hidden">
                   <div className="w-full h-full bg-white rounded-md p-1.5 flex items-center justify-center">
                     <img 
-                      src={getAssetUrl('images/logo-sm.webp')} 
+                      src={getAssetUrl('images/logo-nav.webp')} 
                       alt="Warraich Goods Logo" 
                       width={80}
                       height={80}

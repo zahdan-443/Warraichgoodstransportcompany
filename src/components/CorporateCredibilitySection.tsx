@@ -50,7 +50,7 @@ export const GROUND_OPERATIONS_PHOTOS = [
   },
   {
     id: 'driver-vehicle',
-    imageSrc: './images/field-driver-with-vehicle.jpg',
+    imageSrc: './images/field-driver-with-vehicle.webp',
     badgeUrdu: 'ڈرائیور مع گاڑی',
     badgeEn: 'Driver with Vehicle',
     titleUrdu: 'کمرشل روڈ کیپٹن مع گاڑی',
@@ -65,7 +65,7 @@ export const GROUND_OPERATIONS_PHOTOS = [
   },
   {
     id: 'loading-dispatch',
-    imageSrc: './images/field-loading-dispatch-bay.jpg',
+    imageSrc: './images/field-loading-dispatch-bay.webp',
     badgeUrdu: 'لوڈنگ و ڈسپیچ پوائنٹ',
     badgeEn: 'Loading & Dispatch Point',
     titleUrdu: 'فیکٹری و گودام لوڈنگ اور ڈسپیچ پوائنٹ',

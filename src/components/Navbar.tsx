@@ -166,7 +166,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-amber-500 p-0.5 shadow-xs flex-shrink-0 flex items-center justify-center overflow-hidden">
               <div className="w-full h-full bg-white rounded-md p-0.5 flex items-center justify-center overflow-hidden">
                 <img
-                  src={getAssetUrl('images/logo-sm.webp')}
+                  src={getAssetUrl('images/logo-nav.webp')}
                   alt="Warraich Goods Transport Company Official Logo"
                   width={40}
                   height={40}
