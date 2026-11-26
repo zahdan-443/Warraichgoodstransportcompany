@@ -58,7 +58,7 @@ export const CargoCategoriesPreview: React.FC = () => {
             {isUrdu ? 'کارگو کی اقسام' : 'Cargo Specializations'}
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 font-urdu tracking-tight">
-            {isUrdu ? 'ہر شعبے کے مال کی محفوظ لوڈنگ' : 'Commercial Cargo We Haul Daily'}
+            {isUrdu ? 'ہر شعبے کے مال کی محفوظ لوڈنگ' : 'Industrial & Agricultural Cargo We Haul Daily'}
           </h2>
           <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-600 font-urdu max-w-2xl mx-auto">
             {isUrdu

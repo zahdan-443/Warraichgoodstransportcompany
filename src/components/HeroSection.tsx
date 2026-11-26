@@ -73,11 +73,11 @@ export const HeroSection: React.FC = () => {
           <div className="hero-stagger-1">
             {isUrdu ? (
               <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto font-urdu">
-                پورے پاکستان کے لیے بااعتماد <span className="text-amber-400">مال برداری و شفٹنگ</span> سروس
+                سمندری، فیصل آباد اور پورے پاکستان میں بااعتماد <span className="text-amber-400">مال برداری و شفٹنگ</span>
               </h1>
             ) : (
               <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto font-sans">
-                Reliable <span className="text-amber-400">Goods Transport</span> & Shifting Across Pakistan
+                Trusted <span className="text-amber-400">Goods Transport</span> in Samundri, Faisalabad &amp; All Pakistan
               </h1>
             )}
           </div>
@@ -85,7 +85,7 @@ export const HeroSection: React.FC = () => {
           {/* Tagline Subtitle */}
           <div className="hero-stagger-2">
             <p className={`text-base sm:text-xl font-bold text-slate-200 leading-relaxed max-w-3xl mx-auto ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
-              {isUrdu ? COMPANY_INFO.taglineUrdu : 'Home shifting, office moving and goods transport from Samundri across Pakistan. Serving since 2008.'}
+              {isUrdu ? COMPANY_INFO.taglineUrdu : 'Full truckload shifting & commercial cargo from Okara Bypass, Near 466 Chowk, Samundri. Serving since 2008.'}
             </p>
           </div>
 
@@ -94,7 +94,7 @@ export const HeroSection: React.FC = () => {
             <p className={`text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed max-w-3xl mx-auto ${isUrdu ? 'font-urdu' : 'font-sans'}`}>
               {isUrdu
                 ? 'گھریلو سامان شفٹنگ، دفتری منتقلی اور کمرشل مال برداری کے لیے مزدا ٹرک، شہزور پک اپ اور ہیوی ٹرکس کی 24/7 تیز رفتار بکنگ۔ محفوظ ہینڈلنگ، کمپیوٹرائزڈ بلٹی اور مناسب ترین ریٹ۔'
-                : 'We provide Shahzore pickups, Mazda trucks, and heavy haulers for full truckload trips anywhere in Pakistan. Careful handling, clear bilty receipts, and fair rates.'}
+                : 'Dedicated Shahzore pickups, Mazda 6-wheelers, Sample trucks, and Bedford haulers booked strictly for your load. Fair upfront rates, computer scale slips, and written bilty.'}
             </p>
           </div>
 

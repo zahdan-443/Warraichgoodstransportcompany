@@ -43,12 +43,12 @@ export const FleetCardsSection: React.FC = () => {
             {isUrdu ? 'کمرشل ٹرک فلیٹ' : 'Commercial Fleet Types'}
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 font-urdu tracking-tight">
-            {isUrdu ? 'ہماری 4 بنیادی کمرشل فلیٹ گاڑیاں' : 'Our 4 Core Truck Types'}
+            {isUrdu ? 'سمندری و فیصل آباد میں ہماری 4 کمرشل فلیٹ گاڑیاں' : 'Our 4 Dedicated Trucks in Samundri & Faisalabad'}
           </h2>
           <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-600 font-urdu max-w-2xl mx-auto">
             {isUrdu
               ? 'شہزور سے لے کر بیڈفورڈ تک ہر قسم کے صنعتی، زرعی اور کمرشل کارگو کے لیے مکمل مخصوص گاڑیاں۔'
-              : 'From 1-ton Shahzore pickups to 28-ton Bedford trucks — every vehicle is booked strictly for your load alone.'}
+              : 'From 1-ton Shahzore pickups to 28-ton Bedford haulers — every truck is booked strictly for your load across Pakistan.'}
           </p>
         </div>
 

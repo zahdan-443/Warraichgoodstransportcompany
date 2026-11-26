@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, ArrowRight, Clock } from 'lucide-react';
 import { MASTER_CITIES, ServiceAreaRegion } from '../data/companyData';
+import { CORRIDOR_SEO_PAGES } from '../data/corridorsData';
 import { useLanguage } from '../context/LanguageContext';
 import { CountUp } from '../components/MotionPrimitives';
 
@@ -217,6 +218,62 @@ export const ServiceAreasPage: React.FC = () => {
                     <ArrowRight className={`btn-arrow-icon w-3.5 h-3.5 ${isUrdu ? 'rotate-180' : ''}`} />
                   </Link>
                 </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Dedicated City, Backhaul & FTL Guide Pages */}
+      <section className="pb-10 sm:pb-12">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div
+            data-reveal=""
+            className="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm"
+          >
+            <div className="pb-4 mb-5 border-b border-slate-100">
+              <span className="text-[11px] font-bold font-mono uppercase tracking-wider text-blue-700 block">
+                {isUrdu ? 'مکمل کوریڈور گائیڈز' : 'Dedicated Corridor Guides'}
+              </span>
+              <h2
+                className={`text-xl sm:text-2xl font-black text-slate-950 mt-0.5 ${
+                  isUrdu ? 'font-urdu' : 'font-sans'
+                }`}
+              >
+                {isUrdu
+                  ? 'شہروں کے خصوصی ٹرانسپورٹ اور واپسی لوڈ صفحات'
+                  : 'Dedicated City & Backhaul Transport Pages'}
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+              {CORRIDOR_SEO_PAGES.map((page) => (
+                <Link
+                  key={page.slug}
+                  to={page.path}
+                  className="bg-slate-50 hover:bg-amber-50/50 border border-slate-200 hover:border-amber-400 rounded-xl p-4 flex flex-col justify-between gap-2 transition-colors card-interactive group"
+                >
+                  <div>
+                    <span className="text-[11px] font-mono font-bold text-amber-700 block">
+                      {isUrdu ? page.transitUr : page.transitEn}
+                    </span>
+                    <h3
+                      className={`text-sm font-black text-slate-950 mt-1 group-hover:text-amber-700 ${
+                        isUrdu ? 'font-urdu' : 'font-sans'
+                      }`}
+                    >
+                      {isUrdu ? page.titleUr : page.titleEn}
+                    </h3>
+                  </div>
+                  <span
+                    className={`inline-flex items-center gap-1 text-xs font-bold text-blue-700 ${
+                      isUrdu ? 'font-urdu' : 'font-sans'
+                    }`}
+                  >
+                    <span>{isUrdu ? 'تفصیل دیکھیں' : 'View Route Guide'}</span>
+                    <ArrowRight className={`w-3.5 h-3.5 ${isUrdu ? 'rotate-180' : ''}`} />
+                  </span>
+                </Link>
               ))}
             </div>
           </div>

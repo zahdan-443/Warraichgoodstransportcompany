@@ -57,7 +57,7 @@ export const WhyUsSection: React.FC = () => {
             {isUrdu ? 'ہماری بنیادی ضمانتیں' : 'Our Guarantees'}
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 font-urdu tracking-tight">
-            {isUrdu ? 'کارپوریٹ سطح کا اعتماد اور شفافیت' : 'Why Customers Choose Warraich Goods'}
+            {isUrdu ? 'کارپوریٹ سطح کا اعتماد اور شفافیت' : 'Why Traders & Families Across Pakistan Choose Warraich Goods'}
           </h2>
           <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-600 font-urdu max-w-2xl mx-auto">
             {isUrdu

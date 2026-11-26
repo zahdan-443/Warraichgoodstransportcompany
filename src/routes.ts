@@ -46,6 +46,8 @@ function lazyWithPreload<T extends React.ComponentType<any>>(
   return { Component, preload };
 }
 
+import { CORRIDOR_BY_PATH } from './data/corridorsData';
+
 export const LazyFleetPage = lazyWithPreload(() =>
   import('./pages/FleetPage').then((m) => ({ default: m.FleetPage }))
 );
@@ -67,6 +69,9 @@ export const LazyAboutPage = lazyWithPreload(() =>
 export const LazyBiltyVerificationPage = lazyWithPreload(() =>
   import('./pages/BiltyVerificationPage').then((m) => ({ default: m.BiltyVerificationPage }))
 );
+export const LazyCorridorSeoPage = lazyWithPreload(() =>
+  import('./pages/CorridorSeoPage').then((m) => ({ default: m.CorridorSeoPage }))
+);
 
 export async function preloadRouteForLocation(pathname: string, search = ''): Promise<void> {
   try {
@@ -78,6 +83,11 @@ export async function preloadRouteForLocation(pathname: string, search = ''): Pr
 
     const normalized =
       pathname.replace(/^\/Warraichgoodstransportcompany/i, '').replace(/\/+$/, '') || '/';
+
+    if (CORRIDOR_BY_PATH[normalized]) {
+      await LazyCorridorSeoPage.preload();
+      return;
+    }
 
     switch (normalized) {
       case '/fleet':
@@ -123,6 +133,7 @@ export async function preloadAllRoutes(): Promise<void> {
     LazyFaqPage,
     LazyAboutPage,
     LazyBiltyVerificationPage,
+    LazyCorridorSeoPage,
   ];
 
   try {

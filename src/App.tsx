@@ -18,7 +18,9 @@ import {
   LazyFaqPage,
   LazyAboutPage,
   LazyBiltyVerificationPage,
+  LazyCorridorSeoPage,
 } from './routes';
+import { CORRIDOR_SEO_PAGES } from './data/corridorsData';
 
 export interface SsrPagesMap {
   '/fleet': React.ComponentType;
@@ -28,6 +30,7 @@ export interface SsrPagesMap {
   '/faq': React.ComponentType;
   '/about': React.ComponentType;
   '/verify': React.ComponentType;
+  corridor?: React.ComponentType<{ corridorPath?: string }>;
 }
 
 interface AppProps {
@@ -150,6 +153,7 @@ export default function App({ ssrPages }: AppProps) {
   const FaqComp = ssrPages?.['/faq'] ?? LazyFaqPage.Component;
   const AboutComp = ssrPages?.['/about'] ?? LazyAboutPage.Component;
   const VerifyComp = ssrPages?.['/verify'] ?? LazyBiltyVerificationPage.Component;
+  const CorridorComp = ssrPages?.corridor ?? LazyCorridorSeoPage.Component;
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 w-full pb-24 sm:pb-12">
@@ -177,6 +181,14 @@ export default function App({ ssrPages }: AppProps) {
                 <Route path="/faq" element={<FaqComp />} />
                 <Route path="/about" element={<AboutComp />} />
                 <Route path="/verify" element={<VerifyComp />} />
+                {CORRIDOR_SEO_PAGES.map((corridor) => (
+                  <React.Fragment key={corridor.path}>
+                    <Route
+                      path={corridor.path}
+                      element={<CorridorComp corridorPath={corridor.path} />}
+                    />
+                  </React.Fragment>
+                ))}
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </Suspense>

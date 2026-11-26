@@ -14,6 +14,7 @@ import {
   MessageCircle
 } from 'lucide-react';
 import { COMPANY_INFO, GOOGLE_MAPS_URL, GOOGLE_REVIEW_URL, SITE_URL } from '../data/companyData';
+import { CORRIDOR_SEO_PAGES } from '../data/corridorsData';
 import { useLanguage } from '../context/LanguageContext';
 
 export const Footer: React.FC = () => {
@@ -245,6 +246,24 @@ export const Footer: React.FC = () => {
             <span>{isUrdu ? 'ڈرائیور پورٹل' : 'Driver Portal'}</span>
             <ExternalLink className="w-3 h-3" />
           </a>
+        </div>
+
+        {/* 4. Popular Routes & Backhaul Corridors */}
+        <div className="mt-6 pt-5 border-t border-slate-800/70 text-center">
+          <span className={`text-[11px] font-mono uppercase tracking-wider text-amber-400/90 font-bold block mb-2.5 ${isUrdu ? 'font-urdu' : 'font-mono'}`}>
+            {isUrdu ? 'اہم روٹس اور واپسی لوڈ سروسز' : 'Popular Routes & Backhaul Guides'}
+          </span>
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-slate-400 font-urdu">
+            {CORRIDOR_SEO_PAGES.map((corridor) => (
+              <Link
+                key={corridor.slug}
+                to={corridor.path}
+                className="hover:text-amber-300 transition-colors py-0.5 px-1.5 rounded bg-slate-900/70 border border-slate-800/90 hover:border-amber-400/40"
+              >
+                {isUrdu ? corridor.shortLinkLabelUr : corridor.shortLinkLabelEn}
+              </Link>
+            ))}
+          </div>
         </div>
 
         {/* Bottom Bar: Copyright and Back to Top */}
