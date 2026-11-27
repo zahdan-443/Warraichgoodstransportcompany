@@ -99,6 +99,7 @@ const CORE_ROUTES: RouteConfig[] = [
       { name: 'FAQs', item: `${BASE_SITE_URL}/faq/` },
       { name: 'About Us', item: `${BASE_SITE_URL}/about/` },
     ],
+    faqs: MAIN_FAQS,
     expectedText: 'Warraich Goods',
   },
   {
@@ -474,11 +475,51 @@ async function prerender() {
     console.log(`   - Verified content present: ${pageHtml.includes(route.expectedText)}`);
   }
 
-  // Also create a 404.html fallback for GitHub Pages SPA client-side routing
+  // Create a dedicated noindex 404.html so unknown GitHub Pages URLs never duplicate the homepage HTML
   const notFoundPath = path.join(distDir, '404.html');
-  const indexHtml = fs.readFileSync(path.join(distDir, 'index.html'), 'utf-8');
-  fs.writeFileSync(notFoundPath, indexHtml, 'utf-8');
-  console.log(`   - Created dist/404.html for GitHub Pages SPA fallback`);
+  const notFoundHtml = `<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 Page Not Found | Warraich Goods</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="canonical" href="${BASE_SITE_URL}/" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <style>
+      body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f8fafc; color: #0f172a; display: flex; min-height: 100vh; align-items: center; justify-content: center; padding: 24px; }
+      .card { max-width: 560px; width: 100%; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 32px; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); }
+      .badge { display: inline-block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #b45309; background: #fef3c7; padding: 4px 10px; border-radius: 6px; margin-bottom: 12px; }
+      h1 { margin: 0 0 12px; font-size: 28px; line-height: 1.2; color: #0f172a; }
+      p { margin: 0 0 20px; font-size: 15px; line-height: 1.6; color: #475569; }
+      .links { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+      a.btn { display: inline-block; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; }
+      a.primary { background: #0f172a; color: #ffffff; }
+      a.secondary { background: #f1f5f9; color: #0f172a; border: 1px solid #cbd5e1; }
+      .contact { font-size: 13px; color: #64748b; border-top: 1px solid #e2e8f0; padding-top: 16px; }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <div class="badge">404 — Page Not Found</div>
+      <h1>This page could not be found</h1>
+      <p>The requested URL on Warraich Goods Transport Company does not exist or may have moved. Visit our main dispatch pages below.</p>
+      <nav class="links" aria-label="Primary Navigation">
+        <a class="btn primary" href="${BASE_SITE_URL}/">Home</a>
+        <a class="btn secondary" href="${BASE_SITE_URL}/fleet/">Our Trucks</a>
+        <a class="btn secondary" href="${BASE_SITE_URL}/booking/">Rates &amp; Booking</a>
+        <a class="btn secondary" href="${BASE_SITE_URL}/service-areas/">Service Areas</a>
+        <a class="btn secondary" href="${BASE_SITE_URL}/faq/">FAQs</a>
+      </nav>
+      <div class="contact">
+        Warraich Goods Transport Company · Okara Bypass, Near 466 Chowk, Samundri · 24/7 Dispatch: 0300-5370443
+      </div>
+    </main>
+  </body>
+</html>
+`;
+  fs.writeFileSync(notFoundPath, notFoundHtml, 'utf-8');
+  console.log('   - Created dedicated noindex dist/404.html');
 
   // Ensure images folder is explicitly synced from public/images to dist/images
   const publicImagesDir = path.resolve(__dirname, '../public/images');

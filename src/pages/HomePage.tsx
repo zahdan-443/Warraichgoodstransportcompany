@@ -6,6 +6,8 @@ import { CargoCategoriesPreview } from '../components/CargoCategoriesPreview';
 import { BiltyTrackingSection } from '../components/BiltyTrackingSection';
 import { BusinessIntroCard } from '../components/BusinessIntroCard';
 import { WhyUsSection } from '../components/WhyUsSection';
+import { HomeSeoAuthoritySection } from '../components/HomeSeoAuthoritySection';
+import { FaqAndReviewsSection } from '../components/FaqAndReviewsSection';
 import { DriverAppSection } from '../components/DriverAppSection';
 
 export const HomePage: React.FC = () => {
@@ -32,7 +34,13 @@ export const HomePage: React.FC = () => {
       {/* 6. Why Choose Us / Guarantees */}
       <WhyUsSection />
 
-      {/* 7. Android Mobile App Download Section */}
+      {/* 7. Regional Freight Editorial Authority & Corridor Guides */}
+      <HomeSeoAuthoritySection />
+
+      {/* 8. Visible Frequently Asked Questions (synced with FAQPage JSON-LD) */}
+      <FaqAndReviewsSection headingAs="h2" />
+
+      {/* 9. Android Mobile App Download Section */}
       <DriverAppSection />
     </>
   );

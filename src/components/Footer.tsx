@@ -100,6 +100,18 @@ export const Footer: React.FC = () => {
               <span>Facebook</span>
             </a>
 
+            {/* LinkedIn Company Page */}
+            <a
+              href={COMPANY_INFO.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 px-3.5 py-1.5 rounded-lg text-xs font-bold transition shadow-xs"
+              aria-label="Warraich Goods LinkedIn Company Page"
+            >
+              <Linkedin className="w-4 h-4 fill-current text-sky-400" />
+              <span>LinkedIn</span>
+            </a>
+
             {/* Google Maps Office Location */}
             <a
               href={GOOGLE_MAPS_URL}
@@ -122,6 +134,18 @@ export const Footer: React.FC = () => {
             >
               <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400 flex-shrink-0" />
               <span>{isUrdu ? 'گوگل پر ریویو دیں' : 'Review on Google'}</span>
+            </a>
+
+            {/* Review on Trustpilot */}
+            <a
+              href={COMPANY_INFO.trustpilotUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-slate-700 hover:border-emerald-400/50 px-3.5 py-1.5 rounded-lg text-xs font-bold font-urdu transition shadow-sm"
+              aria-label="Review Warraich Goods Transport Company on Trustpilot"
+            >
+              <Star className="w-3.5 h-3.5 fill-emerald-400 text-emerald-400 flex-shrink-0" />
+              <span>Trustpilot</span>
             </a>
           </div>
         </div>

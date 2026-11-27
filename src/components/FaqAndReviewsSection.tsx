@@ -11,7 +11,12 @@ import { TRANSLATIONS } from '../data/translations';
 import { MAIN_FAQS } from '../data/faqData';
 import { TrustCarousel } from './MotionPrimitives';
 
-export const FaqAndReviewsSection: React.FC = () => {
+interface FaqAndReviewsSectionProps {
+  headingAs?: 'h1' | 'h2';
+}
+
+export const FaqAndReviewsSection: React.FC<FaqAndReviewsSectionProps> = ({ headingAs = 'h1' }) => {
+  const HeadingTag = headingAs;
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const { language } = useLanguage();
   const tFaq = TRANSLATIONS[language].reviews;
@@ -33,9 +38,9 @@ export const FaqAndReviewsSection: React.FC = () => {
               <span>{tFaq.badge}</span>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-urdu">
+            <HeadingTag className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-urdu">
               {tFaq.title}
-            </h1>
+            </HeadingTag>
             <p className="text-slate-600 mt-2 text-sm sm:text-base font-urdu">
               {tFaq.subtitle}
             </p>

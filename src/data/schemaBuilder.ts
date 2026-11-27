@@ -4,6 +4,7 @@ import {
   GOOGLE_MAPS_URL,
   GOOGLE_REVIEW_URL,
   MASTER_CITIES,
+  OFFICIAL_SAME_AS_URLS,
 } from './companyData';
 import { CORRIDOR_BY_PATH } from './corridorsData';
 import { MAIN_FAQS } from './faqData';
@@ -89,7 +90,7 @@ export function getRouteFaqs(
   language: 'en' | 'ur' = 'en'
 ): SchemaFaqInput[] {
   const isUr = language === 'ur';
-  if (normalizedPath === '/faq') {
+  if (normalizedPath === '/' || normalizedPath === '/faq') {
     return MAIN_FAQS.map((f) => ({
       q: isUr ? f.questionUr : f.questionEn,
       a: isUr ? f.answerUr : f.answerEn,
@@ -149,7 +150,7 @@ export function buildSchemaGraph(options: BuildSchemaOptions): Record<string, un
     { '@type': 'Country', name: 'Pakistan' },
   ];
 
-  const sameAs = [COMPANY_INFO.youtubeUrl, COMPANY_INFO.facebookUrl, GOOGLE_MAPS_URL];
+  const sameAs = OFFICIAL_SAME_AS_URLS;
 
   const logoObject = {
     '@type': 'ImageObject',
@@ -174,7 +175,12 @@ export function buildSchemaGraph(options: BuildSchemaOptions): Record<string, un
     url: `${BASE_SITE_URL}/`,
     publisher: { '@id': orgId },
     about: { '@id': businessId },
-    sameAs: [COMPANY_INFO.youtubeUrl, COMPANY_INFO.facebookUrl],
+    sameAs: [
+      COMPANY_INFO.youtubeUrl,
+      COMPANY_INFO.facebookUrl,
+      COMPANY_INFO.linkedinUrl,
+      COMPANY_INFO.trustpilotUrl,
+    ],
     inLanguage: ['en', 'ur'],
   };
 
@@ -327,6 +333,11 @@ export function buildSchemaGraph(options: BuildSchemaOptions): Record<string, un
         '@type': 'ReviewAction',
         name: 'Leave a Verified Google Review',
         target: GOOGLE_REVIEW_URL,
+      },
+      {
+        '@type': 'ReviewAction',
+        name: 'Review on Trustpilot',
+        target: COMPANY_INFO.trustpilotUrl,
       },
     ],
     hasOfferCatalog: {

@@ -23,13 +23,27 @@ export function useInView(ref: RefObject<HTMLElement | null>, rootMargin = '80px
   return inView;
 }
 
+const CRAWLER_UA_RE =
+  /bot|crawl|spider|slurp|googlebot|bingbot|yandex|baiduspider|duckduckbot|applebot|gptbot|oai-searchbot|claudebot|perplexitybot|headlesschrome|lighthouse/i;
+
+const isAutomatedOrCrawler = (): boolean => {
+  if (typeof navigator === 'undefined') return false;
+  if (navigator.webdriver === true) return true;
+  return CRAWLER_UA_RE.test(navigator.userAgent || '');
+};
+
 export function useScrollReveal(routeKey: string): void {
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const nodes = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'));
     if (!nodes.length) return;
 
-    if (!MOTION_CONFIG.scrollReveal || prefersReducedMotion() || typeof IntersectionObserver === 'undefined') {
+    if (
+      !MOTION_CONFIG.scrollReveal ||
+      prefersReducedMotion() ||
+      isAutomatedOrCrawler() ||
+      typeof IntersectionObserver === 'undefined'
+    ) {
       nodes.forEach((n) => n.setAttribute('data-reveal', 'visible'));
       return;
     }
@@ -62,7 +76,20 @@ export function useScrollReveal(routeKey: string): void {
     );
 
     toObserve.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+
+    // Safety fallback so content never remains hidden if intersection callbacks are skipped
+    const safetyTimer = window.setTimeout(() => {
+      toObserve.forEach((el) => {
+        if (el.getAttribute('data-reveal') !== 'visible') {
+          el.setAttribute('data-reveal', 'visible');
+        }
+      });
+    }, 1200);
+
+    return () => {
+      io.disconnect();
+      window.clearTimeout(safetyTimer);
+    };
   }, [routeKey]);
 }
 

@@ -31,6 +31,14 @@ export const COMPANY_INFO = {
   youtubeHandle: '@Warraichgoodstransportcompany',
   youtubeUrl: 'https://www.youtube.com/@Warraichgoodstransportcompany',
   facebookUrl: 'https://www.facebook.com/Warraichgoodstransportcompany',
+  linkedinUrl: 'https://www.linkedin.com/company/warraichgoodstransportcompany/',
+  trustpilotUrl: 'https://www.trustpilot.com/review/warraichgoods.eu.cc',
+  redditUrl: 'https://www.reddit.com/user/warraichgood/',
+  bloggerUrl: 'https://warraichgoods.blogspot.com/',
+  urduPointUrl: 'https://www.urdupoint.com/business/directory/detail/warraich-goods-transport-company-120462.html',
+  cityHubListingUrl: 'https://cityhub92.pk/listing/warraich-goods-transport-company',
+  cityHubBusinessUrl: 'https://b.cityhub92.pk/warraich-goods-transport-company',
+  epagesUrl: 'https://epages.pk/business/warraich-goods-transport-company/',
   taglineUrdu: 'ہم پورے پاکستان کے لیے محفوظ اور بروقت مال برداری اور شفٹنگ کی خدمات فراہم کرتے ہیں۔ مناسب ریٹ اور بہترین سروس ہماری پہچان ہے۔',
   taglineEnglish: 'Trusted home shifting, office moves, and goods transport across Pakistan.',
   profileDescriptionUrdu: 'ہم پورے پاکستان کے لیے محفوظ اور بروقت مال برداری اور شفٹنگ کی خدمات فراہم کرتے ہیں۔ مناسب ریٹ اور بہترین سروس ہماری پہچان ہے۔ مزدا ٹرک، شہزور پک اپ اور ہیوی ٹرکس کے ساتھ 24/7 تیز رفتار بکنگ۔',
@@ -39,6 +47,20 @@ export const COMPANY_INFO = {
   serviceScopeUrdu: 'محفوظ اور بروقت مال برداری، گھریلو و دفتری شفٹنگ (24/7 ملک گیر سروس)',
   webAppUrl: 'https://zahdan-443.github.io/warraichgoods43/',
 };
+
+export const OFFICIAL_SAME_AS_URLS: string[] = [
+  COMPANY_INFO.youtubeUrl,
+  COMPANY_INFO.facebookUrl,
+  COMPANY_INFO.linkedinUrl,
+  COMPANY_INFO.trustpilotUrl,
+  COMPANY_INFO.redditUrl,
+  COMPANY_INFO.bloggerUrl,
+  COMPANY_INFO.urduPointUrl,
+  COMPANY_INFO.cityHubListingUrl,
+  COMPANY_INFO.cityHubBusinessUrl,
+  COMPANY_INFO.epagesUrl,
+  GOOGLE_MAPS_URL,
+];
 
 export const FLEET_DATA: VehicleInfo[] = [
   {

@@ -77,6 +77,21 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
     };
 
     setMeta('meta[name="description"]', 'content', description);
+
+    const hostname = window.location.hostname.toLowerCase();
+    const urlParams = new URLSearchParams(window.location.search);
+    const isCanonicalHost =
+      hostname === 'warraichgoods.eu.cc' || hostname === 'localhost' || hostname === '127.0.0.1';
+    const hasDuplicateQueryParams = urlParams.has('lang') || urlParams.has('page');
+
+    setMeta(
+      'meta[name="robots"]',
+      'content',
+      isCanonicalHost && !hasDuplicateQueryParams
+        ? 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
+        : 'noindex, follow'
+    );
+
     setMeta('link[rel="canonical"]', 'href', seo.canonicalUrl);
     setMeta('link[rel="alternate"][hreflang="en"]', 'href', seo.canonicalUrl);
     setMeta('link[rel="alternate"][hreflang="x-default"]', 'href', seo.canonicalUrl);
@@ -149,7 +164,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
 
   useEffect(() => {
     applyHeadMetadata(language);
-  }, [language, location.pathname]);
+  }, [language, location.pathname, location.search]);
 
   const value: LanguageContextType = {
     language,
